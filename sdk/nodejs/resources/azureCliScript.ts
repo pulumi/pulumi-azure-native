@@ -40,7 +40,7 @@ export class AzureCliScript extends pulumi.CustomResource {
     }
 
     /**
-     * Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2' 
+     * Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2'
      */
     declare public readonly arguments: pulumi.Output<string | undefined>;
     /**
@@ -77,17 +77,17 @@ export class AzureCliScript extends pulumi.CustomResource {
      */
     declare public readonly kind: pulumi.Output<"AzureCLI">;
     /**
-     * The location of the ACI and the storage account for the deployment script.
+     * The geo-location where the resource lives
      */
     declare public readonly location: pulumi.Output<string>;
     /**
-     * Name of this resource.
+     * The name of the resource
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * List of script outputs.
      */
-    declare public /*out*/ readonly outputs: pulumi.Output<{[key: string]: any}>;
+    declare public /*out*/ readonly outputs: pulumi.Output<any>;
     /**
      * Uri for the script. This is the entry point for the external script.
      */
@@ -117,7 +117,7 @@ export class AzureCliScript extends pulumi.CustomResource {
      */
     declare public readonly supportingScriptUris: pulumi.Output<string[] | undefined>;
     /**
-     * The system metadata related to this resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     declare public /*out*/ readonly systemData: pulumi.Output<outputs.resources.SystemDataResponse>;
     /**
@@ -129,7 +129,7 @@ export class AzureCliScript extends pulumi.CustomResource {
      */
     declare public readonly timeout: pulumi.Output<string | undefined>;
     /**
-     * Type of this resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
 
@@ -218,7 +218,7 @@ export class AzureCliScript extends pulumi.CustomResource {
  */
 export interface AzureCliScriptArgs {
     /**
-     * Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2' 
+     * Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2'
      */
     arguments?: pulumi.Input<string>;
     /**
@@ -251,7 +251,7 @@ export interface AzureCliScriptArgs {
      */
     kind: pulumi.Input<"AzureCLI">;
     /**
-     * The location of the ACI and the storage account for the deployment script.
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**

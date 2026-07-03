@@ -20,7 +20,13 @@ namespace Pulumi.AzureNative.Monitor
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Open
+        /// </summary>
         public static AccessMode Open { get; } = new AccessMode("Open");
+        /// <summary>
+        /// PrivateOnly
+        /// </summary>
         public static AccessMode PrivateOnly { get; } = new AccessMode("PrivateOnly");
 
         public static bool operator ==(AccessMode left, AccessMode right) => left.Equals(right);
@@ -152,6 +158,43 @@ namespace Pulumi.AzureNative.Monitor
     }
 
     /// <summary>
+    /// Specifies the category of the SLI, used to classify signals such as Availability and Latency.
+    /// </summary>
+    [EnumType]
+    public readonly struct Category : IEquatable<Category>
+    {
+        private readonly string _value;
+
+        private Category(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Indicates availability-related metrics.
+        /// </summary>
+        public static Category Availability { get; } = new Category("Availability");
+        /// <summary>
+        /// Indicates latency-related metrics.
+        /// </summary>
+        public static Category Latency { get; } = new Category("Latency");
+
+        public static bool operator ==(Category left, Category right) => left.Equals(right);
+        public static bool operator !=(Category left, Category right) => !left.Equals(right);
+
+        public static explicit operator string(Category value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Category other && Equals(other);
+        public bool Equals(Category other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// the operator that is used to compare the metric data and the threshold.
     /// </summary>
     [EnumType]
@@ -187,7 +230,7 @@ namespace Pulumi.AzureNative.Monitor
     }
 
     /// <summary>
-    /// The criteria operator. Relevant and required only for rules of the kind LogAlert.
+    /// Operator used in the filtering condition.
     /// </summary>
     [EnumType]
     public readonly struct ConditionOperator : IEquatable<ConditionOperator>
@@ -199,12 +242,54 @@ namespace Pulumi.AzureNative.Monitor
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ConditionOperator EqualsValue { get; } = new ConditionOperator("Equals");
-        public static ConditionOperator GreaterThan { get; } = new ConditionOperator("GreaterThan");
-        public static ConditionOperator GreaterThanOrEqual { get; } = new ConditionOperator("GreaterThanOrEqual");
-        public static ConditionOperator LessThan { get; } = new ConditionOperator("LessThan");
-        public static ConditionOperator LessThanOrEqual { get; } = new ConditionOperator("LessThanOrEqual");
-        public static ConditionOperator GreaterOrLessThan { get; } = new ConditionOperator("GreaterOrLessThan");
+        /// <summary>
+        /// Equal to.
+        /// </summary>
+        public static ConditionOperator Equal { get; } = new ConditionOperator("eq");
+        /// <summary>
+        /// Not equal to.
+        /// </summary>
+        public static ConditionOperator NotEqual { get; } = new ConditionOperator("ne");
+        /// <summary>
+        /// Less than.
+        /// </summary>
+        public static ConditionOperator LessThan { get; } = new ConditionOperator("lt");
+        /// <summary>
+        /// Less than or equal to.
+        /// </summary>
+        public static ConditionOperator LessThanOrEqual { get; } = new ConditionOperator("lte");
+        /// <summary>
+        /// Greater than.
+        /// </summary>
+        public static ConditionOperator GreaterThan { get; } = new ConditionOperator("gt");
+        /// <summary>
+        /// Greater than or equal to.
+        /// </summary>
+        public static ConditionOperator GreaterThanOrEqual { get; } = new ConditionOperator("gte");
+        /// <summary>
+        /// Matches when `value` is one of the items in the `^^`-delimited list (for example, `value` = "east^^west^^north").
+        /// </summary>
+        public static ConditionOperator In { get; } = new ConditionOperator("in");
+        /// <summary>
+        /// Matches when `value` is none of the items in the `^^`-delimited list (for example, `value` = "east^^west^^north").
+        /// </summary>
+        public static ConditionOperator NotIn { get; } = new ConditionOperator("notin");
+        /// <summary>
+        /// Starts with.
+        /// </summary>
+        public static ConditionOperator StartsWith { get; } = new ConditionOperator("startswith");
+        /// <summary>
+        /// Does not start with.
+        /// </summary>
+        public static ConditionOperator NotStartsWith { get; } = new ConditionOperator("notstartswith");
+        /// <summary>
+        /// Contains the value.
+        /// </summary>
+        public static ConditionOperator Contains { get; } = new ConditionOperator("contains");
+        /// <summary>
+        /// Does not contain the value.
+        /// </summary>
+        public static ConditionOperator NotContains { get; } = new ConditionOperator("notcontains");
 
         public static bool operator ==(ConditionOperator left, ConditionOperator right) => left.Equals(right);
         public static bool operator !=(ConditionOperator left, ConditionOperator right) => !left.Equals(right);
@@ -234,7 +319,13 @@ namespace Pulumi.AzureNative.Monitor
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// StaticThresholdCriterion
+        /// </summary>
         public static CriterionType StaticThresholdCriterion { get; } = new CriterionType("StaticThresholdCriterion");
+        /// <summary>
+        /// DynamicThresholdCriterion
+        /// </summary>
         public static CriterionType DynamicThresholdCriterion { get; } = new CriterionType("DynamicThresholdCriterion");
 
         public static bool operator ==(CriterionType left, CriterionType right) => left.Equals(right);
@@ -302,7 +393,13 @@ namespace Pulumi.AzureNative.Monitor
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Include
+        /// </summary>
         public static DimensionOperator Include { get; } = new DimensionOperator("Include");
+        /// <summary>
+        /// Exclude
+        /// </summary>
         public static DimensionOperator Exclude { get; } = new DimensionOperator("Exclude");
 
         public static bool operator ==(DimensionOperator left, DimensionOperator right) => left.Equals(right);
@@ -605,6 +702,80 @@ namespace Pulumi.AzureNative.Monitor
     }
 
     /// <summary>
+    /// Specifies how evaluation is calculated, either based on calendar days or a rolling window.
+    /// </summary>
+    [EnumType]
+    public readonly struct EvaluationCalculationType : IEquatable<EvaluationCalculationType>
+    {
+        private readonly string _value;
+
+        private EvaluationCalculationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Calculates evaluation based on a fixed calendar period.
+        /// </summary>
+        public static EvaluationCalculationType CalendarDays { get; } = new EvaluationCalculationType("CalendarDays");
+        /// <summary>
+        /// Calculates evaluation using a rolling time window.
+        /// </summary>
+        public static EvaluationCalculationType RollingDays { get; } = new EvaluationCalculationType("RollingDays");
+
+        public static bool operator ==(EvaluationCalculationType left, EvaluationCalculationType right) => left.Equals(right);
+        public static bool operator !=(EvaluationCalculationType left, EvaluationCalculationType right) => !left.Equals(right);
+
+        public static explicit operator string(EvaluationCalculationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EvaluationCalculationType other && Equals(other);
+        public bool Equals(EvaluationCalculationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Determines how the SLI is evaluated—either based on request counts or time windows.
+    /// </summary>
+    [EnumType]
+    public readonly struct EvaluationType : IEquatable<EvaluationType>
+    {
+        private readonly string _value;
+
+        private EvaluationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Evaluates SLI based on time windows.
+        /// </summary>
+        public static EvaluationType WindowBased { get; } = new EvaluationType("WindowBased");
+        /// <summary>
+        /// Evaluates SLI based on request counts.
+        /// </summary>
+        public static EvaluationType RequestBased { get; } = new EvaluationType("RequestBased");
+
+        public static bool operator ==(EvaluationType left, EvaluationType right) => left.Equals(right);
+        public static bool operator !=(EvaluationType left, EvaluationType right) => !left.Equals(right);
+
+        public static explicit operator string(EvaluationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EvaluationType other && Equals(other);
+        public bool Equals(EvaluationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of exporter.
     /// </summary>
     [EnumType]
@@ -724,8 +895,17 @@ namespace Pulumi.AzureNative.Monitor
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// SystemAssigned
+        /// </summary>
         public static IdentityType SystemAssigned { get; } = new IdentityType("SystemAssigned");
+        /// <summary>
+        /// UserAssigned
+        /// </summary>
         public static IdentityType UserAssigned { get; } = new IdentityType("UserAssigned");
+        /// <summary>
+        /// None
+        /// </summary>
         public static IdentityType None { get; } = new IdentityType("None");
 
         public static bool operator ==(IdentityType left, IdentityType right) => left.Equals(right);
@@ -756,6 +936,9 @@ namespace Pulumi.AzureNative.Monitor
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Icm
+        /// </summary>
         public static IncidentManagementService Icm { get; } = new IncidentManagementService("Icm");
 
         public static bool operator ==(IncidentManagementService left, IncidentManagementService right) => left.Equals(right);
@@ -823,8 +1006,17 @@ namespace Pulumi.AzureNative.Monitor
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// LogAlert
+        /// </summary>
         public static Kind LogAlert { get; } = new Kind("LogAlert");
+        /// <summary>
+        /// SimpleLogAlert
+        /// </summary>
         public static Kind SimpleLogAlert { get; } = new Kind("SimpleLogAlert");
+        /// <summary>
+        /// LogToMetric
+        /// </summary>
         public static Kind LogToMetric { get; } = new Kind("LogToMetric");
 
         public static bool operator ==(Kind left, Kind right) => left.Equals(right);
@@ -1799,6 +1991,100 @@ namespace Pulumi.AzureNative.Monitor
     }
 
     /// <summary>
+    /// Defines the sampling type.
+    /// </summary>
+    [EnumType]
+    public readonly struct SamplingType : IEquatable<SamplingType>
+    {
+        private readonly string _value;
+
+        private SamplingType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Average value.
+        /// </summary>
+        public static SamplingType Average { get; } = new SamplingType("Average");
+        /// <summary>
+        /// Summation.
+        /// </summary>
+        public static SamplingType Sum { get; } = new SamplingType("Sum");
+        /// <summary>
+        /// Count of occurrences.
+        /// </summary>
+        public static SamplingType Count { get; } = new SamplingType("Count");
+        /// <summary>
+        /// Minimum value.
+        /// </summary>
+        public static SamplingType Min { get; } = new SamplingType("Min");
+        /// <summary>
+        /// Maximum value.
+        /// </summary>
+        public static SamplingType Max { get; } = new SamplingType("Max");
+
+        public static bool operator ==(SamplingType left, SamplingType right) => left.Equals(right);
+        public static bool operator !=(SamplingType left, SamplingType right) => !left.Equals(right);
+
+        public static explicit operator string(SamplingType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SamplingType other && Equals(other);
+        public bool Equals(SamplingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Scalar function applied for filtering.
+    /// </summary>
+    [EnumType]
+    public readonly struct ScalarFunction : IEquatable<ScalarFunction>
+    {
+        private readonly string _value;
+
+        private ScalarFunction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Maximum value.
+        /// </summary>
+        public static ScalarFunction Max { get; } = new ScalarFunction("max");
+        /// <summary>
+        /// Minimum value.
+        /// </summary>
+        public static ScalarFunction Min { get; } = new ScalarFunction("min");
+        /// <summary>
+        /// Average value.
+        /// </summary>
+        public static ScalarFunction Avg { get; } = new ScalarFunction("avg");
+        /// <summary>
+        /// Summation.
+        /// </summary>
+        public static ScalarFunction Sum { get; } = new ScalarFunction("sum");
+
+        public static bool operator ==(ScalarFunction left, ScalarFunction right) => left.Equals(right);
+        public static bool operator !=(ScalarFunction left, ScalarFunction right) => !left.Equals(right);
+
+        public static explicit operator string(ScalarFunction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScalarFunction other && Equals(other);
+        public bool Equals(ScalarFunction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// the scale direction. Whether the scaling action increases or decreases the number of instances.
     /// </summary>
     [EnumType]
@@ -1907,7 +2193,13 @@ namespace Pulumi.AzureNative.Monitor
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Resource
+        /// </summary>
         public static ScopedResourceKind Resource { get; } = new ScopedResourceKind("Resource");
+        /// <summary>
+        /// Metrics
+        /// </summary>
         public static ScopedResourceKind Metrics { get; } = new ScopedResourceKind("Metrics");
 
         public static bool operator ==(ScopedResourceKind left, ScopedResourceKind right) => left.Equals(right);
@@ -1999,6 +2291,55 @@ namespace Pulumi.AzureNative.Monitor
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SignalOperator other && Equals(other);
         public bool Equals(SignalOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of spatial aggregation.
+    /// </summary>
+    [EnumType]
+    public readonly struct SpatialAggregationType : IEquatable<SpatialAggregationType>
+    {
+        private readonly string _value;
+
+        private SpatialAggregationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Average value.
+        /// </summary>
+        public static SpatialAggregationType Average { get; } = new SpatialAggregationType("Average");
+        /// <summary>
+        /// Minimum value.
+        /// </summary>
+        public static SpatialAggregationType Min { get; } = new SpatialAggregationType("Min");
+        /// <summary>
+        /// Maximum value.
+        /// </summary>
+        public static SpatialAggregationType Max { get; } = new SpatialAggregationType("Max");
+        /// <summary>
+        /// Summation.
+        /// </summary>
+        public static SpatialAggregationType Sum { get; } = new SpatialAggregationType("Sum");
+        /// <summary>
+        /// Count of occurrences.
+        /// </summary>
+        public static SpatialAggregationType Count { get; } = new SpatialAggregationType("Count");
+
+        public static bool operator ==(SpatialAggregationType left, SpatialAggregationType right) => left.Equals(right);
+        public static bool operator !=(SpatialAggregationType left, SpatialAggregationType right) => !left.Equals(right);
+
+        public static explicit operator string(SpatialAggregationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SpatialAggregationType other && Equals(other);
+        public bool Equals(SpatialAggregationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -2146,6 +2487,71 @@ namespace Pulumi.AzureNative.Monitor
     }
 
     /// <summary>
+    /// Type of temporal aggregation.
+    /// </summary>
+    [EnumType]
+    public readonly struct TemporalAggregationType : IEquatable<TemporalAggregationType>
+    {
+        private readonly string _value;
+
+        private TemporalAggregationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Average value.
+        /// </summary>
+        public static TemporalAggregationType Average { get; } = new TemporalAggregationType("Average");
+        /// <summary>
+        /// Minimum value.
+        /// </summary>
+        public static TemporalAggregationType Min { get; } = new TemporalAggregationType("Min");
+        /// <summary>
+        /// Maximum value.
+        /// </summary>
+        public static TemporalAggregationType Max { get; } = new TemporalAggregationType("Max");
+        /// <summary>
+        /// Summation.
+        /// </summary>
+        public static TemporalAggregationType Sum { get; } = new TemporalAggregationType("Sum");
+        /// <summary>
+        /// Rate over time.
+        /// </summary>
+        public static TemporalAggregationType Rate { get; } = new TemporalAggregationType("Rate");
+        /// <summary>
+        /// Instance rate.
+        /// </summary>
+        public static TemporalAggregationType IRate { get; } = new TemporalAggregationType("IRate");
+        /// <summary>
+        /// Delta over time.
+        /// </summary>
+        public static TemporalAggregationType Delta { get; } = new TemporalAggregationType("Delta");
+        /// <summary>
+        /// Instance delta.
+        /// </summary>
+        public static TemporalAggregationType IDelta { get; } = new TemporalAggregationType("IDelta");
+        /// <summary>
+        /// Increase over time.
+        /// </summary>
+        public static TemporalAggregationType Increase { get; } = new TemporalAggregationType("Increase");
+
+        public static bool operator ==(TemporalAggregationType left, TemporalAggregationType right) => left.Equals(right);
+        public static bool operator !=(TemporalAggregationType left, TemporalAggregationType right) => !left.Equals(right);
+
+        public static explicit operator string(TemporalAggregationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemporalAggregationType other && Equals(other);
+        public bool Equals(TemporalAggregationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Aggregation type. Relevant and required only for rules of the kind LogAlert.
     /// </summary>
     [EnumType]
@@ -2158,10 +2564,25 @@ namespace Pulumi.AzureNative.Monitor
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Count
+        /// </summary>
         public static TimeAggregation Count { get; } = new TimeAggregation("Count");
+        /// <summary>
+        /// Average
+        /// </summary>
         public static TimeAggregation Average { get; } = new TimeAggregation("Average");
+        /// <summary>
+        /// Minimum
+        /// </summary>
         public static TimeAggregation Minimum { get; } = new TimeAggregation("Minimum");
+        /// <summary>
+        /// Maximum
+        /// </summary>
         public static TimeAggregation Maximum { get; } = new TimeAggregation("Maximum");
+        /// <summary>
+        /// Total
+        /// </summary>
         public static TimeAggregation Total { get; } = new TimeAggregation("Total");
 
         public static bool operator ==(TimeAggregation left, TimeAggregation right) => left.Equals(right);
@@ -2207,6 +2628,51 @@ namespace Pulumi.AzureNative.Monitor
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TimeAggregationType other && Equals(other);
         public bool Equals(TimeAggregationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Comparison operator used for uptime evaluation.
+    /// </summary>
+    [EnumType]
+    public readonly struct WindowUptimeCriteriaComparator : IEquatable<WindowUptimeCriteriaComparator>
+    {
+        private readonly string _value;
+
+        private WindowUptimeCriteriaComparator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Less than the target value.
+        /// </summary>
+        public static WindowUptimeCriteriaComparator LessThan { get; } = new WindowUptimeCriteriaComparator("lt");
+        /// <summary>
+        /// Greater than the target value.
+        /// </summary>
+        public static WindowUptimeCriteriaComparator GreaterThan { get; } = new WindowUptimeCriteriaComparator("gt");
+        /// <summary>
+        /// Less than or equal to the target value.
+        /// </summary>
+        public static WindowUptimeCriteriaComparator LessThanOrEqual { get; } = new WindowUptimeCriteriaComparator("lte");
+        /// <summary>
+        /// Greater than or equal to the target value.
+        /// </summary>
+        public static WindowUptimeCriteriaComparator GreaterThanOrEqual { get; } = new WindowUptimeCriteriaComparator("gte");
+
+        public static bool operator ==(WindowUptimeCriteriaComparator left, WindowUptimeCriteriaComparator right) => left.Equals(right);
+        public static bool operator !=(WindowUptimeCriteriaComparator left, WindowUptimeCriteriaComparator right) => !left.Equals(right);
+
+        public static explicit operator string(WindowUptimeCriteriaComparator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WindowUptimeCriteriaComparator other && Equals(other);
+        public bool Equals(WindowUptimeCriteriaComparator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

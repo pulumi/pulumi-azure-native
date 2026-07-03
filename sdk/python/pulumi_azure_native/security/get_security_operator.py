@@ -27,7 +27,7 @@ class GetSecurityOperatorResult:
     """
     Security operator under a given subscription and pricing
     """
-    def __init__(__self__, azure_api_version=None, id=None, identity=None, name=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, identity=None, name=None, system_data=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -40,6 +40,9 @@ class GetSecurityOperatorResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -56,7 +59,7 @@ class GetSecurityOperatorResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -72,15 +75,23 @@ class GetSecurityOperatorResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -95,6 +106,7 @@ class AwaitableGetSecurityOperatorResult(GetSecurityOperatorResult):
             id=self.id,
             identity=self.identity,
             name=self.name,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -107,8 +119,8 @@ def get_security_operator(pricing_name: Optional[_builtins.str] = None,
     Uses Azure REST API version 2023-01-01-preview.
 
 
-    :param _builtins.str pricing_name: name of the pricing configuration
-    :param _builtins.str security_operator_name: name of the securityOperator
+    :param _builtins.str pricing_name: Name of the pricing configuration.
+    :param _builtins.str security_operator_name: Name of the security operator.
     """
     __args__ = dict()
     __args__['pricingName'] = pricing_name
@@ -121,6 +133,7 @@ def get_security_operator(pricing_name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
         name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_security_operator_output(pricing_name: Optional[pulumi.Input[_builtins.str]] = None,
                                  security_operator_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -131,8 +144,8 @@ def get_security_operator_output(pricing_name: Optional[pulumi.Input[_builtins.s
     Uses Azure REST API version 2023-01-01-preview.
 
 
-    :param _builtins.str pricing_name: name of the pricing configuration
-    :param _builtins.str security_operator_name: name of the securityOperator
+    :param _builtins.str pricing_name: Name of the pricing configuration.
+    :param _builtins.str security_operator_name: Name of the security operator.
     """
     __args__ = dict()
     __args__['pricingName'] = pricing_name
@@ -144,4 +157,5 @@ def get_security_operator_output(pricing_name: Optional[pulumi.Input[_builtins.s
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
         name=pulumi.get(__response__, 'name'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

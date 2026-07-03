@@ -157,7 +157,7 @@ class StandbyVirtualMachinePool(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2023-12-01-preview.
 
-        Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2025-03-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native standbypool [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2025-03-01, 2025-10-01, 2026-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native standbypool [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -181,7 +181,7 @@ class StandbyVirtualMachinePool(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2023-12-01-preview.
 
-        Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2025-03-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native standbypool [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2025-03-01, 2025-10-01, 2026-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native standbypool [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -231,7 +231,7 @@ class StandbyVirtualMachinePool(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:standbypool/v20231201preview:StandbyVirtualMachinePool"), pulumi.Alias(type_="azure-native:standbypool/v20240301:StandbyVirtualMachinePool"), pulumi.Alias(type_="azure-native:standbypool/v20240301preview:StandbyVirtualMachinePool"), pulumi.Alias(type_="azure-native:standbypool/v20250301:StandbyVirtualMachinePool"), pulumi.Alias(type_="azure-native:standbypool/v20251001:StandbyVirtualMachinePool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:standbypool/v20231201preview:StandbyVirtualMachinePool"), pulumi.Alias(type_="azure-native:standbypool/v20240301:StandbyVirtualMachinePool"), pulumi.Alias(type_="azure-native:standbypool/v20240301preview:StandbyVirtualMachinePool"), pulumi.Alias(type_="azure-native:standbypool/v20250301:StandbyVirtualMachinePool"), pulumi.Alias(type_="azure-native:standbypool/v20251001:StandbyVirtualMachinePool"), pulumi.Alias(type_="azure-native:standbypool/v20260401:StandbyVirtualMachinePool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StandbyVirtualMachinePool, __self__).__init__(
             'azure-native:standbypool:StandbyVirtualMachinePool',

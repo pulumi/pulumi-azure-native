@@ -45,17 +45,11 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
             set => _commandEnvironment = value;
         }
 
-        [Input("defines")]
-        private InputMap<object>? _defines;
-
         /// <summary>
         /// Allows user to specify defines for streaming job request.
         /// </summary>
-        public InputMap<object> Defines
-        {
-            get => _defines ?? (_defines = new InputMap<object>());
-            set => _defines = value;
-        }
+        [Input("defines")]
+        public Input<object>? Defines { get; set; }
 
         [Input("dependsOn")]
         private InputList<Inputs.ActivityDependencyArgs>? _dependsOn;

@@ -88,8 +88,12 @@ class ComponentArgs:
             pulumi.set(__self__, "ingestion_mode", ingestion_mode)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if public_network_access_for_ingestion is None:
+            public_network_access_for_ingestion = 'Enabled'
         if public_network_access_for_ingestion is not None:
             pulumi.set(__self__, "public_network_access_for_ingestion", public_network_access_for_ingestion)
+        if public_network_access_for_query is None:
+            public_network_access_for_query = 'Enabled'
         if public_network_access_for_query is not None:
             pulumi.set(__self__, "public_network_access_for_query", public_network_access_for_query)
         if request_source is None:
@@ -469,7 +473,11 @@ class Component(pulumi.CustomResource):
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
+            if public_network_access_for_ingestion is None:
+                public_network_access_for_ingestion = 'Enabled'
             __props__.__dict__["public_network_access_for_ingestion"] = public_network_access_for_ingestion
+            if public_network_access_for_query is None:
+                public_network_access_for_query = 'Enabled'
             __props__.__dict__["public_network_access_for_query"] = public_network_access_for_query
             if request_source is None:
                 request_source = 'rest'

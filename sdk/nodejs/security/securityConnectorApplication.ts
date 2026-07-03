@@ -44,6 +44,10 @@ export class SecurityConnectorApplication extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
+     * The application conditionSets - see examples
+     */
+    declare public readonly conditionSets: pulumi.Output<any[]>;
+    /**
      * description of the application
      */
     declare public readonly description: pulumi.Output<string | undefined>;
@@ -52,7 +56,7 @@ export class SecurityConnectorApplication extends pulumi.CustomResource {
      */
     declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
-     * Resource name
+     * The name of the resource
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
@@ -60,7 +64,11 @@ export class SecurityConnectorApplication extends pulumi.CustomResource {
      */
     declare public readonly sourceResourceType: pulumi.Output<string>;
     /**
-     * Resource type
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.security.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
 
@@ -75,6 +83,9 @@ export class SecurityConnectorApplication extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.conditionSets === undefined && !opts.urn) {
+                throw new Error("Missing required property 'conditionSets'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -85,6 +96,7 @@ export class SecurityConnectorApplication extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sourceResourceType'");
             }
             resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["conditionSets"] = args?.conditionSets;
             resourceInputs["description"] = args?.description;
             resourceInputs["displayName"] = args?.displayName;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -92,13 +104,16 @@ export class SecurityConnectorApplication extends pulumi.CustomResource {
             resourceInputs["sourceResourceType"] = args?.sourceResourceType;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["conditionSets"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["sourceResourceType"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -117,6 +132,10 @@ export interface SecurityConnectorApplicationArgs {
      */
     applicationId?: pulumi.Input<string>;
     /**
+     * The application conditionSets - see examples
+     */
+    conditionSets: pulumi.Input<any[]>;
+    /**
      * description of the application
      */
     description?: pulumi.Input<string>;
@@ -125,7 +144,7 @@ export interface SecurityConnectorApplicationArgs {
      */
     displayName?: pulumi.Input<string>;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

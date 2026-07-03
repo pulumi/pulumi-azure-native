@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.ContainerInstance.Inputs
     public sealed class ElasticProfileContainerGroupNamingPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("guidNamingPolicy")]
-        public Input<Inputs.ElasticProfileGuidNamingPolicyArgs>? GuidNamingPolicy { get; set; }
+        public Input<Inputs.ElasticProfileContainerGroupNamingPolicyGuidNamingPolicyArgs>? GuidNamingPolicy { get; set; }
 
         public ElasticProfileContainerGroupNamingPolicyArgs()
         {

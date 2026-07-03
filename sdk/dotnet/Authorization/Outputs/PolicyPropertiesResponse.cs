@@ -19,10 +19,10 @@ namespace Pulumi.AzureNative.Authorization.Outputs
         /// <summary>
         /// Details of the resource scope
         /// </summary>
-        public readonly Outputs.PolicyPropertiesResponseScope Scope;
+        public readonly Outputs.PolicyPropertiesScopeResponse Scope;
 
         [OutputConstructor]
-        private PolicyPropertiesResponse(Outputs.PolicyPropertiesResponseScope scope)
+        private PolicyPropertiesResponse(Outputs.PolicyPropertiesScopeResponse scope)
         {
             Scope = scope;
         }

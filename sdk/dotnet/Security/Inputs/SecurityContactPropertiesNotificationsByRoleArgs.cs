@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Security.Inputs
         private InputList<Union<string, Pulumi.AzureNative.Security.SecurityContactRole>>? _roles;
 
         /// <summary>
-        /// Defines which RBAC roles will get email notifications from Microsoft Defender for Cloud. List of allowed RBAC roles: 
+        /// Defines which RBAC roles will get email notifications from Microsoft Defender for Cloud. List of allowed RBAC roles:
         /// </summary>
         public InputList<Union<string, Pulumi.AzureNative.Security.SecurityContactRole>> Roles
         {

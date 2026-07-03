@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetWorkspaceSettingResult',
@@ -26,7 +27,7 @@ class GetWorkspaceSettingResult:
     """
     Configures where to store the OMS agent data for workspaces under a scope
     """
-    def __init__(__self__, azure_api_version=None, id=None, name=None, scope=None, type=None, workspace_id=None):
+    def __init__(__self__, azure_api_version=None, id=None, name=None, scope=None, system_data=None, type=None, workspace_id=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -39,6 +40,9 @@ class GetWorkspaceSettingResult:
         if scope and not isinstance(scope, str):
             raise TypeError("Expected argument 'scope' to be a str")
         pulumi.set(__self__, "scope", scope)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -58,7 +62,7 @@ class GetWorkspaceSettingResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -66,7 +70,7 @@ class GetWorkspaceSettingResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -79,10 +83,18 @@ class GetWorkspaceSettingResult:
         return pulumi.get(self, "scope")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -105,6 +117,7 @@ class AwaitableGetWorkspaceSettingResult(GetWorkspaceSettingResult):
             id=self.id,
             name=self.name,
             scope=self.scope,
+            system_data=self.system_data,
             type=self.type,
             workspace_id=self.workspace_id)
 
@@ -129,6 +142,7 @@ def get_workspace_setting(workspace_setting_name: Optional[_builtins.str] = None
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         scope=pulumi.get(__ret__, 'scope'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
 def get_workspace_setting_output(workspace_setting_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -150,5 +164,6 @@ def get_workspace_setting_output(workspace_setting_name: Optional[pulumi.Input[_
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         scope=pulumi.get(__response__, 'scope'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type'),
         workspace_id=pulumi.get(__response__, 'workspace_id')))

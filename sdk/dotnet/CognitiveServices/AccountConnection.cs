@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.CognitiveServices
     /// 
     /// Uses Azure REST API version 2025-06-01.
     /// 
-    /// Other available API versions: 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview, 2025-12-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-05-01, 2026-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices:AccountConnection")]
     public partial class AccountConnection : global::Pulumi.CustomResource
@@ -73,6 +73,12 @@ namespace Pulumi.AzureNative.CognitiveServices
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20250701preview:AccountConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20250901:AccountConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20251001preview:AccountConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20251201:AccountConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20260115preview:AccountConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20260301:AccountConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20260315preview:AccountConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20260501:AccountConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20260515preview:AccountConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -102,6 +102,22 @@ export const CommunityEndpointProtocol = {
  */
 export type CommunityEndpointProtocol = (typeof CommunityEndpointProtocol)[keyof typeof CommunityEndpointProtocol];
 
+export const Designation = {
+    /**
+     * Designation Type Pooled
+     */
+    Pooled: "Pooled",
+    /**
+     * Designation Type Reserved
+     */
+    Reserved: "Reserved",
+} as const;
+
+/**
+ * Designation of hub resource allocation (Pooled or Reserved)
+ */
+export type Designation = (typeof Designation)[keyof typeof Designation];
+
 export const DestinationType = {
     /**
      * DestinationType Type FQDN

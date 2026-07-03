@@ -19,15 +19,15 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// <summary>
         /// Defenders CSPM Permissions Management offering configurations
         /// </summary>
-        public readonly Outputs.DefenderCspmAwsOfferingResponseCiem? Ciem;
+        public readonly Outputs.DefenderCspmAwsOfferingCiemResponse? Ciem;
         /// <summary>
         /// The Microsoft Defender Data Sensitivity discovery configuration
         /// </summary>
-        public readonly Outputs.DefenderCspmAwsOfferingResponseDataSensitivityDiscovery? DataSensitivityDiscovery;
+        public readonly Outputs.DefenderCspmAwsOfferingDataSensitivityDiscoveryResponse? DataSensitivityDiscovery;
         /// <summary>
         /// The databases DSPM configuration
         /// </summary>
-        public readonly Outputs.DefenderCspmAwsOfferingResponseDatabasesDspm? DatabasesDspm;
+        public readonly Outputs.DefenderCspmAwsOfferingDatabasesDspmResponse? DatabasesDspm;
         /// <summary>
         /// The offering description.
         /// </summary>
@@ -35,11 +35,11 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// <summary>
         /// The Microsoft Defender container agentless discovery K8s configuration
         /// </summary>
-        public readonly Outputs.DefenderCspmAwsOfferingResponseMdcContainersAgentlessDiscoveryK8s? MdcContainersAgentlessDiscoveryK8s;
+        public readonly Outputs.DefenderCspmAwsOfferingMdcContainersAgentlessDiscoveryK8SResponse? MdcContainersAgentlessDiscoveryK8S;
         /// <summary>
         /// The Microsoft Defender container image assessment configuration
         /// </summary>
-        public readonly Outputs.DefenderCspmAwsOfferingResponseMdcContainersImageAssessment? MdcContainersImageAssessment;
+        public readonly Outputs.DefenderCspmAwsOfferingMdcContainersImageAssessmentResponse? MdcContainersImageAssessment;
         /// <summary>
         /// The type of the security offering.
         /// Expected value is 'DefenderCspmAws'.
@@ -48,31 +48,31 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// <summary>
         /// The Microsoft Defender for CSPM offering VM scanning configuration
         /// </summary>
-        public readonly Outputs.DefenderCspmAwsOfferingResponseVmScanners? VmScanners;
+        public readonly Outputs.DefenderCspmAwsOfferingVmScannersResponse? VmScanners;
 
         [OutputConstructor]
         private DefenderCspmAwsOfferingResponse(
-            Outputs.DefenderCspmAwsOfferingResponseCiem? ciem,
+            Outputs.DefenderCspmAwsOfferingCiemResponse? ciem,
 
-            Outputs.DefenderCspmAwsOfferingResponseDataSensitivityDiscovery? dataSensitivityDiscovery,
+            Outputs.DefenderCspmAwsOfferingDataSensitivityDiscoveryResponse? dataSensitivityDiscovery,
 
-            Outputs.DefenderCspmAwsOfferingResponseDatabasesDspm? databasesDspm,
+            Outputs.DefenderCspmAwsOfferingDatabasesDspmResponse? databasesDspm,
 
             string description,
 
-            Outputs.DefenderCspmAwsOfferingResponseMdcContainersAgentlessDiscoveryK8s? mdcContainersAgentlessDiscoveryK8s,
+            Outputs.DefenderCspmAwsOfferingMdcContainersAgentlessDiscoveryK8SResponse? mdcContainersAgentlessDiscoveryK8S,
 
-            Outputs.DefenderCspmAwsOfferingResponseMdcContainersImageAssessment? mdcContainersImageAssessment,
+            Outputs.DefenderCspmAwsOfferingMdcContainersImageAssessmentResponse? mdcContainersImageAssessment,
 
             string offeringType,
 
-            Outputs.DefenderCspmAwsOfferingResponseVmScanners? vmScanners)
+            Outputs.DefenderCspmAwsOfferingVmScannersResponse? vmScanners)
         {
             Ciem = ciem;
             DataSensitivityDiscovery = dataSensitivityDiscovery;
             DatabasesDspm = databasesDspm;
             Description = description;
-            MdcContainersAgentlessDiscoveryK8s = mdcContainersAgentlessDiscoveryK8s;
+            MdcContainersAgentlessDiscoveryK8S = mdcContainersAgentlessDiscoveryK8S;
             MdcContainersImageAssessment = mdcContainersImageAssessment;
             OfferingType = offeringType;
             VmScanners = vmScanners;

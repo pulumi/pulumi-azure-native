@@ -39,15 +39,15 @@ class ListAutomationAccountDeletedRunbooksResult:
     @pulumi.getter(name="nextLink")
     def next_link(self) -> Optional[_builtins.str]:
         """
-        Gets or sets the next link.
+        The link to the next page of items
         """
         return pulumi.get(self, "next_link")
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.DeletedRunbookResponse']]:
+    def value(self) -> Sequence['outputs.DeletedRunbookResponse']:
         """
-        List of deleted runbooks in automation account.
+        The DeletedRunbook items on this page
         """
         return pulumi.get(self, "value")
 
@@ -74,7 +74,7 @@ def list_automation_account_deleted_runbooks(automation_account_name: Optional[_
 
 
     :param _builtins.str automation_account_name: The name of the automation account.
-    :param _builtins.str resource_group_name: Name of an Azure Resource group.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
@@ -97,7 +97,7 @@ def list_automation_account_deleted_runbooks_output(automation_account_name: Opt
 
 
     :param _builtins.str automation_account_name: The name of the automation account.
-    :param _builtins.str resource_group_name: Name of an Azure Resource group.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name

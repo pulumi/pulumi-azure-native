@@ -24,6 +24,12 @@ namespace Pulumi.AzureNative.Security
         public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
+        /// The application conditionSets - see examples
+        /// </summary>
+        [Output("conditionSets")]
+        public Output<ImmutableArray<object>> ConditionSets { get; private set; } = null!;
+
+        /// <summary>
         /// description of the application
         /// </summary>
         [Output("description")]
@@ -36,7 +42,7 @@ namespace Pulumi.AzureNative.Security
         public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -48,7 +54,13 @@ namespace Pulumi.AzureNative.Security
         public Output<string> SourceResourceType { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -107,6 +119,18 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         [Input("applicationId")]
         public Input<string>? ApplicationId { get; set; }
+
+        [Input("conditionSets", required: true)]
+        private InputList<object>? _conditionSets;
+
+        /// <summary>
+        /// The application conditionSets - see examples
+        /// </summary>
+        public InputList<object> ConditionSets
+        {
+            get => _conditionSets ?? (_conditionSets = new InputList<object>());
+            set => _conditionSets = value;
+        }
 
         /// <summary>
         /// description of the application

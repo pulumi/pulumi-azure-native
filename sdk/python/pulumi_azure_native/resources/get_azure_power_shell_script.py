@@ -105,7 +105,7 @@ class GetAzurePowerShellScriptResult:
     @pulumi.getter
     def arguments(self) -> Optional[_builtins.str]:
         """
-        Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2' 
+        Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2'
         """
         return pulumi.get(self, "arguments")
 
@@ -161,7 +161,7 @@ class GetAzurePowerShellScriptResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        String Id used to locate any resource on Azure.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -186,7 +186,7 @@ class GetAzurePowerShellScriptResult:
     @pulumi.getter
     def location(self) -> _builtins.str:
         """
-        The location of the ACI and the storage account for the deployment script.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -194,13 +194,13 @@ class GetAzurePowerShellScriptResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Name of this resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
-    def outputs(self) -> Mapping[str, Any]:
+    def outputs(self) -> Any:
         """
         List of script outputs.
         """
@@ -266,7 +266,7 @@ class GetAzurePowerShellScriptResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system metadata related to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -290,7 +290,7 @@ class GetAzurePowerShellScriptResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Type of this resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

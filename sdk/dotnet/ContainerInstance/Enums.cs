@@ -20,9 +20,21 @@ namespace Pulumi.AzureNative.ContainerInstance
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Cool
+        /// </summary>
         public static AzureFileShareAccessTier Cool { get; } = new AzureFileShareAccessTier("Cool");
+        /// <summary>
+        /// Hot
+        /// </summary>
         public static AzureFileShareAccessTier Hot { get; } = new AzureFileShareAccessTier("Hot");
+        /// <summary>
+        /// Premium
+        /// </summary>
         public static AzureFileShareAccessTier Premium { get; } = new AzureFileShareAccessTier("Premium");
+        /// <summary>
+        /// TransactionOptimized
+        /// </summary>
         public static AzureFileShareAccessTier TransactionOptimized { get; } = new AzureFileShareAccessTier("TransactionOptimized");
 
         public static bool operator ==(AzureFileShareAccessTier left, AzureFileShareAccessTier right) => left.Equals(right);
@@ -41,7 +53,7 @@ namespace Pulumi.AzureNative.ContainerInstance
     }
 
     /// <summary>
-    ///  Specifies how Container Groups can access the Azure file share i.e. all CG will share same Azure file share or going to have exclusive file share.
+    /// Specifies how Container Groups can access the Azure file share i.e. all CG will share same Azure file share or going to have exclusive file share.
     /// </summary>
     [EnumType]
     public readonly struct AzureFileShareAccessType : IEquatable<AzureFileShareAccessType>
@@ -53,7 +65,13 @@ namespace Pulumi.AzureNative.ContainerInstance
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Shared
+        /// </summary>
         public static AzureFileShareAccessType Shared { get; } = new AzureFileShareAccessType("Shared");
+        /// <summary>
+        /// Exclusive
+        /// </summary>
         public static AzureFileShareAccessType Exclusive { get; } = new AzureFileShareAccessType("Exclusive");
 
         public static bool operator ==(AzureFileShareAccessType left, AzureFileShareAccessType right) => left.Equals(right);
@@ -369,7 +387,13 @@ namespace Pulumi.AzureNative.ContainerInstance
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Manual
+        /// </summary>
         public static NGroupUpdateMode Manual { get; } = new NGroupUpdateMode("Manual");
+        /// <summary>
+        /// Rolling
+        /// </summary>
         public static NGroupUpdateMode Rolling { get; } = new NGroupUpdateMode("Rolling");
 
         public static bool operator ==(NGroupUpdateMode left, NGroupUpdateMode right) => left.Equals(right);
@@ -462,9 +486,21 @@ namespace Pulumi.AzureNative.ContainerInstance
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// SystemAssigned
+        /// </summary>
         public static ResourceIdentityType SystemAssigned { get; } = new ResourceIdentityType("SystemAssigned");
+        /// <summary>
+        /// UserAssigned
+        /// </summary>
         public static ResourceIdentityType UserAssigned { get; } = new ResourceIdentityType("UserAssigned");
+        /// <summary>
+        /// SystemAssigned, UserAssigned
+        /// </summary>
         public static ResourceIdentityType SystemAssigned_UserAssigned { get; } = new ResourceIdentityType("SystemAssigned, UserAssigned");
+        /// <summary>
+        /// None
+        /// </summary>
         public static ResourceIdentityType None { get; } = new ResourceIdentityType("None");
 
         public static bool operator ==(ResourceIdentityType left, ResourceIdentityType right) => left.Equals(right);

@@ -28,8 +28,16 @@
     "Detail": "expected tracking preview but found stable"
   },
   {
+    "ModuleName": "App",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "ModuleName": "AppComplianceAutomation",
     "Detail": "expected tracking preview but found stable"
+  },
+  {
+    "ModuleName": "AppLink",
+    "Detail": "expected tracking stable but found preview"
   },
   {
     "ModuleName": "AppPlatform",
@@ -60,6 +68,10 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
+    "ModuleName": "AzureResilienceManagement",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
     "ModuleName": "AzureStack",
     "Detail": "expected no additions but found some"
   },
@@ -78,6 +90,10 @@
   {
     "ModuleName": "BillingBenefits",
     "Detail": "expected no additions but found some"
+  },
+  {
+    "ModuleName": "BillingTrust",
+    "Detail": "expected tracking stable but found preview"
   },
   {
     "ModuleName": "BotService",
@@ -280,10 +296,6 @@
     "Detail": "expected no additions but found some"
   },
   {
-    "ModuleName": "FrontDoor",
-    "Detail": "expected no additions but found some"
-  },
-  {
     "ModuleName": "GraphServices",
     "Detail": "expected tracking preview but found stable"
   },
@@ -308,6 +320,10 @@
     "Detail": "expected no additions but found some"
   },
   {
+    "ModuleName": "HorizonDb",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
     "ModuleName": "HybridCloud",
     "Detail": "expected tracking stable but found preview"
   },
@@ -330,6 +346,10 @@
   {
     "ModuleName": "Impact",
     "Detail": "expected tracking stable but found preview"
+  },
+  {
+    "ModuleName": "Impact",
+    "Detail": "expected no additions but found some"
   },
   {
     "ModuleName": "IntegrationSpaces",
@@ -420,6 +440,10 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
+    "ModuleName": "Mission",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "ModuleName": "MongoCluster",
     "Detail": "expected no additions but found some"
   },
@@ -474,6 +498,10 @@
   {
     "ModuleName": "Orbital",
     "Detail": "expected no additions but found some"
+  },
+  {
+    "ModuleName": "ProgramEnrollment",
+    "Detail": "expected tracking stable but found preview"
   },
   {
     "ModuleName": "ProgrammableConnectivity",
@@ -534,6 +562,10 @@
   {
     "ModuleName": "Sovereign",
     "Detail": "expected tracking stable but found preview"
+  },
+  {
+    "ModuleName": "Storage",
+    "Detail": "expected no additions but found some"
   },
   {
     "ModuleName": "StorageCache",

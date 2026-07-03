@@ -71,6 +71,8 @@ class GuestSubscription(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-08-15.
 
+        Other available API versions: 2026-03-20, 2026-04-30, 2026-06-01, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native computelimit [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -87,6 +89,8 @@ class GuestSubscription(pulumi.CustomResource):
         Guest subscription that consumes shared compute limits.
 
         Uses Azure REST API version 2025-08-15.
+
+        Other available API versions: 2026-03-20, 2026-04-30, 2026-06-01, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native computelimit [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -124,7 +128,7 @@ class GuestSubscription(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:computelimit/v20250815:GuestSubscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:computelimit/v20250815:GuestSubscription"), pulumi.Alias(type_="azure-native:computelimit/v20260320:GuestSubscription"), pulumi.Alias(type_="azure-native:computelimit/v20260430:GuestSubscription"), pulumi.Alias(type_="azure-native:computelimit/v20260601:GuestSubscription"), pulumi.Alias(type_="azure-native:computelimit/v20260701:GuestSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GuestSubscription, __self__).__init__(
             'azure-native:computelimit:GuestSubscription',

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Sql
     /// 
     /// Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
     /// 
-    /// Other available API versions: 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:JobPrivateEndpoint")]
     public partial class JobPrivateEndpoint : global::Pulumi.CustomResource
@@ -79,6 +79,8 @@ namespace Pulumi.AzureNative.Sql
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:JobPrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20240501preview:JobPrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20241101preview:JobPrivateEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20250101:JobPrivateEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20250201preview:JobPrivateEndpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

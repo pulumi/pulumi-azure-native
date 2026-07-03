@@ -34,8 +34,8 @@ class CertificateArgs:
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
         :param pulumi.Input[_builtins.str] base64_value: Gets or sets the base64 encoded value of the certificate.
         :param pulumi.Input[_builtins.str] name: Gets or sets the name of the certificate.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
-        :param pulumi.Input[_builtins.str] certificate_name: The parameters supplied to the create or update certificate operation.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] certificate_name: The name of certificate.
         :param pulumi.Input[_builtins.str] description: Gets or sets the description of the certificate.
         :param pulumi.Input[_builtins.bool] is_exportable: Gets or sets the is exportable flag of the certificate.
         :param pulumi.Input[_builtins.str] thumbprint: Gets or sets the thumbprint of the certificate.
@@ -93,7 +93,7 @@ class CertificateArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of an Azure Resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -105,7 +105,7 @@ class CertificateArgs:
     @pulumi.getter(name="certificateName")
     def certificate_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The parameters supplied to the create or update certificate operation.
+        The name of certificate.
         """
         return pulumi.get(self, "certificate_name")
 
@@ -177,11 +177,11 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
         :param pulumi.Input[_builtins.str] base64_value: Gets or sets the base64 encoded value of the certificate.
-        :param pulumi.Input[_builtins.str] certificate_name: The parameters supplied to the create or update certificate operation.
+        :param pulumi.Input[_builtins.str] certificate_name: The name of certificate.
         :param pulumi.Input[_builtins.str] description: Gets or sets the description of the certificate.
         :param pulumi.Input[_builtins.bool] is_exportable: Gets or sets the is exportable flag of the certificate.
         :param pulumi.Input[_builtins.str] name: Gets or sets the name of the certificate.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] thumbprint: Gets or sets the thumbprint of the certificate.
         """
         ...

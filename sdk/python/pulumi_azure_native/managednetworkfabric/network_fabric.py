@@ -287,7 +287,7 @@ class NetworkFabric(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-02-01-preview.
 
-        Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview, 2025-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -319,7 +319,7 @@ class NetworkFabric(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-02-01-preview.
 
-        Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview, 2025-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -403,7 +403,7 @@ class NetworkFabric(pulumi.CustomResource):
             __props__.__dict__["router_ids"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:managednetworkfabric/v20230201preview:NetworkFabric"), pulumi.Alias(type_="azure-native:managednetworkfabric/v20230615:NetworkFabric"), pulumi.Alias(type_="azure-native:managednetworkfabric/v20240215preview:NetworkFabric"), pulumi.Alias(type_="azure-native:managednetworkfabric/v20240615preview:NetworkFabric")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:managednetworkfabric/v20230201preview:NetworkFabric"), pulumi.Alias(type_="azure-native:managednetworkfabric/v20230615:NetworkFabric"), pulumi.Alias(type_="azure-native:managednetworkfabric/v20240215preview:NetworkFabric"), pulumi.Alias(type_="azure-native:managednetworkfabric/v20240615preview:NetworkFabric"), pulumi.Alias(type_="azure-native:managednetworkfabric/v20250715:NetworkFabric")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkFabric, __self__).__init__(
             'azure-native:managednetworkfabric:NetworkFabric',

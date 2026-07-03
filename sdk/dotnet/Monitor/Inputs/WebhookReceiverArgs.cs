@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Monitor.Inputs
         public Input<string>? IdentifierUri { get; set; }
 
         /// <summary>
-        /// The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        /// The principal id of the managed identity. The value can be "None", "SystemAssigned"
         /// </summary>
         [Input("managedIdentity")]
         public Input<string>? ManagedIdentity { get; set; }

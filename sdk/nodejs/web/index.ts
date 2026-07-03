@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AiGatewayArgs } from "./aiGateway";
+export type AiGateway = import("./aiGateway").AiGateway;
+export const AiGateway: typeof import("./aiGateway").AiGateway = null as any;
+utilities.lazyLoad(exports, ["AiGateway"], () => require("./aiGateway"));
+
 export { AppServiceEnvironmentArgs } from "./appServiceEnvironment";
 export type AppServiceEnvironment = import("./appServiceEnvironment").AppServiceEnvironment;
 export const AppServiceEnvironment: typeof import("./appServiceEnvironment").AppServiceEnvironment = null as any;
@@ -49,6 +54,11 @@ export { CustomApiArgs } from "./customApi";
 export type CustomApi = import("./customApi").CustomApi;
 export const CustomApi: typeof import("./customApi").CustomApi = null as any;
 utilities.lazyLoad(exports, ["CustomApi"], () => require("./customApi"));
+
+export { GetAiGatewayArgs, GetAiGatewayResult, GetAiGatewayOutputArgs } from "./getAiGateway";
+export const getAiGateway: typeof import("./getAiGateway").getAiGateway = null as any;
+export const getAiGatewayOutput: typeof import("./getAiGateway").getAiGatewayOutput = null as any;
+utilities.lazyLoad(exports, ["getAiGateway","getAiGatewayOutput"], () => require("./getAiGateway"));
 
 export { GetAppServiceEnvironmentArgs, GetAppServiceEnvironmentResult, GetAppServiceEnvironmentOutputArgs } from "./getAppServiceEnvironment";
 export const getAppServiceEnvironment: typeof import("./getAppServiceEnvironment").getAppServiceEnvironment = null as any;
@@ -933,6 +943,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:web:AiGateway":
+                return new AiGateway(name, <any>undefined, { urn })
             case "azure-native:web:AppServiceEnvironment":
                 return new AppServiceEnvironment(name, <any>undefined, { urn })
             case "azure-native:web:AppServiceEnvironmentAseCustomDnsSuffixConfiguration":

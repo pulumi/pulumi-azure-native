@@ -34,8 +34,8 @@ class ConnectionArgs:
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
         :param pulumi.Input['ConnectionTypeAssociationPropertyArgs'] connection_type: Gets or sets the connectionType of the connection.
         :param pulumi.Input[_builtins.str] name: Gets or sets the name of the connection.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
-        :param pulumi.Input[_builtins.str] connection_name: The parameters supplied to the create or update connection operation.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] connection_name: The name of connection.
         :param pulumi.Input[_builtins.str] description: Gets or sets the description of the connection.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] field_definition_values: Gets or sets the field definition properties of the connection.
         """
@@ -90,7 +90,7 @@ class ConnectionArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of an Azure Resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -102,7 +102,7 @@ class ConnectionArgs:
     @pulumi.getter(name="connectionName")
     def connection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The parameters supplied to the create or update connection operation.
+        The name of connection.
         """
         return pulumi.get(self, "connection_name")
 
@@ -160,12 +160,12 @@ class Connection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
-        :param pulumi.Input[_builtins.str] connection_name: The parameters supplied to the create or update connection operation.
+        :param pulumi.Input[_builtins.str] connection_name: The name of connection.
         :param pulumi.Input[Union['ConnectionTypeAssociationPropertyArgs', 'ConnectionTypeAssociationPropertyArgsDict']] connection_type: Gets or sets the connectionType of the connection.
         :param pulumi.Input[_builtins.str] description: Gets or sets the description of the connection.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] field_definition_values: Gets or sets the field definition properties of the connection.
         :param pulumi.Input[_builtins.str] name: Gets or sets the name of the connection.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
     @overload

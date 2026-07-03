@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.Monitor.Outputs
         /// </summary>
         public readonly string HttpTriggerUrl;
         /// <summary>
-        /// The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        /// The principal id of the managed identity. The value can be "None", "SystemAssigned"
         /// </summary>
         public readonly string? ManagedIdentity;
         /// <summary>

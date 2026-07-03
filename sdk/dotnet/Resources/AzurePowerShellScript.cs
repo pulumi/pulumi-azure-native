@@ -18,7 +18,7 @@ namespace Pulumi.AzureNative.Resources
     public partial class AzurePowerShellScript : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2' 
+        /// Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2'
         /// </summary>
         [Output("arguments")]
         public Output<string?> Arguments { get; private set; } = null!;
@@ -73,13 +73,13 @@ namespace Pulumi.AzureNative.Resources
         public Output<string> Kind { get; private set; } = null!;
 
         /// <summary>
-        /// The location of the ACI and the storage account for the deployment script.
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Name of this resource.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.Resources
         /// List of script outputs.
         /// </summary>
         [Output("outputs")]
-        public Output<ImmutableDictionary<string, object>> Outputs { get; private set; } = null!;
+        public Output<object> Outputs { get; private set; } = null!;
 
         /// <summary>
         /// Uri for the script. This is the entry point for the external script.
@@ -133,7 +133,7 @@ namespace Pulumi.AzureNative.Resources
         public Output<ImmutableArray<string>> SupportingScriptUris { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata related to this resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -151,7 +151,7 @@ namespace Pulumi.AzureNative.Resources
         public Output<string?> Timeout { get; private set; } = null!;
 
         /// <summary>
-        /// Type of this resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -219,7 +219,7 @@ namespace Pulumi.AzureNative.Resources
     public sealed class AzurePowerShellScriptArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2' 
+        /// Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2'
         /// </summary>
         [Input("arguments")]
         public Input<string>? Arguments { get; set; }
@@ -274,7 +274,7 @@ namespace Pulumi.AzureNative.Resources
         public Input<string> Kind { get; set; } = null!;
 
         /// <summary>
-        /// The location of the ACI and the storage account for the deployment script.
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }

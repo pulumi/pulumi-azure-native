@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetComponentLinkedStorageAccountResult',
@@ -26,7 +27,7 @@ class GetComponentLinkedStorageAccountResult:
     """
     An Application Insights component linked storage accounts
     """
-    def __init__(__self__, azure_api_version=None, id=None, linked_storage_account=None, name=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, linked_storage_account=None, name=None, system_data=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -39,6 +40,9 @@ class GetComponentLinkedStorageAccountResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -76,6 +80,14 @@ class GetComponentLinkedStorageAccountResult:
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
@@ -94,6 +106,7 @@ class AwaitableGetComponentLinkedStorageAccountResult(GetComponentLinkedStorageA
             id=self.id,
             linked_storage_account=self.linked_storage_account,
             name=self.name,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -123,6 +136,7 @@ def get_component_linked_storage_account(resource_group_name: Optional[_builtins
         id=pulumi.get(__ret__, 'id'),
         linked_storage_account=pulumi.get(__ret__, 'linked_storage_account'),
         name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_component_linked_storage_account_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                 resource_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -149,4 +163,5 @@ def get_component_linked_storage_account_output(resource_group_name: Optional[pu
         id=pulumi.get(__response__, 'id'),
         linked_storage_account=pulumi.get(__response__, 'linked_storage_account'),
         name=pulumi.get(__response__, 'name'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

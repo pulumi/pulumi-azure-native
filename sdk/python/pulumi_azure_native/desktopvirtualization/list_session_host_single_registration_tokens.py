@@ -72,6 +72,8 @@ def list_session_host_single_registration_tokens(expiration_time_in_utc: Optiona
 
     Uses Azure REST API version 2026-01-01-preview.
 
+    Other available API versions: 2026-03-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param _builtins.str expiration_time_in_utc: Expiration time of the registration token in UTC.
     :param _builtins.str host_pool_name: The name of the host pool within the specified resource group
@@ -98,6 +100,8 @@ def list_session_host_single_registration_tokens_output(expiration_time_in_utc: 
     Operation to list the scoped RegistrationTokens associated with the SessionHost.
 
     Uses Azure REST API version 2026-01-01-preview.
+
+    Other available API versions: 2026-03-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str expiration_time_in_utc: Expiration time of the registration token in UTC.

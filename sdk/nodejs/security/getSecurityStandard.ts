@@ -22,7 +22,7 @@ export function getSecurityStandard(args: GetSecurityStandardArgs, opts?: pulumi
 
 export interface GetSecurityStandardArgs {
     /**
-     * The scope of the security standard. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
+     * The fully qualified Azure Resource manager identifier of the resource.
      */
     scope: string;
     /**
@@ -56,7 +56,7 @@ export interface GetSecurityStandardResult {
      */
     readonly displayName?: string;
     /**
-     * Resource Id
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -64,7 +64,7 @@ export interface GetSecurityStandardResult {
      */
     readonly metadata?: outputs.security.StandardMetadataResponse;
     /**
-     * Resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -76,7 +76,11 @@ export interface GetSecurityStandardResult {
      */
     readonly standardType: string;
     /**
-     * Resource type
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.security.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
@@ -95,7 +99,7 @@ export function getSecurityStandardOutput(args: GetSecurityStandardOutputArgs, o
 
 export interface GetSecurityStandardOutputArgs {
     /**
-     * The scope of the security standard. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
+     * The fully qualified Azure Resource manager identifier of the resource.
      */
     scope: pulumi.Input<string>;
     /**

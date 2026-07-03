@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.DataFactory
         public Inputs.GitHubClientSecret? GitHubClientSecret { get; set; }
 
         /// <summary>
-        /// The resource group name.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.DataFactory
         public Input<Inputs.GitHubClientSecretArgs>? GitHubClientSecret { get; set; }
 
         /// <summary>
-        /// The resource group name.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

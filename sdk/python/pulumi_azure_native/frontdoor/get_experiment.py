@@ -199,16 +199,16 @@ def get_experiment(experiment_name: Optional[_builtins.str] = None,
                    resource_group_name: Optional[_builtins.str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExperimentResult:
     """
-    Defines the properties of an Experiment
+    Gets an Experiment by ExperimentName
 
-    Uses Azure REST API version 2019-11-01.
+    Uses Azure REST API version 2025-11-01.
 
-    Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2019-11-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str experiment_name: The Experiment identifier associated with the Experiment
     :param _builtins.str profile_name: The Profile identifier associated with the Tenant and Partner
-    :param _builtins.str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['experimentName'] = experiment_name
@@ -236,16 +236,16 @@ def get_experiment_output(experiment_name: Optional[pulumi.Input[_builtins.str]]
                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExperimentResult]:
     """
-    Defines the properties of an Experiment
+    Gets an Experiment by ExperimentName
 
-    Uses Azure REST API version 2019-11-01.
+    Uses Azure REST API version 2025-11-01.
 
-    Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2019-11-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str experiment_name: The Experiment identifier associated with the Experiment
     :param _builtins.str profile_name: The Profile identifier associated with the Tenant and Partner
-    :param _builtins.str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['experimentName'] = experiment_name

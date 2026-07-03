@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.Network
     /// A virtual network appliance in a resource group.
     /// 
     /// Uses Azure REST API version 2025-05-01.
+    /// 
+    /// Other available API versions: 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VirtualNetworkAppliance")]
     public partial class VirtualNetworkAppliance : global::Pulumi.CustomResource
@@ -69,7 +71,7 @@ namespace Pulumi.AzureNative.Network
         /// The reference to the subnet resource.
         /// </summary>
         [Output("subnet")]
-        public Output<Outputs.SubnetResponseV3?> Subnet { get; private set; } = null!;
+        public Output<Outputs.CommonSubnetResponse?> Subnet { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -109,6 +111,7 @@ namespace Pulumi.AzureNative.Network
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network/v20250501:VirtualNetworkAppliance" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20250701:VirtualNetworkAppliance" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -151,7 +154,7 @@ namespace Pulumi.AzureNative.Network
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -160,7 +163,7 @@ namespace Pulumi.AzureNative.Network
         /// The reference to the subnet resource.
         /// </summary>
         [Input("subnet")]
-        public Input<Inputs.SubnetArgs>? Subnet { get; set; }
+        public Input<Inputs.CommonSubnetArgs>? Subnet { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

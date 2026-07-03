@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetApplicationResult',
@@ -26,10 +27,13 @@ class GetApplicationResult:
     """
     Security Application over a given scope
     """
-    def __init__(__self__, azure_api_version=None, description=None, display_name=None, id=None, name=None, source_resource_type=None, type=None):
+    def __init__(__self__, azure_api_version=None, condition_sets=None, description=None, display_name=None, id=None, name=None, source_resource_type=None, system_data=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
+        if condition_sets and not isinstance(condition_sets, list):
+            raise TypeError("Expected argument 'condition_sets' to be a list")
+        pulumi.set(__self__, "condition_sets", condition_sets)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -45,6 +49,9 @@ class GetApplicationResult:
         if source_resource_type and not isinstance(source_resource_type, str):
             raise TypeError("Expected argument 'source_resource_type' to be a str")
         pulumi.set(__self__, "source_resource_type", source_resource_type)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -56,6 +63,14 @@ class GetApplicationResult:
         The Azure API version of the resource.
         """
         return pulumi.get(self, "azure_api_version")
+
+    @_builtins.property
+    @pulumi.getter(name="conditionSets")
+    def condition_sets(self) -> Sequence[Any]:
+        """
+        The application conditionSets - see examples
+        """
+        return pulumi.get(self, "condition_sets")
 
     @_builtins.property
     @pulumi.getter
@@ -77,7 +92,7 @@ class GetApplicationResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -85,7 +100,7 @@ class GetApplicationResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -98,10 +113,18 @@ class GetApplicationResult:
         return pulumi.get(self, "source_resource_type")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -113,11 +136,13 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             yield self
         return GetApplicationResult(
             azure_api_version=self.azure_api_version,
+            condition_sets=self.condition_sets,
             description=self.description,
             display_name=self.display_name,
             id=self.id,
             name=self.name,
             source_resource_type=self.source_resource_type,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -138,11 +163,13 @@ def get_application(application_id: Optional[_builtins.str] = None,
 
     return AwaitableGetApplicationResult(
         azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
+        condition_sets=pulumi.get(__ret__, 'condition_sets'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         source_resource_type=pulumi.get(__ret__, 'source_resource_type'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_application_output(application_id: Optional[pulumi.Input[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
@@ -160,9 +187,11 @@ def get_application_output(application_id: Optional[pulumi.Input[_builtins.str]]
     __ret__ = pulumi.runtime.invoke_output('azure-native:security:getApplication', __args__, opts=opts, typ=GetApplicationResult)
     return __ret__.apply(lambda __response__: GetApplicationResult(
         azure_api_version=pulumi.get(__response__, 'azure_api_version'),
+        condition_sets=pulumi.get(__response__, 'condition_sets'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         source_resource_type=pulumi.get(__response__, 'source_resource_type'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

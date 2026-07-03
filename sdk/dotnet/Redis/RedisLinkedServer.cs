@@ -106,6 +106,7 @@ namespace Pulumi.AzureNative.Redis
                     new global::Pulumi.Alias { Type = "azure-native:redis/v20240301:RedisLinkedServer" },
                     new global::Pulumi.Alias { Type = "azure-native:redis/v20240401preview:RedisLinkedServer" },
                     new global::Pulumi.Alias { Type = "azure-native:redis/v20241101:RedisLinkedServer" },
+                    new global::Pulumi.Alias { Type = "azure-native:redis/v20250801preview:RedisLinkedServer" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

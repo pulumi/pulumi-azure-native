@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.ContainerInstance.Inputs
         public Input<Pulumi.AzureNative.ContainerInstance.AzureFileShareAccessTier>? ShareAccessTier { get; set; }
 
         /// <summary>
-        ///  Specifies how Container Groups can access the Azure file share i.e. all CG will share same Azure file share or going to have exclusive file share.
+        /// Specifies how Container Groups can access the Azure file share i.e. all CG will share same Azure file share or going to have exclusive file share.
         /// </summary>
         [Input("shareAccessType")]
         public Input<Pulumi.AzureNative.ContainerInstance.AzureFileShareAccessType>? ShareAccessType { get; set; }

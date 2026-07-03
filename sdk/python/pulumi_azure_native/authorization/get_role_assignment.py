@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetRoleAssignmentResult',
@@ -26,7 +27,7 @@ class GetRoleAssignmentResult:
     """
     Role Assignments
     """
-    def __init__(__self__, azure_api_version=None, condition=None, condition_version=None, created_by=None, created_on=None, delegated_managed_identity_resource_id=None, description=None, id=None, name=None, principal_id=None, principal_type=None, role_definition_id=None, scope=None, type=None, updated_by=None, updated_on=None):
+    def __init__(__self__, azure_api_version=None, condition=None, condition_version=None, created_by=None, created_on=None, delegated_managed_identity_resource_id=None, description=None, id=None, name=None, principal_id=None, principal_type=None, role_definition_id=None, scope=None, system_data=None, type=None, updated_by=None, updated_on=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -66,6 +67,9 @@ class GetRoleAssignmentResult:
         if scope and not isinstance(scope, str):
             raise TypeError("Expected argument 'scope' to be a str")
         pulumi.set(__self__, "scope", scope)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -136,7 +140,7 @@ class GetRoleAssignmentResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The role assignment ID.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -144,7 +148,7 @@ class GetRoleAssignmentResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The role assignment name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -181,10 +185,18 @@ class GetRoleAssignmentResult:
         return pulumi.get(self, "scope")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The role assignment type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -224,6 +236,7 @@ class AwaitableGetRoleAssignmentResult(GetRoleAssignmentResult):
             principal_type=self.principal_type,
             role_definition_id=self.role_definition_id,
             scope=self.scope,
+            system_data=self.system_data,
             type=self.type,
             updated_by=self.updated_by,
             updated_on=self.updated_on)
@@ -242,7 +255,7 @@ def get_role_assignment(role_assignment_name: Optional[_builtins.str] = None,
 
 
     :param _builtins.str role_assignment_name: The name of the role assignment. It can be any valid GUID.
-    :param _builtins.str scope: The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
+    :param _builtins.str scope: The fully qualified Azure Resource manager identifier of the resource.
     :param _builtins.str tenant_id: Tenant ID for cross-tenant request
     """
     __args__ = dict()
@@ -266,6 +279,7 @@ def get_role_assignment(role_assignment_name: Optional[_builtins.str] = None,
         principal_type=pulumi.get(__ret__, 'principal_type'),
         role_definition_id=pulumi.get(__ret__, 'role_definition_id'),
         scope=pulumi.get(__ret__, 'scope'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         updated_by=pulumi.get(__ret__, 'updated_by'),
         updated_on=pulumi.get(__ret__, 'updated_on'))
@@ -282,7 +296,7 @@ def get_role_assignment_output(role_assignment_name: Optional[pulumi.Input[_buil
 
 
     :param _builtins.str role_assignment_name: The name of the role assignment. It can be any valid GUID.
-    :param _builtins.str scope: The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
+    :param _builtins.str scope: The fully qualified Azure Resource manager identifier of the resource.
     :param _builtins.str tenant_id: Tenant ID for cross-tenant request
     """
     __args__ = dict()
@@ -305,6 +319,7 @@ def get_role_assignment_output(role_assignment_name: Optional[pulumi.Input[_buil
         principal_type=pulumi.get(__response__, 'principal_type'),
         role_definition_id=pulumi.get(__response__, 'role_definition_id'),
         scope=pulumi.get(__response__, 'scope'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type'),
         updated_by=pulumi.get(__response__, 'updated_by'),
         updated_on=pulumi.get(__response__, 'updated_on')))

@@ -8,6 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Concrete proxy resource types can be created by aliasing this type using a specific property type.
+ *
  * Uses Azure REST API version 2020-01-01. In version 2.x of the Azure Native provider, it used API version 2020-01-01.
  */
 export class JitNetworkAccessPolicy extends pulumi.CustomResource {
@@ -50,7 +52,7 @@ export class JitNetworkAccessPolicy extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly location: pulumi.Output<string>;
     /**
-     * Resource name
+     * The name of the resource
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
@@ -59,7 +61,11 @@ export class JitNetworkAccessPolicy extends pulumi.CustomResource {
     declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     declare public readonly requests: pulumi.Output<outputs.security.JitNetworkAccessRequestResponse[] | undefined>;
     /**
-     * Resource type
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.security.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
@@ -97,6 +103,7 @@ export class JitNetworkAccessPolicy extends pulumi.CustomResource {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -105,6 +112,7 @@ export class JitNetworkAccessPolicy extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["requests"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["virtualMachines"] = undefined /*out*/;
         }
@@ -133,7 +141,7 @@ export interface JitNetworkAccessPolicyArgs {
     kind?: pulumi.Input<string>;
     requests?: pulumi.Input<pulumi.Input<inputs.security.JitNetworkAccessRequestArgs>[]>;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.ApplicationInsights
         /// An XML configuration specification for a WebTest.
         /// </summary>
         [Output("configuration")]
-        public Output<Outputs.WebTestPropertiesResponseConfiguration?> Configuration { get; private set; } = null!;
+        public Output<Outputs.WebTestPropertiesConfigurationResponse?> Configuration { get; private set; } = null!;
 
         /// <summary>
         /// User defined description for this WebTest.
@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.ApplicationInsights
         /// The collection of request properties
         /// </summary>
         [Output("request")]
-        public Output<Outputs.WebTestPropertiesResponseRequest?> Request { get; private set; } = null!;
+        public Output<Outputs.WebTestPropertiesRequestResponse?> Request { get; private set; } = null!;
 
         /// <summary>
         /// Allow for retries should this WebTest fail.
@@ -119,7 +119,7 @@ namespace Pulumi.AzureNative.ApplicationInsights
         /// The collection of validation rule properties
         /// </summary>
         [Output("validationRules")]
-        public Output<Outputs.WebTestPropertiesResponseValidationRules?> ValidationRules { get; private set; } = null!;
+        public Output<Outputs.WebTestPropertiesValidationRulesResponse?> ValidationRules { get; private set; } = null!;
 
         /// <summary>
         /// The kind of web test this is, valid choices are ping, multistep and standard.

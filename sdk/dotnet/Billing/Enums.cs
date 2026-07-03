@@ -20,9 +20,21 @@ namespace Pulumi.AzureNative.Billing
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Other
+        /// </summary>
         public static BillingManagementTenantState Other { get; } = new BillingManagementTenantState("Other");
+        /// <summary>
+        /// NotAllowed
+        /// </summary>
         public static BillingManagementTenantState NotAllowed { get; } = new BillingManagementTenantState("NotAllowed");
+        /// <summary>
+        /// Active
+        /// </summary>
         public static BillingManagementTenantState Active { get; } = new BillingManagementTenantState("Active");
+        /// <summary>
+        /// Revoked
+        /// </summary>
         public static BillingManagementTenantState Revoked { get; } = new BillingManagementTenantState("Revoked");
 
         public static bool operator ==(BillingManagementTenantState left, BillingManagementTenantState right) => left.Equals(right);
@@ -53,12 +65,33 @@ namespace Pulumi.AzureNative.Billing
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Other
+        /// </summary>
         public static InvoiceSectionState Other { get; } = new InvoiceSectionState("Other");
+        /// <summary>
+        /// Active
+        /// </summary>
         public static InvoiceSectionState Active { get; } = new InvoiceSectionState("Active");
+        /// <summary>
+        /// Deleted
+        /// </summary>
         public static InvoiceSectionState Deleted { get; } = new InvoiceSectionState("Deleted");
+        /// <summary>
+        /// Disabled
+        /// </summary>
         public static InvoiceSectionState Disabled { get; } = new InvoiceSectionState("Disabled");
+        /// <summary>
+        /// UnderReview
+        /// </summary>
         public static InvoiceSectionState UnderReview { get; } = new InvoiceSectionState("UnderReview");
+        /// <summary>
+        /// Warned
+        /// </summary>
         public static InvoiceSectionState Warned { get; } = new InvoiceSectionState("Warned");
+        /// <summary>
+        /// Restricted
+        /// </summary>
         public static InvoiceSectionState Restricted { get; } = new InvoiceSectionState("Restricted");
 
         public static bool operator ==(InvoiceSectionState left, InvoiceSectionState right) => left.Equals(right);
@@ -89,10 +122,25 @@ namespace Pulumi.AzureNative.Billing
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Other
+        /// </summary>
         public static InvoiceSectionStateReasonCode Other { get; } = new InvoiceSectionStateReasonCode("Other");
+        /// <summary>
+        /// PastDue
+        /// </summary>
         public static InvoiceSectionStateReasonCode PastDue { get; } = new InvoiceSectionStateReasonCode("PastDue");
+        /// <summary>
+        /// UnusualActivity
+        /// </summary>
         public static InvoiceSectionStateReasonCode UnusualActivity { get; } = new InvoiceSectionStateReasonCode("UnusualActivity");
+        /// <summary>
+        /// SpendingLimitReached
+        /// </summary>
         public static InvoiceSectionStateReasonCode SpendingLimitReached { get; } = new InvoiceSectionStateReasonCode("SpendingLimitReached");
+        /// <summary>
+        /// SpendingLimitExpired
+        /// </summary>
         public static InvoiceSectionStateReasonCode SpendingLimitExpired { get; } = new InvoiceSectionStateReasonCode("SpendingLimitExpired");
 
         public static bool operator ==(InvoiceSectionStateReasonCode left, InvoiceSectionStateReasonCode right) => left.Equals(right);
@@ -123,12 +171,33 @@ namespace Pulumi.AzureNative.Billing
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Other
+        /// </summary>
         public static ProvisioningTenantState Other { get; } = new ProvisioningTenantState("Other");
+        /// <summary>
+        /// NotRequested
+        /// </summary>
         public static ProvisioningTenantState NotRequested { get; } = new ProvisioningTenantState("NotRequested");
+        /// <summary>
+        /// Active
+        /// </summary>
         public static ProvisioningTenantState Active { get; } = new ProvisioningTenantState("Active");
+        /// <summary>
+        /// Pending
+        /// </summary>
         public static ProvisioningTenantState Pending { get; } = new ProvisioningTenantState("Pending");
+        /// <summary>
+        /// BillingRequestExpired
+        /// </summary>
         public static ProvisioningTenantState BillingRequestExpired { get; } = new ProvisioningTenantState("BillingRequestExpired");
+        /// <summary>
+        /// BillingRequestDeclined
+        /// </summary>
         public static ProvisioningTenantState BillingRequestDeclined { get; } = new ProvisioningTenantState("BillingRequestDeclined");
+        /// <summary>
+        /// Revoked
+        /// </summary>
         public static ProvisioningTenantState Revoked { get; } = new ProvisioningTenantState("Revoked");
 
         public static bool operator ==(ProvisioningTenantState left, ProvisioningTenantState right) => left.Equals(right);

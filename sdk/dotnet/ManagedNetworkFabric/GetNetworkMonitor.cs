@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// Implements NetworkMonitor GET method.
         /// 
         /// Uses Azure REST API version 2024-06-15-preview.
+        /// 
+        /// Other available API versions: 2025-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetNetworkMonitorResult> InvokeAsync(GetNetworkMonitorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkMonitorResult>("azure-native:managednetworkfabric:getNetworkMonitor", args ?? new GetNetworkMonitorArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// Implements NetworkMonitor GET method.
         /// 
         /// Uses Azure REST API version 2024-06-15-preview.
+        /// 
+        /// Other available API versions: 2025-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetNetworkMonitorResult> Invoke(GetNetworkMonitorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkMonitorResult>("azure-native:managednetworkfabric:getNetworkMonitor", args ?? new GetNetworkMonitorInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// Implements NetworkMonitor GET method.
         /// 
         /// Uses Azure REST API version 2024-06-15-preview.
+        /// 
+        /// Other available API versions: 2025-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetNetworkMonitorResult> Invoke(GetNetworkMonitorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkMonitorResult>("azure-native:managednetworkfabric:getNetworkMonitor", args ?? new GetNetworkMonitorInvokeArgs(), options.WithDefaults());
@@ -82,13 +88,33 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     public sealed class GetNetworkMonitorResult
     {
         /// <summary>
+        /// Administrative state of the resource.
+        /// </summary>
+        public readonly string AdministrativeState;
+        /// <summary>
+        /// Switch configuration description.
+        /// </summary>
+        public readonly string? Annotation;
+        /// <summary>
         /// The Azure API version of the resource.
         /// </summary>
         public readonly string AzureApiVersion;
         /// <summary>
+        /// BMP Configurations for the Network Fabric.
+        /// </summary>
+        public readonly Outputs.BmpConfigurationPropertiesResponse? BmpConfiguration;
+        /// <summary>
+        /// Configuration state of the resource.
+        /// </summary>
+        public readonly string ConfigurationState;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Details of the last operation performed on the resource
+        /// </summary>
+        public readonly Outputs.LastOperationPropertiesResponse LastOperation;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -98,9 +124,9 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The NetworkFabric Properties
+        /// Provides you the latest status of the NetworkMonitor resource
         /// </summary>
-        public readonly Outputs.NetworkMonitorPropertiesResponse Properties;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -116,15 +142,25 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
 
         [OutputConstructor]
         private GetNetworkMonitorResult(
+            string administrativeState,
+
+            string? annotation,
+
             string azureApiVersion,
 
+            Outputs.BmpConfigurationPropertiesResponse? bmpConfiguration,
+
+            string configurationState,
+
             string id,
+
+            Outputs.LastOperationPropertiesResponse lastOperation,
 
             string location,
 
             string name,
 
-            Outputs.NetworkMonitorPropertiesResponse properties,
+            string provisioningState,
 
             Outputs.SystemDataResponse systemData,
 
@@ -132,11 +168,16 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
 
             string type)
         {
+            AdministrativeState = administrativeState;
+            Annotation = annotation;
             AzureApiVersion = azureApiVersion;
+            BmpConfiguration = bmpConfiguration;
+            ConfigurationState = configurationState;
             Id = id;
+            LastOperation = lastOperation;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             SystemData = systemData;
             Tags = tags;
             Type = type;

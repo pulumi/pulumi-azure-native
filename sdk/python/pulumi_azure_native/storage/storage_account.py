@@ -83,7 +83,7 @@ class StorageAccountArgs:
         :param pulumi.Input['KeyPolicyArgs'] key_policy: KeyPolicy assigned to the storage account.
         :param pulumi.Input[Union[_builtins.str, 'LargeFileSharesState']] large_file_shares_state: Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
         :param pulumi.Input[_builtins.str] location: Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
-        :param pulumi.Input[Union[_builtins.str, 'MinimumTlsVersion']] minimum_tls_version: Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
+        :param pulumi.Input[Union[_builtins.str, 'MinimumTlsVersion']] minimum_tls_version: Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property. Minimum TLS version 1.3 version is not supported.
         :param pulumi.Input['NetworkRuleSetArgs'] network_rule_set: Network rule set
         :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] public_network_access: Allow, disallow, or let Network Security Perimeter configuration to evaluate public network access to Storage Account. Value is optional but if passed in, must be 'Enabled', 'Disabled' or 'SecuredByPerimeter'.
         :param pulumi.Input['RoutingPreferenceArgs'] routing_preference: Maintains information about the network routing choice opted by the user for data transfer
@@ -468,7 +468,7 @@ class StorageAccountArgs:
     @pulumi.getter(name="minimumTlsVersion")
     def minimum_tls_version(self) -> Optional[pulumi.Input[Union[_builtins.str, 'MinimumTlsVersion']]]:
         """
-        Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
+        Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property. Minimum TLS version 1.3 version is not supported.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -581,7 +581,7 @@ class StorageAccount(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01, 2025-08-01, 2026-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -610,7 +610,7 @@ class StorageAccount(pulumi.CustomResource):
         :param pulumi.Input[Union[_builtins.str, 'Kind']] kind: Required. Indicates the type of storage account.
         :param pulumi.Input[Union[_builtins.str, 'LargeFileSharesState']] large_file_shares_state: Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
         :param pulumi.Input[_builtins.str] location: Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
-        :param pulumi.Input[Union[_builtins.str, 'MinimumTlsVersion']] minimum_tls_version: Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
+        :param pulumi.Input[Union[_builtins.str, 'MinimumTlsVersion']] minimum_tls_version: Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property. Minimum TLS version 1.3 version is not supported.
         :param pulumi.Input[Union['NetworkRuleSetArgs', 'NetworkRuleSetArgsDict']] network_rule_set: Network rule set
         :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] public_network_access: Allow, disallow, or let Network Security Perimeter configuration to evaluate public network access to Storage Account. Value is optional but if passed in, must be 'Enabled', 'Disabled' or 'SecuredByPerimeter'.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
@@ -630,7 +630,7 @@ class StorageAccount(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01, 2025-08-01, 2026-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -747,7 +747,7 @@ class StorageAccount(pulumi.CustomResource):
             __props__.__dict__["status_of_secondary"] = None
             __props__.__dict__["storage_account_sku_conversion_status"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storage/v20150501preview:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20150615:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20160101:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20160501:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20161201:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20170601:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20171001:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20180201:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20180301preview:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20180701:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20181101:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20190401:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20190601:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20200801preview:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20210101:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20210201:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20210401:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20210601:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20210801:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20210901:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20220501:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20220901:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20230101:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20230401:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20230501:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20240101:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20250101:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20250601:StorageAccount")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storage/v20150501preview:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20150615:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20160101:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20160501:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20161201:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20170601:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20171001:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20180201:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20180301preview:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20180701:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20181101:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20190401:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20190601:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20200801preview:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20210101:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20210201:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20210401:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20210601:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20210801:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20210901:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20220501:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20220901:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20230101:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20230401:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20230501:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20240101:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20250101:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20250601:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20250801:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20260401:StorageAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StorageAccount, __self__).__init__(
             'azure-native:storage:StorageAccount',
@@ -1083,7 +1083,7 @@ class StorageAccount(pulumi.CustomResource):
     @pulumi.getter(name="minimumTlsVersion")
     def minimum_tls_version(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
+        Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property. Minimum TLS version 1.3 version is not supported.
         """
         return pulumi.get(self, "minimum_tls_version")
 

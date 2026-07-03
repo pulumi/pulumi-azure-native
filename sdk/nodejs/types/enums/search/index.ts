@@ -24,7 +24,7 @@ export const ComputeType = {
      */
     Default: "Default",
     /**
-     * Create the service with Azure Confidential Compute.
+     * Create the dedicated service with Azure Confidential Compute.
      */
     Confidential: "Confidential",
 } as const;
@@ -36,11 +36,11 @@ export type ComputeType = (typeof ComputeType)[keyof typeof ComputeType];
 
 export const HostingMode = {
     /**
-     * The limit on number of indexes is determined by the default limits for the SKU.
+     * The maximum limit of indexes is determined by the SKU or pricing tier.
      */
     Default: "Default",
     /**
-     * Only application for standard3 SKU, where the search service can have up to 1000 indexes.
+     * Only applies to the Standard3 (S3) SKU, where the search services can have up to 1,000 indexes.
      */
     HighDensity: "HighDensity",
 } as const;
@@ -200,21 +200,21 @@ export type SearchEncryptionWithCmk = (typeof SearchEncryptionWithCmk)[keyof typ
 
 export const SearchSemanticSearch = {
     /**
-     * Indicates that semantic reranker is disabled for the search service. This is the default.
+     * Indicates that semantic reranker is disabled for the search service.
      */
     Disabled: "disabled",
     /**
-     * Enables semantic reranker on a search service and indicates that it is to be used within the limits of the free plan. The free plan would cap the volume of semantic ranking requests and is offered at no extra charge. This is the default for newly provisioned search services.
+     * Enables semantic reranker on a search service and indicates that it is to be used within the limits of the free plan. The free plan would cap the volume of semantic ranking requests and is offered at no extra charge. This is the default for newly provisioned search services. This is the default.
      */
     Free: "free",
     /**
-     * Enables semantic reranker on a search service as a billable feature, with higher throughput and volume of semantically reranked queries.
+     * Enables semantic reranker on a search service as a billable feature after the free quota is exhausted, with higher throughput and volume of semantically reranked queries.
      */
     Standard: "standard",
 } as const;
 
 /**
- * Sets options that control the availability of semantic search. This configuration is only possible for certain Azure AI Search SKUs in certain locations.
+ * Specifies the availability and billing plan for semantic search on the Azure AI Search service. This configuration is only available for certain pricing tiers in certain regions.
  */
 export type SearchSemanticSearch = (typeof SearchSemanticSearch)[keyof typeof SearchSemanticSearch];
 
@@ -302,17 +302,17 @@ export const SkuName = {
 } as const;
 
 /**
- * The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
+ * The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions. 'serverless': Serverless tier with auto-scaling capabilities.
  */
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 
 export const UpgradeAvailable = {
     /**
-     * An upgrade is currently not available for the service.
+     * An upgrade is currently not available for the dedicated service.
      */
     NotAvailable: "notAvailable",
     /**
-     * There is an upgrade available for the service.
+     * There is an upgrade available for the dedicated service.
      */
     Available: "available",
 } as const;

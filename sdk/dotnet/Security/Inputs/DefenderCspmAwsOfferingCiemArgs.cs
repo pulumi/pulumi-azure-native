@@ -19,13 +19,13 @@ namespace Pulumi.AzureNative.Security.Inputs
         /// Defender CSPM Permissions Management discovery configuration
         /// </summary>
         [Input("ciemDiscovery")]
-        public Input<Inputs.DefenderCspmAwsOfferingCiemDiscoveryArgs>? CiemDiscovery { get; set; }
+        public Input<Inputs.DefenderCspmAwsOfferingCiemCiemDiscoveryArgs>? CiemDiscovery { get; set; }
 
         /// <summary>
         /// AWS Defender CSPM Permissions Management OIDC (open id connect) connection configurations
         /// </summary>
         [Input("ciemOidc")]
-        public Input<Inputs.DefenderCspmAwsOfferingCiemOidcArgs>? CiemOidc { get; set; }
+        public Input<Inputs.DefenderCspmAwsOfferingCiemCiemOidcArgs>? CiemOidc { get; set; }
 
         public DefenderCspmAwsOfferingCiemArgs()
         {

@@ -37,16 +37,16 @@ class StudentArgs:
         """
         The set of arguments for constructing a Student resource.
 
-        :param pulumi.Input[_builtins.str] billing_account_name: The ID that uniquely identifies a billing account.
-        :param pulumi.Input[_builtins.str] billing_profile_name: The ID that uniquely identifies a billing profile.
+        :param pulumi.Input[_builtins.str] billing_account_name: The name of the billing account.
+        :param pulumi.Input[_builtins.str] billing_profile_name: The name of the billing profile.
         :param pulumi.Input['AmountArgs'] budget: Student Budget
         :param pulumi.Input[_builtins.str] email: Student Email
         :param pulumi.Input[_builtins.str] expiration_date: Date this student is set to expire from the lab.
         :param pulumi.Input[_builtins.str] first_name: First Name
-        :param pulumi.Input[_builtins.str] invoice_section_name: The ID that uniquely identifies an invoice section.
+        :param pulumi.Input[_builtins.str] invoice_section_name: The name of the invoice section.
         :param pulumi.Input[_builtins.str] last_name: Last Name
         :param pulumi.Input[Union[_builtins.str, 'StudentRole']] role: Student Role
-        :param pulumi.Input[_builtins.str] student_alias: Student alias.
+        :param pulumi.Input[_builtins.str] student_alias: The student alias.
         :param pulumi.Input[_builtins.str] subscription_alias: Subscription alias
         :param pulumi.Input[_builtins.str] subscription_invite_last_sent_date: subscription invite last sent date
         """
@@ -70,7 +70,7 @@ class StudentArgs:
     @pulumi.getter(name="billingAccountName")
     def billing_account_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID that uniquely identifies a billing account.
+        The name of the billing account.
         """
         return pulumi.get(self, "billing_account_name")
 
@@ -82,7 +82,7 @@ class StudentArgs:
     @pulumi.getter(name="billingProfileName")
     def billing_profile_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID that uniquely identifies a billing profile.
+        The name of the billing profile.
         """
         return pulumi.get(self, "billing_profile_name")
 
@@ -142,7 +142,7 @@ class StudentArgs:
     @pulumi.getter(name="invoiceSectionName")
     def invoice_section_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID that uniquely identifies an invoice section.
+        The name of the invoice section.
         """
         return pulumi.get(self, "invoice_section_name")
 
@@ -178,7 +178,7 @@ class StudentArgs:
     @pulumi.getter(name="studentAlias")
     def student_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Student alias.
+        The student alias.
         """
         return pulumi.get(self, "student_alias")
 
@@ -238,16 +238,16 @@ class Student(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] billing_account_name: The ID that uniquely identifies a billing account.
-        :param pulumi.Input[_builtins.str] billing_profile_name: The ID that uniquely identifies a billing profile.
+        :param pulumi.Input[_builtins.str] billing_account_name: The name of the billing account.
+        :param pulumi.Input[_builtins.str] billing_profile_name: The name of the billing profile.
         :param pulumi.Input[Union['AmountArgs', 'AmountArgsDict']] budget: Student Budget
         :param pulumi.Input[_builtins.str] email: Student Email
         :param pulumi.Input[_builtins.str] expiration_date: Date this student is set to expire from the lab.
         :param pulumi.Input[_builtins.str] first_name: First Name
-        :param pulumi.Input[_builtins.str] invoice_section_name: The ID that uniquely identifies an invoice section.
+        :param pulumi.Input[_builtins.str] invoice_section_name: The name of the invoice section.
         :param pulumi.Input[_builtins.str] last_name: Last Name
         :param pulumi.Input[Union[_builtins.str, 'StudentRole']] role: Student Role
-        :param pulumi.Input[_builtins.str] student_alias: Student alias.
+        :param pulumi.Input[_builtins.str] student_alias: The student alias.
         :param pulumi.Input[_builtins.str] subscription_alias: Subscription alias
         :param pulumi.Input[_builtins.str] subscription_invite_last_sent_date: subscription invite last sent date
         """

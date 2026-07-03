@@ -48,7 +48,7 @@ export class WebTest extends pulumi.CustomResource {
     /**
      * An XML configuration specification for a WebTest.
      */
-    declare public readonly configuration: pulumi.Output<outputs.applicationinsights.WebTestPropertiesResponseConfiguration | undefined>;
+    declare public readonly configuration: pulumi.Output<outputs.applicationinsights.WebTestPropertiesConfigurationResponse | undefined>;
     /**
      * User defined description for this WebTest.
      */
@@ -84,7 +84,7 @@ export class WebTest extends pulumi.CustomResource {
     /**
      * The collection of request properties
      */
-    declare public readonly request: pulumi.Output<outputs.applicationinsights.WebTestPropertiesResponseRequest | undefined>;
+    declare public readonly request: pulumi.Output<outputs.applicationinsights.WebTestPropertiesRequestResponse | undefined>;
     /**
      * Allow for retries should this WebTest fail.
      */
@@ -108,7 +108,7 @@ export class WebTest extends pulumi.CustomResource {
     /**
      * The collection of validation rule properties
      */
-    declare public readonly validationRules: pulumi.Output<outputs.applicationinsights.WebTestPropertiesResponseValidationRules | undefined>;
+    declare public readonly validationRules: pulumi.Output<outputs.applicationinsights.WebTestPropertiesValidationRulesResponse | undefined>;
     /**
      * The kind of web test this is, valid choices are ping, multistep and standard.
      */

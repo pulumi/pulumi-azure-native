@@ -930,37 +930,6 @@ namespace Pulumi.AzureNative.SecurityInsights
     }
 
     /// <summary>
-    /// Content type.
-    /// </summary>
-    [EnumType]
-    public readonly struct ContentType : IEquatable<ContentType>
-    {
-        private readonly string _value;
-
-        private ContentType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ContentType AnalyticsRule { get; } = new ContentType("AnalyticsRule");
-        public static ContentType Workbook { get; } = new ContentType("Workbook");
-
-        public static bool operator ==(ContentType left, ContentType right) => left.Equals(right);
-        public static bool operator !=(ContentType left, ContentType right) => !left.Equals(right);
-
-        public static explicit operator string(ContentType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ContentType other && Equals(other);
-        public bool Equals(ContentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// the entity query kind
     /// </summary>
     [EnumType]
@@ -1084,103 +1053,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataTypeState other && Equals(other);
         public bool Equals(DataTypeState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Status while fetching the last deployment.
-    /// </summary>
-    [EnumType]
-    public readonly struct DeploymentFetchStatus : IEquatable<DeploymentFetchStatus>
-    {
-        private readonly string _value;
-
-        private DeploymentFetchStatus(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DeploymentFetchStatus Success { get; } = new DeploymentFetchStatus("Success");
-        public static DeploymentFetchStatus Unauthorized { get; } = new DeploymentFetchStatus("Unauthorized");
-        public static DeploymentFetchStatus NotFound { get; } = new DeploymentFetchStatus("NotFound");
-
-        public static bool operator ==(DeploymentFetchStatus left, DeploymentFetchStatus right) => left.Equals(right);
-        public static bool operator !=(DeploymentFetchStatus left, DeploymentFetchStatus right) => !left.Equals(right);
-
-        public static explicit operator string(DeploymentFetchStatus value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DeploymentFetchStatus other && Equals(other);
-        public bool Equals(DeploymentFetchStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The outcome of the deployment.
-    /// </summary>
-    [EnumType]
-    public readonly struct DeploymentResult : IEquatable<DeploymentResult>
-    {
-        private readonly string _value;
-
-        private DeploymentResult(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DeploymentResult Success { get; } = new DeploymentResult("Success");
-        public static DeploymentResult Canceled { get; } = new DeploymentResult("Canceled");
-        public static DeploymentResult Failed { get; } = new DeploymentResult("Failed");
-
-        public static bool operator ==(DeploymentResult left, DeploymentResult right) => left.Equals(right);
-        public static bool operator !=(DeploymentResult left, DeploymentResult right) => !left.Equals(right);
-
-        public static explicit operator string(DeploymentResult value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DeploymentResult other && Equals(other);
-        public bool Equals(DeploymentResult other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Current status of the deployment.
-    /// </summary>
-    [EnumType]
-    public readonly struct DeploymentState : IEquatable<DeploymentState>
-    {
-        private readonly string _value;
-
-        private DeploymentState(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DeploymentState In_Progress { get; } = new DeploymentState("In_Progress");
-        public static DeploymentState Completed { get; } = new DeploymentState("Completed");
-        public static DeploymentState Queued { get; } = new DeploymentState("Queued");
-        public static DeploymentState Canceling { get; } = new DeploymentState("Canceling");
-
-        public static bool operator ==(DeploymentState left, DeploymentState right) => left.Equals(right);
-        public static bool operator !=(DeploymentState left, DeploymentState right) => !left.Equals(right);
-
-        public static explicit operator string(DeploymentState value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DeploymentState other && Equals(other);
-        public bool Equals(DeploymentState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -2239,37 +2111,6 @@ namespace Pulumi.AzureNative.SecurityInsights
     }
 
     /// <summary>
-    /// The repository type of the source control
-    /// </summary>
-    [EnumType]
-    public readonly struct RepoType : IEquatable<RepoType>
-    {
-        private readonly string _value;
-
-        private RepoType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static RepoType Github { get; } = new RepoType("Github");
-        public static RepoType DevOps { get; } = new RepoType("DevOps");
-
-        public static bool operator ==(RepoType left, RepoType right) => left.Equals(right);
-        public static bool operator !=(RepoType left, RepoType right) => !left.Equals(right);
-
-        public static explicit operator string(RepoType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is RepoType other && Equals(other);
-        public bool Equals(RepoType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The kind of repository access credentials
     /// </summary>
     [EnumType]
@@ -2733,37 +2574,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is UebaDataSources other && Equals(other);
         public bool Equals(UebaDataSources other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The version number associated with the source control
-    /// </summary>
-    [EnumType]
-    public readonly struct Version : IEquatable<Version>
-    {
-        private readonly string _value;
-
-        private Version(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static Version V1 { get; } = new Version("V1");
-        public static Version V2 { get; } = new Version("V2");
-
-        public static bool operator ==(Version left, Version right) => left.Equals(right);
-        public static bool operator !=(Version left, Version right) => !left.Equals(right);
-
-        public static explicit operator string(Version value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is Version other && Equals(other);
-        public bool Equals(Version other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

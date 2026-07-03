@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.Redis
                     new global::Pulumi.Alias { Type = "azure-native:redis/v20240301:RedisFirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:redis/v20240401preview:RedisFirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:redis/v20241101:RedisFirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:redis/v20250801preview:RedisFirewallRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

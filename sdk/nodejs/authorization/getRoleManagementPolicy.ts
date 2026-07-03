@@ -28,7 +28,7 @@ export interface GetRoleManagementPolicyArgs {
      */
     roleManagementPolicyName: string;
     /**
-     * The scope of the role management policy.
+     * The fully qualified Azure Resource manager identifier of the resource.
      */
     scope: string;
 }
@@ -54,7 +54,7 @@ export interface GetRoleManagementPolicyResult {
      */
     readonly effectiveRules: (outputs.authorization.RoleManagementPolicyApprovalRuleResponse | outputs.authorization.RoleManagementPolicyAuthenticationContextRuleResponse | outputs.authorization.RoleManagementPolicyEnablementRuleResponse | outputs.authorization.RoleManagementPolicyExpirationRuleResponse | outputs.authorization.RoleManagementPolicyNotificationRuleResponse | outputs.authorization.RoleManagementPolicyPimOnlyModeRuleResponse)[];
     /**
-     * The role management policy Id.
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -64,13 +64,13 @@ export interface GetRoleManagementPolicyResult {
     /**
      * The name of the entity last modified it
      */
-    readonly lastModifiedBy: outputs.authorization.PrincipalResponse;
+    readonly lastModifiedBy: outputs.authorization.MicrosoftCommonPrincipalResponse;
     /**
      * The last modified date time.
      */
     readonly lastModifiedDateTime: string;
     /**
-     * The role management policy name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -86,7 +86,11 @@ export interface GetRoleManagementPolicyResult {
      */
     readonly scope?: string;
     /**
-     * The role management policy type.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.authorization.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
@@ -111,7 +115,7 @@ export interface GetRoleManagementPolicyOutputArgs {
      */
     roleManagementPolicyName: pulumi.Input<string>;
     /**
-     * The scope of the role management policy.
+     * The fully qualified Azure Resource manager identifier of the resource.
      */
     scope: pulumi.Input<string>;
 }

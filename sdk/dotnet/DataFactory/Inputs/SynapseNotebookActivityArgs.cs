@@ -105,17 +105,11 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("policy")]
         public Input<Inputs.ActivityPolicyArgs>? Policy { get; set; }
 
-        [Input("sparkConfig")]
-        private InputMap<object>? _sparkConfig;
-
         /// <summary>
         /// Spark configuration property.
         /// </summary>
-        public InputMap<object> SparkConfig
-        {
-            get => _sparkConfig ?? (_sparkConfig = new InputMap<object>());
-            set => _sparkConfig = value;
-        }
+        [Input("sparkConfig")]
+        public Input<object>? SparkConfig { get; set; }
 
         /// <summary>
         /// The name of the big data pool which will be used to execute the notebook.

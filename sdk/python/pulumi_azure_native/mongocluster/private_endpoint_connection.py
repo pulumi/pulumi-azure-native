@@ -106,7 +106,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-07-01.
 
-        Other available API versions: 2024-03-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview, 2025-08-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mongocluster [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2024-03-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview, 2025-08-01-preview, 2025-09-01, 2026-02-01-preview, 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mongocluster [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -127,7 +127,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-07-01.
 
-        Other available API versions: 2024-03-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview, 2025-08-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mongocluster [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2024-03-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview, 2025-08-01-preview, 2025-09-01, 2026-02-01-preview, 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mongocluster [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -170,7 +170,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb/v20240301preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20240601preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20240701:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20241001preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:mongocluster/v20240301preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:mongocluster/v20240601preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:mongocluster/v20240701:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:mongocluster/v20241001preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:mongocluster/v20250401preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:mongocluster/v20250701preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:mongocluster/v20250801preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:mongocluster/v20250901:PrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb/v20240301preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20240601preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20240701:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:documentdb/v20241001preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:mongocluster/v20240301preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:mongocluster/v20240601preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:mongocluster/v20240701:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:mongocluster/v20241001preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:mongocluster/v20250401preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:mongocluster/v20250701preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:mongocluster/v20250801preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:mongocluster/v20250901:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:mongocluster/v20260201preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:mongocluster/v20260601:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azure-native:mongocluster:PrivateEndpointConnection',

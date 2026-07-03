@@ -59,7 +59,7 @@ def list_key_by_automation_account(automation_account_name: Optional[_builtins.s
 
 
     :param _builtins.str automation_account_name: The name of the automation account.
-    :param _builtins.str resource_group_name: Name of an Azure Resource group.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
@@ -81,7 +81,7 @@ def list_key_by_automation_account_output(automation_account_name: Optional[pulu
 
 
     :param _builtins.str automation_account_name: The name of the automation account.
-    :param _builtins.str resource_group_name: Name of an Azure Resource group.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name

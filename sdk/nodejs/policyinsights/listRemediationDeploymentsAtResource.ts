@@ -43,11 +43,11 @@ export interface ListRemediationDeploymentsAtResourceArgs {
  */
 export interface ListRemediationDeploymentsAtResourceResult {
     /**
-     * The URL to get the next set of results.
+     * The link to the next page of items
      */
-    readonly nextLink: string;
+    readonly nextLink?: string;
     /**
-     * Array of deployments for the remediation.
+     * The RemediationDeployment items on this page
      */
     readonly value: outputs.policyinsights.RemediationDeploymentResponse[];
 }

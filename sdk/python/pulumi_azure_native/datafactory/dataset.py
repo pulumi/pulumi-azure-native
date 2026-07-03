@@ -31,7 +31,7 @@ class DatasetArgs:
 
         :param pulumi.Input[_builtins.str] factory_name: The factory name.
         :param pulumi.Input[Union['AmazonMWSObjectDatasetArgs', 'AmazonRdsForOracleTableDatasetArgs', 'AmazonRdsForSqlServerTableDatasetArgs', 'AmazonRedshiftTableDatasetArgs', 'AmazonS3DatasetArgs', 'AvroDatasetArgs', 'AzureBlobDatasetArgs', 'AzureBlobFSDatasetArgs', 'AzureDataExplorerTableDatasetArgs', 'AzureDataLakeStoreDatasetArgs', 'AzureDatabricksDeltaLakeDatasetArgs', 'AzureMariaDBTableDatasetArgs', 'AzureMySqlTableDatasetArgs', 'AzurePostgreSqlTableDatasetArgs', 'AzureSearchIndexDatasetArgs', 'AzureSqlDWTableDatasetArgs', 'AzureSqlMITableDatasetArgs', 'AzureSqlTableDatasetArgs', 'AzureTableDatasetArgs', 'BinaryDatasetArgs', 'CassandraTableDatasetArgs', 'CommonDataServiceForAppsEntityDatasetArgs', 'ConcurObjectDatasetArgs', 'CosmosDbMongoDbApiCollectionDatasetArgs', 'CosmosDbSqlApiCollectionDatasetArgs', 'CouchbaseTableDatasetArgs', 'CustomDatasetArgs', 'Db2TableDatasetArgs', 'DelimitedTextDatasetArgs', 'DocumentDbCollectionDatasetArgs', 'DrillTableDatasetArgs', 'DynamicsAXResourceDatasetArgs', 'DynamicsCrmEntityDatasetArgs', 'DynamicsEntityDatasetArgs', 'EloquaObjectDatasetArgs', 'ExcelDatasetArgs', 'FileShareDatasetArgs', 'GoogleAdWordsObjectDatasetArgs', 'GoogleBigQueryObjectDatasetArgs', 'GoogleBigQueryV2ObjectDatasetArgs', 'GreenplumTableDatasetArgs', 'HBaseObjectDatasetArgs', 'HiveObjectDatasetArgs', 'HttpDatasetArgs', 'HubspotObjectDatasetArgs', 'IcebergDatasetArgs', 'ImpalaObjectDatasetArgs', 'InformixTableDatasetArgs', 'JiraObjectDatasetArgs', 'JsonDatasetArgs', 'LakeHouseTableDatasetArgs', 'MagentoObjectDatasetArgs', 'MariaDBTableDatasetArgs', 'MarketoObjectDatasetArgs', 'MicrosoftAccessTableDatasetArgs', 'MongoDbAtlasCollectionDatasetArgs', 'MongoDbCollectionDatasetArgs', 'MongoDbV2CollectionDatasetArgs', 'MySqlTableDatasetArgs', 'NetezzaTableDatasetArgs', 'ODataResourceDatasetArgs', 'OdbcTableDatasetArgs', 'Office365DatasetArgs', 'OracleServiceCloudObjectDatasetArgs', 'OracleTableDatasetArgs', 'OrcDatasetArgs', 'ParquetDatasetArgs', 'PaypalObjectDatasetArgs', 'PhoenixObjectDatasetArgs', 'PostgreSqlTableDatasetArgs', 'PostgreSqlV2TableDatasetArgs', 'PrestoObjectDatasetArgs', 'QuickBooksObjectDatasetArgs', 'RelationalTableDatasetArgs', 'ResponsysObjectDatasetArgs', 'RestResourceDatasetArgs', 'SalesforceMarketingCloudObjectDatasetArgs', 'SalesforceObjectDatasetArgs', 'SalesforceServiceCloudObjectDatasetArgs', 'SalesforceServiceCloudV2ObjectDatasetArgs', 'SalesforceV2ObjectDatasetArgs', 'SapBwCubeDatasetArgs', 'SapCloudForCustomerResourceDatasetArgs', 'SapEccResourceDatasetArgs', 'SapHanaTableDatasetArgs', 'SapOdpResourceDatasetArgs', 'SapOpenHubTableDatasetArgs', 'SapTableResourceDatasetArgs', 'ServiceNowObjectDatasetArgs', 'ServiceNowV2ObjectDatasetArgs', 'SharePointOnlineListResourceDatasetArgs', 'ShopifyObjectDatasetArgs', 'SnowflakeDatasetArgs', 'SnowflakeV2DatasetArgs', 'SparkObjectDatasetArgs', 'SqlServerTableDatasetArgs', 'SquareObjectDatasetArgs', 'SybaseTableDatasetArgs', 'TeradataTableDatasetArgs', 'VerticaTableDatasetArgs', 'WarehouseTableDatasetArgs', 'WebTableDatasetArgs', 'XeroObjectDatasetArgs', 'XmlDatasetArgs', 'ZohoObjectDatasetArgs']] properties: Dataset properties.
-        :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] dataset_name: The dataset name.
         """
         pulumi.set(__self__, "factory_name", factory_name)
@@ -68,7 +68,7 @@ class DatasetArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The resource group name.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -111,7 +111,7 @@ class Dataset(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] dataset_name: The dataset name.
         :param pulumi.Input[_builtins.str] factory_name: The factory name.
         :param pulumi.Input[Union[Union['AmazonMWSObjectDatasetArgs', 'AmazonMWSObjectDatasetArgsDict'], Union['AmazonRdsForOracleTableDatasetArgs', 'AmazonRdsForOracleTableDatasetArgsDict'], Union['AmazonRdsForSqlServerTableDatasetArgs', 'AmazonRdsForSqlServerTableDatasetArgsDict'], Union['AmazonRedshiftTableDatasetArgs', 'AmazonRedshiftTableDatasetArgsDict'], Union['AmazonS3DatasetArgs', 'AmazonS3DatasetArgsDict'], Union['AvroDatasetArgs', 'AvroDatasetArgsDict'], Union['AzureBlobDatasetArgs', 'AzureBlobDatasetArgsDict'], Union['AzureBlobFSDatasetArgs', 'AzureBlobFSDatasetArgsDict'], Union['AzureDataExplorerTableDatasetArgs', 'AzureDataExplorerTableDatasetArgsDict'], Union['AzureDataLakeStoreDatasetArgs', 'AzureDataLakeStoreDatasetArgsDict'], Union['AzureDatabricksDeltaLakeDatasetArgs', 'AzureDatabricksDeltaLakeDatasetArgsDict'], Union['AzureMariaDBTableDatasetArgs', 'AzureMariaDBTableDatasetArgsDict'], Union['AzureMySqlTableDatasetArgs', 'AzureMySqlTableDatasetArgsDict'], Union['AzurePostgreSqlTableDatasetArgs', 'AzurePostgreSqlTableDatasetArgsDict'], Union['AzureSearchIndexDatasetArgs', 'AzureSearchIndexDatasetArgsDict'], Union['AzureSqlDWTableDatasetArgs', 'AzureSqlDWTableDatasetArgsDict'], Union['AzureSqlMITableDatasetArgs', 'AzureSqlMITableDatasetArgsDict'], Union['AzureSqlTableDatasetArgs', 'AzureSqlTableDatasetArgsDict'], Union['AzureTableDatasetArgs', 'AzureTableDatasetArgsDict'], Union['BinaryDatasetArgs', 'BinaryDatasetArgsDict'], Union['CassandraTableDatasetArgs', 'CassandraTableDatasetArgsDict'], Union['CommonDataServiceForAppsEntityDatasetArgs', 'CommonDataServiceForAppsEntityDatasetArgsDict'], Union['ConcurObjectDatasetArgs', 'ConcurObjectDatasetArgsDict'], Union['CosmosDbMongoDbApiCollectionDatasetArgs', 'CosmosDbMongoDbApiCollectionDatasetArgsDict'], Union['CosmosDbSqlApiCollectionDatasetArgs', 'CosmosDbSqlApiCollectionDatasetArgsDict'], Union['CouchbaseTableDatasetArgs', 'CouchbaseTableDatasetArgsDict'], Union['CustomDatasetArgs', 'CustomDatasetArgsDict'], Union['Db2TableDatasetArgs', 'Db2TableDatasetArgsDict'], Union['DelimitedTextDatasetArgs', 'DelimitedTextDatasetArgsDict'], Union['DocumentDbCollectionDatasetArgs', 'DocumentDbCollectionDatasetArgsDict'], Union['DrillTableDatasetArgs', 'DrillTableDatasetArgsDict'], Union['DynamicsAXResourceDatasetArgs', 'DynamicsAXResourceDatasetArgsDict'], Union['DynamicsCrmEntityDatasetArgs', 'DynamicsCrmEntityDatasetArgsDict'], Union['DynamicsEntityDatasetArgs', 'DynamicsEntityDatasetArgsDict'], Union['EloquaObjectDatasetArgs', 'EloquaObjectDatasetArgsDict'], Union['ExcelDatasetArgs', 'ExcelDatasetArgsDict'], Union['FileShareDatasetArgs', 'FileShareDatasetArgsDict'], Union['GoogleAdWordsObjectDatasetArgs', 'GoogleAdWordsObjectDatasetArgsDict'], Union['GoogleBigQueryObjectDatasetArgs', 'GoogleBigQueryObjectDatasetArgsDict'], Union['GoogleBigQueryV2ObjectDatasetArgs', 'GoogleBigQueryV2ObjectDatasetArgsDict'], Union['GreenplumTableDatasetArgs', 'GreenplumTableDatasetArgsDict'], Union['HBaseObjectDatasetArgs', 'HBaseObjectDatasetArgsDict'], Union['HiveObjectDatasetArgs', 'HiveObjectDatasetArgsDict'], Union['HttpDatasetArgs', 'HttpDatasetArgsDict'], Union['HubspotObjectDatasetArgs', 'HubspotObjectDatasetArgsDict'], Union['IcebergDatasetArgs', 'IcebergDatasetArgsDict'], Union['ImpalaObjectDatasetArgs', 'ImpalaObjectDatasetArgsDict'], Union['InformixTableDatasetArgs', 'InformixTableDatasetArgsDict'], Union['JiraObjectDatasetArgs', 'JiraObjectDatasetArgsDict'], Union['JsonDatasetArgs', 'JsonDatasetArgsDict'], Union['LakeHouseTableDatasetArgs', 'LakeHouseTableDatasetArgsDict'], Union['MagentoObjectDatasetArgs', 'MagentoObjectDatasetArgsDict'], Union['MariaDBTableDatasetArgs', 'MariaDBTableDatasetArgsDict'], Union['MarketoObjectDatasetArgs', 'MarketoObjectDatasetArgsDict'], Union['MicrosoftAccessTableDatasetArgs', 'MicrosoftAccessTableDatasetArgsDict'], Union['MongoDbAtlasCollectionDatasetArgs', 'MongoDbAtlasCollectionDatasetArgsDict'], Union['MongoDbCollectionDatasetArgs', 'MongoDbCollectionDatasetArgsDict'], Union['MongoDbV2CollectionDatasetArgs', 'MongoDbV2CollectionDatasetArgsDict'], Union['MySqlTableDatasetArgs', 'MySqlTableDatasetArgsDict'], Union['NetezzaTableDatasetArgs', 'NetezzaTableDatasetArgsDict'], Union['ODataResourceDatasetArgs', 'ODataResourceDatasetArgsDict'], Union['OdbcTableDatasetArgs', 'OdbcTableDatasetArgsDict'], Union['Office365DatasetArgs', 'Office365DatasetArgsDict'], Union['OracleServiceCloudObjectDatasetArgs', 'OracleServiceCloudObjectDatasetArgsDict'], Union['OracleTableDatasetArgs', 'OracleTableDatasetArgsDict'], Union['OrcDatasetArgs', 'OrcDatasetArgsDict'], Union['ParquetDatasetArgs', 'ParquetDatasetArgsDict'], Union['PaypalObjectDatasetArgs', 'PaypalObjectDatasetArgsDict'], Union['PhoenixObjectDatasetArgs', 'PhoenixObjectDatasetArgsDict'], Union['PostgreSqlTableDatasetArgs', 'PostgreSqlTableDatasetArgsDict'], Union['PostgreSqlV2TableDatasetArgs', 'PostgreSqlV2TableDatasetArgsDict'], Union['PrestoObjectDatasetArgs', 'PrestoObjectDatasetArgsDict'], Union['QuickBooksObjectDatasetArgs', 'QuickBooksObjectDatasetArgsDict'], Union['RelationalTableDatasetArgs', 'RelationalTableDatasetArgsDict'], Union['ResponsysObjectDatasetArgs', 'ResponsysObjectDatasetArgsDict'], Union['RestResourceDatasetArgs', 'RestResourceDatasetArgsDict'], Union['SalesforceMarketingCloudObjectDatasetArgs', 'SalesforceMarketingCloudObjectDatasetArgsDict'], Union['SalesforceObjectDatasetArgs', 'SalesforceObjectDatasetArgsDict'], Union['SalesforceServiceCloudObjectDatasetArgs', 'SalesforceServiceCloudObjectDatasetArgsDict'], Union['SalesforceServiceCloudV2ObjectDatasetArgs', 'SalesforceServiceCloudV2ObjectDatasetArgsDict'], Union['SalesforceV2ObjectDatasetArgs', 'SalesforceV2ObjectDatasetArgsDict'], Union['SapBwCubeDatasetArgs', 'SapBwCubeDatasetArgsDict'], Union['SapCloudForCustomerResourceDatasetArgs', 'SapCloudForCustomerResourceDatasetArgsDict'], Union['SapEccResourceDatasetArgs', 'SapEccResourceDatasetArgsDict'], Union['SapHanaTableDatasetArgs', 'SapHanaTableDatasetArgsDict'], Union['SapOdpResourceDatasetArgs', 'SapOdpResourceDatasetArgsDict'], Union['SapOpenHubTableDatasetArgs', 'SapOpenHubTableDatasetArgsDict'], Union['SapTableResourceDatasetArgs', 'SapTableResourceDatasetArgsDict'], Union['ServiceNowObjectDatasetArgs', 'ServiceNowObjectDatasetArgsDict'], Union['ServiceNowV2ObjectDatasetArgs', 'ServiceNowV2ObjectDatasetArgsDict'], Union['SharePointOnlineListResourceDatasetArgs', 'SharePointOnlineListResourceDatasetArgsDict'], Union['ShopifyObjectDatasetArgs', 'ShopifyObjectDatasetArgsDict'], Union['SnowflakeDatasetArgs', 'SnowflakeDatasetArgsDict'], Union['SnowflakeV2DatasetArgs', 'SnowflakeV2DatasetArgsDict'], Union['SparkObjectDatasetArgs', 'SparkObjectDatasetArgsDict'], Union['SqlServerTableDatasetArgs', 'SqlServerTableDatasetArgsDict'], Union['SquareObjectDatasetArgs', 'SquareObjectDatasetArgsDict'], Union['SybaseTableDatasetArgs', 'SybaseTableDatasetArgsDict'], Union['TeradataTableDatasetArgs', 'TeradataTableDatasetArgsDict'], Union['VerticaTableDatasetArgs', 'VerticaTableDatasetArgsDict'], Union['WarehouseTableDatasetArgs', 'WarehouseTableDatasetArgsDict'], Union['WebTableDatasetArgs', 'WebTableDatasetArgsDict'], Union['XeroObjectDatasetArgs', 'XeroObjectDatasetArgsDict'], Union['XmlDatasetArgs', 'XmlDatasetArgsDict'], Union['ZohoObjectDatasetArgs', 'ZohoObjectDatasetArgsDict']]] properties: Dataset properties.
-        :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
     @overload
@@ -166,6 +166,7 @@ class Dataset(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datafactory/v20170901preview:Dataset"), pulumi.Alias(type_="azure-native:datafactory/v20180601:Dataset")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -195,6 +196,7 @@ class Dataset(pulumi.CustomResource):
         __props__.__dict__["etag"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return Dataset(resource_name, opts=opts, __props__=__props__)
 
@@ -210,7 +212,7 @@ class Dataset(pulumi.CustomResource):
     @pulumi.getter
     def etag(self) -> pulumi.Output[_builtins.str]:
         """
-        Etag identifies change in the resource.
+        "If etag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.")
         """
         return pulumi.get(self, "etag")
 
@@ -218,7 +220,7 @@ class Dataset(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -231,10 +233,18 @@ class Dataset(pulumi.CustomResource):
         return pulumi.get(self, "properties")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        The resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

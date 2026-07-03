@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DurableTask
     /// 
     /// Uses Azure REST API version 2024-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-10-01-preview.
     /// 
-    /// Other available API versions: 2025-04-01-preview, 2025-11-01, 2026-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native durabletask [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2025-04-01-preview, 2025-11-01, 2026-02-01, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native durabletask [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:durabletask:Scheduler")]
     public partial class Scheduler : global::Pulumi.CustomResource
@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.DurableTask
                     new global::Pulumi.Alias { Type = "azure-native:durabletask/v20250401preview:Scheduler" },
                     new global::Pulumi.Alias { Type = "azure-native:durabletask/v20251101:Scheduler" },
                     new global::Pulumi.Alias { Type = "azure-native:durabletask/v20260201:Scheduler" },
+                    new global::Pulumi.Alias { Type = "azure-native:durabletask/v20260501preview:Scheduler" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

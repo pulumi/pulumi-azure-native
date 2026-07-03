@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// DevicePool details.
     /// 
     /// Uses Azure REST API version 2026-03-01-preview.
+    /// 
+    /// Other available API versions: 2026-04-01-preview, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:DevicePool")]
     public partial class DevicePool : global::Pulumi.CustomResource
@@ -91,6 +93,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20260301preview:DevicePool" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20260401preview:DevicePool" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20260501preview:DevicePool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

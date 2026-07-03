@@ -23,7 +23,7 @@ __all__ = ['StandardAssignmentArgs', 'StandardAssignment']
 class StandardAssignmentArgs:
     def __init__(__self__, *,
                  resource_id: pulumi.Input[_builtins.str],
-                 assigned_standard: Optional[pulumi.Input['AssignedStandardItemArgs']] = None,
+                 assigned_standard: Optional[pulumi.Input['CommonAssignedStandardItemArgs']] = None,
                  attestation_data: Optional[pulumi.Input['StandardAssignmentPropertiesAttestationDataArgs']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -35,8 +35,8 @@ class StandardAssignmentArgs:
         """
         The set of arguments for constructing a StandardAssignment resource.
 
-        :param pulumi.Input[_builtins.str] resource_id: The identifier of the resource.
-        :param pulumi.Input['AssignedStandardItemArgs'] assigned_standard: Standard item with key as applied to this standard assignment over the given scope
+        :param pulumi.Input[_builtins.str] resource_id: The fully qualified Azure Resource manager identifier of the resource.
+        :param pulumi.Input['CommonAssignedStandardItemArgs'] assigned_standard: Standard item with key as applied to this standard assignment over the given scope
         :param pulumi.Input['StandardAssignmentPropertiesAttestationDataArgs'] attestation_data: Additional data about assignment that has Attest effect
         :param pulumi.Input[_builtins.str] description: Description of the standardAssignment
         :param pulumi.Input[_builtins.str] display_name: Display name of the standardAssignment
@@ -70,7 +70,7 @@ class StandardAssignmentArgs:
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The identifier of the resource.
+        The fully qualified Azure Resource manager identifier of the resource.
         """
         return pulumi.get(self, "resource_id")
 
@@ -80,14 +80,14 @@ class StandardAssignmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="assignedStandard")
-    def assigned_standard(self) -> Optional[pulumi.Input['AssignedStandardItemArgs']]:
+    def assigned_standard(self) -> Optional[pulumi.Input['CommonAssignedStandardItemArgs']]:
         """
         Standard item with key as applied to this standard assignment over the given scope
         """
         return pulumi.get(self, "assigned_standard")
 
     @assigned_standard.setter
-    def assigned_standard(self, value: Optional[pulumi.Input['AssignedStandardItemArgs']]):
+    def assigned_standard(self, value: Optional[pulumi.Input['CommonAssignedStandardItemArgs']]):
         pulumi.set(self, "assigned_standard", value)
 
     @_builtins.property
@@ -193,7 +193,7 @@ class StandardAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assigned_standard: Optional[pulumi.Input[Union['AssignedStandardItemArgs', 'AssignedStandardItemArgsDict']]] = None,
+                 assigned_standard: Optional[pulumi.Input[Union['CommonAssignedStandardItemArgs', 'CommonAssignedStandardItemArgsDict']]] = None,
                  attestation_data: Optional[pulumi.Input[Union['StandardAssignmentPropertiesAttestationDataArgs', 'StandardAssignmentPropertiesAttestationDataArgsDict']]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -212,7 +212,7 @@ class StandardAssignment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AssignedStandardItemArgs', 'AssignedStandardItemArgsDict']] assigned_standard: Standard item with key as applied to this standard assignment over the given scope
+        :param pulumi.Input[Union['CommonAssignedStandardItemArgs', 'CommonAssignedStandardItemArgsDict']] assigned_standard: Standard item with key as applied to this standard assignment over the given scope
         :param pulumi.Input[Union['StandardAssignmentPropertiesAttestationDataArgs', 'StandardAssignmentPropertiesAttestationDataArgsDict']] attestation_data: Additional data about assignment that has Attest effect
         :param pulumi.Input[_builtins.str] description: Description of the standardAssignment
         :param pulumi.Input[_builtins.str] display_name: Display name of the standardAssignment
@@ -220,7 +220,7 @@ class StandardAssignment(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_scopes: Excluded scopes, filter out the descendants of the scope (on management scopes)
         :param pulumi.Input[Union['StandardAssignmentPropertiesExemptionDataArgs', 'StandardAssignmentPropertiesExemptionDataArgsDict']] exemption_data: Additional data about assignment that has Exempt effect
         :param pulumi.Input[_builtins.str] expires_on: Expiration date of this assignment as a full ISO date
-        :param pulumi.Input[_builtins.str] resource_id: The identifier of the resource.
+        :param pulumi.Input[_builtins.str] resource_id: The fully qualified Azure Resource manager identifier of the resource.
         :param pulumi.Input[_builtins.str] standard_assignment_name: The standard assignments assignment key - unique key for the standard assignment
         """
         ...
@@ -250,7 +250,7 @@ class StandardAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assigned_standard: Optional[pulumi.Input[Union['AssignedStandardItemArgs', 'AssignedStandardItemArgsDict']]] = None,
+                 assigned_standard: Optional[pulumi.Input[Union['CommonAssignedStandardItemArgs', 'CommonAssignedStandardItemArgsDict']]] = None,
                  attestation_data: Optional[pulumi.Input[Union['StandardAssignmentPropertiesAttestationDataArgs', 'StandardAssignmentPropertiesAttestationDataArgsDict']]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -284,6 +284,7 @@ class StandardAssignment(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["metadata"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20240801:StandardAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -320,12 +321,13 @@ class StandardAssignment(pulumi.CustomResource):
         __props__.__dict__["expires_on"] = None
         __props__.__dict__["metadata"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return StandardAssignment(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
     @pulumi.getter(name="assignedStandard")
-    def assigned_standard(self) -> pulumi.Output[Optional['outputs.AssignedStandardItemResponse']]:
+    def assigned_standard(self) -> pulumi.Output[Optional['outputs.CommonAssignedStandardItemResponse']]:
         """
         Standard item with key as applied to this standard assignment over the given scope
         """
@@ -333,7 +335,7 @@ class StandardAssignment(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="attestationData")
-    def attestation_data(self) -> pulumi.Output[Optional['outputs.StandardAssignmentPropertiesResponseAttestationData']]:
+    def attestation_data(self) -> pulumi.Output[Optional['outputs.StandardAssignmentPropertiesAttestationDataResponse']]:
         """
         Additional data about assignment that has Attest effect
         """
@@ -381,7 +383,7 @@ class StandardAssignment(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="exemptionData")
-    def exemption_data(self) -> pulumi.Output[Optional['outputs.StandardAssignmentPropertiesResponseExemptionData']]:
+    def exemption_data(self) -> pulumi.Output[Optional['outputs.StandardAssignmentPropertiesExemptionDataResponse']]:
         """
         Additional data about assignment that has Exempt effect
         """
@@ -407,15 +409,23 @@ class StandardAssignment(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

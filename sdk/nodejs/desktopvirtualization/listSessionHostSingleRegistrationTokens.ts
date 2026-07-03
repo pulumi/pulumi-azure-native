@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Operation to list the scoped RegistrationTokens associated with the SessionHost.
  *
  * Uses Azure REST API version 2026-01-01-preview.
+ *
+ * Other available API versions: 2026-03-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listSessionHostSingleRegistrationTokens(args: ListSessionHostSingleRegistrationTokensArgs, opts?: pulumi.InvokeOptions): Promise<ListSessionHostSingleRegistrationTokensResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -58,6 +60,8 @@ export interface ListSessionHostSingleRegistrationTokensResult {
  * Operation to list the scoped RegistrationTokens associated with the SessionHost.
  *
  * Uses Azure REST API version 2026-01-01-preview.
+ *
+ * Other available API versions: 2026-03-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listSessionHostSingleRegistrationTokensOutput(args: ListSessionHostSingleRegistrationTokensOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListSessionHostSingleRegistrationTokensResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

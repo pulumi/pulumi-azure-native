@@ -62,7 +62,7 @@ namespace Pulumi.AzureNative.BillingBenefits
         public Output<string?> EndAt { get; private set; } = null!;
 
         /// <summary>
-        /// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+        /// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
@@ -302,6 +302,12 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// </summary>
         [Input("productCode")]
         public Input<string>? ProductCode { get; set; }
+
+        /// <summary>
+        /// The reason for the credit. Not required if not applicable.
+        /// </summary>
+        [Input("reason")]
+        public Input<Inputs.CreditReasonArgs>? Reason { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

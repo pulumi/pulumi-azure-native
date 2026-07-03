@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// Operation to list the scoped RegistrationTokens associated with the SessionHost.
         /// 
         /// Uses Azure REST API version 2026-01-01-preview.
+        /// 
+        /// Other available API versions: 2026-03-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListSessionHostSingleRegistrationTokensResult> InvokeAsync(ListSessionHostSingleRegistrationTokensArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListSessionHostSingleRegistrationTokensResult>("azure-native:desktopvirtualization:listSessionHostSingleRegistrationTokens", args ?? new ListSessionHostSingleRegistrationTokensArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// Operation to list the scoped RegistrationTokens associated with the SessionHost.
         /// 
         /// Uses Azure REST API version 2026-01-01-preview.
+        /// 
+        /// Other available API versions: 2026-03-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListSessionHostSingleRegistrationTokensResult> Invoke(ListSessionHostSingleRegistrationTokensInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListSessionHostSingleRegistrationTokensResult>("azure-native:desktopvirtualization:listSessionHostSingleRegistrationTokens", args ?? new ListSessionHostSingleRegistrationTokensInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// Operation to list the scoped RegistrationTokens associated with the SessionHost.
         /// 
         /// Uses Azure REST API version 2026-01-01-preview.
+        /// 
+        /// Other available API versions: 2026-03-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListSessionHostSingleRegistrationTokensResult> Invoke(ListSessionHostSingleRegistrationTokensInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListSessionHostSingleRegistrationTokensResult>("azure-native:desktopvirtualization:listSessionHostSingleRegistrationTokens", args ?? new ListSessionHostSingleRegistrationTokensInvokeArgs(), options.WithDefaults());

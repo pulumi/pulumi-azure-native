@@ -31,7 +31,7 @@ class TriggerArgs:
 
         :param pulumi.Input[_builtins.str] factory_name: The factory name.
         :param pulumi.Input[Union['BlobEventsTriggerArgs', 'BlobTriggerArgs', 'ChainingTriggerArgs', 'CustomEventsTriggerArgs', 'MultiplePipelineTriggerArgs', 'RerunTumblingWindowTriggerArgs', 'ScheduleTriggerArgs', 'TumblingWindowTriggerArgs']] properties: Properties of the trigger.
-        :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] trigger_name: The trigger name.
         """
         pulumi.set(__self__, "factory_name", factory_name)
@@ -68,7 +68,7 @@ class TriggerArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The resource group name.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -110,7 +110,7 @@ class Trigger(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] factory_name: The factory name.
         :param pulumi.Input[Union[Union['BlobEventsTriggerArgs', 'BlobEventsTriggerArgsDict'], Union['BlobTriggerArgs', 'BlobTriggerArgsDict'], Union['ChainingTriggerArgs', 'ChainingTriggerArgsDict'], Union['CustomEventsTriggerArgs', 'CustomEventsTriggerArgsDict'], Union['MultiplePipelineTriggerArgs', 'MultiplePipelineTriggerArgsDict'], Union['RerunTumblingWindowTriggerArgs', 'RerunTumblingWindowTriggerArgsDict'], Union['ScheduleTriggerArgs', 'ScheduleTriggerArgsDict'], Union['TumblingWindowTriggerArgs', 'TumblingWindowTriggerArgsDict']]] properties: Properties of the trigger.
-        :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] trigger_name: The trigger name.
         """
         ...
@@ -166,6 +166,7 @@ class Trigger(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datafactory/v20170901preview:Trigger"), pulumi.Alias(type_="azure-native:datafactory/v20180601:Trigger")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -195,6 +196,7 @@ class Trigger(pulumi.CustomResource):
         __props__.__dict__["etag"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return Trigger(resource_name, opts=opts, __props__=__props__)
 
@@ -210,7 +212,7 @@ class Trigger(pulumi.CustomResource):
     @pulumi.getter
     def etag(self) -> pulumi.Output[_builtins.str]:
         """
-        Etag identifies change in the resource.
+        "If etag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.")
         """
         return pulumi.get(self, "etag")
 
@@ -218,7 +220,7 @@ class Trigger(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -231,10 +233,18 @@ class Trigger(pulumi.CustomResource):
         return pulumi.get(self, "properties")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        The resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

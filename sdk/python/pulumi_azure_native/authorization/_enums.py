@@ -14,6 +14,7 @@ __all__ = [
     'AssignmentScopeValidation',
     'AssignmentType',
     'DefaultDecisionType',
+    'DenyAssignmentEffect',
     'EnablementRules',
     'EnforcementMode',
     'ExcludedPrincipalTypes',
@@ -34,6 +35,7 @@ __all__ = [
     'SelectorKind',
     'Type',
     'UserType',
+    'UsersOrServicePrincipalSetUserType',
 ]
 
 
@@ -43,7 +45,13 @@ class AccessReviewRecurrencePatternType(_builtins.str, Enum):
     The recurrence type : weekly, monthly, etc.
     """
     WEEKLY = "weekly"
+    """
+    weekly
+    """
     ABSOLUTE_MONTHLY = "absoluteMonthly"
+    """
+    absoluteMonthly
+    """
 
 
 @pulumi.type_token("azure-native:authorization:AccessReviewRecurrenceRangeType")
@@ -52,8 +60,17 @@ class AccessReviewRecurrenceRangeType(_builtins.str, Enum):
     The recurrence range type. The possible values are: endDate, noEnd, numbered.
     """
     END_DATE = "endDate"
+    """
+    endDate
+    """
     NO_END = "noEnd"
+    """
+    noEnd
+    """
     NUMBERED = "numbered"
+    """
+    numbered
+    """
 
 
 @pulumi.type_token("azure-native:authorization:AccessReviewResult")
@@ -62,10 +79,25 @@ class AccessReviewResult(_builtins.str, Enum):
     Represents a reviewer's decision for a given review
     """
     APPROVE = "Approve"
+    """
+    Approve
+    """
     DENY = "Deny"
+    """
+    Deny
+    """
     NOT_REVIEWED = "NotReviewed"
+    """
+    NotReviewed
+    """
     DONT_KNOW = "DontKnow"
+    """
+    DontKnow
+    """
     NOT_NOTIFIED = "NotNotified"
+    """
+    NotNotified
+    """
 
 
 @pulumi.type_token("azure-native:authorization:ApprovalMode")
@@ -74,9 +106,21 @@ class ApprovalMode(_builtins.str, Enum):
     The type of rule
     """
     SINGLE_STAGE = "SingleStage"
+    """
+    SingleStage
+    """
     SERIAL = "Serial"
+    """
+    Serial
+    """
     PARALLEL = "Parallel"
+    """
+    Parallel
+    """
     NO_APPROVAL = "NoApproval"
+    """
+    NoApproval
+    """
 
 
 @pulumi.type_token("azure-native:authorization:AssignmentScopeValidation")
@@ -111,8 +155,32 @@ class DefaultDecisionType(_builtins.str, Enum):
     This specifies the behavior for the autoReview feature when an access review completes.
     """
     APPROVE = "Approve"
+    """
+    Approve
+    """
     DENY = "Deny"
+    """
+    Deny
+    """
     RECOMMENDATION = "Recommendation"
+    """
+    Recommendation
+    """
+
+
+@pulumi.type_token("azure-native:authorization:DenyAssignmentEffect")
+class DenyAssignmentEffect(_builtins.str, Enum):
+    """
+    The effect of the deny assignment. 'enforced' blocks access, 'audit' logs without blocking.
+    """
+    ENFORCED = "enforced"
+    """
+    enforced
+    """
+    AUDIT = "audit"
+    """
+    audit
+    """
 
 
 @pulumi.type_token("azure-native:authorization:EnablementRules")
@@ -121,8 +189,17 @@ class EnablementRules(_builtins.str, Enum):
     The type of enablement rule
     """
     MULTI_FACTOR_AUTHENTICATION = "MultiFactorAuthentication"
+    """
+    MultiFactorAuthentication
+    """
     JUSTIFICATION = "Justification"
+    """
+    Justification
+    """
     TICKETING = "Ticketing"
+    """
+    Ticketing
+    """
 
 
 @pulumi.type_token("azure-native:authorization:EnforcementMode")
@@ -147,7 +224,13 @@ class EnforcementMode(_builtins.str, Enum):
 @pulumi.type_token("azure-native:authorization:ExcludedPrincipalTypes")
 class ExcludedPrincipalTypes(_builtins.str, Enum):
     SERVICE_PRINCIPALS_AS_TARGET = "ServicePrincipalsAsTarget"
+    """
+    ServicePrincipalsAsTarget
+    """
     SERVICE_PRINCIPALS_AS_REQUESTOR = "ServicePrincipalsAsRequestor"
+    """
+    ServicePrincipalsAsRequestor
+    """
 
 
 @pulumi.type_token("azure-native:authorization:ExemptionCategory")
@@ -181,6 +264,9 @@ class NotificationDeliveryMechanism(_builtins.str, Enum):
     The type of notification.
     """
     EMAIL = "Email"
+    """
+    Email
+    """
 
 
 @pulumi.type_token("azure-native:authorization:NotificationLevel")
@@ -189,8 +275,17 @@ class NotificationLevel(_builtins.str, Enum):
     The notification level.
     """
     NONE = "None"
+    """
+    None
+    """
     CRITICAL = "Critical"
+    """
+    Critical
+    """
     ALL = "All"
+    """
+    All
+    """
 
 
 @pulumi.type_token("azure-native:authorization:OverrideKind")
@@ -214,8 +309,17 @@ class PIMOnlyMode(_builtins.str, Enum):
     Determines whether the setting is enabled, disabled or report only.
     """
     DISABLED = "Disabled"
+    """
+    Disabled
+    """
     ENABLED = "Enabled"
+    """
+    Enabled
+    """
     REPORT_ONLY = "ReportOnly"
+    """
+    ReportOnly
+    """
 
 
 @pulumi.type_token("azure-native:authorization:ParameterType")
@@ -249,10 +353,25 @@ class PrincipalType(_builtins.str, Enum):
     The principal type of the assigned principal ID.
     """
     USER = "User"
+    """
+    User
+    """
     GROUP = "Group"
+    """
+    Group
+    """
     SERVICE_PRINCIPAL = "ServicePrincipal"
+    """
+    ServicePrincipal
+    """
     FOREIGN_GROUP = "ForeignGroup"
+    """
+    ForeignGroup
+    """
     DEVICE = "Device"
+    """
+    Device
+    """
 
 
 @pulumi.type_token("azure-native:authorization:PublicNetworkAccessOptions")
@@ -267,8 +386,17 @@ class RecipientType(_builtins.str, Enum):
     The recipient type.
     """
     REQUESTOR = "Requestor"
+    """
+    Requestor
+    """
     APPROVER = "Approver"
+    """
+    Approver
+    """
     ADMIN = "Admin"
+    """
+    Admin
+    """
 
 
 @pulumi.type_token("azure-native:authorization:RequestType")
@@ -312,11 +440,29 @@ class RoleManagementPolicyRuleType(_builtins.str, Enum):
     The type of rule
     """
     ROLE_MANAGEMENT_POLICY_APPROVAL_RULE = "RoleManagementPolicyApprovalRule"
+    """
+    RoleManagementPolicyApprovalRule
+    """
     ROLE_MANAGEMENT_POLICY_AUTHENTICATION_CONTEXT_RULE = "RoleManagementPolicyAuthenticationContextRule"
+    """
+    RoleManagementPolicyAuthenticationContextRule
+    """
     ROLE_MANAGEMENT_POLICY_ENABLEMENT_RULE = "RoleManagementPolicyEnablementRule"
+    """
+    RoleManagementPolicyEnablementRule
+    """
     ROLE_MANAGEMENT_POLICY_EXPIRATION_RULE = "RoleManagementPolicyExpirationRule"
+    """
+    RoleManagementPolicyExpirationRule
+    """
     ROLE_MANAGEMENT_POLICY_NOTIFICATION_RULE = "RoleManagementPolicyNotificationRule"
+    """
+    RoleManagementPolicyNotificationRule
+    """
     ROLE_MANAGEMENT_POLICY_PIM_ONLY_MODE_RULE = "RoleManagementPolicyPimOnlyModeRule"
+    """
+    RoleManagementPolicyPimOnlyModeRule
+    """
 
 
 @pulumi.type_token("azure-native:authorization:SelectorKind")
@@ -358,5 +504,29 @@ class UserType(_builtins.str, Enum):
     The type of user.
     """
     USER = "User"
+    """
+    User
+    """
     GROUP = "Group"
+    """
+    Group
+    """
+
+
+@pulumi.type_token("azure-native:authorization:UsersOrServicePrincipalSetUserType")
+class UsersOrServicePrincipalSetUserType(_builtins.str, Enum):
+    """
+    The type of user.
+    """
+    USER = "User"
+    """
+    User
+    """
+    GROUP = "Group"
+    """
+    Group
+    """
     SERVICE_PRINCIPAL = "ServicePrincipal"
+    """
+    ServicePrincipal
+    """

@@ -11,6 +11,7 @@ __all__ = [
     'AggregationTypeEnum',
     'AlertSeverity',
     'AuthenticationKind',
+    'Category',
     'ComparisonOperationType',
     'ConditionOperator',
     'CriterionType',
@@ -24,6 +25,8 @@ __all__ = [
     'DynamicThresholdOperator',
     'DynamicThresholdSensitivity',
     'EntityImpact',
+    'EvaluationCalculationType',
+    'EvaluationType',
     'ExporterType',
     'ExtendedLocationType',
     'ExternalNetworkingMode',
@@ -59,17 +62,22 @@ __all__ = [
     'ReceiverType',
     'RecurrenceFrequency',
     'RefreshInterval',
+    'SamplingType',
+    'ScalarFunction',
     'ScaleDirection',
     'ScaleRuleMetricDimensionOperationType',
     'ScaleType',
     'ScopedResourceKind',
     'SignalKind',
     'SignalOperator',
+    'SpatialAggregationType',
     'Status',
     'StreamEncodingType',
     'SyslogProtocol',
+    'TemporalAggregationType',
     'TimeAggregation',
     'TimeAggregationType',
+    'WindowUptimeCriteriaComparator',
 ]
 
 
@@ -79,7 +87,13 @@ class AccessMode(_builtins.str, Enum):
     Specifies the default access mode of queries through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
     """
     OPEN = "Open"
+    """
+    Open
+    """
     PRIVATE_ONLY = "PrivateOnly"
+    """
+    PrivateOnly
+    """
 
 
 @pulumi.type_token("azure-native:monitor:AggregationTypeEnum")
@@ -129,6 +143,21 @@ class AuthenticationKind(_builtins.str, Enum):
     MANAGED_IDENTITY = "ManagedIdentity"
 
 
+@pulumi.type_token("azure-native:monitor:Category")
+class Category(_builtins.str, Enum):
+    """
+    Specifies the category of the SLI, used to classify signals such as Availability and Latency.
+    """
+    AVAILABILITY = "Availability"
+    """
+    Indicates availability-related metrics.
+    """
+    LATENCY = "Latency"
+    """
+    Indicates latency-related metrics.
+    """
+
+
 @pulumi.type_token("azure-native:monitor:ComparisonOperationType")
 class ComparisonOperationType(_builtins.str, Enum):
     """
@@ -145,14 +174,56 @@ class ComparisonOperationType(_builtins.str, Enum):
 @pulumi.type_token("azure-native:monitor:ConditionOperator")
 class ConditionOperator(_builtins.str, Enum):
     """
-    The criteria operator. Relevant and required only for rules of the kind LogAlert.
+    Operator used in the filtering condition.
     """
-    EQUALS = "Equals"
-    GREATER_THAN = "GreaterThan"
-    GREATER_THAN_OR_EQUAL = "GreaterThanOrEqual"
-    LESS_THAN = "LessThan"
-    LESS_THAN_OR_EQUAL = "LessThanOrEqual"
-    GREATER_OR_LESS_THAN = "GreaterOrLessThan"
+    EQUAL = "eq"
+    """
+    Equal to.
+    """
+    NOT_EQUAL = "ne"
+    """
+    Not equal to.
+    """
+    LESS_THAN = "lt"
+    """
+    Less than.
+    """
+    LESS_THAN_OR_EQUAL = "lte"
+    """
+    Less than or equal to.
+    """
+    GREATER_THAN = "gt"
+    """
+    Greater than.
+    """
+    GREATER_THAN_OR_EQUAL = "gte"
+    """
+    Greater than or equal to.
+    """
+    IN_ = "in"
+    """
+    Matches when `value` is one of the items in the `^^`-delimited list (for example, `value` = "east^^west^^north").
+    """
+    NOT_IN = "notin"
+    """
+    Matches when `value` is none of the items in the `^^`-delimited list (for example, `value` = "east^^west^^north").
+    """
+    STARTS_WITH = "startswith"
+    """
+    Starts with.
+    """
+    NOT_STARTS_WITH = "notstartswith"
+    """
+    Does not start with.
+    """
+    CONTAINS = "contains"
+    """
+    Contains the value.
+    """
+    NOT_CONTAINS = "notcontains"
+    """
+    Does not contain the value.
+    """
 
 
 @pulumi.type_token("azure-native:monitor:CriterionType")
@@ -161,7 +232,13 @@ class CriterionType(_builtins.str, Enum):
     Specifies the type of threshold criteria
     """
     STATIC_THRESHOLD_CRITERION = "StaticThresholdCriterion"
+    """
+    StaticThresholdCriterion
+    """
     DYNAMIC_THRESHOLD_CRITERION = "DynamicThresholdCriterion"
+    """
+    DynamicThresholdCriterion
+    """
 
 
 @pulumi.type_token("azure-native:monitor:DependenciesAggregationType")
@@ -185,7 +262,13 @@ class DimensionOperator(_builtins.str, Enum):
     Operator for dimension values
     """
     INCLUDE = "Include"
+    """
+    Include
+    """
     EXCLUDE = "Exclude"
+    """
+    Exclude
+    """
 
 
 @pulumi.type_token("azure-native:monitor:DiscoveryRuleKind")
@@ -296,6 +379,36 @@ class EntityImpact(_builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:monitor:EvaluationCalculationType")
+class EvaluationCalculationType(_builtins.str, Enum):
+    """
+    Specifies how evaluation is calculated, either based on calendar days or a rolling window.
+    """
+    CALENDAR_DAYS = "CalendarDays"
+    """
+    Calculates evaluation based on a fixed calendar period.
+    """
+    ROLLING_DAYS = "RollingDays"
+    """
+    Calculates evaluation using a rolling time window.
+    """
+
+
+@pulumi.type_token("azure-native:monitor:EvaluationType")
+class EvaluationType(_builtins.str, Enum):
+    """
+    Determines how the SLI is evaluated—either based on request counts or time windows.
+    """
+    WINDOW_BASED = "WindowBased"
+    """
+    Evaluates SLI based on time windows.
+    """
+    REQUEST_BASED = "RequestBased"
+    """
+    Evaluates SLI based on request counts.
+    """
+
+
 @pulumi.type_token("azure-native:monitor:ExporterType")
 class ExporterType(_builtins.str, Enum):
     """
@@ -343,8 +456,17 @@ class IdentityType(_builtins.str, Enum):
     Type of managed service identity.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
+    """
+    SystemAssigned
+    """
     USER_ASSIGNED = "UserAssigned"
+    """
+    UserAssigned
+    """
     NONE = "None"
+    """
+    None
+    """
 
 
 @pulumi.type_token("azure-native:monitor:IncidentManagementService")
@@ -353,6 +475,9 @@ class IncidentManagementService(_builtins.str, Enum):
     The incident management service type
     """
     ICM = "Icm"
+    """
+    Icm
+    """
 
 
 @pulumi.type_token("azure-native:monitor:JsonMapperElement")
@@ -376,8 +501,17 @@ class Kind(_builtins.str, Enum):
     Indicates the type of scheduled query rule. The default is LogAlert.
     """
     LOG_ALERT = "LogAlert"
+    """
+    LogAlert
+    """
     SIMPLE_LOG_ALERT = "SimpleLogAlert"
+    """
+    SimpleLogAlert
+    """
     LOG_TO_METRIC = "LogToMetric"
+    """
+    LogToMetric
+    """
 
 
 @pulumi.type_token("azure-native:monitor:KnownColumnDefinitionType")
@@ -720,6 +854,56 @@ class RefreshInterval(_builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:monitor:SamplingType")
+class SamplingType(_builtins.str, Enum):
+    """
+    Defines the sampling type.
+    """
+    AVERAGE = "Average"
+    """
+    Average value.
+    """
+    SUM = "Sum"
+    """
+    Summation.
+    """
+    COUNT = "Count"
+    """
+    Count of occurrences.
+    """
+    MIN = "Min"
+    """
+    Minimum value.
+    """
+    MAX = "Max"
+    """
+    Maximum value.
+    """
+
+
+@pulumi.type_token("azure-native:monitor:ScalarFunction")
+class ScalarFunction(_builtins.str, Enum):
+    """
+    Scalar function applied for filtering.
+    """
+    MAX = "max"
+    """
+    Maximum value.
+    """
+    MIN = "min"
+    """
+    Minimum value.
+    """
+    AVG = "avg"
+    """
+    Average value.
+    """
+    SUM = "sum"
+    """
+    Summation.
+    """
+
+
 @pulumi.type_token("azure-native:monitor:ScaleDirection")
 class ScaleDirection(_builtins.str, Enum):
     """
@@ -756,7 +940,13 @@ class ScopedResourceKind(_builtins.str, Enum):
     The kind of scoped Azure monitor resource.
     """
     RESOURCE = "Resource"
+    """
+    Resource
+    """
     METRICS = "Metrics"
+    """
+    Metrics
+    """
 
 
 @pulumi.type_token("azure-native:monitor:SignalKind")
@@ -793,6 +983,33 @@ class SignalOperator(_builtins.str, Enum):
     EQUAL = "Equal"
     """
     Equal to
+    """
+
+
+@pulumi.type_token("azure-native:monitor:SpatialAggregationType")
+class SpatialAggregationType(_builtins.str, Enum):
+    """
+    Type of spatial aggregation.
+    """
+    AVERAGE = "Average"
+    """
+    Average value.
+    """
+    MIN = "Min"
+    """
+    Minimum value.
+    """
+    MAX = "Max"
+    """
+    Maximum value.
+    """
+    SUM = "Sum"
+    """
+    Summation.
+    """
+    COUNT = "Count"
+    """
+    Count of occurrences.
     """
 
 
@@ -869,16 +1086,74 @@ class SyslogProtocol(_builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:monitor:TemporalAggregationType")
+class TemporalAggregationType(_builtins.str, Enum):
+    """
+    Type of temporal aggregation.
+    """
+    AVERAGE = "Average"
+    """
+    Average value.
+    """
+    MIN = "Min"
+    """
+    Minimum value.
+    """
+    MAX = "Max"
+    """
+    Maximum value.
+    """
+    SUM = "Sum"
+    """
+    Summation.
+    """
+    RATE = "Rate"
+    """
+    Rate over time.
+    """
+    I_RATE = "IRate"
+    """
+    Instance rate.
+    """
+    DELTA = "Delta"
+    """
+    Delta over time.
+    """
+    I_DELTA = "IDelta"
+    """
+    Instance delta.
+    """
+    INCREASE = "Increase"
+    """
+    Increase over time.
+    """
+
+
 @pulumi.type_token("azure-native:monitor:TimeAggregation")
 class TimeAggregation(_builtins.str, Enum):
     """
     Aggregation type. Relevant and required only for rules of the kind LogAlert.
     """
     COUNT = "Count"
+    """
+    Count
+    """
     AVERAGE = "Average"
+    """
+    Average
+    """
     MINIMUM = "Minimum"
+    """
+    Minimum
+    """
     MAXIMUM = "Maximum"
+    """
+    Maximum
+    """
     TOTAL = "Total"
+    """
+    Total
+    """
 
 
 @pulumi.type_token("azure-native:monitor:TimeAggregationType")
@@ -892,3 +1167,26 @@ class TimeAggregationType(_builtins.str, Enum):
     TOTAL = "Total"
     COUNT = "Count"
     LAST = "Last"
+
+
+@pulumi.type_token("azure-native:monitor:WindowUptimeCriteriaComparator")
+class WindowUptimeCriteriaComparator(_builtins.str, Enum):
+    """
+    Comparison operator used for uptime evaluation.
+    """
+    LESS_THAN = "lt"
+    """
+    Less than the target value.
+    """
+    GREATER_THAN = "gt"
+    """
+    Greater than the target value.
+    """
+    LESS_THAN_OR_EQUAL = "lte"
+    """
+    Less than or equal to the target value.
+    """
+    GREATER_THAN_OR_EQUAL = "gte"
+    """
+    Greater than or equal to the target value.
+    """

@@ -19,12 +19,12 @@ namespace Pulumi.AzureNative.ContainerInstance.Outputs
         /// <summary>
         /// This profile allows the customers to customize the rolling update.
         /// </summary>
-        public readonly Outputs.UpdateProfileResponseRollingUpdateProfile? RollingUpdateProfile;
+        public readonly Outputs.UpdateProfileRollingUpdateProfileResponse? RollingUpdateProfile;
         public readonly string? UpdateMode;
 
         [OutputConstructor]
         private UpdateProfileResponse(
-            Outputs.UpdateProfileResponseRollingUpdateProfile? rollingUpdateProfile,
+            Outputs.UpdateProfileRollingUpdateProfileResponse? rollingUpdateProfile,
 
             string? updateMode)
         {

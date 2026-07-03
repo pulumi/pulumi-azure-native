@@ -15,6 +15,12 @@ namespace Pulumi.AzureNative.FrontDoor.Inputs
     /// </summary>
     public sealed class ManagedRuleSetListArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// List of exceptions applied on the managed rule sets.
+        /// </summary>
+        [Input("exceptionsList")]
+        public Input<Inputs.ManagedRuleSetExceptionListArgs>? ExceptionsList { get; set; }
+
         [Input("managedRuleSets")]
         private InputList<Inputs.ManagedRuleSetArgs>? _managedRuleSets;
 

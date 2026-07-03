@@ -74,11 +74,11 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly string AzureApiVersion;
         /// <summary>
-        /// Resource Id
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -86,7 +86,11 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly string Scope;
         /// <summary>
-        /// Resource type
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -104,6 +108,8 @@ namespace Pulumi.AzureNative.Security
 
             string scope,
 
+            Outputs.SystemDataResponse systemData,
+
             string type,
 
             string workspaceId)
@@ -112,6 +118,7 @@ namespace Pulumi.AzureNative.Security
             Id = id;
             Name = name;
             Scope = scope;
+            SystemData = systemData;
             Type = type;
             WorkspaceId = workspaceId;
         }

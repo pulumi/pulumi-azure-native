@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<object>? RequestBody { get; set; }
 
         /// <summary>
-        /// The time to await before sending next page request. 
+        /// The time to await before sending next page request.
         /// </summary>
         [Input("requestInterval")]
         public Input<object>? RequestInterval { get; set; }

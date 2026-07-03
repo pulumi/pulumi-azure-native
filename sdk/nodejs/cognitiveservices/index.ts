@@ -95,6 +95,11 @@ export const getEncryptionScope: typeof import("./getEncryptionScope").getEncryp
 export const getEncryptionScopeOutput: typeof import("./getEncryptionScope").getEncryptionScopeOutput = null as any;
 utilities.lazyLoad(exports, ["getEncryptionScope","getEncryptionScopeOutput"], () => require("./getEncryptionScope"));
 
+export { GetManagedNetworkSettingArgs, GetManagedNetworkSettingResult, GetManagedNetworkSettingOutputArgs } from "./getManagedNetworkSetting";
+export const getManagedNetworkSetting: typeof import("./getManagedNetworkSetting").getManagedNetworkSetting = null as any;
+export const getManagedNetworkSettingOutput: typeof import("./getManagedNetworkSetting").getManagedNetworkSettingOutput = null as any;
+utilities.lazyLoad(exports, ["getManagedNetworkSetting","getManagedNetworkSettingOutput"], () => require("./getManagedNetworkSetting"));
+
 export { GetOutboundRuleArgs, GetOutboundRuleResult, GetOutboundRuleOutputArgs } from "./getOutboundRule";
 export const getOutboundRule: typeof import("./getOutboundRule").getOutboundRule = null as any;
 export const getOutboundRuleOutput: typeof import("./getOutboundRule").getOutboundRuleOutput = null as any;
@@ -169,6 +174,11 @@ export { ListAgentApplicationAgentsArgs, ListAgentApplicationAgentsResult, ListA
 export const listAgentApplicationAgents: typeof import("./listAgentApplicationAgents").listAgentApplicationAgents = null as any;
 export const listAgentApplicationAgentsOutput: typeof import("./listAgentApplicationAgents").listAgentApplicationAgentsOutput = null as any;
 utilities.lazyLoad(exports, ["listAgentApplicationAgents","listAgentApplicationAgentsOutput"], () => require("./listAgentApplicationAgents"));
+
+export { ManagedNetworkSettingArgs } from "./managedNetworkSetting";
+export type ManagedNetworkSetting = import("./managedNetworkSetting").ManagedNetworkSetting;
+export const ManagedNetworkSetting: typeof import("./managedNetworkSetting").ManagedNetworkSetting = null as any;
+utilities.lazyLoad(exports, ["ManagedNetworkSetting"], () => require("./managedNetworkSetting"));
 
 export { OutboundRuleArgs } from "./outboundRule";
 export type OutboundRule = import("./outboundRule").OutboundRule;
@@ -261,6 +271,8 @@ const _module = {
                 return new Deployment(name, <any>undefined, { urn })
             case "azure-native:cognitiveservices:EncryptionScope":
                 return new EncryptionScope(name, <any>undefined, { urn })
+            case "azure-native:cognitiveservices:ManagedNetworkSetting":
+                return new ManagedNetworkSetting(name, <any>undefined, { urn })
             case "azure-native:cognitiveservices:OutboundRule":
                 return new OutboundRule(name, <any>undefined, { urn })
             case "azure-native:cognitiveservices:PrivateEndpointConnection":

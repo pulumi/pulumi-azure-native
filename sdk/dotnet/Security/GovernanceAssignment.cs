@@ -42,7 +42,7 @@ namespace Pulumi.AzureNative.Security
         public Output<bool?> IsGracePeriod { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -66,7 +66,13 @@ namespace Pulumi.AzureNative.Security
         public Output<Outputs.RemediationEtaResponse?> RemediationEta { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -127,13 +133,13 @@ namespace Pulumi.AzureNative.Security
         public Input<Inputs.GovernanceAssignmentAdditionalDataArgs>? AdditionalData { get; set; }
 
         /// <summary>
-        /// The Assessment Key - A unique key for the assessment type
+        /// The assessment key of the governance assignment.
         /// </summary>
         [Input("assessmentName", required: true)]
         public Input<string> AssessmentName { get; set; } = null!;
 
         /// <summary>
-        /// The governance assignment key - the assessment key of the required governance assignment
+        /// The governance assignment key.
         /// </summary>
         [Input("assignmentKey")]
         public Input<string>? AssignmentKey { get; set; }
@@ -169,7 +175,7 @@ namespace Pulumi.AzureNative.Security
         public Input<Inputs.RemediationEtaArgs>? RemediationEta { get; set; }
 
         /// <summary>
-        /// The scope of the Governance assignments. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
+        /// The scope of the governance assignment.
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;

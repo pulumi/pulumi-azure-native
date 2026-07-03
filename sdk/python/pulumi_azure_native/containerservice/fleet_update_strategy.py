@@ -104,7 +104,7 @@ class FleetUpdateStrategy(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-05-02-preview. In version 2.x of the Azure Native provider, it used API version 2023-08-15-preview.
 
-        Other available API versions: 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2025-03-01, 2025-04-01-preview, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2025-03-01, 2025-04-01-preview, 2025-08-01-preview, 2026-02-01-preview, 2026-03-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -125,7 +125,7 @@ class FleetUpdateStrategy(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-05-02-preview. In version 2.x of the Azure Native provider, it used API version 2023-08-15-preview.
 
-        Other available API versions: 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2025-03-01, 2025-04-01-preview, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2025-03-01, 2025-04-01-preview, 2025-08-01-preview, 2026-02-01-preview, 2026-03-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -172,7 +172,7 @@ class FleetUpdateStrategy(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerservice/v20230815preview:FleetUpdateStrategy"), pulumi.Alias(type_="azure-native:containerservice/v20231015:FleetUpdateStrategy"), pulumi.Alias(type_="azure-native:containerservice/v20240202preview:FleetUpdateStrategy"), pulumi.Alias(type_="azure-native:containerservice/v20240401:FleetUpdateStrategy"), pulumi.Alias(type_="azure-native:containerservice/v20240502preview:FleetUpdateStrategy"), pulumi.Alias(type_="azure-native:containerservice/v20250301:FleetUpdateStrategy"), pulumi.Alias(type_="azure-native:containerservice/v20250401preview:FleetUpdateStrategy"), pulumi.Alias(type_="azure-native:containerservice/v20250801preview:FleetUpdateStrategy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerservice/v20230815preview:FleetUpdateStrategy"), pulumi.Alias(type_="azure-native:containerservice/v20231015:FleetUpdateStrategy"), pulumi.Alias(type_="azure-native:containerservice/v20240202preview:FleetUpdateStrategy"), pulumi.Alias(type_="azure-native:containerservice/v20240401:FleetUpdateStrategy"), pulumi.Alias(type_="azure-native:containerservice/v20240502preview:FleetUpdateStrategy"), pulumi.Alias(type_="azure-native:containerservice/v20250301:FleetUpdateStrategy"), pulumi.Alias(type_="azure-native:containerservice/v20250401preview:FleetUpdateStrategy"), pulumi.Alias(type_="azure-native:containerservice/v20250801preview:FleetUpdateStrategy"), pulumi.Alias(type_="azure-native:containerservice/v20260201preview:FleetUpdateStrategy"), pulumi.Alias(type_="azure-native:containerservice/v20260302preview:FleetUpdateStrategy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FleetUpdateStrategy, __self__).__init__(
             'azure-native:containerservice:FleetUpdateStrategy',

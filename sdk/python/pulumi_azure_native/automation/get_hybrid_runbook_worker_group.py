@@ -160,7 +160,7 @@ def get_hybrid_runbook_worker_group(automation_account_name: Optional[_builtins.
 
     :param _builtins.str automation_account_name: The name of the automation account.
     :param _builtins.str hybrid_runbook_worker_group_name: The hybrid runbook worker group name
-    :param _builtins.str resource_group_name: Name of an Azure Resource group.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
@@ -193,7 +193,7 @@ def get_hybrid_runbook_worker_group_output(automation_account_name: Optional[pul
 
     :param _builtins.str automation_account_name: The name of the automation account.
     :param _builtins.str hybrid_runbook_worker_group_name: The hybrid runbook worker group name
-    :param _builtins.str resource_group_name: Name of an Azure Resource group.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name

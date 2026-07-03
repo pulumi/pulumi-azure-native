@@ -548,7 +548,7 @@ class Disk(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-03-02. In version 2.x of the Azure Native provider, it used API version 2022-07-02.
 
-        Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02, 2025-01-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02, 2025-01-02, 2026-03-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -595,7 +595,7 @@ class Disk(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-03-02. In version 2.x of the Azure Native provider, it used API version 2022-07-02.
 
-        Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02, 2025-01-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02, 2025-01-02, 2026-03-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -701,7 +701,7 @@ class Disk(pulumi.CustomResource):
             __props__.__dict__["time_created"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["unique_id"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20160430preview:Disk"), pulumi.Alias(type_="azure-native:compute/v20170330:Disk"), pulumi.Alias(type_="azure-native:compute/v20180401:Disk"), pulumi.Alias(type_="azure-native:compute/v20180601:Disk"), pulumi.Alias(type_="azure-native:compute/v20180930:Disk"), pulumi.Alias(type_="azure-native:compute/v20190301:Disk"), pulumi.Alias(type_="azure-native:compute/v20190701:Disk"), pulumi.Alias(type_="azure-native:compute/v20191101:Disk"), pulumi.Alias(type_="azure-native:compute/v20200501:Disk"), pulumi.Alias(type_="azure-native:compute/v20200630:Disk"), pulumi.Alias(type_="azure-native:compute/v20200930:Disk"), pulumi.Alias(type_="azure-native:compute/v20201201:Disk"), pulumi.Alias(type_="azure-native:compute/v20210401:Disk"), pulumi.Alias(type_="azure-native:compute/v20210801:Disk"), pulumi.Alias(type_="azure-native:compute/v20211201:Disk"), pulumi.Alias(type_="azure-native:compute/v20220302:Disk"), pulumi.Alias(type_="azure-native:compute/v20220702:Disk"), pulumi.Alias(type_="azure-native:compute/v20230102:Disk"), pulumi.Alias(type_="azure-native:compute/v20230402:Disk"), pulumi.Alias(type_="azure-native:compute/v20231002:Disk"), pulumi.Alias(type_="azure-native:compute/v20240302:Disk"), pulumi.Alias(type_="azure-native:compute/v20250102:Disk")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20160430preview:Disk"), pulumi.Alias(type_="azure-native:compute/v20170330:Disk"), pulumi.Alias(type_="azure-native:compute/v20180401:Disk"), pulumi.Alias(type_="azure-native:compute/v20180601:Disk"), pulumi.Alias(type_="azure-native:compute/v20180930:Disk"), pulumi.Alias(type_="azure-native:compute/v20190301:Disk"), pulumi.Alias(type_="azure-native:compute/v20190701:Disk"), pulumi.Alias(type_="azure-native:compute/v20191101:Disk"), pulumi.Alias(type_="azure-native:compute/v20200501:Disk"), pulumi.Alias(type_="azure-native:compute/v20200630:Disk"), pulumi.Alias(type_="azure-native:compute/v20200930:Disk"), pulumi.Alias(type_="azure-native:compute/v20201201:Disk"), pulumi.Alias(type_="azure-native:compute/v20210401:Disk"), pulumi.Alias(type_="azure-native:compute/v20210801:Disk"), pulumi.Alias(type_="azure-native:compute/v20211201:Disk"), pulumi.Alias(type_="azure-native:compute/v20220302:Disk"), pulumi.Alias(type_="azure-native:compute/v20220702:Disk"), pulumi.Alias(type_="azure-native:compute/v20230102:Disk"), pulumi.Alias(type_="azure-native:compute/v20230402:Disk"), pulumi.Alias(type_="azure-native:compute/v20231002:Disk"), pulumi.Alias(type_="azure-native:compute/v20240302:Disk"), pulumi.Alias(type_="azure-native:compute/v20250102:Disk"), pulumi.Alias(type_="azure-native:compute/v20260302:Disk")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Disk, __self__).__init__(
             'azure-native:compute:Disk',

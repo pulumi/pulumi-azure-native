@@ -123,7 +123,7 @@ class SqlServerLicense(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
 
-        Other available API versions: 2024-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2024-05-01-preview, 2026-01-01, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -145,7 +145,7 @@ class SqlServerLicense(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
 
-        Other available API versions: 2024-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2024-05-01-preview, 2026-01-01, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -190,7 +190,7 @@ class SqlServerLicense(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurearcdata/v20240501preview:SqlServerLicense"), pulumi.Alias(type_="azure-native:azurearcdata/v20250301preview:SqlServerLicense"), pulumi.Alias(type_="azure-native:azurearcdata/v20260101:SqlServerLicense")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurearcdata/v20240501preview:SqlServerLicense"), pulumi.Alias(type_="azure-native:azurearcdata/v20250301preview:SqlServerLicense"), pulumi.Alias(type_="azure-native:azurearcdata/v20260101:SqlServerLicense"), pulumi.Alias(type_="azure-native:azurearcdata/v20260301preview:SqlServerLicense")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlServerLicense, __self__).__init__(
             'azure-native:azurearcdata:SqlServerLicense',

@@ -27,7 +27,7 @@ class GetAccessReviewHistoryDefinitionByIdResult:
     """
     Access Review History Definition.
     """
-    def __init__(__self__, azure_api_version=None, created_date_time=None, decisions=None, display_name=None, id=None, instances=None, interval=None, name=None, principal_id=None, principal_name=None, principal_type=None, range=None, review_history_period_end_date_time=None, review_history_period_start_date_time=None, scopes=None, status=None, type=None, user_principal_name=None):
+    def __init__(__self__, azure_api_version=None, created_date_time=None, decisions=None, display_name=None, id=None, instances=None, interval=None, name=None, principal_id=None, principal_name=None, principal_type=None, range=None, review_history_period_end_date_time=None, review_history_period_start_date_time=None, scopes=None, status=None, system_data=None, type=None, user_principal_name=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -76,6 +76,9 @@ class GetAccessReviewHistoryDefinitionByIdResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -119,7 +122,7 @@ class GetAccessReviewHistoryDefinitionByIdResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The access review history definition id.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -143,7 +146,7 @@ class GetAccessReviewHistoryDefinitionByIdResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The access review history definition unique id.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -212,10 +215,18 @@ class GetAccessReviewHistoryDefinitionByIdResult:
         return pulumi.get(self, "status")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -250,6 +261,7 @@ class AwaitableGetAccessReviewHistoryDefinitionByIdResult(GetAccessReviewHistory
             review_history_period_start_date_time=self.review_history_period_start_date_time,
             scopes=self.scopes,
             status=self.status,
+            system_data=self.system_data,
             type=self.type,
             user_principal_name=self.user_principal_name)
 
@@ -288,6 +300,7 @@ def get_access_review_history_definition_by_id(history_definition_id: Optional[_
         review_history_period_start_date_time=pulumi.get(__ret__, 'review_history_period_start_date_time'),
         scopes=pulumi.get(__ret__, 'scopes'),
         status=pulumi.get(__ret__, 'status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         user_principal_name=pulumi.get(__ret__, 'user_principal_name'))
 def get_access_review_history_definition_by_id_output(history_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -323,5 +336,6 @@ def get_access_review_history_definition_by_id_output(history_definition_id: Opt
         review_history_period_start_date_time=pulumi.get(__response__, 'review_history_period_start_date_time'),
         scopes=pulumi.get(__response__, 'scopes'),
         status=pulumi.get(__response__, 'status'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type'),
         user_principal_name=pulumi.get(__response__, 'user_principal_name')))

@@ -40,13 +40,13 @@ namespace Pulumi.AzureNative.Education
     public sealed class GetLabArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID that uniquely identifies a billing account.
+        /// The name of the billing account.
         /// </summary>
         [Input("billingAccountName", required: true)]
         public string BillingAccountName { get; set; } = null!;
 
         /// <summary>
-        /// The ID that uniquely identifies a billing profile.
+        /// The name of the billing profile.
         /// </summary>
         [Input("billingProfileName", required: true)]
         public string BillingProfileName { get; set; } = null!;
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.Education
         public bool? IncludeBudget { get; set; }
 
         /// <summary>
-        /// The ID that uniquely identifies an invoice section.
+        /// The name of the invoice section.
         /// </summary>
         [Input("invoiceSectionName", required: true)]
         public string InvoiceSectionName { get; set; } = null!;
@@ -72,13 +72,13 @@ namespace Pulumi.AzureNative.Education
     public sealed class GetLabInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID that uniquely identifies a billing account.
+        /// The name of the billing account.
         /// </summary>
         [Input("billingAccountName", required: true)]
         public Input<string> BillingAccountName { get; set; } = null!;
 
         /// <summary>
-        /// The ID that uniquely identifies a billing profile.
+        /// The name of the billing profile.
         /// </summary>
         [Input("billingProfileName", required: true)]
         public Input<string> BillingProfileName { get; set; } = null!;
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNative.Education
         public Input<bool>? IncludeBudget { get; set; }
 
         /// <summary>
-        /// The ID that uniquely identifies an invoice section.
+        /// The name of the invoice section.
         /// </summary>
         [Input("invoiceSectionName", required: true)]
         public Input<string> InvoiceSectionName { get; set; } = null!;

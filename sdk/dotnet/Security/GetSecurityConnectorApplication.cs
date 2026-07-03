@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.Security
         public string ApplicationId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.Security
         public Input<string> ApplicationId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -98,6 +98,10 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly string AzureApiVersion;
         /// <summary>
+        /// The application conditionSets - see examples
+        /// </summary>
+        public readonly ImmutableArray<object> ConditionSets;
+        /// <summary>
         /// description of the application
         /// </summary>
         public readonly string? Description;
@@ -106,11 +110,11 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
-        /// Resource Id
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -118,13 +122,19 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly string SourceResourceType;
         /// <summary>
-        /// Resource type
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetSecurityConnectorApplicationResult(
             string azureApiVersion,
+
+            ImmutableArray<object> conditionSets,
 
             string? description,
 
@@ -136,14 +146,18 @@ namespace Pulumi.AzureNative.Security
 
             string sourceResourceType,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             AzureApiVersion = azureApiVersion;
+            ConditionSets = conditionSets;
             Description = description;
             DisplayName = displayName;
             Id = id;
             Name = name;
             SourceResourceType = sourceResourceType;
+            SystemData = systemData;
             Type = type;
         }
     }

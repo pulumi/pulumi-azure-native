@@ -72,7 +72,7 @@ def get_trigger_event_subscription_status(factory_name: Optional[_builtins.str] 
 
 
     :param _builtins.str factory_name: The factory name.
-    :param _builtins.str resource_group_name: The resource group name.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str trigger_name: The trigger name.
     """
     __args__ = dict()
@@ -96,7 +96,7 @@ def get_trigger_event_subscription_status_output(factory_name: Optional[pulumi.I
 
 
     :param _builtins.str factory_name: The factory name.
-    :param _builtins.str resource_group_name: The resource group name.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str trigger_name: The trigger name.
     """
     __args__ = dict()

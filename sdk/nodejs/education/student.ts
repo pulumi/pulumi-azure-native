@@ -186,11 +186,11 @@ export class Student extends pulumi.CustomResource {
  */
 export interface StudentArgs {
     /**
-     * The ID that uniquely identifies a billing account.
+     * The name of the billing account.
      */
     billingAccountName: pulumi.Input<string>;
     /**
-     * The ID that uniquely identifies a billing profile.
+     * The name of the billing profile.
      */
     billingProfileName: pulumi.Input<string>;
     /**
@@ -210,7 +210,7 @@ export interface StudentArgs {
      */
     firstName: pulumi.Input<string>;
     /**
-     * The ID that uniquely identifies an invoice section.
+     * The name of the invoice section.
      */
     invoiceSectionName: pulumi.Input<string>;
     /**
@@ -222,7 +222,7 @@ export interface StudentArgs {
      */
     role: pulumi.Input<string | enums.education.StudentRole>;
     /**
-     * Student alias.
+     * The student alias.
      */
     studentAlias?: pulumi.Input<string>;
     /**

@@ -104,6 +104,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20250601preview:Administrator" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20250801:Administrator" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20260101preview:Administrator" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20260401preview:Administrator" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

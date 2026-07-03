@@ -105,7 +105,7 @@ class StorageTaskAssignment(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
-        Other available API versions: 2023-05-01, 2025-01-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-05-01, 2025-01-01, 2025-06-01, 2025-08-01, 2026-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -126,7 +126,7 @@ class StorageTaskAssignment(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
-        Other available API versions: 2023-05-01, 2025-01-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-05-01, 2025-01-01, 2025-06-01, 2025-08-01, 2026-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -170,7 +170,7 @@ class StorageTaskAssignment(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storage/v20230501:StorageTaskAssignment"), pulumi.Alias(type_="azure-native:storage/v20240101:StorageTaskAssignment"), pulumi.Alias(type_="azure-native:storage/v20250101:StorageTaskAssignment"), pulumi.Alias(type_="azure-native:storage/v20250601:StorageTaskAssignment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storage/v20230501:StorageTaskAssignment"), pulumi.Alias(type_="azure-native:storage/v20240101:StorageTaskAssignment"), pulumi.Alias(type_="azure-native:storage/v20250101:StorageTaskAssignment"), pulumi.Alias(type_="azure-native:storage/v20250601:StorageTaskAssignment"), pulumi.Alias(type_="azure-native:storage/v20250801:StorageTaskAssignment"), pulumi.Alias(type_="azure-native:storage/v20260401:StorageTaskAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StorageTaskAssignment, __self__).__init__(
             'azure-native:storage:StorageTaskAssignment',

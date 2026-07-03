@@ -10,7 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CognitiveServices
 {
     /// <summary>
+    /// Concrete proxy resource types can be created by aliasing this type using a specific property type.
+    /// 
     /// Uses Azure REST API version 2025-10-01-preview.
+    /// 
+    /// Other available API versions: 2025-12-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-05-01, 2026-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices:OutboundRule")]
     public partial class OutboundRule : global::Pulumi.CustomResource
@@ -31,7 +35,7 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// Outbound Rule for the managed network of a cognitive services account.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.FqdnOutboundRuleResponse> Properties { get; private set; } = null!;
+        public Output<object> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -71,6 +75,12 @@ namespace Pulumi.AzureNative.CognitiveServices
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20251001preview:OutboundRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20251201:OutboundRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20260115preview:OutboundRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20260301:OutboundRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20260315preview:OutboundRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20260501:OutboundRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20260515preview:OutboundRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -110,7 +120,7 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// Outbound Rule for the managed network of a cognitive services account.
         /// </summary>
         [Input("properties", required: true)]
-        public Input<Inputs.FqdnOutboundRuleArgs> Properties { get; set; } = null!;
+        public object Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -58,11 +58,11 @@ export class WorkbookTemplate extends pulumi.CustomResource {
      */
     declare public readonly localized: pulumi.Output<{[key: string]: outputs.applicationinsights.WorkbookTemplateLocalizedGalleryResponse[]} | undefined>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     declare public readonly location: pulumi.Output<string>;
     /**
-     * Azure resource name.
+     * The name of the resource
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
@@ -70,7 +70,11 @@ export class WorkbookTemplate extends pulumi.CustomResource {
      */
     declare public readonly priority: pulumi.Output<number | undefined>;
     /**
-     * Resource tags
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.applicationinsights.SystemDataResponse>;
+    /**
+     * Resource tags.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -78,7 +82,7 @@ export class WorkbookTemplate extends pulumi.CustomResource {
      */
     declare public readonly templateData: pulumi.Output<any>;
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
 
@@ -113,6 +117,7 @@ export class WorkbookTemplate extends pulumi.CustomResource {
             resourceInputs["templateData"] = args?.templateData;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["author"] = undefined /*out*/;
@@ -122,6 +127,7 @@ export class WorkbookTemplate extends pulumi.CustomResource {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["priority"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["templateData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -150,7 +156,7 @@ export interface WorkbookTemplateArgs {
      */
     localized?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<inputs.applicationinsights.WorkbookTemplateLocalizedGalleryArgs>[]>}>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
@@ -166,7 +172,7 @@ export interface WorkbookTemplateArgs {
      */
     resourceName?: pulumi.Input<string>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

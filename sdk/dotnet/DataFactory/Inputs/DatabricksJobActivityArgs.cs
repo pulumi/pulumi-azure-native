@@ -39,17 +39,11 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("jobId", required: true)]
         public Input<object> JobId { get; set; } = null!;
 
-        [Input("jobParameters")]
-        private InputMap<object>? _jobParameters;
-
         /// <summary>
         /// Job parameters to be used for each run of this job. If the job takes a parameter that is not specified, the default value from the job will be used.
         /// </summary>
-        public InputMap<object> JobParameters
-        {
-            get => _jobParameters ?? (_jobParameters = new InputMap<object>());
-            set => _jobParameters = value;
-        }
+        [Input("jobParameters")]
+        public Input<object>? JobParameters { get; set; }
 
         /// <summary>
         /// Linked service reference.

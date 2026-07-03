@@ -280,11 +280,6 @@ export const getSentinelOnboardingState: typeof import("./getSentinelOnboardingS
 export const getSentinelOnboardingStateOutput: typeof import("./getSentinelOnboardingState").getSentinelOnboardingStateOutput = null as any;
 utilities.lazyLoad(exports, ["getSentinelOnboardingState","getSentinelOnboardingStateOutput"], () => require("./getSentinelOnboardingState"));
 
-export { GetSourceControlArgs, GetSourceControlResult, GetSourceControlOutputArgs } from "./getSourceControl";
-export const getSourceControl: typeof import("./getSourceControl").getSourceControl = null as any;
-export const getSourceControlOutput: typeof import("./getSourceControl").getSourceControlOutput = null as any;
-utilities.lazyLoad(exports, ["getSourceControl","getSourceControlOutput"], () => require("./getSourceControl"));
-
 export { GetTIDataConnectorArgs, GetTIDataConnectorResult, GetTIDataConnectorOutputArgs } from "./getTIDataConnector";
 export const getTIDataConnector: typeof import("./getTIDataConnector").getTIDataConnector = null as any;
 export const getTIDataConnectorOutput: typeof import("./getTIDataConnector").getTIDataConnectorOutput = null as any;
@@ -430,11 +425,6 @@ export type SentinelOnboardingState = import("./sentinelOnboardingState").Sentin
 export const SentinelOnboardingState: typeof import("./sentinelOnboardingState").SentinelOnboardingState = null as any;
 utilities.lazyLoad(exports, ["SentinelOnboardingState"], () => require("./sentinelOnboardingState"));
 
-export { SourceControlArgs } from "./sourceControl";
-export type SourceControl = import("./sourceControl").SourceControl;
-export const SourceControl: typeof import("./sourceControl").SourceControl = null as any;
-utilities.lazyLoad(exports, ["SourceControl"], () => require("./sourceControl"));
-
 export { ThreatIntelligenceIndicatorArgs } from "./threatIntelligenceIndicator";
 export type ThreatIntelligenceIndicator = import("./threatIntelligenceIndicator").ThreatIntelligenceIndicator;
 export const ThreatIntelligenceIndicator: typeof import("./threatIntelligenceIndicator").ThreatIntelligenceIndicator = null as any;
@@ -558,8 +548,6 @@ const _module = {
                 return new ScheduledAlertRule(name, <any>undefined, { urn })
             case "azure-native:securityinsights:SentinelOnboardingState":
                 return new SentinelOnboardingState(name, <any>undefined, { urn })
-            case "azure-native:securityinsights:SourceControl":
-                return new SourceControl(name, <any>undefined, { urn })
             case "azure-native:securityinsights:TIDataConnector":
                 return new TIDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights:ThreatIntelligenceIndicator":

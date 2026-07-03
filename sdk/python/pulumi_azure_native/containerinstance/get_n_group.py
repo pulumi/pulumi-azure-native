@@ -99,7 +99,7 @@ class GetNGroupResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The resource id.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -115,7 +115,7 @@ class GetNGroupResult:
     @pulumi.getter
     def location(self) -> Optional[_builtins.str]:
         """
-        The resource location.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -123,7 +123,7 @@ class GetNGroupResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -147,7 +147,7 @@ class GetNGroupResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -155,7 +155,7 @@ class GetNGroupResult:
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
         """
-        The resource tags.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -163,7 +163,7 @@ class GetNGroupResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -179,7 +179,7 @@ class GetNGroupResult:
     @pulumi.getter
     def zones(self) -> Optional[Sequence[_builtins.str]]:
         """
-        The zones for the container group.
+        The availability zones.
         """
         return pulumi.get(self, "zones")
 
@@ -214,7 +214,7 @@ def get_n_group(ngroups_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2025-09-01.
 
-    Other available API versions: 2024-09-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerinstance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2024-09-01-preview, 2024-11-01-preview, 2026-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerinstance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str ngroups_name: The NGroups name.
@@ -249,7 +249,7 @@ def get_n_group_output(ngroups_name: Optional[pulumi.Input[_builtins.str]] = Non
 
     Uses Azure REST API version 2025-09-01.
 
-    Other available API versions: 2024-09-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerinstance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2024-09-01-preview, 2024-11-01-preview, 2026-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerinstance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str ngroups_name: The NGroups name.

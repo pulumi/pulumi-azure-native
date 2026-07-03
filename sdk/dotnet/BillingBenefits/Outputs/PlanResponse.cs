@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.BillingBenefits.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+        /// The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
         /// </summary>
         public readonly string Product;
         /// <summary>

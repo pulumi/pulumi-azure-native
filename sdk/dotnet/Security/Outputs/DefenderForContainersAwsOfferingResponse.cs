@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// <summary>
         /// The cloudwatch to kinesis connection configuration
         /// </summary>
-        public readonly Outputs.DefenderForContainersAwsOfferingResponseCloudWatchToKinesis? CloudWatchToKinesis;
+        public readonly Outputs.DefenderForContainersAwsOfferingCloudWatchToKinesisResponse? CloudWatchToKinesis;
         /// <summary>
         /// The externalId used by the data reader to prevent the confused deputy attack
         /// </summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// <summary>
         /// The kinesis to s3 connection configuration
         /// </summary>
-        public readonly Outputs.DefenderForContainersAwsOfferingResponseKinesisToS3? KinesisToS3;
+        public readonly Outputs.DefenderForContainersAwsOfferingKinesisToS3Response? KinesisToS3;
         /// <summary>
         /// The retention time in days of kube audit logs set on the CloudWatch log group
         /// </summary>
@@ -51,19 +51,19 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// <summary>
         /// The kubernetes data collection connection configuration
         /// </summary>
-        public readonly Outputs.DefenderForContainersAwsOfferingResponseKubernetesDataCollection? KubernetesDataCollection;
+        public readonly Outputs.DefenderForContainersAwsOfferingKubernetesDataCollectionResponse? KubernetesDataCollection;
         /// <summary>
         /// The kubernetes service connection configuration
         /// </summary>
-        public readonly Outputs.DefenderForContainersAwsOfferingResponseKubernetesService? KubernetesService;
+        public readonly Outputs.DefenderForContainersAwsOfferingKubernetesServiceResponse? KubernetesService;
         /// <summary>
         /// The Microsoft Defender container agentless discovery K8s configuration
         /// </summary>
-        public readonly Outputs.DefenderForContainersAwsOfferingResponseMdcContainersAgentlessDiscoveryK8s? MdcContainersAgentlessDiscoveryK8s;
+        public readonly Outputs.DefenderForContainersAwsOfferingMdcContainersAgentlessDiscoveryK8SResponse? MdcContainersAgentlessDiscoveryK8S;
         /// <summary>
         /// The Microsoft Defender container image assessment configuration
         /// </summary>
-        public readonly Outputs.DefenderForContainersAwsOfferingResponseMdcContainersImageAssessment? MdcContainersImageAssessment;
+        public readonly Outputs.DefenderForContainersAwsOfferingMdcContainersImageAssessmentResponse? MdcContainersImageAssessment;
         /// <summary>
         /// The type of the security offering.
         /// Expected value is 'DefenderForContainersAws'.
@@ -72,11 +72,11 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// <summary>
         /// The Microsoft Defender for Container K8s VM host scanning configuration
         /// </summary>
-        public readonly Outputs.DefenderForContainersAwsOfferingResponseVmScanners? VmScanners;
+        public readonly Outputs.DefenderForContainersAwsOfferingVmScannersResponse? VmScanners;
 
         [OutputConstructor]
         private DefenderForContainersAwsOfferingResponse(
-            Outputs.DefenderForContainersAwsOfferingResponseCloudWatchToKinesis? cloudWatchToKinesis,
+            Outputs.DefenderForContainersAwsOfferingCloudWatchToKinesisResponse? cloudWatchToKinesis,
 
             string? dataCollectionExternalId,
 
@@ -88,21 +88,21 @@ namespace Pulumi.AzureNative.Security.Outputs
 
             bool? enablePolicyAgentAutoProvisioning,
 
-            Outputs.DefenderForContainersAwsOfferingResponseKinesisToS3? kinesisToS3,
+            Outputs.DefenderForContainersAwsOfferingKinesisToS3Response? kinesisToS3,
 
             double? kubeAuditRetentionTime,
 
-            Outputs.DefenderForContainersAwsOfferingResponseKubernetesDataCollection? kubernetesDataCollection,
+            Outputs.DefenderForContainersAwsOfferingKubernetesDataCollectionResponse? kubernetesDataCollection,
 
-            Outputs.DefenderForContainersAwsOfferingResponseKubernetesService? kubernetesService,
+            Outputs.DefenderForContainersAwsOfferingKubernetesServiceResponse? kubernetesService,
 
-            Outputs.DefenderForContainersAwsOfferingResponseMdcContainersAgentlessDiscoveryK8s? mdcContainersAgentlessDiscoveryK8s,
+            Outputs.DefenderForContainersAwsOfferingMdcContainersAgentlessDiscoveryK8SResponse? mdcContainersAgentlessDiscoveryK8S,
 
-            Outputs.DefenderForContainersAwsOfferingResponseMdcContainersImageAssessment? mdcContainersImageAssessment,
+            Outputs.DefenderForContainersAwsOfferingMdcContainersImageAssessmentResponse? mdcContainersImageAssessment,
 
             string offeringType,
 
-            Outputs.DefenderForContainersAwsOfferingResponseVmScanners? vmScanners)
+            Outputs.DefenderForContainersAwsOfferingVmScannersResponse? vmScanners)
         {
             CloudWatchToKinesis = cloudWatchToKinesis;
             DataCollectionExternalId = dataCollectionExternalId;
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.Security.Outputs
             KubeAuditRetentionTime = kubeAuditRetentionTime;
             KubernetesDataCollection = kubernetesDataCollection;
             KubernetesService = kubernetesService;
-            MdcContainersAgentlessDiscoveryK8s = mdcContainersAgentlessDiscoveryK8s;
+            MdcContainersAgentlessDiscoveryK8S = mdcContainersAgentlessDiscoveryK8S;
             MdcContainersImageAssessment = mdcContainersImageAssessment;
             OfferingType = offeringType;
             VmScanners = vmScanners;

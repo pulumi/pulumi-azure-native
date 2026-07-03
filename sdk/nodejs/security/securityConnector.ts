@@ -70,11 +70,11 @@ export class SecurityConnector extends pulumi.CustomResource {
      */
     declare public readonly kind: pulumi.Output<string | undefined>;
     /**
-     * Location where the resource is stored
+     * The geo-location where the resource lives
      */
     declare public readonly location: pulumi.Output<string | undefined>;
     /**
-     * Resource name
+     * The name of the resource
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
@@ -86,11 +86,11 @@ export class SecurityConnector extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly systemData: pulumi.Output<outputs.security.SystemDataResponse>;
     /**
-     * A list of key value pairs that describe the resource.
+     * Resource tags.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
 
@@ -166,7 +166,7 @@ export interface SecurityConnectorArgs {
      */
     kind?: pulumi.Input<string>;
     /**
-     * Location where the resource is stored
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
@@ -174,7 +174,7 @@ export interface SecurityConnectorArgs {
      */
     offerings?: pulumi.Input<pulumi.Input<inputs.security.CspmMonitorAwsOfferingArgs | inputs.security.CspmMonitorAzureDevOpsOfferingArgs | inputs.security.CspmMonitorDockerHubOfferingArgs | inputs.security.CspmMonitorGcpOfferingArgs | inputs.security.CspmMonitorGitLabOfferingArgs | inputs.security.CspmMonitorGithubOfferingArgs | inputs.security.CspmMonitorJFrogOfferingArgs | inputs.security.DefenderCspmAwsOfferingArgs | inputs.security.DefenderCspmDockerHubOfferingArgs | inputs.security.DefenderCspmGcpOfferingArgs | inputs.security.DefenderCspmJFrogOfferingArgs | inputs.security.DefenderFoDatabasesAwsOfferingArgs | inputs.security.DefenderForContainersAwsOfferingArgs | inputs.security.DefenderForContainersDockerHubOfferingArgs | inputs.security.DefenderForContainersGcpOfferingArgs | inputs.security.DefenderForContainersJFrogOfferingArgs | inputs.security.DefenderForDatabasesGcpOfferingArgs | inputs.security.DefenderForServersAwsOfferingArgs | inputs.security.DefenderForServersGcpOfferingArgs>[]>;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -182,7 +182,7 @@ export interface SecurityConnectorArgs {
      */
     securityConnectorName?: pulumi.Input<string>;
     /**
-     * A list of key value pairs that describe the resource.
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

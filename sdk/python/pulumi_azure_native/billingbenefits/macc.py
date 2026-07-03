@@ -80,6 +80,8 @@ class MaccArgs:
         """
         pulumi.set(__self__, "entity_type", entity_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if allow_contributors is None:
+            allow_contributors = False
         if allow_contributors is not None:
             pulumi.set(__self__, "allow_contributors", allow_contributors)
         if automatic_shortfall is not None:
@@ -576,6 +578,8 @@ class Macc(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MaccArgs.__new__(MaccArgs)
 
+            if allow_contributors is None:
+                allow_contributors = False
             __props__.__dict__["allow_contributors"] = allow_contributors
             __props__.__dict__["automatic_shortfall"] = automatic_shortfall
             __props__.__dict__["automatic_shortfall_suppress_reason"] = automatic_shortfall_suppress_reason
@@ -744,7 +748,7 @@ class Macc(pulumi.CustomResource):
     @pulumi.getter
     def etag(self) -> pulumi.Output[_builtins.str]:
         """
-        The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+        The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
         """
         return pulumi.get(self, "etag")
 

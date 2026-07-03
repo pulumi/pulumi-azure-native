@@ -331,7 +331,7 @@ class RemediationAtSubscription(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="failureThreshold")
-    def failure_threshold(self) -> pulumi.Output[Optional['outputs.RemediationPropertiesResponseFailureThreshold']]:
+    def failure_threshold(self) -> pulumi.Output[Optional['outputs.RemediationPropertiesFailureThresholdResponse']]:
         """
         The remediation failure threshold settings
         """
@@ -357,7 +357,7 @@ class RemediationAtSubscription(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the remediation.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -429,7 +429,7 @@ class RemediationAtSubscription(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        The type of the remediation.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

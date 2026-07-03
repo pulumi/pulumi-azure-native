@@ -33,9 +33,9 @@ class ModuleArgs:
 
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
         :param pulumi.Input['ContentLinkArgs'] content_link: Gets or sets the module content link.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: Gets or sets the location of the resource.
-        :param pulumi.Input[_builtins.str] module_name: The name of module.
+        :param pulumi.Input[_builtins.str] module_name: The module name.
         :param pulumi.Input[_builtins.str] name: Gets or sets name of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Gets or sets the tags attached to the resource.
         """
@@ -79,7 +79,7 @@ class ModuleArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of an Azure Resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -103,7 +103,7 @@ class ModuleArgs:
     @pulumi.getter(name="moduleName")
     def module_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of module.
+        The module name.
         """
         return pulumi.get(self, "module_name")
 
@@ -163,9 +163,9 @@ class Module(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
         :param pulumi.Input[Union['ContentLinkArgs', 'ContentLinkArgsDict']] content_link: Gets or sets the module content link.
         :param pulumi.Input[_builtins.str] location: Gets or sets the location of the resource.
-        :param pulumi.Input[_builtins.str] module_name: The name of module.
+        :param pulumi.Input[_builtins.str] module_name: The module name.
         :param pulumi.Input[_builtins.str] name: Gets or sets name of the resource.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Gets or sets the tags attached to the resource.
         """
         ...

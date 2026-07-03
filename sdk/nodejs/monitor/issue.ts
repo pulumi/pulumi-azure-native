@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2025-05-03-preview.
  *
- * Other available API versions: 2025-10-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2025-10-03, 2025-10-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Issue extends pulumi.CustomResource {
     /**
@@ -97,7 +97,7 @@ export class Issue extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:monitor/v20250503preview:Issue" }, { type: "azure-native:monitor/v20251003preview:Issue" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:monitor/v20250503preview:Issue" }, { type: "azure-native:monitor/v20251003:Issue" }, { type: "azure-native:monitor/v20251003preview:Issue" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Issue.__pulumiType, name, resourceInputs, opts);
     }

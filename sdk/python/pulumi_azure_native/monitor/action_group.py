@@ -54,13 +54,13 @@ class ActionGroupInitArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AzureFunctionReceiverArgs']]] azure_function_receivers: The list of azure function receivers that are part of this action group.
         :param pulumi.Input[Sequence[pulumi.Input['EmailReceiverArgs']]] email_receivers: The list of email receivers that are part of this action group.
         :param pulumi.Input[Sequence[pulumi.Input['EventHubReceiverArgs']]] event_hub_receivers: The list of event hub receivers that are part of this action group.
-        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[Sequence[pulumi.Input['IncidentReceiverArgs']]] incident_receivers: The list of incident receivers that are part of this action group.
         :param pulumi.Input[Sequence[pulumi.Input['ItsmReceiverArgs']]] itsm_receivers: The list of ITSM receivers that are part of this action group.
-        :param pulumi.Input[_builtins.str] location: Resource location
+        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Sequence[pulumi.Input['LogicAppReceiverArgs']]] logic_app_receivers: The list of logic app receivers that are part of this action group.
         :param pulumi.Input[Sequence[pulumi.Input['SmsReceiverArgs']]] sms_receivers: The list of SMS receivers that are part of this action group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input['VoiceReceiverArgs']]] voice_receivers: The list of voice receivers that are part of this action group.
         :param pulumi.Input[Sequence[pulumi.Input['WebhookReceiverArgs']]] webhook_receivers: The list of webhook receivers that are part of this action group.
         """
@@ -226,7 +226,7 @@ class ActionGroupInitArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
         """
-        Managed service identity (system assigned and/or user assigned identities)
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
@@ -262,7 +262,7 @@ class ActionGroupInitArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -298,7 +298,7 @@ class ActionGroupInitArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -376,14 +376,14 @@ class ActionGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EventHubReceiverArgs', 'EventHubReceiverArgsDict']]]] event_hub_receivers: The list of event hub receivers that are part of this action group.
         :param pulumi.Input[_builtins.str] group_short_name: The short name of the action group. This will be used in SMS messages.
-        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed service identity (system assigned and/or user assigned identities)
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IncidentReceiverArgs', 'IncidentReceiverArgsDict']]]] incident_receivers: The list of incident receivers that are part of this action group.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ItsmReceiverArgs', 'ItsmReceiverArgsDict']]]] itsm_receivers: The list of ITSM receivers that are part of this action group.
-        :param pulumi.Input[_builtins.str] location: Resource location
+        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Sequence[pulumi.Input[Union['LogicAppReceiverArgs', 'LogicAppReceiverArgsDict']]]] logic_app_receivers: The list of logic app receivers that are part of this action group.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SmsReceiverArgs', 'SmsReceiverArgsDict']]]] sms_receivers: The list of SMS receivers that are part of this action group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VoiceReceiverArgs', 'VoiceReceiverArgsDict']]]] voice_receivers: The list of voice receivers that are part of this action group.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WebhookReceiverArgs', 'WebhookReceiverArgsDict']]]] webhook_receivers: The list of webhook receivers that are part of this action group.
         """
@@ -473,6 +473,7 @@ class ActionGroup(pulumi.CustomResource):
             __props__.__dict__["webhook_receivers"] = webhook_receivers
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights/v20230101:ActionGroup"), pulumi.Alias(type_="azure-native:insights/v20230901preview:ActionGroup"), pulumi.Alias(type_="azure-native:insights/v20241001preview:ActionGroup"), pulumi.Alias(type_="azure-native:insights:ActionGroup"), pulumi.Alias(type_="azure-native:monitor/v20170401:ActionGroup"), pulumi.Alias(type_="azure-native:monitor/v20180301:ActionGroup"), pulumi.Alias(type_="azure-native:monitor/v20180901:ActionGroup"), pulumi.Alias(type_="azure-native:monitor/v20190301:ActionGroup"), pulumi.Alias(type_="azure-native:monitor/v20190601:ActionGroup"), pulumi.Alias(type_="azure-native:monitor/v20210901:ActionGroup"), pulumi.Alias(type_="azure-native:monitor/v20220401:ActionGroup"), pulumi.Alias(type_="azure-native:monitor/v20220601:ActionGroup"), pulumi.Alias(type_="azure-native:monitor/v20230101:ActionGroup"), pulumi.Alias(type_="azure-native:monitor/v20230901preview:ActionGroup"), pulumi.Alias(type_="azure-native:monitor/v20241001preview:ActionGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -514,6 +515,7 @@ class ActionGroup(pulumi.CustomResource):
         __props__.__dict__["logic_app_receivers"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["sms_receivers"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["voice_receivers"] = None
@@ -596,7 +598,7 @@ class ActionGroup(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
         """
-        Managed service identity (system assigned and/or user assigned identities)
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
@@ -620,7 +622,7 @@ class ActionGroup(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -636,7 +638,7 @@ class ActionGroup(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -649,10 +651,18 @@ class ActionGroup(pulumi.CustomResource):
         return pulumi.get(self, "sms_receivers")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -660,7 +670,7 @@ class ActionGroup(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

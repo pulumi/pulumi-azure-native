@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// The remediation failure threshold settings
         /// </summary>
         [Output("failureThreshold")]
-        public Output<Outputs.RemediationPropertiesResponseFailureThreshold?> FailureThreshold { get; private set; } = null!;
+        public Output<Outputs.RemediationPropertiesFailureThresholdResponse?> FailureThreshold { get; private set; } = null!;
 
         /// <summary>
         /// The filters that will be applied to determine which resources to remediate.
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNative.PolicyInsights
         public Output<string> LastUpdatedOn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the remediation.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.PolicyInsights
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the remediation.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -222,7 +222,7 @@ namespace Pulumi.AzureNative.PolicyInsights
         public InputUnion<string, Pulumi.AzureNative.PolicyInsights.ResourceDiscoveryMode>? ResourceDiscoveryMode { get; set; }
 
         /// <summary>
-        /// Resource group name.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

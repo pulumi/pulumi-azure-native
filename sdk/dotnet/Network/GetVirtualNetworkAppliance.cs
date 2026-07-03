@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Network
         /// Gets information about the specified virtual network appliance.
         /// 
         /// Uses Azure REST API version 2025-05-01.
+        /// 
+        /// Other available API versions: 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetVirtualNetworkApplianceResult> InvokeAsync(GetVirtualNetworkApplianceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkApplianceResult>("azure-native:network:getVirtualNetworkAppliance", args ?? new GetVirtualNetworkApplianceArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Network
         /// Gets information about the specified virtual network appliance.
         /// 
         /// Uses Azure REST API version 2025-05-01.
+        /// 
+        /// Other available API versions: 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetVirtualNetworkApplianceResult> Invoke(GetVirtualNetworkApplianceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkApplianceResult>("azure-native:network:getVirtualNetworkAppliance", args ?? new GetVirtualNetworkApplianceInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Network
         /// Gets information about the specified virtual network appliance.
         /// 
         /// Uses Azure REST API version 2025-05-01.
+        /// 
+        /// Other available API versions: 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetVirtualNetworkApplianceResult> Invoke(GetVirtualNetworkApplianceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkApplianceResult>("azure-native:network:getVirtualNetworkAppliance", args ?? new GetVirtualNetworkApplianceInvokeArgs(), options.WithDefaults());
@@ -40,7 +46,7 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetVirtualNetworkApplianceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -60,7 +66,7 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetVirtualNetworkApplianceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -120,7 +126,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The reference to the subnet resource.
         /// </summary>
-        public readonly Outputs.SubnetResponse? Subnet;
+        public readonly Outputs.CommonSubnetResponse? Subnet;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -150,7 +156,7 @@ namespace Pulumi.AzureNative.Network
 
             string resourceGuid,
 
-            Outputs.SubnetResponse? subnet,
+            Outputs.CommonSubnetResponse? subnet,
 
             ImmutableDictionary<string, string>? tags,
 

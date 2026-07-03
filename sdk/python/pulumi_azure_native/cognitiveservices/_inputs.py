@@ -70,8 +70,6 @@ __all__ = [
     'CustomKeysConnectionPropertiesArgsDict',
     'CustomKeysArgs',
     'CustomKeysArgsDict',
-    'CustomTopicConfigArgs',
-    'CustomTopicConfigArgsDict',
     'DeploymentCapacitySettingsArgs',
     'DeploymentCapacitySettingsArgsDict',
     'DeploymentModelArgs',
@@ -98,6 +96,12 @@ __all__ = [
     'ManagedAgentDeploymentArgsDict',
     'ManagedIdentityAuthTypeConnectionPropertiesArgs',
     'ManagedIdentityAuthTypeConnectionPropertiesArgsDict',
+    'ManagedNetworkProvisionStatusArgs',
+    'ManagedNetworkProvisionStatusArgsDict',
+    'ManagedNetworkSettingsExArgs',
+    'ManagedNetworkSettingsExArgsDict',
+    'ManagedNetworkSettingsPropertiesArgs',
+    'ManagedNetworkSettingsPropertiesArgsDict',
     'MultiRegionSettingsArgs',
     'MultiRegionSettingsArgsDict',
     'NetworkInjectionArgs',
@@ -114,6 +118,10 @@ __all__ = [
     'PATAuthTypeConnectionPropertiesArgsDict',
     'PrivateEndpointConnectionPropertiesArgs',
     'PrivateEndpointConnectionPropertiesArgsDict',
+    'PrivateEndpointOutboundRuleDestinationArgs',
+    'PrivateEndpointOutboundRuleDestinationArgsDict',
+    'PrivateEndpointOutboundRuleArgs',
+    'PrivateEndpointOutboundRuleArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
     'PrivateLinkServiceConnectionStateArgsDict',
     'ProjectCapabilityHostArgs',
@@ -134,8 +142,8 @@ __all__ = [
     'RaiPolicyPropertiesArgsDict',
     'RaiToolLabelPropertiesAccountScopeArgs',
     'RaiToolLabelPropertiesAccountScopeArgsDict',
-    'RaiToolLabelPropertiesProjectScopesArgs',
-    'RaiToolLabelPropertiesProjectScopesArgsDict',
+    'RaiToolLabelPropertiesProjectScopesItemArgs',
+    'RaiToolLabelPropertiesProjectScopesItemArgsDict',
     'RaiToolLabelPropertiesArgs',
     'RaiToolLabelPropertiesArgsDict',
     'RaiTopicPropertiesArgs',
@@ -150,6 +158,10 @@ __all__ = [
     'SafetyProviderConfigArgsDict',
     'ServicePrincipalAuthTypeConnectionPropertiesArgs',
     'ServicePrincipalAuthTypeConnectionPropertiesArgsDict',
+    'ServiceTagOutboundRuleDestinationArgs',
+    'ServiceTagOutboundRuleDestinationArgsDict',
+    'ServiceTagOutboundRuleArgs',
+    'ServiceTagOutboundRuleArgsDict',
     'SkuArgs',
     'SkuArgsDict',
     'TrafficRoutingRuleArgs',
@@ -3298,80 +3310,6 @@ class CustomKeysArgs:
         pulumi.set(self, "keys", value)
 
 
-class CustomTopicConfigArgsDict(TypedDict):
-    """
-    Gets or sets the source to which filter applies.
-    """
-    blocking: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    If blocking would occur.
-    """
-    source: NotRequired[pulumi.Input[Union[_builtins.str, 'RaiPolicyContentSource']]]
-    """
-    Content source to apply the Content Filters.
-    """
-    topic_name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Name of RAI topic.
-    """
-
-@pulumi.input_type
-class CustomTopicConfigArgs:
-    def __init__(__self__, *,
-                 blocking: Optional[pulumi.Input[_builtins.bool]] = None,
-                 source: Optional[pulumi.Input[Union[_builtins.str, 'RaiPolicyContentSource']]] = None,
-                 topic_name: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Gets or sets the source to which filter applies.
-
-        :param pulumi.Input[_builtins.bool] blocking: If blocking would occur.
-        :param pulumi.Input[Union[_builtins.str, 'RaiPolicyContentSource']] source: Content source to apply the Content Filters.
-        :param pulumi.Input[_builtins.str] topic_name: Name of RAI topic.
-        """
-        if blocking is not None:
-            pulumi.set(__self__, "blocking", blocking)
-        if source is not None:
-            pulumi.set(__self__, "source", source)
-        if topic_name is not None:
-            pulumi.set(__self__, "topic_name", topic_name)
-
-    @_builtins.property
-    @pulumi.getter
-    def blocking(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If blocking would occur.
-        """
-        return pulumi.get(self, "blocking")
-
-    @blocking.setter
-    def blocking(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "blocking", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RaiPolicyContentSource']]]:
-        """
-        Content source to apply the Content Filters.
-        """
-        return pulumi.get(self, "source")
-
-    @source.setter
-    def source(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RaiPolicyContentSource']]]):
-        pulumi.set(self, "source", value)
-
-    @_builtins.property
-    @pulumi.getter(name="topicName")
-    def topic_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of RAI topic.
-        """
-        return pulumi.get(self, "topic_name")
-
-    @topic_name.setter
-    def topic_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "topic_name", value)
-
-
 class DeploymentCapacitySettingsArgsDict(TypedDict):
     """
     Internal use only.
@@ -4791,6 +4729,183 @@ class ManagedIdentityAuthTypeConnectionPropertiesArgs:
         pulumi.set(self, "use_workspace_managed_identity", value)
 
 
+class ManagedNetworkProvisionStatusArgsDict(TypedDict):
+    """
+    Status of the Provisioning for the managed network of a cognitive services account.
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedNetworkStatus']]]
+    """
+    Status for the managed network of a cognitive services account.
+    """
+
+@pulumi.input_type
+class ManagedNetworkProvisionStatusArgs:
+    def __init__(__self__, *,
+                 status: Optional[pulumi.Input[Union[_builtins.str, 'ManagedNetworkStatus']]] = None):
+        """
+        Status of the Provisioning for the managed network of a cognitive services account.
+
+        :param pulumi.Input[Union[_builtins.str, 'ManagedNetworkStatus']] status: Status for the managed network of a cognitive services account.
+        """
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedNetworkStatus']]]:
+        """
+        Status for the managed network of a cognitive services account.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ManagedNetworkStatus']]]):
+        pulumi.set(self, "status", value)
+
+
+class ManagedNetworkSettingsExArgsDict(TypedDict):
+    firewall_sku: NotRequired[pulumi.Input[Union[_builtins.str, 'FirewallSku']]]
+    """
+    Firewall Sku used for FQDN Rules
+    """
+    isolation_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'IsolationMode']]]
+    """
+    Isolation mode for the managed network of a cognitive services account.
+    """
+    managed_network_kind: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedNetworkKind']]]
+    """
+    The Kind of the managed network. Users can switch from V1 to V2 for granular access controls, but cannot switch back to V1 once V2 is enabled.
+    """
+    outbound_rules: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Union['FqdnOutboundRuleArgsDict', 'PrivateEndpointOutboundRuleArgsDict', 'ServiceTagOutboundRuleArgsDict']]]]]
+    """
+    Dictionary of <OutboundRule>
+    """
+    status: NotRequired[pulumi.Input['ManagedNetworkProvisionStatusArgsDict']]
+    """
+    Status of the Provisioning for the managed network of a cognitive services account.
+    """
+
+@pulumi.input_type
+class ManagedNetworkSettingsExArgs:
+    def __init__(__self__, *,
+                 firewall_sku: Optional[pulumi.Input[Union[_builtins.str, 'FirewallSku']]] = None,
+                 isolation_mode: Optional[pulumi.Input[Union[_builtins.str, 'IsolationMode']]] = None,
+                 managed_network_kind: Optional[pulumi.Input[Union[_builtins.str, 'ManagedNetworkKind']]] = None,
+                 outbound_rules: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['FqdnOutboundRuleArgs', 'PrivateEndpointOutboundRuleArgs', 'ServiceTagOutboundRuleArgs']]]]] = None,
+                 status: Optional[pulumi.Input['ManagedNetworkProvisionStatusArgs']] = None):
+        """
+        :param pulumi.Input[Union[_builtins.str, 'FirewallSku']] firewall_sku: Firewall Sku used for FQDN Rules
+        :param pulumi.Input[Union[_builtins.str, 'IsolationMode']] isolation_mode: Isolation mode for the managed network of a cognitive services account.
+        :param pulumi.Input[Union[_builtins.str, 'ManagedNetworkKind']] managed_network_kind: The Kind of the managed network. Users can switch from V1 to V2 for granular access controls, but cannot switch back to V1 once V2 is enabled.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['FqdnOutboundRuleArgs', 'PrivateEndpointOutboundRuleArgs', 'ServiceTagOutboundRuleArgs']]]] outbound_rules: Dictionary of <OutboundRule>
+        :param pulumi.Input['ManagedNetworkProvisionStatusArgs'] status: Status of the Provisioning for the managed network of a cognitive services account.
+        """
+        if firewall_sku is not None:
+            pulumi.set(__self__, "firewall_sku", firewall_sku)
+        if isolation_mode is not None:
+            pulumi.set(__self__, "isolation_mode", isolation_mode)
+        if managed_network_kind is not None:
+            pulumi.set(__self__, "managed_network_kind", managed_network_kind)
+        if outbound_rules is not None:
+            pulumi.set(__self__, "outbound_rules", outbound_rules)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="firewallSku")
+    def firewall_sku(self) -> Optional[pulumi.Input[Union[_builtins.str, 'FirewallSku']]]:
+        """
+        Firewall Sku used for FQDN Rules
+        """
+        return pulumi.get(self, "firewall_sku")
+
+    @firewall_sku.setter
+    def firewall_sku(self, value: Optional[pulumi.Input[Union[_builtins.str, 'FirewallSku']]]):
+        pulumi.set(self, "firewall_sku", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isolationMode")
+    def isolation_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'IsolationMode']]]:
+        """
+        Isolation mode for the managed network of a cognitive services account.
+        """
+        return pulumi.get(self, "isolation_mode")
+
+    @isolation_mode.setter
+    def isolation_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'IsolationMode']]]):
+        pulumi.set(self, "isolation_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="managedNetworkKind")
+    def managed_network_kind(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedNetworkKind']]]:
+        """
+        The Kind of the managed network. Users can switch from V1 to V2 for granular access controls, but cannot switch back to V1 once V2 is enabled.
+        """
+        return pulumi.get(self, "managed_network_kind")
+
+    @managed_network_kind.setter
+    def managed_network_kind(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ManagedNetworkKind']]]):
+        pulumi.set(self, "managed_network_kind", value)
+
+    @_builtins.property
+    @pulumi.getter(name="outboundRules")
+    def outbound_rules(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['FqdnOutboundRuleArgs', 'PrivateEndpointOutboundRuleArgs', 'ServiceTagOutboundRuleArgs']]]]]:
+        """
+        Dictionary of <OutboundRule>
+        """
+        return pulumi.get(self, "outbound_rules")
+
+    @outbound_rules.setter
+    def outbound_rules(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['FqdnOutboundRuleArgs', 'PrivateEndpointOutboundRuleArgs', 'ServiceTagOutboundRuleArgs']]]]]):
+        pulumi.set(self, "outbound_rules", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input['ManagedNetworkProvisionStatusArgs']]:
+        """
+        Status of the Provisioning for the managed network of a cognitive services account.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input['ManagedNetworkProvisionStatusArgs']]):
+        pulumi.set(self, "status", value)
+
+
+class ManagedNetworkSettingsPropertiesArgsDict(TypedDict):
+    """
+    The properties of the managed network settings of a cognitive services account.
+    """
+    managed_network: NotRequired[pulumi.Input['ManagedNetworkSettingsExArgsDict']]
+    """
+    Managed Network settings for a cognitive services account.
+    """
+
+@pulumi.input_type
+class ManagedNetworkSettingsPropertiesArgs:
+    def __init__(__self__, *,
+                 managed_network: Optional[pulumi.Input['ManagedNetworkSettingsExArgs']] = None):
+        """
+        The properties of the managed network settings of a cognitive services account.
+
+        :param pulumi.Input['ManagedNetworkSettingsExArgs'] managed_network: Managed Network settings for a cognitive services account.
+        """
+        if managed_network is not None:
+            pulumi.set(__self__, "managed_network", managed_network)
+
+    @_builtins.property
+    @pulumi.getter(name="managedNetwork")
+    def managed_network(self) -> Optional[pulumi.Input['ManagedNetworkSettingsExArgs']]:
+        """
+        Managed Network settings for a cognitive services account.
+        """
+        return pulumi.get(self, "managed_network")
+
+    @managed_network.setter
+    def managed_network(self, value: Optional[pulumi.Input['ManagedNetworkSettingsExArgs']]):
+        pulumi.set(self, "managed_network", value)
+
+
 class MultiRegionSettingsArgsDict(TypedDict):
     """
     The multiregion settings Cognitive Services account.
@@ -5740,6 +5855,176 @@ class PrivateEndpointConnectionPropertiesArgs:
         pulumi.set(self, "group_ids", value)
 
 
+class PrivateEndpointOutboundRuleDestinationArgsDict(TypedDict):
+    """
+    Private Endpoint destination for an outbound rule.
+    """
+    service_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Azure resource ID of the target private endpoint service.
+    """
+    subresource_target: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The subresource of the target service to connect to.
+    """
+
+@pulumi.input_type
+class PrivateEndpointOutboundRuleDestinationArgs:
+    def __init__(__self__, *,
+                 service_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 subresource_target: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Private Endpoint destination for an outbound rule.
+
+        :param pulumi.Input[_builtins.str] service_resource_id: The Azure resource ID of the target private endpoint service.
+        :param pulumi.Input[_builtins.str] subresource_target: The subresource of the target service to connect to.
+        """
+        if service_resource_id is not None:
+            pulumi.set(__self__, "service_resource_id", service_resource_id)
+        if subresource_target is not None:
+            pulumi.set(__self__, "subresource_target", subresource_target)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceResourceId")
+    def service_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Azure resource ID of the target private endpoint service.
+        """
+        return pulumi.get(self, "service_resource_id")
+
+    @service_resource_id.setter
+    def service_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "service_resource_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subresourceTarget")
+    def subresource_target(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The subresource of the target service to connect to.
+        """
+        return pulumi.get(self, "subresource_target")
+
+    @subresource_target.setter
+    def subresource_target(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "subresource_target", value)
+
+
+class PrivateEndpointOutboundRuleArgsDict(TypedDict):
+    """
+    Private Endpoint outbound rule for the managed network of a cognitive services account.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of a managed network Outbound Rule of a cognitive services account.
+    Expected value is 'PrivateEndpoint'.
+    """
+    category: NotRequired[pulumi.Input[Union[_builtins.str, 'RuleCategory']]]
+    """
+    Category of a managed network Outbound Rule of a cognitive services account.
+    """
+    destination: NotRequired[pulumi.Input['PrivateEndpointOutboundRuleDestinationArgsDict']]
+    """
+    Private Endpoint destination.
+    """
+    fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of FQDNs associated with the private endpoint outbound rule.
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'RuleStatus']]]
+    """
+    Type of a managed network Outbound Rule of a cognitive services account.
+    """
+
+@pulumi.input_type
+class PrivateEndpointOutboundRuleArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 category: Optional[pulumi.Input[Union[_builtins.str, 'RuleCategory']]] = None,
+                 destination: Optional[pulumi.Input['PrivateEndpointOutboundRuleDestinationArgs']] = None,
+                 fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 status: Optional[pulumi.Input[Union[_builtins.str, 'RuleStatus']]] = None):
+        """
+        Private Endpoint outbound rule for the managed network of a cognitive services account.
+
+        :param pulumi.Input[_builtins.str] type: Type of a managed network Outbound Rule of a cognitive services account.
+               Expected value is 'PrivateEndpoint'.
+        :param pulumi.Input[Union[_builtins.str, 'RuleCategory']] category: Category of a managed network Outbound Rule of a cognitive services account.
+        :param pulumi.Input['PrivateEndpointOutboundRuleDestinationArgs'] destination: Private Endpoint destination.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fqdns: List of FQDNs associated with the private endpoint outbound rule.
+        :param pulumi.Input[Union[_builtins.str, 'RuleStatus']] status: Type of a managed network Outbound Rule of a cognitive services account.
+        """
+        pulumi.set(__self__, "type", 'PrivateEndpoint')
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if fqdns is not None:
+            pulumi.set(__self__, "fqdns", fqdns)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Type of a managed network Outbound Rule of a cognitive services account.
+        Expected value is 'PrivateEndpoint'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RuleCategory']]]:
+        """
+        Category of a managed network Outbound Rule of a cognitive services account.
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RuleCategory']]]):
+        pulumi.set(self, "category", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def destination(self) -> Optional[pulumi.Input['PrivateEndpointOutboundRuleDestinationArgs']]:
+        """
+        Private Endpoint destination.
+        """
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: Optional[pulumi.Input['PrivateEndpointOutboundRuleDestinationArgs']]):
+        pulumi.set(self, "destination", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of FQDNs associated with the private endpoint outbound rule.
+        """
+        return pulumi.get(self, "fqdns")
+
+    @fqdns.setter
+    def fqdns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "fqdns", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RuleStatus']]]:
+        """
+        Type of a managed network Outbound Rule of a cognitive services account.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RuleStatus']]]):
+        pulumi.set(self, "status", value)
+
+
 class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
     """
     A collection of information about the state of the connection between service consumer and provider.
@@ -6403,10 +6688,6 @@ class RaiPolicyPropertiesArgsDict(TypedDict):
     """
     The list of custom Blocklist.
     """
-    custom_topics: NotRequired[pulumi.Input[Sequence[pulumi.Input['CustomTopicConfigArgsDict']]]]
-    """
-    The list of custom rai topics.
-    """
     mode: NotRequired[pulumi.Input[Union[_builtins.str, 'RaiPolicyMode']]]
     """
     Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2025-06-01. It is the same as 'Deferred' in previous version.
@@ -6422,7 +6703,6 @@ class RaiPolicyPropertiesArgs:
                  base_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
                  content_filters: Optional[pulumi.Input[Sequence[pulumi.Input['RaiPolicyContentFilterArgs']]]] = None,
                  custom_blocklists: Optional[pulumi.Input[Sequence[pulumi.Input['CustomBlocklistConfigArgs']]]] = None,
-                 custom_topics: Optional[pulumi.Input[Sequence[pulumi.Input['CustomTopicConfigArgs']]]] = None,
                  mode: Optional[pulumi.Input[Union[_builtins.str, 'RaiPolicyMode']]] = None,
                  safety_providers: Optional[pulumi.Input[Sequence[pulumi.Input['SafetyProviderConfigArgs']]]] = None):
         """
@@ -6431,7 +6711,6 @@ class RaiPolicyPropertiesArgs:
         :param pulumi.Input[_builtins.str] base_policy_name: Name of Rai policy.
         :param pulumi.Input[Sequence[pulumi.Input['RaiPolicyContentFilterArgs']]] content_filters: The list of Content Filters.
         :param pulumi.Input[Sequence[pulumi.Input['CustomBlocklistConfigArgs']]] custom_blocklists: The list of custom Blocklist.
-        :param pulumi.Input[Sequence[pulumi.Input['CustomTopicConfigArgs']]] custom_topics: The list of custom rai topics.
         :param pulumi.Input[Union[_builtins.str, 'RaiPolicyMode']] mode: Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2025-06-01. It is the same as 'Deferred' in previous version.
         :param pulumi.Input[Sequence[pulumi.Input['SafetyProviderConfigArgs']]] safety_providers: The list of Safety Providers.
         """
@@ -6441,8 +6720,6 @@ class RaiPolicyPropertiesArgs:
             pulumi.set(__self__, "content_filters", content_filters)
         if custom_blocklists is not None:
             pulumi.set(__self__, "custom_blocklists", custom_blocklists)
-        if custom_topics is not None:
-            pulumi.set(__self__, "custom_topics", custom_topics)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
         if safety_providers is not None:
@@ -6483,18 +6760,6 @@ class RaiPolicyPropertiesArgs:
     @custom_blocklists.setter
     def custom_blocklists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomBlocklistConfigArgs']]]]):
         pulumi.set(self, "custom_blocklists", value)
-
-    @_builtins.property
-    @pulumi.getter(name="customTopics")
-    def custom_topics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomTopicConfigArgs']]]]:
-        """
-        The list of custom rai topics.
-        """
-        return pulumi.get(self, "custom_topics")
-
-    @custom_topics.setter
-    def custom_topics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomTopicConfigArgs']]]]):
-        pulumi.set(self, "custom_topics", value)
 
     @_builtins.property
     @pulumi.getter
@@ -6555,7 +6820,7 @@ class RaiToolLabelPropertiesAccountScopeArgs:
         pulumi.set(self, "label_values", value)
 
 
-class RaiToolLabelPropertiesProjectScopesArgsDict(TypedDict):
+class RaiToolLabelPropertiesProjectScopesItemArgsDict(TypedDict):
     label_values: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
     """
     Dictionary of label key-value pairs for the project scope.
@@ -6566,7 +6831,7 @@ class RaiToolLabelPropertiesProjectScopesArgsDict(TypedDict):
     """
 
 @pulumi.input_type
-class RaiToolLabelPropertiesProjectScopesArgs:
+class RaiToolLabelPropertiesProjectScopesItemArgs:
     def __init__(__self__, *,
                  label_values: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]],
                  project: pulumi.Input[_builtins.str]):
@@ -6614,7 +6879,7 @@ class RaiToolLabelPropertiesArgsDict(TypedDict):
     """
     Account-level tool label definition.
     """
-    project_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input['RaiToolLabelPropertiesProjectScopesArgsDict']]]]
+    project_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input['RaiToolLabelPropertiesProjectScopesItemArgsDict']]]]
     """
     List of project-level tool label definitions.
     """
@@ -6624,13 +6889,13 @@ class RaiToolLabelPropertiesArgs:
     def __init__(__self__, *,
                  tool_connection_name: pulumi.Input[_builtins.str],
                  account_scope: Optional[pulumi.Input['RaiToolLabelPropertiesAccountScopeArgs']] = None,
-                 project_scopes: Optional[pulumi.Input[Sequence[pulumi.Input['RaiToolLabelPropertiesProjectScopesArgs']]]] = None):
+                 project_scopes: Optional[pulumi.Input[Sequence[pulumi.Input['RaiToolLabelPropertiesProjectScopesItemArgs']]]] = None):
         """
         RAI Tool Label properties.
 
         :param pulumi.Input[_builtins.str] tool_connection_name: The unique tool connection name, e.g., 'Web_Search'.
         :param pulumi.Input['RaiToolLabelPropertiesAccountScopeArgs'] account_scope: Account-level tool label definition.
-        :param pulumi.Input[Sequence[pulumi.Input['RaiToolLabelPropertiesProjectScopesArgs']]] project_scopes: List of project-level tool label definitions.
+        :param pulumi.Input[Sequence[pulumi.Input['RaiToolLabelPropertiesProjectScopesItemArgs']]] project_scopes: List of project-level tool label definitions.
         """
         pulumi.set(__self__, "tool_connection_name", tool_connection_name)
         if account_scope is not None:
@@ -6664,14 +6929,14 @@ class RaiToolLabelPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="projectScopes")
-    def project_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RaiToolLabelPropertiesProjectScopesArgs']]]]:
+    def project_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RaiToolLabelPropertiesProjectScopesItemArgs']]]]:
         """
         List of project-level tool label definitions.
         """
         return pulumi.get(self, "project_scopes")
 
     @project_scopes.setter
-    def project_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RaiToolLabelPropertiesProjectScopesArgs']]]]):
+    def project_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RaiToolLabelPropertiesProjectScopesItemArgs']]]]):
         pulumi.set(self, "project_scopes", value)
 
 
@@ -7463,6 +7728,216 @@ class ServicePrincipalAuthTypeConnectionPropertiesArgs:
     @use_workspace_managed_identity.setter
     def use_workspace_managed_identity(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "use_workspace_managed_identity", value)
+
+
+class ServiceTagOutboundRuleDestinationArgsDict(TypedDict):
+    """
+    Service Tag destination for an outbound rule.
+    """
+    action: NotRequired[pulumi.Input[Union[_builtins.str, 'RuleAction']]]
+    """
+    The action for the service tag outbound rule.
+    """
+    address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Optional address prefixes. If provided, the serviceTag property will be ignored.
+    """
+    port_ranges: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Destination port ranges.
+    """
+    protocol: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Network protocol used by the service tag rule.
+    """
+    service_tag: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the Azure service tag to target.
+    """
+
+@pulumi.input_type
+class ServiceTagOutboundRuleDestinationArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input[Union[_builtins.str, 'RuleAction']]] = None,
+                 address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 port_ranges: Optional[pulumi.Input[_builtins.str]] = None,
+                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_tag: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Service Tag destination for an outbound rule.
+
+        :param pulumi.Input[Union[_builtins.str, 'RuleAction']] action: The action for the service tag outbound rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_prefixes: Optional address prefixes. If provided, the serviceTag property will be ignored.
+        :param pulumi.Input[_builtins.str] port_ranges: Destination port ranges.
+        :param pulumi.Input[_builtins.str] protocol: Network protocol used by the service tag rule.
+        :param pulumi.Input[_builtins.str] service_tag: Name of the Azure service tag to target.
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if address_prefixes is not None:
+            pulumi.set(__self__, "address_prefixes", address_prefixes)
+        if port_ranges is not None:
+            pulumi.set(__self__, "port_ranges", port_ranges)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RuleAction']]]:
+        """
+        The action for the service tag outbound rule.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RuleAction']]]):
+        pulumi.set(self, "action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="addressPrefixes")
+    def address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Optional address prefixes. If provided, the serviceTag property will be ignored.
+        """
+        return pulumi.get(self, "address_prefixes")
+
+    @address_prefixes.setter
+    def address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "address_prefixes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="portRanges")
+    def port_ranges(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Destination port ranges.
+        """
+        return pulumi.get(self, "port_ranges")
+
+    @port_ranges.setter
+    def port_ranges(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "port_ranges", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Network protocol used by the service tag rule.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "protocol", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name of the Azure service tag to target.
+        """
+        return pulumi.get(self, "service_tag")
+
+    @service_tag.setter
+    def service_tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "service_tag", value)
+
+
+class ServiceTagOutboundRuleArgsDict(TypedDict):
+    """
+    Service Tag outbound rule for the managed network of a cognitive services account.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of a managed network Outbound Rule of a cognitive services account.
+    Expected value is 'ServiceTag'.
+    """
+    category: NotRequired[pulumi.Input[Union[_builtins.str, 'RuleCategory']]]
+    """
+    Category of a managed network Outbound Rule of a cognitive services account.
+    """
+    destination: NotRequired[pulumi.Input['ServiceTagOutboundRuleDestinationArgsDict']]
+    """
+    Service Tag destination.
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'RuleStatus']]]
+    """
+    Type of a managed network Outbound Rule of a cognitive services account.
+    """
+
+@pulumi.input_type
+class ServiceTagOutboundRuleArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 category: Optional[pulumi.Input[Union[_builtins.str, 'RuleCategory']]] = None,
+                 destination: Optional[pulumi.Input['ServiceTagOutboundRuleDestinationArgs']] = None,
+                 status: Optional[pulumi.Input[Union[_builtins.str, 'RuleStatus']]] = None):
+        """
+        Service Tag outbound rule for the managed network of a cognitive services account.
+
+        :param pulumi.Input[_builtins.str] type: Type of a managed network Outbound Rule of a cognitive services account.
+               Expected value is 'ServiceTag'.
+        :param pulumi.Input[Union[_builtins.str, 'RuleCategory']] category: Category of a managed network Outbound Rule of a cognitive services account.
+        :param pulumi.Input['ServiceTagOutboundRuleDestinationArgs'] destination: Service Tag destination.
+        :param pulumi.Input[Union[_builtins.str, 'RuleStatus']] status: Type of a managed network Outbound Rule of a cognitive services account.
+        """
+        pulumi.set(__self__, "type", 'ServiceTag')
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Type of a managed network Outbound Rule of a cognitive services account.
+        Expected value is 'ServiceTag'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RuleCategory']]]:
+        """
+        Category of a managed network Outbound Rule of a cognitive services account.
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RuleCategory']]]):
+        pulumi.set(self, "category", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def destination(self) -> Optional[pulumi.Input['ServiceTagOutboundRuleDestinationArgs']]:
+        """
+        Service Tag destination.
+        """
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: Optional[pulumi.Input['ServiceTagOutboundRuleDestinationArgs']]):
+        pulumi.set(self, "destination", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RuleStatus']]]:
+        """
+        Type of a managed network Outbound Rule of a cognitive services account.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RuleStatus']]]):
+        pulumi.set(self, "status", value)
 
 
 class SkuArgsDict(TypedDict):

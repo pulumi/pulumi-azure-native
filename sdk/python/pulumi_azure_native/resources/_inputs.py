@@ -1695,7 +1695,7 @@ class LinkedTemplateArtifactArgs:
 
 class ManagedServiceIdentityArgsDict(TypedDict):
     """
-    Managed identity generic object.
+    Describes the managed identities for an Azure resource.
     """
     type: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]]
     """
@@ -1712,7 +1712,7 @@ class ManagedServiceIdentityArgs:
                  type: Optional[pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]] = None,
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
-        Managed identity generic object.
+        Describes the managed identities for an Azure resource.
 
         :param pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']] type: Type of the managed identity.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.

@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Network
         /// Gets the specified service gateway.
         /// 
         /// Uses Azure REST API version 2025-05-01.
+        /// 
+        /// Other available API versions: 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetServiceGatewayResult> InvokeAsync(GetServiceGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceGatewayResult>("azure-native:network:getServiceGateway", args ?? new GetServiceGatewayArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Network
         /// Gets the specified service gateway.
         /// 
         /// Uses Azure REST API version 2025-05-01.
+        /// 
+        /// Other available API versions: 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetServiceGatewayResult> Invoke(GetServiceGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceGatewayResult>("azure-native:network:getServiceGateway", args ?? new GetServiceGatewayInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Network
         /// Gets the specified service gateway.
         /// 
         /// Uses Azure REST API version 2025-05-01.
+        /// 
+        /// Other available API versions: 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetServiceGatewayResult> Invoke(GetServiceGatewayInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceGatewayResult>("azure-native:network:getServiceGateway", args ?? new GetServiceGatewayInvokeArgs(), options.WithDefaults());
@@ -136,9 +142,9 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Reference to an existing virtual network.
         /// </summary>
-        public readonly Outputs.VirtualNetworkResponse? VirtualNetwork;
+        public readonly Outputs.CommonVirtualNetworkResponse? VirtualNetwork;
         /// <summary>
-        /// A list of availability zones denoting the zone in which service gateway should be deployed. 
+        /// A list of availability zones denoting the zone in which service gateway should be deployed.
         /// 
         /// - The zone values must be provided as strings representing numeric identifiers like "1", "2", "3" etc.
         /// </summary>
@@ -172,7 +178,7 @@ namespace Pulumi.AzureNative.Network
 
             string type,
 
-            Outputs.VirtualNetworkResponse? virtualNetwork,
+            Outputs.CommonVirtualNetworkResponse? virtualNetwork,
 
             ImmutableArray<string> zones)
         {

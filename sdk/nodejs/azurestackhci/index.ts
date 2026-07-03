@@ -115,6 +115,11 @@ export const getHybridIdentityMetadatum: typeof import("./getHybridIdentityMetad
 export const getHybridIdentityMetadatumOutput: typeof import("./getHybridIdentityMetadatum").getHybridIdentityMetadatumOutput = null as any;
 utilities.lazyLoad(exports, ["getHybridIdentityMetadatum","getHybridIdentityMetadatumOutput"], () => require("./getHybridIdentityMetadatum"));
 
+export { GetInboundRuleArgs, GetInboundRuleResult, GetInboundRuleOutputArgs } from "./getInboundRule";
+export const getInboundRule: typeof import("./getInboundRule").getInboundRule = null as any;
+export const getInboundRuleOutput: typeof import("./getInboundRule").getInboundRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getInboundRule","getInboundRuleOutput"], () => require("./getInboundRule"));
+
 export { GetLoadBalancerArgs, GetLoadBalancerResult, GetLoadBalancerOutputArgs } from "./getLoadBalancer";
 export const getLoadBalancer: typeof import("./getLoadBalancer").getLoadBalancer = null as any;
 export const getLoadBalancerOutput: typeof import("./getLoadBalancer").getLoadBalancerOutput = null as any;
@@ -234,6 +239,11 @@ export { HybridIdentityMetadatumArgs } from "./hybridIdentityMetadatum";
 export type HybridIdentityMetadatum = import("./hybridIdentityMetadatum").HybridIdentityMetadatum;
 export const HybridIdentityMetadatum: typeof import("./hybridIdentityMetadatum").HybridIdentityMetadatum = null as any;
 utilities.lazyLoad(exports, ["HybridIdentityMetadatum"], () => require("./hybridIdentityMetadatum"));
+
+export { InboundRuleArgs } from "./inboundRule";
+export type InboundRule = import("./inboundRule").InboundRule;
+export const InboundRule: typeof import("./inboundRule").InboundRule = null as any;
+utilities.lazyLoad(exports, ["InboundRule"], () => require("./inboundRule"));
 
 export { LoadBalancerArgs } from "./loadBalancer";
 export type LoadBalancer = import("./loadBalancer").LoadBalancer;
@@ -369,6 +379,8 @@ const _module = {
                 return new HciEdgeDeviceJob(name, <any>undefined, { urn })
             case "azure-native:azurestackhci:HybridIdentityMetadatum":
                 return new HybridIdentityMetadatum(name, <any>undefined, { urn })
+            case "azure-native:azurestackhci:InboundRule":
+                return new InboundRule(name, <any>undefined, { urn })
             case "azure-native:azurestackhci:LoadBalancer":
                 return new LoadBalancer(name, <any>undefined, { urn })
             case "azure-native:azurestackhci:LogicalNetwork":

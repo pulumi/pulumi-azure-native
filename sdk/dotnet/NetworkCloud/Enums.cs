@@ -382,6 +382,43 @@ namespace Pulumi.AzureNative.NetworkCloud
     }
 
     /// <summary>
+    /// The type of the extended location.
+    /// </summary>
+    [EnumType]
+    public readonly struct ExtendedLocationType : IEquatable<ExtendedLocationType>
+    {
+        private readonly string _value;
+
+        private ExtendedLocationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Azure Edge Zones location type
+        /// </summary>
+        public static ExtendedLocationType EdgeZone { get; } = new ExtendedLocationType("EdgeZone");
+        /// <summary>
+        /// Azure Custom Locations type
+        /// </summary>
+        public static ExtendedLocationType CustomLocation { get; } = new ExtendedLocationType("CustomLocation");
+
+        public static bool operator ==(ExtendedLocationType left, ExtendedLocationType right) => left.Equals(right);
+        public static bool operator !=(ExtendedLocationType left, ExtendedLocationType right) => !left.Equals(right);
+
+        public static explicit operator string(ExtendedLocationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ExtendedLocationType other && Equals(other);
+        public bool Equals(ExtendedLocationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The indicator to specify if the load balancer peers with the network fabric.
     /// </summary>
     [EnumType]

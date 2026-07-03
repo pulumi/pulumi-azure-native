@@ -40,7 +40,7 @@ export interface GetCustomLocationResult {
     /**
      * This is optional input that contains the authentication that should be used to generate the namespace.
      */
-    readonly authentication?: outputs.extendedlocation.CustomLocationPropertiesResponseAuthentication;
+    readonly authentication?: outputs.extendedlocation.CustomLocationPropertiesAuthenticationResponse;
     /**
      * The Azure API version of the resource.
      */
@@ -86,7 +86,7 @@ export interface GetCustomLocationResult {
      */
     readonly provisioningState?: string;
     /**
-     * Metadata pertaining to creation and last modification of the resource
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.extendedlocation.SystemDataResponse;
     /**

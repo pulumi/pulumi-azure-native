@@ -20,9 +20,22 @@ namespace Pulumi.AzureNative.Security
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// LogicApp
+        /// </summary>
         public static ActionType LogicApp { get; } = new ActionType("LogicApp");
+        /// <summary>
+        /// EventHub
+        /// </summary>
         public static ActionType EventHub { get; } = new ActionType("EventHub");
+        /// <summary>
+        /// Workspace
+        /// </summary>
         public static ActionType Workspace { get; } = new ActionType("Workspace");
+        /// <summary>
+        /// Internal
+        /// </summary>
+        public static ActionType Internal { get; } = new ActionType("Internal");
 
         public static bool operator ==(ActionType left, ActionType right) => left.Equals(right);
         public static bool operator !=(ActionType left, ActionType right) => !left.Equals(right);
@@ -52,7 +65,13 @@ namespace Pulumi.AzureNative.Security
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Alerts
+        /// </summary>
         public static AdditionalWorkspaceDataType Alerts { get; } = new AdditionalWorkspaceDataType("Alerts");
+        /// <summary>
+        /// RawEvents
+        /// </summary>
         public static AdditionalWorkspaceDataType RawEvents { get; } = new AdditionalWorkspaceDataType("RawEvents");
 
         public static bool operator ==(AdditionalWorkspaceDataType left, AdditionalWorkspaceDataType right) => left.Equals(right);
@@ -83,6 +102,9 @@ namespace Pulumi.AzureNative.Security
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Sentinel
+        /// </summary>
         public static AdditionalWorkspaceType Sentinel { get; } = new AdditionalWorkspaceType("Sentinel");
 
         public static bool operator ==(AdditionalWorkspaceType left, AdditionalWorkspaceType right) => left.Equals(right);
@@ -228,8 +250,17 @@ namespace Pulumi.AzureNative.Security
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// unknown
+        /// </summary>
         public static AttestationComplianceState Unknown { get; } = new AttestationComplianceState("unknown");
+        /// <summary>
+        /// compliant
+        /// </summary>
         public static AttestationComplianceState Compliant { get; } = new AttestationComplianceState("compliant");
+        /// <summary>
+        /// nonCompliant
+        /// </summary>
         public static AttestationComplianceState NonCompliant { get; } = new AttestationComplianceState("nonCompliant");
 
         public static bool operator ==(AttestationComplianceState left, AttestationComplianceState right) => left.Equals(right);
@@ -260,6 +291,9 @@ namespace Pulumi.AzureNative.Security
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// AccessToken
+        /// </summary>
         public static AuthenticationType AccessToken { get; } = new AuthenticationType("AccessToken");
 
         public static bool operator ==(AuthenticationType left, AuthenticationType right) => left.Equals(right);
@@ -356,13 +390,37 @@ namespace Pulumi.AzureNative.Security
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Azure
+        /// </summary>
         public static CloudName Azure { get; } = new CloudName("Azure");
+        /// <summary>
+        /// AWS
+        /// </summary>
         public static CloudName AWS { get; } = new CloudName("AWS");
+        /// <summary>
+        /// GCP
+        /// </summary>
         public static CloudName GCP { get; } = new CloudName("GCP");
+        /// <summary>
+        /// Github
+        /// </summary>
         public static CloudName Github { get; } = new CloudName("Github");
+        /// <summary>
+        /// AzureDevOps
+        /// </summary>
         public static CloudName AzureDevOps { get; } = new CloudName("AzureDevOps");
+        /// <summary>
+        /// GitLab
+        /// </summary>
         public static CloudName GitLab { get; } = new CloudName("GitLab");
+        /// <summary>
+        /// DockerHub
+        /// </summary>
         public static CloudName DockerHub { get; } = new CloudName("DockerHub");
+        /// <summary>
+        /// JFrog
+        /// </summary>
         public static CloudName JFrog { get; } = new CloudName("JFrog");
 
         public static bool operator ==(CloudName left, CloudName right) => left.Equals(right);
@@ -467,8 +525,17 @@ namespace Pulumi.AzureNative.Security
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Audit
+        /// </summary>
         public static Effect Audit { get; } = new Effect("Audit");
+        /// <summary>
+        /// Exempt
+        /// </summary>
         public static Effect Exempt { get; } = new Effect("Exempt");
+        /// <summary>
+        /// Attest
+        /// </summary>
         public static Effect Attest { get; } = new Effect("Attest");
 
         public static bool operator ==(Effect left, Effect right) => left.Equals(right);
@@ -536,12 +603,33 @@ namespace Pulumi.AzureNative.Security
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// AwsAccount
+        /// </summary>
         public static EnvironmentType AwsAccount { get; } = new EnvironmentType("AwsAccount");
+        /// <summary>
+        /// GcpProject
+        /// </summary>
         public static EnvironmentType GcpProject { get; } = new EnvironmentType("GcpProject");
+        /// <summary>
+        /// GithubScope
+        /// </summary>
         public static EnvironmentType GithubScope { get; } = new EnvironmentType("GithubScope");
+        /// <summary>
+        /// AzureDevOpsScope
+        /// </summary>
         public static EnvironmentType AzureDevOpsScope { get; } = new EnvironmentType("AzureDevOpsScope");
+        /// <summary>
+        /// GitlabScope
+        /// </summary>
         public static EnvironmentType GitlabScope { get; } = new EnvironmentType("GitlabScope");
+        /// <summary>
+        /// DockerHubOrganization
+        /// </summary>
         public static EnvironmentType DockerHubOrganization { get; } = new EnvironmentType("DockerHubOrganization");
+        /// <summary>
+        /// JFrogArtifactory
+        /// </summary>
         public static EnvironmentType JFrogArtifactory { get; } = new EnvironmentType("JFrogArtifactory");
 
         public static bool operator ==(EnvironmentType left, EnvironmentType right) => left.Equals(right);
@@ -572,18 +660,57 @@ namespace Pulumi.AzureNative.Security
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Assessments
+        /// </summary>
         public static EventSource Assessments { get; } = new EventSource("Assessments");
+        /// <summary>
+        /// AssessmentsSnapshot
+        /// </summary>
         public static EventSource AssessmentsSnapshot { get; } = new EventSource("AssessmentsSnapshot");
+        /// <summary>
+        /// SubAssessments
+        /// </summary>
         public static EventSource SubAssessments { get; } = new EventSource("SubAssessments");
+        /// <summary>
+        /// SubAssessmentsSnapshot
+        /// </summary>
         public static EventSource SubAssessmentsSnapshot { get; } = new EventSource("SubAssessmentsSnapshot");
+        /// <summary>
+        /// Alerts
+        /// </summary>
         public static EventSource Alerts { get; } = new EventSource("Alerts");
+        /// <summary>
+        /// SecureScores
+        /// </summary>
         public static EventSource SecureScores { get; } = new EventSource("SecureScores");
+        /// <summary>
+        /// SecureScoresSnapshot
+        /// </summary>
         public static EventSource SecureScoresSnapshot { get; } = new EventSource("SecureScoresSnapshot");
+        /// <summary>
+        /// SecureScoreControls
+        /// </summary>
         public static EventSource SecureScoreControls { get; } = new EventSource("SecureScoreControls");
+        /// <summary>
+        /// SecureScoreControlsSnapshot
+        /// </summary>
         public static EventSource SecureScoreControlsSnapshot { get; } = new EventSource("SecureScoreControlsSnapshot");
+        /// <summary>
+        /// RegulatoryComplianceAssessment
+        /// </summary>
         public static EventSource RegulatoryComplianceAssessment { get; } = new EventSource("RegulatoryComplianceAssessment");
+        /// <summary>
+        /// RegulatoryComplianceAssessmentSnapshot
+        /// </summary>
         public static EventSource RegulatoryComplianceAssessmentSnapshot { get; } = new EventSource("RegulatoryComplianceAssessmentSnapshot");
+        /// <summary>
+        /// AttackPaths
+        /// </summary>
         public static EventSource AttackPaths { get; } = new EventSource("AttackPaths");
+        /// <summary>
+        /// AttackPathsSnapshot
+        /// </summary>
         public static EventSource AttackPathsSnapshot { get; } = new EventSource("AttackPathsSnapshot");
 
         public static bool operator ==(EventSource left, EventSource right) => left.Equals(right);
@@ -614,7 +741,13 @@ namespace Pulumi.AzureNative.Security
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// waiver
+        /// </summary>
         public static ExemptionCategory Waiver { get; } = new ExemptionCategory("waiver");
+        /// <summary>
+        /// mitigated
+        /// </summary>
         public static ExemptionCategory Mitigated { get; } = new ExemptionCategory("mitigated");
 
         public static bool operator ==(ExemptionCategory left, ExemptionCategory right) => left.Equals(right);
@@ -937,24 +1070,81 @@ namespace Pulumi.AzureNative.Security
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// CspmMonitorAws
+        /// </summary>
         public static OfferingType CspmMonitorAws { get; } = new OfferingType("CspmMonitorAws");
+        /// <summary>
+        /// DefenderForContainersAws
+        /// </summary>
         public static OfferingType DefenderForContainersAws { get; } = new OfferingType("DefenderForContainersAws");
+        /// <summary>
+        /// DefenderForServersAws
+        /// </summary>
         public static OfferingType DefenderForServersAws { get; } = new OfferingType("DefenderForServersAws");
+        /// <summary>
+        /// DefenderForDatabasesAws
+        /// </summary>
         public static OfferingType DefenderForDatabasesAws { get; } = new OfferingType("DefenderForDatabasesAws");
+        /// <summary>
+        /// CspmMonitorGcp
+        /// </summary>
         public static OfferingType CspmMonitorGcp { get; } = new OfferingType("CspmMonitorGcp");
+        /// <summary>
+        /// CspmMonitorGithub
+        /// </summary>
         public static OfferingType CspmMonitorGithub { get; } = new OfferingType("CspmMonitorGithub");
+        /// <summary>
+        /// CspmMonitorAzureDevOps
+        /// </summary>
         public static OfferingType CspmMonitorAzureDevOps { get; } = new OfferingType("CspmMonitorAzureDevOps");
+        /// <summary>
+        /// DefenderForServersGcp
+        /// </summary>
         public static OfferingType DefenderForServersGcp { get; } = new OfferingType("DefenderForServersGcp");
+        /// <summary>
+        /// DefenderForContainersGcp
+        /// </summary>
         public static OfferingType DefenderForContainersGcp { get; } = new OfferingType("DefenderForContainersGcp");
+        /// <summary>
+        /// DefenderForDatabasesGcp
+        /// </summary>
         public static OfferingType DefenderForDatabasesGcp { get; } = new OfferingType("DefenderForDatabasesGcp");
+        /// <summary>
+        /// DefenderCspmAws
+        /// </summary>
         public static OfferingType DefenderCspmAws { get; } = new OfferingType("DefenderCspmAws");
+        /// <summary>
+        /// DefenderCspmGcp
+        /// </summary>
         public static OfferingType DefenderCspmGcp { get; } = new OfferingType("DefenderCspmGcp");
+        /// <summary>
+        /// CspmMonitorGitLab
+        /// </summary>
         public static OfferingType CspmMonitorGitLab { get; } = new OfferingType("CspmMonitorGitLab");
+        /// <summary>
+        /// CspmMonitorDockerHub
+        /// </summary>
         public static OfferingType CspmMonitorDockerHub { get; } = new OfferingType("CspmMonitorDockerHub");
+        /// <summary>
+        /// DefenderForContainersDockerHub
+        /// </summary>
         public static OfferingType DefenderForContainersDockerHub { get; } = new OfferingType("DefenderForContainersDockerHub");
+        /// <summary>
+        /// DefenderCspmDockerHub
+        /// </summary>
         public static OfferingType DefenderCspmDockerHub { get; } = new OfferingType("DefenderCspmDockerHub");
+        /// <summary>
+        /// CspmMonitorJFrog
+        /// </summary>
         public static OfferingType CspmMonitorJFrog { get; } = new OfferingType("CspmMonitorJFrog");
+        /// <summary>
+        /// DefenderForContainersJFrog
+        /// </summary>
         public static OfferingType DefenderForContainersJFrog { get; } = new OfferingType("DefenderForContainersJFrog");
+        /// <summary>
+        /// DefenderCspmJFrog
+        /// </summary>
         public static OfferingType DefenderCspmJFrog { get; } = new OfferingType("DefenderCspmJFrog");
 
         public static bool operator ==(OfferingType left, OfferingType right) => left.Equals(right);
@@ -1050,7 +1240,13 @@ namespace Pulumi.AzureNative.Security
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Member
+        /// </summary>
         public static OrganizationMembershipType Member { get; } = new OrganizationMembershipType("Member");
+        /// <summary>
+        /// Organization
+        /// </summary>
         public static OrganizationMembershipType Organization { get; } = new OrganizationMembershipType("Organization");
 
         public static bool operator ==(OrganizationMembershipType left, OrganizationMembershipType right) => left.Equals(right);
@@ -1150,9 +1346,21 @@ namespace Pulumi.AzureNative.Security
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// String
+        /// </summary>
         public static PropertyType String { get; } = new PropertyType("String");
+        /// <summary>
+        /// Integer
+        /// </summary>
         public static PropertyType Integer { get; } = new PropertyType("Integer");
+        /// <summary>
+        /// Number
+        /// </summary>
         public static PropertyType Number { get; } = new PropertyType("Number");
+        /// <summary>
+        /// Boolean
+        /// </summary>
         public static PropertyType Boolean { get; } = new PropertyType("Boolean");
 
         public static bool operator ==(PropertyType left, PropertyType right) => left.Equals(right);
@@ -1180,8 +1388,17 @@ namespace Pulumi.AzureNative.Security
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// TCP
+        /// </summary>
         public static Protocol TCP { get; } = new Protocol("TCP");
+        /// <summary>
+        /// UDP
+        /// </summary>
         public static Protocol UDP { get; } = new Protocol("UDP");
+        /// <summary>
+        /// *
+        /// </summary>
         public static Protocol All { get; } = new Protocol("*");
 
         public static bool operator ==(Protocol left, Protocol right) => left.Equals(right);
@@ -1212,7 +1429,13 @@ namespace Pulumi.AzureNative.Security
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Disabled
+        /// </summary>
         public static RecommendationConfigStatus Disabled { get; } = new RecommendationConfigStatus("Disabled");
+        /// <summary>
+        /// Enabled
+        /// </summary>
         public static RecommendationConfigStatus Enabled { get; } = new RecommendationConfigStatus("Enabled");
 
         public static bool operator ==(RecommendationConfigStatus left, RecommendationConfigStatus right) => left.Equals(right);
@@ -1243,8 +1466,17 @@ namespace Pulumi.AzureNative.Security
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Azure
+        /// </summary>
         public static RecommendationSupportedClouds Azure { get; } = new RecommendationSupportedClouds("Azure");
+        /// <summary>
+        /// AWS
+        /// </summary>
         public static RecommendationSupportedClouds AWS { get; } = new RecommendationSupportedClouds("AWS");
+        /// <summary>
+        /// GCP
+        /// </summary>
         public static RecommendationSupportedClouds GCP { get; } = new RecommendationSupportedClouds("GCP");
 
         public static bool operator ==(RecommendationSupportedClouds left, RecommendationSupportedClouds right) => left.Equals(right);
@@ -1368,8 +1600,17 @@ namespace Pulumi.AzureNative.Security
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Enabled
+        /// </summary>
         public static RuleState Enabled { get; } = new RuleState("Enabled");
+        /// <summary>
+        /// Disabled
+        /// </summary>
         public static RuleState Disabled { get; } = new RuleState("Disabled");
+        /// <summary>
+        /// Expired
+        /// </summary>
         public static RuleState Expired { get; } = new RuleState("Expired");
 
         public static bool operator ==(RuleState left, RuleState right) => left.Equals(right);
@@ -1400,6 +1641,9 @@ namespace Pulumi.AzureNative.Security
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Default
+        /// </summary>
         public static ScanningMode Default { get; } = new ScanningMode("Default");
 
         public static bool operator ==(ScanningMode left, ScanningMode right) => left.Equals(right);
@@ -1475,11 +1719,29 @@ namespace Pulumi.AzureNative.Security
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Vulnerability
+        /// </summary>
         public static SecurityIssue Vulnerability { get; } = new SecurityIssue("Vulnerability");
+        /// <summary>
+        /// ExcessivePermissions
+        /// </summary>
         public static SecurityIssue ExcessivePermissions { get; } = new SecurityIssue("ExcessivePermissions");
+        /// <summary>
+        /// AnonymousAccess
+        /// </summary>
         public static SecurityIssue AnonymousAccess { get; } = new SecurityIssue("AnonymousAccess");
+        /// <summary>
+        /// NetworkExposure
+        /// </summary>
         public static SecurityIssue NetworkExposure { get; } = new SecurityIssue("NetworkExposure");
+        /// <summary>
+        /// TrafficEncryption
+        /// </summary>
         public static SecurityIssue TrafficEncryption { get; } = new SecurityIssue("TrafficEncryption");
+        /// <summary>
+        /// BestPractices
+        /// </summary>
         public static SecurityIssue BestPractices { get; } = new SecurityIssue("BestPractices");
 
         public static bool operator ==(SecurityIssue left, SecurityIssue right) => left.Equals(right);
@@ -1510,7 +1772,13 @@ namespace Pulumi.AzureNative.Security
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Enabled
+        /// </summary>
         public static SecuritySolutionStatus Enabled { get; } = new SecuritySolutionStatus("Enabled");
+        /// <summary>
+        /// Disabled
+        /// </summary>
         public static SecuritySolutionStatus Disabled { get; } = new SecuritySolutionStatus("Disabled");
 
         public static bool operator ==(SecuritySolutionStatus left, SecuritySolutionStatus right) => left.Equals(right);
@@ -1574,6 +1842,9 @@ namespace Pulumi.AzureNative.Security
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// AzureServersSetting
+        /// </summary>
         public static ServerVulnerabilityAssessmentsSettingKind AzureServersSetting { get; } = new ServerVulnerabilityAssessmentsSettingKind("AzureServersSetting");
 
         public static bool operator ==(ServerVulnerabilityAssessmentsSettingKind left, ServerVulnerabilityAssessmentsSettingKind right) => left.Equals(right);
@@ -1636,8 +1907,17 @@ namespace Pulumi.AzureNative.Security
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// High
+        /// </summary>
         public static SeverityEnum High { get; } = new SeverityEnum("High");
+        /// <summary>
+        /// Medium
+        /// </summary>
         public static SeverityEnum Medium { get; } = new SeverityEnum("Medium");
+        /// <summary>
+        /// Low
+        /// </summary>
         public static SeverityEnum Low { get; } = new SeverityEnum("Low");
 
         public static bool operator ==(SeverityEnum left, SeverityEnum right) => left.Equals(right);
@@ -1709,7 +1989,13 @@ namespace Pulumi.AzureNative.Security
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Alert
+        /// </summary>
         public static SourceType Alert { get; } = new SourceType("Alert");
+        /// <summary>
+        /// AttackPath
+        /// </summary>
         public static SourceType AttackPath { get; } = new SourceType("AttackPath");
 
         public static bool operator ==(SourceType left, SourceType right) => left.Equals(right);
@@ -1740,8 +2026,17 @@ namespace Pulumi.AzureNative.Security
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Azure
+        /// </summary>
         public static StandardSupportedCloud Azure { get; } = new StandardSupportedCloud("Azure");
+        /// <summary>
+        /// AWS
+        /// </summary>
         public static StandardSupportedCloud AWS { get; } = new StandardSupportedCloud("AWS");
+        /// <summary>
+        /// GCP
+        /// </summary>
         public static StandardSupportedCloud GCP { get; } = new StandardSupportedCloud("GCP");
 
         public static bool operator ==(StandardSupportedCloud left, StandardSupportedCloud right) => left.Equals(right);
@@ -1772,7 +2067,13 @@ namespace Pulumi.AzureNative.Security
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// AWS
+        /// </summary>
         public static StandardSupportedClouds AWS { get; } = new StandardSupportedClouds("AWS");
+        /// <summary>
+        /// GCP
+        /// </summary>
         public static StandardSupportedClouds GCP { get; } = new StandardSupportedClouds("GCP");
 
         public static bool operator ==(StandardSupportedClouds left, StandardSupportedClouds right) => left.Equals(right);
@@ -1803,6 +2104,22 @@ namespace Pulumi.AzureNative.Security
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// All supported regulatory compliance controls in the given standard have a passed state
+        /// </summary>
+        public static State Passed { get; } = new State("Passed");
+        /// <summary>
+        /// At least one supported regulatory compliance control in the given standard has a state of failed
+        /// </summary>
+        public static State Failed { get; } = new State("Failed");
+        /// <summary>
+        /// All supported regulatory compliance controls in the given standard have a state of skipped
+        /// </summary>
+        public static State Skipped { get; } = new State("Skipped");
+        /// <summary>
+        /// No supported regulatory compliance data for the given standard
+        /// </summary>
+        public static State Unsupported { get; } = new State("Unsupported");
         /// <summary>
         /// Send notification on new alerts to the subscription's admins
         /// </summary>
@@ -1840,7 +2157,13 @@ namespace Pulumi.AzureNative.Security
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Revoked
+        /// </summary>
         public static Status Revoked { get; } = new Status("Revoked");
+        /// <summary>
+        /// Initiated
+        /// </summary>
         public static Status Initiated { get; } = new Status("Initiated");
 
         public static bool operator ==(Status left, Status right) => left.Equals(right);
@@ -1871,8 +2194,17 @@ namespace Pulumi.AzureNative.Security
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Expired
+        /// </summary>
         public static StatusReason Expired { get; } = new StatusReason("Expired");
+        /// <summary>
+        /// UserRequested
+        /// </summary>
         public static StatusReason UserRequested { get; } = new StatusReason("UserRequested");
+        /// <summary>
+        /// NewerRequestInitiated
+        /// </summary>
         public static StatusReason NewerRequestInitiated { get; } = new StatusReason("NewerRequestInitiated");
 
         public static bool operator ==(StatusReason left, StatusReason right) => left.Equals(right);
@@ -1903,7 +2235,13 @@ namespace Pulumi.AzureNative.Security
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// P1
+        /// </summary>
         public static SubPlan P1 { get; } = new SubPlan("P1");
+        /// <summary>
+        /// P2
+        /// </summary>
         public static SubPlan P2 { get; } = new SubPlan("P2");
 
         public static bool operator ==(SubPlan left, SubPlan right) => left.Equals(right);
@@ -2147,7 +2485,13 @@ namespace Pulumi.AzureNative.Security
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Qualys
+        /// </summary>
         public static Type Qualys { get; } = new Type("Qualys");
+        /// <summary>
+        /// TVM
+        /// </summary>
         public static Type TVM { get; } = new Type("TVM");
 
         public static bool operator ==(Type left, Type right) => left.Equals(right);

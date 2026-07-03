@@ -60,7 +60,7 @@ export class RemediationAtSubscription extends pulumi.CustomResource {
     /**
      * The remediation failure threshold settings
      */
-    declare public readonly failureThreshold: pulumi.Output<outputs.policyinsights.RemediationPropertiesResponseFailureThreshold | undefined>;
+    declare public readonly failureThreshold: pulumi.Output<outputs.policyinsights.RemediationPropertiesFailureThresholdResponse | undefined>;
     /**
      * The filters that will be applied to determine which resources to remediate.
      */
@@ -70,7 +70,7 @@ export class RemediationAtSubscription extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly lastUpdatedOn: pulumi.Output<string>;
     /**
-     * The name of the remediation.
+     * The name of the resource
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
@@ -106,7 +106,7 @@ export class RemediationAtSubscription extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly systemData: pulumi.Output<outputs.policyinsights.SystemDataResponse>;
     /**
-     * The type of the remediation.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
 

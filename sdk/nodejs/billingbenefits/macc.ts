@@ -78,7 +78,7 @@ export class Macc extends pulumi.CustomResource {
      */
     declare public readonly entityType: pulumi.Output<string>;
     /**
-     * The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+     * The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
      */
     declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
@@ -179,7 +179,7 @@ export class Macc extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["allowContributors"] = args?.allowContributors;
+            resourceInputs["allowContributors"] = (args?.allowContributors) ?? false;
             resourceInputs["automaticShortfall"] = args?.automaticShortfall;
             resourceInputs["automaticShortfallSuppressReason"] = args?.automaticShortfallSuppressReason;
             resourceInputs["billingAccountResourceId"] = args?.billingAccountResourceId;

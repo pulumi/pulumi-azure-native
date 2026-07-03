@@ -48,7 +48,7 @@ namespace Pulumi.AzureNative.Security
         public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.Security
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -181,7 +181,7 @@ namespace Pulumi.AzureNative.Security
         public Input<string>? RemediationDescription { get; set; }
 
         /// <summary>
-        /// The scope of the custom recommendation. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
@@ -200,6 +200,8 @@ namespace Pulumi.AzureNative.Security
 
         public CustomRecommendationArgs()
         {
+            SecurityIssue = "BestPractices";
+            Severity = "Low";
         }
         public static new CustomRecommendationArgs Empty => new CustomRecommendationArgs();
     }

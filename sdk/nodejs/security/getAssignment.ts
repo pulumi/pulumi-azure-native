@@ -26,7 +26,7 @@ export interface GetAssignmentArgs {
      */
     assignmentId: string;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -38,7 +38,7 @@ export interface GetAssignmentResult {
     /**
      * Additional data about the assignment
      */
-    readonly additionalData?: outputs.security.AssignmentPropertiesResponseAdditionalData;
+    readonly additionalData?: outputs.security.AssignmentPropertiesAdditionalDataResponse;
     /**
      * Component item with key as applied to this standard assignment over the given scope
      */
@@ -46,7 +46,7 @@ export interface GetAssignmentResult {
     /**
      * Standard item with key as applied to this standard assignment over the given scope
      */
-    readonly assignedStandard?: outputs.security.AssignedStandardItemResponse;
+    readonly assignedStandard?: outputs.security.CommonAssignedStandardItemResponse;
     /**
      * The Azure API version of the resource.
      */
@@ -72,7 +72,7 @@ export interface GetAssignmentResult {
      */
     readonly expiresOn?: string;
     /**
-     * Resource Id
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -80,7 +80,7 @@ export interface GetAssignmentResult {
      */
     readonly kind?: string;
     /**
-     * Location where the resource is stored
+     * The geo-location where the resource lives
      */
     readonly location?: string;
     /**
@@ -88,7 +88,7 @@ export interface GetAssignmentResult {
      */
     readonly metadata?: any;
     /**
-     * Resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -100,11 +100,11 @@ export interface GetAssignmentResult {
      */
     readonly systemData: outputs.security.SystemDataResponse;
     /**
-     * A list of key value pairs that describe the resource.
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
@@ -127,7 +127,7 @@ export interface GetAssignmentOutputArgs {
      */
     assignmentId: pulumi.Input<string>;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

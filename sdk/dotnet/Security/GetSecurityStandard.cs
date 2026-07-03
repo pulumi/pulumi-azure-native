@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.Security
     public sealed class GetSecurityStandardArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The scope of the security standard. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("scope", required: true)]
         public string Scope { get; set; } = null!;
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNative.Security
     public sealed class GetSecurityStandardInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The scope of the security standard. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
-        /// Resource Id
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly Outputs.StandardMetadataResponse? Metadata;
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -122,7 +122,11 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly string StandardType;
         /// <summary>
-        /// Resource type
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -148,6 +152,8 @@ namespace Pulumi.AzureNative.Security
 
             string standardType,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Assessments = assessments;
@@ -160,6 +166,7 @@ namespace Pulumi.AzureNative.Security
             Name = name;
             PolicySetDefinitionId = policySetDefinitionId;
             StandardType = standardType;
+            SystemData = systemData;
             Type = type;
         }
     }

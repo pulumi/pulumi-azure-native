@@ -40,6 +40,7 @@ from .get_private_link_scoped_resource import *
 from .get_relationship import *
 from .get_scheduled_query_rule import *
 from .get_signal_definition import *
+from .get_sli import *
 from .get_subscription_diagnostic_setting import *
 from .get_tenant_action_group import *
 from .health_model import *
@@ -56,6 +57,7 @@ from .private_link_scoped_resource import *
 from .relationship import *
 from .scheduled_query_rule import *
 from .signal_definition import *
+from .sli import *
 from .subscription_diagnostic_setting import *
 from .tenant_action_group import *
 from ._inputs import *

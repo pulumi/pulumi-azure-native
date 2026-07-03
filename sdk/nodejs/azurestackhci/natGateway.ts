@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2025-09-01-preview.
  *
- * Other available API versions: 2026-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2026-02-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class NatGateway extends pulumi.CustomResource {
     /**
@@ -109,7 +109,7 @@ export class NatGateway extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20250901preview:NatGateway" }, { type: "azure-native:azurestackhci/v20260201preview:NatGateway" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20250901preview:NatGateway" }, { type: "azure-native:azurestackhci/v20260201preview:NatGateway" }, { type: "azure-native:azurestackhci/v20260401preview:NatGateway" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NatGateway.__pulumiType, name, resourceInputs, opts);
     }

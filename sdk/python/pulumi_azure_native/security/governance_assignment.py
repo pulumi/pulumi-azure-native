@@ -33,11 +33,11 @@ class GovernanceAssignmentArgs:
         """
         The set of arguments for constructing a GovernanceAssignment resource.
 
-        :param pulumi.Input[_builtins.str] assessment_name: The Assessment Key - A unique key for the assessment type
+        :param pulumi.Input[_builtins.str] assessment_name: The assessment key of the governance assignment.
         :param pulumi.Input[_builtins.str] remediation_due_date: The remediation due-date - after this date Secure Score will be affected (in case of  active grace-period)
-        :param pulumi.Input[_builtins.str] scope: The scope of the Governance assignments. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
+        :param pulumi.Input[_builtins.str] scope: The scope of the governance assignment.
         :param pulumi.Input['GovernanceAssignmentAdditionalDataArgs'] additional_data: The additional data for the governance assignment - e.g. links to ticket (optional), see example
-        :param pulumi.Input[_builtins.str] assignment_key: The governance assignment key - the assessment key of the required governance assignment
+        :param pulumi.Input[_builtins.str] assignment_key: The governance assignment key.
         :param pulumi.Input['GovernanceEmailNotificationArgs'] governance_email_notification: The email notifications settings for the governance rule, states whether to disable notifications for mangers and owners
         :param pulumi.Input[_builtins.bool] is_grace_period: Defines whether there is a grace period on the governance assignment
         :param pulumi.Input[_builtins.str] owner: The Owner for the governance assignment - e.g. user@contoso.com - see example
@@ -63,7 +63,7 @@ class GovernanceAssignmentArgs:
     @pulumi.getter(name="assessmentName")
     def assessment_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The Assessment Key - A unique key for the assessment type
+        The assessment key of the governance assignment.
         """
         return pulumi.get(self, "assessment_name")
 
@@ -87,7 +87,7 @@ class GovernanceAssignmentArgs:
     @pulumi.getter
     def scope(self) -> pulumi.Input[_builtins.str]:
         """
-        The scope of the Governance assignments. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
+        The scope of the governance assignment.
         """
         return pulumi.get(self, "scope")
 
@@ -111,7 +111,7 @@ class GovernanceAssignmentArgs:
     @pulumi.getter(name="assignmentKey")
     def assignment_key(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The governance assignment key - the assessment key of the required governance assignment
+        The governance assignment key.
         """
         return pulumi.get(self, "assignment_key")
 
@@ -193,14 +193,14 @@ class GovernanceAssignment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['GovernanceAssignmentAdditionalDataArgs', 'GovernanceAssignmentAdditionalDataArgsDict']] additional_data: The additional data for the governance assignment - e.g. links to ticket (optional), see example
-        :param pulumi.Input[_builtins.str] assessment_name: The Assessment Key - A unique key for the assessment type
-        :param pulumi.Input[_builtins.str] assignment_key: The governance assignment key - the assessment key of the required governance assignment
+        :param pulumi.Input[_builtins.str] assessment_name: The assessment key of the governance assignment.
+        :param pulumi.Input[_builtins.str] assignment_key: The governance assignment key.
         :param pulumi.Input[Union['GovernanceEmailNotificationArgs', 'GovernanceEmailNotificationArgsDict']] governance_email_notification: The email notifications settings for the governance rule, states whether to disable notifications for mangers and owners
         :param pulumi.Input[_builtins.bool] is_grace_period: Defines whether there is a grace period on the governance assignment
         :param pulumi.Input[_builtins.str] owner: The Owner for the governance assignment - e.g. user@contoso.com - see example
         :param pulumi.Input[_builtins.str] remediation_due_date: The remediation due-date - after this date Secure Score will be affected (in case of  active grace-period)
         :param pulumi.Input[Union['RemediationEtaArgs', 'RemediationEtaArgsDict']] remediation_eta: The ETA (estimated time of arrival) for remediation (optional), see example
-        :param pulumi.Input[_builtins.str] scope: The scope of the Governance assignments. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
+        :param pulumi.Input[_builtins.str] scope: The scope of the governance assignment.
         """
         ...
     @overload
@@ -264,6 +264,7 @@ class GovernanceAssignment(pulumi.CustomResource):
             __props__.__dict__["scope"] = scope
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20220101preview:GovernanceAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -297,6 +298,7 @@ class GovernanceAssignment(pulumi.CustomResource):
         __props__.__dict__["owner"] = None
         __props__.__dict__["remediation_due_date"] = None
         __props__.__dict__["remediation_eta"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return GovernanceAssignment(resource_name, opts=opts, __props__=__props__)
 
@@ -336,7 +338,7 @@ class GovernanceAssignment(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -365,10 +367,18 @@ class GovernanceAssignment(pulumi.CustomResource):
         return pulumi.get(self, "remediation_eta")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Discovery
         /// Get a Tool
         /// 
         /// Uses Azure REST API version 2026-02-01-preview.
+        /// 
+        /// Other available API versions: 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native discovery [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetToolResult> InvokeAsync(GetToolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetToolResult>("azure-native:discovery:getTool", args ?? new GetToolArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Discovery
         /// Get a Tool
         /// 
         /// Uses Azure REST API version 2026-02-01-preview.
+        /// 
+        /// Other available API versions: 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native discovery [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetToolResult> Invoke(GetToolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetToolResult>("azure-native:discovery:getTool", args ?? new GetToolInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Discovery
         /// Get a Tool
         /// 
         /// Uses Azure REST API version 2026-02-01-preview.
+        /// 
+        /// Other available API versions: 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native discovery [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetToolResult> Invoke(GetToolInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetToolResult>("azure-native:discovery:getTool", args ?? new GetToolInvokeArgs(), options.WithDefaults());

@@ -35,7 +35,7 @@ class AutomationAccountArgs:
         """
         The set of arguments for constructing a AutomationAccount resource.
 
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
         :param pulumi.Input[_builtins.bool] disable_local_auth: Indicates whether requests using non-AAD authentication are blocked
         :param pulumi.Input['EncryptionPropertiesArgs'] encryption: Set the encryption properties for the automation account
@@ -70,7 +70,7 @@ class AutomationAccountArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of an Azure Resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -221,7 +221,7 @@ class AutomationAccount(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] location: Gets or sets the location of the resource.
         :param pulumi.Input[_builtins.str] name: Gets or sets name of the resource.
         :param pulumi.Input[_builtins.bool] public_network_access: Indicates whether traffic on the non-ARM endpoint (Webhook/Agent) is allowed from the public internet
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: Gets or sets account SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Gets or sets the tags attached to the resource.
         """

@@ -20,6 +20,9 @@ namespace Pulumi.AzureNative.ExtendedLocation
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Kubernetes
+        /// </summary>
         public static HostType Kubernetes { get; } = new HostType("Kubernetes");
 
         public static bool operator ==(HostType left, HostType right) => left.Equals(right);
@@ -50,7 +53,13 @@ namespace Pulumi.AzureNative.ExtendedLocation
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// SystemAssigned
+        /// </summary>
         public static ResourceIdentityType SystemAssigned { get; } = new ResourceIdentityType("SystemAssigned");
+        /// <summary>
+        /// None
+        /// </summary>
         public static ResourceIdentityType None { get; } = new ResourceIdentityType("None");
 
         public static bool operator ==(ResourceIdentityType left, ResourceIdentityType right) => left.Equals(right);

@@ -154,6 +154,8 @@ def get_shared_limit(location: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2025-08-15.
 
+    Other available API versions: 2026-03-20, 2026-04-30, 2026-06-01, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native computelimit [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param _builtins.str location: The name of the Azure region.
     :param _builtins.str name: The name of the SharedLimit
@@ -181,6 +183,8 @@ def get_shared_limit_output(location: Optional[pulumi.Input[_builtins.str]] = No
     Gets the properties of a compute limit shared by the host subscription with its guest subscriptions.
 
     Uses Azure REST API version 2025-08-15.
+
+    Other available API versions: 2026-03-20, 2026-04-30, 2026-06-01, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native computelimit [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str location: The name of the Azure region.

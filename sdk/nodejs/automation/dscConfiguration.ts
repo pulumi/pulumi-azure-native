@@ -186,7 +186,7 @@ export interface DscConfigurationArgs {
      */
     automationAccountName: pulumi.Input<string>;
     /**
-     * The create or update parameters for configuration.
+     * The configuration name.
      */
     configurationName?: pulumi.Input<string>;
     /**
@@ -214,7 +214,7 @@ export interface DscConfigurationArgs {
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.automation.DscConfigurationParameterArgs>}>;
     /**
-     * Name of an Azure Resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

@@ -126,7 +126,7 @@ class GetStandardResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -142,7 +142,7 @@ class GetStandardResult:
     @pulumi.getter
     def location(self) -> Optional[_builtins.str]:
         """
-        Location where the resource is stored
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -150,7 +150,7 @@ class GetStandardResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -182,7 +182,7 @@ class GetStandardResult:
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
         """
-        A list of key value pairs that describe the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -190,7 +190,7 @@ class GetStandardResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -227,7 +227,7 @@ def get_standard(resource_group_name: Optional[_builtins.str] = None,
     Uses Azure REST API version 2021-08-01-preview.
 
 
-    :param _builtins.str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str standard_id: The Security Standard key - unique key for the standard type
     """
     __args__ = dict()
@@ -261,7 +261,7 @@ def get_standard_output(resource_group_name: Optional[pulumi.Input[_builtins.str
     Uses Azure REST API version 2021-08-01-preview.
 
 
-    :param _builtins.str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str standard_id: The Security Standard key - unique key for the standard type
     """
     __args__ = dict()

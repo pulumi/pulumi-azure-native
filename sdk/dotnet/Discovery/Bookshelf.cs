@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.Discovery
     /// Bookshelf tracked resource
     /// 
     /// Uses Azure REST API version 2026-02-01-preview.
+    /// 
+    /// Other available API versions: 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native discovery [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:discovery:Bookshelf")]
     public partial class Bookshelf : global::Pulumi.CustomResource
@@ -85,6 +87,7 @@ namespace Pulumi.AzureNative.Discovery
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:discovery/v20260201preview:Bookshelf" },
+                    new global::Pulumi.Alias { Type = "azure-native:discovery/v20260601:Bookshelf" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

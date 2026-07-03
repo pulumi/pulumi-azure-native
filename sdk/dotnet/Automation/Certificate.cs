@@ -147,7 +147,7 @@ namespace Pulumi.AzureNative.Automation
         public Input<string> Base64Value { get; set; } = null!;
 
         /// <summary>
-        /// The parameters supplied to the create or update certificate operation.
+        /// The name of certificate.
         /// </summary>
         [Input("certificateName")]
         public Input<string>? CertificateName { get; set; }
@@ -171,7 +171,7 @@ namespace Pulumi.AzureNative.Automation
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Name of an Azure Resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

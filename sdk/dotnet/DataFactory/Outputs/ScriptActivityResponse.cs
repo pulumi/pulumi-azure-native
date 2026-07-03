@@ -27,11 +27,11 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// Linked service reference.
         /// </summary>
-        public readonly Outputs.LinkedServiceReferenceResponse LinkedServiceName;
+        public readonly Outputs.LinkedServiceReferenceResponse? LinkedServiceName;
         /// <summary>
         /// Log settings of script activity.
         /// </summary>
-        public readonly Outputs.ScriptActivityTypePropertiesResponseLogSettings? LogSettings;
+        public readonly Outputs.ScriptActivityTypePropertiesLogSettingsResponse? LogSettings;
         /// <summary>
         /// Activity name.
         /// </summary>
@@ -80,9 +80,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string? description,
 
-            Outputs.LinkedServiceReferenceResponse linkedServiceName,
+            Outputs.LinkedServiceReferenceResponse? linkedServiceName,
 
-            Outputs.ScriptActivityTypePropertiesResponseLogSettings? logSettings,
+            Outputs.ScriptActivityTypePropertiesLogSettingsResponse? logSettings,
 
             string name,
 

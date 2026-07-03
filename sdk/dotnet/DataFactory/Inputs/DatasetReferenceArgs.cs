@@ -15,17 +15,11 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// </summary>
     public sealed class DatasetReferenceArgs : global::Pulumi.ResourceArgs
     {
-        [Input("parameters")]
-        private InputMap<object>? _parameters;
-
         /// <summary>
         /// Arguments for dataset.
         /// </summary>
-        public InputMap<object> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputMap<object>());
-            set => _parameters = value;
-        }
+        [Input("parameters")]
+        public Input<object>? Parameters { get; set; }
 
         /// <summary>
         /// Reference dataset name.
@@ -37,7 +31,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// Dataset reference type.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.DatasetReferenceType> Type { get; set; } = null!;
 
         public DatasetReferenceArgs()
         {

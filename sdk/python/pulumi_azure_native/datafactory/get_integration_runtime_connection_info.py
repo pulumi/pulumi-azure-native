@@ -121,7 +121,7 @@ def get_integration_runtime_connection_info(factory_name: Optional[_builtins.str
 
     :param _builtins.str factory_name: The factory name.
     :param _builtins.str integration_runtime_name: The integration runtime name.
-    :param _builtins.str resource_group_name: The resource group name.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['factoryName'] = factory_name
@@ -149,7 +149,7 @@ def get_integration_runtime_connection_info_output(factory_name: Optional[pulumi
 
     :param _builtins.str factory_name: The factory name.
     :param _builtins.str integration_runtime_name: The integration runtime name.
-    :param _builtins.str resource_group_name: The resource group name.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['factoryName'] = factory_name

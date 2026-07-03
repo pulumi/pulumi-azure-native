@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.ContainerService
     /// A fleet managed namespace.
     /// 
     /// Uses Azure REST API version 2025-08-01-preview.
+    /// 
+    /// Other available API versions: 2026-02-01-preview, 2026-03-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:FleetManagedNamespace")]
     public partial class FleetManagedNamespace : global::Pulumi.CustomResource
@@ -91,6 +93,8 @@ namespace Pulumi.AzureNative.ContainerService
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20250801preview:FleetManagedNamespace" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20260201preview:FleetManagedNamespace" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20260302preview:FleetManagedNamespace" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

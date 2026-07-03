@@ -3,10 +3,25 @@
 
 
 export const EnterprisePolicyKind = {
+    /**
+     * Lockbox
+     */
     Lockbox: "Lockbox",
+    /**
+     * PrivateEndpoint
+     */
     PrivateEndpoint: "PrivateEndpoint",
+    /**
+     * Encryption
+     */
     Encryption: "Encryption",
+    /**
+     * NetworkInjection
+     */
     NetworkInjection: "NetworkInjection",
+    /**
+     * Identity
+     */
     Identity: "Identity",
 } as const;
 
@@ -16,9 +31,21 @@ export const EnterprisePolicyKind = {
 export type EnterprisePolicyKind = (typeof EnterprisePolicyKind)[keyof typeof EnterprisePolicyKind];
 
 export const HealthStatus = {
+    /**
+     * Undetermined
+     */
     Undetermined: "Undetermined",
+    /**
+     * Healthy
+     */
     Healthy: "Healthy",
+    /**
+     * Warning
+     */
     Warning: "Warning",
+    /**
+     * Unhealthy
+     */
     Unhealthy: "Unhealthy",
 } as const;
 
@@ -39,7 +66,13 @@ export const PrivateEndpointServiceConnectionStatus = {
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
 
 export const ResourceIdentityType = {
+    /**
+     * SystemAssigned
+     */
     SystemAssigned: "SystemAssigned",
+    /**
+     * None
+     */
     None: "None",
 } as const;
 
@@ -49,8 +82,17 @@ export const ResourceIdentityType = {
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
 export const State = {
+    /**
+     * Enabled
+     */
     Enabled: "Enabled",
+    /**
+     * Disabled
+     */
     Disabled: "Disabled",
+    /**
+     * NotConfigured
+     */
     NotConfigured: "NotConfigured",
 } as const;
 

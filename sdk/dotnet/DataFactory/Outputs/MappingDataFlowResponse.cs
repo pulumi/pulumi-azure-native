@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// The folder that this data flow is in. If not specified, Data flow will appear at the root level.
         /// </summary>
-        public readonly Outputs.DataFlowResponseFolder? Folder;
+        public readonly Outputs.DataFlowFolderResponse? Folder;
         /// <summary>
         /// DataFlow script.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string? description,
 
-            Outputs.DataFlowResponseFolder? folder,
+            Outputs.DataFlowFolderResponse? folder,
 
             string? script,
 

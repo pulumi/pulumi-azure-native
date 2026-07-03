@@ -109,7 +109,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// The transport protocol to use in the Thrift layer (for V2 only). Default value is Binary.
         /// </summary>
         [Input("thriftTransportProtocol")]
-        public InputUnion<string, Pulumi.AzureNative.DataFactory.ImpalaThriftTransportProtocol>? ThriftTransportProtocol { get; set; }
+        public Input<Pulumi.AzureNative.DataFactory.ImpalaThriftTransportProtocol>? ThriftTransportProtocol { get; set; }
 
         /// <summary>
         /// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.

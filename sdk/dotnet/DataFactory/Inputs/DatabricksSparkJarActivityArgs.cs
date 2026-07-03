@@ -34,14 +34,14 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<string>? Description { get; set; }
 
         [Input("libraries")]
-        private InputList<ImmutableDictionary<string, object>>? _libraries;
+        private InputList<object>? _libraries;
 
         /// <summary>
         /// A list of libraries to be installed on the cluster that will execute the job.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Libraries
+        public InputList<object> Libraries
         {
-            get => _libraries ?? (_libraries = new InputList<ImmutableDictionary<string, object>>());
+            get => _libraries ?? (_libraries = new InputList<object>());
             set => _libraries = value;
         }
 

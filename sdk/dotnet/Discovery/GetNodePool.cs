@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Discovery
         /// Get a NodePool
         /// 
         /// Uses Azure REST API version 2026-02-01-preview.
+        /// 
+        /// Other available API versions: 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native discovery [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetNodePoolResult> InvokeAsync(GetNodePoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNodePoolResult>("azure-native:discovery:getNodePool", args ?? new GetNodePoolArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Discovery
         /// Get a NodePool
         /// 
         /// Uses Azure REST API version 2026-02-01-preview.
+        /// 
+        /// Other available API versions: 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native discovery [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetNodePoolResult> Invoke(GetNodePoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNodePoolResult>("azure-native:discovery:getNodePool", args ?? new GetNodePoolInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Discovery
         /// Get a NodePool
         /// 
         /// Uses Azure REST API version 2026-02-01-preview.
+        /// 
+        /// Other available API versions: 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native discovery [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetNodePoolResult> Invoke(GetNodePoolInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNodePoolResult>("azure-native:discovery:getNodePool", args ?? new GetNodePoolInvokeArgs(), options.WithDefaults());

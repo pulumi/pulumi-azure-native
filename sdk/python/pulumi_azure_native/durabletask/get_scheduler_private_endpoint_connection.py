@@ -155,6 +155,8 @@ def get_scheduler_private_endpoint_connection(private_endpoint_connection_name: 
 
     Uses Azure REST API version 2026-02-01.
 
+    Other available API versions: 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native durabletask [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param _builtins.str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -185,6 +187,8 @@ def get_scheduler_private_endpoint_connection_output(private_endpoint_connection
     Get a private endpoint connection for the durable task scheduler
 
     Uses Azure REST API version 2026-02-01.
+
+    Other available API versions: 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native durabletask [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource.

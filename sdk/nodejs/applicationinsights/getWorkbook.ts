@@ -69,7 +69,7 @@ export interface GetWorkbookResult {
     /**
      * Identity used for BYOS
      */
-    readonly identity?: outputs.applicationinsights.WorkbookResourceResponseIdentity;
+    readonly identity?: outputs.applicationinsights.WorkbookResourceIdentityResponse;
     /**
      * The kind of workbook. Only valid value is shared.
      */
@@ -99,7 +99,7 @@ export interface GetWorkbookResult {
      */
     readonly storageUri?: string;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.applicationinsights.SystemDataResponse;
     /**

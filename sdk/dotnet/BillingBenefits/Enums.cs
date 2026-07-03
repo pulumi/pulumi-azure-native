@@ -52,9 +52,9 @@ namespace Pulumi.AzureNative.BillingBenefits
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static CommitmentGrain Unknown { get; } = new CommitmentGrain("Unknown");
         public static CommitmentGrain Hourly { get; } = new CommitmentGrain("Hourly");
         public static CommitmentGrain FullTerm { get; } = new CommitmentGrain("FullTerm");
+        public static CommitmentGrain Unknown { get; } = new CommitmentGrain("Unknown");
 
         public static bool operator ==(CommitmentGrain left, CommitmentGrain right) => left.Equals(right);
         public static bool operator !=(CommitmentGrain left, CommitmentGrain right) => !left.Equals(right);
@@ -661,6 +661,45 @@ namespace Pulumi.AzureNative.BillingBenefits
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ManagedServiceIdentityType other && Equals(other);
         public bool Equals(ManagedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Current status of the milestone
+    /// </summary>
+    [EnumType]
+    public readonly struct MilestoneStatus : IEquatable<MilestoneStatus>
+    {
+        private readonly string _value;
+
+        private MilestoneStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MilestoneStatus Unknown { get; } = new MilestoneStatus("Unknown");
+        public static MilestoneStatus Scheduled { get; } = new MilestoneStatus("Scheduled");
+        public static MilestoneStatus Active { get; } = new MilestoneStatus("Active");
+        public static MilestoneStatus Pending { get; } = new MilestoneStatus("Pending");
+        public static MilestoneStatus Failed { get; } = new MilestoneStatus("Failed");
+        public static MilestoneStatus Completed { get; } = new MilestoneStatus("Completed");
+        public static MilestoneStatus Canceled { get; } = new MilestoneStatus("Canceled");
+        public static MilestoneStatus Removed { get; } = new MilestoneStatus("Removed");
+        public static MilestoneStatus PendingSettlement { get; } = new MilestoneStatus("PendingSettlement");
+        public static MilestoneStatus Missed { get; } = new MilestoneStatus("Missed");
+
+        public static bool operator ==(MilestoneStatus left, MilestoneStatus right) => left.Equals(right);
+        public static bool operator !=(MilestoneStatus left, MilestoneStatus right) => !left.Equals(right);
+
+        public static explicit operator string(MilestoneStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MilestoneStatus other && Equals(other);
+        public bool Equals(MilestoneStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

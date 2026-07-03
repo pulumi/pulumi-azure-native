@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['VirtualNetworkRetrieveArgs', 'VirtualNetworkRetrieve']
@@ -22,19 +23,20 @@ __all__ = ['VirtualNetworkRetrieveArgs', 'VirtualNetworkRetrieve']
 class VirtualNetworkRetrieveArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 extended_location: Optional[pulumi.Input['VirtualNetworksExtendedLocationArgs']] = None,
+                 extended_location: Optional[pulumi.Input['VirtualNetworkExtendedLocationArgs']] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['VirtualNetworksPropertiesArgs']] = None,
+                 properties: Optional[pulumi.Input['VirtualNetworkPropertiesArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_networks_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 virtual_network_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualNetworkRetrieve resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input['VirtualNetworkExtendedLocationArgs'] extended_location: Extended location pointing to the underlying infrastructure
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input['VirtualNetworksPropertiesArgs'] properties: HybridAKSNetworkSpec defines the desired state of HybridAKSNetwork
+        :param pulumi.Input['VirtualNetworkPropertiesArgs'] properties: Properties of the virtual network resource
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
-        :param pulumi.Input[_builtins.str] virtual_networks_name: Parameter for the name of the virtual network
+        :param pulumi.Input[_builtins.str] virtual_network_name: Parameter for the name of the virtual network
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if extended_location is not None:
@@ -45,8 +47,8 @@ class VirtualNetworkRetrieveArgs:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if virtual_networks_name is not None:
-            pulumi.set(__self__, "virtual_networks_name", virtual_networks_name)
+        if virtual_network_name is not None:
+            pulumi.set(__self__, "virtual_network_name", virtual_network_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -62,11 +64,14 @@ class VirtualNetworkRetrieveArgs:
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional[pulumi.Input['VirtualNetworksExtendedLocationArgs']]:
+    def extended_location(self) -> Optional[pulumi.Input['VirtualNetworkExtendedLocationArgs']]:
+        """
+        Extended location pointing to the underlying infrastructure
+        """
         return pulumi.get(self, "extended_location")
 
     @extended_location.setter
-    def extended_location(self, value: Optional[pulumi.Input['VirtualNetworksExtendedLocationArgs']]):
+    def extended_location(self, value: Optional[pulumi.Input['VirtualNetworkExtendedLocationArgs']]):
         pulumi.set(self, "extended_location", value)
 
     @_builtins.property
@@ -83,14 +88,14 @@ class VirtualNetworkRetrieveArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['VirtualNetworksPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['VirtualNetworkPropertiesArgs']]:
         """
-        HybridAKSNetworkSpec defines the desired state of HybridAKSNetwork
+        Properties of the virtual network resource
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['VirtualNetworksPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['VirtualNetworkPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
@@ -106,16 +111,16 @@ class VirtualNetworkRetrieveArgs:
         pulumi.set(self, "tags", value)
 
     @_builtins.property
-    @pulumi.getter(name="virtualNetworksName")
-    def virtual_networks_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    @pulumi.getter(name="virtualNetworkName")
+    def virtual_network_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Parameter for the name of the virtual network
         """
-        return pulumi.get(self, "virtual_networks_name")
+        return pulumi.get(self, "virtual_network_name")
 
-    @virtual_networks_name.setter
-    def virtual_networks_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "virtual_networks_name", value)
+    @virtual_network_name.setter
+    def virtual_network_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "virtual_network_name", value)
 
 
 @pulumi.type_token("azure-native:hybridcontainerservice:VirtualNetworkRetrieve")
@@ -124,28 +129,29 @@ class VirtualNetworkRetrieve(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: Optional[pulumi.Input[Union['VirtualNetworksExtendedLocationArgs', 'VirtualNetworksExtendedLocationArgsDict']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['VirtualNetworkExtendedLocationArgs', 'VirtualNetworkExtendedLocationArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['VirtualNetworksPropertiesArgs', 'VirtualNetworksPropertiesArgsDict']]] = None,
+                 properties: Optional[pulumi.Input[Union['VirtualNetworkPropertiesArgs', 'VirtualNetworkPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_networks_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 virtual_network_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        The virtualNetworks resource definition.
+        The Virtual Network resource definition.
 
-        Uses Azure REST API version 2022-09-01-preview.
+        Uses Azure REST API version 2024-01-01.
 
-        Other available API versions: 2023-11-15-preview, 2024-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-11-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['VirtualNetworkExtendedLocationArgs', 'VirtualNetworkExtendedLocationArgsDict']] extended_location: Extended location pointing to the underlying infrastructure
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[Union['VirtualNetworksPropertiesArgs', 'VirtualNetworksPropertiesArgsDict']] properties: HybridAKSNetworkSpec defines the desired state of HybridAKSNetwork
+        :param pulumi.Input[Union['VirtualNetworkPropertiesArgs', 'VirtualNetworkPropertiesArgsDict']] properties: Properties of the virtual network resource
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
-        :param pulumi.Input[_builtins.str] virtual_networks_name: Parameter for the name of the virtual network
+        :param pulumi.Input[_builtins.str] virtual_network_name: Parameter for the name of the virtual network
         """
         ...
     @overload
@@ -154,11 +160,11 @@ class VirtualNetworkRetrieve(pulumi.CustomResource):
                  args: VirtualNetworkRetrieveArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        The virtualNetworks resource definition.
+        The Virtual Network resource definition.
 
-        Uses Azure REST API version 2022-09-01-preview.
+        Uses Azure REST API version 2024-01-01.
 
-        Other available API versions: 2023-11-15-preview, 2024-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-11-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -176,12 +182,12 @@ class VirtualNetworkRetrieve(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: Optional[pulumi.Input[Union['VirtualNetworksExtendedLocationArgs', 'VirtualNetworksExtendedLocationArgsDict']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['VirtualNetworkExtendedLocationArgs', 'VirtualNetworkExtendedLocationArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['VirtualNetworksPropertiesArgs', 'VirtualNetworksPropertiesArgsDict']]] = None,
+                 properties: Optional[pulumi.Input[Union['VirtualNetworkPropertiesArgs', 'VirtualNetworkPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_networks_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 virtual_network_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -198,12 +204,12 @@ class VirtualNetworkRetrieve(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["virtual_networks_name"] = virtual_networks_name
+            __props__.__dict__["virtual_network_name"] = virtual_network_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcontainerservice/v20220501preview:VirtualNetworkRetrieve"), pulumi.Alias(type_="azure-native:hybridcontainerservice/v20220901preview:VirtualNetworkRetrieve"), pulumi.Alias(type_="azure-native:hybridcontainerservice/v20231115preview:VirtualNetworkRetrieve"), pulumi.Alias(type_="azure-native:hybridcontainerservice/v20240101:VirtualNetworkRetrieve"), pulumi.Alias(type_="azure-native:hybridcontainerservice/v20250201preview:VirtualNetworkRetrieve")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcontainerservice/v20220901preview:VirtualNetworkRetrieve"), pulumi.Alias(type_="azure-native:hybridcontainerservice/v20231115preview:VirtualNetworkRetrieve"), pulumi.Alias(type_="azure-native:hybridcontainerservice/v20240101:VirtualNetworkRetrieve"), pulumi.Alias(type_="azure-native:hybridcontainerservice/v20260401preview:VirtualNetworkRetrieve")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualNetworkRetrieve, __self__).__init__(
             'azure-native:hybridcontainerservice:VirtualNetworkRetrieve',
@@ -247,7 +253,10 @@ class VirtualNetworkRetrieve(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> pulumi.Output[Optional['outputs.VirtualNetworksResponseExtendedLocation']]:
+    def extended_location(self) -> pulumi.Output[Optional['outputs.VirtualNetworkResponseExtendedLocation']]:
+        """
+        Extended location pointing to the underlying infrastructure
+        """
         return pulumi.get(self, "extended_location")
 
     @_builtins.property
@@ -268,9 +277,9 @@ class VirtualNetworkRetrieve(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.VirtualNetworksPropertiesResponse']:
+    def properties(self) -> pulumi.Output['outputs.VirtualNetworkPropertiesResponse']:
         """
-        HybridAKSNetworkSpec defines the desired state of HybridAKSNetwork
+        Properties of the virtual network resource
         """
         return pulumi.get(self, "properties")
 
@@ -278,7 +287,7 @@ class VirtualNetworkRetrieve(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

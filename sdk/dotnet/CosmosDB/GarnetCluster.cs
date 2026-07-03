@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.CosmosDB
     /// Representation of a Garnet cache cluster.
     /// 
     /// Uses Azure REST API version 2025-11-01-preview.
+    /// 
+    /// Other available API versions: 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:cosmosdb:GarnetCluster")]
     public partial class GarnetCluster : global::Pulumi.CustomResource
@@ -22,6 +24,12 @@ namespace Pulumi.AzureNative.CosmosDB
         /// </summary>
         [Output("azureApiVersion")]
         public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Identity for the resource.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ManagedCassandraManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -36,10 +44,10 @@ namespace Pulumi.AzureNative.CosmosDB
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of a Garnet cache cluster.
+        /// The resource-specific properties for this resource.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.GarnetClusterResourceResponseProperties> Properties { get; private set; } = null!;
+        public Output<Outputs.GarnetClusterResourcePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -85,6 +93,7 @@ namespace Pulumi.AzureNative.CosmosDB
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20251101preview:GarnetCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20260401preview:GarnetCluster" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -109,10 +118,16 @@ namespace Pulumi.AzureNative.CosmosDB
     public sealed class GarnetClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Garnet cache cluster name.
+        /// The name of the GarnetClusterResource
         /// </summary>
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
+
+        /// <summary>
+        /// Identity for the resource.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ManagedCassandraManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -121,7 +136,7 @@ namespace Pulumi.AzureNative.CosmosDB
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Properties of a Garnet cache cluster.
+        /// The resource-specific properties for this resource.
         /// </summary>
         [Input("properties")]
         public Input<Inputs.GarnetClusterResourcePropertiesArgs>? Properties { get; set; }

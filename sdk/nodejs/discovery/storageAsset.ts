@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Storage Asset tracked resource
  *
  * Uses Azure REST API version 2026-02-01-preview.
+ *
+ * Other available API versions: 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native discovery [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class StorageAsset extends pulumi.CustomResource {
     /**
@@ -105,7 +107,7 @@ export class StorageAsset extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:discovery/v20260201preview:StorageAsset" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:discovery/v20260201preview:StorageAsset" }, { type: "azure-native:discovery/v20260601:StorageAsset" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StorageAsset.__pulumiType, name, resourceInputs, opts);
     }

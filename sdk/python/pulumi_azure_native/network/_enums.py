@@ -99,6 +99,7 @@ __all__ = [
     'IPVersion',
     'IkeEncryption',
     'IkeIntegrity',
+    'InterconnectGroupScope',
     'IpAllocationType',
     'IpsecEncryption',
     'IpsecIntegrity',
@@ -159,6 +160,7 @@ __all__ = [
     'ServiceGatewaySkuTier',
     'ServiceProviderProvisioningState',
     'SharingScope',
+    'SubgroupProfileScope',
     'SyncMode',
     'TransportProtocol',
     'UseHubGateway',
@@ -1164,6 +1166,21 @@ class IkeIntegrity(_builtins.str, Enum):
     GCMAES128 = "GCMAES128"
 
 
+@pulumi.type_token("azure-native:network:InterconnectGroupScope")
+class InterconnectGroupScope(_builtins.str, Enum):
+    """
+    Scope of interconnect group resource.
+    """
+    NONE = "None"
+    """
+    No interconnect group scope.
+    """
+    INFINI_BAND = "InfiniBand"
+    """
+    InfiniBand interconnect group scope.
+    """
+
+
 @pulumi.type_token("azure-native:network:IpAllocationType")
 class IpAllocationType(_builtins.str, Enum):
     """
@@ -1765,6 +1782,9 @@ class ServiceGatewaySkuName(_builtins.str, Enum):
     Name of a service gateway SKU.
     """
     STANDARD = "Standard"
+    """
+    Standard
+    """
 
 
 @pulumi.type_token("azure-native:network:ServiceGatewaySkuTier")
@@ -1773,6 +1793,9 @@ class ServiceGatewaySkuTier(_builtins.str, Enum):
     Tier of a service gateway SKU.
     """
     REGIONAL = "Regional"
+    """
+    Regional
+    """
 
 
 @pulumi.type_token("azure-native:network:ServiceProviderProvisioningState")
@@ -1793,6 +1816,21 @@ class SharingScope(_builtins.str, Enum):
     """
     TENANT = "Tenant"
     DELEGATED_SERVICES = "DelegatedServices"
+
+
+@pulumi.type_token("azure-native:network:SubgroupProfileScope")
+class SubgroupProfileScope(_builtins.str, Enum):
+    """
+    Scope of the subgroup profile.
+    """
+    NONE = "None"
+    """
+    No subgroup profile scope.
+    """
+    VERTICAL_CONNECT = "VerticalConnect"
+    """
+    VerticalConnect subgroup profile scope.
+    """
 
 
 @pulumi.type_token("azure-native:network:SyncMode")

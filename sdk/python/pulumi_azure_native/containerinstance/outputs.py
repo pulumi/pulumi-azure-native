@@ -42,16 +42,16 @@ __all__ = [
     'ContainerStateResponse',
     'DeploymentExtensionSpecResponse',
     'DnsConfigurationResponse',
+    'ElasticProfileContainerGroupNamingPolicyGuidNamingPolicyResponse',
+    'ElasticProfileContainerGroupNamingPolicyResponse',
     'ElasticProfileResponse',
-    'ElasticProfileResponseContainerGroupNamingPolicy',
-    'ElasticProfileResponseGuidNamingPolicy',
     'EncryptionPropertiesResponse',
     'EnvironmentVariableResponse',
     'EnvironmentVariableResponseV1',
     'EnvironmentVariableResponseV2',
     'EventResponse',
+    'FileSharePropertiesResponse',
     'FileShareResponse',
-    'FileShareResponseProperties',
     'GitRepoVolumeResponse',
     'GpuResourceResponse',
     'HttpHeaderResponse',
@@ -64,8 +64,8 @@ __all__ = [
     'LoadBalancerBackendAddressPoolResponse',
     'LoadBalancerResponse',
     'LogAnalyticsResponse',
+    'NGroupCGPropertyContainerPropertiesResponse',
     'NGroupCGPropertyContainerResponse',
-    'NGroupCGPropertyContainerResponseProperties',
     'NGroupCGPropertyVolumeResponse',
     'NGroupContainerGroupPropertiesResponse',
     'NGroupIdentityResponse',
@@ -81,7 +81,7 @@ __all__ = [
     'StorageProfileResponse',
     'SystemDataResponse',
     'UpdateProfileResponse',
-    'UpdateProfileResponseRollingUpdateProfile',
+    'UpdateProfileRollingUpdateProfileResponse',
     'UserAssignedIdentitiesResponse',
     'VolumeMountResponse',
     'VolumeResponse',
@@ -744,7 +744,7 @@ class ContainerGroupProfileStubResponse(dict):
         """
         The object that contains a reference to a Container Group Profile and it's other related properties.
 
-        :param 'NGroupContainerGroupPropertiesResponse' container_group_properties:  Container Group properties which can be set while creating or updating the NGroups.
+        :param 'NGroupContainerGroupPropertiesResponse' container_group_properties: Container Group properties which can be set while creating or updating the NGroups.
         :param 'NetworkProfileResponse' network_profile: A network profile for network settings of a ContainerGroupProfile.
         :param 'ApiEntityReferenceResponse' resource: A reference to the container group profile ARM resource hosted in ACI RP.
         :param _builtins.int revision: The revision of the CG profile is an optional property. If customer does not to provide a revision then NGroups will pickup the latest revision of CGProfile.
@@ -765,7 +765,7 @@ class ContainerGroupProfileStubResponse(dict):
     @pulumi.getter(name="containerGroupProperties")
     def container_group_properties(self) -> Optional['outputs.NGroupContainerGroupPropertiesResponse']:
         """
-         Container Group properties which can be set while creating or updating the NGroups.
+        Container Group properties which can be set while creating or updating the NGroups.
         """
         return pulumi.get(self, "container_group_properties")
 
@@ -1978,6 +1978,61 @@ class DnsConfigurationResponse(dict):
 
 
 @pulumi.output_type
+class ElasticProfileContainerGroupNamingPolicyGuidNamingPolicyResponse(dict):
+    def __init__(__self__, *,
+                 prefix: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str prefix: The prefix can be used when there are tooling limitations (e.g. on the Azure portal where CGs from multiple NGroups exist in the same RG). The prefix with the suffixed resource name must still follow Azure resource naming guidelines.
+        """
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @_builtins.property
+    @pulumi.getter
+    def prefix(self) -> Optional[_builtins.str]:
+        """
+        The prefix can be used when there are tooling limitations (e.g. on the Azure portal where CGs from multiple NGroups exist in the same RG). The prefix with the suffixed resource name must still follow Azure resource naming guidelines.
+        """
+        return pulumi.get(self, "prefix")
+
+
+@pulumi.output_type
+class ElasticProfileContainerGroupNamingPolicyResponse(dict):
+    """
+    Container Groups are named on a generic guid based naming scheme/policy. Customer can modify naming policy to add prefix to CG names during scale out operation.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "guidNamingPolicy":
+            suggest = "guid_naming_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ElasticProfileContainerGroupNamingPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ElasticProfileContainerGroupNamingPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ElasticProfileContainerGroupNamingPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 guid_naming_policy: Optional['outputs.ElasticProfileContainerGroupNamingPolicyGuidNamingPolicyResponse'] = None):
+        """
+        Container Groups are named on a generic guid based naming scheme/policy. Customer can modify naming policy to add prefix to CG names during scale out operation.
+        """
+        if guid_naming_policy is not None:
+            pulumi.set(__self__, "guid_naming_policy", guid_naming_policy)
+
+    @_builtins.property
+    @pulumi.getter(name="guidNamingPolicy")
+    def guid_naming_policy(self) -> Optional['outputs.ElasticProfileContainerGroupNamingPolicyGuidNamingPolicyResponse']:
+        return pulumi.get(self, "guid_naming_policy")
+
+
+@pulumi.output_type
 class ElasticProfileResponse(dict):
     """
     Describes the elastic profile of the NGroup
@@ -2004,13 +2059,13 @@ class ElasticProfileResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 container_group_naming_policy: Optional['outputs.ElasticProfileResponseContainerGroupNamingPolicy'] = None,
+                 container_group_naming_policy: Optional['outputs.ElasticProfileContainerGroupNamingPolicyResponse'] = None,
                  desired_count: Optional[_builtins.int] = None,
                  maintain_desired_count: Optional[_builtins.bool] = None):
         """
         Describes the elastic profile of the NGroup
 
-        :param 'ElasticProfileResponseContainerGroupNamingPolicy' container_group_naming_policy: Container Groups are named on a generic guid based naming scheme/policy. Customer can modify naming policy to add prefix to CG names during scale out operation.
+        :param 'ElasticProfileContainerGroupNamingPolicyResponse' container_group_naming_policy: Container Groups are named on a generic guid based naming scheme/policy. Customer can modify naming policy to add prefix to CG names during scale out operation.
         :param _builtins.bool maintain_desired_count: Flag that indicates whether desiredCount should be maintained when customer deletes SPECIFIC container groups (CGs) from the NGroups. In this case, new CGs will be created by NGroup to compensate for the specific deleted ones.
         """
         if container_group_naming_policy is not None:
@@ -2022,7 +2077,7 @@ class ElasticProfileResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="containerGroupNamingPolicy")
-    def container_group_naming_policy(self) -> Optional['outputs.ElasticProfileResponseContainerGroupNamingPolicy']:
+    def container_group_naming_policy(self) -> Optional['outputs.ElasticProfileContainerGroupNamingPolicyResponse']:
         """
         Container Groups are named on a generic guid based naming scheme/policy. Customer can modify naming policy to add prefix to CG names during scale out operation.
         """
@@ -2040,61 +2095,6 @@ class ElasticProfileResponse(dict):
         Flag that indicates whether desiredCount should be maintained when customer deletes SPECIFIC container groups (CGs) from the NGroups. In this case, new CGs will be created by NGroup to compensate for the specific deleted ones.
         """
         return pulumi.get(self, "maintain_desired_count")
-
-
-@pulumi.output_type
-class ElasticProfileResponseContainerGroupNamingPolicy(dict):
-    """
-    Container Groups are named on a generic guid based naming scheme/policy. Customer can modify naming policy to add prefix to CG names during scale out operation.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "guidNamingPolicy":
-            suggest = "guid_naming_policy"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ElasticProfileResponseContainerGroupNamingPolicy. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ElasticProfileResponseContainerGroupNamingPolicy.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ElasticProfileResponseContainerGroupNamingPolicy.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 guid_naming_policy: Optional['outputs.ElasticProfileResponseGuidNamingPolicy'] = None):
-        """
-        Container Groups are named on a generic guid based naming scheme/policy. Customer can modify naming policy to add prefix to CG names during scale out operation.
-        """
-        if guid_naming_policy is not None:
-            pulumi.set(__self__, "guid_naming_policy", guid_naming_policy)
-
-    @_builtins.property
-    @pulumi.getter(name="guidNamingPolicy")
-    def guid_naming_policy(self) -> Optional['outputs.ElasticProfileResponseGuidNamingPolicy']:
-        return pulumi.get(self, "guid_naming_policy")
-
-
-@pulumi.output_type
-class ElasticProfileResponseGuidNamingPolicy(dict):
-    def __init__(__self__, *,
-                 prefix: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str prefix: The prefix can be used when there are tooling limitations (e.g. on the Azure portal where CGs from multiple NGroups exist in the same RG). The prefix with the suffixed resource name must still follow Azure resource naming guidelines.
-        """
-        if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
-
-    @_builtins.property
-    @pulumi.getter
-    def prefix(self) -> Optional[_builtins.str]:
-        """
-        The prefix can be used when there are tooling limitations (e.g. on the Azure portal where CGs from multiple NGroups exist in the same RG). The prefix with the suffixed resource name must still follow Azure resource naming guidelines.
-        """
-        return pulumi.get(self, "prefix")
 
 
 @pulumi.output_type
@@ -2479,6 +2479,58 @@ class EventResponse(dict):
 
 
 @pulumi.output_type
+class FileSharePropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "shareAccessTier":
+            suggest = "share_access_tier"
+        elif key == "shareAccessType":
+            suggest = "share_access_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileSharePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileSharePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileSharePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 share_access_tier: Optional[_builtins.str] = None,
+                 share_access_type: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str share_access_tier: Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium. Learn more at: https://learn.microsoft.com/en-us/rest/api/storagerp/file-shares/create?tabs=HTTP#shareaccesstier
+        :param _builtins.str share_access_type: Specifies how Container Groups can access the Azure file share i.e. all CG will share same Azure file share or going to have exclusive file share.
+        """
+        if share_access_tier is None:
+            share_access_tier = 'TransactionOptimized'
+        if share_access_tier is not None:
+            pulumi.set(__self__, "share_access_tier", share_access_tier)
+        if share_access_type is not None:
+            pulumi.set(__self__, "share_access_type", share_access_type)
+
+    @_builtins.property
+    @pulumi.getter(name="shareAccessTier")
+    def share_access_tier(self) -> Optional[_builtins.str]:
+        """
+        Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium. Learn more at: https://learn.microsoft.com/en-us/rest/api/storagerp/file-shares/create?tabs=HTTP#shareaccesstier
+        """
+        return pulumi.get(self, "share_access_tier")
+
+    @_builtins.property
+    @pulumi.getter(name="shareAccessType")
+    def share_access_type(self) -> Optional[_builtins.str]:
+        """
+        Specifies how Container Groups can access the Azure file share i.e. all CG will share same Azure file share or going to have exclusive file share.
+        """
+        return pulumi.get(self, "share_access_type")
+
+
+@pulumi.output_type
 class FileShareResponse(dict):
     """
     File shares that can be mounted on container groups.
@@ -2504,7 +2556,7 @@ class FileShareResponse(dict):
 
     def __init__(__self__, *,
                  name: Optional[_builtins.str] = None,
-                 properties: Optional['outputs.FileShareResponseProperties'] = None,
+                 properties: Optional['outputs.FileSharePropertiesResponse'] = None,
                  resource_group_name: Optional[_builtins.str] = None,
                  storage_account_name: Optional[_builtins.str] = None):
         """
@@ -2526,7 +2578,7 @@ class FileShareResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional['outputs.FileShareResponseProperties']:
+    def properties(self) -> Optional['outputs.FileSharePropertiesResponse']:
         return pulumi.get(self, "properties")
 
     @_builtins.property
@@ -2538,58 +2590,6 @@ class FileShareResponse(dict):
     @pulumi.getter(name="storageAccountName")
     def storage_account_name(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "storage_account_name")
-
-
-@pulumi.output_type
-class FileShareResponseProperties(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "shareAccessTier":
-            suggest = "share_access_tier"
-        elif key == "shareAccessType":
-            suggest = "share_access_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FileShareResponseProperties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        FileShareResponseProperties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        FileShareResponseProperties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 share_access_tier: Optional[_builtins.str] = None,
-                 share_access_type: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str share_access_tier: Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium. Learn more at: https://learn.microsoft.com/en-us/rest/api/storagerp/file-shares/create?tabs=HTTP#shareaccesstier
-        :param _builtins.str share_access_type:  Specifies how Container Groups can access the Azure file share i.e. all CG will share same Azure file share or going to have exclusive file share.
-        """
-        if share_access_tier is None:
-            share_access_tier = 'TransactionOptimized'
-        if share_access_tier is not None:
-            pulumi.set(__self__, "share_access_tier", share_access_tier)
-        if share_access_type is not None:
-            pulumi.set(__self__, "share_access_type", share_access_type)
-
-    @_builtins.property
-    @pulumi.getter(name="shareAccessTier")
-    def share_access_tier(self) -> Optional[_builtins.str]:
-        """
-        Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium. Learn more at: https://learn.microsoft.com/en-us/rest/api/storagerp/file-shares/create?tabs=HTTP#shareaccesstier
-        """
-        return pulumi.get(self, "share_access_tier")
-
-    @_builtins.property
-    @pulumi.getter(name="shareAccessType")
-    def share_access_type(self) -> Optional[_builtins.str]:
-        """
-         Specifies how Container Groups can access the Azure file share i.e. all CG will share same Azure file share or going to have exclusive file share.
-        """
-        return pulumi.get(self, "share_access_type")
 
 
 @pulumi.output_type
@@ -3442,18 +3442,54 @@ class LogAnalyticsResponse(dict):
 
 
 @pulumi.output_type
+class NGroupCGPropertyContainerPropertiesResponse(dict):
+    """
+    container properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "volumeMounts":
+            suggest = "volume_mounts"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NGroupCGPropertyContainerPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NGroupCGPropertyContainerPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NGroupCGPropertyContainerPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 volume_mounts: Optional[Sequence['outputs.VolumeMountResponse']] = None):
+        """
+        container properties
+        """
+        if volume_mounts is not None:
+            pulumi.set(__self__, "volume_mounts", volume_mounts)
+
+    @_builtins.property
+    @pulumi.getter(name="volumeMounts")
+    def volume_mounts(self) -> Optional[Sequence['outputs.VolumeMountResponse']]:
+        return pulumi.get(self, "volume_mounts")
+
+
+@pulumi.output_type
 class NGroupCGPropertyContainerResponse(dict):
     """
     Container properties that can be provided with NGroups object.
     """
     def __init__(__self__, *,
                  name: Optional[_builtins.str] = None,
-                 properties: Optional['outputs.NGroupCGPropertyContainerResponseProperties'] = None):
+                 properties: Optional['outputs.NGroupCGPropertyContainerPropertiesResponse'] = None):
         """
         Container properties that can be provided with NGroups object.
 
         :param _builtins.str name: container name
-        :param 'NGroupCGPropertyContainerResponseProperties' properties: container properties
+        :param 'NGroupCGPropertyContainerPropertiesResponse' properties: container properties
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -3470,47 +3506,11 @@ class NGroupCGPropertyContainerResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional['outputs.NGroupCGPropertyContainerResponseProperties']:
+    def properties(self) -> Optional['outputs.NGroupCGPropertyContainerPropertiesResponse']:
         """
         container properties
         """
         return pulumi.get(self, "properties")
-
-
-@pulumi.output_type
-class NGroupCGPropertyContainerResponseProperties(dict):
-    """
-    container properties
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "volumeMounts":
-            suggest = "volume_mounts"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in NGroupCGPropertyContainerResponseProperties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        NGroupCGPropertyContainerResponseProperties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        NGroupCGPropertyContainerResponseProperties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 volume_mounts: Optional[Sequence['outputs.VolumeMountResponse']] = None):
-        """
-        container properties
-        """
-        if volume_mounts is not None:
-            pulumi.set(__self__, "volume_mounts", volume_mounts)
-
-    @_builtins.property
-    @pulumi.getter(name="volumeMounts")
-    def volume_mounts(self) -> Optional[Sequence['outputs.VolumeMountResponse']]:
-        return pulumi.get(self, "volume_mounts")
 
 
 @pulumi.output_type
@@ -4371,12 +4371,12 @@ class UpdateProfileResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 rolling_update_profile: Optional['outputs.UpdateProfileResponseRollingUpdateProfile'] = None,
+                 rolling_update_profile: Optional['outputs.UpdateProfileRollingUpdateProfileResponse'] = None,
                  update_mode: Optional[_builtins.str] = None):
         """
         Used by the customer to specify the way to update the Container Groups in NGroup.
 
-        :param 'UpdateProfileResponseRollingUpdateProfile' rolling_update_profile: This profile allows the customers to customize the rolling update.
+        :param 'UpdateProfileRollingUpdateProfileResponse' rolling_update_profile: This profile allows the customers to customize the rolling update.
         """
         if rolling_update_profile is not None:
             pulumi.set(__self__, "rolling_update_profile", rolling_update_profile)
@@ -4385,7 +4385,7 @@ class UpdateProfileResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="rollingUpdateProfile")
-    def rolling_update_profile(self) -> Optional['outputs.UpdateProfileResponseRollingUpdateProfile']:
+    def rolling_update_profile(self) -> Optional['outputs.UpdateProfileRollingUpdateProfileResponse']:
         """
         This profile allows the customers to customize the rolling update.
         """
@@ -4398,7 +4398,7 @@ class UpdateProfileResponse(dict):
 
 
 @pulumi.output_type
-class UpdateProfileResponseRollingUpdateProfile(dict):
+class UpdateProfileRollingUpdateProfileResponse(dict):
     """
     This profile allows the customers to customize the rolling update.
     """
@@ -4415,14 +4415,14 @@ class UpdateProfileResponseRollingUpdateProfile(dict):
             suggest = "pause_time_between_batches"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in UpdateProfileResponseRollingUpdateProfile. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in UpdateProfileRollingUpdateProfileResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        UpdateProfileResponseRollingUpdateProfile.__key_warning(key)
+        UpdateProfileRollingUpdateProfileResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        UpdateProfileResponseRollingUpdateProfile.__key_warning(key)
+        UpdateProfileRollingUpdateProfileResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

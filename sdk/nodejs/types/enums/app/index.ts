@@ -44,6 +44,42 @@ export const Affinity = {
  */
 export type Affinity = (typeof Affinity)[keyof typeof Affinity];
 
+export const AgentAccessLevel = {
+    /**
+     * Agent has read-only permissions on managed resource groups
+     */
+    Low: "Low",
+    /**
+     * Agent can take approved actions on resources using its own managed identity
+     */
+    High: "High",
+} as const;
+
+/**
+ * The access level of the action
+ */
+export type AgentAccessLevel = (typeof AgentAccessLevel)[keyof typeof AgentAccessLevel];
+
+export const AgentMode = {
+    /**
+     * Write actions are executed automatically without user approval
+     */
+    Autonomous: "Autonomous",
+    /**
+     * Write actions require user approval before execution
+     */
+    Review: "Review",
+    /**
+     * No write actions are executed
+     */
+    ReadOnly: "ReadOnly",
+} as const;
+
+/**
+ * The mode of the action
+ */
+export type AgentMode = (typeof AgentMode)[keyof typeof AgentMode];
+
 export const AppProtocol = {
     Http: "http",
     Grpc: "grpc",
@@ -132,6 +168,22 @@ export const ForwardProxyConvention = {
  * The convention used to determine the url of the request made.
  */
 export type ForwardProxyConvention = (typeof ForwardProxyConvention)[keyof typeof ForwardProxyConvention];
+
+export const GenevaActionAuthenticationMode = {
+    /**
+     * OAuth authentication mode
+     */
+    OAuth: "OAuth",
+    /**
+     * WS-Trust authentication mode
+     */
+    WSTrust: "WS-Trust",
+} as const;
+
+/**
+ * Authentication mode for Geneva Actions
+ */
+export type GenevaActionAuthenticationMode = (typeof GenevaActionAuthenticationMode)[keyof typeof GenevaActionAuthenticationMode];
 
 export const IdentitySettingsLifeCycle = {
     Init: "Init",
@@ -388,6 +440,22 @@ export const UnauthenticatedClientActionV2 = {
  * The action to take when an unauthenticated client attempts to access the app.
  */
 export type UnauthenticatedClientActionV2 = (typeof UnauthenticatedClientActionV2)[keyof typeof UnauthenticatedClientActionV2];
+
+export const UpgradeChannel = {
+    /**
+     * Preview upgrade channel
+     */
+    Preview: "Preview",
+    /**
+     * Stable upgrade channel
+     */
+    Stable: "Stable",
+} as const;
+
+/**
+ * The upgrade channel of the agent
+ */
+export type UpgradeChannel = (typeof UpgradeChannel)[keyof typeof UpgradeChannel];
 
 export const WeekDay = {
     Monday: "Monday",

@@ -27,7 +27,7 @@ class GetGovernanceAssignmentResult:
     """
     Governance assignment over a given scope
     """
-    def __init__(__self__, additional_data=None, azure_api_version=None, governance_email_notification=None, id=None, is_grace_period=None, name=None, owner=None, remediation_due_date=None, remediation_eta=None, type=None):
+    def __init__(__self__, additional_data=None, azure_api_version=None, governance_email_notification=None, id=None, is_grace_period=None, name=None, owner=None, remediation_due_date=None, remediation_eta=None, system_data=None, type=None):
         if additional_data and not isinstance(additional_data, dict):
             raise TypeError("Expected argument 'additional_data' to be a dict")
         pulumi.set(__self__, "additional_data", additional_data)
@@ -55,6 +55,9 @@ class GetGovernanceAssignmentResult:
         if remediation_eta and not isinstance(remediation_eta, dict):
             raise TypeError("Expected argument 'remediation_eta' to be a dict")
         pulumi.set(__self__, "remediation_eta", remediation_eta)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -87,7 +90,7 @@ class GetGovernanceAssignmentResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -103,7 +106,7 @@ class GetGovernanceAssignmentResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -132,10 +135,18 @@ class GetGovernanceAssignmentResult:
         return pulumi.get(self, "remediation_eta")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -155,6 +166,7 @@ class AwaitableGetGovernanceAssignmentResult(GetGovernanceAssignmentResult):
             owner=self.owner,
             remediation_due_date=self.remediation_due_date,
             remediation_eta=self.remediation_eta,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -168,9 +180,9 @@ def get_governance_assignment(assessment_name: Optional[_builtins.str] = None,
     Uses Azure REST API version 2022-01-01-preview.
 
 
-    :param _builtins.str assessment_name: The Assessment Key - A unique key for the assessment type
-    :param _builtins.str assignment_key: The governance assignment key - the assessment key of the required governance assignment
-    :param _builtins.str scope: The scope of the Governance assignments. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
+    :param _builtins.str assessment_name: The assessment key of the governance assignment.
+    :param _builtins.str assignment_key: The governance assignment key.
+    :param _builtins.str scope: The scope of the governance assignment.
     """
     __args__ = dict()
     __args__['assessmentName'] = assessment_name
@@ -189,6 +201,7 @@ def get_governance_assignment(assessment_name: Optional[_builtins.str] = None,
         owner=pulumi.get(__ret__, 'owner'),
         remediation_due_date=pulumi.get(__ret__, 'remediation_due_date'),
         remediation_eta=pulumi.get(__ret__, 'remediation_eta'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_governance_assignment_output(assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
                                      assignment_key: Optional[pulumi.Input[_builtins.str]] = None,
@@ -200,9 +213,9 @@ def get_governance_assignment_output(assessment_name: Optional[pulumi.Input[_bui
     Uses Azure REST API version 2022-01-01-preview.
 
 
-    :param _builtins.str assessment_name: The Assessment Key - A unique key for the assessment type
-    :param _builtins.str assignment_key: The governance assignment key - the assessment key of the required governance assignment
-    :param _builtins.str scope: The scope of the Governance assignments. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
+    :param _builtins.str assessment_name: The assessment key of the governance assignment.
+    :param _builtins.str assignment_key: The governance assignment key.
+    :param _builtins.str scope: The scope of the governance assignment.
     """
     __args__ = dict()
     __args__['assessmentName'] = assessment_name
@@ -220,4 +233,5 @@ def get_governance_assignment_output(assessment_name: Optional[pulumi.Input[_bui
         owner=pulumi.get(__response__, 'owner'),
         remediation_due_date=pulumi.get(__response__, 'remediation_due_date'),
         remediation_eta=pulumi.get(__response__, 'remediation_eta'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

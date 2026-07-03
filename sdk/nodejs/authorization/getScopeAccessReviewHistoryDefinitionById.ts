@@ -52,7 +52,7 @@ export interface GetScopeAccessReviewHistoryDefinitionByIdResult {
      */
     readonly displayName?: string;
     /**
-     * The access review history definition id.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -64,7 +64,7 @@ export interface GetScopeAccessReviewHistoryDefinitionByIdResult {
      */
     readonly interval?: number;
     /**
-     * The access review history definition unique id.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -100,7 +100,11 @@ export interface GetScopeAccessReviewHistoryDefinitionByIdResult {
      */
     readonly status: string;
     /**
-     * The resource type.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.authorization.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**

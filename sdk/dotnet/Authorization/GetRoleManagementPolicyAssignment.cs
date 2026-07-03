@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.Authorization
         public string RoleManagementPolicyAssignmentName { get; set; } = null!;
 
         /// <summary>
-        /// The scope of the role management policy.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("scope", required: true)]
         public string Scope { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.Authorization
         public Input<string> RoleManagementPolicyAssignmentName { get; set; } = null!;
 
         /// <summary>
-        /// The scope of the role management policy.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
@@ -96,11 +96,11 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         public readonly ImmutableArray<object> EffectiveRules;
         /// <summary>
-        /// The role management policy Id.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The role management policy name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -120,7 +120,11 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         public readonly string? Scope;
         /// <summary>
-        /// The role management policy type.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -142,6 +146,8 @@ namespace Pulumi.AzureNative.Authorization
 
             string? scope,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             AzureApiVersion = azureApiVersion;
@@ -152,6 +158,7 @@ namespace Pulumi.AzureNative.Authorization
             PolicyId = policyId;
             RoleDefinitionId = roleDefinitionId;
             Scope = scope;
+            SystemData = systemData;
             Type = type;
         }
     }

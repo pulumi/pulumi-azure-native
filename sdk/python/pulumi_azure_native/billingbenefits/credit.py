@@ -35,6 +35,7 @@ class CreditArgs:
                  plan: Optional[pulumi.Input['PlanArgs']] = None,
                  policies: Optional[pulumi.Input['CreditPoliciesArgs']] = None,
                  product_code: Optional[pulumi.Input[_builtins.str]] = None,
+                 reason: Optional[pulumi.Input['CreditReasonArgs']] = None,
                  resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  sku: Optional[pulumi.Input['SkuArgs']] = None,
                  start_at: Optional[pulumi.Input[_builtins.str]] = None,
@@ -57,6 +58,7 @@ class CreditArgs:
         :param pulumi.Input['PlanArgs'] plan: Plan for the resource.
         :param pulumi.Input['CreditPoliciesArgs'] policies: Credit breakdown item representing a milestone, line-item, or no-charge service
         :param pulumi.Input[_builtins.str] product_code: Product UPN for the credit type
+        :param pulumi.Input['CreditReasonArgs'] reason: The reason for the credit. Not required if not applicable.
         :param pulumi.Input[_builtins.str] resource_id: Fully-qualified resource identifier of the resource. Format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/{benefitType}/{benefitName}.
         :param pulumi.Input['SkuArgs'] sku: The resource model definition representing SKU
         :param pulumi.Input[_builtins.str] start_at: Start DateTime.
@@ -89,6 +91,8 @@ class CreditArgs:
             pulumi.set(__self__, "policies", policies)
         if product_code is not None:
             pulumi.set(__self__, "product_code", product_code)
+        if reason is not None:
+            pulumi.set(__self__, "reason", reason)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
         if sku is not None:
@@ -259,6 +263,18 @@ class CreditArgs:
         pulumi.set(self, "product_code", value)
 
     @_builtins.property
+    @pulumi.getter
+    def reason(self) -> Optional[pulumi.Input['CreditReasonArgs']]:
+        """
+        The reason for the credit. Not required if not applicable.
+        """
+        return pulumi.get(self, "reason")
+
+    @reason.setter
+    def reason(self, value: Optional[pulumi.Input['CreditReasonArgs']]):
+        pulumi.set(self, "reason", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -349,6 +365,7 @@ class Credit(pulumi.CustomResource):
                  plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
                  policies: Optional[pulumi.Input[Union['CreditPoliciesArgs', 'CreditPoliciesArgsDict']]] = None,
                  product_code: Optional[pulumi.Input[_builtins.str]] = None,
+                 reason: Optional[pulumi.Input[Union['CreditReasonArgs', 'CreditReasonArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
@@ -379,6 +396,7 @@ class Credit(pulumi.CustomResource):
         :param pulumi.Input[Union['PlanArgs', 'PlanArgsDict']] plan: Plan for the resource.
         :param pulumi.Input[Union['CreditPoliciesArgs', 'CreditPoliciesArgsDict']] policies: Credit breakdown item representing a milestone, line-item, or no-charge service
         :param pulumi.Input[_builtins.str] product_code: Product UPN for the credit type
+        :param pulumi.Input[Union['CreditReasonArgs', 'CreditReasonArgsDict']] reason: The reason for the credit. Not required if not applicable.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_id: Fully-qualified resource identifier of the resource. Format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/{benefitType}/{benefitName}.
         :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The resource model definition representing SKU
@@ -428,6 +446,7 @@ class Credit(pulumi.CustomResource):
                  plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
                  policies: Optional[pulumi.Input[Union['CreditPoliciesArgs', 'CreditPoliciesArgsDict']]] = None,
                  product_code: Optional[pulumi.Input[_builtins.str]] = None,
+                 reason: Optional[pulumi.Input[Union['CreditReasonArgs', 'CreditReasonArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
@@ -456,6 +475,7 @@ class Credit(pulumi.CustomResource):
             __props__.__dict__["plan"] = plan
             __props__.__dict__["policies"] = policies
             __props__.__dict__["product_code"] = product_code
+            __props__.__dict__["reason"] = reason
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -471,7 +491,6 @@ class Credit(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["reason"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:billingbenefits/v20250501preview:Credit"), pulumi.Alias(type_="azure-native:billingbenefits/v20251201preview:Credit")])
@@ -586,7 +605,7 @@ class Credit(pulumi.CustomResource):
     @pulumi.getter
     def etag(self) -> pulumi.Output[_builtins.str]:
         """
-        The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+        The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
         """
         return pulumi.get(self, "etag")
 

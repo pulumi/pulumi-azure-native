@@ -22,7 +22,7 @@ export function getStandard(args: GetStandardArgs, opts?: pulumi.InvokeOptions):
 
 export interface GetStandardArgs {
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -60,7 +60,7 @@ export interface GetStandardResult {
      */
     readonly etag?: string;
     /**
-     * Resource Id
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -68,11 +68,11 @@ export interface GetStandardResult {
      */
     readonly kind?: string;
     /**
-     * Location where the resource is stored
+     * The geo-location where the resource lives
      */
     readonly location?: string;
     /**
-     * Resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -88,11 +88,11 @@ export interface GetStandardResult {
      */
     readonly systemData: outputs.security.SystemDataResponse;
     /**
-     * A list of key value pairs that describe the resource.
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
@@ -111,7 +111,7 @@ export function getStandardOutput(args: GetStandardOutputArgs, opts?: pulumi.Inv
 
 export interface GetStandardOutputArgs {
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

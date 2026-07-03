@@ -11,6 +11,7 @@ __all__ = [
     'ApprovalPolicy',
     'ApprovalStatus',
     'CommunityEndpointProtocol',
+    'Designation',
     'DestinationType',
     'DiagnosticDestination',
     'EnclaveEndpointProtocol',
@@ -122,6 +123,21 @@ class CommunityEndpointProtocol(_builtins.str, Enum):
     HTTP = "HTTP"
     """
     CommunityEndpointProtocol Type HTTP
+    """
+
+
+@pulumi.type_token("azure-native:mission:Designation")
+class Designation(_builtins.str, Enum):
+    """
+    Designation of hub resource allocation (Pooled or Reserved)
+    """
+    POOLED = "Pooled"
+    """
+    Designation Type Pooled
+    """
+    RESERVED = "Reserved"
+    """
+    Designation Type Reserved
     """
 
 

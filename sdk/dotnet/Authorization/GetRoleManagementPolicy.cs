@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.Authorization
         public string RoleManagementPolicyName { get; set; } = null!;
 
         /// <summary>
-        /// The scope of the role management policy.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("scope", required: true)]
         public string Scope { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.Authorization
         public Input<string> RoleManagementPolicyName { get; set; } = null!;
 
         /// <summary>
-        /// The scope of the role management policy.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         public readonly ImmutableArray<object> EffectiveRules;
         /// <summary>
-        /// The role management policy Id.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -114,13 +114,13 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The name of the entity last modified it
         /// </summary>
-        public readonly Outputs.PrincipalResponse LastModifiedBy;
+        public readonly Outputs.MicrosoftCommonPrincipalResponse LastModifiedBy;
         /// <summary>
         /// The last modified date time.
         /// </summary>
         public readonly string LastModifiedDateTime;
         /// <summary>
-        /// The role management policy name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -136,7 +136,11 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         public readonly string? Scope;
         /// <summary>
-        /// The role management policy type.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -154,7 +158,7 @@ namespace Pulumi.AzureNative.Authorization
 
             bool? isOrganizationDefault,
 
-            Outputs.PrincipalResponse lastModifiedBy,
+            Outputs.MicrosoftCommonPrincipalResponse lastModifiedBy,
 
             string lastModifiedDateTime,
 
@@ -165,6 +169,8 @@ namespace Pulumi.AzureNative.Authorization
             ImmutableArray<object> rules,
 
             string? scope,
+
+            Outputs.SystemDataResponse systemData,
 
             string type)
         {
@@ -180,6 +186,7 @@ namespace Pulumi.AzureNative.Authorization
             PolicyProperties = policyProperties;
             Rules = rules;
             Scope = scope;
+            SystemData = systemData;
             Type = type;
         }
     }

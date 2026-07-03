@@ -11,6 +11,8 @@ __all__ = [
     'Action',
     'ActiveRevisionsMode',
     'Affinity',
+    'AgentAccessLevel',
+    'AgentMode',
     'AppProtocol',
     'BindingType',
     'CertificateType',
@@ -20,6 +22,7 @@ __all__ = [
     'DotNetComponentType',
     'ExtendedLocationTypes',
     'ForwardProxyConvention',
+    'GenevaActionAuthenticationMode',
     'IdentitySettingsLifeCycle',
     'ImageType',
     'IngressClientCertificateMode',
@@ -43,6 +46,7 @@ __all__ = [
     'TriggerType',
     'Type',
     'UnauthenticatedClientActionV2',
+    'UpgradeChannel',
     'WeekDay',
 ]
 
@@ -83,6 +87,40 @@ class Affinity(_builtins.str, Enum):
     """
     STICKY = "sticky"
     NONE = "none"
+
+
+@pulumi.type_token("azure-native:app:AgentAccessLevel")
+class AgentAccessLevel(_builtins.str, Enum):
+    """
+    The access level of the action
+    """
+    LOW = "Low"
+    """
+    Agent has read-only permissions on managed resource groups
+    """
+    HIGH = "High"
+    """
+    Agent can take approved actions on resources using its own managed identity
+    """
+
+
+@pulumi.type_token("azure-native:app:AgentMode")
+class AgentMode(_builtins.str, Enum):
+    """
+    The mode of the action
+    """
+    AUTONOMOUS = "Autonomous"
+    """
+    Write actions are executed automatically without user approval
+    """
+    REVIEW = "Review"
+    """
+    Write actions require user approval before execution
+    """
+    READ_ONLY = "ReadOnly"
+    """
+    No write actions are executed
+    """
 
 
 @pulumi.type_token("azure-native:app:AppProtocol")
@@ -163,6 +201,21 @@ class ForwardProxyConvention(_builtins.str, Enum):
     NO_PROXY = "NoProxy"
     STANDARD = "Standard"
     CUSTOM = "Custom"
+
+
+@pulumi.type_token("azure-native:app:GenevaActionAuthenticationMode")
+class GenevaActionAuthenticationMode(_builtins.str, Enum):
+    """
+    Authentication mode for Geneva Actions
+    """
+    O_AUTH = "OAuth"
+    """
+    OAuth authentication mode
+    """
+    WS_TRUST = "WS-Trust"
+    """
+    WS-Trust authentication mode
+    """
 
 
 @pulumi.type_token("azure-native:app:IdentitySettingsLifeCycle")
@@ -396,6 +449,21 @@ class UnauthenticatedClientActionV2(_builtins.str, Enum):
     ALLOW_ANONYMOUS = "AllowAnonymous"
     RETURN401 = "Return401"
     RETURN403 = "Return403"
+
+
+@pulumi.type_token("azure-native:app:UpgradeChannel")
+class UpgradeChannel(_builtins.str, Enum):
+    """
+    The upgrade channel of the agent
+    """
+    PREVIEW = "Preview"
+    """
+    Preview upgrade channel
+    """
+    STABLE = "Stable"
+    """
+    Stable upgrade channel
+    """
 
 
 @pulumi.type_token("azure-native:app:WeekDay")

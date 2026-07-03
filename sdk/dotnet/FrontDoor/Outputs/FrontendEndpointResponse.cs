@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.FrontDoor.Outputs
         /// <summary>
         /// Defines the Web Application Firewall policy for each host (if applicable)
         /// </summary>
-        public readonly Outputs.FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink? WebApplicationFirewallPolicyLink;
+        public readonly Outputs.FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkResponse? WebApplicationFirewallPolicyLink;
 
         [OutputConstructor]
         private FrontendEndpointResponse(
@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.FrontDoor.Outputs
 
             string type,
 
-            Outputs.FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink? webApplicationFirewallPolicyLink)
+            Outputs.FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkResponse? webApplicationFirewallPolicyLink)
         {
             CustomHttpsConfiguration = customHttpsConfiguration;
             CustomHttpsProvisioningState = customHttpsProvisioningState;

@@ -22,21 +22,17 @@ __all__ = ['RaiExternalSafetyProviderArgs', 'RaiExternalSafetyProvider']
 class RaiExternalSafetyProviderArgs:
     def __init__(__self__, *,
                  properties: Optional[pulumi.Input['RaiExternalSafetyProviderSchemaPropertiesArgs']] = None,
-                 safety_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 safety_provider_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RaiExternalSafetyProvider resource.
 
         :param pulumi.Input['RaiExternalSafetyProviderSchemaPropertiesArgs'] properties: Properties of Cognitive Services Rai External Safety provider.
         :param pulumi.Input[_builtins.str] safety_provider_name: The name of the Rai External Safety Provider associated with the Cognitive Services Account
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if safety_provider_name is not None:
             pulumi.set(__self__, "safety_provider_name", safety_provider_name)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter
@@ -62,18 +58,6 @@ class RaiExternalSafetyProviderArgs:
     def safety_provider_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "safety_provider_name", value)
 
-    @_builtins.property
-    @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Resource tags.
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "tags", value)
-
 
 @pulumi.type_token("azure-native:cognitiveservices:RaiExternalSafetyProvider")
 class RaiExternalSafetyProvider(pulumi.CustomResource):
@@ -83,19 +67,19 @@ class RaiExternalSafetyProvider(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  properties: Optional[pulumi.Input[Union['RaiExternalSafetyProviderSchemaPropertiesArgs', 'RaiExternalSafetyProviderSchemaPropertiesArgsDict']]] = None,
                  safety_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Cognitive Services Rai External Safety provider Schema.
 
         Uses Azure REST API version 2025-10-01-preview.
 
+        Other available API versions: 2025-12-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-05-01, 2026-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['RaiExternalSafetyProviderSchemaPropertiesArgs', 'RaiExternalSafetyProviderSchemaPropertiesArgsDict']] properties: Properties of Cognitive Services Rai External Safety provider.
         :param pulumi.Input[_builtins.str] safety_provider_name: The name of the Rai External Safety Provider associated with the Cognitive Services Account
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         ...
     @overload
@@ -107,6 +91,8 @@ class RaiExternalSafetyProvider(pulumi.CustomResource):
         Cognitive Services Rai External Safety provider Schema.
 
         Uses Azure REST API version 2025-10-01-preview.
+
+        Other available API versions: 2025-12-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-05-01, 2026-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -126,7 +112,6 @@ class RaiExternalSafetyProvider(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  properties: Optional[pulumi.Input[Union['RaiExternalSafetyProviderSchemaPropertiesArgs', 'RaiExternalSafetyProviderSchemaPropertiesArgsDict']]] = None,
                  safety_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -138,13 +123,13 @@ class RaiExternalSafetyProvider(pulumi.CustomResource):
 
             __props__.__dict__["properties"] = properties
             __props__.__dict__["safety_provider_name"] = safety_provider_name
-            __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
+            __props__.__dict__["tags"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cognitiveservices/v20251001preview:RaiExternalSafetyProvider")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cognitiveservices/v20251001preview:RaiExternalSafetyProvider"), pulumi.Alias(type_="azure-native:cognitiveservices/v20251201:RaiExternalSafetyProvider"), pulumi.Alias(type_="azure-native:cognitiveservices/v20260115preview:RaiExternalSafetyProvider"), pulumi.Alias(type_="azure-native:cognitiveservices/v20260301:RaiExternalSafetyProvider"), pulumi.Alias(type_="azure-native:cognitiveservices/v20260315preview:RaiExternalSafetyProvider"), pulumi.Alias(type_="azure-native:cognitiveservices/v20260501:RaiExternalSafetyProvider"), pulumi.Alias(type_="azure-native:cognitiveservices/v20260515preview:RaiExternalSafetyProvider")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RaiExternalSafetyProvider, __self__).__init__(
             'azure-native:cognitiveservices:RaiExternalSafetyProvider',
@@ -219,7 +204,7 @@ class RaiExternalSafetyProvider(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
+    def tags(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
         Resource tags.
         """

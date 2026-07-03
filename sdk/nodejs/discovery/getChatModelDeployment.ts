@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Get a ChatModelDeployment
  *
  * Uses Azure REST API version 2026-02-01-preview.
+ *
+ * Other available API versions: 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native discovery [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getChatModelDeployment(args: GetChatModelDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetChatModelDeploymentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -77,6 +79,8 @@ export interface GetChatModelDeploymentResult {
  * Get a ChatModelDeployment
  *
  * Uses Azure REST API version 2026-02-01-preview.
+ *
+ * Other available API versions: 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native discovery [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getChatModelDeploymentOutput(args: GetChatModelDeploymentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetChatModelDeploymentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

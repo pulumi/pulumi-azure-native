@@ -44,7 +44,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// Azure Database for PostgreSQL upsert option settings
         /// </summary>
-        public readonly Outputs.AzurePostgreSqlSinkResponseUpsertSettings? UpsertSettings;
+        public readonly Outputs.AzurePostgreSqlSinkUpsertSettingsResponse? UpsertSettings;
         /// <summary>
         /// Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string type,
 
-            Outputs.AzurePostgreSqlSinkResponseUpsertSettings? upsertSettings,
+            Outputs.AzurePostgreSqlSinkUpsertSettingsResponse? upsertSettings,
 
             object? writeBatchSize,
 

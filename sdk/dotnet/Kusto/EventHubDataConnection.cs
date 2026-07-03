@@ -181,6 +181,7 @@ namespace Pulumi.AzureNative.Kusto
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20240413:EventGridDataConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20240413:EventHubDataConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20240413:IotHubDataConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20250214:EventHubDataConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto:CosmosDbDataConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto:EventGridDataConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto:IotHubDataConnection" },

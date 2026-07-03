@@ -134,6 +134,8 @@ namespace Pulumi.AzureNative.CosmosDB
                     new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20250501preview:DatabaseAccountCassandraTable" },
                     new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20251015:DatabaseAccountCassandraTable" },
                     new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20251101preview:DatabaseAccountCassandraTable" },
+                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20260315:DatabaseAccountCassandraTable" },
+                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20260401preview:DatabaseAccountCassandraTable" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315preview:CassandraResourceCassandraTable" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230415:CassandraResourceCassandraTable" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230915:CassandraResourceCassandraTable" },

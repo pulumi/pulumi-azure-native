@@ -20,6 +20,11 @@ export const getInsight: typeof import("./getInsight").getInsight = null as any;
 export const getInsightOutput: typeof import("./getInsight").getInsightOutput = null as any;
 utilities.lazyLoad(exports, ["getInsight","getInsightOutput"], () => require("./getInsight"));
 
+export { GetUploadServiceUploadTokenArgs, GetUploadServiceUploadTokenResult } from "./getUploadServiceUploadToken";
+export const getUploadServiceUploadToken: typeof import("./getUploadServiceUploadToken").getUploadServiceUploadToken = null as any;
+export const getUploadServiceUploadTokenOutput: typeof import("./getUploadServiceUploadToken").getUploadServiceUploadTokenOutput = null as any;
+utilities.lazyLoad(exports, ["getUploadServiceUploadToken","getUploadServiceUploadTokenOutput"], () => require("./getUploadServiceUploadToken"));
+
 export { GetWorkloadImpactArgs, GetWorkloadImpactResult, GetWorkloadImpactOutputArgs } from "./getWorkloadImpact";
 export const getWorkloadImpact: typeof import("./getWorkloadImpact").getWorkloadImpact = null as any;
 export const getWorkloadImpactOutput: typeof import("./getWorkloadImpact").getWorkloadImpactOutput = null as any;

@@ -37,7 +37,7 @@ class FrontDoorArgs:
         """
         The set of arguments for constructing a FrontDoor resource.
 
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['BackendPoolArgs']]] backend_pools: Backend pools available to routing rules.
         :param pulumi.Input['BackendPoolsSettingsArgs'] backend_pools_settings: Settings for all backendPools
         :param pulumi.Input[Union[_builtins.str, 'FrontDoorEnabledState']] enabled_state: Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
@@ -78,7 +78,7 @@ class FrontDoorArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the Resource group within the Azure subscription.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -241,9 +241,9 @@ class FrontDoor(pulumi.CustomResource):
         """
         Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
 
-        Uses Azure REST API version 2021-06-01.
+        Uses Azure REST API version 2025-11-01.
 
-        Other available API versions: 2019-04-01, 2019-05-01, 2020-01-01, 2020-04-01, 2020-05-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2018-08-01, 2019-04-01, 2019-05-01, 2020-01-01, 2020-04-01, 2020-05-01, 2021-06-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -257,7 +257,7 @@ class FrontDoor(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['HealthProbeSettingsModelArgs', 'HealthProbeSettingsModelArgsDict']]]] health_probe_settings: Health probe settings associated with this Front Door instance.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancingSettingsModelArgs', 'LoadBalancingSettingsModelArgsDict']]]] load_balancing_settings: Load balancing settings associated with this Front Door instance.
         :param pulumi.Input[_builtins.str] location: Resource location.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RoutingRuleArgs', 'RoutingRuleArgsDict']]]] routing_rules: Routing rules associated with this Front Door.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
@@ -270,9 +270,9 @@ class FrontDoor(pulumi.CustomResource):
         """
         Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
 
-        Uses Azure REST API version 2021-06-01.
+        Uses Azure REST API version 2025-11-01.
 
-        Other available API versions: 2019-04-01, 2019-05-01, 2020-01-01, 2020-04-01, 2020-05-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2018-08-01, 2019-04-01, 2019-05-01, 2020-01-01, 2020-04-01, 2020-05-01, 2021-06-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -334,7 +334,7 @@ class FrontDoor(pulumi.CustomResource):
             __props__.__dict__["resource_state"] = None
             __props__.__dict__["rules_engines"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:frontdoor/v20190401:FrontDoor"), pulumi.Alias(type_="azure-native:frontdoor/v20190501:FrontDoor"), pulumi.Alias(type_="azure-native:frontdoor/v20200101:FrontDoor"), pulumi.Alias(type_="azure-native:frontdoor/v20200401:FrontDoor"), pulumi.Alias(type_="azure-native:frontdoor/v20200501:FrontDoor"), pulumi.Alias(type_="azure-native:frontdoor/v20210601:FrontDoor"), pulumi.Alias(type_="azure-native:frontdoor/v20251001:FrontDoor"), pulumi.Alias(type_="azure-native:network/v20210601:FrontDoor"), pulumi.Alias(type_="azure-native:network:FrontDoor")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:frontdoor/v20180801:FrontDoor"), pulumi.Alias(type_="azure-native:frontdoor/v20190401:FrontDoor"), pulumi.Alias(type_="azure-native:frontdoor/v20190501:FrontDoor"), pulumi.Alias(type_="azure-native:frontdoor/v20200101:FrontDoor"), pulumi.Alias(type_="azure-native:frontdoor/v20200401:FrontDoor"), pulumi.Alias(type_="azure-native:frontdoor/v20200501:FrontDoor"), pulumi.Alias(type_="azure-native:frontdoor/v20210601:FrontDoor"), pulumi.Alias(type_="azure-native:frontdoor/v20251001:FrontDoor"), pulumi.Alias(type_="azure-native:frontdoor/v20251101:FrontDoor"), pulumi.Alias(type_="azure-native:network/v20210601:FrontDoor"), pulumi.Alias(type_="azure-native:network:FrontDoor")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FrontDoor, __self__).__init__(
             'azure-native:frontdoor:FrontDoor',

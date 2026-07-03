@@ -15,17 +15,11 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// </summary>
     public sealed class RestResourceDatasetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("additionalHeaders")]
-        private InputMap<object>? _additionalHeaders;
-
         /// <summary>
         /// The additional HTTP headers in the request to the RESTful API.
         /// </summary>
-        public InputMap<object> AdditionalHeaders
-        {
-            get => _additionalHeaders ?? (_additionalHeaders = new InputMap<object>());
-            set => _additionalHeaders = value;
-        }
+        [Input("additionalHeaders")]
+        public Input<object>? AdditionalHeaders { get; set; }
 
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -57,17 +51,11 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("linkedServiceName", required: true)]
         public Input<Inputs.LinkedServiceReferenceArgs> LinkedServiceName { get; set; } = null!;
 
-        [Input("paginationRules")]
-        private InputMap<object>? _paginationRules;
-
         /// <summary>
         /// The pagination rules to compose next page requests.
         /// </summary>
-        public InputMap<object> PaginationRules
-        {
-            get => _paginationRules ?? (_paginationRules = new InputMap<object>());
-            set => _paginationRules = value;
-        }
+        [Input("paginationRules")]
+        public Input<object>? PaginationRules { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;

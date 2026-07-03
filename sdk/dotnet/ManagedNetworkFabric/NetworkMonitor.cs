@@ -13,15 +13,47 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     /// The NetworkMonitor resource definition.
     /// 
     /// Uses Azure REST API version 2024-06-15-preview.
+    /// 
+    /// Other available API versions: 2025-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric:NetworkMonitor")]
     public partial class NetworkMonitor : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Administrative state of the resource.
+        /// </summary>
+        [Output("administrativeState")]
+        public Output<string> AdministrativeState { get; private set; } = null!;
+
+        /// <summary>
+        /// Switch configuration description.
+        /// </summary>
+        [Output("annotation")]
+        public Output<string?> Annotation { get; private set; } = null!;
+
+        /// <summary>
         /// The Azure API version of the resource.
         /// </summary>
         [Output("azureApiVersion")]
         public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// BMP Configurations for the Network Fabric.
+        /// </summary>
+        [Output("bmpConfiguration")]
+        public Output<Outputs.BmpConfigurationPropertiesResponse?> BmpConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration state of the resource.
+        /// </summary>
+        [Output("configurationState")]
+        public Output<string> ConfigurationState { get; private set; } = null!;
+
+        /// <summary>
+        /// Details of the last operation performed on the resource
+        /// </summary>
+        [Output("lastOperation")]
+        public Output<Outputs.LastOperationPropertiesResponse> LastOperation { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -36,10 +68,10 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The NetworkFabric Properties
+        /// Provides you the latest status of the NetworkMonitor resource
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.NetworkMonitorPropertiesResponse> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -85,6 +117,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:managednetworkfabric/v20240615preview:NetworkMonitor" },
+                    new global::Pulumi.Alias { Type = "azure-native:managednetworkfabric/v20250715:NetworkMonitor" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -109,6 +142,18 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     public sealed class NetworkMonitorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Switch configuration description.
+        /// </summary>
+        [Input("annotation")]
+        public Input<string>? Annotation { get; set; }
+
+        /// <summary>
+        /// BMP Configurations for the Network Fabric.
+        /// </summary>
+        [Input("bmpConfiguration")]
+        public Input<Inputs.BmpConfigurationPropertiesArgs>? BmpConfiguration { get; set; }
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
@@ -119,12 +164,6 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         [Input("networkMonitorName")]
         public Input<string>? NetworkMonitorName { get; set; }
-
-        /// <summary>
-        /// The NetworkFabric Properties
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.NetworkMonitorPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

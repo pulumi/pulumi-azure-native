@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// Linked service reference.
         /// </summary>
-        public readonly Outputs.LinkedServiceReferenceResponse LinkedServiceName;
+        public readonly Outputs.LinkedServiceReferenceResponse? LinkedServiceName;
         /// <summary>
         /// Activity name.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string? description,
 
-            Outputs.LinkedServiceReferenceResponse linkedServiceName,
+            Outputs.LinkedServiceReferenceResponse? linkedServiceName,
 
             string name,
 

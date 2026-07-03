@@ -92,27 +92,7 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// </summary>
         public readonly string AzureApiVersion;
         /// <summary>
-        /// Fully-qualified identifier of the benefit under applicable benefit list.
-        /// </summary>
-        public readonly string BenefitResourceId;
-        /// <summary>
-        /// The billing account resource ID
-        /// </summary>
-        public readonly string? BillingAccountResourceId;
-        /// <summary>
-        /// Display name for the conditional credit
-        /// </summary>
-        public readonly string? DisplayName;
-        /// <summary>
-        /// End date of the conditional credit (derived from last milestone)
-        /// </summary>
-        public readonly string? EndAt;
-        /// <summary>
-        /// Type of conditional credit entity
-        /// </summary>
-        public readonly string EntityType;
-        /// <summary>
-        /// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+        /// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
         /// </summary>
         public readonly string Etag;
         /// <summary>
@@ -144,29 +124,13 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// </summary>
         public readonly Outputs.PlanResponse? Plan;
         /// <summary>
-        /// Product code for the conditional credit
+        /// Conditional credit properties
         /// </summary>
-        public readonly string? ProductCode;
-        /// <summary>
-        /// The provisioning state of the resource
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Fully-qualified resource identifier of the resource. Format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/{benefitType}/{benefitName}.
-        /// </summary>
-        public readonly string? ResourceId;
+        public readonly Union<Outputs.ContributorConditionalCreditPropertiesResponse, Outputs.PrimaryConditionalCreditPropertiesResponse> Properties;
         /// <summary>
         /// The resource model definition representing SKU
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
-        /// <summary>
-        /// Start date of the conditional credit
-        /// </summary>
-        public readonly string? StartAt;
-        /// <summary>
-        /// The status of the conditional credit
-        /// </summary>
-        public readonly string? Status;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -184,16 +148,6 @@ namespace Pulumi.AzureNative.BillingBenefits
         private GetConditionalCreditResult(
             string azureApiVersion,
 
-            string benefitResourceId,
-
-            string? billingAccountResourceId,
-
-            string? displayName,
-
-            string? endAt,
-
-            string entityType,
-
             string etag,
 
             string id,
@@ -210,17 +164,9 @@ namespace Pulumi.AzureNative.BillingBenefits
 
             Outputs.PlanResponse? plan,
 
-            string? productCode,
-
-            string provisioningState,
-
-            string? resourceId,
+            Union<Outputs.ContributorConditionalCreditPropertiesResponse, Outputs.PrimaryConditionalCreditPropertiesResponse> properties,
 
             Outputs.SkuResponse? sku,
-
-            string? startAt,
-
-            string? status,
 
             Outputs.SystemDataResponse systemData,
 
@@ -229,11 +175,6 @@ namespace Pulumi.AzureNative.BillingBenefits
             string type)
         {
             AzureApiVersion = azureApiVersion;
-            BenefitResourceId = benefitResourceId;
-            BillingAccountResourceId = billingAccountResourceId;
-            DisplayName = displayName;
-            EndAt = endAt;
-            EntityType = entityType;
             Etag = etag;
             Id = id;
             Identity = identity;
@@ -242,12 +183,8 @@ namespace Pulumi.AzureNative.BillingBenefits
             ManagedBy = managedBy;
             Name = name;
             Plan = plan;
-            ProductCode = productCode;
-            ProvisioningState = provisioningState;
-            ResourceId = resourceId;
+            Properties = properties;
             Sku = sku;
-            StartAt = startAt;
-            Status = status;
             SystemData = systemData;
             Tags = tags;
             Type = type;

@@ -29,7 +29,7 @@ export interface GetWatcherArgs {
      */
     automationAccountName: string;
     /**
-     * Name of an Azure Resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -133,7 +133,7 @@ export interface GetWatcherOutputArgs {
      */
     automationAccountName: pulumi.Input<string>;
     /**
-     * Name of an Azure Resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

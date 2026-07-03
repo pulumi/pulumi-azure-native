@@ -27,7 +27,7 @@ class GetRoleDefinitionResult:
     """
     Role definition.
     """
-    def __init__(__self__, assignable_scopes=None, azure_api_version=None, created_by=None, created_on=None, description=None, id=None, name=None, permissions=None, role_name=None, role_type=None, type=None, updated_by=None, updated_on=None):
+    def __init__(__self__, assignable_scopes=None, azure_api_version=None, created_by=None, created_on=None, description=None, id=None, name=None, permissions=None, role_name=None, role_type=None, system_data=None, type=None, updated_by=None, updated_on=None):
         if assignable_scopes and not isinstance(assignable_scopes, list):
             raise TypeError("Expected argument 'assignable_scopes' to be a list")
         pulumi.set(__self__, "assignable_scopes", assignable_scopes)
@@ -58,6 +58,9 @@ class GetRoleDefinitionResult:
         if role_type and not isinstance(role_type, str):
             raise TypeError("Expected argument 'role_type' to be a str")
         pulumi.set(__self__, "role_type", role_type)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -112,7 +115,7 @@ class GetRoleDefinitionResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The role definition ID.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -120,7 +123,7 @@ class GetRoleDefinitionResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The role definition name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -149,10 +152,18 @@ class GetRoleDefinitionResult:
         return pulumi.get(self, "role_type")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The role definition type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -189,6 +200,7 @@ class AwaitableGetRoleDefinitionResult(GetRoleDefinitionResult):
             permissions=self.permissions,
             role_name=self.role_name,
             role_type=self.role_type,
+            system_data=self.system_data,
             type=self.type,
             updated_by=self.updated_by,
             updated_on=self.updated_on)
@@ -206,7 +218,7 @@ def get_role_definition(role_definition_id: Optional[_builtins.str] = None,
 
 
     :param _builtins.str role_definition_id: The ID of the role definition.
-    :param _builtins.str scope: The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
+    :param _builtins.str scope: The fully qualified Azure Resource manager identifier of the resource.
     """
     __args__ = dict()
     __args__['roleDefinitionId'] = role_definition_id
@@ -225,6 +237,7 @@ def get_role_definition(role_definition_id: Optional[_builtins.str] = None,
         permissions=pulumi.get(__ret__, 'permissions'),
         role_name=pulumi.get(__ret__, 'role_name'),
         role_type=pulumi.get(__ret__, 'role_type'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         updated_by=pulumi.get(__ret__, 'updated_by'),
         updated_on=pulumi.get(__ret__, 'updated_on'))
@@ -240,7 +253,7 @@ def get_role_definition_output(role_definition_id: Optional[pulumi.Input[_builti
 
 
     :param _builtins.str role_definition_id: The ID of the role definition.
-    :param _builtins.str scope: The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
+    :param _builtins.str scope: The fully qualified Azure Resource manager identifier of the resource.
     """
     __args__ = dict()
     __args__['roleDefinitionId'] = role_definition_id
@@ -258,6 +271,7 @@ def get_role_definition_output(role_definition_id: Optional[pulumi.Input[_builti
         permissions=pulumi.get(__response__, 'permissions'),
         role_name=pulumi.get(__response__, 'role_name'),
         role_type=pulumi.get(__response__, 'role_type'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type'),
         updated_by=pulumi.get(__response__, 'updated_by'),
         updated_on=pulumi.get(__response__, 'updated_on')))

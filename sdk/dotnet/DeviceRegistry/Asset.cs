@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DeviceRegistry
     /// 
     /// Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
     /// 
-    /// Other available API versions: 2023-11-01-preview, 2024-09-01-preview, 2025-07-01-preview, 2025-10-01, 2025-11-01-preview, 2026-03-01-preview, 2026-04-01, 2026-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2023-11-01-preview, 2024-09-01-preview, 2025-07-01-preview, 2025-10-01, 2025-11-01-preview, 2026-03-01-preview, 2026-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceregistry:Asset")]
     public partial class Asset : global::Pulumi.CustomResource
@@ -238,7 +238,6 @@ namespace Pulumi.AzureNative.DeviceRegistry
                     new global::Pulumi.Alias { Type = "azure-native:deviceregistry/v20251101preview:Asset" },
                     new global::Pulumi.Alias { Type = "azure-native:deviceregistry/v20260301preview:Asset" },
                     new global::Pulumi.Alias { Type = "azure-native:deviceregistry/v20260401:Asset" },
-                    new global::Pulumi.Alias { Type = "azure-native:deviceregistry/v20261101preview:Asset" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

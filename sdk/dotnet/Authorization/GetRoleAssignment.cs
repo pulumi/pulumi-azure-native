@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.Authorization
         public string RoleAssignmentName { get; set; } = null!;
 
         /// <summary>
-        /// The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("scope", required: true)]
         public string Scope { get; set; } = null!;
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNative.Authorization
         public Input<string> RoleAssignmentName { get; set; } = null!;
 
         /// <summary>
-        /// The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
@@ -128,11 +128,11 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The role assignment ID.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The role assignment name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -152,7 +152,11 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         public readonly string Scope;
         /// <summary>
-        /// The role assignment type.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -192,6 +196,8 @@ namespace Pulumi.AzureNative.Authorization
 
             string scope,
 
+            Outputs.SystemDataResponse systemData,
+
             string type,
 
             string updatedBy,
@@ -211,6 +217,7 @@ namespace Pulumi.AzureNative.Authorization
             PrincipalType = principalType;
             RoleDefinitionId = roleDefinitionId;
             Scope = scope;
+            SystemData = systemData;
             Type = type;
             UpdatedBy = updatedBy;
             UpdatedOn = updatedOn;

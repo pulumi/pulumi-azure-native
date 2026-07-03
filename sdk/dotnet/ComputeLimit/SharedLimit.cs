@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.ComputeLimit
     /// Compute limits shared by the subscription.
     /// 
     /// Uses Azure REST API version 2025-08-15.
+    /// 
+    /// Other available API versions: 2026-03-20, 2026-04-30, 2026-06-01, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native computelimit [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:computelimit:SharedLimit")]
     public partial class SharedLimit : global::Pulumi.CustomResource
@@ -91,6 +93,10 @@ namespace Pulumi.AzureNative.ComputeLimit
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:computelimit/v20250815:SharedLimit" },
+                    new global::Pulumi.Alias { Type = "azure-native:computelimit/v20260320:SharedLimit" },
+                    new global::Pulumi.Alias { Type = "azure-native:computelimit/v20260430:SharedLimit" },
+                    new global::Pulumi.Alias { Type = "azure-native:computelimit/v20260601:SharedLimit" },
+                    new global::Pulumi.Alias { Type = "azure-native:computelimit/v20260701:SharedLimit" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

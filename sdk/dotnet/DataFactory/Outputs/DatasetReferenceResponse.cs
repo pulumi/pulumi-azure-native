@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// Arguments for dataset.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Parameters;
+        public readonly object? Parameters;
         /// <summary>
         /// Reference dataset name.
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
         [OutputConstructor]
         private DatasetReferenceResponse(
-            ImmutableDictionary<string, object>? parameters,
+            object? parameters,
 
             string referenceName,
 

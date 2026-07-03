@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = ['APICollectionByAzureApiManagementServiceArgs', 'APICollectionByAzureApiManagementService']
 
@@ -151,6 +152,7 @@ class APICollectionByAzureApiManagementService(pulumi.CustomResource):
             __props__.__dict__["number_of_unauthenticated_api_endpoints"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["sensitivity_label"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20221120preview:APICollection"), pulumi.Alias(type_="azure-native:security/v20221120preview:APICollectionByAzureApiManagementService"), pulumi.Alias(type_="azure-native:security/v20231115:APICollectionByAzureApiManagementService"), pulumi.Alias(type_="azure-native:security:APICollection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -188,6 +190,7 @@ class APICollectionByAzureApiManagementService(pulumi.CustomResource):
         __props__.__dict__["number_of_unauthenticated_api_endpoints"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["sensitivity_label"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return APICollectionByAzureApiManagementService(resource_name, opts=opts, __props__=__props__)
 
@@ -227,7 +230,7 @@ class APICollectionByAzureApiManagementService(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -288,10 +291,18 @@ class APICollectionByAzureApiManagementService(pulumi.CustomResource):
         return pulumi.get(self, "sensitivity_label")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

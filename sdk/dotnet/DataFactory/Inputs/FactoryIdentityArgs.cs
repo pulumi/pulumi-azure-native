@@ -21,17 +21,11 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("type", required: true)]
         public InputUnion<string, Pulumi.AzureNative.DataFactory.FactoryIdentityType> Type { get; set; } = null!;
 
-        [Input("userAssignedIdentities")]
-        private InputMap<object>? _userAssignedIdentities;
-
         /// <summary>
         /// List of user assigned identities for the factory.
         /// </summary>
-        public InputMap<object> UserAssignedIdentities
-        {
-            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<object>());
-            set => _userAssignedIdentities = value;
-        }
+        [Input("userAssignedIdentities")]
+        public Input<object>? UserAssignedIdentities { get; set; }
 
         public FactoryIdentityArgs()
         {

@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = ['ComponentLinkedStorageAccountArgs', 'ComponentLinkedStorageAccount']
 
@@ -161,6 +162,7 @@ class ComponentLinkedStorageAccount(pulumi.CustomResource):
             __props__.__dict__["storage_type"] = storage_type
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:applicationinsights/v20200301preview:ComponentLinkedStorageAccount"), pulumi.Alias(type_="azure-native:insights/v20200301preview:ComponentLinkedStorageAccount"), pulumi.Alias(type_="azure-native:insights:ComponentLinkedStorageAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -189,6 +191,7 @@ class ComponentLinkedStorageAccount(pulumi.CustomResource):
         __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["linked_storage_account"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return ComponentLinkedStorageAccount(resource_name, opts=opts, __props__=__props__)
 
@@ -215,6 +218,14 @@ class ComponentLinkedStorageAccount(pulumi.CustomResource):
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @_builtins.property
     @pulumi.getter

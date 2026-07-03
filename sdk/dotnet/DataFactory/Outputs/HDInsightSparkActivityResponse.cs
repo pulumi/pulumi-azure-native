@@ -67,7 +67,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// Spark configuration property.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? SparkConfig;
+        public readonly object? SparkConfig;
         /// <summary>
         /// The storage linked service for uploading the entry file and dependencies, and for receiving logs.
         /// </summary>
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object rootPath,
 
-            ImmutableDictionary<string, object>? sparkConfig,
+            object? sparkConfig,
 
             Outputs.LinkedServiceReferenceResponse? sparkJobLinkedService,
 

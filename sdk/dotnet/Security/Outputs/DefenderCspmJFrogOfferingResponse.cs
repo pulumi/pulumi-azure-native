@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// <summary>
         /// The Microsoft Defender Container image assessment configuration
         /// </summary>
-        public readonly Outputs.DefenderCspmJFrogOfferingResponseMdcContainersImageAssessment? MdcContainersImageAssessment;
+        public readonly Outputs.DefenderCspmJFrogOfferingMdcContainersImageAssessmentResponse? MdcContainersImageAssessment;
         /// <summary>
         /// The type of the security offering.
         /// Expected value is 'DefenderCspmJFrog'.
@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.Security.Outputs
         private DefenderCspmJFrogOfferingResponse(
             string description,
 
-            Outputs.DefenderCspmJFrogOfferingResponseMdcContainersImageAssessment? mdcContainersImageAssessment,
+            Outputs.DefenderCspmJFrogOfferingMdcContainersImageAssessmentResponse? mdcContainersImageAssessment,
 
             string offeringType)
         {

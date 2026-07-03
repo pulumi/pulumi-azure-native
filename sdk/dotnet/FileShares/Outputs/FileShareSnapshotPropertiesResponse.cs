@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.FileShares.Outputs
         /// <summary>
         /// The initiator of the FileShareSnapshot. This is a user-defined value.
         /// </summary>
-        public readonly string InitiatorId;
+        public readonly string? InitiatorId;
         /// <summary>
         /// The metadata
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.FileShares.Outputs
 
         [OutputConstructor]
         private FileShareSnapshotPropertiesResponse(
-            string initiatorId,
+            string? initiatorId,
 
             ImmutableDictionary<string, string>? metadata,
 

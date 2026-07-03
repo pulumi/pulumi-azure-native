@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Gets the specified service gateway.
  *
  * Uses Azure REST API version 2025-05-01.
+ *
+ * Other available API versions: 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getServiceGateway(args: GetServiceGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -90,9 +92,9 @@ export interface GetServiceGatewayResult {
     /**
      * Reference to an existing virtual network.
      */
-    readonly virtualNetwork?: outputs.network.VirtualNetworkResponse;
+    readonly virtualNetwork?: outputs.network.CommonVirtualNetworkResponse;
     /**
-     * A list of availability zones denoting the zone in which service gateway should be deployed. 
+     * A list of availability zones denoting the zone in which service gateway should be deployed.
      *
      * - The zone values must be provided as strings representing numeric identifiers like "1", "2", "3" etc.
      */
@@ -102,6 +104,8 @@ export interface GetServiceGatewayResult {
  * Gets the specified service gateway.
  *
  * Uses Azure REST API version 2025-05-01.
+ *
+ * Other available API versions: 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getServiceGatewayOutput(args: GetServiceGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

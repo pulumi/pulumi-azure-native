@@ -20,8 +20,17 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Succeeded
+        /// </summary>
         public static ActivityOnInactiveMarkAs Succeeded { get; } = new ActivityOnInactiveMarkAs("Succeeded");
+        /// <summary>
+        /// Failed
+        /// </summary>
         public static ActivityOnInactiveMarkAs Failed { get; } = new ActivityOnInactiveMarkAs("Failed");
+        /// <summary>
+        /// Skipped
+        /// </summary>
         public static ActivityOnInactiveMarkAs Skipped { get; } = new ActivityOnInactiveMarkAs("Skipped");
 
         public static bool operator ==(ActivityOnInactiveMarkAs left, ActivityOnInactiveMarkAs right) => left.Equals(right);
@@ -52,7 +61,13 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Active
+        /// </summary>
         public static ActivityState Active { get; } = new ActivityState("Active");
+        /// <summary>
+        /// Inactive
+        /// </summary>
         public static ActivityState Inactive { get; } = new ActivityState("Inactive");
 
         public static bool operator ==(ActivityState left, ActivityState right) => left.Equals(right);
@@ -83,6 +98,9 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Basic
+        /// </summary>
         public static AmazonRdsForOracleAuthenticationType Basic { get; } = new AmazonRdsForOracleAuthenticationType("Basic");
 
         public static bool operator ==(AmazonRdsForOracleAuthenticationType left, AmazonRdsForOracleAuthenticationType right) => left.Equals(right);
@@ -113,7 +131,13 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// SQL
+        /// </summary>
         public static AmazonRdsForSqlAuthenticationType SQL { get; } = new AmazonRdsForSqlAuthenticationType("SQL");
+        /// <summary>
+        /// Windows
+        /// </summary>
         public static AmazonRdsForSqlAuthenticationType Windows { get; } = new AmazonRdsForSqlAuthenticationType("Windows");
 
         public static bool operator ==(AmazonRdsForSqlAuthenticationType left, AmazonRdsForSqlAuthenticationType right) => left.Equals(right);
@@ -144,12 +168,33 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// GET
+        /// </summary>
         public static AzureFunctionActivityMethod GET { get; } = new AzureFunctionActivityMethod("GET");
+        /// <summary>
+        /// POST
+        /// </summary>
         public static AzureFunctionActivityMethod POST { get; } = new AzureFunctionActivityMethod("POST");
+        /// <summary>
+        /// PUT
+        /// </summary>
         public static AzureFunctionActivityMethod PUT { get; } = new AzureFunctionActivityMethod("PUT");
+        /// <summary>
+        /// DELETE
+        /// </summary>
         public static AzureFunctionActivityMethod DELETE { get; } = new AzureFunctionActivityMethod("DELETE");
+        /// <summary>
+        /// OPTIONS
+        /// </summary>
         public static AzureFunctionActivityMethod OPTIONS { get; } = new AzureFunctionActivityMethod("OPTIONS");
+        /// <summary>
+        /// HEAD
+        /// </summary>
         public static AzureFunctionActivityMethod HEAD { get; } = new AzureFunctionActivityMethod("HEAD");
+        /// <summary>
+        /// TRACE
+        /// </summary>
         public static AzureFunctionActivityMethod TRACE { get; } = new AzureFunctionActivityMethod("TRACE");
 
         public static bool operator ==(AzureFunctionActivityMethod left, AzureFunctionActivityMethod right) => left.Equals(right);
@@ -180,8 +225,17 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// BulkInsert
+        /// </summary>
         public static AzurePostgreSqlWriteMethodEnum BulkInsert { get; } = new AzurePostgreSqlWriteMethodEnum("BulkInsert");
+        /// <summary>
+        /// CopyCommand
+        /// </summary>
         public static AzurePostgreSqlWriteMethodEnum CopyCommand { get; } = new AzurePostgreSqlWriteMethodEnum("CopyCommand");
+        /// <summary>
+        /// Upsert
+        /// </summary>
         public static AzurePostgreSqlWriteMethodEnum Upsert { get; } = new AzurePostgreSqlWriteMethodEnum("Upsert");
 
         public static bool operator ==(AzurePostgreSqlWriteMethodEnum left, AzurePostgreSqlWriteMethodEnum right) => left.Equals(right);
@@ -212,7 +266,13 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Merge
+        /// </summary>
         public static AzureSearchIndexWriteBehaviorType Merge { get; } = new AzureSearchIndexWriteBehaviorType("Merge");
+        /// <summary>
+        /// Upload
+        /// </summary>
         public static AzureSearchIndexWriteBehaviorType Upload { get; } = new AzureSearchIndexWriteBehaviorType("Upload");
 
         public static bool operator ==(AzureSearchIndexWriteBehaviorType left, AzureSearchIndexWriteBehaviorType right) => left.Equals(right);
@@ -243,9 +303,21 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// SQL
+        /// </summary>
         public static AzureSqlDWAuthenticationType SQL { get; } = new AzureSqlDWAuthenticationType("SQL");
+        /// <summary>
+        /// ServicePrincipal
+        /// </summary>
         public static AzureSqlDWAuthenticationType ServicePrincipal { get; } = new AzureSqlDWAuthenticationType("ServicePrincipal");
+        /// <summary>
+        /// SystemAssignedManagedIdentity
+        /// </summary>
         public static AzureSqlDWAuthenticationType SystemAssignedManagedIdentity { get; } = new AzureSqlDWAuthenticationType("SystemAssignedManagedIdentity");
+        /// <summary>
+        /// UserAssignedManagedIdentity
+        /// </summary>
         public static AzureSqlDWAuthenticationType UserAssignedManagedIdentity { get; } = new AzureSqlDWAuthenticationType("UserAssignedManagedIdentity");
 
         public static bool operator ==(AzureSqlDWAuthenticationType left, AzureSqlDWAuthenticationType right) => left.Equals(right);
@@ -276,9 +348,21 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// SQL
+        /// </summary>
         public static AzureSqlDatabaseAuthenticationType SQL { get; } = new AzureSqlDatabaseAuthenticationType("SQL");
+        /// <summary>
+        /// ServicePrincipal
+        /// </summary>
         public static AzureSqlDatabaseAuthenticationType ServicePrincipal { get; } = new AzureSqlDatabaseAuthenticationType("ServicePrincipal");
+        /// <summary>
+        /// SystemAssignedManagedIdentity
+        /// </summary>
         public static AzureSqlDatabaseAuthenticationType SystemAssignedManagedIdentity { get; } = new AzureSqlDatabaseAuthenticationType("SystemAssignedManagedIdentity");
+        /// <summary>
+        /// UserAssignedManagedIdentity
+        /// </summary>
         public static AzureSqlDatabaseAuthenticationType UserAssignedManagedIdentity { get; } = new AzureSqlDatabaseAuthenticationType("UserAssignedManagedIdentity");
 
         public static bool operator ==(AzureSqlDatabaseAuthenticationType left, AzureSqlDatabaseAuthenticationType right) => left.Equals(right);
@@ -309,9 +393,21 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// SQL
+        /// </summary>
         public static AzureSqlMIAuthenticationType SQL { get; } = new AzureSqlMIAuthenticationType("SQL");
+        /// <summary>
+        /// ServicePrincipal
+        /// </summary>
         public static AzureSqlMIAuthenticationType ServicePrincipal { get; } = new AzureSqlMIAuthenticationType("ServicePrincipal");
+        /// <summary>
+        /// SystemAssignedManagedIdentity
+        /// </summary>
         public static AzureSqlMIAuthenticationType SystemAssignedManagedIdentity { get; } = new AzureSqlMIAuthenticationType("SystemAssignedManagedIdentity");
+        /// <summary>
+        /// UserAssignedManagedIdentity
+        /// </summary>
         public static AzureSqlMIAuthenticationType UserAssignedManagedIdentity { get; } = new AzureSqlMIAuthenticationType("UserAssignedManagedIdentity");
 
         public static bool operator ==(AzureSqlMIAuthenticationType left, AzureSqlMIAuthenticationType right) => left.Equals(right);
@@ -342,10 +438,25 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Anonymous
+        /// </summary>
         public static AzureStorageAuthenticationType Anonymous { get; } = new AzureStorageAuthenticationType("Anonymous");
+        /// <summary>
+        /// AccountKey
+        /// </summary>
         public static AzureStorageAuthenticationType AccountKey { get; } = new AzureStorageAuthenticationType("AccountKey");
+        /// <summary>
+        /// SasUri
+        /// </summary>
         public static AzureStorageAuthenticationType SasUri { get; } = new AzureStorageAuthenticationType("SasUri");
+        /// <summary>
+        /// ServicePrincipal
+        /// </summary>
         public static AzureStorageAuthenticationType ServicePrincipal { get; } = new AzureStorageAuthenticationType("ServicePrincipal");
+        /// <summary>
+        /// Msi
+        /// </summary>
         public static AzureStorageAuthenticationType Msi { get; } = new AzureStorageAuthenticationType("Msi");
 
         public static bool operator ==(AzureStorageAuthenticationType left, AzureStorageAuthenticationType right) => left.Equals(right);
@@ -376,6 +487,9 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// BigDataPoolReference
+        /// </summary>
         public static BigDataPoolReferenceType BigDataPoolReference { get; } = new BigDataPoolReferenceType("BigDataPoolReference");
 
         public static bool operator ==(BigDataPoolReferenceType left, BigDataPoolReferenceType right) => left.Equals(right);
@@ -403,7 +517,13 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Microsoft.Storage.BlobCreated
+        /// </summary>
         public static BlobEventTypes Microsoft_Storage_BlobCreated { get; } = new BlobEventTypes("Microsoft.Storage.BlobCreated");
+        /// <summary>
+        /// Microsoft.Storage.BlobDeleted
+        /// </summary>
         public static BlobEventTypes Microsoft_Storage_BlobDeleted { get; } = new BlobEventTypes("Microsoft.Storage.BlobDeleted");
 
         public static bool operator ==(BlobEventTypes left, BlobEventTypes right) => left.Equals(right);
@@ -434,15 +554,45 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// ALL
+        /// </summary>
         public static CassandraSourceReadConsistencyLevels ALL { get; } = new CassandraSourceReadConsistencyLevels("ALL");
+        /// <summary>
+        /// EACH_QUORUM
+        /// </summary>
         public static CassandraSourceReadConsistencyLevels EACH_QUORUM { get; } = new CassandraSourceReadConsistencyLevels("EACH_QUORUM");
+        /// <summary>
+        /// QUORUM
+        /// </summary>
         public static CassandraSourceReadConsistencyLevels QUORUM { get; } = new CassandraSourceReadConsistencyLevels("QUORUM");
+        /// <summary>
+        /// LOCAL_QUORUM
+        /// </summary>
         public static CassandraSourceReadConsistencyLevels LOCAL_QUORUM { get; } = new CassandraSourceReadConsistencyLevels("LOCAL_QUORUM");
+        /// <summary>
+        /// ONE
+        /// </summary>
         public static CassandraSourceReadConsistencyLevels ONE { get; } = new CassandraSourceReadConsistencyLevels("ONE");
+        /// <summary>
+        /// TWO
+        /// </summary>
         public static CassandraSourceReadConsistencyLevels TWO { get; } = new CassandraSourceReadConsistencyLevels("TWO");
+        /// <summary>
+        /// THREE
+        /// </summary>
         public static CassandraSourceReadConsistencyLevels THREE { get; } = new CassandraSourceReadConsistencyLevels("THREE");
+        /// <summary>
+        /// LOCAL_ONE
+        /// </summary>
         public static CassandraSourceReadConsistencyLevels LOCAL_ONE { get; } = new CassandraSourceReadConsistencyLevels("LOCAL_ONE");
+        /// <summary>
+        /// SERIAL
+        /// </summary>
         public static CassandraSourceReadConsistencyLevels SERIAL { get; } = new CassandraSourceReadConsistencyLevels("SERIAL");
+        /// <summary>
+        /// LOCAL_SERIAL
+        /// </summary>
         public static CassandraSourceReadConsistencyLevels LOCAL_SERIAL { get; } = new CassandraSourceReadConsistencyLevels("LOCAL_SERIAL");
 
         public static bool operator ==(CassandraSourceReadConsistencyLevels left, CassandraSourceReadConsistencyLevels right) => left.Equals(right);
@@ -473,8 +623,17 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Default
+        /// </summary>
         public static ConfigurationType Default { get; } = new ConfigurationType("Default");
+        /// <summary>
+        /// Customized
+        /// </summary>
         public static ConfigurationType Customized { get; } = new ConfigurationType("Customized");
+        /// <summary>
+        /// Artifact
+        /// </summary>
         public static ConfigurationType Artifact { get; } = new ConfigurationType("Artifact");
 
         public static bool operator ==(ConfigurationType left, ConfigurationType right) => left.Equals(right);
@@ -505,6 +664,9 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// linkedservicetype
+        /// </summary>
         public static ConnectionType Linkedservicetype { get; } = new ConnectionType("linkedservicetype");
 
         public static bool operator ==(ConnectionType left, ConnectionType right) => left.Equals(right);
@@ -535,7 +697,13 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Gateway
+        /// </summary>
         public static CosmosDbConnectionMode Gateway { get; } = new CosmosDbConnectionMode("Gateway");
+        /// <summary>
+        /// Direct
+        /// </summary>
         public static CosmosDbConnectionMode Direct { get; } = new CosmosDbConnectionMode("Direct");
 
         public static bool operator ==(CosmosDbConnectionMode left, CosmosDbConnectionMode right) => left.Equals(right);
@@ -566,6 +734,9 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// CredentialReference
+        /// </summary>
         public static CredentialReferenceType CredentialReference { get; } = new CredentialReferenceType("CredentialReference");
 
         public static bool operator ==(CredentialReferenceType left, CredentialReferenceType right) => left.Equals(right);
@@ -596,8 +767,17 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// General
+        /// </summary>
         public static DataFlowComputeType General { get; } = new DataFlowComputeType("General");
+        /// <summary>
+        /// MemoryOptimized
+        /// </summary>
         public static DataFlowComputeType MemoryOptimized { get; } = new DataFlowComputeType("MemoryOptimized");
+        /// <summary>
+        /// ComputeOptimized
+        /// </summary>
         public static DataFlowComputeType ComputeOptimized { get; } = new DataFlowComputeType("ComputeOptimized");
 
         public static bool operator ==(DataFlowComputeType left, DataFlowComputeType right) => left.Equals(right);
@@ -628,6 +808,9 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// DataFlowReference
+        /// </summary>
         public static DataFlowReferenceType DataFlowReference { get; } = new DataFlowReferenceType("DataFlowReference");
 
         public static bool operator ==(DataFlowReferenceType left, DataFlowReferenceType right) => left.Equals(right);
@@ -638,6 +821,39 @@ namespace Pulumi.AzureNative.DataFactory
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataFlowReferenceType other && Equals(other);
         public bool Equals(DataFlowReferenceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Dataset reference type.
+    /// </summary>
+    [EnumType]
+    public readonly struct DatasetReferenceType : IEquatable<DatasetReferenceType>
+    {
+        private readonly string _value;
+
+        private DatasetReferenceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// DatasetReference
+        /// </summary>
+        public static DatasetReferenceType DatasetReference { get; } = new DatasetReferenceType("DatasetReference");
+
+        public static bool operator ==(DatasetReferenceType left, DatasetReferenceType right) => left.Equals(right);
+        public static bool operator !=(DatasetReferenceType left, DatasetReferenceType right) => !left.Equals(right);
+
+        public static explicit operator string(DatasetReferenceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DatasetReferenceType other && Equals(other);
+        public bool Equals(DatasetReferenceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -658,12 +874,33 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Sunday
+        /// </summary>
         public static DayOfWeek Sunday { get; } = new DayOfWeek("Sunday");
+        /// <summary>
+        /// Monday
+        /// </summary>
         public static DayOfWeek Monday { get; } = new DayOfWeek("Monday");
+        /// <summary>
+        /// Tuesday
+        /// </summary>
         public static DayOfWeek Tuesday { get; } = new DayOfWeek("Tuesday");
+        /// <summary>
+        /// Wednesday
+        /// </summary>
         public static DayOfWeek Wednesday { get; } = new DayOfWeek("Wednesday");
+        /// <summary>
+        /// Thursday
+        /// </summary>
         public static DayOfWeek Thursday { get; } = new DayOfWeek("Thursday");
+        /// <summary>
+        /// Friday
+        /// </summary>
         public static DayOfWeek Friday { get; } = new DayOfWeek("Friday");
+        /// <summary>
+        /// Saturday
+        /// </summary>
         public static DayOfWeek Saturday { get; } = new DayOfWeek("Saturday");
 
         public static bool operator ==(DayOfWeek left, DayOfWeek right) => left.Equals(right);
@@ -691,12 +928,33 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Sunday
+        /// </summary>
         public static DaysOfWeek Sunday { get; } = new DaysOfWeek("Sunday");
+        /// <summary>
+        /// Monday
+        /// </summary>
         public static DaysOfWeek Monday { get; } = new DaysOfWeek("Monday");
+        /// <summary>
+        /// Tuesday
+        /// </summary>
         public static DaysOfWeek Tuesday { get; } = new DaysOfWeek("Tuesday");
+        /// <summary>
+        /// Wednesday
+        /// </summary>
         public static DaysOfWeek Wednesday { get; } = new DaysOfWeek("Wednesday");
+        /// <summary>
+        /// Thursday
+        /// </summary>
         public static DaysOfWeek Thursday { get; } = new DaysOfWeek("Thursday");
+        /// <summary>
+        /// Friday
+        /// </summary>
         public static DaysOfWeek Friday { get; } = new DaysOfWeek("Friday");
+        /// <summary>
+        /// Saturday
+        /// </summary>
         public static DaysOfWeek Saturday { get; } = new DaysOfWeek("Saturday");
 
         public static bool operator ==(DaysOfWeek left, DaysOfWeek right) => left.Equals(right);
@@ -727,6 +985,9 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Basic
+        /// </summary>
         public static Db2AuthenticationType Basic { get; } = new Db2AuthenticationType("Basic");
 
         public static bool operator ==(Db2AuthenticationType left, Db2AuthenticationType right) => left.Equals(right);
@@ -754,9 +1015,21 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Succeeded
+        /// </summary>
         public static DependencyCondition Succeeded { get; } = new DependencyCondition("Succeeded");
+        /// <summary>
+        /// Failed
+        /// </summary>
         public static DependencyCondition Failed { get; } = new DependencyCondition("Failed");
+        /// <summary>
+        /// Skipped
+        /// </summary>
         public static DependencyCondition Skipped { get; } = new DependencyCondition("Skipped");
+        /// <summary>
+        /// Completed
+        /// </summary>
         public static DependencyCondition Completed { get; } = new DependencyCondition("Completed");
 
         public static bool operator ==(DependencyCondition left, DependencyCondition right) => left.Equals(right);
@@ -787,6 +1060,9 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Upsert
+        /// </summary>
         public static DynamicsSinkWriteBehavior Upsert { get; } = new DynamicsSinkWriteBehavior("Upsert");
 
         public static bool operator ==(DynamicsSinkWriteBehavior left, DynamicsSinkWriteBehavior right) => left.Equals(right);
@@ -797,6 +1073,39 @@ namespace Pulumi.AzureNative.DataFactory
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DynamicsSinkWriteBehavior other && Equals(other);
         public bool Equals(DynamicsSinkWriteBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Expression type.
+    /// </summary>
+    [EnumType]
+    public readonly struct ExpressionType : IEquatable<ExpressionType>
+    {
+        private readonly string _value;
+
+        private ExpressionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Expression
+        /// </summary>
+        public static ExpressionType Expression { get; } = new ExpressionType("Expression");
+
+        public static bool operator ==(ExpressionType left, ExpressionType right) => left.Equals(right);
+        public static bool operator !=(ExpressionType left, ExpressionType right) => !left.Equals(right);
+
+        public static explicit operator string(ExpressionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ExpressionType other && Equals(other);
+        public bool Equals(ExpressionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -817,10 +1126,25 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Constant
+        /// </summary>
         public static ExpressionV2Type Constant { get; } = new ExpressionV2Type("Constant");
+        /// <summary>
+        /// Field
+        /// </summary>
         public static ExpressionV2Type Field { get; } = new ExpressionV2Type("Field");
+        /// <summary>
+        /// Unary
+        /// </summary>
         public static ExpressionV2Type Unary { get; } = new ExpressionV2Type("Unary");
+        /// <summary>
+        /// Binary
+        /// </summary>
         public static ExpressionV2Type Binary { get; } = new ExpressionV2Type("Binary");
+        /// <summary>
+        /// NAry
+        /// </summary>
         public static ExpressionV2Type NAry { get; } = new ExpressionV2Type("NAry");
 
         public static bool operator ==(ExpressionV2Type left, ExpressionV2Type right) => left.Equals(right);
@@ -851,8 +1175,17 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// SystemAssigned
+        /// </summary>
         public static FactoryIdentityType SystemAssigned { get; } = new FactoryIdentityType("SystemAssigned");
+        /// <summary>
+        /// UserAssigned
+        /// </summary>
         public static FactoryIdentityType UserAssigned { get; } = new FactoryIdentityType("UserAssigned");
+        /// <summary>
+        /// SystemAssigned,UserAssigned
+        /// </summary>
         public static FactoryIdentityType SystemAssigned_UserAssigned { get; } = new FactoryIdentityType("SystemAssigned,UserAssigned");
 
         public static bool operator ==(FactoryIdentityType left, FactoryIdentityType right) => left.Equals(right);
@@ -883,8 +1216,17 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Hour
+        /// </summary>
         public static FrequencyType Hour { get; } = new FrequencyType("Hour");
+        /// <summary>
+        /// Minute
+        /// </summary>
         public static FrequencyType Minute { get; } = new FrequencyType("Minute");
+        /// <summary>
+        /// Second
+        /// </summary>
         public static FrequencyType Second { get; } = new FrequencyType("Second");
 
         public static bool operator ==(FrequencyType left, FrequencyType right) => left.Equals(right);
@@ -915,7 +1257,13 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Basic
+        /// </summary>
         public static FtpAuthenticationType Basic { get; } = new FtpAuthenticationType("Basic");
+        /// <summary>
+        /// Anonymous
+        /// </summary>
         public static FtpAuthenticationType Anonymous { get; } = new FtpAuthenticationType("Anonymous");
 
         public static bool operator ==(FtpAuthenticationType left, FtpAuthenticationType right) => left.Equals(right);
@@ -946,11 +1294,29 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Object
+        /// </summary>
         public static GlobalParameterType Object { get; } = new GlobalParameterType("Object");
+        /// <summary>
+        /// String
+        /// </summary>
         public static GlobalParameterType String { get; } = new GlobalParameterType("String");
+        /// <summary>
+        /// Int
+        /// </summary>
         public static GlobalParameterType Int { get; } = new GlobalParameterType("Int");
+        /// <summary>
+        /// Float
+        /// </summary>
         public static GlobalParameterType Float { get; } = new GlobalParameterType("Float");
+        /// <summary>
+        /// Bool
+        /// </summary>
         public static GlobalParameterType Bool { get; } = new GlobalParameterType("Bool");
+        /// <summary>
+        /// Array
+        /// </summary>
         public static GlobalParameterType Array { get; } = new GlobalParameterType("Array");
 
         public static bool operator ==(GlobalParameterType left, GlobalParameterType right) => left.Equals(right);
@@ -981,7 +1347,13 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// ServiceAuthentication
+        /// </summary>
         public static GoogleAdWordsAuthenticationType ServiceAuthentication { get; } = new GoogleAdWordsAuthenticationType("ServiceAuthentication");
+        /// <summary>
+        /// UserAuthentication
+        /// </summary>
         public static GoogleAdWordsAuthenticationType UserAuthentication { get; } = new GoogleAdWordsAuthenticationType("UserAuthentication");
 
         public static bool operator ==(GoogleAdWordsAuthenticationType left, GoogleAdWordsAuthenticationType right) => left.Equals(right);
@@ -1012,7 +1384,13 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// ServiceAuthentication
+        /// </summary>
         public static GoogleBigQueryAuthenticationType ServiceAuthentication { get; } = new GoogleBigQueryAuthenticationType("ServiceAuthentication");
+        /// <summary>
+        /// UserAuthentication
+        /// </summary>
         public static GoogleBigQueryAuthenticationType UserAuthentication { get; } = new GoogleBigQueryAuthenticationType("UserAuthentication");
 
         public static bool operator ==(GoogleBigQueryAuthenticationType left, GoogleBigQueryAuthenticationType right) => left.Equals(right);
@@ -1043,7 +1421,13 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// ServiceAuthentication
+        /// </summary>
         public static GoogleBigQueryV2AuthenticationType ServiceAuthentication { get; } = new GoogleBigQueryV2AuthenticationType("ServiceAuthentication");
+        /// <summary>
+        /// UserAuthentication
+        /// </summary>
         public static GoogleBigQueryV2AuthenticationType UserAuthentication { get; } = new GoogleBigQueryV2AuthenticationType("UserAuthentication");
 
         public static bool operator ==(GoogleBigQueryV2AuthenticationType left, GoogleBigQueryV2AuthenticationType right) => left.Equals(right);
@@ -1074,6 +1458,9 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Basic
+        /// </summary>
         public static GreenplumAuthenticationType Basic { get; } = new GreenplumAuthenticationType("Basic");
 
         public static bool operator ==(GreenplumAuthenticationType left, GreenplumAuthenticationType right) => left.Equals(right);
@@ -1104,7 +1491,13 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Anonymous
+        /// </summary>
         public static HBaseAuthenticationType Anonymous { get; } = new HBaseAuthenticationType("Anonymous");
+        /// <summary>
+        /// Basic
+        /// </summary>
         public static HBaseAuthenticationType Basic { get; } = new HBaseAuthenticationType("Basic");
 
         public static bool operator ==(HBaseAuthenticationType left, HBaseAuthenticationType right) => left.Equals(right);
@@ -1135,8 +1528,17 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// None
+        /// </summary>
         public static HDInsightActivityDebugInfoOption None { get; } = new HDInsightActivityDebugInfoOption("None");
+        /// <summary>
+        /// Always
+        /// </summary>
         public static HDInsightActivityDebugInfoOption Always { get; } = new HDInsightActivityDebugInfoOption("Always");
+        /// <summary>
+        /// Failure
+        /// </summary>
         public static HDInsightActivityDebugInfoOption Failure { get; } = new HDInsightActivityDebugInfoOption("Failure");
 
         public static bool operator ==(HDInsightActivityDebugInfoOption left, HDInsightActivityDebugInfoOption right) => left.Equals(right);
@@ -1167,8 +1569,17 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// BasicAuth
+        /// </summary>
         public static HDInsightClusterAuthenticationType BasicAuth { get; } = new HDInsightClusterAuthenticationType("BasicAuth");
+        /// <summary>
+        /// SystemAssignedManagedIdentity
+        /// </summary>
         public static HDInsightClusterAuthenticationType SystemAssignedManagedIdentity { get; } = new HDInsightClusterAuthenticationType("SystemAssignedManagedIdentity");
+        /// <summary>
+        /// UserAssignedManagedIdentity
+        /// </summary>
         public static HDInsightClusterAuthenticationType UserAssignedManagedIdentity { get; } = new HDInsightClusterAuthenticationType("UserAssignedManagedIdentity");
 
         public static bool operator ==(HDInsightClusterAuthenticationType left, HDInsightClusterAuthenticationType right) => left.Equals(right);
@@ -1199,8 +1610,17 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// ServicePrincipalKey
+        /// </summary>
         public static HDInsightOndemandClusterResourceGroupAuthenticationType ServicePrincipalKey { get; } = new HDInsightOndemandClusterResourceGroupAuthenticationType("ServicePrincipalKey");
+        /// <summary>
+        /// SystemAssignedManagedIdentity
+        /// </summary>
         public static HDInsightOndemandClusterResourceGroupAuthenticationType SystemAssignedManagedIdentity { get; } = new HDInsightOndemandClusterResourceGroupAuthenticationType("SystemAssignedManagedIdentity");
+        /// <summary>
+        /// UserAssignedManagedIdentity
+        /// </summary>
         public static HDInsightOndemandClusterResourceGroupAuthenticationType UserAssignedManagedIdentity { get; } = new HDInsightOndemandClusterResourceGroupAuthenticationType("UserAssignedManagedIdentity");
 
         public static bool operator ==(HDInsightOndemandClusterResourceGroupAuthenticationType left, HDInsightOndemandClusterResourceGroupAuthenticationType right) => left.Equals(right);
@@ -1231,9 +1651,21 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Anonymous
+        /// </summary>
         public static HiveAuthenticationType Anonymous { get; } = new HiveAuthenticationType("Anonymous");
+        /// <summary>
+        /// Username
+        /// </summary>
         public static HiveAuthenticationType Username { get; } = new HiveAuthenticationType("Username");
+        /// <summary>
+        /// UsernameAndPassword
+        /// </summary>
         public static HiveAuthenticationType UsernameAndPassword { get; } = new HiveAuthenticationType("UsernameAndPassword");
+        /// <summary>
+        /// WindowsAzureHDInsightService
+        /// </summary>
         public static HiveAuthenticationType WindowsAzureHDInsightService { get; } = new HiveAuthenticationType("WindowsAzureHDInsightService");
 
         public static bool operator ==(HiveAuthenticationType left, HiveAuthenticationType right) => left.Equals(right);
@@ -1264,8 +1696,17 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// HiveServer1
+        /// </summary>
         public static HiveServerType HiveServer1 { get; } = new HiveServerType("HiveServer1");
+        /// <summary>
+        /// HiveServer2
+        /// </summary>
         public static HiveServerType HiveServer2 { get; } = new HiveServerType("HiveServer2");
+        /// <summary>
+        /// HiveThriftServer
+        /// </summary>
         public static HiveServerType HiveThriftServer { get; } = new HiveServerType("HiveThriftServer");
 
         public static bool operator ==(HiveServerType left, HiveServerType right) => left.Equals(right);
@@ -1296,8 +1737,17 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Binary
+        /// </summary>
         public static HiveThriftTransportProtocol Binary { get; } = new HiveThriftTransportProtocol("Binary");
+        /// <summary>
+        /// SASL
+        /// </summary>
         public static HiveThriftTransportProtocol SASL { get; } = new HiveThriftTransportProtocol("SASL");
+        /// <summary>
+        /// HTTP
+        /// </summary>
         public static HiveThriftTransportProtocol HTTP_ { get; } = new HiveThriftTransportProtocol("HTTP ");
 
         public static bool operator ==(HiveThriftTransportProtocol left, HiveThriftTransportProtocol right) => left.Equals(right);
@@ -1328,10 +1778,25 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Basic
+        /// </summary>
         public static HttpAuthenticationType Basic { get; } = new HttpAuthenticationType("Basic");
+        /// <summary>
+        /// Anonymous
+        /// </summary>
         public static HttpAuthenticationType Anonymous { get; } = new HttpAuthenticationType("Anonymous");
+        /// <summary>
+        /// Digest
+        /// </summary>
         public static HttpAuthenticationType Digest { get; } = new HttpAuthenticationType("Digest");
+        /// <summary>
+        /// Windows
+        /// </summary>
         public static HttpAuthenticationType Windows { get; } = new HttpAuthenticationType("Windows");
+        /// <summary>
+        /// ClientCertificate
+        /// </summary>
         public static HttpAuthenticationType ClientCertificate { get; } = new HttpAuthenticationType("ClientCertificate");
 
         public static bool operator ==(HttpAuthenticationType left, HttpAuthenticationType right) => left.Equals(right);
@@ -1362,8 +1827,17 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Anonymous
+        /// </summary>
         public static ImpalaAuthenticationType Anonymous { get; } = new ImpalaAuthenticationType("Anonymous");
+        /// <summary>
+        /// SASLUsername
+        /// </summary>
         public static ImpalaAuthenticationType SASLUsername { get; } = new ImpalaAuthenticationType("SASLUsername");
+        /// <summary>
+        /// UsernameAndPassword
+        /// </summary>
         public static ImpalaAuthenticationType UsernameAndPassword { get; } = new ImpalaAuthenticationType("UsernameAndPassword");
 
         public static bool operator ==(ImpalaAuthenticationType left, ImpalaAuthenticationType right) => left.Equals(right);
@@ -1394,7 +1868,13 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Binary
+        /// </summary>
         public static ImpalaThriftTransportProtocol Binary { get; } = new ImpalaThriftTransportProtocol("Binary");
+        /// <summary>
+        /// HTTP
+        /// </summary>
         public static ImpalaThriftTransportProtocol HTTP { get; } = new ImpalaThriftTransportProtocol("HTTP");
 
         public static bool operator ==(ImpalaThriftTransportProtocol left, ImpalaThriftTransportProtocol right) => left.Equals(right);
@@ -1425,7 +1905,13 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Standard
+        /// </summary>
         public static IntegrationRuntimeEdition Standard { get; } = new IntegrationRuntimeEdition("Standard");
+        /// <summary>
+        /// Enterprise
+        /// </summary>
         public static IntegrationRuntimeEdition Enterprise { get; } = new IntegrationRuntimeEdition("Enterprise");
 
         public static bool operator ==(IntegrationRuntimeEdition left, IntegrationRuntimeEdition right) => left.Equals(right);
@@ -1456,7 +1942,13 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// IntegrationRuntimeReference
+        /// </summary>
         public static IntegrationRuntimeEntityReferenceType IntegrationRuntimeReference { get; } = new IntegrationRuntimeEntityReferenceType("IntegrationRuntimeReference");
+        /// <summary>
+        /// LinkedServiceReference
+        /// </summary>
         public static IntegrationRuntimeEntityReferenceType LinkedServiceReference { get; } = new IntegrationRuntimeEntityReferenceType("LinkedServiceReference");
 
         public static bool operator ==(IntegrationRuntimeEntityReferenceType left, IntegrationRuntimeEntityReferenceType right) => left.Equals(right);
@@ -1487,7 +1979,13 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// BasePrice
+        /// </summary>
         public static IntegrationRuntimeLicenseType BasePrice { get; } = new IntegrationRuntimeLicenseType("BasePrice");
+        /// <summary>
+        /// LicenseIncluded
+        /// </summary>
         public static IntegrationRuntimeLicenseType LicenseIncluded { get; } = new IntegrationRuntimeLicenseType("LicenseIncluded");
 
         public static bool operator ==(IntegrationRuntimeLicenseType left, IntegrationRuntimeLicenseType right) => left.Equals(right);
@@ -1498,6 +1996,39 @@ namespace Pulumi.AzureNative.DataFactory
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is IntegrationRuntimeLicenseType other && Equals(other);
         public bool Equals(IntegrationRuntimeLicenseType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of integration runtime.
+    /// </summary>
+    [EnumType]
+    public readonly struct IntegrationRuntimeReferenceType : IEquatable<IntegrationRuntimeReferenceType>
+    {
+        private readonly string _value;
+
+        private IntegrationRuntimeReferenceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// IntegrationRuntimeReference
+        /// </summary>
+        public static IntegrationRuntimeReferenceType IntegrationRuntimeReference { get; } = new IntegrationRuntimeReferenceType("IntegrationRuntimeReference");
+
+        public static bool operator ==(IntegrationRuntimeReferenceType left, IntegrationRuntimeReferenceType right) => left.Equals(right);
+        public static bool operator !=(IntegrationRuntimeReferenceType left, IntegrationRuntimeReferenceType right) => !left.Equals(right);
+
+        public static explicit operator string(IntegrationRuntimeReferenceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IntegrationRuntimeReferenceType other && Equals(other);
+        public bool Equals(IntegrationRuntimeReferenceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1518,9 +2049,21 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Basic
+        /// </summary>
         public static IntegrationRuntimeSsisCatalogPricingTier Basic { get; } = new IntegrationRuntimeSsisCatalogPricingTier("Basic");
+        /// <summary>
+        /// Standard
+        /// </summary>
         public static IntegrationRuntimeSsisCatalogPricingTier Standard { get; } = new IntegrationRuntimeSsisCatalogPricingTier("Standard");
+        /// <summary>
+        /// Premium
+        /// </summary>
         public static IntegrationRuntimeSsisCatalogPricingTier Premium { get; } = new IntegrationRuntimeSsisCatalogPricingTier("Premium");
+        /// <summary>
+        /// PremiumRS
+        /// </summary>
         public static IntegrationRuntimeSsisCatalogPricingTier PremiumRS { get; } = new IntegrationRuntimeSsisCatalogPricingTier("PremiumRS");
 
         public static bool operator ==(IntegrationRuntimeSsisCatalogPricingTier left, IntegrationRuntimeSsisCatalogPricingTier right) => left.Equals(right);
@@ -1551,7 +2094,13 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Managed
+        /// </summary>
         public static IntegrationRuntimeType Managed { get; } = new IntegrationRuntimeType("Managed");
+        /// <summary>
+        /// SelfHosted
+        /// </summary>
         public static IntegrationRuntimeType SelfHosted { get; } = new IntegrationRuntimeType("SelfHosted");
 
         public static bool operator ==(IntegrationRuntimeType left, IntegrationRuntimeType right) => left.Equals(right);
@@ -1582,8 +2131,17 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// ServicePrincipal
+        /// </summary>
         public static LakehouseAuthenticationType ServicePrincipal { get; } = new LakehouseAuthenticationType("ServicePrincipal");
+        /// <summary>
+        /// SystemAssignedManagedIdentity
+        /// </summary>
         public static LakehouseAuthenticationType SystemAssignedManagedIdentity { get; } = new LakehouseAuthenticationType("SystemAssignedManagedIdentity");
+        /// <summary>
+        /// UserAssignedManagedIdentity
+        /// </summary>
         public static LakehouseAuthenticationType UserAssignedManagedIdentity { get; } = new LakehouseAuthenticationType("UserAssignedManagedIdentity");
 
         public static bool operator ==(LakehouseAuthenticationType left, LakehouseAuthenticationType right) => left.Equals(right);
@@ -1614,6 +2172,9 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// ManagedVirtualNetworkReference
+        /// </summary>
         public static ManagedVirtualNetworkReferenceType ManagedVirtualNetworkReference { get; } = new ManagedVirtualNetworkReferenceType("ManagedVirtualNetworkReference");
 
         public static bool operator ==(ManagedVirtualNetworkReferenceType left, ManagedVirtualNetworkReferenceType right) => left.Equals(right);
@@ -1644,8 +2205,17 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Direct
+        /// </summary>
         public static MappingType Direct { get; } = new MappingType("Direct");
+        /// <summary>
+        /// Derived
+        /// </summary>
         public static MappingType Derived { get; } = new MappingType("Derived");
+        /// <summary>
+        /// Aggregate
+        /// </summary>
         public static MappingType Aggregate { get; } = new MappingType("Aggregate");
 
         public static bool operator ==(MappingType left, MappingType right) => left.Equals(right);
@@ -1676,7 +2246,13 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Basic
+        /// </summary>
         public static MongoDbAuthenticationType Basic { get; } = new MongoDbAuthenticationType("Basic");
+        /// <summary>
+        /// Anonymous
+        /// </summary>
         public static MongoDbAuthenticationType Anonymous { get; } = new MongoDbAuthenticationType("Anonymous");
 
         public static bool operator ==(MongoDbAuthenticationType left, MongoDbAuthenticationType right) => left.Equals(right);
@@ -1707,7 +2283,13 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// PreferredUnSecured
+        /// </summary>
         public static NetezzaSecurityLevelType PreferredUnSecured { get; } = new NetezzaSecurityLevelType("PreferredUnSecured");
+        /// <summary>
+        /// OnlyUnSecured
+        /// </summary>
         public static NetezzaSecurityLevelType OnlyUnSecured { get; } = new NetezzaSecurityLevelType("OnlyUnSecured");
 
         public static bool operator ==(NetezzaSecurityLevelType left, NetezzaSecurityLevelType right) => left.Equals(right);
@@ -1738,9 +2320,21 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// string
+        /// </summary>
         public static NotebookParameterType @String { get; } = new NotebookParameterType("string");
+        /// <summary>
+        /// int
+        /// </summary>
         public static NotebookParameterType @Int { get; } = new NotebookParameterType("int");
+        /// <summary>
+        /// float
+        /// </summary>
         public static NotebookParameterType @Float { get; } = new NotebookParameterType("float");
+        /// <summary>
+        /// bool
+        /// </summary>
         public static NotebookParameterType @Bool { get; } = new NotebookParameterType("bool");
 
         public static bool operator ==(NotebookParameterType left, NotebookParameterType right) => left.Equals(right);
@@ -1771,6 +2365,9 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// NotebookReference
+        /// </summary>
         public static NotebookReferenceType NotebookReference { get; } = new NotebookReferenceType("NotebookReference");
 
         public static bool operator ==(NotebookReferenceType left, NotebookReferenceType right) => left.Equals(right);
@@ -1801,7 +2398,13 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// ServicePrincipalKey
+        /// </summary>
         public static ODataAadServicePrincipalCredentialType ServicePrincipalKey { get; } = new ODataAadServicePrincipalCredentialType("ServicePrincipalKey");
+        /// <summary>
+        /// ServicePrincipalCert
+        /// </summary>
         public static ODataAadServicePrincipalCredentialType ServicePrincipalCert { get; } = new ODataAadServicePrincipalCredentialType("ServicePrincipalCert");
 
         public static bool operator ==(ODataAadServicePrincipalCredentialType left, ODataAadServicePrincipalCredentialType right) => left.Equals(right);
@@ -1832,10 +2435,25 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Basic
+        /// </summary>
         public static ODataAuthenticationType Basic { get; } = new ODataAuthenticationType("Basic");
+        /// <summary>
+        /// Anonymous
+        /// </summary>
         public static ODataAuthenticationType Anonymous { get; } = new ODataAuthenticationType("Anonymous");
+        /// <summary>
+        /// Windows
+        /// </summary>
         public static ODataAuthenticationType Windows { get; } = new ODataAuthenticationType("Windows");
+        /// <summary>
+        /// AadServicePrincipal
+        /// </summary>
         public static ODataAuthenticationType AadServicePrincipal { get; } = new ODataAuthenticationType("AadServicePrincipal");
+        /// <summary>
+        /// ManagedServiceIdentity
+        /// </summary>
         public static ODataAuthenticationType ManagedServiceIdentity { get; } = new ODataAuthenticationType("ManagedServiceIdentity");
 
         public static bool operator ==(ODataAuthenticationType left, ODataAuthenticationType right) => left.Equals(right);
@@ -1866,6 +2484,9 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Basic
+        /// </summary>
         public static OracleAuthenticationType Basic { get; } = new OracleAuthenticationType("Basic");
 
         public static bool operator ==(OracleAuthenticationType left, OracleAuthenticationType right) => left.Equals(right);
@@ -1896,12 +2517,33 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Object
+        /// </summary>
         public static ParameterType Object { get; } = new ParameterType("Object");
+        /// <summary>
+        /// String
+        /// </summary>
         public static ParameterType String { get; } = new ParameterType("String");
+        /// <summary>
+        /// Int
+        /// </summary>
         public static ParameterType Int { get; } = new ParameterType("Int");
+        /// <summary>
+        /// Float
+        /// </summary>
         public static ParameterType Float { get; } = new ParameterType("Float");
+        /// <summary>
+        /// Bool
+        /// </summary>
         public static ParameterType Bool { get; } = new ParameterType("Bool");
+        /// <summary>
+        /// Array
+        /// </summary>
         public static ParameterType Array { get; } = new ParameterType("Array");
+        /// <summary>
+        /// SecureString
+        /// </summary>
         public static ParameterType SecureString { get; } = new ParameterType("SecureString");
 
         public static bool operator ==(ParameterType left, ParameterType right) => left.Equals(right);
@@ -1932,8 +2574,17 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Anonymous
+        /// </summary>
         public static PhoenixAuthenticationType Anonymous { get; } = new PhoenixAuthenticationType("Anonymous");
+        /// <summary>
+        /// UsernameAndPassword
+        /// </summary>
         public static PhoenixAuthenticationType UsernameAndPassword { get; } = new PhoenixAuthenticationType("UsernameAndPassword");
+        /// <summary>
+        /// WindowsAzureHDInsightService
+        /// </summary>
         public static PhoenixAuthenticationType WindowsAzureHDInsightService { get; } = new PhoenixAuthenticationType("WindowsAzureHDInsightService");
 
         public static bool operator ==(PhoenixAuthenticationType left, PhoenixAuthenticationType right) => left.Equals(right);
@@ -1944,6 +2595,39 @@ namespace Pulumi.AzureNative.DataFactory
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PhoenixAuthenticationType other && Equals(other);
         public bool Equals(PhoenixAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Pipeline reference type.
+    /// </summary>
+    [EnumType]
+    public readonly struct PipelineReferenceType : IEquatable<PipelineReferenceType>
+    {
+        private readonly string _value;
+
+        private PipelineReferenceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// PipelineReference
+        /// </summary>
+        public static PipelineReferenceType PipelineReference { get; } = new PipelineReferenceType("PipelineReference");
+
+        public static bool operator ==(PipelineReferenceType left, PipelineReferenceType right) => left.Equals(right);
+        public static bool operator !=(PipelineReferenceType left, PipelineReferenceType right) => !left.Equals(right);
+
+        public static explicit operator string(PipelineReferenceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PipelineReferenceType other && Equals(other);
+        public bool Equals(PipelineReferenceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1964,7 +2648,13 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// value
+        /// </summary>
         public static PolybaseSettingsRejectType @Value { get; } = new PolybaseSettingsRejectType("value");
+        /// <summary>
+        /// percentage
+        /// </summary>
         public static PolybaseSettingsRejectType Percentage { get; } = new PolybaseSettingsRejectType("percentage");
 
         public static bool operator ==(PolybaseSettingsRejectType left, PolybaseSettingsRejectType right) => left.Equals(right);
@@ -1995,7 +2685,13 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Anonymous
+        /// </summary>
         public static PrestoAuthenticationType Anonymous { get; } = new PrestoAuthenticationType("Anonymous");
+        /// <summary>
+        /// LDAP
+        /// </summary>
         public static PrestoAuthenticationType LDAP { get; } = new PrestoAuthenticationType("LDAP");
 
         public static bool operator ==(PrestoAuthenticationType left, PrestoAuthenticationType right) => left.Equals(right);
@@ -2026,7 +2722,13 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Enabled
+        /// </summary>
         public static PublicNetworkAccess Enabled { get; } = new PublicNetworkAccess("Enabled");
+        /// <summary>
+        /// Disabled
+        /// </summary>
         public static PublicNetworkAccess Disabled { get; } = new PublicNetworkAccess("Disabled");
 
         public static bool operator ==(PublicNetworkAccess left, PublicNetworkAccess right) => left.Equals(right);
@@ -2057,12 +2759,33 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// NotSpecified
+        /// </summary>
         public static RecurrenceFrequency NotSpecified { get; } = new RecurrenceFrequency("NotSpecified");
+        /// <summary>
+        /// Minute
+        /// </summary>
         public static RecurrenceFrequency Minute { get; } = new RecurrenceFrequency("Minute");
+        /// <summary>
+        /// Hour
+        /// </summary>
         public static RecurrenceFrequency Hour { get; } = new RecurrenceFrequency("Hour");
+        /// <summary>
+        /// Day
+        /// </summary>
         public static RecurrenceFrequency Day { get; } = new RecurrenceFrequency("Day");
+        /// <summary>
+        /// Week
+        /// </summary>
         public static RecurrenceFrequency Week { get; } = new RecurrenceFrequency("Week");
+        /// <summary>
+        /// Month
+        /// </summary>
         public static RecurrenceFrequency Month { get; } = new RecurrenceFrequency("Month");
+        /// <summary>
+        /// Year
+        /// </summary>
         public static RecurrenceFrequency Year { get; } = new RecurrenceFrequency("Year");
 
         public static bool operator ==(RecurrenceFrequency left, RecurrenceFrequency right) => left.Equals(right);
@@ -2093,10 +2816,25 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Anonymous
+        /// </summary>
         public static RestServiceAuthenticationType Anonymous { get; } = new RestServiceAuthenticationType("Anonymous");
+        /// <summary>
+        /// Basic
+        /// </summary>
         public static RestServiceAuthenticationType Basic { get; } = new RestServiceAuthenticationType("Basic");
+        /// <summary>
+        /// AadServicePrincipal
+        /// </summary>
         public static RestServiceAuthenticationType AadServicePrincipal { get; } = new RestServiceAuthenticationType("AadServicePrincipal");
+        /// <summary>
+        /// ManagedServiceIdentity
+        /// </summary>
         public static RestServiceAuthenticationType ManagedServiceIdentity { get; } = new RestServiceAuthenticationType("ManagedServiceIdentity");
+        /// <summary>
+        /// OAuth2ClientCredential
+        /// </summary>
         public static RestServiceAuthenticationType OAuth2ClientCredential { get; } = new RestServiceAuthenticationType("OAuth2ClientCredential");
 
         public static bool operator ==(RestServiceAuthenticationType left, RestServiceAuthenticationType right) => left.Equals(right);
@@ -2127,7 +2865,13 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Insert
+        /// </summary>
         public static SalesforceSinkWriteBehavior Insert { get; } = new SalesforceSinkWriteBehavior("Insert");
+        /// <summary>
+        /// Upsert
+        /// </summary>
         public static SalesforceSinkWriteBehavior Upsert { get; } = new SalesforceSinkWriteBehavior("Upsert");
 
         public static bool operator ==(SalesforceSinkWriteBehavior left, SalesforceSinkWriteBehavior right) => left.Equals(right);
@@ -2158,7 +2902,13 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Insert
+        /// </summary>
         public static SalesforceV2SinkWriteBehavior Insert { get; } = new SalesforceV2SinkWriteBehavior("Insert");
+        /// <summary>
+        /// Upsert
+        /// </summary>
         public static SalesforceV2SinkWriteBehavior Upsert { get; } = new SalesforceV2SinkWriteBehavior("Upsert");
 
         public static bool operator ==(SalesforceV2SinkWriteBehavior left, SalesforceV2SinkWriteBehavior right) => left.Equals(right);
@@ -2189,7 +2939,13 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Insert
+        /// </summary>
         public static SapCloudForCustomerSinkWriteBehavior Insert { get; } = new SapCloudForCustomerSinkWriteBehavior("Insert");
+        /// <summary>
+        /// Update
+        /// </summary>
         public static SapCloudForCustomerSinkWriteBehavior Update { get; } = new SapCloudForCustomerSinkWriteBehavior("Update");
 
         public static bool operator ==(SapCloudForCustomerSinkWriteBehavior left, SapCloudForCustomerSinkWriteBehavior right) => left.Equals(right);
@@ -2220,7 +2976,13 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Basic
+        /// </summary>
         public static SapHanaAuthenticationType Basic { get; } = new SapHanaAuthenticationType("Basic");
+        /// <summary>
+        /// Windows
+        /// </summary>
         public static SapHanaAuthenticationType Windows { get; } = new SapHanaAuthenticationType("Windows");
 
         public static bool operator ==(SapHanaAuthenticationType left, SapHanaAuthenticationType right) => left.Equals(right);
@@ -2251,7 +3013,13 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// ActivityOutput
+        /// </summary>
         public static ScriptActivityLogDestination ActivityOutput { get; } = new ScriptActivityLogDestination("ActivityOutput");
+        /// <summary>
+        /// ExternalStore
+        /// </summary>
         public static ScriptActivityLogDestination ExternalStore { get; } = new ScriptActivityLogDestination("ExternalStore");
 
         public static bool operator ==(ScriptActivityLogDestination left, ScriptActivityLogDestination right) => left.Equals(right);
@@ -2282,9 +3050,18 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ScriptActivityParameterDirection ValueInput { get; } = new ScriptActivityParameterDirection("Input");
-        public static ScriptActivityParameterDirection ValueOutput { get; } = new ScriptActivityParameterDirection("Output");
-        public static ScriptActivityParameterDirection ValueInputOutput { get; } = new ScriptActivityParameterDirection("InputOutput");
+        /// <summary>
+        /// Input
+        /// </summary>
+        public static ScriptActivityParameterDirection Input { get; } = new ScriptActivityParameterDirection("Input");
+        /// <summary>
+        /// Output
+        /// </summary>
+        public static ScriptActivityParameterDirection Output { get; } = new ScriptActivityParameterDirection("Output");
+        /// <summary>
+        /// InputOutput
+        /// </summary>
+        public static ScriptActivityParameterDirection InputOutput { get; } = new ScriptActivityParameterDirection("InputOutput");
 
         public static bool operator ==(ScriptActivityParameterDirection left, ScriptActivityParameterDirection right) => left.Equals(right);
         public static bool operator !=(ScriptActivityParameterDirection left, ScriptActivityParameterDirection right) => !left.Equals(right);
@@ -2314,17 +3091,53 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Boolean
+        /// </summary>
         public static ScriptActivityParameterType Boolean { get; } = new ScriptActivityParameterType("Boolean");
+        /// <summary>
+        /// DateTime
+        /// </summary>
         public static ScriptActivityParameterType DateTime { get; } = new ScriptActivityParameterType("DateTime");
+        /// <summary>
+        /// DateTimeOffset
+        /// </summary>
         public static ScriptActivityParameterType DateTimeOffset { get; } = new ScriptActivityParameterType("DateTimeOffset");
+        /// <summary>
+        /// Decimal
+        /// </summary>
         public static ScriptActivityParameterType Decimal { get; } = new ScriptActivityParameterType("Decimal");
+        /// <summary>
+        /// Double
+        /// </summary>
         public static ScriptActivityParameterType Double { get; } = new ScriptActivityParameterType("Double");
+        /// <summary>
+        /// Guid
+        /// </summary>
         public static ScriptActivityParameterType Guid { get; } = new ScriptActivityParameterType("Guid");
+        /// <summary>
+        /// Int16
+        /// </summary>
         public static ScriptActivityParameterType Int16 { get; } = new ScriptActivityParameterType("Int16");
+        /// <summary>
+        /// Int32
+        /// </summary>
         public static ScriptActivityParameterType Int32 { get; } = new ScriptActivityParameterType("Int32");
+        /// <summary>
+        /// Int64
+        /// </summary>
         public static ScriptActivityParameterType Int64 { get; } = new ScriptActivityParameterType("Int64");
+        /// <summary>
+        /// Single
+        /// </summary>
         public static ScriptActivityParameterType Single { get; } = new ScriptActivityParameterType("Single");
+        /// <summary>
+        /// String
+        /// </summary>
         public static ScriptActivityParameterType String { get; } = new ScriptActivityParameterType("String");
+        /// <summary>
+        /// Timespan
+        /// </summary>
         public static ScriptActivityParameterType Timespan { get; } = new ScriptActivityParameterType("Timespan");
 
         public static bool operator ==(ScriptActivityParameterType left, ScriptActivityParameterType right) => left.Equals(right);
@@ -2355,7 +3168,13 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Basic
+        /// </summary>
         public static ServiceNowAuthenticationType Basic { get; } = new ServiceNowAuthenticationType("Basic");
+        /// <summary>
+        /// OAuth2
+        /// </summary>
         public static ServiceNowAuthenticationType OAuth2 { get; } = new ServiceNowAuthenticationType("OAuth2");
 
         public static bool operator ==(ServiceNowAuthenticationType left, ServiceNowAuthenticationType right) => left.Equals(right);
@@ -2386,7 +3205,13 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Basic
+        /// </summary>
         public static ServiceNowV2AuthenticationType Basic { get; } = new ServiceNowV2AuthenticationType("Basic");
+        /// <summary>
+        /// OAuth2
+        /// </summary>
         public static ServiceNowV2AuthenticationType OAuth2 { get; } = new ServiceNowV2AuthenticationType("OAuth2");
 
         public static bool operator ==(ServiceNowV2AuthenticationType left, ServiceNowV2AuthenticationType right) => left.Equals(right);
@@ -2417,8 +3242,17 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Basic
+        /// </summary>
         public static SftpAuthenticationType Basic { get; } = new SftpAuthenticationType("Basic");
+        /// <summary>
+        /// SshPublicKey
+        /// </summary>
         public static SftpAuthenticationType SshPublicKey { get; } = new SftpAuthenticationType("SshPublicKey");
+        /// <summary>
+        /// MultiFactor
+        /// </summary>
         public static SftpAuthenticationType MultiFactor { get; } = new SftpAuthenticationType("MultiFactor");
 
         public static bool operator ==(SftpAuthenticationType left, SftpAuthenticationType right) => left.Equals(right);
@@ -2449,8 +3283,17 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Basic
+        /// </summary>
         public static SnowflakeAuthenticationType Basic { get; } = new SnowflakeAuthenticationType("Basic");
+        /// <summary>
+        /// KeyPair
+        /// </summary>
         public static SnowflakeAuthenticationType KeyPair { get; } = new SnowflakeAuthenticationType("KeyPair");
+        /// <summary>
+        /// AADServicePrincipal
+        /// </summary>
         public static SnowflakeAuthenticationType AADServicePrincipal { get; } = new SnowflakeAuthenticationType("AADServicePrincipal");
 
         public static bool operator ==(SnowflakeAuthenticationType left, SnowflakeAuthenticationType right) => left.Equals(right);
@@ -2481,9 +3324,21 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Anonymous
+        /// </summary>
         public static SparkAuthenticationType Anonymous { get; } = new SparkAuthenticationType("Anonymous");
+        /// <summary>
+        /// Username
+        /// </summary>
         public static SparkAuthenticationType Username { get; } = new SparkAuthenticationType("Username");
+        /// <summary>
+        /// UsernameAndPassword
+        /// </summary>
         public static SparkAuthenticationType UsernameAndPassword { get; } = new SparkAuthenticationType("UsernameAndPassword");
+        /// <summary>
+        /// WindowsAzureHDInsightService
+        /// </summary>
         public static SparkAuthenticationType WindowsAzureHDInsightService { get; } = new SparkAuthenticationType("WindowsAzureHDInsightService");
 
         public static bool operator ==(SparkAuthenticationType left, SparkAuthenticationType right) => left.Equals(right);
@@ -2514,6 +3369,9 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// SparkConfigurationReference
+        /// </summary>
         public static SparkConfigurationReferenceType SparkConfigurationReference { get; } = new SparkConfigurationReferenceType("SparkConfigurationReference");
 
         public static bool operator ==(SparkConfigurationReferenceType left, SparkConfigurationReferenceType right) => left.Equals(right);
@@ -2544,6 +3402,9 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// SparkJobDefinitionReference
+        /// </summary>
         public static SparkJobReferenceType SparkJobDefinitionReference { get; } = new SparkJobReferenceType("SparkJobDefinitionReference");
 
         public static bool operator ==(SparkJobReferenceType left, SparkJobReferenceType right) => left.Equals(right);
@@ -2574,8 +3435,17 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// SharkServer
+        /// </summary>
         public static SparkServerType SharkServer { get; } = new SparkServerType("SharkServer");
+        /// <summary>
+        /// SharkServer2
+        /// </summary>
         public static SparkServerType SharkServer2 { get; } = new SparkServerType("SharkServer2");
+        /// <summary>
+        /// SparkThriftServer
+        /// </summary>
         public static SparkServerType SparkThriftServer { get; } = new SparkServerType("SparkThriftServer");
 
         public static bool operator ==(SparkServerType left, SparkServerType right) => left.Equals(right);
@@ -2606,8 +3476,17 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Binary
+        /// </summary>
         public static SparkThriftTransportProtocol Binary { get; } = new SparkThriftTransportProtocol("Binary");
+        /// <summary>
+        /// SASL
+        /// </summary>
         public static SparkThriftTransportProtocol SASL { get; } = new SparkThriftTransportProtocol("SASL");
+        /// <summary>
+        /// HTTP
+        /// </summary>
         public static SparkThriftTransportProtocol HTTP_ { get; } = new SparkThriftTransportProtocol("HTTP ");
 
         public static bool operator ==(SparkThriftTransportProtocol left, SparkThriftTransportProtocol right) => left.Equals(right);
@@ -2638,8 +3517,17 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// ServicePrincipal
+        /// </summary>
         public static SqlAlwaysEncryptedAkvAuthType ServicePrincipal { get; } = new SqlAlwaysEncryptedAkvAuthType("ServicePrincipal");
+        /// <summary>
+        /// ManagedIdentity
+        /// </summary>
         public static SqlAlwaysEncryptedAkvAuthType ManagedIdentity { get; } = new SqlAlwaysEncryptedAkvAuthType("ManagedIdentity");
+        /// <summary>
+        /// UserAssignedManagedIdentity
+        /// </summary>
         public static SqlAlwaysEncryptedAkvAuthType UserAssignedManagedIdentity { get; } = new SqlAlwaysEncryptedAkvAuthType("UserAssignedManagedIdentity");
 
         public static bool operator ==(SqlAlwaysEncryptedAkvAuthType left, SqlAlwaysEncryptedAkvAuthType right) => left.Equals(right);
@@ -2670,8 +3558,17 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// SQL
+        /// </summary>
         public static SqlServerAuthenticationType SQL { get; } = new SqlServerAuthenticationType("SQL");
+        /// <summary>
+        /// Windows
+        /// </summary>
         public static SqlServerAuthenticationType Windows { get; } = new SqlServerAuthenticationType("Windows");
+        /// <summary>
+        /// UserAssignedManagedIdentity
+        /// </summary>
         public static SqlServerAuthenticationType UserAssignedManagedIdentity { get; } = new SqlServerAuthenticationType("UserAssignedManagedIdentity");
 
         public static bool operator ==(SqlServerAuthenticationType left, SqlServerAuthenticationType right) => left.Equals(right);
@@ -2702,6 +3599,9 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// File
+        /// </summary>
         public static SsisLogLocationType File { get; } = new SsisLogLocationType("File");
 
         public static bool operator ==(SsisLogLocationType left, SsisLogLocationType right) => left.Equals(right);
@@ -2732,9 +3632,21 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// SSISDB
+        /// </summary>
         public static SsisPackageLocationType SSISDB { get; } = new SsisPackageLocationType("SSISDB");
+        /// <summary>
+        /// File
+        /// </summary>
         public static SsisPackageLocationType File { get; } = new SsisPackageLocationType("File");
+        /// <summary>
+        /// InlinePackage
+        /// </summary>
         public static SsisPackageLocationType InlinePackage { get; } = new SsisPackageLocationType("InlinePackage");
+        /// <summary>
+        /// PackageStore
+        /// </summary>
         public static SsisPackageLocationType PackageStore { get; } = new SsisPackageLocationType("PackageStore");
 
         public static bool operator ==(SsisPackageLocationType left, SsisPackageLocationType right) => left.Equals(right);
@@ -2765,7 +3677,13 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Basic
+        /// </summary>
         public static SybaseAuthenticationType Basic { get; } = new SybaseAuthenticationType("Basic");
+        /// <summary>
+        /// Windows
+        /// </summary>
         public static SybaseAuthenticationType Windows { get; } = new SybaseAuthenticationType("Windows");
 
         public static bool operator ==(SybaseAuthenticationType left, SybaseAuthenticationType right) => left.Equals(right);
@@ -2796,7 +3714,13 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Basic
+        /// </summary>
         public static TeamDeskAuthenticationType Basic { get; } = new TeamDeskAuthenticationType("Basic");
+        /// <summary>
+        /// Token
+        /// </summary>
         public static TeamDeskAuthenticationType Token { get; } = new TeamDeskAuthenticationType("Token");
 
         public static bool operator ==(TeamDeskAuthenticationType left, TeamDeskAuthenticationType right) => left.Equals(right);
@@ -2827,7 +3751,13 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Basic
+        /// </summary>
         public static TeradataAuthenticationType Basic { get; } = new TeradataAuthenticationType("Basic");
+        /// <summary>
+        /// Windows
+        /// </summary>
         public static TeradataAuthenticationType Windows { get; } = new TeradataAuthenticationType("Windows");
 
         public static bool operator ==(TeradataAuthenticationType left, TeradataAuthenticationType right) => left.Equals(right);
@@ -2858,6 +3788,9 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// TriggerReference
+        /// </summary>
         public static TriggerReferenceType TriggerReference { get; } = new TriggerReferenceType("TriggerReference");
 
         public static bool operator ==(TriggerReferenceType left, TriggerReferenceType right) => left.Equals(right);
@@ -2888,8 +3821,17 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Minute
+        /// </summary>
         public static TumblingWindowFrequency Minute { get; } = new TumblingWindowFrequency("Minute");
+        /// <summary>
+        /// Hour
+        /// </summary>
         public static TumblingWindowFrequency Hour { get; } = new TumblingWindowFrequency("Hour");
+        /// <summary>
+        /// Month
+        /// </summary>
         public static TumblingWindowFrequency Month { get; } = new TumblingWindowFrequency("Month");
 
         public static bool operator ==(TumblingWindowFrequency left, TumblingWindowFrequency right) => left.Equals(right);
@@ -2920,6 +3862,9 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// LinkedServiceReference
+        /// </summary>
         public static Type LinkedServiceReference { get; } = new Type("LinkedServiceReference");
 
         public static bool operator ==(Type left, Type right) => left.Equals(right);
@@ -2950,7 +3895,13 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// actual
+        /// </summary>
         public static ValueType Actual { get; } = new ValueType("actual");
+        /// <summary>
+        /// display
+        /// </summary>
         public static ValueType Display { get; } = new ValueType("display");
 
         public static bool operator ==(ValueType left, ValueType right) => left.Equals(right);
@@ -2981,8 +3932,17 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// String
+        /// </summary>
         public static VariableType String { get; } = new VariableType("String");
+        /// <summary>
+        /// Bool
+        /// </summary>
         public static VariableType Bool { get; } = new VariableType("Bool");
+        /// <summary>
+        /// Array
+        /// </summary>
         public static VariableType Array { get; } = new VariableType("Array");
 
         public static bool operator ==(VariableType left, VariableType right) => left.Equals(right);
@@ -3013,8 +3973,17 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// ServicePrincipal
+        /// </summary>
         public static WarehouseAuthenticationType ServicePrincipal { get; } = new WarehouseAuthenticationType("ServicePrincipal");
+        /// <summary>
+        /// SystemAssignedManagedIdentity
+        /// </summary>
         public static WarehouseAuthenticationType SystemAssignedManagedIdentity { get; } = new WarehouseAuthenticationType("SystemAssignedManagedIdentity");
+        /// <summary>
+        /// UserAssignedManagedIdentity
+        /// </summary>
         public static WarehouseAuthenticationType UserAssignedManagedIdentity { get; } = new WarehouseAuthenticationType("UserAssignedManagedIdentity");
 
         public static bool operator ==(WarehouseAuthenticationType left, WarehouseAuthenticationType right) => left.Equals(right);
@@ -3045,9 +4014,21 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// GET
+        /// </summary>
         public static WebActivityMethod GET { get; } = new WebActivityMethod("GET");
+        /// <summary>
+        /// POST
+        /// </summary>
         public static WebActivityMethod POST { get; } = new WebActivityMethod("POST");
+        /// <summary>
+        /// PUT
+        /// </summary>
         public static WebActivityMethod PUT { get; } = new WebActivityMethod("PUT");
+        /// <summary>
+        /// DELETE
+        /// </summary>
         public static WebActivityMethod DELETE { get; } = new WebActivityMethod("DELETE");
 
         public static bool operator ==(WebActivityMethod left, WebActivityMethod right) => left.Equals(right);
@@ -3078,8 +4059,17 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Basic
+        /// </summary>
         public static WebAuthenticationType Basic { get; } = new WebAuthenticationType("Basic");
+        /// <summary>
+        /// Anonymous
+        /// </summary>
         public static WebAuthenticationType Anonymous { get; } = new WebAuthenticationType("Anonymous");
+        /// <summary>
+        /// ClientCertificate
+        /// </summary>
         public static WebAuthenticationType ClientCertificate { get; } = new WebAuthenticationType("ClientCertificate");
 
         public static bool operator ==(WebAuthenticationType left, WebAuthenticationType right) => left.Equals(right);
@@ -3110,6 +4100,9 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// POST
+        /// </summary>
         public static WebHookActivityMethod POST { get; } = new WebHookActivityMethod("POST");
 
         public static bool operator ==(WebHookActivityMethod left, WebHookActivityMethod right) => left.Equals(right);
@@ -3140,7 +4133,13 @@ namespace Pulumi.AzureNative.DataFactory
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Basic
+        /// </summary>
         public static ZendeskAuthenticationType Basic { get; } = new ZendeskAuthenticationType("Basic");
+        /// <summary>
+        /// Token
+        /// </summary>
         public static ZendeskAuthenticationType Token { get; } = new ZendeskAuthenticationType("Token");
 
         public static bool operator ==(ZendeskAuthenticationType left, ZendeskAuthenticationType right) => left.Equals(right);

@@ -33,7 +33,7 @@ class RuntimeEnvironmentArgs:
         The set of arguments for constructing a RuntimeEnvironment resource.
 
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] default_packages: List of Default packages for Environment
         :param pulumi.Input[_builtins.str] description: Gets or sets the description.
         :param pulumi.Input[_builtins.str] language: Language of Runtime Environment
@@ -75,7 +75,7 @@ class RuntimeEnvironmentArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of an Azure Resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -199,7 +199,7 @@ class RuntimeEnvironment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Gets or sets the description.
         :param pulumi.Input[_builtins.str] language: Language of Runtime Environment
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] runtime_environment_name: The name of the Runtime Environment.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] version: Version of Language

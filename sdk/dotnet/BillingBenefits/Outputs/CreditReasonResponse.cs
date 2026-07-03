@@ -19,17 +19,17 @@ namespace Pulumi.AzureNative.BillingBenefits.Outputs
         /// <summary>
         /// The reason code for credit.
         /// </summary>
-        public readonly double Code;
+        public readonly string? Code;
         /// <summary>
         /// The free string description of the credit.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
 
         [OutputConstructor]
         private CreditReasonResponse(
-            double code,
+            string? code,
 
-            string description)
+            string? description)
         {
             Code = code;
             Description = description;

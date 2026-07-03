@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.Authorization
         /// The name of the entity last modified it
         /// </summary>
         [Output("lastModifiedBy")]
-        public Output<Outputs.PrincipalResponse> LastModifiedBy { get; private set; } = null!;
+        public Output<Outputs.MicrosoftCommonPrincipalResponse> LastModifiedBy { get; private set; } = null!;
 
         /// <summary>
         /// The last modified date time.
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNative.Authorization
         public Output<string> LastModifiedDateTime { get; private set; } = null!;
 
         /// <summary>
-        /// The role management policy name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -86,7 +86,13 @@ namespace Pulumi.AzureNative.Authorization
         public Output<string?> Scope { get; private set; } = null!;
 
         /// <summary>
-        /// The role management policy type.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -162,7 +168,7 @@ namespace Pulumi.AzureNative.Authorization
         public Input<bool>? IsOrganizationDefault { get; set; }
 
         /// <summary>
-        /// The name (guid) of the role management policy to upsert.
+        /// The name (guid) of the role management policy to get.
         /// </summary>
         [Input("roleManagementPolicyName")]
         public Input<string>? RoleManagementPolicyName { get; set; }

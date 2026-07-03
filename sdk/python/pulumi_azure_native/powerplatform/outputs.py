@@ -22,9 +22,9 @@ __all__ = [
     'KeyVaultPropertiesResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
-    'PropertiesResponseEncryption',
-    'PropertiesResponseLockbox',
-    'PropertiesResponseNetworkInjection',
+    'PropertiesEncryptionResponse',
+    'PropertiesLockboxResponse',
+    'PropertiesNetworkInjectionResponse',
     'SubnetPropertiesResponse',
     'SystemDataResponse',
     'VirtualNetworkPropertiesResponse',
@@ -256,7 +256,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
 
 
 @pulumi.output_type
-class PropertiesResponseEncryption(dict):
+class PropertiesEncryptionResponse(dict):
     """
     The encryption settings for a configuration store.
     """
@@ -267,14 +267,14 @@ class PropertiesResponseEncryption(dict):
             suggest = "key_vault"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PropertiesResponseEncryption. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in PropertiesEncryptionResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        PropertiesResponseEncryption.__key_warning(key)
+        PropertiesEncryptionResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        PropertiesResponseEncryption.__key_warning(key)
+        PropertiesEncryptionResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -309,7 +309,7 @@ class PropertiesResponseEncryption(dict):
 
 
 @pulumi.output_type
-class PropertiesResponseLockbox(dict):
+class PropertiesLockboxResponse(dict):
     """
     Settings concerning lockbox.
     """
@@ -333,7 +333,7 @@ class PropertiesResponseLockbox(dict):
 
 
 @pulumi.output_type
-class PropertiesResponseNetworkInjection(dict):
+class PropertiesNetworkInjectionResponse(dict):
     """
     Settings concerning network injection.
     """
@@ -344,14 +344,14 @@ class PropertiesResponseNetworkInjection(dict):
             suggest = "virtual_networks"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PropertiesResponseNetworkInjection. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in PropertiesNetworkInjectionResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        PropertiesResponseNetworkInjection.__key_warning(key)
+        PropertiesNetworkInjectionResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        PropertiesResponseNetworkInjection.__key_warning(key)
+        PropertiesNetworkInjectionResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

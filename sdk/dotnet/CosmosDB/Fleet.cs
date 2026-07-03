@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.CosmosDB
     /// 
     /// Uses Azure REST API version 2025-10-15.
     /// 
-    /// Other available API versions: 2025-05-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2025-05-01-preview, 2025-11-01-preview, 2026-03-15, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:cosmosdb:Fleet")]
     public partial class Fleet : global::Pulumi.CustomResource
@@ -89,6 +89,8 @@ namespace Pulumi.AzureNative.CosmosDB
                     new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20250501preview:Fleet" },
                     new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20251015:Fleet" },
                     new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20251101preview:Fleet" },
+                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20260315:Fleet" },
+                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20260401preview:Fleet" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

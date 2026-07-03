@@ -124,6 +124,8 @@ class Supercomputer(pulumi.CustomResource):
 
         Uses Azure REST API version 2026-02-01-preview.
 
+        Other available API versions: 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native discovery [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -143,6 +145,8 @@ class Supercomputer(pulumi.CustomResource):
         Supercomputer tracked resource
 
         Uses Azure REST API version 2026-02-01-preview.
+
+        Other available API versions: 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native discovery [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -185,7 +189,7 @@ class Supercomputer(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:discovery/v20260201preview:Supercomputer")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:discovery/v20260201preview:Supercomputer"), pulumi.Alias(type_="azure-native:discovery/v20260601:Supercomputer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Supercomputer, __self__).__init__(
             'azure-native:discovery:Supercomputer',

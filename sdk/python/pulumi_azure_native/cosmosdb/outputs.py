@@ -66,8 +66,8 @@ __all__ = [
     'FullTextIndexPathResponse',
     'FullTextPathResponse',
     'FullTextPolicyResponse',
-    'GarnetClusterResourceResponseEndPoints',
-    'GarnetClusterResourceResponseProperties',
+    'GarnetClusterResourcePropertiesEndPointsItemResponse',
+    'GarnetClusterResourcePropertiesResponse',
     'GraphAPIComputeRegionalServiceResourceResponse',
     'GraphAPIComputeServiceResourcePropertiesResponse',
     'GraphResourceGetPropertiesResponseOptions',
@@ -3239,7 +3239,10 @@ class FullTextPolicyResponse(dict):
 
 
 @pulumi.output_type
-class GarnetClusterResourceResponseEndPoints(dict):
+class GarnetClusterResourcePropertiesEndPointsItemResponse(dict):
+    """
+    Endpoint for clients to connect to the cluster.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3247,22 +3250,24 @@ class GarnetClusterResourceResponseEndPoints(dict):
             suggest = "ip_address"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in GarnetClusterResourceResponseEndPoints. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in GarnetClusterResourcePropertiesEndPointsItemResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        GarnetClusterResourceResponseEndPoints.__key_warning(key)
+        GarnetClusterResourcePropertiesEndPointsItemResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        GarnetClusterResourceResponseEndPoints.__key_warning(key)
+        GarnetClusterResourcePropertiesEndPointsItemResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  ip_address: Optional[_builtins.str] = None,
                  port: Optional[_builtins.int] = None):
         """
-        :param _builtins.str ip_address: Ipv4 address of the endpoint
-        :param _builtins.int port: Port number
+        Endpoint for clients to connect to the cluster.
+
+        :param _builtins.str ip_address: Ipv4 address of the endpoint.
+        :param _builtins.int port: Port number.
         """
         if ip_address is not None:
             pulumi.set(__self__, "ip_address", ip_address)
@@ -3273,7 +3278,7 @@ class GarnetClusterResourceResponseEndPoints(dict):
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> Optional[_builtins.str]:
         """
-        Ipv4 address of the endpoint
+        Ipv4 address of the endpoint.
         """
         return pulumi.get(self, "ip_address")
 
@@ -3281,13 +3286,13 @@ class GarnetClusterResourceResponseEndPoints(dict):
     @pulumi.getter
     def port(self) -> Optional[_builtins.int]:
         """
-        Port number
+        Port number.
         """
         return pulumi.get(self, "port")
 
 
 @pulumi.output_type
-class GarnetClusterResourceResponseProperties(dict):
+class GarnetClusterResourcePropertiesResponse(dict):
     """
     Properties of a Garnet cache cluster.
     """
@@ -3316,18 +3321,18 @@ class GarnetClusterResourceResponseProperties(dict):
             suggest = "subnet_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in GarnetClusterResourceResponseProperties. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in GarnetClusterResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        GarnetClusterResourceResponseProperties.__key_warning(key)
+        GarnetClusterResourcePropertiesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        GarnetClusterResourceResponseProperties.__key_warning(key)
+        GarnetClusterResourcePropertiesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 end_points: Sequence['outputs.GarnetClusterResourceResponseEndPoints'],
+                 end_points: Sequence['outputs.GarnetClusterResourcePropertiesEndPointsItemResponse'],
                  provisioning_state: _builtins.str,
                  allocation_state: Optional[_builtins.str] = None,
                  availability_zone: Optional[_builtins.bool] = None,
@@ -3341,16 +3346,16 @@ class GarnetClusterResourceResponseProperties(dict):
         """
         Properties of a Garnet cache cluster.
 
-        :param Sequence['GarnetClusterResourceResponseEndPoints'] end_points: endpoints for clients to connect to the cluster.
-        :param _builtins.str provisioning_state: The status of the resource at the time the operation was called.
+        :param Sequence['GarnetClusterResourcePropertiesEndPointsItemResponse'] end_points: Endpoints for clients to connect to the cluster.
+        :param _builtins.str provisioning_state: The provisioning state of the resource.
         :param _builtins.str allocation_state: Allocation state of the cluster and data center resources. Active implies the virtual machines of the cluster are allocated, deallocated implies virtual machines and resources are deallocated.
         :param _builtins.bool availability_zone: If the data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the garnet cluster virtual machines.
         :param _builtins.str cluster_type: Type of the cluster. If set to Production, some operations might not be permitted on cluster.
         :param Sequence[_builtins.str] extensions: Extensions to be added or updated on cluster.
-        :param _builtins.int node_count: Number of nodes
-        :param _builtins.str node_sku: Virtual Machine SKU used for clusters. Default value is Standard_DS14_v2
+        :param _builtins.int node_count: Number of nodes.
+        :param _builtins.str node_sku: Virtual Machine SKU used for clusters. Default value is Standard_DS14_v2.
         :param 'ErrorDetailResponse' provision_error: Error related to resource provisioning.
-        :param _builtins.int replication_factor: Number of copies of data maintained by the cluster
+        :param _builtins.int replication_factor: Number of copies of data maintained by the cluster.
         :param _builtins.str subnet_id: Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
         """
         pulumi.set(__self__, "end_points", end_points)
@@ -3376,9 +3381,9 @@ class GarnetClusterResourceResponseProperties(dict):
 
     @_builtins.property
     @pulumi.getter(name="endPoints")
-    def end_points(self) -> Sequence['outputs.GarnetClusterResourceResponseEndPoints']:
+    def end_points(self) -> Sequence['outputs.GarnetClusterResourcePropertiesEndPointsItemResponse']:
         """
-        endpoints for clients to connect to the cluster.
+        Endpoints for clients to connect to the cluster.
         """
         return pulumi.get(self, "end_points")
 
@@ -3386,7 +3391,7 @@ class GarnetClusterResourceResponseProperties(dict):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> _builtins.str:
         """
-        The status of the resource at the time the operation was called.
+        The provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -3426,7 +3431,7 @@ class GarnetClusterResourceResponseProperties(dict):
     @pulumi.getter(name="nodeCount")
     def node_count(self) -> Optional[_builtins.int]:
         """
-        Number of nodes
+        Number of nodes.
         """
         return pulumi.get(self, "node_count")
 
@@ -3434,7 +3439,7 @@ class GarnetClusterResourceResponseProperties(dict):
     @pulumi.getter(name="nodeSku")
     def node_sku(self) -> Optional[_builtins.str]:
         """
-        Virtual Machine SKU used for clusters. Default value is Standard_DS14_v2
+        Virtual Machine SKU used for clusters. Default value is Standard_DS14_v2.
         """
         return pulumi.get(self, "node_sku")
 
@@ -3450,7 +3455,7 @@ class GarnetClusterResourceResponseProperties(dict):
     @pulumi.getter(name="replicationFactor")
     def replication_factor(self) -> Optional[_builtins.int]:
         """
-        Number of copies of data maintained by the cluster
+        Number of copies of data maintained by the cluster.
         """
         return pulumi.get(self, "replication_factor")
 

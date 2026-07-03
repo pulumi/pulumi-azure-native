@@ -32,11 +32,11 @@ class VariableArgs:
 
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
         :param pulumi.Input[_builtins.str] name: Gets or sets the name of the variable.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] description: Gets or sets the description of the variable.
         :param pulumi.Input[_builtins.bool] is_encrypted: Gets or sets the encrypted flag of the variable.
         :param pulumi.Input[_builtins.str] value: Gets or sets the value of the variable.
-        :param pulumi.Input[_builtins.str] variable_name: The variable name.
+        :param pulumi.Input[_builtins.str] variable_name: The name of variable.
         """
         pulumi.set(__self__, "automation_account_name", automation_account_name)
         pulumi.set(__self__, "name", name)
@@ -78,7 +78,7 @@ class VariableArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of an Azure Resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -126,7 +126,7 @@ class VariableArgs:
     @pulumi.getter(name="variableName")
     def variable_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The variable name.
+        The name of variable.
         """
         return pulumi.get(self, "variable_name")
 
@@ -163,9 +163,9 @@ class Variable(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Gets or sets the description of the variable.
         :param pulumi.Input[_builtins.bool] is_encrypted: Gets or sets the encrypted flag of the variable.
         :param pulumi.Input[_builtins.str] name: Gets or sets the name of the variable.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] value: Gets or sets the value of the variable.
-        :param pulumi.Input[_builtins.str] variable_name: The variable name.
+        :param pulumi.Input[_builtins.str] variable_name: The name of variable.
         """
         ...
     @overload

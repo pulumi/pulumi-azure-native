@@ -27,7 +27,7 @@ class GetAlertsSuppressionRuleResult:
     """
     Describes the suppression rule
     """
-    def __init__(__self__, alert_type=None, azure_api_version=None, comment=None, expiration_date_utc=None, id=None, last_modified_utc=None, name=None, reason=None, state=None, suppression_alerts_scope=None, type=None):
+    def __init__(__self__, alert_type=None, azure_api_version=None, comment=None, expiration_date_utc=None, id=None, last_modified_utc=None, name=None, reason=None, state=None, suppression_alerts_scope=None, system_data=None, type=None):
         if alert_type and not isinstance(alert_type, str):
             raise TypeError("Expected argument 'alert_type' to be a str")
         pulumi.set(__self__, "alert_type", alert_type)
@@ -58,6 +58,9 @@ class GetAlertsSuppressionRuleResult:
         if suppression_alerts_scope and not isinstance(suppression_alerts_scope, dict):
             raise TypeError("Expected argument 'suppression_alerts_scope' to be a dict")
         pulumi.set(__self__, "suppression_alerts_scope", suppression_alerts_scope)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -98,7 +101,7 @@ class GetAlertsSuppressionRuleResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -114,7 +117,7 @@ class GetAlertsSuppressionRuleResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -143,10 +146,18 @@ class GetAlertsSuppressionRuleResult:
         return pulumi.get(self, "suppression_alerts_scope")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -167,6 +178,7 @@ class AwaitableGetAlertsSuppressionRuleResult(GetAlertsSuppressionRuleResult):
             reason=self.reason,
             state=self.state,
             suppression_alerts_scope=self.suppression_alerts_scope,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -196,6 +208,7 @@ def get_alerts_suppression_rule(alerts_suppression_rule_name: Optional[_builtins
         reason=pulumi.get(__ret__, 'reason'),
         state=pulumi.get(__ret__, 'state'),
         suppression_alerts_scope=pulumi.get(__ret__, 'suppression_alerts_scope'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_alerts_suppression_rule_output(alerts_suppression_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAlertsSuppressionRuleResult]:
@@ -222,4 +235,5 @@ def get_alerts_suppression_rule_output(alerts_suppression_rule_name: Optional[pu
         reason=pulumi.get(__response__, 'reason'),
         state=pulumi.get(__response__, 'state'),
         suppression_alerts_scope=pulumi.get(__response__, 'suppression_alerts_scope'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

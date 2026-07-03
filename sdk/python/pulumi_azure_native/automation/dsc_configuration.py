@@ -37,9 +37,9 @@ class DscConfigurationArgs:
         The set of arguments for constructing a DscConfiguration resource.
 
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ContentSourceArgs'] source: Gets or sets the source.
-        :param pulumi.Input[_builtins.str] configuration_name: The create or update parameters for configuration.
+        :param pulumi.Input[_builtins.str] configuration_name: The configuration name.
         :param pulumi.Input[_builtins.str] description: Gets or sets the description of the configuration.
         :param pulumi.Input[_builtins.str] location: Gets or sets the location of the resource.
         :param pulumi.Input[_builtins.bool] log_progress: Gets or sets progress log option.
@@ -84,7 +84,7 @@ class DscConfigurationArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of an Azure Resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -108,7 +108,7 @@ class DscConfigurationArgs:
     @pulumi.getter(name="configurationName")
     def configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The create or update parameters for configuration.
+        The configuration name.
         """
         return pulumi.get(self, "configuration_name")
 
@@ -230,14 +230,14 @@ class DscConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
-        :param pulumi.Input[_builtins.str] configuration_name: The create or update parameters for configuration.
+        :param pulumi.Input[_builtins.str] configuration_name: The configuration name.
         :param pulumi.Input[_builtins.str] description: Gets or sets the description of the configuration.
         :param pulumi.Input[_builtins.str] location: Gets or sets the location of the resource.
         :param pulumi.Input[_builtins.bool] log_progress: Gets or sets progress log option.
         :param pulumi.Input[_builtins.bool] log_verbose: Gets or sets verbose log option.
         :param pulumi.Input[_builtins.str] name: Gets or sets name of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[Union['DscConfigurationParameterArgs', 'DscConfigurationParameterArgsDict']]]] parameters: Gets or sets the configuration parameters.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['ContentSourceArgs', 'ContentSourceArgsDict']] source: Gets or sets the source.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Gets or sets the tags attached to the resource.
         """

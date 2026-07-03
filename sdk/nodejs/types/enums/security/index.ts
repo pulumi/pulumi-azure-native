@@ -3,9 +3,22 @@
 
 
 export const ActionType = {
+    /**
+     * LogicApp
+     */
     LogicApp: "LogicApp",
+    /**
+     * EventHub
+     */
     EventHub: "EventHub",
+    /**
+     * Workspace
+     */
     Workspace: "Workspace",
+    /**
+     * Internal
+     */
+    Internal: "Internal",
 } as const;
 
 /**
@@ -14,7 +27,13 @@ export const ActionType = {
 export type ActionType = (typeof ActionType)[keyof typeof ActionType];
 
 export const AdditionalWorkspaceDataType = {
+    /**
+     * Alerts
+     */
     Alerts: "Alerts",
+    /**
+     * RawEvents
+     */
     RawEvents: "RawEvents",
 } as const;
 
@@ -24,6 +43,9 @@ export const AdditionalWorkspaceDataType = {
 export type AdditionalWorkspaceDataType = (typeof AdditionalWorkspaceDataType)[keyof typeof AdditionalWorkspaceDataType];
 
 export const AdditionalWorkspaceType = {
+    /**
+     * Sentinel
+     */
     Sentinel: "Sentinel",
 } as const;
 
@@ -85,8 +107,17 @@ export const AssessmentType = {
 export type AssessmentType = (typeof AssessmentType)[keyof typeof AssessmentType];
 
 export const AttestationComplianceState = {
+    /**
+     * unknown
+     */
     Unknown: "unknown",
+    /**
+     * compliant
+     */
     Compliant: "compliant",
+    /**
+     * nonCompliant
+     */
     NonCompliant: "nonCompliant",
 } as const;
 
@@ -96,6 +127,9 @@ export const AttestationComplianceState = {
 export type AttestationComplianceState = (typeof AttestationComplianceState)[keyof typeof AttestationComplianceState];
 
 export const AuthenticationType = {
+    /**
+     * AccessToken
+     */
     AccessToken: "AccessToken",
 } as const;
 
@@ -129,13 +163,37 @@ export const Categories = {
 export type Categories = (typeof Categories)[keyof typeof Categories];
 
 export const CloudName = {
+    /**
+     * Azure
+     */
     Azure: "Azure",
+    /**
+     * AWS
+     */
     AWS: "AWS",
+    /**
+     * GCP
+     */
     GCP: "GCP",
+    /**
+     * Github
+     */
     Github: "Github",
+    /**
+     * AzureDevOps
+     */
     AzureDevOps: "AzureDevOps",
+    /**
+     * GitLab
+     */
     GitLab: "GitLab",
+    /**
+     * DockerHub
+     */
     DockerHub: "DockerHub",
+    /**
+     * JFrog
+     */
     JFrog: "JFrog",
 } as const;
 
@@ -177,8 +235,17 @@ export const DevOpsProvisioningState = {
 export type DevOpsProvisioningState = (typeof DevOpsProvisioningState)[keyof typeof DevOpsProvisioningState];
 
 export const Effect = {
+    /**
+     * Audit
+     */
     Audit: "Audit",
+    /**
+     * Exempt
+     */
     Exempt: "Exempt",
+    /**
+     * Attest
+     */
     Attest: "Attest",
 } as const;
 
@@ -204,12 +271,33 @@ export const Enforce = {
 export type Enforce = (typeof Enforce)[keyof typeof Enforce];
 
 export const EnvironmentType = {
+    /**
+     * AwsAccount
+     */
     AwsAccount: "AwsAccount",
+    /**
+     * GcpProject
+     */
     GcpProject: "GcpProject",
+    /**
+     * GithubScope
+     */
     GithubScope: "GithubScope",
+    /**
+     * AzureDevOpsScope
+     */
     AzureDevOpsScope: "AzureDevOpsScope",
+    /**
+     * GitlabScope
+     */
     GitlabScope: "GitlabScope",
+    /**
+     * DockerHubOrganization
+     */
     DockerHubOrganization: "DockerHubOrganization",
+    /**
+     * JFrogArtifactory
+     */
     JFrogArtifactory: "JFrogArtifactory",
 } as const;
 
@@ -219,18 +307,57 @@ export const EnvironmentType = {
 export type EnvironmentType = (typeof EnvironmentType)[keyof typeof EnvironmentType];
 
 export const EventSource = {
+    /**
+     * Assessments
+     */
     Assessments: "Assessments",
+    /**
+     * AssessmentsSnapshot
+     */
     AssessmentsSnapshot: "AssessmentsSnapshot",
+    /**
+     * SubAssessments
+     */
     SubAssessments: "SubAssessments",
+    /**
+     * SubAssessmentsSnapshot
+     */
     SubAssessmentsSnapshot: "SubAssessmentsSnapshot",
+    /**
+     * Alerts
+     */
     Alerts: "Alerts",
+    /**
+     * SecureScores
+     */
     SecureScores: "SecureScores",
+    /**
+     * SecureScoresSnapshot
+     */
     SecureScoresSnapshot: "SecureScoresSnapshot",
+    /**
+     * SecureScoreControls
+     */
     SecureScoreControls: "SecureScoreControls",
+    /**
+     * SecureScoreControlsSnapshot
+     */
     SecureScoreControlsSnapshot: "SecureScoreControlsSnapshot",
+    /**
+     * RegulatoryComplianceAssessment
+     */
     RegulatoryComplianceAssessment: "RegulatoryComplianceAssessment",
+    /**
+     * RegulatoryComplianceAssessmentSnapshot
+     */
     RegulatoryComplianceAssessmentSnapshot: "RegulatoryComplianceAssessmentSnapshot",
+    /**
+     * AttackPaths
+     */
     AttackPaths: "AttackPaths",
+    /**
+     * AttackPathsSnapshot
+     */
     AttackPathsSnapshot: "AttackPathsSnapshot",
 } as const;
 
@@ -240,7 +367,13 @@ export const EventSource = {
 export type EventSource = (typeof EventSource)[keyof typeof EventSource];
 
 export const ExemptionCategory = {
+    /**
+     * waiver
+     */
     Waiver: "waiver",
+    /**
+     * mitigated
+     */
     Mitigated: "mitigated",
 } as const;
 
@@ -374,24 +507,81 @@ export const MinimalSeverity = {
 export type MinimalSeverity = (typeof MinimalSeverity)[keyof typeof MinimalSeverity];
 
 export const OfferingType = {
+    /**
+     * CspmMonitorAws
+     */
     CspmMonitorAws: "CspmMonitorAws",
+    /**
+     * DefenderForContainersAws
+     */
     DefenderForContainersAws: "DefenderForContainersAws",
+    /**
+     * DefenderForServersAws
+     */
     DefenderForServersAws: "DefenderForServersAws",
+    /**
+     * DefenderForDatabasesAws
+     */
     DefenderForDatabasesAws: "DefenderForDatabasesAws",
+    /**
+     * CspmMonitorGcp
+     */
     CspmMonitorGcp: "CspmMonitorGcp",
+    /**
+     * CspmMonitorGithub
+     */
     CspmMonitorGithub: "CspmMonitorGithub",
+    /**
+     * CspmMonitorAzureDevOps
+     */
     CspmMonitorAzureDevOps: "CspmMonitorAzureDevOps",
+    /**
+     * DefenderForServersGcp
+     */
     DefenderForServersGcp: "DefenderForServersGcp",
+    /**
+     * DefenderForContainersGcp
+     */
     DefenderForContainersGcp: "DefenderForContainersGcp",
+    /**
+     * DefenderForDatabasesGcp
+     */
     DefenderForDatabasesGcp: "DefenderForDatabasesGcp",
+    /**
+     * DefenderCspmAws
+     */
     DefenderCspmAws: "DefenderCspmAws",
+    /**
+     * DefenderCspmGcp
+     */
     DefenderCspmGcp: "DefenderCspmGcp",
+    /**
+     * CspmMonitorGitLab
+     */
     CspmMonitorGitLab: "CspmMonitorGitLab",
+    /**
+     * CspmMonitorDockerHub
+     */
     CspmMonitorDockerHub: "CspmMonitorDockerHub",
+    /**
+     * DefenderForContainersDockerHub
+     */
     DefenderForContainersDockerHub: "DefenderForContainersDockerHub",
+    /**
+     * DefenderCspmDockerHub
+     */
     DefenderCspmDockerHub: "DefenderCspmDockerHub",
+    /**
+     * CspmMonitorJFrog
+     */
     CspmMonitorJFrog: "CspmMonitorJFrog",
+    /**
+     * DefenderForContainersJFrog
+     */
     DefenderForContainersJFrog: "DefenderForContainersJFrog",
+    /**
+     * DefenderCspmJFrog
+     */
     DefenderCspmJFrog: "DefenderCspmJFrog",
 } as const;
 
@@ -445,7 +635,13 @@ export const Operator = {
 export type Operator = (typeof Operator)[keyof typeof Operator];
 
 export const OrganizationMembershipType = {
+    /**
+     * Member
+     */
     Member: "Member",
+    /**
+     * Organization
+     */
     Organization: "Organization",
 } as const;
 
@@ -482,9 +678,21 @@ export const PrivateEndpointServiceConnectionStatus = {
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
 
 export const PropertyType = {
+    /**
+     * String
+     */
     String: "String",
+    /**
+     * Integer
+     */
     Integer: "Integer",
+    /**
+     * Number
+     */
     Number: "Number",
+    /**
+     * Boolean
+     */
     Boolean: "Boolean",
 } as const;
 
@@ -494,15 +702,30 @@ export const PropertyType = {
 export type PropertyType = (typeof PropertyType)[keyof typeof PropertyType];
 
 export const Protocol = {
+    /**
+     * TCP
+     */
     TCP: "TCP",
+    /**
+     * UDP
+     */
     UDP: "UDP",
+    /**
+     * *
+     */
     All: "*",
 } as const;
 
 export type Protocol = (typeof Protocol)[keyof typeof Protocol];
 
 export const RecommendationConfigStatus = {
+    /**
+     * Disabled
+     */
     Disabled: "Disabled",
+    /**
+     * Enabled
+     */
     Enabled: "Enabled",
 } as const;
 
@@ -512,8 +735,17 @@ export const RecommendationConfigStatus = {
 export type RecommendationConfigStatus = (typeof RecommendationConfigStatus)[keyof typeof RecommendationConfigStatus];
 
 export const RecommendationSupportedClouds = {
+    /**
+     * Azure
+     */
     Azure: "Azure",
+    /**
+     * AWS
+     */
     AWS: "AWS",
+    /**
+     * GCP
+     */
     GCP: "GCP",
 } as const;
 
@@ -595,8 +827,17 @@ export const RecommendationType = {
 export type RecommendationType = (typeof RecommendationType)[keyof typeof RecommendationType];
 
 export const RuleState = {
+    /**
+     * Enabled
+     */
     Enabled: "Enabled",
+    /**
+     * Disabled
+     */
     Disabled: "Disabled",
+    /**
+     * Expired
+     */
     Expired: "Expired",
 } as const;
 
@@ -606,6 +847,9 @@ export const RuleState = {
 export type RuleState = (typeof RuleState)[keyof typeof RuleState];
 
 export const ScanningMode = {
+    /**
+     * Default
+     */
     Default: "Default",
 } as const;
 
@@ -639,11 +883,29 @@ export const SecurityContactRole = {
 export type SecurityContactRole = (typeof SecurityContactRole)[keyof typeof SecurityContactRole];
 
 export const SecurityIssue = {
+    /**
+     * Vulnerability
+     */
     Vulnerability: "Vulnerability",
+    /**
+     * ExcessivePermissions
+     */
     ExcessivePermissions: "ExcessivePermissions",
+    /**
+     * AnonymousAccess
+     */
     AnonymousAccess: "AnonymousAccess",
+    /**
+     * NetworkExposure
+     */
     NetworkExposure: "NetworkExposure",
+    /**
+     * TrafficEncryption
+     */
     TrafficEncryption: "TrafficEncryption",
+    /**
+     * BestPractices
+     */
     BestPractices: "BestPractices",
 } as const;
 
@@ -653,7 +915,13 @@ export const SecurityIssue = {
 export type SecurityIssue = (typeof SecurityIssue)[keyof typeof SecurityIssue];
 
 export const SecuritySolutionStatus = {
+    /**
+     * Enabled
+     */
     Enabled: "Enabled",
+    /**
+     * Disabled
+     */
     Disabled: "Disabled",
 } as const;
 
@@ -675,6 +943,9 @@ export const ServerVulnerabilityAssessmentsAzureSettingSelectedProvider = {
 export type ServerVulnerabilityAssessmentsAzureSettingSelectedProvider = (typeof ServerVulnerabilityAssessmentsAzureSettingSelectedProvider)[keyof typeof ServerVulnerabilityAssessmentsAzureSettingSelectedProvider];
 
 export const ServerVulnerabilityAssessmentsSettingKind = {
+    /**
+     * AzureServersSetting
+     */
     AzureServersSetting: "AzureServersSetting",
 } as const;
 
@@ -695,8 +966,17 @@ export const Severity = {
 export type Severity = (typeof Severity)[keyof typeof Severity];
 
 export const SeverityEnum = {
+    /**
+     * High
+     */
     High: "High",
+    /**
+     * Medium
+     */
     Medium: "Medium",
+    /**
+     * Low
+     */
     Low: "Low",
 } as const;
 
@@ -726,7 +1006,13 @@ export const Source = {
 export type Source = (typeof Source)[keyof typeof Source];
 
 export const SourceType = {
+    /**
+     * Alert
+     */
     Alert: "Alert",
+    /**
+     * AttackPath
+     */
     AttackPath: "AttackPath",
 } as const;
 
@@ -736,8 +1022,17 @@ export const SourceType = {
 export type SourceType = (typeof SourceType)[keyof typeof SourceType];
 
 export const StandardSupportedCloud = {
+    /**
+     * Azure
+     */
     Azure: "Azure",
+    /**
+     * AWS
+     */
     AWS: "AWS",
+    /**
+     * GCP
+     */
     GCP: "GCP",
 } as const;
 
@@ -747,7 +1042,13 @@ export const StandardSupportedCloud = {
 export type StandardSupportedCloud = (typeof StandardSupportedCloud)[keyof typeof StandardSupportedCloud];
 
 export const StandardSupportedClouds = {
+    /**
+     * AWS
+     */
     AWS: "AWS",
+    /**
+     * GCP
+     */
     GCP: "GCP",
 } as const;
 
@@ -757,6 +1058,22 @@ export const StandardSupportedClouds = {
 export type StandardSupportedClouds = (typeof StandardSupportedClouds)[keyof typeof StandardSupportedClouds];
 
 export const State = {
+    /**
+     * All supported regulatory compliance controls in the given standard have a passed state
+     */
+    Passed: "Passed",
+    /**
+     * At least one supported regulatory compliance control in the given standard has a state of failed
+     */
+    Failed: "Failed",
+    /**
+     * All supported regulatory compliance controls in the given standard have a state of skipped
+     */
+    Skipped: "Skipped",
+    /**
+     * No supported regulatory compliance data for the given standard
+     */
+    Unsupported: "Unsupported",
     /**
      * Send notification on new alerts to the subscription's admins
      */
@@ -773,7 +1090,13 @@ export const State = {
 export type State = (typeof State)[keyof typeof State];
 
 export const Status = {
+    /**
+     * Revoked
+     */
     Revoked: "Revoked",
+    /**
+     * Initiated
+     */
     Initiated: "Initiated",
 } as const;
 
@@ -783,8 +1106,17 @@ export const Status = {
 export type Status = (typeof Status)[keyof typeof Status];
 
 export const StatusReason = {
+    /**
+     * Expired
+     */
     Expired: "Expired",
+    /**
+     * UserRequested
+     */
     UserRequested: "UserRequested",
+    /**
+     * NewerRequestInitiated
+     */
     NewerRequestInitiated: "NewerRequestInitiated",
 } as const;
 
@@ -794,7 +1126,13 @@ export const StatusReason = {
 export type StatusReason = (typeof StatusReason)[keyof typeof StatusReason];
 
 export const SubPlan = {
+    /**
+     * P1
+     */
     P1: "P1",
+    /**
+     * P2
+     */
     P2: "P2",
 } as const;
 
@@ -954,7 +1292,13 @@ export const Threats = {
 export type Threats = (typeof Threats)[keyof typeof Threats];
 
 export const Type = {
+    /**
+     * Qualys
+     */
     Qualys: "Qualys",
+    /**
+     * TVM
+     */
     TVM: "TVM",
 } as const;
 

@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.FrontDoor
     /// <summary>
     /// Defines the properties of an Experiment
     /// 
-    /// Uses Azure REST API version 2019-11-01.
+    /// Uses Azure REST API version 2025-11-01.
     /// 
-    /// Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2019-11-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:frontdoor:Experiment")]
     public partial class Experiment : global::Pulumi.CustomResource
@@ -118,6 +118,7 @@ namespace Pulumi.AzureNative.FrontDoor
                 {
                     new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20191101:Experiment" },
                     new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20251001:Experiment" },
+                    new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20251101:Experiment" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20191101:Experiment" },
                     new global::Pulumi.Alias { Type = "azure-native:network:Experiment" },
                 },
@@ -186,7 +187,7 @@ namespace Pulumi.AzureNative.FrontDoor
         public Input<string> ProfileName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

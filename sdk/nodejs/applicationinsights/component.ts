@@ -196,8 +196,8 @@ export class Component extends pulumi.CustomResource {
             resourceInputs["ingestionMode"] = (args?.ingestionMode) ?? "LogAnalytics";
             resourceInputs["kind"] = args?.kind;
             resourceInputs["location"] = args?.location;
-            resourceInputs["publicNetworkAccessForIngestion"] = args?.publicNetworkAccessForIngestion;
-            resourceInputs["publicNetworkAccessForQuery"] = args?.publicNetworkAccessForQuery;
+            resourceInputs["publicNetworkAccessForIngestion"] = (args?.publicNetworkAccessForIngestion) ?? "Enabled";
+            resourceInputs["publicNetworkAccessForQuery"] = (args?.publicNetworkAccessForQuery) ?? "Enabled";
             resourceInputs["requestSource"] = (args?.requestSource) ?? "rest";
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["resourceName"] = args?.resourceName;

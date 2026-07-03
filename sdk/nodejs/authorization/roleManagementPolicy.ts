@@ -64,13 +64,13 @@ export class RoleManagementPolicy extends pulumi.CustomResource {
     /**
      * The name of the entity last modified it
      */
-    declare public /*out*/ readonly lastModifiedBy: pulumi.Output<outputs.authorization.PrincipalResponse>;
+    declare public /*out*/ readonly lastModifiedBy: pulumi.Output<outputs.authorization.MicrosoftCommonPrincipalResponse>;
     /**
      * The last modified date time.
      */
     declare public /*out*/ readonly lastModifiedDateTime: pulumi.Output<string>;
     /**
-     * The role management policy name.
+     * The name of the resource
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
@@ -86,7 +86,11 @@ export class RoleManagementPolicy extends pulumi.CustomResource {
      */
     declare public readonly scope: pulumi.Output<string | undefined>;
     /**
-     * The role management policy type.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.authorization.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
 
@@ -116,6 +120,7 @@ export class RoleManagementPolicy extends pulumi.CustomResource {
             resourceInputs["lastModifiedDateTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["policyProperties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -129,6 +134,7 @@ export class RoleManagementPolicy extends pulumi.CustomResource {
             resourceInputs["policyProperties"] = undefined /*out*/;
             resourceInputs["rules"] = undefined /*out*/;
             resourceInputs["scope"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -155,7 +161,7 @@ export interface RoleManagementPolicyArgs {
      */
     isOrganizationDefault?: pulumi.Input<boolean>;
     /**
-     * The name (guid) of the role management policy to upsert.
+     * The name (guid) of the role management policy to get.
      */
     roleManagementPolicyName?: pulumi.Input<string>;
     /**

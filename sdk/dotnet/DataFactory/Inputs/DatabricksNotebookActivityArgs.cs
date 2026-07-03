@@ -15,17 +15,11 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// </summary>
     public sealed class DatabricksNotebookActivityArgs : global::Pulumi.ResourceArgs
     {
-        [Input("baseParameters")]
-        private InputMap<object>? _baseParameters;
-
         /// <summary>
         /// Base parameters to be used for each run of this job.If the notebook takes a parameter that is not specified, the default value from the notebook will be used.
         /// </summary>
-        public InputMap<object> BaseParameters
-        {
-            get => _baseParameters ?? (_baseParameters = new InputMap<object>());
-            set => _baseParameters = value;
-        }
+        [Input("baseParameters")]
+        public Input<object>? BaseParameters { get; set; }
 
         [Input("dependsOn")]
         private InputList<Inputs.ActivityDependencyArgs>? _dependsOn;
@@ -46,14 +40,14 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<string>? Description { get; set; }
 
         [Input("libraries")]
-        private InputList<ImmutableDictionary<string, object>>? _libraries;
+        private InputList<object>? _libraries;
 
         /// <summary>
         /// A list of libraries to be installed on the cluster that will execute the job.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Libraries
+        public InputList<object> Libraries
         {
-            get => _libraries ?? (_libraries = new InputList<ImmutableDictionary<string, object>>());
+            get => _libraries ?? (_libraries = new InputList<object>());
             set => _libraries = value;
         }
 

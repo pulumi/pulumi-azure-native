@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.Compute
     /// Concrete tracked resource types can be created by aliasing this type using a specific property type.
     /// 
     /// Uses Azure REST API version 2025-03-03.
+    /// 
+    /// Other available API versions: 2025-12-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:GalleryScriptVersion")]
     public partial class GalleryScriptVersion : global::Pulumi.CustomResource
@@ -85,6 +87,7 @@ namespace Pulumi.AzureNative.Compute
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20250303:GalleryScriptVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20251203:GalleryScriptVersion" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

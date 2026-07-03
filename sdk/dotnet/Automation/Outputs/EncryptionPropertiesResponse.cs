@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Automation.Outputs
         /// <summary>
         /// User identity used for CMK.
         /// </summary>
-        public readonly Outputs.EncryptionPropertiesResponseIdentity? Identity;
+        public readonly Outputs.EncryptionPropertiesIdentityResponse? Identity;
         /// <summary>
         /// Encryption Key Source
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Automation.Outputs
 
         [OutputConstructor]
         private EncryptionPropertiesResponse(
-            Outputs.EncryptionPropertiesResponseIdentity? identity,
+            Outputs.EncryptionPropertiesIdentityResponse? identity,
 
             string? keySource,
 

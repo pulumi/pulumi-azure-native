@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Compute
         /// Custom ArmResourceRead operation template with CloudError as Error
         /// 
         /// Uses Azure REST API version 2025-03-03.
+        /// 
+        /// Other available API versions: 2025-12-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetGalleryScriptVersionResult> InvokeAsync(GetGalleryScriptVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGalleryScriptVersionResult>("azure-native:compute:getGalleryScriptVersion", args ?? new GetGalleryScriptVersionArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Compute
         /// Custom ArmResourceRead operation template with CloudError as Error
         /// 
         /// Uses Azure REST API version 2025-03-03.
+        /// 
+        /// Other available API versions: 2025-12-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetGalleryScriptVersionResult> Invoke(GetGalleryScriptVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGalleryScriptVersionResult>("azure-native:compute:getGalleryScriptVersion", args ?? new GetGalleryScriptVersionInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Compute
         /// Custom ArmResourceRead operation template with CloudError as Error
         /// 
         /// Uses Azure REST API version 2025-03-03.
+        /// 
+        /// Other available API versions: 2025-12-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetGalleryScriptVersionResult> Invoke(GetGalleryScriptVersionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGalleryScriptVersionResult>("azure-native:compute:getGalleryScriptVersion", args ?? new GetGalleryScriptVersionInvokeArgs(), options.WithDefaults());

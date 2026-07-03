@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// Allows user to specify defines for streaming job request.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Defines;
+        public readonly object? Defines;
         /// <summary>
         /// Activity depends on condition.
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             ImmutableArray<object> commandEnvironment,
 
-            ImmutableDictionary<string, object>? defines,
+            object? defines,
 
             ImmutableArray<Outputs.ActivityDependencyResponse> dependsOn,
 

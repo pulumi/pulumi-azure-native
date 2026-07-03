@@ -206,6 +206,7 @@ class SecurityContact(pulumi.CustomResource):
             __props__.__dict__["security_contact_name"] = security_contact_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20170801preview:SecurityContact"), pulumi.Alias(type_="azure-native:security/v20200101preview:SecurityContact"), pulumi.Alias(type_="azure-native:security/v20231201preview:SecurityContact")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -238,6 +239,7 @@ class SecurityContact(pulumi.CustomResource):
         __props__.__dict__["notifications_by_role"] = None
         __props__.__dict__["notifications_sources"] = None
         __props__.__dict__["phone"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return SecurityContact(resource_name, opts=opts, __props__=__props__)
 
@@ -269,13 +271,13 @@ class SecurityContact(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="notificationsByRole")
-    def notifications_by_role(self) -> pulumi.Output[Optional['outputs.SecurityContactPropertiesResponseNotificationsByRole']]:
+    def notifications_by_role(self) -> pulumi.Output[Optional['outputs.SecurityContactPropertiesNotificationsByRoleResponse']]:
         """
         Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
         """
@@ -298,10 +300,18 @@ class SecurityContact(pulumi.CustomResource):
         return pulumi.get(self, "phone")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

@@ -195,7 +195,7 @@ namespace Pulumi.AzureNative.Automation
         public Input<string>? RepoUrl { get; set; }
 
         /// <summary>
-        /// Name of an Azure Resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -207,7 +207,7 @@ namespace Pulumi.AzureNative.Automation
         public Input<Inputs.SourceControlSecurityTokenPropertiesArgs>? SecurityToken { get; set; }
 
         /// <summary>
-        /// The source control name.
+        /// The name of source control.
         /// </summary>
         [Input("sourceControlName")]
         public Input<string>? SourceControlName { get; set; }

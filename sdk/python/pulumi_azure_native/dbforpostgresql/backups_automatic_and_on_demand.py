@@ -87,7 +87,7 @@ class BackupsAutomaticAndOnDemand(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-08-01.
 
-        Other available API versions: 2025-06-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2025-06-01-preview, 2026-01-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -107,7 +107,7 @@ class BackupsAutomaticAndOnDemand(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-08-01.
 
-        Other available API versions: 2025-06-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2025-06-01-preview, 2026-01-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -151,7 +151,7 @@ class BackupsAutomaticAndOnDemand(pulumi.CustomResource):
             __props__.__dict__["source"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20240301preview:Backup"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20240301preview:BackupsAutomaticAndOnDemand"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20240801:Backup"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20240801:BackupsAutomaticAndOnDemand"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20241101preview:Backup"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20241101preview:BackupsAutomaticAndOnDemand"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20250101preview:BackupsAutomaticAndOnDemand"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20250601preview:BackupsAutomaticAndOnDemand"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20250801:BackupsAutomaticAndOnDemand"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20260101preview:BackupsAutomaticAndOnDemand"), pulumi.Alias(type_="azure-native:dbforpostgresql:Backup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20240301preview:Backup"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20240301preview:BackupsAutomaticAndOnDemand"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20240801:Backup"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20240801:BackupsAutomaticAndOnDemand"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20241101preview:Backup"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20241101preview:BackupsAutomaticAndOnDemand"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20250101preview:BackupsAutomaticAndOnDemand"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20250601preview:BackupsAutomaticAndOnDemand"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20250801:BackupsAutomaticAndOnDemand"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20260101preview:BackupsAutomaticAndOnDemand"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20260401preview:BackupsAutomaticAndOnDemand"), pulumi.Alias(type_="azure-native:dbforpostgresql:Backup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BackupsAutomaticAndOnDemand, __self__).__init__(
             'azure-native:dbforpostgresql:BackupsAutomaticAndOnDemand',

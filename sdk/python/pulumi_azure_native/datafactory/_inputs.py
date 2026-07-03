@@ -598,8 +598,8 @@ __all__ = [
     'IntegrationRuntimeCustomSetupScriptPropertiesArgsDict',
     'IntegrationRuntimeCustomerVirtualNetworkArgs',
     'IntegrationRuntimeCustomerVirtualNetworkArgsDict',
-    'IntegrationRuntimeDataFlowPropertiesCustomPropertiesArgs',
-    'IntegrationRuntimeDataFlowPropertiesCustomPropertiesArgsDict',
+    'IntegrationRuntimeDataFlowPropertiesCustomPropertiesItemArgs',
+    'IntegrationRuntimeDataFlowPropertiesCustomPropertiesItemArgsDict',
     'IntegrationRuntimeDataFlowPropertiesArgs',
     'IntegrationRuntimeDataFlowPropertiesArgsDict',
     'IntegrationRuntimeDataProxyPropertiesArgs',
@@ -2631,9 +2631,9 @@ class AmazonRdsForOraclePartitionSettingsArgsDict(TypedDict):
     """
     The minimum value of column specified in partitionColumnName that will be used for proceeding range partitioning. Type: string (or Expression with resultType string).
     """
-    partition_names: NotRequired[pulumi.Input[Sequence[Any]]]
+    partition_names: NotRequired[Any]
     """
-    Names of the physical partitions of AmazonRdsForOracle table. 
+    Names of the physical partitions of AmazonRdsForOracle table.
     """
     partition_upper_bound: NotRequired[Any]
     """
@@ -2645,14 +2645,14 @@ class AmazonRdsForOraclePartitionSettingsArgs:
     def __init__(__self__, *,
                  partition_column_name: Optional[Any] = None,
                  partition_lower_bound: Optional[Any] = None,
-                 partition_names: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 partition_names: Optional[Any] = None,
                  partition_upper_bound: Optional[Any] = None):
         """
         The settings that will be leveraged for AmazonRdsForOracle source partitioning.
 
         :param Any partition_column_name: The name of the column in integer type that will be used for proceeding range partitioning. Type: string (or Expression with resultType string).
         :param Any partition_lower_bound: The minimum value of column specified in partitionColumnName that will be used for proceeding range partitioning. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Sequence[Any]] partition_names: Names of the physical partitions of AmazonRdsForOracle table. 
+        :param Any partition_names: Names of the physical partitions of AmazonRdsForOracle table.
         :param Any partition_upper_bound: The maximum value of column specified in partitionColumnName that will be used for proceeding range partitioning. Type: string (or Expression with resultType string).
         """
         if partition_column_name is not None:
@@ -2690,14 +2690,14 @@ class AmazonRdsForOraclePartitionSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="partitionNames")
-    def partition_names(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+    def partition_names(self) -> Optional[Any]:
         """
-        Names of the physical partitions of AmazonRdsForOracle table. 
+        Names of the physical partitions of AmazonRdsForOracle table.
         """
         return pulumi.get(self, "partition_names")
 
     @partition_names.setter
-    def partition_names(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+    def partition_names(self, value: Optional[Any]):
         pulumi.set(self, "partition_names", value)
 
     @_builtins.property
@@ -14802,7 +14802,7 @@ class AzureDatabricksLinkedServiceArgsDict(TypedDict):
     """
     The id of an existing instance pool that will be used for all runs of this activity. Type: string (or Expression with resultType string).
     """
-    new_cluster_custom_tags: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    new_cluster_custom_tags: NotRequired[Any]
     """
     Additional tags for cluster resources. This property is ignored in instance pool configurations.
     """
@@ -14830,11 +14830,11 @@ class AzureDatabricksLinkedServiceArgsDict(TypedDict):
     """
     If not using an existing interactive cluster, this specifies the number of worker nodes to use for the new job cluster or instance pool. For new job clusters, this a string-formatted Int32, like '1' means numOfWorker is 1 or '1:10' means auto-scale from 1 (min) to 10 (max). For instance pools, this is a string-formatted Int32, and can only specify a fixed number of worker nodes, such as '2'. Required if newClusterVersion is specified. Type: string (or Expression with resultType string).
     """
-    new_cluster_spark_conf: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    new_cluster_spark_conf: NotRequired[Any]
     """
     A set of optional, user-specified Spark configuration key-value pairs.
     """
-    new_cluster_spark_env_vars: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    new_cluster_spark_env_vars: NotRequired[Any]
     """
     A set of optional, user-specified Spark environment variables key-value pairs.
     """
@@ -14874,15 +14874,15 @@ class AzureDatabricksLinkedServiceArgs:
                  encrypted_credential: Optional[pulumi.Input[_builtins.str]] = None,
                  existing_cluster_id: Optional[Any] = None,
                  instance_pool_id: Optional[Any] = None,
-                 new_cluster_custom_tags: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 new_cluster_custom_tags: Optional[Any] = None,
                  new_cluster_driver_node_type: Optional[Any] = None,
                  new_cluster_enable_elastic_disk: Optional[Any] = None,
                  new_cluster_init_scripts: Optional[Any] = None,
                  new_cluster_log_destination: Optional[Any] = None,
                  new_cluster_node_type: Optional[Any] = None,
                  new_cluster_num_of_worker: Optional[Any] = None,
-                 new_cluster_spark_conf: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 new_cluster_spark_env_vars: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 new_cluster_spark_conf: Optional[Any] = None,
+                 new_cluster_spark_env_vars: Optional[Any] = None,
                  new_cluster_version: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  policy_id: Optional[Any] = None,
@@ -14904,15 +14904,15 @@ class AzureDatabricksLinkedServiceArgs:
         :param pulumi.Input[_builtins.str] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Any existing_cluster_id: The id of an existing interactive cluster that will be used for all runs of this activity. Type: string (or Expression with resultType string).
         :param Any instance_pool_id: The id of an existing instance pool that will be used for all runs of this activity. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] new_cluster_custom_tags: Additional tags for cluster resources. This property is ignored in instance pool configurations.
+        :param Any new_cluster_custom_tags: Additional tags for cluster resources. This property is ignored in instance pool configurations.
         :param Any new_cluster_driver_node_type: The driver node type for the new job cluster. This property is ignored in instance pool configurations. Type: string (or Expression with resultType string).
         :param Any new_cluster_enable_elastic_disk: Enable the elastic disk on the new cluster. This property is now ignored, and takes the default elastic disk behavior in Databricks (elastic disks are always enabled). Type: boolean (or Expression with resultType boolean).
         :param Any new_cluster_init_scripts: User-defined initialization scripts for the new cluster. Type: array of strings (or Expression with resultType array of strings).
         :param Any new_cluster_log_destination: Specify a location to deliver Spark driver, worker, and event logs. Type: string (or Expression with resultType string).
         :param Any new_cluster_node_type: The node type of the new job cluster. This property is required if newClusterVersion is specified and instancePoolId is not specified. If instancePoolId is specified, this property is ignored. Type: string (or Expression with resultType string).
         :param Any new_cluster_num_of_worker: If not using an existing interactive cluster, this specifies the number of worker nodes to use for the new job cluster or instance pool. For new job clusters, this a string-formatted Int32, like '1' means numOfWorker is 1 or '1:10' means auto-scale from 1 (min) to 10 (max). For instance pools, this is a string-formatted Int32, and can only specify a fixed number of worker nodes, such as '2'. Required if newClusterVersion is specified. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] new_cluster_spark_conf: A set of optional, user-specified Spark configuration key-value pairs.
-        :param pulumi.Input[Mapping[str, Any]] new_cluster_spark_env_vars: A set of optional, user-specified Spark environment variables key-value pairs.
+        :param Any new_cluster_spark_conf: A set of optional, user-specified Spark configuration key-value pairs.
+        :param Any new_cluster_spark_env_vars: A set of optional, user-specified Spark environment variables key-value pairs.
         :param Any new_cluster_version: If not using an existing interactive cluster, this specifies the Spark version of a new job cluster or instance pool nodes created for each run of this activity. Required if instancePoolId is specified. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param Any policy_id: The policy id for limiting the ability to configure clusters based on a user defined set of rules. Type: string (or Expression with resultType string).
@@ -15117,14 +15117,14 @@ class AzureDatabricksLinkedServiceArgs:
 
     @_builtins.property
     @pulumi.getter(name="newClusterCustomTags")
-    def new_cluster_custom_tags(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def new_cluster_custom_tags(self) -> Optional[Any]:
         """
         Additional tags for cluster resources. This property is ignored in instance pool configurations.
         """
         return pulumi.get(self, "new_cluster_custom_tags")
 
     @new_cluster_custom_tags.setter
-    def new_cluster_custom_tags(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def new_cluster_custom_tags(self, value: Optional[Any]):
         pulumi.set(self, "new_cluster_custom_tags", value)
 
     @_builtins.property
@@ -15201,26 +15201,26 @@ class AzureDatabricksLinkedServiceArgs:
 
     @_builtins.property
     @pulumi.getter(name="newClusterSparkConf")
-    def new_cluster_spark_conf(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def new_cluster_spark_conf(self) -> Optional[Any]:
         """
         A set of optional, user-specified Spark configuration key-value pairs.
         """
         return pulumi.get(self, "new_cluster_spark_conf")
 
     @new_cluster_spark_conf.setter
-    def new_cluster_spark_conf(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def new_cluster_spark_conf(self, value: Optional[Any]):
         pulumi.set(self, "new_cluster_spark_conf", value)
 
     @_builtins.property
     @pulumi.getter(name="newClusterSparkEnvVars")
-    def new_cluster_spark_env_vars(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def new_cluster_spark_env_vars(self) -> Optional[Any]:
         """
         A set of optional, user-specified Spark environment variables key-value pairs.
         """
         return pulumi.get(self, "new_cluster_spark_env_vars")
 
     @new_cluster_spark_env_vars.setter
-    def new_cluster_spark_env_vars(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def new_cluster_spark_env_vars(self, value: Optional[Any]):
         pulumi.set(self, "new_cluster_spark_env_vars", value)
 
     @_builtins.property
@@ -16161,7 +16161,7 @@ class AzureFunctionActivityArgsDict(TypedDict):
     """
     Activity description.
     """
-    headers: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    headers: NotRequired[Any]
     """
     Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
     """
@@ -16196,7 +16196,7 @@ class AzureFunctionActivityArgs:
                  body: Optional[Any] = None,
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
-                 headers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 headers: Optional[Any] = None,
                  linked_service_name: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
                  on_inactive_mark_as: Optional[pulumi.Input[Union[_builtins.str, 'ActivityOnInactiveMarkAs']]] = None,
                  policy: Optional[pulumi.Input['ActivityPolicyArgs']] = None,
@@ -16213,7 +16213,7 @@ class AzureFunctionActivityArgs:
         :param Any body: Represents the payload that will be sent to the endpoint. Required for POST/PUT method, not allowed for GET method Type: string (or Expression with resultType string).
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[_builtins.str] description: Activity description.
-        :param pulumi.Input[Mapping[str, Any]] headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
+        :param Any headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[Union[_builtins.str, 'ActivityOnInactiveMarkAs']] on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
@@ -16330,14 +16330,14 @@ class AzureFunctionActivityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def headers(self) -> Optional[Any]:
         """
         Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def headers(self, value: Optional[Any]):
         pulumi.set(self, "headers", value)
 
     @_builtins.property
@@ -16946,7 +16946,7 @@ class AzureMLBatchExecutionActivityArgsDict(TypedDict):
     """
     Activity description.
     """
-    global_parameters: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    global_parameters: NotRequired[Any]
     """
     Key,Value pairs to be passed to the Azure ML Batch Execution Service endpoint. Keys must match the names of web service parameters defined in the published Azure ML web service. Values will be passed in the GlobalParameters property of the Azure ML batch execution request.
     """
@@ -16986,7 +16986,7 @@ class AzureMLBatchExecutionActivityArgs:
                  type: pulumi.Input[_builtins.str],
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 global_parameters: Optional[Any] = None,
                  linked_service_name: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
                  on_inactive_mark_as: Optional[pulumi.Input[Union[_builtins.str, 'ActivityOnInactiveMarkAs']]] = None,
                  policy: Optional[pulumi.Input['ActivityPolicyArgs']] = None,
@@ -17002,7 +17002,7 @@ class AzureMLBatchExecutionActivityArgs:
                Expected value is 'AzureMLBatchExecution'.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[_builtins.str] description: Activity description.
-        :param pulumi.Input[Mapping[str, Any]] global_parameters: Key,Value pairs to be passed to the Azure ML Batch Execution Service endpoint. Keys must match the names of web service parameters defined in the published Azure ML web service. Values will be passed in the GlobalParameters property of the Azure ML batch execution request.
+        :param Any global_parameters: Key,Value pairs to be passed to the Azure ML Batch Execution Service endpoint. Keys must match the names of web service parameters defined in the published Azure ML web service. Values will be passed in the GlobalParameters property of the Azure ML batch execution request.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[Union[_builtins.str, 'ActivityOnInactiveMarkAs']] on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
@@ -17085,14 +17085,14 @@ class AzureMLBatchExecutionActivityArgs:
 
     @_builtins.property
     @pulumi.getter(name="globalParameters")
-    def global_parameters(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def global_parameters(self) -> Optional[Any]:
         """
         Key,Value pairs to be passed to the Azure ML Batch Execution Service endpoint. Keys must match the names of web service parameters defined in the published Azure ML web service. Values will be passed in the GlobalParameters property of the Azure ML batch execution request.
         """
         return pulumi.get(self, "global_parameters")
 
     @global_parameters.setter
-    def global_parameters(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def global_parameters(self, value: Optional[Any]):
         pulumi.set(self, "global_parameters", value)
 
     @_builtins.property
@@ -34058,7 +34058,7 @@ class CustomActivityArgsDict(TypedDict):
     """
     Activity description.
     """
-    extended_properties: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    extended_properties: NotRequired[Any]
     """
     User defined property bag. There is no restriction on the keys or values that can be used. The user specified custom activity has the full responsibility to consume and interpret the content defined.
     """
@@ -34108,7 +34108,7 @@ class CustomActivityArgs:
                  auto_user_specification: Optional[Any] = None,
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 extended_properties: Optional[Any] = None,
                  folder_path: Optional[Any] = None,
                  linked_service_name: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
                  on_inactive_mark_as: Optional[pulumi.Input[Union[_builtins.str, 'ActivityOnInactiveMarkAs']]] = None,
@@ -34128,7 +34128,7 @@ class CustomActivityArgs:
         :param Any auto_user_specification: Elevation level and scope for the user, default is nonadmin task. Type: string (or Expression with resultType double).
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[_builtins.str] description: Activity description.
-        :param pulumi.Input[Mapping[str, Any]] extended_properties: User defined property bag. There is no restriction on the keys or values that can be used. The user specified custom activity has the full responsibility to consume and interpret the content defined.
+        :param Any extended_properties: User defined property bag. There is no restriction on the keys or values that can be used. The user specified custom activity has the full responsibility to consume and interpret the content defined.
         :param Any folder_path: Folder path for resource files Type: string (or Expression with resultType string).
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[Union[_builtins.str, 'ActivityOnInactiveMarkAs']] on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
@@ -34244,14 +34244,14 @@ class CustomActivityArgs:
 
     @_builtins.property
     @pulumi.getter(name="extendedProperties")
-    def extended_properties(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def extended_properties(self) -> Optional[Any]:
         """
         User defined property bag. There is no restriction on the keys or values that can be used. The user specified custom activity has the full responsibility to consume and interpret the content defined.
         """
         return pulumi.get(self, "extended_properties")
 
     @extended_properties.setter
-    def extended_properties(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def extended_properties(self, value: Optional[Any]):
         pulumi.set(self, "extended_properties", value)
 
     @_builtins.property
@@ -35006,7 +35006,7 @@ class DataFlowReferenceArgsDict(TypedDict):
     """
     Reference data flow parameters from dataset.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    parameters: NotRequired[Any]
     """
     Data flow parameters
     """
@@ -35017,14 +35017,14 @@ class DataFlowReferenceArgs:
                  reference_name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[Union[_builtins.str, 'DataFlowReferenceType']],
                  dataset_parameters: Optional[Any] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 parameters: Optional[Any] = None):
         """
         Data flow reference type.
 
         :param pulumi.Input[_builtins.str] reference_name: Reference data flow name.
         :param pulumi.Input[Union[_builtins.str, 'DataFlowReferenceType']] type: Data flow reference type.
         :param Any dataset_parameters: Reference data flow parameters from dataset.
-        :param pulumi.Input[Mapping[str, Any]] parameters: Data flow parameters
+        :param Any parameters: Data flow parameters
         """
         pulumi.set(__self__, "reference_name", reference_name)
         pulumi.set(__self__, "type", type)
@@ -35071,14 +35071,14 @@ class DataFlowReferenceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def parameters(self) -> Optional[Any]:
         """
         Data flow parameters
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def parameters(self, value: Optional[Any]):
         pulumi.set(self, "parameters", value)
 
 
@@ -35467,7 +35467,7 @@ class DataLakeAnalyticsUSQLActivityArgsDict(TypedDict):
     """
     Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    parameters: NotRequired[Any]
     """
     Parameters for U-SQL job request.
     """
@@ -35505,7 +35505,7 @@ class DataLakeAnalyticsUSQLActivityArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  linked_service_name: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
                  on_inactive_mark_as: Optional[pulumi.Input[Union[_builtins.str, 'ActivityOnInactiveMarkAs']]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 parameters: Optional[Any] = None,
                  policy: Optional[pulumi.Input['ActivityPolicyArgs']] = None,
                  priority: Optional[Any] = None,
                  runtime_version: Optional[Any] = None,
@@ -35525,7 +35525,7 @@ class DataLakeAnalyticsUSQLActivityArgs:
         :param pulumi.Input[_builtins.str] description: Activity description.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[Union[_builtins.str, 'ActivityOnInactiveMarkAs']] on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
-        :param pulumi.Input[Mapping[str, Any]] parameters: Parameters for U-SQL job request.
+        :param Any parameters: Parameters for U-SQL job request.
         :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
         :param Any priority: Determines which jobs out of all that are queued should be selected to run first. The lower the number, the higher the priority. Default value is 1000. Type: integer (or Expression with resultType integer), minimum: 1.
         :param Any runtime_version: Runtime version of the U-SQL engine to use. Type: string (or Expression with resultType string).
@@ -35684,14 +35684,14 @@ class DataLakeAnalyticsUSQLActivityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def parameters(self) -> Optional[Any]:
         """
         Parameters for U-SQL job request.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def parameters(self, value: Optional[Any]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
@@ -35894,7 +35894,7 @@ class DatabricksJobActivityArgsDict(TypedDict):
     """
     Activity description.
     """
-    job_parameters: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    job_parameters: NotRequired[Any]
     """
     Job parameters to be used for each run of this job. If the job takes a parameter that is not specified, the default value from the job will be used.
     """
@@ -35927,7 +35927,7 @@ class DatabricksJobActivityArgs:
                  type: pulumi.Input[_builtins.str],
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 job_parameters: Optional[Any] = None,
                  linked_service_name: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
                  on_inactive_mark_as: Optional[pulumi.Input[Union[_builtins.str, 'ActivityOnInactiveMarkAs']]] = None,
                  policy: Optional[pulumi.Input['ActivityPolicyArgs']] = None,
@@ -35942,7 +35942,7 @@ class DatabricksJobActivityArgs:
                Expected value is 'DatabricksJob'.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[_builtins.str] description: Activity description.
-        :param pulumi.Input[Mapping[str, Any]] job_parameters: Job parameters to be used for each run of this job. If the job takes a parameter that is not specified, the default value from the job will be used.
+        :param Any job_parameters: Job parameters to be used for each run of this job. If the job takes a parameter that is not specified, the default value from the job will be used.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[Union[_builtins.str, 'ActivityOnInactiveMarkAs']] on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
@@ -36032,14 +36032,14 @@ class DatabricksJobActivityArgs:
 
     @_builtins.property
     @pulumi.getter(name="jobParameters")
-    def job_parameters(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def job_parameters(self) -> Optional[Any]:
         """
         Job parameters to be used for each run of this job. If the job takes a parameter that is not specified, the default value from the job will be used.
         """
         return pulumi.get(self, "job_parameters")
 
     @job_parameters.setter
-    def job_parameters(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def job_parameters(self, value: Optional[Any]):
         pulumi.set(self, "job_parameters", value)
 
     @_builtins.property
@@ -36120,7 +36120,7 @@ class DatabricksNotebookActivityArgsDict(TypedDict):
     Type of activity.
     Expected value is 'DatabricksNotebook'.
     """
-    base_parameters: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    base_parameters: NotRequired[Any]
     """
     Base parameters to be used for each run of this job.If the notebook takes a parameter that is not specified, the default value from the notebook will be used.
     """
@@ -36132,7 +36132,7 @@ class DatabricksNotebookActivityArgsDict(TypedDict):
     """
     Activity description.
     """
-    libraries: NotRequired[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]
+    libraries: NotRequired[pulumi.Input[Sequence[Any]]]
     """
     A list of libraries to be installed on the cluster that will execute the job.
     """
@@ -36163,10 +36163,10 @@ class DatabricksNotebookActivityArgs:
                  name: pulumi.Input[_builtins.str],
                  notebook_path: Any,
                  type: pulumi.Input[_builtins.str],
-                 base_parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 base_parameters: Optional[Any] = None,
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
-                 libraries: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 libraries: Optional[pulumi.Input[Sequence[Any]]] = None,
                  linked_service_name: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
                  on_inactive_mark_as: Optional[pulumi.Input[Union[_builtins.str, 'ActivityOnInactiveMarkAs']]] = None,
                  policy: Optional[pulumi.Input['ActivityPolicyArgs']] = None,
@@ -36179,10 +36179,10 @@ class DatabricksNotebookActivityArgs:
         :param Any notebook_path: The absolute path of the notebook to be run in the Databricks Workspace. This path must begin with a slash. Type: string (or Expression with resultType string).
         :param pulumi.Input[_builtins.str] type: Type of activity.
                Expected value is 'DatabricksNotebook'.
-        :param pulumi.Input[Mapping[str, Any]] base_parameters: Base parameters to be used for each run of this job.If the notebook takes a parameter that is not specified, the default value from the notebook will be used.
+        :param Any base_parameters: Base parameters to be used for each run of this job.If the notebook takes a parameter that is not specified, the default value from the notebook will be used.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[_builtins.str] description: Activity description.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] libraries: A list of libraries to be installed on the cluster that will execute the job.
+        :param pulumi.Input[Sequence[Any]] libraries: A list of libraries to be installed on the cluster that will execute the job.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[Union[_builtins.str, 'ActivityOnInactiveMarkAs']] on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
@@ -36250,14 +36250,14 @@ class DatabricksNotebookActivityArgs:
 
     @_builtins.property
     @pulumi.getter(name="baseParameters")
-    def base_parameters(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def base_parameters(self) -> Optional[Any]:
         """
         Base parameters to be used for each run of this job.If the notebook takes a parameter that is not specified, the default value from the notebook will be used.
         """
         return pulumi.get(self, "base_parameters")
 
     @base_parameters.setter
-    def base_parameters(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def base_parameters(self, value: Optional[Any]):
         pulumi.set(self, "base_parameters", value)
 
     @_builtins.property
@@ -36286,14 +36286,14 @@ class DatabricksNotebookActivityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def libraries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def libraries(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         A list of libraries to be installed on the cluster that will execute the job.
         """
         return pulumi.get(self, "libraries")
 
     @libraries.setter
-    def libraries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def libraries(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "libraries", value)
 
     @_builtins.property
@@ -36382,7 +36382,7 @@ class DatabricksSparkJarActivityArgsDict(TypedDict):
     """
     Activity description.
     """
-    libraries: NotRequired[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]
+    libraries: NotRequired[pulumi.Input[Sequence[Any]]]
     """
     A list of libraries to be installed on the cluster that will execute the job.
     """
@@ -36419,7 +36419,7 @@ class DatabricksSparkJarActivityArgs:
                  type: pulumi.Input[_builtins.str],
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
-                 libraries: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 libraries: Optional[pulumi.Input[Sequence[Any]]] = None,
                  linked_service_name: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
                  on_inactive_mark_as: Optional[pulumi.Input[Union[_builtins.str, 'ActivityOnInactiveMarkAs']]] = None,
                  parameters: Optional[pulumi.Input[Sequence[Any]]] = None,
@@ -36435,7 +36435,7 @@ class DatabricksSparkJarActivityArgs:
                Expected value is 'DatabricksSparkJar'.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[_builtins.str] description: Activity description.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] libraries: A list of libraries to be installed on the cluster that will execute the job.
+        :param pulumi.Input[Sequence[Any]] libraries: A list of libraries to be installed on the cluster that will execute the job.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[Union[_builtins.str, 'ActivityOnInactiveMarkAs']] on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param pulumi.Input[Sequence[Any]] parameters: Parameters that will be passed to the main method.
@@ -36528,14 +36528,14 @@ class DatabricksSparkJarActivityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def libraries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def libraries(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         A list of libraries to be installed on the cluster that will execute the job.
         """
         return pulumi.get(self, "libraries")
 
     @libraries.setter
-    def libraries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def libraries(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "libraries", value)
 
     @_builtins.property
@@ -36636,7 +36636,7 @@ class DatabricksSparkPythonActivityArgsDict(TypedDict):
     """
     Activity description.
     """
-    libraries: NotRequired[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]
+    libraries: NotRequired[pulumi.Input[Sequence[Any]]]
     """
     A list of libraries to be installed on the cluster that will execute the job.
     """
@@ -36673,7 +36673,7 @@ class DatabricksSparkPythonActivityArgs:
                  type: pulumi.Input[_builtins.str],
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
-                 libraries: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 libraries: Optional[pulumi.Input[Sequence[Any]]] = None,
                  linked_service_name: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
                  on_inactive_mark_as: Optional[pulumi.Input[Union[_builtins.str, 'ActivityOnInactiveMarkAs']]] = None,
                  parameters: Optional[pulumi.Input[Sequence[Any]]] = None,
@@ -36689,7 +36689,7 @@ class DatabricksSparkPythonActivityArgs:
                Expected value is 'DatabricksSparkPython'.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[_builtins.str] description: Activity description.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] libraries: A list of libraries to be installed on the cluster that will execute the job.
+        :param pulumi.Input[Sequence[Any]] libraries: A list of libraries to be installed on the cluster that will execute the job.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[Union[_builtins.str, 'ActivityOnInactiveMarkAs']] on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param pulumi.Input[Sequence[Any]] parameters: Command line parameters that will be passed to the Python file.
@@ -36782,14 +36782,14 @@ class DatabricksSparkPythonActivityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def libraries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def libraries(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
         A list of libraries to be installed on the cluster that will execute the job.
         """
         return pulumi.get(self, "libraries")
 
     @libraries.setter
-    def libraries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def libraries(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "libraries", value)
 
     @_builtins.property
@@ -36960,11 +36960,11 @@ class DatasetReferenceArgsDict(TypedDict):
     """
     Reference dataset name.
     """
-    type: pulumi.Input[_builtins.str]
+    type: pulumi.Input[Union[_builtins.str, 'DatasetReferenceType']]
     """
     Dataset reference type.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    parameters: NotRequired[Any]
     """
     Arguments for dataset.
     """
@@ -36973,14 +36973,14 @@ class DatasetReferenceArgsDict(TypedDict):
 class DatasetReferenceArgs:
     def __init__(__self__, *,
                  reference_name: pulumi.Input[_builtins.str],
-                 type: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 type: pulumi.Input[Union[_builtins.str, 'DatasetReferenceType']],
+                 parameters: Optional[Any] = None):
         """
         Dataset reference type.
 
         :param pulumi.Input[_builtins.str] reference_name: Reference dataset name.
-        :param pulumi.Input[_builtins.str] type: Dataset reference type.
-        :param pulumi.Input[Mapping[str, Any]] parameters: Arguments for dataset.
+        :param pulumi.Input[Union[_builtins.str, 'DatasetReferenceType']] type: Dataset reference type.
+        :param Any parameters: Arguments for dataset.
         """
         pulumi.set(__self__, "reference_name", reference_name)
         pulumi.set(__self__, "type", type)
@@ -37001,26 +37001,26 @@ class DatasetReferenceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> pulumi.Input[_builtins.str]:
+    def type(self) -> pulumi.Input[Union[_builtins.str, 'DatasetReferenceType']]:
         """
         Dataset reference type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[_builtins.str]):
+    def type(self, value: pulumi.Input[Union[_builtins.str, 'DatasetReferenceType']]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def parameters(self) -> Optional[Any]:
         """
         Arguments for dataset.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def parameters(self, value: Optional[Any]):
         pulumi.set(self, "parameters", value)
 
 
@@ -44909,7 +44909,7 @@ class ExecutePipelineActivityArgsDict(TypedDict):
     """
     Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    parameters: NotRequired[Any]
     """
     Pipeline parameters.
     """
@@ -44939,7 +44939,7 @@ class ExecutePipelineActivityArgs:
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  on_inactive_mark_as: Optional[pulumi.Input[Union[_builtins.str, 'ActivityOnInactiveMarkAs']]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 parameters: Optional[Any] = None,
                  policy: Optional[pulumi.Input['ExecutePipelineActivityPolicyArgs']] = None,
                  state: Optional[pulumi.Input[Union[_builtins.str, 'ActivityState']]] = None,
                  user_properties: Optional[pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]]] = None,
@@ -44954,7 +44954,7 @@ class ExecutePipelineActivityArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[_builtins.str] description: Activity description.
         :param pulumi.Input[Union[_builtins.str, 'ActivityOnInactiveMarkAs']] on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
-        :param pulumi.Input[Mapping[str, Any]] parameters: Pipeline parameters.
+        :param Any parameters: Pipeline parameters.
         :param pulumi.Input['ExecutePipelineActivityPolicyArgs'] policy: Execute pipeline activity policy.
         :param pulumi.Input[Union[_builtins.str, 'ActivityState']] state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]] user_properties: Activity user properties.
@@ -45055,14 +45055,14 @@ class ExecutePipelineActivityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def parameters(self) -> Optional[Any]:
         """
         Pipeline parameters.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def parameters(self, value: Optional[Any]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
@@ -46234,7 +46234,7 @@ class ExpressionArgsDict(TypedDict):
     """
     Azure Data Factory expression definition.
     """
-    type: pulumi.Input[_builtins.str]
+    type: pulumi.Input[Union[_builtins.str, 'ExpressionType']]
     """
     Expression type.
     """
@@ -46246,12 +46246,12 @@ class ExpressionArgsDict(TypedDict):
 @pulumi.input_type
 class ExpressionArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[_builtins.str],
+                 type: pulumi.Input[Union[_builtins.str, 'ExpressionType']],
                  value: pulumi.Input[_builtins.str]):
         """
         Azure Data Factory expression definition.
 
-        :param pulumi.Input[_builtins.str] type: Expression type.
+        :param pulumi.Input[Union[_builtins.str, 'ExpressionType']] type: Expression type.
         :param pulumi.Input[_builtins.str] value: Expression value.
         """
         pulumi.set(__self__, "type", type)
@@ -46259,14 +46259,14 @@ class ExpressionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> pulumi.Input[_builtins.str]:
+    def type(self) -> pulumi.Input[Union[_builtins.str, 'ExpressionType']]:
         """
         Expression type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[_builtins.str]):
+    def type(self, value: pulumi.Input[Union[_builtins.str, 'ExpressionType']]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
@@ -46502,7 +46502,7 @@ class FactoryIdentityArgsDict(TypedDict):
     """
     The identity type.
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    user_assigned_identities: NotRequired[Any]
     """
     List of user assigned identities for the factory.
     """
@@ -46511,12 +46511,12 @@ class FactoryIdentityArgsDict(TypedDict):
 class FactoryIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'FactoryIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 user_assigned_identities: Optional[Any] = None):
         """
         Identity properties of the factory resource.
 
         :param pulumi.Input[Union[_builtins.str, 'FactoryIdentityType']] type: The identity type.
-        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: List of user assigned identities for the factory.
+        :param Any user_assigned_identities: List of user assigned identities for the factory.
         """
         pulumi.set(__self__, "type", type)
         if user_assigned_identities is not None:
@@ -46536,14 +46536,14 @@ class FactoryIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_assigned_identities(self) -> Optional[Any]:
         """
         List of user assigned identities for the factory.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_assigned_identities(self, value: Optional[Any]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -54493,7 +54493,7 @@ class HDInsightHiveActivityArgsDict(TypedDict):
     """
     User specified arguments to HDInsightActivity.
     """
-    defines: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    defines: NotRequired[Any]
     """
     Allows user to specify defines for Hive job request.
     """
@@ -54545,7 +54545,7 @@ class HDInsightHiveActivityArgsDict(TypedDict):
     """
     Activity user properties.
     """
-    variables: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    variables: NotRequired[Any]
     """
     User specified arguments under hivevar namespace.
     """
@@ -54556,7 +54556,7 @@ class HDInsightHiveActivityArgs:
                  name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
                  arguments: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 defines: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 defines: Optional[Any] = None,
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  get_debug_info: Optional[pulumi.Input[Union[_builtins.str, 'HDInsightActivityDebugInfoOption']]] = None,
@@ -54569,7 +54569,7 @@ class HDInsightHiveActivityArgs:
                  state: Optional[pulumi.Input[Union[_builtins.str, 'ActivityState']]] = None,
                  storage_linked_services: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]]] = None,
                  user_properties: Optional[pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]]] = None,
-                 variables: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 variables: Optional[Any] = None):
         """
         HDInsight Hive activity type.
 
@@ -54577,7 +54577,7 @@ class HDInsightHiveActivityArgs:
         :param pulumi.Input[_builtins.str] type: Type of activity.
                Expected value is 'HDInsightHive'.
         :param pulumi.Input[Sequence[Any]] arguments: User specified arguments to HDInsightActivity.
-        :param pulumi.Input[Mapping[str, Any]] defines: Allows user to specify defines for Hive job request.
+        :param Any defines: Allows user to specify defines for Hive job request.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[_builtins.str] description: Activity description.
         :param pulumi.Input[Union[_builtins.str, 'HDInsightActivityDebugInfoOption']] get_debug_info: Debug info option.
@@ -54590,7 +54590,7 @@ class HDInsightHiveActivityArgs:
         :param pulumi.Input[Union[_builtins.str, 'ActivityState']] state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]] storage_linked_services: Storage linked service references.
         :param pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]] user_properties: Activity user properties.
-        :param pulumi.Input[Mapping[str, Any]] variables: User specified arguments under hivevar namespace.
+        :param Any variables: User specified arguments under hivevar namespace.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", 'HDInsightHive')
@@ -54664,14 +54664,14 @@ class HDInsightHiveActivityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def defines(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def defines(self) -> Optional[Any]:
         """
         Allows user to specify defines for Hive job request.
         """
         return pulumi.get(self, "defines")
 
     @defines.setter
-    def defines(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def defines(self, value: Optional[Any]):
         pulumi.set(self, "defines", value)
 
     @_builtins.property
@@ -54820,14 +54820,14 @@ class HDInsightHiveActivityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def variables(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def variables(self) -> Optional[Any]:
         """
         User specified arguments under hivevar namespace.
         """
         return pulumi.get(self, "variables")
 
     @variables.setter
-    def variables(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def variables(self, value: Optional[Any]):
         pulumi.set(self, "variables", value)
 
 
@@ -55191,7 +55191,7 @@ class HDInsightMapReduceActivityArgsDict(TypedDict):
     """
     User specified arguments to HDInsightActivity.
     """
-    defines: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    defines: NotRequired[Any]
     """
     Allows user to specify defines for the MapReduce job request.
     """
@@ -55248,7 +55248,7 @@ class HDInsightMapReduceActivityArgs:
                  name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
                  arguments: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 defines: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 defines: Optional[Any] = None,
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  get_debug_info: Optional[pulumi.Input[Union[_builtins.str, 'HDInsightActivityDebugInfoOption']]] = None,
@@ -55269,7 +55269,7 @@ class HDInsightMapReduceActivityArgs:
         :param pulumi.Input[_builtins.str] type: Type of activity.
                Expected value is 'HDInsightMapReduce'.
         :param pulumi.Input[Sequence[Any]] arguments: User specified arguments to HDInsightActivity.
-        :param pulumi.Input[Mapping[str, Any]] defines: Allows user to specify defines for the MapReduce job request.
+        :param Any defines: Allows user to specify defines for the MapReduce job request.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[_builtins.str] description: Activity description.
         :param pulumi.Input[Union[_builtins.str, 'HDInsightActivityDebugInfoOption']] get_debug_info: Debug info option.
@@ -55376,14 +55376,14 @@ class HDInsightMapReduceActivityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def defines(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def defines(self) -> Optional[Any]:
         """
         Allows user to specify defines for the MapReduce job request.
         """
         return pulumi.get(self, "defines")
 
     @defines.setter
-    def defines(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def defines(self, value: Optional[Any]):
         pulumi.set(self, "defines", value)
 
     @_builtins.property
@@ -56345,7 +56345,7 @@ class HDInsightPigActivityArgsDict(TypedDict):
     """
     User specified arguments to HDInsightActivity. Type: array (or Expression with resultType array).
     """
-    defines: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    defines: NotRequired[Any]
     """
     Allows user to specify defines for Pig job request.
     """
@@ -56400,7 +56400,7 @@ class HDInsightPigActivityArgs:
                  name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
                  arguments: Optional[Any] = None,
-                 defines: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 defines: Optional[Any] = None,
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  get_debug_info: Optional[pulumi.Input[Union[_builtins.str, 'HDInsightActivityDebugInfoOption']]] = None,
@@ -56419,7 +56419,7 @@ class HDInsightPigActivityArgs:
         :param pulumi.Input[_builtins.str] type: Type of activity.
                Expected value is 'HDInsightPig'.
         :param Any arguments: User specified arguments to HDInsightActivity. Type: array (or Expression with resultType array).
-        :param pulumi.Input[Mapping[str, Any]] defines: Allows user to specify defines for Pig job request.
+        :param Any defines: Allows user to specify defines for Pig job request.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[_builtins.str] description: Activity description.
         :param pulumi.Input[Union[_builtins.str, 'HDInsightActivityDebugInfoOption']] get_debug_info: Debug info option.
@@ -56500,14 +56500,14 @@ class HDInsightPigActivityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def defines(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def defines(self) -> Optional[Any]:
         """
         Allows user to specify defines for Pig job request.
         """
         return pulumi.get(self, "defines")
 
     @defines.setter
-    def defines(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def defines(self, value: Optional[Any]):
         pulumi.set(self, "defines", value)
 
     @_builtins.property
@@ -56700,7 +56700,7 @@ class HDInsightSparkActivityArgsDict(TypedDict):
     """
     The user to impersonate that will execute the job. Type: string (or Expression with resultType string).
     """
-    spark_config: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    spark_config: NotRequired[Any]
     """
     Spark configuration property.
     """
@@ -56733,7 +56733,7 @@ class HDInsightSparkActivityArgs:
                  on_inactive_mark_as: Optional[pulumi.Input[Union[_builtins.str, 'ActivityOnInactiveMarkAs']]] = None,
                  policy: Optional[pulumi.Input['ActivityPolicyArgs']] = None,
                  proxy_user: Optional[Any] = None,
-                 spark_config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 spark_config: Optional[Any] = None,
                  spark_job_linked_service: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
                  state: Optional[pulumi.Input[Union[_builtins.str, 'ActivityState']]] = None,
                  user_properties: Optional[pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]]] = None):
@@ -56754,7 +56754,7 @@ class HDInsightSparkActivityArgs:
         :param pulumi.Input[Union[_builtins.str, 'ActivityOnInactiveMarkAs']] on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
         :param Any proxy_user: The user to impersonate that will execute the job. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Mapping[str, Any]] spark_config: Spark configuration property.
+        :param Any spark_config: Spark configuration property.
         :param pulumi.Input['LinkedServiceReferenceArgs'] spark_job_linked_service: The storage linked service for uploading the entry file and dependencies, and for receiving logs.
         :param pulumi.Input[Union[_builtins.str, 'ActivityState']] state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]] user_properties: Activity user properties.
@@ -56949,14 +56949,14 @@ class HDInsightSparkActivityArgs:
 
     @_builtins.property
     @pulumi.getter(name="sparkConfig")
-    def spark_config(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def spark_config(self) -> Optional[Any]:
         """
         Spark configuration property.
         """
         return pulumi.get(self, "spark_config")
 
     @spark_config.setter
-    def spark_config(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def spark_config(self, value: Optional[Any]):
         pulumi.set(self, "spark_config", value)
 
     @_builtins.property
@@ -57041,7 +57041,7 @@ class HDInsightStreamingActivityArgsDict(TypedDict):
     """
     Command line environment values.
     """
-    defines: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    defines: NotRequired[Any]
     """
     Allows user to specify defines for streaming job request.
     """
@@ -57099,7 +57099,7 @@ class HDInsightStreamingActivityArgs:
                  arguments: Optional[pulumi.Input[Sequence[Any]]] = None,
                  combiner: Optional[Any] = None,
                  command_environment: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 defines: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 defines: Optional[Any] = None,
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  file_linked_service: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
@@ -57124,7 +57124,7 @@ class HDInsightStreamingActivityArgs:
         :param pulumi.Input[Sequence[Any]] arguments: User specified arguments to HDInsightActivity.
         :param Any combiner: Combiner executable name. Type: string (or Expression with resultType string).
         :param pulumi.Input[Sequence[Any]] command_environment: Command line environment values.
-        :param pulumi.Input[Mapping[str, Any]] defines: Allows user to specify defines for streaming job request.
+        :param Any defines: Allows user to specify defines for streaming job request.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[_builtins.str] description: Activity description.
         :param pulumi.Input['LinkedServiceReferenceArgs'] file_linked_service: Linked service reference where the files are located.
@@ -57295,14 +57295,14 @@ class HDInsightStreamingActivityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def defines(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def defines(self) -> Optional[Any]:
         """
         Allows user to specify defines for streaming job request.
         """
         return pulumi.get(self, "defines")
 
     @defines.setter
-    def defines(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def defines(self, value: Optional[Any]):
         pulumi.set(self, "defines", value)
 
     @_builtins.property
@@ -61445,7 +61445,7 @@ class ImpalaLinkedServiceArgsDict(TypedDict):
     """
     The TCP port that the Impala server uses to listen for client connections. The default value is 21050.
     """
-    thrift_transport_protocol: NotRequired[pulumi.Input[Union[_builtins.str, 'ImpalaThriftTransportProtocol']]]
+    thrift_transport_protocol: NotRequired[pulumi.Input['ImpalaThriftTransportProtocol']]
     """
     The transport protocol to use in the Thrift layer (for V2 only). Default value is Binary.
     """
@@ -61483,7 +61483,7 @@ class ImpalaLinkedServiceArgs:
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  port: Optional[Any] = None,
-                 thrift_transport_protocol: Optional[pulumi.Input[Union[_builtins.str, 'ImpalaThriftTransportProtocol']]] = None,
+                 thrift_transport_protocol: Optional[pulumi.Input['ImpalaThriftTransportProtocol']] = None,
                  trusted_cert_path: Optional[Any] = None,
                  use_system_trust_store: Optional[Any] = None,
                  username: Optional[Any] = None,
@@ -61506,7 +61506,7 @@ class ImpalaLinkedServiceArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: The password corresponding to the user name when using UsernameAndPassword.
         :param Any port: The TCP port that the Impala server uses to listen for client connections. The default value is 21050.
-        :param pulumi.Input[Union[_builtins.str, 'ImpalaThriftTransportProtocol']] thrift_transport_protocol: The transport protocol to use in the Thrift layer (for V2 only). Default value is Binary.
+        :param pulumi.Input['ImpalaThriftTransportProtocol'] thrift_transport_protocol: The transport protocol to use in the Thrift layer (for V2 only). Default value is Binary.
         :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
         :param Any use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
         :param Any username: The user name used to access the Impala server. The default value is anonymous when using SASLUsername.
@@ -61719,14 +61719,14 @@ class ImpalaLinkedServiceArgs:
 
     @_builtins.property
     @pulumi.getter(name="thriftTransportProtocol")
-    def thrift_transport_protocol(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ImpalaThriftTransportProtocol']]]:
+    def thrift_transport_protocol(self) -> Optional[pulumi.Input['ImpalaThriftTransportProtocol']]:
         """
         The transport protocol to use in the Thrift layer (for V2 only). Default value is Binary.
         """
         return pulumi.get(self, "thrift_transport_protocol")
 
     @thrift_transport_protocol.setter
-    def thrift_transport_protocol(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ImpalaThriftTransportProtocol']]]):
+    def thrift_transport_protocol(self, value: Optional[pulumi.Input['ImpalaThriftTransportProtocol']]):
         pulumi.set(self, "thrift_transport_protocol", value)
 
     @_builtins.property
@@ -63233,7 +63233,7 @@ class IntegrationRuntimeCustomerVirtualNetworkArgs:
         pulumi.set(self, "subnet_id", value)
 
 
-class IntegrationRuntimeDataFlowPropertiesCustomPropertiesArgsDict(TypedDict):
+class IntegrationRuntimeDataFlowPropertiesCustomPropertiesItemArgsDict(TypedDict):
     name: NotRequired[pulumi.Input[_builtins.str]]
     """
     Name of custom property.
@@ -63244,7 +63244,7 @@ class IntegrationRuntimeDataFlowPropertiesCustomPropertiesArgsDict(TypedDict):
     """
 
 @pulumi.input_type
-class IntegrationRuntimeDataFlowPropertiesCustomPropertiesArgs:
+class IntegrationRuntimeDataFlowPropertiesCustomPropertiesItemArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  value: Optional[pulumi.Input[_builtins.str]] = None):
@@ -63298,7 +63298,7 @@ class IntegrationRuntimeDataFlowPropertiesArgsDict(TypedDict):
     """
     Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272.
     """
-    custom_properties: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeDataFlowPropertiesCustomPropertiesArgsDict']]]]
+    custom_properties: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeDataFlowPropertiesCustomPropertiesItemArgsDict']]]]
     """
     Custom properties are used to tune the data flow runtime performance.
     """
@@ -63313,7 +63313,7 @@ class IntegrationRuntimeDataFlowPropertiesArgs:
                  cleanup: Optional[pulumi.Input[_builtins.bool]] = None,
                  compute_type: Optional[pulumi.Input[Union[_builtins.str, 'DataFlowComputeType']]] = None,
                  core_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 custom_properties: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeDataFlowPropertiesCustomPropertiesArgs']]]] = None,
+                 custom_properties: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeDataFlowPropertiesCustomPropertiesItemArgs']]]] = None,
                  time_to_live: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Data flow properties for managed integration runtime.
@@ -63321,7 +63321,7 @@ class IntegrationRuntimeDataFlowPropertiesArgs:
         :param pulumi.Input[_builtins.bool] cleanup: Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as false. Default is true.
         :param pulumi.Input[Union[_builtins.str, 'DataFlowComputeType']] compute_type: Compute type of the cluster which will execute data flow job.
         :param pulumi.Input[_builtins.int] core_count: Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272.
-        :param pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeDataFlowPropertiesCustomPropertiesArgs']]] custom_properties: Custom properties are used to tune the data flow runtime performance.
+        :param pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeDataFlowPropertiesCustomPropertiesItemArgs']]] custom_properties: Custom properties are used to tune the data flow runtime performance.
         :param pulumi.Input[_builtins.int] time_to_live: Time to live (in minutes) setting of the cluster which will execute data flow job.
         """
         if cleanup is not None:
@@ -63373,14 +63373,14 @@ class IntegrationRuntimeDataFlowPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="customProperties")
-    def custom_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeDataFlowPropertiesCustomPropertiesArgs']]]]:
+    def custom_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeDataFlowPropertiesCustomPropertiesItemArgs']]]]:
         """
         Custom properties are used to tune the data flow runtime performance.
         """
         return pulumi.get(self, "custom_properties")
 
     @custom_properties.setter
-    def custom_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeDataFlowPropertiesCustomPropertiesArgs']]]]):
+    def custom_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeDataFlowPropertiesCustomPropertiesItemArgs']]]]):
         pulumi.set(self, "custom_properties", value)
 
     @_builtins.property
@@ -63478,11 +63478,11 @@ class IntegrationRuntimeReferenceArgsDict(TypedDict):
     """
     Reference integration runtime name.
     """
-    type: pulumi.Input[_builtins.str]
+    type: pulumi.Input[Union[_builtins.str, 'IntegrationRuntimeReferenceType']]
     """
     Type of integration runtime.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    parameters: NotRequired[Any]
     """
     Arguments for integration runtime.
     """
@@ -63491,14 +63491,14 @@ class IntegrationRuntimeReferenceArgsDict(TypedDict):
 class IntegrationRuntimeReferenceArgs:
     def __init__(__self__, *,
                  reference_name: pulumi.Input[_builtins.str],
-                 type: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 type: pulumi.Input[Union[_builtins.str, 'IntegrationRuntimeReferenceType']],
+                 parameters: Optional[Any] = None):
         """
         Integration runtime reference type.
 
         :param pulumi.Input[_builtins.str] reference_name: Reference integration runtime name.
-        :param pulumi.Input[_builtins.str] type: Type of integration runtime.
-        :param pulumi.Input[Mapping[str, Any]] parameters: Arguments for integration runtime.
+        :param pulumi.Input[Union[_builtins.str, 'IntegrationRuntimeReferenceType']] type: Type of integration runtime.
+        :param Any parameters: Arguments for integration runtime.
         """
         pulumi.set(__self__, "reference_name", reference_name)
         pulumi.set(__self__, "type", type)
@@ -63519,26 +63519,26 @@ class IntegrationRuntimeReferenceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> pulumi.Input[_builtins.str]:
+    def type(self) -> pulumi.Input[Union[_builtins.str, 'IntegrationRuntimeReferenceType']]:
         """
         Type of integration runtime.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[_builtins.str]):
+    def type(self, value: pulumi.Input[Union[_builtins.str, 'IntegrationRuntimeReferenceType']]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def parameters(self) -> Optional[Any]:
         """
         Arguments for integration runtime.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def parameters(self, value: Optional[Any]):
         pulumi.set(self, "parameters", value)
 
 
@@ -67016,7 +67016,7 @@ class LinkedServiceReferenceArgsDict(TypedDict):
     """
     Linked service reference type.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    parameters: NotRequired[Any]
     """
     Arguments for LinkedService.
     """
@@ -67026,13 +67026,13 @@ class LinkedServiceReferenceArgs:
     def __init__(__self__, *,
                  reference_name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[Union[_builtins.str, 'Type']],
-                 parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 parameters: Optional[Any] = None):
         """
         Linked service reference type.
 
         :param pulumi.Input[_builtins.str] reference_name: Reference LinkedService name.
         :param pulumi.Input[Union[_builtins.str, 'Type']] type: Linked service reference type.
-        :param pulumi.Input[Mapping[str, Any]] parameters: Arguments for LinkedService.
+        :param Any parameters: Arguments for LinkedService.
         """
         pulumi.set(__self__, "reference_name", reference_name)
         pulumi.set(__self__, "type", type)
@@ -67065,14 +67065,14 @@ class LinkedServiceReferenceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def parameters(self) -> Optional[Any]:
         """
         Arguments for LinkedService.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def parameters(self, value: Optional[Any]):
         pulumi.set(self, "parameters", value)
 
 
@@ -79325,9 +79325,9 @@ class OraclePartitionSettingsArgsDict(TypedDict):
     """
     The minimum value of column specified in partitionColumnName that will be used for proceeding range partitioning. Type: string (or Expression with resultType string).
     """
-    partition_names: NotRequired[pulumi.Input[Sequence[Any]]]
+    partition_names: NotRequired[Any]
     """
-    Names of the physical partitions of Oracle table. 
+    Names of the physical partitions of Oracle table.
     """
     partition_upper_bound: NotRequired[Any]
     """
@@ -79339,14 +79339,14 @@ class OraclePartitionSettingsArgs:
     def __init__(__self__, *,
                  partition_column_name: Optional[Any] = None,
                  partition_lower_bound: Optional[Any] = None,
-                 partition_names: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 partition_names: Optional[Any] = None,
                  partition_upper_bound: Optional[Any] = None):
         """
         The settings that will be leveraged for Oracle source partitioning.
 
         :param Any partition_column_name: The name of the column in integer type that will be used for proceeding range partitioning. Type: string (or Expression with resultType string).
         :param Any partition_lower_bound: The minimum value of column specified in partitionColumnName that will be used for proceeding range partitioning. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Sequence[Any]] partition_names: Names of the physical partitions of Oracle table. 
+        :param Any partition_names: Names of the physical partitions of Oracle table.
         :param Any partition_upper_bound: The maximum value of column specified in partitionColumnName that will be used for proceeding range partitioning. Type: string (or Expression with resultType string).
         """
         if partition_column_name is not None:
@@ -79384,14 +79384,14 @@ class OraclePartitionSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="partitionNames")
-    def partition_names(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+    def partition_names(self) -> Optional[Any]:
         """
-        Names of the physical partitions of Oracle table. 
+        Names of the physical partitions of Oracle table.
         """
         return pulumi.get(self, "partition_names")
 
     @partition_names.setter
-    def partition_names(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+    def partition_names(self, value: Optional[Any]):
         pulumi.set(self, "partition_names", value)
 
     @_builtins.property
@@ -83909,7 +83909,7 @@ class PipelineReferenceArgsDict(TypedDict):
     """
     Reference pipeline name.
     """
-    type: pulumi.Input[_builtins.str]
+    type: pulumi.Input[Union[_builtins.str, 'PipelineReferenceType']]
     """
     Pipeline reference type.
     """
@@ -83922,13 +83922,13 @@ class PipelineReferenceArgsDict(TypedDict):
 class PipelineReferenceArgs:
     def __init__(__self__, *,
                  reference_name: pulumi.Input[_builtins.str],
-                 type: pulumi.Input[_builtins.str],
+                 type: pulumi.Input[Union[_builtins.str, 'PipelineReferenceType']],
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Pipeline reference type.
 
         :param pulumi.Input[_builtins.str] reference_name: Reference pipeline name.
-        :param pulumi.Input[_builtins.str] type: Pipeline reference type.
+        :param pulumi.Input[Union[_builtins.str, 'PipelineReferenceType']] type: Pipeline reference type.
         :param pulumi.Input[_builtins.str] name: Reference name.
         """
         pulumi.set(__self__, "reference_name", reference_name)
@@ -83950,14 +83950,14 @@ class PipelineReferenceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> pulumi.Input[_builtins.str]:
+    def type(self) -> pulumi.Input[Union[_builtins.str, 'PipelineReferenceType']]:
         """
         Pipeline reference type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[_builtins.str]):
+    def type(self, value: pulumi.Input[Union[_builtins.str, 'PipelineReferenceType']]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
@@ -89290,7 +89290,7 @@ class RestResourceDatasetArgsDict(TypedDict):
     Type of dataset.
     Expected value is 'RestResource'.
     """
-    additional_headers: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    additional_headers: NotRequired[Any]
     """
     The additional HTTP headers in the request to the RESTful API.
     """
@@ -89306,7 +89306,7 @@ class RestResourceDatasetArgsDict(TypedDict):
     """
     The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
     """
-    pagination_rules: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    pagination_rules: NotRequired[Any]
     """
     The pagination rules to compose next page requests.
     """
@@ -89340,11 +89340,11 @@ class RestResourceDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  type: pulumi.Input[_builtins.str],
-                 additional_headers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 additional_headers: Optional[Any] = None,
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
-                 pagination_rules: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 pagination_rules: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  relative_url: Optional[Any] = None,
                  request_body: Optional[Any] = None,
@@ -89357,11 +89357,11 @@ class RestResourceDatasetArgs:
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[_builtins.str] type: Type of dataset.
                Expected value is 'RestResource'.
-        :param pulumi.Input[Mapping[str, Any]] additional_headers: The additional HTTP headers in the request to the RESTful API.
+        :param Any additional_headers: The additional HTTP headers in the request to the RESTful API.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[_builtins.str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param pulumi.Input[Mapping[str, Any]] pagination_rules: The pagination rules to compose next page requests.
+        :param Any pagination_rules: The pagination rules to compose next page requests.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
         :param Any relative_url: The relative URL to the resource that the RESTful API provides. Type: string (or Expression with resultType string).
         :param Any request_body: The HTTP request body to the RESTful API if requestMethod is POST. Type: string (or Expression with resultType string).
@@ -89421,14 +89421,14 @@ class RestResourceDatasetArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalHeaders")
-    def additional_headers(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def additional_headers(self) -> Optional[Any]:
         """
         The additional HTTP headers in the request to the RESTful API.
         """
         return pulumi.get(self, "additional_headers")
 
     @additional_headers.setter
-    def additional_headers(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def additional_headers(self, value: Optional[Any]):
         pulumi.set(self, "additional_headers", value)
 
     @_builtins.property
@@ -89469,14 +89469,14 @@ class RestResourceDatasetArgs:
 
     @_builtins.property
     @pulumi.getter(name="paginationRules")
-    def pagination_rules(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def pagination_rules(self) -> Optional[Any]:
         """
         The pagination rules to compose next page requests.
         """
         return pulumi.get(self, "pagination_rules")
 
     @pagination_rules.setter
-    def pagination_rules(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def pagination_rules(self, value: Optional[Any]):
         pulumi.set(self, "pagination_rules", value)
 
     @_builtins.property
@@ -90137,7 +90137,7 @@ class RestSinkArgsDict(TypedDict):
     """
     request_interval: NotRequired[Any]
     """
-    The time to await before sending next request, in milliseconds 
+    The time to await before sending next request, in milliseconds
     """
     request_method: NotRequired[Any]
     """
@@ -90185,7 +90185,7 @@ class RestSinkArgs:
         :param Any http_compression_type: Http Compression Type to Send data in compressed format with Optimal Compression Level, Default is None. And The Only Supported option is Gzip. Type: string (or Expression with resultType string).
         :param Any http_request_timeout: The timeout (TimeSpan) to get an HTTP response. It is the timeout to get a response, not the timeout to read response data. Default value: 00:01:40. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
-        :param Any request_interval: The time to await before sending next request, in milliseconds 
+        :param Any request_interval: The time to await before sending next request, in milliseconds
         :param Any request_method: The HTTP method used to call the RESTful API. The default is POST. Type: string (or Expression with resultType string).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -90293,7 +90293,7 @@ class RestSinkArgs:
     @pulumi.getter(name="requestInterval")
     def request_interval(self) -> Optional[Any]:
         """
-        The time to await before sending next request, in milliseconds 
+        The time to await before sending next request, in milliseconds
         """
         return pulumi.get(self, "request_interval")
 
@@ -90401,7 +90401,7 @@ class RestSourceArgsDict(TypedDict):
     """
     request_interval: NotRequired[Any]
     """
-    The time to await before sending next page request. 
+    The time to await before sending next page request.
     """
     request_method: NotRequired[Any]
     """
@@ -90443,7 +90443,7 @@ class RestSourceArgs:
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any pagination_rules: The pagination rules to compose next page requests. Type: string (or Expression with resultType string).
         :param Any request_body: The HTTP request body to the RESTful API if requestMethod is POST. Type: string (or Expression with resultType string).
-        :param Any request_interval: The time to await before sending next page request. 
+        :param Any request_interval: The time to await before sending next page request.
         :param Any request_method: The HTTP method used to call the RESTful API. The default is GET. Type: string (or Expression with resultType string).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -90573,7 +90573,7 @@ class RestSourceArgs:
     @pulumi.getter(name="requestInterval")
     def request_interval(self) -> Optional[Any]:
         """
-        The time to await before sending next page request. 
+        The time to await before sending next page request.
         """
         return pulumi.get(self, "request_interval")
 
@@ -97824,7 +97824,7 @@ class SapHanaSourceArgsDict(TypedDict):
     """
     partition_option: NotRequired[Any]
     """
-    The partition mechanism that will be used for SAP HANA read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "SapHanaDynamicRange". 
+    The partition mechanism that will be used for SAP HANA read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "SapHanaDynamicRange".
     """
     partition_settings: NotRequired[pulumi.Input['SapHanaPartitionSettingsArgsDict']]
     """
@@ -97870,7 +97870,7 @@ class SapHanaSourceArgs:
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any packet_size: The packet size of data read from SAP HANA. Type: integer(or Expression with resultType integer).
-        :param Any partition_option: The partition mechanism that will be used for SAP HANA read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "SapHanaDynamicRange". 
+        :param Any partition_option: The partition mechanism that will be used for SAP HANA read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "SapHanaDynamicRange".
         :param pulumi.Input['SapHanaPartitionSettingsArgs'] partition_settings: The settings that will be leveraged for SAP HANA source partitioning.
         :param Any query: SAP HANA Sql query. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -97964,7 +97964,7 @@ class SapHanaSourceArgs:
     @pulumi.getter(name="partitionOption")
     def partition_option(self) -> Optional[Any]:
         """
-        The partition mechanism that will be used for SAP HANA read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "SapHanaDynamicRange". 
+        The partition mechanism that will be used for SAP HANA read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "SapHanaDynamicRange".
         """
         return pulumi.get(self, "partition_option")
 
@@ -101662,10 +101662,6 @@ class ScriptActivityArgsDict(TypedDict):
     """
     Script activity type.
     """
-    linked_service_name: pulumi.Input['LinkedServiceReferenceArgsDict']
-    """
-    Linked service reference.
-    """
     name: pulumi.Input[_builtins.str]
     """
     Activity name.
@@ -101682,6 +101678,10 @@ class ScriptActivityArgsDict(TypedDict):
     description: NotRequired[pulumi.Input[_builtins.str]]
     """
     Activity description.
+    """
+    linked_service_name: NotRequired[pulumi.Input['LinkedServiceReferenceArgsDict']]
+    """
+    Linked service reference.
     """
     log_settings: NotRequired[pulumi.Input['ScriptActivityTypePropertiesLogSettingsArgsDict']]
     """
@@ -101723,11 +101723,11 @@ class ScriptActivityArgsDict(TypedDict):
 @pulumi.input_type
 class ScriptActivityArgs:
     def __init__(__self__, *,
-                 linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 linked_service_name: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
                  log_settings: Optional[pulumi.Input['ScriptActivityTypePropertiesLogSettingsArgs']] = None,
                  on_inactive_mark_as: Optional[pulumi.Input[Union[_builtins.str, 'ActivityOnInactiveMarkAs']]] = None,
                  policy: Optional[pulumi.Input['ActivityPolicyArgs']] = None,
@@ -101740,12 +101740,12 @@ class ScriptActivityArgs:
         """
         Script activity type.
 
-        :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[_builtins.str] name: Activity name.
         :param pulumi.Input[_builtins.str] type: Type of activity.
                Expected value is 'Script'.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[_builtins.str] description: Activity description.
+        :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input['ScriptActivityTypePropertiesLogSettingsArgs'] log_settings: Log settings of script activity.
         :param pulumi.Input[Union[_builtins.str, 'ActivityOnInactiveMarkAs']] on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
@@ -101756,13 +101756,14 @@ class ScriptActivityArgs:
         :param Any treat_decimal_as_string: Indicates whether to treat decimal values as strings to avoid value overflow issue. This option is enabled for SnowflakeV2 connector only. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]] user_properties: Activity user properties.
         """
-        pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", 'Script')
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if linked_service_name is not None:
+            pulumi.set(__self__, "linked_service_name", linked_service_name)
         if log_settings is not None:
             pulumi.set(__self__, "log_settings", log_settings)
         if on_inactive_mark_as is not None:
@@ -101781,18 +101782,6 @@ class ScriptActivityArgs:
             pulumi.set(__self__, "treat_decimal_as_string", treat_decimal_as_string)
         if user_properties is not None:
             pulumi.set(__self__, "user_properties", user_properties)
-
-    @_builtins.property
-    @pulumi.getter(name="linkedServiceName")
-    def linked_service_name(self) -> pulumi.Input['LinkedServiceReferenceArgs']:
-        """
-        Linked service reference.
-        """
-        return pulumi.get(self, "linked_service_name")
-
-    @linked_service_name.setter
-    def linked_service_name(self, value: pulumi.Input['LinkedServiceReferenceArgs']):
-        pulumi.set(self, "linked_service_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -101842,6 +101831,18 @@ class ScriptActivityArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> Optional[pulumi.Input['LinkedServiceReferenceArgs']]:
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @linked_service_name.setter
+    def linked_service_name(self, value: Optional[pulumi.Input['LinkedServiceReferenceArgs']]):
+        pulumi.set(self, "linked_service_name", value)
 
     @_builtins.property
     @pulumi.getter(name="logSettings")
@@ -104367,7 +104368,7 @@ class SftpReadSettingsArgs:
 
 class SftpServerLinkedServiceArgsDict(TypedDict):
     """
-    A linked service for an SSH File Transfer Protocol (SFTP) server. 
+    A linked service for an SSH File Transfer Protocol (SFTP) server.
     """
     host: Any
     """
@@ -104460,7 +104461,7 @@ class SftpServerLinkedServiceArgs:
                  user_name: Optional[Any] = None,
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        A linked service for an SSH File Transfer Protocol (SFTP) server. 
+        A linked service for an SSH File Transfer Protocol (SFTP) server.
 
         :param Any host: The SFTP server host name. Type: string (or Expression with resultType string).
         :param pulumi.Input[_builtins.str] type: Type of linked service.
@@ -106579,11 +106580,11 @@ class SnowflakeExportCopyCommandArgsDict(TypedDict):
     The export setting type.
     Expected value is 'SnowflakeExportCopyCommand'.
     """
-    additional_copy_options: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    additional_copy_options: NotRequired[Any]
     """
     Additional copy options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalCopyOptions": { "DATE_FORMAT": "MM/DD/YYYY", "TIME_FORMAT": "'HH24:MI:SS.FF'" }
     """
-    additional_format_options: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    additional_format_options: NotRequired[Any]
     """
     Additional format options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalFormatOptions": { "OVERWRITE": "TRUE", "MAX_FILE_SIZE": "'FALSE'" }
     """
@@ -106596,16 +106597,16 @@ class SnowflakeExportCopyCommandArgsDict(TypedDict):
 class SnowflakeExportCopyCommandArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 additional_copy_options: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 additional_format_options: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 additional_copy_options: Optional[Any] = None,
+                 additional_format_options: Optional[Any] = None,
                  storage_integration: Optional[Any] = None):
         """
         Snowflake export command settings.
 
         :param pulumi.Input[_builtins.str] type: The export setting type.
                Expected value is 'SnowflakeExportCopyCommand'.
-        :param pulumi.Input[Mapping[str, Any]] additional_copy_options: Additional copy options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalCopyOptions": { "DATE_FORMAT": "MM/DD/YYYY", "TIME_FORMAT": "'HH24:MI:SS.FF'" }
-        :param pulumi.Input[Mapping[str, Any]] additional_format_options: Additional format options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalFormatOptions": { "OVERWRITE": "TRUE", "MAX_FILE_SIZE": "'FALSE'" }
+        :param Any additional_copy_options: Additional copy options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalCopyOptions": { "DATE_FORMAT": "MM/DD/YYYY", "TIME_FORMAT": "'HH24:MI:SS.FF'" }
+        :param Any additional_format_options: Additional format options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalFormatOptions": { "OVERWRITE": "TRUE", "MAX_FILE_SIZE": "'FALSE'" }
         :param Any storage_integration: The name of the snowflake storage integration to use for the copy operation. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'SnowflakeExportCopyCommand')
@@ -106631,26 +106632,26 @@ class SnowflakeExportCopyCommandArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalCopyOptions")
-    def additional_copy_options(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def additional_copy_options(self) -> Optional[Any]:
         """
         Additional copy options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalCopyOptions": { "DATE_FORMAT": "MM/DD/YYYY", "TIME_FORMAT": "'HH24:MI:SS.FF'" }
         """
         return pulumi.get(self, "additional_copy_options")
 
     @additional_copy_options.setter
-    def additional_copy_options(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def additional_copy_options(self, value: Optional[Any]):
         pulumi.set(self, "additional_copy_options", value)
 
     @_builtins.property
     @pulumi.getter(name="additionalFormatOptions")
-    def additional_format_options(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def additional_format_options(self) -> Optional[Any]:
         """
         Additional format options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalFormatOptions": { "OVERWRITE": "TRUE", "MAX_FILE_SIZE": "'FALSE'" }
         """
         return pulumi.get(self, "additional_format_options")
 
     @additional_format_options.setter
-    def additional_format_options(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def additional_format_options(self, value: Optional[Any]):
         pulumi.set(self, "additional_format_options", value)
 
     @_builtins.property
@@ -106675,11 +106676,11 @@ class SnowflakeImportCopyCommandArgsDict(TypedDict):
     The import setting type.
     Expected value is 'SnowflakeImportCopyCommand'.
     """
-    additional_copy_options: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    additional_copy_options: NotRequired[Any]
     """
     Additional copy options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalCopyOptions": { "DATE_FORMAT": "MM/DD/YYYY", "TIME_FORMAT": "'HH24:MI:SS.FF'" }
     """
-    additional_format_options: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    additional_format_options: NotRequired[Any]
     """
     Additional format options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalFormatOptions": { "FORCE": "TRUE", "LOAD_UNCERTAIN_FILES": "'FALSE'" }
     """
@@ -106692,16 +106693,16 @@ class SnowflakeImportCopyCommandArgsDict(TypedDict):
 class SnowflakeImportCopyCommandArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 additional_copy_options: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 additional_format_options: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 additional_copy_options: Optional[Any] = None,
+                 additional_format_options: Optional[Any] = None,
                  storage_integration: Optional[Any] = None):
         """
         Snowflake import command settings.
 
         :param pulumi.Input[_builtins.str] type: The import setting type.
                Expected value is 'SnowflakeImportCopyCommand'.
-        :param pulumi.Input[Mapping[str, Any]] additional_copy_options: Additional copy options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalCopyOptions": { "DATE_FORMAT": "MM/DD/YYYY", "TIME_FORMAT": "'HH24:MI:SS.FF'" }
-        :param pulumi.Input[Mapping[str, Any]] additional_format_options: Additional format options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalFormatOptions": { "FORCE": "TRUE", "LOAD_UNCERTAIN_FILES": "'FALSE'" }
+        :param Any additional_copy_options: Additional copy options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalCopyOptions": { "DATE_FORMAT": "MM/DD/YYYY", "TIME_FORMAT": "'HH24:MI:SS.FF'" }
+        :param Any additional_format_options: Additional format options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalFormatOptions": { "FORCE": "TRUE", "LOAD_UNCERTAIN_FILES": "'FALSE'" }
         :param Any storage_integration: The name of the snowflake storage integration to use for the copy operation. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'SnowflakeImportCopyCommand')
@@ -106727,26 +106728,26 @@ class SnowflakeImportCopyCommandArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalCopyOptions")
-    def additional_copy_options(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def additional_copy_options(self) -> Optional[Any]:
         """
         Additional copy options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalCopyOptions": { "DATE_FORMAT": "MM/DD/YYYY", "TIME_FORMAT": "'HH24:MI:SS.FF'" }
         """
         return pulumi.get(self, "additional_copy_options")
 
     @additional_copy_options.setter
-    def additional_copy_options(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def additional_copy_options(self, value: Optional[Any]):
         pulumi.set(self, "additional_copy_options", value)
 
     @_builtins.property
     @pulumi.getter(name="additionalFormatOptions")
-    def additional_format_options(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def additional_format_options(self) -> Optional[Any]:
         """
         Additional format options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalFormatOptions": { "FORCE": "TRUE", "LOAD_UNCERTAIN_FILES": "'FALSE'" }
         """
         return pulumi.get(self, "additional_format_options")
 
     @additional_format_options.setter
-    def additional_format_options(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def additional_format_options(self, value: Optional[Any]):
         pulumi.set(self, "additional_format_options", value)
 
     @_builtins.property
@@ -111962,10 +111963,6 @@ class SqlServerStoredProcedureActivityArgsDict(TypedDict):
     """
     SQL stored procedure activity type.
     """
-    linked_service_name: pulumi.Input['LinkedServiceReferenceArgsDict']
-    """
-    Linked service reference.
-    """
     name: pulumi.Input[_builtins.str]
     """
     Activity name.
@@ -111986,6 +111983,10 @@ class SqlServerStoredProcedureActivityArgsDict(TypedDict):
     description: NotRequired[pulumi.Input[_builtins.str]]
     """
     Activity description.
+    """
+    linked_service_name: NotRequired[pulumi.Input['LinkedServiceReferenceArgsDict']]
+    """
+    Linked service reference.
     """
     on_inactive_mark_as: NotRequired[pulumi.Input[Union[_builtins.str, 'ActivityOnInactiveMarkAs']]]
     """
@@ -112011,12 +112012,12 @@ class SqlServerStoredProcedureActivityArgsDict(TypedDict):
 @pulumi.input_type
 class SqlServerStoredProcedureActivityArgs:
     def __init__(__self__, *,
-                 linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  name: pulumi.Input[_builtins.str],
                  stored_procedure_name: Any,
                  type: pulumi.Input[_builtins.str],
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 linked_service_name: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
                  on_inactive_mark_as: Optional[pulumi.Input[Union[_builtins.str, 'ActivityOnInactiveMarkAs']]] = None,
                  policy: Optional[pulumi.Input['ActivityPolicyArgs']] = None,
                  state: Optional[pulumi.Input[Union[_builtins.str, 'ActivityState']]] = None,
@@ -112025,20 +112026,19 @@ class SqlServerStoredProcedureActivityArgs:
         """
         SQL stored procedure activity type.
 
-        :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[_builtins.str] name: Activity name.
         :param Any stored_procedure_name: Stored procedure name. Type: string (or Expression with resultType string).
         :param pulumi.Input[_builtins.str] type: Type of activity.
                Expected value is 'SqlServerStoredProcedure'.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[_builtins.str] description: Activity description.
+        :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[Union[_builtins.str, 'ActivityOnInactiveMarkAs']] on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
         :param pulumi.Input[Union[_builtins.str, 'ActivityState']] state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Any stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
         :param pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]] user_properties: Activity user properties.
         """
-        pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "stored_procedure_name", stored_procedure_name)
         pulumi.set(__self__, "type", 'SqlServerStoredProcedure')
@@ -112046,6 +112046,8 @@ class SqlServerStoredProcedureActivityArgs:
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if linked_service_name is not None:
+            pulumi.set(__self__, "linked_service_name", linked_service_name)
         if on_inactive_mark_as is not None:
             pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
         if policy is not None:
@@ -112056,18 +112058,6 @@ class SqlServerStoredProcedureActivityArgs:
             pulumi.set(__self__, "stored_procedure_parameters", stored_procedure_parameters)
         if user_properties is not None:
             pulumi.set(__self__, "user_properties", user_properties)
-
-    @_builtins.property
-    @pulumi.getter(name="linkedServiceName")
-    def linked_service_name(self) -> pulumi.Input['LinkedServiceReferenceArgs']:
-        """
-        Linked service reference.
-        """
-        return pulumi.get(self, "linked_service_name")
-
-    @linked_service_name.setter
-    def linked_service_name(self, value: pulumi.Input['LinkedServiceReferenceArgs']):
-        pulumi.set(self, "linked_service_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -112129,6 +112119,18 @@ class SqlServerStoredProcedureActivityArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> Optional[pulumi.Input['LinkedServiceReferenceArgs']]:
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @linked_service_name.setter
+    def linked_service_name(self, value: Optional[pulumi.Input['LinkedServiceReferenceArgs']]):
+        pulumi.set(self, "linked_service_name", value)
 
     @_builtins.property
     @pulumi.getter(name="onInactiveMarkAs")
@@ -114826,7 +114828,7 @@ class SynapseNotebookActivityArgsDict(TypedDict):
     """
     Activity policy.
     """
-    spark_config: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    spark_config: NotRequired[Any]
     """
     Spark configuration property.
     """
@@ -114864,7 +114866,7 @@ class SynapseNotebookActivityArgs:
                  on_inactive_mark_as: Optional[pulumi.Input[Union[_builtins.str, 'ActivityOnInactiveMarkAs']]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['NotebookParameterArgs']]]] = None,
                  policy: Optional[pulumi.Input['ActivityPolicyArgs']] = None,
-                 spark_config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 spark_config: Optional[Any] = None,
                  spark_pool: Optional[pulumi.Input['BigDataPoolParametrizationReferenceArgs']] = None,
                  state: Optional[pulumi.Input[Union[_builtins.str, 'ActivityState']]] = None,
                  target_spark_configuration: Optional[pulumi.Input['SparkConfigurationParametrizationReferenceArgs']] = None,
@@ -114887,7 +114889,7 @@ class SynapseNotebookActivityArgs:
         :param pulumi.Input[Union[_builtins.str, 'ActivityOnInactiveMarkAs']] on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param pulumi.Input[Mapping[str, pulumi.Input['NotebookParameterArgs']]] parameters: Notebook parameters.
         :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
-        :param pulumi.Input[Mapping[str, Any]] spark_config: Spark configuration property.
+        :param Any spark_config: Spark configuration property.
         :param pulumi.Input['BigDataPoolParametrizationReferenceArgs'] spark_pool: The name of the big data pool which will be used to execute the notebook.
         :param pulumi.Input[Union[_builtins.str, 'ActivityState']] state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param pulumi.Input['SparkConfigurationParametrizationReferenceArgs'] target_spark_configuration: The spark configuration of the spark job.
@@ -115100,14 +115102,14 @@ class SynapseNotebookActivityArgs:
 
     @_builtins.property
     @pulumi.getter(name="sparkConfig")
-    def spark_config(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def spark_config(self) -> Optional[Any]:
         """
         Spark configuration property.
         """
         return pulumi.get(self, "spark_config")
 
     @spark_config.setter
-    def spark_config(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def spark_config(self, value: Optional[Any]):
         pulumi.set(self, "spark_config", value)
 
     @_builtins.property
@@ -115296,7 +115298,7 @@ class SynapseSparkJobDefinitionActivityArgsDict(TypedDict):
     """
     Scanning subfolders from the root folder of the main definition file, these files will be added as reference files. The folders named 'jars', 'pyFiles', 'files' or 'archives' will be scanned, and the folders name are case sensitive. Type: boolean (or Expression with resultType boolean).
     """
-    spark_config: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    spark_config: NotRequired[Any]
     """
     Spark configuration property.
     """
@@ -115340,7 +115342,7 @@ class SynapseSparkJobDefinitionActivityArgs:
                  policy: Optional[pulumi.Input['ActivityPolicyArgs']] = None,
                  python_code_reference: Optional[pulumi.Input[Sequence[Any]]] = None,
                  scan_folder: Optional[Any] = None,
-                 spark_config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 spark_config: Optional[Any] = None,
                  state: Optional[pulumi.Input[Union[_builtins.str, 'ActivityState']]] = None,
                  target_big_data_pool: Optional[pulumi.Input['BigDataPoolParametrizationReferenceArgs']] = None,
                  target_spark_configuration: Optional[pulumi.Input['SparkConfigurationParametrizationReferenceArgs']] = None,
@@ -115369,7 +115371,7 @@ class SynapseSparkJobDefinitionActivityArgs:
         :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
         :param pulumi.Input[Sequence[Any]] python_code_reference: Additional python code files used for reference in the main definition file, which will override the 'pyFiles' of the spark job definition you provide.
         :param Any scan_folder: Scanning subfolders from the root folder of the main definition file, these files will be added as reference files. The folders named 'jars', 'pyFiles', 'files' or 'archives' will be scanned, and the folders name are case sensitive. Type: boolean (or Expression with resultType boolean).
-        :param pulumi.Input[Mapping[str, Any]] spark_config: Spark configuration property.
+        :param Any spark_config: Spark configuration property.
         :param pulumi.Input[Union[_builtins.str, 'ActivityState']] state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param pulumi.Input['BigDataPoolParametrizationReferenceArgs'] target_big_data_pool: The name of the big data pool which will be used to execute the spark batch job, which will override the 'targetBigDataPool' of the spark job definition you provide.
         :param pulumi.Input['SparkConfigurationParametrizationReferenceArgs'] target_spark_configuration: The spark configuration of the spark job.
@@ -115666,14 +115668,14 @@ class SynapseSparkJobDefinitionActivityArgs:
 
     @_builtins.property
     @pulumi.getter(name="sparkConfig")
-    def spark_config(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def spark_config(self) -> Optional[Any]:
         """
         Spark configuration property.
         """
         return pulumi.get(self, "spark_config")
 
     @spark_config.setter
-    def spark_config(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def spark_config(self, value: Optional[Any]):
         pulumi.set(self, "spark_config", value)
 
     @_builtins.property
@@ -117840,7 +117842,7 @@ class TriggerPipelineReferenceArgsDict(TypedDict):
     """
     Pipeline that needs to be triggered with the given parameters.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    parameters: NotRequired[Any]
     """
     Pipeline parameters.
     """
@@ -117852,12 +117854,12 @@ class TriggerPipelineReferenceArgsDict(TypedDict):
 @pulumi.input_type
 class TriggerPipelineReferenceArgs:
     def __init__(__self__, *,
-                 parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 parameters: Optional[Any] = None,
                  pipeline_reference: Optional[pulumi.Input['PipelineReferenceArgs']] = None):
         """
         Pipeline that needs to be triggered with the given parameters.
 
-        :param pulumi.Input[Mapping[str, Any]] parameters: Pipeline parameters.
+        :param Any parameters: Pipeline parameters.
         :param pulumi.Input['PipelineReferenceArgs'] pipeline_reference: Pipeline reference.
         """
         if parameters is not None:
@@ -117867,14 +117869,14 @@ class TriggerPipelineReferenceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def parameters(self) -> Optional[Any]:
         """
         Pipeline parameters.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def parameters(self, value: Optional[Any]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
@@ -121159,7 +121161,7 @@ class WebActivityArgsDict(TypedDict):
     """
     When set to true, Certificate validation will be disabled.
     """
-    headers: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    headers: NotRequired[Any]
     """
     Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
     """
@@ -121210,7 +121212,7 @@ class WebActivityArgs:
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  disable_cert_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 headers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 headers: Optional[Any] = None,
                  http_request_timeout: Optional[Any] = None,
                  linked_service_name: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
                  linked_services: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]]] = None,
@@ -121234,7 +121236,7 @@ class WebActivityArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[_builtins.str] description: Activity description.
         :param pulumi.Input[_builtins.bool] disable_cert_validation: When set to true, Certificate validation will be disabled.
-        :param pulumi.Input[Mapping[str, Any]] headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
+        :param Any headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         :param Any http_request_timeout: Timeout for the HTTP request to get a response. Format is in TimeSpan (hh:mm:ss). This value is the timeout to get a response, not the activity timeout. The default value is 00:01:00 (1 minute). The range is from 1 to 10 minutes
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]] linked_services: List of linked services passed to web endpoint.
@@ -121416,14 +121418,14 @@ class WebActivityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def headers(self) -> Optional[Any]:
         """
         Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def headers(self, value: Optional[Any]):
         pulumi.set(self, "headers", value)
 
     @_builtins.property
@@ -121801,7 +121803,7 @@ class WebHookActivityArgsDict(TypedDict):
     """
     Activity description.
     """
-    headers: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    headers: NotRequired[Any]
     """
     Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
     """
@@ -121841,7 +121843,7 @@ class WebHookActivityArgs:
                  body: Optional[Any] = None,
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
-                 headers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 headers: Optional[Any] = None,
                  on_inactive_mark_as: Optional[pulumi.Input[Union[_builtins.str, 'ActivityOnInactiveMarkAs']]] = None,
                  policy: Optional[pulumi.Input['SecureInputOutputPolicyArgs']] = None,
                  report_status_on_call_back: Optional[Any] = None,
@@ -121860,7 +121862,7 @@ class WebHookActivityArgs:
         :param Any body: Represents the payload that will be sent to the endpoint. Required for POST/PUT method, not allowed for GET method Type: string (or Expression with resultType string).
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[_builtins.str] description: Activity description.
-        :param pulumi.Input[Mapping[str, Any]] headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
+        :param Any headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         :param pulumi.Input[Union[_builtins.str, 'ActivityOnInactiveMarkAs']] on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param pulumi.Input['SecureInputOutputPolicyArgs'] policy: Activity policy.
         :param Any report_status_on_call_back: When set to true, statusCode, output and error in callback request body will be consumed by activity. The activity can be marked as failed by setting statusCode >= 400 in callback request. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -121994,14 +121996,14 @@ class WebHookActivityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def headers(self) -> Optional[Any]:
         """
         Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def headers(self, value: Optional[Any]):
         pulumi.set(self, "headers", value)
 
     @_builtins.property

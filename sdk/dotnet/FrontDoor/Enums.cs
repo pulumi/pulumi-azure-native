@@ -77,7 +77,13 @@ namespace Pulumi.AzureNative.FrontDoor
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Enabled
+        /// </summary>
         public static BackendEnabledState Enabled { get; } = new BackendEnabledState("Enabled");
+        /// <summary>
+        /// Disabled
+        /// </summary>
         public static BackendEnabledState Disabled { get; } = new BackendEnabledState("Disabled");
 
         public static bool operator ==(BackendEnabledState left, BackendEnabledState right) => left.Equals(right);
@@ -145,7 +151,13 @@ namespace Pulumi.AzureNative.FrontDoor
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Enabled
+        /// </summary>
         public static DynamicCompressionEnabled Enabled { get; } = new DynamicCompressionEnabled("Enabled");
+        /// <summary>
+        /// Disabled
+        /// </summary>
         public static DynamicCompressionEnabled Disabled { get; } = new DynamicCompressionEnabled("Disabled");
 
         public static bool operator ==(DynamicCompressionEnabled left, DynamicCompressionEnabled right) => left.Equals(right);
@@ -176,7 +188,13 @@ namespace Pulumi.AzureNative.FrontDoor
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Enabled
+        /// </summary>
         public static EnforceCertificateNameCheckEnabledState Enabled { get; } = new EnforceCertificateNameCheckEnabledState("Enabled");
+        /// <summary>
+        /// Disabled
+        /// </summary>
         public static EnforceCertificateNameCheckEnabledState Disabled { get; } = new EnforceCertificateNameCheckEnabledState("Disabled");
 
         public static bool operator ==(EnforceCertificateNameCheckEnabledState left, EnforceCertificateNameCheckEnabledState right) => left.Equals(right);
@@ -187,6 +205,134 @@ namespace Pulumi.AzureNative.FrontDoor
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is EnforceCertificateNameCheckEnabledState other && Equals(other);
         public bool Equals(EnforceCertificateNameCheckEnabledState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The variable to be evaluated for excluding the request.
+    /// </summary>
+    [EnumType]
+    public readonly struct ExceptionMatchVariable : IEquatable<ExceptionMatchVariable>
+    {
+        private readonly string _value;
+
+        private ExceptionMatchVariable(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Request Uri Exception Match Variable
+        /// </summary>
+        public static ExceptionMatchVariable RequestUri { get; } = new ExceptionMatchVariable("RequestUri");
+        /// <summary>
+        /// Socket Address Exception Match Variable
+        /// </summary>
+        public static ExceptionMatchVariable SocketAddr { get; } = new ExceptionMatchVariable("SocketAddr");
+        /// <summary>
+        /// Request Header Names Exception Match Variable
+        /// </summary>
+        public static ExceptionMatchVariable RequestHeaderNames { get; } = new ExceptionMatchVariable("RequestHeaderNames");
+
+        public static bool operator ==(ExceptionMatchVariable left, ExceptionMatchVariable right) => left.Equals(right);
+        public static bool operator !=(ExceptionMatchVariable left, ExceptionMatchVariable right) => !left.Equals(right);
+
+        public static explicit operator string(ExceptionMatchVariable value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ExceptionMatchVariable other && Equals(other);
+        public bool Equals(ExceptionMatchVariable other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Comparison operator to apply to the selector when specifying which elements
+    /// in the collection this exception applies to.
+    /// </summary>
+    [EnumType]
+    public readonly struct ExceptionSelectorMatchOperator : IEquatable<ExceptionSelectorMatchOperator>
+    {
+        private readonly string _value;
+
+        private ExceptionSelectorMatchOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Equals Selector Match Operator
+        /// </summary>
+        public static ExceptionSelectorMatchOperator EqualsValue { get; } = new ExceptionSelectorMatchOperator("Equals");
+
+        public static bool operator ==(ExceptionSelectorMatchOperator left, ExceptionSelectorMatchOperator right) => left.Equals(right);
+        public static bool operator !=(ExceptionSelectorMatchOperator left, ExceptionSelectorMatchOperator right) => !left.Equals(right);
+
+        public static explicit operator string(ExceptionSelectorMatchOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ExceptionSelectorMatchOperator other && Equals(other);
+        public bool Equals(ExceptionSelectorMatchOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Comparison operator to apply to the value to be matched.
+    /// </summary>
+    [EnumType]
+    public readonly struct ExceptionValueMatchOperator : IEquatable<ExceptionValueMatchOperator>
+    {
+        private readonly string _value;
+
+        private ExceptionValueMatchOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Equals Exception Value Match Operator
+        /// </summary>
+        public static ExceptionValueMatchOperator EqualsValue { get; } = new ExceptionValueMatchOperator("Equals");
+        /// <summary>
+        /// Contains Exception Value Match Operator
+        /// </summary>
+        public static ExceptionValueMatchOperator Contains { get; } = new ExceptionValueMatchOperator("Contains");
+        /// <summary>
+        /// StartsWith Exception Value Match Operator
+        /// </summary>
+        public static ExceptionValueMatchOperator StartsWith { get; } = new ExceptionValueMatchOperator("StartsWith");
+        /// <summary>
+        /// EndsWith Exception Value Match Operator
+        /// </summary>
+        public static ExceptionValueMatchOperator EndsWith { get; } = new ExceptionValueMatchOperator("EndsWith");
+        /// <summary>
+        /// EqualsAny Exception Value Match Operator
+        /// </summary>
+        public static ExceptionValueMatchOperator EqualsAny { get; } = new ExceptionValueMatchOperator("EqualsAny");
+        /// <summary>
+        /// IPMatch Exception Value Match Operator
+        /// </summary>
+        public static ExceptionValueMatchOperator IPMatch { get; } = new ExceptionValueMatchOperator("IPMatch");
+
+        public static bool operator ==(ExceptionValueMatchOperator left, ExceptionValueMatchOperator right) => left.Equals(right);
+        public static bool operator !=(ExceptionValueMatchOperator left, ExceptionValueMatchOperator right) => !left.Equals(right);
+
+        public static explicit operator string(ExceptionValueMatchOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ExceptionValueMatchOperator other && Equals(other);
+        public bool Equals(ExceptionValueMatchOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -207,7 +353,13 @@ namespace Pulumi.AzureNative.FrontDoor
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Enabled
+        /// </summary>
         public static FrontDoorEnabledState Enabled { get; } = new FrontDoorEnabledState("Enabled");
+        /// <summary>
+        /// Disabled
+        /// </summary>
         public static FrontDoorEnabledState Disabled { get; } = new FrontDoorEnabledState("Disabled");
 
         public static bool operator ==(FrontDoorEnabledState left, FrontDoorEnabledState right) => left.Equals(right);
@@ -238,8 +390,17 @@ namespace Pulumi.AzureNative.FrontDoor
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// HttpOnly
+        /// </summary>
         public static FrontDoorForwardingProtocol HttpOnly { get; } = new FrontDoorForwardingProtocol("HttpOnly");
+        /// <summary>
+        /// HttpsOnly
+        /// </summary>
         public static FrontDoorForwardingProtocol HttpsOnly { get; } = new FrontDoorForwardingProtocol("HttpsOnly");
+        /// <summary>
+        /// MatchRequest
+        /// </summary>
         public static FrontDoorForwardingProtocol MatchRequest { get; } = new FrontDoorForwardingProtocol("MatchRequest");
 
         public static bool operator ==(FrontDoorForwardingProtocol left, FrontDoorForwardingProtocol right) => left.Equals(right);
@@ -270,7 +431,13 @@ namespace Pulumi.AzureNative.FrontDoor
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// GET
+        /// </summary>
         public static FrontDoorHealthProbeMethod GET { get; } = new FrontDoorHealthProbeMethod("GET");
+        /// <summary>
+        /// HEAD
+        /// </summary>
         public static FrontDoorHealthProbeMethod HEAD { get; } = new FrontDoorHealthProbeMethod("HEAD");
 
         public static bool operator ==(FrontDoorHealthProbeMethod left, FrontDoorHealthProbeMethod right) => left.Equals(right);
@@ -301,7 +468,13 @@ namespace Pulumi.AzureNative.FrontDoor
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Http
+        /// </summary>
         public static FrontDoorProtocol Http { get; } = new FrontDoorProtocol("Http");
+        /// <summary>
+        /// Https
+        /// </summary>
         public static FrontDoorProtocol Https { get; } = new FrontDoorProtocol("Https");
 
         public static bool operator ==(FrontDoorProtocol left, FrontDoorProtocol right) => left.Equals(right);
@@ -332,9 +505,21 @@ namespace Pulumi.AzureNative.FrontDoor
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// StripNone
+        /// </summary>
         public static FrontDoorQuery StripNone { get; } = new FrontDoorQuery("StripNone");
+        /// <summary>
+        /// StripAll
+        /// </summary>
         public static FrontDoorQuery StripAll { get; } = new FrontDoorQuery("StripAll");
+        /// <summary>
+        /// StripOnly
+        /// </summary>
         public static FrontDoorQuery StripOnly { get; } = new FrontDoorQuery("StripOnly");
+        /// <summary>
+        /// StripAllExcept
+        /// </summary>
         public static FrontDoorQuery StripAllExcept { get; } = new FrontDoorQuery("StripAllExcept");
 
         public static bool operator ==(FrontDoorQuery left, FrontDoorQuery right) => left.Equals(right);
@@ -365,8 +550,17 @@ namespace Pulumi.AzureNative.FrontDoor
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// HttpOnly
+        /// </summary>
         public static FrontDoorRedirectProtocol HttpOnly { get; } = new FrontDoorRedirectProtocol("HttpOnly");
+        /// <summary>
+        /// HttpsOnly
+        /// </summary>
         public static FrontDoorRedirectProtocol HttpsOnly { get; } = new FrontDoorRedirectProtocol("HttpsOnly");
+        /// <summary>
+        /// MatchRequest
+        /// </summary>
         public static FrontDoorRedirectProtocol MatchRequest { get; } = new FrontDoorRedirectProtocol("MatchRequest");
 
         public static bool operator ==(FrontDoorRedirectProtocol left, FrontDoorRedirectProtocol right) => left.Equals(right);
@@ -397,9 +591,21 @@ namespace Pulumi.AzureNative.FrontDoor
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Moved
+        /// </summary>
         public static FrontDoorRedirectType Moved { get; } = new FrontDoorRedirectType("Moved");
+        /// <summary>
+        /// Found
+        /// </summary>
         public static FrontDoorRedirectType Found { get; } = new FrontDoorRedirectType("Found");
+        /// <summary>
+        /// TemporaryRedirect
+        /// </summary>
         public static FrontDoorRedirectType TemporaryRedirect { get; } = new FrontDoorRedirectType("TemporaryRedirect");
+        /// <summary>
+        /// PermanentRedirect
+        /// </summary>
         public static FrontDoorRedirectType PermanentRedirect { get; } = new FrontDoorRedirectType("PermanentRedirect");
 
         public static bool operator ==(FrontDoorRedirectType left, FrontDoorRedirectType right) => left.Equals(right);
@@ -430,8 +636,17 @@ namespace Pulumi.AzureNative.FrontDoor
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Append
+        /// </summary>
         public static HeaderActionType Append { get; } = new HeaderActionType("Append");
+        /// <summary>
+        /// Delete
+        /// </summary>
         public static HeaderActionType Delete { get; } = new HeaderActionType("Delete");
+        /// <summary>
+        /// Overwrite
+        /// </summary>
         public static HeaderActionType Overwrite { get; } = new HeaderActionType("Overwrite");
 
         public static bool operator ==(HeaderActionType left, HeaderActionType right) => left.Equals(right);
@@ -462,7 +677,13 @@ namespace Pulumi.AzureNative.FrontDoor
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Enabled
+        /// </summary>
         public static HealthProbeEnabled Enabled { get; } = new HealthProbeEnabled("Enabled");
+        /// <summary>
+        /// Disabled
+        /// </summary>
         public static HealthProbeEnabled Disabled { get; } = new HealthProbeEnabled("Disabled");
 
         public static bool operator ==(HealthProbeEnabled left, HealthProbeEnabled right) => left.Equals(right);
@@ -669,7 +890,13 @@ namespace Pulumi.AzureNative.FrontDoor
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Continue
+        /// </summary>
         public static MatchProcessingBehavior Continue { get; } = new MatchProcessingBehavior("Continue");
+        /// <summary>
+        /// Stop
+        /// </summary>
         public static MatchProcessingBehavior Stop { get; } = new MatchProcessingBehavior("Stop");
 
         public static bool operator ==(MatchProcessingBehavior left, MatchProcessingBehavior right) => left.Equals(right);
@@ -736,6 +963,10 @@ namespace Pulumi.AzureNative.FrontDoor
         /// SocketAddr
         /// </summary>
         public static MatchVariable SocketAddr { get; } = new MatchVariable("SocketAddr");
+        /// <summary>
+        /// JA4 Match Variable
+        /// </summary>
+        public static MatchVariable JA4 { get; } = new MatchVariable("JA4");
 
         public static bool operator ==(MatchVariable left, MatchVariable right) => left.Equals(right);
         public static bool operator !=(MatchVariable left, MatchVariable right) => !left.Equals(right);
@@ -817,6 +1048,14 @@ namespace Pulumi.AzureNative.FrontDoor
         /// ServiceTagMatch
         /// </summary>
         public static Operator ServiceTagMatch { get; } = new Operator("ServiceTagMatch");
+        /// <summary>
+        /// Autonomous System Number Match Operator
+        /// </summary>
+        public static Operator AsnMatch { get; } = new Operator("AsnMatch");
+        /// <summary>
+        /// Client Finger print Operator
+        /// </summary>
+        public static Operator ClientFingerprint { get; } = new Operator("ClientFingerprint");
 
         public static bool operator ==(Operator left, Operator right) => left.Equals(right);
         public static bool operator !=(Operator left, Operator right) => !left.Equals(right);
@@ -957,7 +1196,13 @@ namespace Pulumi.AzureNative.FrontDoor
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Enabled
+        /// </summary>
         public static RoutingRuleEnabledState Enabled { get; } = new RoutingRuleEnabledState("Enabled");
+        /// <summary>
+        /// Disabled
+        /// </summary>
         public static RoutingRuleEnabledState Disabled { get; } = new RoutingRuleEnabledState("Disabled");
 
         public static bool operator ==(RoutingRuleEnabledState left, RoutingRuleEnabledState right) => left.Equals(right);
@@ -1025,17 +1270,53 @@ namespace Pulumi.AzureNative.FrontDoor
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// IsMobile
+        /// </summary>
         public static RulesEngineMatchVariable IsMobile { get; } = new RulesEngineMatchVariable("IsMobile");
+        /// <summary>
+        /// RemoteAddr
+        /// </summary>
         public static RulesEngineMatchVariable RemoteAddr { get; } = new RulesEngineMatchVariable("RemoteAddr");
+        /// <summary>
+        /// RequestMethod
+        /// </summary>
         public static RulesEngineMatchVariable RequestMethod { get; } = new RulesEngineMatchVariable("RequestMethod");
+        /// <summary>
+        /// QueryString
+        /// </summary>
         public static RulesEngineMatchVariable QueryString { get; } = new RulesEngineMatchVariable("QueryString");
+        /// <summary>
+        /// PostArgs
+        /// </summary>
         public static RulesEngineMatchVariable PostArgs { get; } = new RulesEngineMatchVariable("PostArgs");
+        /// <summary>
+        /// RequestUri
+        /// </summary>
         public static RulesEngineMatchVariable RequestUri { get; } = new RulesEngineMatchVariable("RequestUri");
+        /// <summary>
+        /// RequestPath
+        /// </summary>
         public static RulesEngineMatchVariable RequestPath { get; } = new RulesEngineMatchVariable("RequestPath");
+        /// <summary>
+        /// RequestFilename
+        /// </summary>
         public static RulesEngineMatchVariable RequestFilename { get; } = new RulesEngineMatchVariable("RequestFilename");
+        /// <summary>
+        /// RequestFilenameExtension
+        /// </summary>
         public static RulesEngineMatchVariable RequestFilenameExtension { get; } = new RulesEngineMatchVariable("RequestFilenameExtension");
+        /// <summary>
+        /// RequestHeader
+        /// </summary>
         public static RulesEngineMatchVariable RequestHeader { get; } = new RulesEngineMatchVariable("RequestHeader");
+        /// <summary>
+        /// RequestBody
+        /// </summary>
         public static RulesEngineMatchVariable RequestBody { get; } = new RulesEngineMatchVariable("RequestBody");
+        /// <summary>
+        /// RequestScheme
+        /// </summary>
         public static RulesEngineMatchVariable RequestScheme { get; } = new RulesEngineMatchVariable("RequestScheme");
 
         public static bool operator ==(RulesEngineMatchVariable left, RulesEngineMatchVariable right) => left.Equals(right);
@@ -1066,16 +1347,49 @@ namespace Pulumi.AzureNative.FrontDoor
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Any
+        /// </summary>
         public static RulesEngineOperator Any { get; } = new RulesEngineOperator("Any");
+        /// <summary>
+        /// IPMatch
+        /// </summary>
         public static RulesEngineOperator IPMatch { get; } = new RulesEngineOperator("IPMatch");
+        /// <summary>
+        /// GeoMatch
+        /// </summary>
         public static RulesEngineOperator GeoMatch { get; } = new RulesEngineOperator("GeoMatch");
+        /// <summary>
+        /// Equal
+        /// </summary>
         public static RulesEngineOperator Equal { get; } = new RulesEngineOperator("Equal");
+        /// <summary>
+        /// Contains
+        /// </summary>
         public static RulesEngineOperator Contains { get; } = new RulesEngineOperator("Contains");
+        /// <summary>
+        /// LessThan
+        /// </summary>
         public static RulesEngineOperator LessThan { get; } = new RulesEngineOperator("LessThan");
+        /// <summary>
+        /// GreaterThan
+        /// </summary>
         public static RulesEngineOperator GreaterThan { get; } = new RulesEngineOperator("GreaterThan");
+        /// <summary>
+        /// LessThanOrEqual
+        /// </summary>
         public static RulesEngineOperator LessThanOrEqual { get; } = new RulesEngineOperator("LessThanOrEqual");
+        /// <summary>
+        /// GreaterThanOrEqual
+        /// </summary>
         public static RulesEngineOperator GreaterThanOrEqual { get; } = new RulesEngineOperator("GreaterThanOrEqual");
+        /// <summary>
+        /// BeginsWith
+        /// </summary>
         public static RulesEngineOperator BeginsWith { get; } = new RulesEngineOperator("BeginsWith");
+        /// <summary>
+        /// EndsWith
+        /// </summary>
         public static RulesEngineOperator EndsWith { get; } = new RulesEngineOperator("EndsWith");
 
         public static bool operator ==(RulesEngineOperator left, RulesEngineOperator right) => left.Equals(right);
@@ -1278,7 +1592,13 @@ namespace Pulumi.AzureNative.FrontDoor
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Enabled
+        /// </summary>
         public static SessionAffinityEnabledState Enabled { get; } = new SessionAffinityEnabledState("Enabled");
+        /// <summary>
+        /// Disabled
+        /// </summary>
         public static SessionAffinityEnabledState Disabled { get; } = new SessionAffinityEnabledState("Disabled");
 
         public static bool operator ==(SessionAffinityEnabledState left, SessionAffinityEnabledState right) => left.Equals(right);
@@ -1350,7 +1670,13 @@ namespace Pulumi.AzureNative.FrontDoor
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Enabled
+        /// </summary>
         public static State Enabled { get; } = new State("Enabled");
+        /// <summary>
+        /// Disabled
+        /// </summary>
         public static State Disabled { get; } = new State("Disabled");
 
         public static bool operator ==(State left, State right) => left.Equals(right);
@@ -1381,11 +1707,29 @@ namespace Pulumi.AzureNative.FrontDoor
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Lowercase
+        /// </summary>
         public static Transform Lowercase { get; } = new Transform("Lowercase");
+        /// <summary>
+        /// Uppercase
+        /// </summary>
         public static Transform Uppercase { get; } = new Transform("Uppercase");
+        /// <summary>
+        /// Trim
+        /// </summary>
         public static Transform Trim { get; } = new Transform("Trim");
+        /// <summary>
+        /// UrlDecode
+        /// </summary>
         public static Transform UrlDecode { get; } = new Transform("UrlDecode");
+        /// <summary>
+        /// UrlEncode
+        /// </summary>
         public static Transform UrlEncode { get; } = new Transform("UrlEncode");
+        /// <summary>
+        /// RemoveNulls
+        /// </summary>
         public static Transform RemoveNulls { get; } = new Transform("RemoveNulls");
 
         public static bool operator ==(Transform left, Transform right) => left.Equals(right);

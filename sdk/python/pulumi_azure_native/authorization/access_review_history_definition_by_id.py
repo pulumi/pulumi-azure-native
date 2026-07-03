@@ -253,6 +253,7 @@ class AccessReviewHistoryDefinitionById(pulumi.CustomResource):
             __props__.__dict__["review_history_period_end_date_time"] = None
             __props__.__dict__["review_history_period_start_date_time"] = None
             __props__.__dict__["status"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["user_principal_name"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:authorization/v20211116preview:AccessReviewHistoryDefinitionById"), pulumi.Alias(type_="azure-native:authorization/v20211201preview:AccessReviewHistoryDefinitionById")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -293,6 +294,7 @@ class AccessReviewHistoryDefinitionById(pulumi.CustomResource):
         __props__.__dict__["review_history_period_start_date_time"] = None
         __props__.__dict__["scopes"] = None
         __props__.__dict__["status"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["user_principal_name"] = None
         return AccessReviewHistoryDefinitionById(resource_name, opts=opts, __props__=__props__)
@@ -349,7 +351,7 @@ class AccessReviewHistoryDefinitionById(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The access review history definition unique id.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -418,10 +420,18 @@ class AccessReviewHistoryDefinitionById(pulumi.CustomResource):
         return pulumi.get(self, "status")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        The resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

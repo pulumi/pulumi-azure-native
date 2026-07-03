@@ -184,7 +184,7 @@ def get_certificate(automation_account_name: Optional[_builtins.str] = None,
 
     :param _builtins.str automation_account_name: The name of the automation account.
     :param _builtins.str certificate_name: The name of certificate.
-    :param _builtins.str resource_group_name: Name of an Azure Resource group.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
@@ -219,7 +219,7 @@ def get_certificate_output(automation_account_name: Optional[pulumi.Input[_built
 
     :param _builtins.str automation_account_name: The name of the automation account.
     :param _builtins.str certificate_name: The name of certificate.
-    :param _builtins.str resource_group_name: Name of an Azure Resource group.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name

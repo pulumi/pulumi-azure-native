@@ -64,7 +64,7 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
     /**
      * The rule criteria that defines the conditions of the scheduled query rule.
      */
-    declare public readonly criteria: pulumi.Output<outputs.monitor.ScheduledQueryRuleCriteriaResponse>;
+    declare public readonly criteria: pulumi.Output<outputs.monitor.ScheduledQueryRuleCriteriaResponse | undefined>;
     /**
      * The description of the scheduled query rule.
      */
@@ -76,9 +76,9 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
     /**
      * The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
      */
-    declare public readonly enabled: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
-     * The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+     * "If etag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.")
      */
     declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
@@ -88,7 +88,7 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
     /**
      * The identity of the resource.
      */
-    declare public readonly identity: pulumi.Output<outputs.monitor.IdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.monitor.MicrosoftCommonIdentityResponse | undefined>;
     /**
      * True if alert rule is legacy Log Analytic rule
      */
@@ -124,7 +124,7 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
     /**
      * The list of resource id's that this scheduled query rule is scoped to.
      */
-    declare public readonly scopes: pulumi.Output<string[]>;
+    declare public readonly scopes: pulumi.Output<string[] | undefined>;
     /**
      * Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest. Relevant and required only for rules of the kind LogAlert.
      */
@@ -134,7 +134,7 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
      */
     declare public readonly skipQueryValidation: pulumi.Output<boolean | undefined>;
     /**
-     * SystemData of ScheduledQueryRule.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     declare public /*out*/ readonly systemData: pulumi.Output<outputs.monitor.SystemDataResponse>;
     /**
@@ -165,17 +165,8 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.criteria === undefined && !opts.urn) {
-                throw new Error("Missing required property 'criteria'");
-            }
-            if (args?.enabled === undefined && !opts.urn) {
-                throw new Error("Missing required property 'enabled'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if (args?.scopes === undefined && !opts.urn) {
-                throw new Error("Missing required property 'scopes'");
             }
             resourceInputs["actions"] = args?.actions;
             resourceInputs["autoMitigate"] = args?.autoMitigate;
@@ -263,7 +254,7 @@ export interface ScheduledQueryRuleArgs {
     /**
      * The rule criteria that defines the conditions of the scheduled query rule.
      */
-    criteria: pulumi.Input<inputs.monitor.ScheduledQueryRuleCriteriaArgs>;
+    criteria?: pulumi.Input<inputs.monitor.ScheduledQueryRuleCriteriaArgs>;
     /**
      * The description of the scheduled query rule.
      */
@@ -275,7 +266,7 @@ export interface ScheduledQueryRuleArgs {
     /**
      * The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
      */
-    enabled: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * How often the scheduled query rule is evaluated represented in ISO 8601 duration format. Relevant and required only for rules of the kind LogAlert.
      */
@@ -283,7 +274,7 @@ export interface ScheduledQueryRuleArgs {
     /**
      * The identity of the resource.
      */
-    identity?: pulumi.Input<inputs.monitor.IdentityArgs>;
+    identity?: pulumi.Input<inputs.monitor.MicrosoftCommonIdentityArgs>;
     /**
      * Indicates the type of scheduled query rule. The default is LogAlert.
      */
@@ -315,7 +306,7 @@ export interface ScheduledQueryRuleArgs {
     /**
      * The list of resource id's that this scheduled query rule is scoped to.
      */
-    scopes: pulumi.Input<pulumi.Input<string>[]>;
+    scopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest. Relevant and required only for rules of the kind LogAlert.
      */

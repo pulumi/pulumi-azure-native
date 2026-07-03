@@ -38,7 +38,7 @@ class EnterprisePolicyArgs:
         :param pulumi.Input[Union[_builtins.str, 'EnterprisePolicyKind']] kind: The kind (type) of Enterprise Policy.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['PropertiesEncryptionArgs'] encryption: The encryption settings for a configuration store.
-        :param pulumi.Input[_builtins.str] enterprise_policy_name: Name of the EnterprisePolicy.
+        :param pulumi.Input[_builtins.str] enterprise_policy_name: The EnterprisePolicy name.
         :param pulumi.Input[Union[_builtins.str, 'HealthStatus']] health_status: The health status of the resource.
         :param pulumi.Input['EnterprisePolicyIdentityArgs'] identity: The identity of the EnterprisePolicy.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -105,7 +105,7 @@ class EnterprisePolicyArgs:
     @pulumi.getter(name="enterprisePolicyName")
     def enterprise_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Name of the EnterprisePolicy.
+        The EnterprisePolicy name.
         """
         return pulumi.get(self, "enterprise_policy_name")
 
@@ -212,7 +212,7 @@ class EnterprisePolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['PropertiesEncryptionArgs', 'PropertiesEncryptionArgsDict']] encryption: The encryption settings for a configuration store.
-        :param pulumi.Input[_builtins.str] enterprise_policy_name: Name of the EnterprisePolicy.
+        :param pulumi.Input[_builtins.str] enterprise_policy_name: The EnterprisePolicy name.
         :param pulumi.Input[Union[_builtins.str, 'HealthStatus']] health_status: The health status of the resource.
         :param pulumi.Input[Union['EnterprisePolicyIdentityArgs', 'EnterprisePolicyIdentityArgsDict']] identity: The identity of the EnterprisePolicy.
         :param pulumi.Input[Union[_builtins.str, 'EnterprisePolicyKind']] kind: The kind (type) of Enterprise Policy.
@@ -336,7 +336,7 @@ class EnterprisePolicy(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def encryption(self) -> pulumi.Output[Optional['outputs.PropertiesResponseEncryption']]:
+    def encryption(self) -> pulumi.Output[Optional['outputs.PropertiesEncryptionResponse']]:
         """
         The encryption settings for a configuration store.
         """
@@ -376,7 +376,7 @@ class EnterprisePolicy(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def lockbox(self) -> pulumi.Output[Optional['outputs.PropertiesResponseLockbox']]:
+    def lockbox(self) -> pulumi.Output[Optional['outputs.PropertiesLockboxResponse']]:
         """
         Settings concerning lockbox.
         """
@@ -392,7 +392,7 @@ class EnterprisePolicy(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="networkInjection")
-    def network_injection(self) -> pulumi.Output[Optional['outputs.PropertiesResponseNetworkInjection']]:
+    def network_injection(self) -> pulumi.Output[Optional['outputs.PropertiesNetworkInjectionResponse']]:
         """
         Settings concerning network injection.
         """
@@ -402,7 +402,7 @@ class EnterprisePolicy(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

@@ -105,7 +105,7 @@ class GetPrivateEndpointConnectionResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -144,7 +144,7 @@ def get_private_endpoint_connection(enterprise_policy_name: Optional[_builtins.s
     Uses Azure REST API version 2020-10-30-preview.
 
 
-    :param _builtins.str enterprise_policy_name: EnterprisePolicy for the Microsoft Azure subscription.
+    :param _builtins.str enterprise_policy_name: The EnterprisePolicy name.
     :param _builtins.str private_endpoint_connection_name: The name of the private endpoint connection.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -174,7 +174,7 @@ def get_private_endpoint_connection_output(enterprise_policy_name: Optional[pulu
     Uses Azure REST API version 2020-10-30-preview.
 
 
-    :param _builtins.str enterprise_policy_name: EnterprisePolicy for the Microsoft Azure subscription.
+    :param _builtins.str enterprise_policy_name: The EnterprisePolicy name.
     :param _builtins.str private_endpoint_connection_name: The name of the private endpoint connection.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """

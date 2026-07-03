@@ -35,7 +35,7 @@ class DscNodeConfigurationArgs:
 
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
         :param pulumi.Input['DscConfigurationAssociationPropertyArgs'] configuration: Gets or sets the configuration of the node.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ContentSourceArgs'] source: Gets or sets the source.
         :param pulumi.Input[_builtins.bool] increment_node_configuration_build: If a new build version of NodeConfiguration is required.
         :param pulumi.Input[_builtins.str] name: Name of the node configuration.
@@ -83,7 +83,7 @@ class DscNodeConfigurationArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of an Azure Resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -182,7 +182,7 @@ class DscNodeConfiguration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] increment_node_configuration_build: If a new build version of NodeConfiguration is required.
         :param pulumi.Input[_builtins.str] name: Name of the node configuration.
         :param pulumi.Input[_builtins.str] node_configuration_name: The Dsc node configuration name.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['ContentSourceArgs', 'ContentSourceArgsDict']] source: Gets or sets the source.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Gets or sets the tags attached to the resource.
         """

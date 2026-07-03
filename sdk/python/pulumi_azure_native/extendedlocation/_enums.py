@@ -18,6 +18,9 @@ class HostType(_builtins.str, Enum):
     Type of host the Custom Locations is referencing (Kubernetes, etc...).
     """
     KUBERNETES = "Kubernetes"
+    """
+    Kubernetes
+    """
 
 
 @pulumi.type_token("azure-native:extendedlocation:ResourceIdentityType")
@@ -26,4 +29,10 @@ class ResourceIdentityType(_builtins.str, Enum):
     The identity type.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
+    """
+    SystemAssigned
+    """
     NONE = "None"
+    """
+    None
+    """

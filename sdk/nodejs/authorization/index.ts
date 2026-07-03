@@ -15,6 +15,11 @@ export type AccessReviewScheduleDefinitionById = import("./accessReviewScheduleD
 export const AccessReviewScheduleDefinitionById: typeof import("./accessReviewScheduleDefinitionById").AccessReviewScheduleDefinitionById = null as any;
 utilities.lazyLoad(exports, ["AccessReviewScheduleDefinitionById"], () => require("./accessReviewScheduleDefinitionById"));
 
+export { DenyAssignmentArgs } from "./denyAssignment";
+export type DenyAssignment = import("./denyAssignment").DenyAssignment;
+export const DenyAssignment: typeof import("./denyAssignment").DenyAssignment = null as any;
+utilities.lazyLoad(exports, ["DenyAssignment"], () => require("./denyAssignment"));
+
 export { GetAccessReviewHistoryDefinitionByIdArgs, GetAccessReviewHistoryDefinitionByIdResult, GetAccessReviewHistoryDefinitionByIdOutputArgs } from "./getAccessReviewHistoryDefinitionById";
 export const getAccessReviewHistoryDefinitionById: typeof import("./getAccessReviewHistoryDefinitionById").getAccessReviewHistoryDefinitionById = null as any;
 export const getAccessReviewHistoryDefinitionByIdOutput: typeof import("./getAccessReviewHistoryDefinitionById").getAccessReviewHistoryDefinitionByIdOutput = null as any;
@@ -34,6 +39,11 @@ export { GetClientTokenArgs, GetClientTokenResult, GetClientTokenOutputArgs } fr
 export const getClientToken: typeof import("./getClientToken").getClientToken = null as any;
 export const getClientTokenOutput: typeof import("./getClientToken").getClientTokenOutput = null as any;
 utilities.lazyLoad(exports, ["getClientToken","getClientTokenOutput"], () => require("./getClientToken"));
+
+export { GetDenyAssignmentArgs, GetDenyAssignmentResult, GetDenyAssignmentOutputArgs } from "./getDenyAssignment";
+export const getDenyAssignment: typeof import("./getDenyAssignment").getDenyAssignment = null as any;
+export const getDenyAssignmentOutput: typeof import("./getDenyAssignment").getDenyAssignmentOutput = null as any;
+utilities.lazyLoad(exports, ["getDenyAssignment","getDenyAssignmentOutput"], () => require("./getDenyAssignment"));
 
 export { GetManagementLockAtResourceGroupLevelArgs, GetManagementLockAtResourceGroupLevelResult, GetManagementLockAtResourceGroupLevelOutputArgs } from "./getManagementLockAtResourceGroupLevel";
 export const getManagementLockAtResourceGroupLevel: typeof import("./getManagementLockAtResourceGroupLevel").getManagementLockAtResourceGroupLevel = null as any;
@@ -352,6 +362,8 @@ const _module = {
                 return new AccessReviewHistoryDefinitionById(name, <any>undefined, { urn })
             case "azure-native:authorization:AccessReviewScheduleDefinitionById":
                 return new AccessReviewScheduleDefinitionById(name, <any>undefined, { urn })
+            case "azure-native:authorization:DenyAssignment":
+                return new DenyAssignment(name, <any>undefined, { urn })
             case "azure-native:authorization:ManagementLockAtResourceGroupLevel":
                 return new ManagementLockAtResourceGroupLevel(name, <any>undefined, { urn })
             case "azure-native:authorization:ManagementLockAtResourceLevel":

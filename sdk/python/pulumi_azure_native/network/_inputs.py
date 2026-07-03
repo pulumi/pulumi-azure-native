@@ -152,6 +152,48 @@ __all__ = [
     'BgpSettingsArgsDict',
     'BreakOutCategoryPoliciesArgs',
     'BreakOutCategoryPoliciesArgsDict',
+    'CommitPropertiesArgs',
+    'CommitPropertiesArgsDict',
+    'CommonAddressSpaceArgs',
+    'CommonAddressSpaceArgsDict',
+    'CommonApplicationGatewayIPConfigurationArgs',
+    'CommonApplicationGatewayIPConfigurationArgsDict',
+    'CommonApplicationSecurityGroupArgs',
+    'CommonApplicationSecurityGroupArgsDict',
+    'CommonDelegationArgs',
+    'CommonDelegationArgsDict',
+    'CommonDhcpOptionsArgs',
+    'CommonDhcpOptionsArgsDict',
+    'CommonExtendedLocationArgs',
+    'CommonExtendedLocationArgsDict',
+    'CommonIpamPoolPrefixAllocationArgs',
+    'CommonIpamPoolPrefixAllocationArgsDict',
+    'CommonNetworkSecurityGroupArgs',
+    'CommonNetworkSecurityGroupArgsDict',
+    'CommonRouteTableArgs',
+    'CommonRouteTableArgsDict',
+    'CommonRouteArgs',
+    'CommonRouteArgsDict',
+    'CommonSecurityRuleArgs',
+    'CommonSecurityRuleArgsDict',
+    'CommonServiceEndpointPolicyDefinitionArgs',
+    'CommonServiceEndpointPolicyDefinitionArgsDict',
+    'CommonServiceEndpointPolicyArgs',
+    'CommonServiceEndpointPolicyArgsDict',
+    'CommonServiceEndpointPropertiesFormatArgs',
+    'CommonServiceEndpointPropertiesFormatArgsDict',
+    'CommonSubResourceArgs',
+    'CommonSubResourceArgsDict',
+    'CommonSubnetArgs',
+    'CommonSubnetArgsDict',
+    'CommonVirtualNetworkBgpCommunitiesArgs',
+    'CommonVirtualNetworkBgpCommunitiesArgsDict',
+    'CommonVirtualNetworkEncryptionArgs',
+    'CommonVirtualNetworkEncryptionArgsDict',
+    'CommonVirtualNetworkPeeringArgs',
+    'CommonVirtualNetworkPeeringArgsDict',
+    'CommonVirtualNetworkArgs',
+    'CommonVirtualNetworkArgsDict',
     'ConnectionMonitorDestinationArgs',
     'ConnectionMonitorDestinationArgsDict',
     'ConnectionMonitorEndpointFilterItemArgs',
@@ -184,6 +226,8 @@ __all__ = [
     'ConnectionMonitorTestGroupArgsDict',
     'ConnectionMonitorWorkspaceSettingsArgs',
     'ConnectionMonitorWorkspaceSettingsArgsDict',
+    'ConnectionPolicyPropertiesArgs',
+    'ConnectionPolicyPropertiesArgsDict',
     'ConnectivityGroupItemArgs',
     'ConnectivityGroupItemArgsDict',
     'ContainerNetworkInterfaceConfigurationArgs',
@@ -452,6 +496,18 @@ __all__ = [
     'PrivateLinkServiceArgsDict',
     'ProbeArgs',
     'ProbeArgsDict',
+    'PropagatedRouteTableV1Args',
+    'PropagatedRouteTableV1ArgsDict',
+    'PropagatedRouteTableV2Args',
+    'PropagatedRouteTableV2ArgsDict',
+    'PropagatedRouteTableV3Args',
+    'PropagatedRouteTableV3ArgsDict',
+    'PropagatedRouteTableV5Args',
+    'PropagatedRouteTableV5ArgsDict',
+    'PropagatedRouteTableV6Args',
+    'PropagatedRouteTableV6ArgsDict',
+    'PropagatedRouteTableV7Args',
+    'PropagatedRouteTableV7ArgsDict',
     'PropagatedRouteTableArgs',
     'PropagatedRouteTableArgsDict',
     'PublicIPAddressDnsSettingsArgs',
@@ -488,6 +544,18 @@ __all__ = [
     'RouteTargetAddressPropertiesFormatArgsDict',
     'RouteArgs',
     'RouteArgsDict',
+    'RoutingConfigurationV1Args',
+    'RoutingConfigurationV1ArgsDict',
+    'RoutingConfigurationV2Args',
+    'RoutingConfigurationV2ArgsDict',
+    'RoutingConfigurationV3Args',
+    'RoutingConfigurationV3ArgsDict',
+    'RoutingConfigurationV5Args',
+    'RoutingConfigurationV5ArgsDict',
+    'RoutingConfigurationV6Args',
+    'RoutingConfigurationV6ArgsDict',
+    'RoutingConfigurationV7Args',
+    'RoutingConfigurationV7ArgsDict',
     'RoutingConfigurationArgs',
     'RoutingConfigurationArgsDict',
     'RoutingPolicyArgs',
@@ -522,6 +590,8 @@ __all__ = [
     'SubResourceDict',
     'SubResourceArgs',
     'SubResourceArgsDict',
+    'SubgroupProfileArgs',
+    'SubgroupProfileArgsDict',
     'SubnetArgs',
     'SubnetArgsDict',
     'SubscriptionIdArgs',
@@ -582,8 +652,6 @@ __all__ = [
     'VirtualNetworkPeeringArgsDict',
     'VirtualNetworkTapArgs',
     'VirtualNetworkTapArgsDict',
-    'VirtualNetworkArgs',
-    'VirtualNetworkArgsDict',
     'VirtualRouterAutoScaleConfigurationArgs',
     'VirtualRouterAutoScaleConfigurationArgsDict',
     'VnetRouteArgs',
@@ -8067,6 +8135,2799 @@ class BreakOutCategoryPoliciesArgs:
         pulumi.set(self, "optimize", value)
 
 
+class CommitPropertiesArgsDict(TypedDict):
+    """
+    Properties of commit
+    """
+    commit_type: pulumi.Input[Union[_builtins.str, 'ConfigurationType']]
+    """
+    Commit Type.
+    """
+    target_locations: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of target locations.
+    """
+    configuration_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of configuration IDs.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A description of the commit.
+    """
+    force_update_tag: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A value that, when changed, forces the commit to be re-evaluated and redeployed.
+    """
+
+@pulumi.input_type
+class CommitPropertiesArgs:
+    def __init__(__self__, *,
+                 commit_type: pulumi.Input[Union[_builtins.str, 'ConfigurationType']],
+                 target_locations: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 configuration_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 force_update_tag: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Properties of commit
+
+        :param pulumi.Input[Union[_builtins.str, 'ConfigurationType']] commit_type: Commit Type.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] target_locations: List of target locations.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] configuration_ids: List of configuration IDs.
+        :param pulumi.Input[_builtins.str] description: A description of the commit.
+        :param pulumi.Input[_builtins.str] force_update_tag: A value that, when changed, forces the commit to be re-evaluated and redeployed.
+        """
+        pulumi.set(__self__, "commit_type", commit_type)
+        pulumi.set(__self__, "target_locations", target_locations)
+        if configuration_ids is not None:
+            pulumi.set(__self__, "configuration_ids", configuration_ids)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if force_update_tag is not None:
+            pulumi.set(__self__, "force_update_tag", force_update_tag)
+
+    @_builtins.property
+    @pulumi.getter(name="commitType")
+    def commit_type(self) -> pulumi.Input[Union[_builtins.str, 'ConfigurationType']]:
+        """
+        Commit Type.
+        """
+        return pulumi.get(self, "commit_type")
+
+    @commit_type.setter
+    def commit_type(self, value: pulumi.Input[Union[_builtins.str, 'ConfigurationType']]):
+        pulumi.set(self, "commit_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetLocations")
+    def target_locations(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        List of target locations.
+        """
+        return pulumi.get(self, "target_locations")
+
+    @target_locations.setter
+    def target_locations(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "target_locations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="configurationIds")
+    def configuration_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of configuration IDs.
+        """
+        return pulumi.get(self, "configuration_ids")
+
+    @configuration_ids.setter
+    def configuration_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "configuration_ids", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A description of the commit.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="forceUpdateTag")
+    def force_update_tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A value that, when changed, forces the commit to be re-evaluated and redeployed.
+        """
+        return pulumi.get(self, "force_update_tag")
+
+    @force_update_tag.setter
+    def force_update_tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "force_update_tag", value)
+
+
+class CommonAddressSpaceArgsDict(TypedDict):
+    """
+    AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.
+    """
+    address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of address blocks reserved for this virtual network in CIDR notation.
+    """
+    ipam_pool_prefix_allocations: NotRequired[pulumi.Input[Sequence[pulumi.Input['CommonIpamPoolPrefixAllocationArgsDict']]]]
+    """
+    A list of IPAM Pools allocating IP address prefixes.
+    """
+
+@pulumi.input_type
+class CommonAddressSpaceArgs:
+    def __init__(__self__, *,
+                 address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ipam_pool_prefix_allocations: Optional[pulumi.Input[Sequence[pulumi.Input['CommonIpamPoolPrefixAllocationArgs']]]] = None):
+        """
+        AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_prefixes: A list of address blocks reserved for this virtual network in CIDR notation.
+        :param pulumi.Input[Sequence[pulumi.Input['CommonIpamPoolPrefixAllocationArgs']]] ipam_pool_prefix_allocations: A list of IPAM Pools allocating IP address prefixes.
+        """
+        if address_prefixes is not None:
+            pulumi.set(__self__, "address_prefixes", address_prefixes)
+        if ipam_pool_prefix_allocations is not None:
+            pulumi.set(__self__, "ipam_pool_prefix_allocations", ipam_pool_prefix_allocations)
+
+    @_builtins.property
+    @pulumi.getter(name="addressPrefixes")
+    def address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of address blocks reserved for this virtual network in CIDR notation.
+        """
+        return pulumi.get(self, "address_prefixes")
+
+    @address_prefixes.setter
+    def address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "address_prefixes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipamPoolPrefixAllocations")
+    def ipam_pool_prefix_allocations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CommonIpamPoolPrefixAllocationArgs']]]]:
+        """
+        A list of IPAM Pools allocating IP address prefixes.
+        """
+        return pulumi.get(self, "ipam_pool_prefix_allocations")
+
+    @ipam_pool_prefix_allocations.setter
+    def ipam_pool_prefix_allocations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CommonIpamPoolPrefixAllocationArgs']]]]):
+        pulumi.set(self, "ipam_pool_prefix_allocations", value)
+
+
+class CommonApplicationGatewayIPConfigurationArgsDict(TypedDict):
+    """
+    IP configuration of an application gateway. Currently 1 public and 1 private IP configuration is allowed.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource ID.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the IP configuration that is unique within an Application Gateway.
+    """
+    subnet: NotRequired[pulumi.Input['CommonSubResourceArgsDict']]
+    """
+    Reference to the subnet resource. A subnet from where application gateway gets its private address.
+    """
+
+@pulumi.input_type
+class CommonApplicationGatewayIPConfigurationArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 subnet: Optional[pulumi.Input['CommonSubResourceArgs']] = None):
+        """
+        IP configuration of an application gateway. Currently 1 public and 1 private IP configuration is allowed.
+
+        :param pulumi.Input[_builtins.str] id: Resource ID.
+        :param pulumi.Input[_builtins.str] name: Name of the IP configuration that is unique within an Application Gateway.
+        :param pulumi.Input['CommonSubResourceArgs'] subnet: Reference to the subnet resource. A subnet from where application gateway gets its private address.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name of the IP configuration that is unique within an Application Gateway.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subnet(self) -> Optional[pulumi.Input['CommonSubResourceArgs']]:
+        """
+        Reference to the subnet resource. A subnet from where application gateway gets its private address.
+        """
+        return pulumi.get(self, "subnet")
+
+    @subnet.setter
+    def subnet(self, value: Optional[pulumi.Input['CommonSubResourceArgs']]):
+        pulumi.set(self, "subnet", value)
+
+
+class CommonApplicationSecurityGroupArgsDict(TypedDict):
+    """
+    An application security group in a resource group.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource ID.
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource location.
+    """
+    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Resource tags.
+    """
+
+@pulumi.input_type
+class CommonApplicationSecurityGroupArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        """
+        An application security group in a resource group.
+
+        :param pulumi.Input[_builtins.str] id: Resource ID.
+        :param pulumi.Input[_builtins.str] location: Resource location.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+class CommonDelegationArgsDict(TypedDict):
+    """
+    Details the service to which the subnet is delegated.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource ID.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the resource that is unique within a subnet. This name can be used to access the resource.
+    """
+    service_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the service to whom the subnet should be delegated (e.g. Microsoft.Sql/servers).
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource type.
+    """
+
+@pulumi.input_type
+class CommonDelegationArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Details the service to which the subnet is delegated.
+
+        :param pulumi.Input[_builtins.str] id: Resource ID.
+        :param pulumi.Input[_builtins.str] name: The name of the resource that is unique within a subnet. This name can be used to access the resource.
+        :param pulumi.Input[_builtins.str] service_name: The name of the service to whom the subnet should be delegated (e.g. Microsoft.Sql/servers).
+        :param pulumi.Input[_builtins.str] type: Resource type.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if service_name is not None:
+            pulumi.set(__self__, "service_name", service_name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the resource that is unique within a subnet. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the service to whom the subnet should be delegated (e.g. Microsoft.Sql/servers).
+        """
+        return pulumi.get(self, "service_name")
+
+    @service_name.setter
+    def service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "service_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+
+class CommonDhcpOptionsArgsDict(TypedDict):
+    """
+    DhcpOptions contains an array of DNS servers available to VMs deployed in the virtual network. Standard DHCP option for a subnet overrides VNET DHCP options.
+    """
+    dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of DNS servers IP addresses.
+    """
+
+@pulumi.input_type
+class CommonDhcpOptionsArgs:
+    def __init__(__self__, *,
+                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        DhcpOptions contains an array of DNS servers available to VMs deployed in the virtual network. Standard DHCP option for a subnet overrides VNET DHCP options.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_servers: The list of DNS servers IP addresses.
+        """
+        if dns_servers is not None:
+            pulumi.set(__self__, "dns_servers", dns_servers)
+
+    @_builtins.property
+    @pulumi.getter(name="dnsServers")
+    def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The list of DNS servers IP addresses.
+        """
+        return pulumi.get(self, "dns_servers")
+
+    @dns_servers.setter
+    def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "dns_servers", value)
+
+
+class CommonExtendedLocationArgsDict(TypedDict):
+    """
+    ExtendedLocation complex type.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the extended location.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ExtendedLocationTypes']]]
+    """
+    The type of the extended location.
+    """
+
+@pulumi.input_type
+class CommonExtendedLocationArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[Union[_builtins.str, 'ExtendedLocationTypes']]] = None):
+        """
+        ExtendedLocation complex type.
+
+        :param pulumi.Input[_builtins.str] name: The name of the extended location.
+        :param pulumi.Input[Union[_builtins.str, 'ExtendedLocationTypes']] type: The type of the extended location.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the extended location.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ExtendedLocationTypes']]]:
+        """
+        The type of the extended location.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ExtendedLocationTypes']]]):
+        pulumi.set(self, "type", value)
+
+
+class CommonIpamPoolPrefixAllocationArgsDict(TypedDict):
+    """
+    IpamPool prefix allocation reference.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource id of the associated Azure IpamPool resource.
+    """
+    number_of_ip_addresses: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Number of IP addresses to allocate.
+    """
+
+@pulumi.input_type
+class CommonIpamPoolPrefixAllocationArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 number_of_ip_addresses: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        IpamPool prefix allocation reference.
+
+        :param pulumi.Input[_builtins.str] id: Resource id of the associated Azure IpamPool resource.
+        :param pulumi.Input[_builtins.str] number_of_ip_addresses: Number of IP addresses to allocate.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if number_of_ip_addresses is not None:
+            pulumi.set(__self__, "number_of_ip_addresses", number_of_ip_addresses)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Resource id of the associated Azure IpamPool resource.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="numberOfIpAddresses")
+    def number_of_ip_addresses(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Number of IP addresses to allocate.
+        """
+        return pulumi.get(self, "number_of_ip_addresses")
+
+    @number_of_ip_addresses.setter
+    def number_of_ip_addresses(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "number_of_ip_addresses", value)
+
+
+class CommonNetworkSecurityGroupArgsDict(TypedDict):
+    """
+    NetworkSecurityGroup resource.
+    """
+    flush_connection: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When enabled, flows created from Network Security Group connections will be re-evaluated when rules are updates. Initial enablement will trigger re-evaluation.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource ID.
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource location.
+    """
+    security_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['CommonSecurityRuleArgsDict']]]]
+    """
+    A collection of security rules of the network security group.
+    """
+    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Resource tags.
+    """
+
+@pulumi.input_type
+class CommonNetworkSecurityGroupArgs:
+    def __init__(__self__, *,
+                 flush_connection: Optional[pulumi.Input[_builtins.bool]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 security_rules: Optional[pulumi.Input[Sequence[pulumi.Input['CommonSecurityRuleArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        """
+        NetworkSecurityGroup resource.
+
+        :param pulumi.Input[_builtins.bool] flush_connection: When enabled, flows created from Network Security Group connections will be re-evaluated when rules are updates. Initial enablement will trigger re-evaluation.
+        :param pulumi.Input[_builtins.str] id: Resource ID.
+        :param pulumi.Input[_builtins.str] location: Resource location.
+        :param pulumi.Input[Sequence[pulumi.Input['CommonSecurityRuleArgs']]] security_rules: A collection of security rules of the network security group.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
+        """
+        if flush_connection is not None:
+            pulumi.set(__self__, "flush_connection", flush_connection)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if security_rules is not None:
+            pulumi.set(__self__, "security_rules", security_rules)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="flushConnection")
+    def flush_connection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        When enabled, flows created from Network Security Group connections will be re-evaluated when rules are updates. Initial enablement will trigger re-evaluation.
+        """
+        return pulumi.get(self, "flush_connection")
+
+    @flush_connection.setter
+    def flush_connection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "flush_connection", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="securityRules")
+    def security_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CommonSecurityRuleArgs']]]]:
+        """
+        A collection of security rules of the network security group.
+        """
+        return pulumi.get(self, "security_rules")
+
+    @security_rules.setter
+    def security_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CommonSecurityRuleArgs']]]]):
+        pulumi.set(self, "security_rules", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+class CommonRouteTableArgsDict(TypedDict):
+    """
+    Route table resource.
+    """
+    disable_bgp_route_propagation: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to disable the routes learned by BGP on that route table. True means disable.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource ID.
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource location.
+    """
+    routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['CommonRouteArgsDict']]]]
+    """
+    Collection of routes contained within a route table.
+    """
+    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Resource tags.
+    """
+
+@pulumi.input_type
+class CommonRouteTableArgs:
+    def __init__(__self__, *,
+                 disable_bgp_route_propagation: Optional[pulumi.Input[_builtins.bool]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 routes: Optional[pulumi.Input[Sequence[pulumi.Input['CommonRouteArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        """
+        Route table resource.
+
+        :param pulumi.Input[_builtins.bool] disable_bgp_route_propagation: Whether to disable the routes learned by BGP on that route table. True means disable.
+        :param pulumi.Input[_builtins.str] id: Resource ID.
+        :param pulumi.Input[_builtins.str] location: Resource location.
+        :param pulumi.Input[Sequence[pulumi.Input['CommonRouteArgs']]] routes: Collection of routes contained within a route table.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
+        """
+        if disable_bgp_route_propagation is not None:
+            pulumi.set(__self__, "disable_bgp_route_propagation", disable_bgp_route_propagation)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if routes is not None:
+            pulumi.set(__self__, "routes", routes)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="disableBgpRoutePropagation")
+    def disable_bgp_route_propagation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to disable the routes learned by BGP on that route table. True means disable.
+        """
+        return pulumi.get(self, "disable_bgp_route_propagation")
+
+    @disable_bgp_route_propagation.setter
+    def disable_bgp_route_propagation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "disable_bgp_route_propagation", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CommonRouteArgs']]]]:
+        """
+        Collection of routes contained within a route table.
+        """
+        return pulumi.get(self, "routes")
+
+    @routes.setter
+    def routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CommonRouteArgs']]]]):
+        pulumi.set(self, "routes", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+class CommonRouteArgsDict(TypedDict):
+    """
+    Route resource.
+    """
+    next_hop_type: pulumi.Input[Union[_builtins.str, 'RouteNextHopType']]
+    """
+    The type of Azure hop the packet should be sent to.
+    """
+    address_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The destination CIDR to which the route applies.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource ID.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the resource.
+    """
+    next_hop_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
+    """
+
+@pulumi.input_type
+class CommonRouteArgs:
+    def __init__(__self__, *,
+                 next_hop_type: pulumi.Input[Union[_builtins.str, 'RouteNextHopType']],
+                 address_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 next_hop_ip_address: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Route resource.
+
+        :param pulumi.Input[Union[_builtins.str, 'RouteNextHopType']] next_hop_type: The type of Azure hop the packet should be sent to.
+        :param pulumi.Input[_builtins.str] address_prefix: The destination CIDR to which the route applies.
+        :param pulumi.Input[_builtins.str] id: Resource ID.
+        :param pulumi.Input[_builtins.str] name: Name of the resource.
+        :param pulumi.Input[_builtins.str] next_hop_ip_address: The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
+        """
+        pulumi.set(__self__, "next_hop_type", next_hop_type)
+        if address_prefix is not None:
+            pulumi.set(__self__, "address_prefix", address_prefix)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if next_hop_ip_address is not None:
+            pulumi.set(__self__, "next_hop_ip_address", next_hop_ip_address)
+
+    @_builtins.property
+    @pulumi.getter(name="nextHopType")
+    def next_hop_type(self) -> pulumi.Input[Union[_builtins.str, 'RouteNextHopType']]:
+        """
+        The type of Azure hop the packet should be sent to.
+        """
+        return pulumi.get(self, "next_hop_type")
+
+    @next_hop_type.setter
+    def next_hop_type(self, value: pulumi.Input[Union[_builtins.str, 'RouteNextHopType']]):
+        pulumi.set(self, "next_hop_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="addressPrefix")
+    def address_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The destination CIDR to which the route applies.
+        """
+        return pulumi.get(self, "address_prefix")
+
+    @address_prefix.setter
+    def address_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "address_prefix", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="nextHopIpAddress")
+    def next_hop_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
+        """
+        return pulumi.get(self, "next_hop_ip_address")
+
+    @next_hop_ip_address.setter
+    def next_hop_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "next_hop_ip_address", value)
+
+
+class CommonSecurityRuleArgsDict(TypedDict):
+    """
+    Network security rule.
+    """
+    access: pulumi.Input[Union[_builtins.str, 'SecurityRuleAccess']]
+    """
+    The network traffic is allowed or denied.
+    """
+    direction: pulumi.Input[Union[_builtins.str, 'SecurityRuleDirection']]
+    """
+    The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
+    """
+    priority: pulumi.Input[_builtins.int]
+    """
+    The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+    """
+    protocol: pulumi.Input[Union[_builtins.str, 'SecurityRuleProtocol']]
+    """
+    Network protocol this rule applies to.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A description for this rule. Restricted to 140 chars.
+    """
+    destination_address_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
+    """
+    destination_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The destination address prefixes. CIDR or destination IP ranges.
+    """
+    destination_application_security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['CommonApplicationSecurityGroupArgsDict']]]]
+    """
+    The application security group specified as destination.
+    """
+    destination_port_range: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+    """
+    destination_port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The destination port ranges.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource ID.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the resource.
+    """
+    source_address_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
+    """
+    source_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The CIDR or source IP ranges.
+    """
+    source_application_security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['CommonApplicationSecurityGroupArgsDict']]]]
+    """
+    The application security group specified as source.
+    """
+    source_port_range: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+    """
+    source_port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The source port ranges.
+    """
+
+@pulumi.input_type
+class CommonSecurityRuleArgs:
+    def __init__(__self__, *,
+                 access: pulumi.Input[Union[_builtins.str, 'SecurityRuleAccess']],
+                 direction: pulumi.Input[Union[_builtins.str, 'SecurityRuleDirection']],
+                 priority: pulumi.Input[_builtins.int],
+                 protocol: pulumi.Input[Union[_builtins.str, 'SecurityRuleProtocol']],
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 destination_address_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+                 destination_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 destination_application_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input['CommonApplicationSecurityGroupArgs']]]] = None,
+                 destination_port_range: Optional[pulumi.Input[_builtins.str]] = None,
+                 destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 source_address_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+                 source_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_application_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input['CommonApplicationSecurityGroupArgs']]]] = None,
+                 source_port_range: Optional[pulumi.Input[_builtins.str]] = None,
+                 source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        Network security rule.
+
+        :param pulumi.Input[Union[_builtins.str, 'SecurityRuleAccess']] access: The network traffic is allowed or denied.
+        :param pulumi.Input[Union[_builtins.str, 'SecurityRuleDirection']] direction: The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
+        :param pulumi.Input[_builtins.int] priority: The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+        :param pulumi.Input[Union[_builtins.str, 'SecurityRuleProtocol']] protocol: Network protocol this rule applies to.
+        :param pulumi.Input[_builtins.str] description: A description for this rule. Restricted to 140 chars.
+        :param pulumi.Input[_builtins.str] destination_address_prefix: The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destination_address_prefixes: The destination address prefixes. CIDR or destination IP ranges.
+        :param pulumi.Input[Sequence[pulumi.Input['CommonApplicationSecurityGroupArgs']]] destination_application_security_groups: The application security group specified as destination.
+        :param pulumi.Input[_builtins.str] destination_port_range: The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destination_port_ranges: The destination port ranges.
+        :param pulumi.Input[_builtins.str] id: Resource ID.
+        :param pulumi.Input[_builtins.str] name: Name of the resource.
+        :param pulumi.Input[_builtins.str] source_address_prefix: The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_address_prefixes: The CIDR or source IP ranges.
+        :param pulumi.Input[Sequence[pulumi.Input['CommonApplicationSecurityGroupArgs']]] source_application_security_groups: The application security group specified as source.
+        :param pulumi.Input[_builtins.str] source_port_range: The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_port_ranges: The source port ranges.
+        """
+        pulumi.set(__self__, "access", access)
+        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "protocol", protocol)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if destination_address_prefix is not None:
+            pulumi.set(__self__, "destination_address_prefix", destination_address_prefix)
+        if destination_address_prefixes is not None:
+            pulumi.set(__self__, "destination_address_prefixes", destination_address_prefixes)
+        if destination_application_security_groups is not None:
+            pulumi.set(__self__, "destination_application_security_groups", destination_application_security_groups)
+        if destination_port_range is not None:
+            pulumi.set(__self__, "destination_port_range", destination_port_range)
+        if destination_port_ranges is not None:
+            pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if source_address_prefix is not None:
+            pulumi.set(__self__, "source_address_prefix", source_address_prefix)
+        if source_address_prefixes is not None:
+            pulumi.set(__self__, "source_address_prefixes", source_address_prefixes)
+        if source_application_security_groups is not None:
+            pulumi.set(__self__, "source_application_security_groups", source_application_security_groups)
+        if source_port_range is not None:
+            pulumi.set(__self__, "source_port_range", source_port_range)
+        if source_port_ranges is not None:
+            pulumi.set(__self__, "source_port_ranges", source_port_ranges)
+
+    @_builtins.property
+    @pulumi.getter
+    def access(self) -> pulumi.Input[Union[_builtins.str, 'SecurityRuleAccess']]:
+        """
+        The network traffic is allowed or denied.
+        """
+        return pulumi.get(self, "access")
+
+    @access.setter
+    def access(self, value: pulumi.Input[Union[_builtins.str, 'SecurityRuleAccess']]):
+        pulumi.set(self, "access", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def direction(self) -> pulumi.Input[Union[_builtins.str, 'SecurityRuleDirection']]:
+        """
+        The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
+        """
+        return pulumi.get(self, "direction")
+
+    @direction.setter
+    def direction(self, value: pulumi.Input[Union[_builtins.str, 'SecurityRuleDirection']]):
+        pulumi.set(self, "direction", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[_builtins.int]:
+        """
+        The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "priority", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def protocol(self) -> pulumi.Input[Union[_builtins.str, 'SecurityRuleProtocol']]:
+        """
+        Network protocol this rule applies to.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: pulumi.Input[Union[_builtins.str, 'SecurityRuleProtocol']]):
+        pulumi.set(self, "protocol", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A description for this rule. Restricted to 140 chars.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationAddressPrefix")
+    def destination_address_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
+        """
+        return pulumi.get(self, "destination_address_prefix")
+
+    @destination_address_prefix.setter
+    def destination_address_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "destination_address_prefix", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationAddressPrefixes")
+    def destination_address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The destination address prefixes. CIDR or destination IP ranges.
+        """
+        return pulumi.get(self, "destination_address_prefixes")
+
+    @destination_address_prefixes.setter
+    def destination_address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "destination_address_prefixes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationApplicationSecurityGroups")
+    def destination_application_security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CommonApplicationSecurityGroupArgs']]]]:
+        """
+        The application security group specified as destination.
+        """
+        return pulumi.get(self, "destination_application_security_groups")
+
+    @destination_application_security_groups.setter
+    def destination_application_security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CommonApplicationSecurityGroupArgs']]]]):
+        pulumi.set(self, "destination_application_security_groups", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationPortRange")
+    def destination_port_range(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+        """
+        return pulumi.get(self, "destination_port_range")
+
+    @destination_port_range.setter
+    def destination_port_range(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "destination_port_range", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationPortRanges")
+    def destination_port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The destination port ranges.
+        """
+        return pulumi.get(self, "destination_port_ranges")
+
+    @destination_port_ranges.setter
+    def destination_port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "destination_port_ranges", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceAddressPrefix")
+    def source_address_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
+        """
+        return pulumi.get(self, "source_address_prefix")
+
+    @source_address_prefix.setter
+    def source_address_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "source_address_prefix", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceAddressPrefixes")
+    def source_address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The CIDR or source IP ranges.
+        """
+        return pulumi.get(self, "source_address_prefixes")
+
+    @source_address_prefixes.setter
+    def source_address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "source_address_prefixes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceApplicationSecurityGroups")
+    def source_application_security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CommonApplicationSecurityGroupArgs']]]]:
+        """
+        The application security group specified as source.
+        """
+        return pulumi.get(self, "source_application_security_groups")
+
+    @source_application_security_groups.setter
+    def source_application_security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CommonApplicationSecurityGroupArgs']]]]):
+        pulumi.set(self, "source_application_security_groups", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourcePortRange")
+    def source_port_range(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+        """
+        return pulumi.get(self, "source_port_range")
+
+    @source_port_range.setter
+    def source_port_range(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "source_port_range", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourcePortRanges")
+    def source_port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The source port ranges.
+        """
+        return pulumi.get(self, "source_port_ranges")
+
+    @source_port_ranges.setter
+    def source_port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "source_port_ranges", value)
+
+
+class CommonServiceEndpointPolicyDefinitionArgsDict(TypedDict):
+    """
+    Service Endpoint policy definitions.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A description for this rule. Restricted to 140 chars.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource ID.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the resource.
+    """
+    service: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Service endpoint name.
+    """
+    service_resources: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of service resources.
+    """
+
+@pulumi.input_type
+class CommonServiceEndpointPolicyDefinitionArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        Service Endpoint policy definitions.
+
+        :param pulumi.Input[_builtins.str] description: A description for this rule. Restricted to 140 chars.
+        :param pulumi.Input[_builtins.str] id: Resource ID.
+        :param pulumi.Input[_builtins.str] name: Name of the resource.
+        :param pulumi.Input[_builtins.str] service: Service endpoint name.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] service_resources: A list of service resources.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if service is not None:
+            pulumi.set(__self__, "service", service)
+        if service_resources is not None:
+            pulumi.set(__self__, "service_resources", service_resources)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A description for this rule. Restricted to 140 chars.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def service(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Service endpoint name.
+        """
+        return pulumi.get(self, "service")
+
+    @service.setter
+    def service(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "service", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceResources")
+    def service_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of service resources.
+        """
+        return pulumi.get(self, "service_resources")
+
+    @service_resources.setter
+    def service_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "service_resources", value)
+
+
+class CommonServiceEndpointPolicyArgsDict(TypedDict):
+    """
+    Service End point policy resource.
+    """
+    contextual_service_endpoint_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A collection of contextual service endpoint policy.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource ID.
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource location.
+    """
+    service_alias: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The alias indicating if the policy belongs to a service
+    """
+    service_endpoint_policy_definitions: NotRequired[pulumi.Input[Sequence[pulumi.Input['CommonServiceEndpointPolicyDefinitionArgsDict']]]]
+    """
+    A collection of service endpoint policy definitions of the service endpoint policy.
+    """
+    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Resource tags.
+    """
+
+@pulumi.input_type
+class CommonServiceEndpointPolicyArgs:
+    def __init__(__self__, *,
+                 contextual_service_endpoint_policies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_alias: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_endpoint_policy_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['CommonServiceEndpointPolicyDefinitionArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        """
+        Service End point policy resource.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] contextual_service_endpoint_policies: A collection of contextual service endpoint policy.
+        :param pulumi.Input[_builtins.str] id: Resource ID.
+        :param pulumi.Input[_builtins.str] location: Resource location.
+        :param pulumi.Input[_builtins.str] service_alias: The alias indicating if the policy belongs to a service
+        :param pulumi.Input[Sequence[pulumi.Input['CommonServiceEndpointPolicyDefinitionArgs']]] service_endpoint_policy_definitions: A collection of service endpoint policy definitions of the service endpoint policy.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
+        """
+        if contextual_service_endpoint_policies is not None:
+            pulumi.set(__self__, "contextual_service_endpoint_policies", contextual_service_endpoint_policies)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if service_alias is not None:
+            pulumi.set(__self__, "service_alias", service_alias)
+        if service_endpoint_policy_definitions is not None:
+            pulumi.set(__self__, "service_endpoint_policy_definitions", service_endpoint_policy_definitions)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="contextualServiceEndpointPolicies")
+    def contextual_service_endpoint_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A collection of contextual service endpoint policy.
+        """
+        return pulumi.get(self, "contextual_service_endpoint_policies")
+
+    @contextual_service_endpoint_policies.setter
+    def contextual_service_endpoint_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "contextual_service_endpoint_policies", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceAlias")
+    def service_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The alias indicating if the policy belongs to a service
+        """
+        return pulumi.get(self, "service_alias")
+
+    @service_alias.setter
+    def service_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "service_alias", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceEndpointPolicyDefinitions")
+    def service_endpoint_policy_definitions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CommonServiceEndpointPolicyDefinitionArgs']]]]:
+        """
+        A collection of service endpoint policy definitions of the service endpoint policy.
+        """
+        return pulumi.get(self, "service_endpoint_policy_definitions")
+
+    @service_endpoint_policy_definitions.setter
+    def service_endpoint_policy_definitions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CommonServiceEndpointPolicyDefinitionArgs']]]]):
+        pulumi.set(self, "service_endpoint_policy_definitions", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+class CommonServiceEndpointPropertiesFormatArgsDict(TypedDict):
+    """
+    The service endpoint properties.
+    """
+    locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of locations.
+    """
+    network_identifier: NotRequired[pulumi.Input['CommonSubResourceArgsDict']]
+    """
+    SubResource as network identifier.
+    """
+    service: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of the endpoint service.
+    """
+
+@pulumi.input_type
+class CommonServiceEndpointPropertiesFormatArgs:
+    def __init__(__self__, *,
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 network_identifier: Optional[pulumi.Input['CommonSubResourceArgs']] = None,
+                 service: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        The service endpoint properties.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] locations: A list of locations.
+        :param pulumi.Input['CommonSubResourceArgs'] network_identifier: SubResource as network identifier.
+        :param pulumi.Input[_builtins.str] service: The type of the endpoint service.
+        """
+        if locations is not None:
+            pulumi.set(__self__, "locations", locations)
+        if network_identifier is not None:
+            pulumi.set(__self__, "network_identifier", network_identifier)
+        if service is not None:
+            pulumi.set(__self__, "service", service)
+
+    @_builtins.property
+    @pulumi.getter
+    def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of locations.
+        """
+        return pulumi.get(self, "locations")
+
+    @locations.setter
+    def locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "locations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkIdentifier")
+    def network_identifier(self) -> Optional[pulumi.Input['CommonSubResourceArgs']]:
+        """
+        SubResource as network identifier.
+        """
+        return pulumi.get(self, "network_identifier")
+
+    @network_identifier.setter
+    def network_identifier(self, value: Optional[pulumi.Input['CommonSubResourceArgs']]):
+        pulumi.set(self, "network_identifier", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def service(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The type of the endpoint service.
+        """
+        return pulumi.get(self, "service")
+
+    @service.setter
+    def service(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "service", value)
+
+
+class CommonSubResourceArgsDict(TypedDict):
+    """
+    Reference to another subresource.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource ID.
+    """
+
+@pulumi.input_type
+class CommonSubResourceArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Reference to another subresource.
+
+        :param pulumi.Input[_builtins.str] id: Resource ID.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+
+class CommonSubnetArgsDict(TypedDict):
+    """
+    Subnet in a virtual network resource.
+    """
+    address_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The address prefix for the subnet.
+    """
+    address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of address prefixes for the subnet.
+    """
+    application_gateway_ip_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['CommonApplicationGatewayIPConfigurationArgsDict']]]]
+    """
+    Application gateway IP configurations of virtual network resource.
+    """
+    default_outbound_access: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Set this property to false to disable default outbound connectivity for all VMs in the subnet.
+    """
+    delegations: NotRequired[pulumi.Input[Sequence[pulumi.Input['CommonDelegationArgsDict']]]]
+    """
+    An array of references to the delegations on the subnet.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource ID.
+    """
+    ip_allocations: NotRequired[pulumi.Input[Sequence[pulumi.Input['CommonSubResourceArgsDict']]]]
+    """
+    Array of IpAllocation which reference this subnet.
+    """
+    ipam_pool_prefix_allocations: NotRequired[pulumi.Input[Sequence[pulumi.Input['CommonIpamPoolPrefixAllocationArgsDict']]]]
+    """
+    A list of IPAM Pools for allocating IP address prefixes.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the resource.
+    """
+    nat_gateway: NotRequired[pulumi.Input['CommonSubResourceArgsDict']]
+    """
+    Nat gateway associated with this subnet.
+    """
+    network_security_group: NotRequired[pulumi.Input['CommonNetworkSecurityGroupArgsDict']]
+    """
+    The reference to the NetworkSecurityGroup resource.
+    """
+    private_endpoint_network_policies: NotRequired[pulumi.Input[Union[_builtins.str, 'VirtualNetworkPrivateEndpointNetworkPolicies']]]
+    """
+    Enable or Disable apply network policies on private end point in the subnet.
+    """
+    private_link_service_network_policies: NotRequired[pulumi.Input[Union[_builtins.str, 'VirtualNetworkPrivateLinkServiceNetworkPolicies']]]
+    """
+    Enable or Disable apply network policies on private link service in the subnet.
+    """
+    route_table: NotRequired[pulumi.Input['CommonRouteTableArgsDict']]
+    """
+    The reference to the RouteTable resource.
+    """
+    service_endpoint_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['CommonServiceEndpointPolicyArgsDict']]]]
+    """
+    An array of service endpoint policies.
+    """
+    service_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['CommonServiceEndpointPropertiesFormatArgsDict']]]]
+    """
+    An array of service endpoints.
+    """
+    service_gateway: NotRequired[pulumi.Input['CommonSubResourceArgsDict']]
+    """
+    Reference to an existing service gateway.
+    """
+    sharing_scope: NotRequired[pulumi.Input[Union[_builtins.str, 'SharingScope']]]
+    """
+    Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.
+    """
+
+@pulumi.input_type
+class CommonSubnetArgs:
+    def __init__(__self__, *,
+                 address_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+                 address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 application_gateway_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['CommonApplicationGatewayIPConfigurationArgs']]]] = None,
+                 default_outbound_access: Optional[pulumi.Input[_builtins.bool]] = None,
+                 delegations: Optional[pulumi.Input[Sequence[pulumi.Input['CommonDelegationArgs']]]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 ip_allocations: Optional[pulumi.Input[Sequence[pulumi.Input['CommonSubResourceArgs']]]] = None,
+                 ipam_pool_prefix_allocations: Optional[pulumi.Input[Sequence[pulumi.Input['CommonIpamPoolPrefixAllocationArgs']]]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 nat_gateway: Optional[pulumi.Input['CommonSubResourceArgs']] = None,
+                 network_security_group: Optional[pulumi.Input['CommonNetworkSecurityGroupArgs']] = None,
+                 private_endpoint_network_policies: Optional[pulumi.Input[Union[_builtins.str, 'VirtualNetworkPrivateEndpointNetworkPolicies']]] = None,
+                 private_link_service_network_policies: Optional[pulumi.Input[Union[_builtins.str, 'VirtualNetworkPrivateLinkServiceNetworkPolicies']]] = None,
+                 route_table: Optional[pulumi.Input['CommonRouteTableArgs']] = None,
+                 service_endpoint_policies: Optional[pulumi.Input[Sequence[pulumi.Input['CommonServiceEndpointPolicyArgs']]]] = None,
+                 service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['CommonServiceEndpointPropertiesFormatArgs']]]] = None,
+                 service_gateway: Optional[pulumi.Input['CommonSubResourceArgs']] = None,
+                 sharing_scope: Optional[pulumi.Input[Union[_builtins.str, 'SharingScope']]] = None):
+        """
+        Subnet in a virtual network resource.
+
+        :param pulumi.Input[_builtins.str] address_prefix: The address prefix for the subnet.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_prefixes: List of address prefixes for the subnet.
+        :param pulumi.Input[Sequence[pulumi.Input['CommonApplicationGatewayIPConfigurationArgs']]] application_gateway_ip_configurations: Application gateway IP configurations of virtual network resource.
+        :param pulumi.Input[_builtins.bool] default_outbound_access: Set this property to false to disable default outbound connectivity for all VMs in the subnet.
+        :param pulumi.Input[Sequence[pulumi.Input['CommonDelegationArgs']]] delegations: An array of references to the delegations on the subnet.
+        :param pulumi.Input[_builtins.str] id: Resource ID.
+        :param pulumi.Input[Sequence[pulumi.Input['CommonSubResourceArgs']]] ip_allocations: Array of IpAllocation which reference this subnet.
+        :param pulumi.Input[Sequence[pulumi.Input['CommonIpamPoolPrefixAllocationArgs']]] ipam_pool_prefix_allocations: A list of IPAM Pools for allocating IP address prefixes.
+        :param pulumi.Input[_builtins.str] name: Name of the resource.
+        :param pulumi.Input['CommonSubResourceArgs'] nat_gateway: Nat gateway associated with this subnet.
+        :param pulumi.Input['CommonNetworkSecurityGroupArgs'] network_security_group: The reference to the NetworkSecurityGroup resource.
+        :param pulumi.Input[Union[_builtins.str, 'VirtualNetworkPrivateEndpointNetworkPolicies']] private_endpoint_network_policies: Enable or Disable apply network policies on private end point in the subnet.
+        :param pulumi.Input[Union[_builtins.str, 'VirtualNetworkPrivateLinkServiceNetworkPolicies']] private_link_service_network_policies: Enable or Disable apply network policies on private link service in the subnet.
+        :param pulumi.Input['CommonRouteTableArgs'] route_table: The reference to the RouteTable resource.
+        :param pulumi.Input[Sequence[pulumi.Input['CommonServiceEndpointPolicyArgs']]] service_endpoint_policies: An array of service endpoint policies.
+        :param pulumi.Input[Sequence[pulumi.Input['CommonServiceEndpointPropertiesFormatArgs']]] service_endpoints: An array of service endpoints.
+        :param pulumi.Input['CommonSubResourceArgs'] service_gateway: Reference to an existing service gateway.
+        :param pulumi.Input[Union[_builtins.str, 'SharingScope']] sharing_scope: Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.
+        """
+        if address_prefix is not None:
+            pulumi.set(__self__, "address_prefix", address_prefix)
+        if address_prefixes is not None:
+            pulumi.set(__self__, "address_prefixes", address_prefixes)
+        if application_gateway_ip_configurations is not None:
+            pulumi.set(__self__, "application_gateway_ip_configurations", application_gateway_ip_configurations)
+        if default_outbound_access is not None:
+            pulumi.set(__self__, "default_outbound_access", default_outbound_access)
+        if delegations is not None:
+            pulumi.set(__self__, "delegations", delegations)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if ip_allocations is not None:
+            pulumi.set(__self__, "ip_allocations", ip_allocations)
+        if ipam_pool_prefix_allocations is not None:
+            pulumi.set(__self__, "ipam_pool_prefix_allocations", ipam_pool_prefix_allocations)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if nat_gateway is not None:
+            pulumi.set(__self__, "nat_gateway", nat_gateway)
+        if network_security_group is not None:
+            pulumi.set(__self__, "network_security_group", network_security_group)
+        if private_endpoint_network_policies is None:
+            private_endpoint_network_policies = 'Disabled'
+        if private_endpoint_network_policies is not None:
+            pulumi.set(__self__, "private_endpoint_network_policies", private_endpoint_network_policies)
+        if private_link_service_network_policies is None:
+            private_link_service_network_policies = 'Enabled'
+        if private_link_service_network_policies is not None:
+            pulumi.set(__self__, "private_link_service_network_policies", private_link_service_network_policies)
+        if route_table is not None:
+            pulumi.set(__self__, "route_table", route_table)
+        if service_endpoint_policies is not None:
+            pulumi.set(__self__, "service_endpoint_policies", service_endpoint_policies)
+        if service_endpoints is not None:
+            pulumi.set(__self__, "service_endpoints", service_endpoints)
+        if service_gateway is not None:
+            pulumi.set(__self__, "service_gateway", service_gateway)
+        if sharing_scope is not None:
+            pulumi.set(__self__, "sharing_scope", sharing_scope)
+
+    @_builtins.property
+    @pulumi.getter(name="addressPrefix")
+    def address_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The address prefix for the subnet.
+        """
+        return pulumi.get(self, "address_prefix")
+
+    @address_prefix.setter
+    def address_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "address_prefix", value)
+
+    @_builtins.property
+    @pulumi.getter(name="addressPrefixes")
+    def address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of address prefixes for the subnet.
+        """
+        return pulumi.get(self, "address_prefixes")
+
+    @address_prefixes.setter
+    def address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "address_prefixes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationGatewayIPConfigurations")
+    def application_gateway_ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CommonApplicationGatewayIPConfigurationArgs']]]]:
+        """
+        Application gateway IP configurations of virtual network resource.
+        """
+        return pulumi.get(self, "application_gateway_ip_configurations")
+
+    @application_gateway_ip_configurations.setter
+    def application_gateway_ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CommonApplicationGatewayIPConfigurationArgs']]]]):
+        pulumi.set(self, "application_gateway_ip_configurations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultOutboundAccess")
+    def default_outbound_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Set this property to false to disable default outbound connectivity for all VMs in the subnet.
+        """
+        return pulumi.get(self, "default_outbound_access")
+
+    @default_outbound_access.setter
+    def default_outbound_access(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "default_outbound_access", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delegations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CommonDelegationArgs']]]]:
+        """
+        An array of references to the delegations on the subnet.
+        """
+        return pulumi.get(self, "delegations")
+
+    @delegations.setter
+    def delegations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CommonDelegationArgs']]]]):
+        pulumi.set(self, "delegations", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipAllocations")
+    def ip_allocations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CommonSubResourceArgs']]]]:
+        """
+        Array of IpAllocation which reference this subnet.
+        """
+        return pulumi.get(self, "ip_allocations")
+
+    @ip_allocations.setter
+    def ip_allocations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CommonSubResourceArgs']]]]):
+        pulumi.set(self, "ip_allocations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipamPoolPrefixAllocations")
+    def ipam_pool_prefix_allocations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CommonIpamPoolPrefixAllocationArgs']]]]:
+        """
+        A list of IPAM Pools for allocating IP address prefixes.
+        """
+        return pulumi.get(self, "ipam_pool_prefix_allocations")
+
+    @ipam_pool_prefix_allocations.setter
+    def ipam_pool_prefix_allocations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CommonIpamPoolPrefixAllocationArgs']]]]):
+        pulumi.set(self, "ipam_pool_prefix_allocations", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="natGateway")
+    def nat_gateway(self) -> Optional[pulumi.Input['CommonSubResourceArgs']]:
+        """
+        Nat gateway associated with this subnet.
+        """
+        return pulumi.get(self, "nat_gateway")
+
+    @nat_gateway.setter
+    def nat_gateway(self, value: Optional[pulumi.Input['CommonSubResourceArgs']]):
+        pulumi.set(self, "nat_gateway", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkSecurityGroup")
+    def network_security_group(self) -> Optional[pulumi.Input['CommonNetworkSecurityGroupArgs']]:
+        """
+        The reference to the NetworkSecurityGroup resource.
+        """
+        return pulumi.get(self, "network_security_group")
+
+    @network_security_group.setter
+    def network_security_group(self, value: Optional[pulumi.Input['CommonNetworkSecurityGroupArgs']]):
+        pulumi.set(self, "network_security_group", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpointNetworkPolicies")
+    def private_endpoint_network_policies(self) -> Optional[pulumi.Input[Union[_builtins.str, 'VirtualNetworkPrivateEndpointNetworkPolicies']]]:
+        """
+        Enable or Disable apply network policies on private end point in the subnet.
+        """
+        return pulumi.get(self, "private_endpoint_network_policies")
+
+    @private_endpoint_network_policies.setter
+    def private_endpoint_network_policies(self, value: Optional[pulumi.Input[Union[_builtins.str, 'VirtualNetworkPrivateEndpointNetworkPolicies']]]):
+        pulumi.set(self, "private_endpoint_network_policies", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateLinkServiceNetworkPolicies")
+    def private_link_service_network_policies(self) -> Optional[pulumi.Input[Union[_builtins.str, 'VirtualNetworkPrivateLinkServiceNetworkPolicies']]]:
+        """
+        Enable or Disable apply network policies on private link service in the subnet.
+        """
+        return pulumi.get(self, "private_link_service_network_policies")
+
+    @private_link_service_network_policies.setter
+    def private_link_service_network_policies(self, value: Optional[pulumi.Input[Union[_builtins.str, 'VirtualNetworkPrivateLinkServiceNetworkPolicies']]]):
+        pulumi.set(self, "private_link_service_network_policies", value)
+
+    @_builtins.property
+    @pulumi.getter(name="routeTable")
+    def route_table(self) -> Optional[pulumi.Input['CommonRouteTableArgs']]:
+        """
+        The reference to the RouteTable resource.
+        """
+        return pulumi.get(self, "route_table")
+
+    @route_table.setter
+    def route_table(self, value: Optional[pulumi.Input['CommonRouteTableArgs']]):
+        pulumi.set(self, "route_table", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceEndpointPolicies")
+    def service_endpoint_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CommonServiceEndpointPolicyArgs']]]]:
+        """
+        An array of service endpoint policies.
+        """
+        return pulumi.get(self, "service_endpoint_policies")
+
+    @service_endpoint_policies.setter
+    def service_endpoint_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CommonServiceEndpointPolicyArgs']]]]):
+        pulumi.set(self, "service_endpoint_policies", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceEndpoints")
+    def service_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CommonServiceEndpointPropertiesFormatArgs']]]]:
+        """
+        An array of service endpoints.
+        """
+        return pulumi.get(self, "service_endpoints")
+
+    @service_endpoints.setter
+    def service_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CommonServiceEndpointPropertiesFormatArgs']]]]):
+        pulumi.set(self, "service_endpoints", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceGateway")
+    def service_gateway(self) -> Optional[pulumi.Input['CommonSubResourceArgs']]:
+        """
+        Reference to an existing service gateway.
+        """
+        return pulumi.get(self, "service_gateway")
+
+    @service_gateway.setter
+    def service_gateway(self, value: Optional[pulumi.Input['CommonSubResourceArgs']]):
+        pulumi.set(self, "service_gateway", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sharingScope")
+    def sharing_scope(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SharingScope']]]:
+        """
+        Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.
+        """
+        return pulumi.get(self, "sharing_scope")
+
+    @sharing_scope.setter
+    def sharing_scope(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SharingScope']]]):
+        pulumi.set(self, "sharing_scope", value)
+
+
+class CommonVirtualNetworkBgpCommunitiesArgsDict(TypedDict):
+    """
+    Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
+    """
+    virtual_network_community: pulumi.Input[_builtins.str]
+    """
+    The BGP community associated with the virtual network.
+    """
+
+@pulumi.input_type
+class CommonVirtualNetworkBgpCommunitiesArgs:
+    def __init__(__self__, *,
+                 virtual_network_community: pulumi.Input[_builtins.str]):
+        """
+        Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
+
+        :param pulumi.Input[_builtins.str] virtual_network_community: The BGP community associated with the virtual network.
+        """
+        pulumi.set(__self__, "virtual_network_community", virtual_network_community)
+
+    @_builtins.property
+    @pulumi.getter(name="virtualNetworkCommunity")
+    def virtual_network_community(self) -> pulumi.Input[_builtins.str]:
+        """
+        The BGP community associated with the virtual network.
+        """
+        return pulumi.get(self, "virtual_network_community")
+
+    @virtual_network_community.setter
+    def virtual_network_community(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "virtual_network_community", value)
+
+
+class CommonVirtualNetworkEncryptionArgsDict(TypedDict):
+    """
+    Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Indicates if encryption is enabled on the virtual network.
+    """
+    enforcement: NotRequired[pulumi.Input[Union[_builtins.str, 'VirtualNetworkEncryptionEnforcement']]]
+    """
+    If the encrypted VNet allows VM that does not support encryption. This field is for future support, AllowUnencrypted is the only supported value at general availability.
+    """
+
+@pulumi.input_type
+class CommonVirtualNetworkEncryptionArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool],
+                 enforcement: Optional[pulumi.Input[Union[_builtins.str, 'VirtualNetworkEncryptionEnforcement']]] = None):
+        """
+        Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
+
+        :param pulumi.Input[_builtins.bool] enabled: Indicates if encryption is enabled on the virtual network.
+        :param pulumi.Input[Union[_builtins.str, 'VirtualNetworkEncryptionEnforcement']] enforcement: If the encrypted VNet allows VM that does not support encryption. This field is for future support, AllowUnencrypted is the only supported value at general availability.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if enforcement is not None:
+            pulumi.set(__self__, "enforcement", enforcement)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Indicates if encryption is enabled on the virtual network.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def enforcement(self) -> Optional[pulumi.Input[Union[_builtins.str, 'VirtualNetworkEncryptionEnforcement']]]:
+        """
+        If the encrypted VNet allows VM that does not support encryption. This field is for future support, AllowUnencrypted is the only supported value at general availability.
+        """
+        return pulumi.get(self, "enforcement")
+
+    @enforcement.setter
+    def enforcement(self, value: Optional[pulumi.Input[Union[_builtins.str, 'VirtualNetworkEncryptionEnforcement']]]):
+        pulumi.set(self, "enforcement", value)
+
+
+class CommonVirtualNetworkPeeringArgsDict(TypedDict):
+    """
+    Peerings in a virtual network resource.
+    """
+    allow_forwarded_traffic: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
+    """
+    allow_gateway_transit: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If gateway links can be used in remote virtual networking to link to this virtual network.
+    """
+    allow_virtual_network_access: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
+    """
+    do_not_verify_remote_gateways: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If we need to verify the provisioning state of the remote gateway.
+    """
+    enable_only_i_pv6_peering: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether only Ipv6 address space is peered for subnet peering.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource ID.
+    """
+    local_address_space: NotRequired[pulumi.Input['CommonAddressSpaceArgsDict']]
+    """
+    The local address space of the local virtual network that is peered.
+    """
+    local_subnet_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of local subnet names that are subnet peered with remote virtual network.
+    """
+    local_virtual_network_address_space: NotRequired[pulumi.Input['CommonAddressSpaceArgsDict']]
+    """
+    The current local address space of the local virtual network that is peered.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the resource.
+    """
+    peer_complete_vnets: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether complete virtual network address space is peered.
+    """
+    peering_state: NotRequired[pulumi.Input[Union[_builtins.str, 'VirtualNetworkPeeringState']]]
+    """
+    The status of the virtual network peering.
+    """
+    peering_sync_level: NotRequired[pulumi.Input[Union[_builtins.str, 'VirtualNetworkPeeringLevel']]]
+    """
+    The peering sync status of the virtual network peering.
+    """
+    remote_address_space: NotRequired[pulumi.Input['CommonAddressSpaceArgsDict']]
+    """
+    The reference to the address space peered with the remote virtual network.
+    """
+    remote_bgp_communities: NotRequired[pulumi.Input['CommonVirtualNetworkBgpCommunitiesArgsDict']]
+    """
+    The reference to the remote virtual network's Bgp Communities.
+    """
+    remote_subnet_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of remote subnet names from remote virtual network that are subnet peered.
+    """
+    remote_virtual_network: NotRequired[pulumi.Input['CommonSubResourceArgsDict']]
+    """
+    The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
+    """
+    remote_virtual_network_address_space: NotRequired[pulumi.Input['CommonAddressSpaceArgsDict']]
+    """
+    The reference to the current address space of the remote virtual network.
+    """
+    use_remote_gateways: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
+    """
+
+@pulumi.input_type
+class CommonVirtualNetworkPeeringArgs:
+    def __init__(__self__, *,
+                 allow_forwarded_traffic: Optional[pulumi.Input[_builtins.bool]] = None,
+                 allow_gateway_transit: Optional[pulumi.Input[_builtins.bool]] = None,
+                 allow_virtual_network_access: Optional[pulumi.Input[_builtins.bool]] = None,
+                 do_not_verify_remote_gateways: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enable_only_i_pv6_peering: Optional[pulumi.Input[_builtins.bool]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 local_address_space: Optional[pulumi.Input['CommonAddressSpaceArgs']] = None,
+                 local_subnet_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 local_virtual_network_address_space: Optional[pulumi.Input['CommonAddressSpaceArgs']] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 peer_complete_vnets: Optional[pulumi.Input[_builtins.bool]] = None,
+                 peering_state: Optional[pulumi.Input[Union[_builtins.str, 'VirtualNetworkPeeringState']]] = None,
+                 peering_sync_level: Optional[pulumi.Input[Union[_builtins.str, 'VirtualNetworkPeeringLevel']]] = None,
+                 remote_address_space: Optional[pulumi.Input['CommonAddressSpaceArgs']] = None,
+                 remote_bgp_communities: Optional[pulumi.Input['CommonVirtualNetworkBgpCommunitiesArgs']] = None,
+                 remote_subnet_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 remote_virtual_network: Optional[pulumi.Input['CommonSubResourceArgs']] = None,
+                 remote_virtual_network_address_space: Optional[pulumi.Input['CommonAddressSpaceArgs']] = None,
+                 use_remote_gateways: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        Peerings in a virtual network resource.
+
+        :param pulumi.Input[_builtins.bool] allow_forwarded_traffic: Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
+        :param pulumi.Input[_builtins.bool] allow_gateway_transit: If gateway links can be used in remote virtual networking to link to this virtual network.
+        :param pulumi.Input[_builtins.bool] allow_virtual_network_access: Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
+        :param pulumi.Input[_builtins.bool] do_not_verify_remote_gateways: If we need to verify the provisioning state of the remote gateway.
+        :param pulumi.Input[_builtins.bool] enable_only_i_pv6_peering: Whether only Ipv6 address space is peered for subnet peering.
+        :param pulumi.Input[_builtins.str] id: Resource ID.
+        :param pulumi.Input['CommonAddressSpaceArgs'] local_address_space: The local address space of the local virtual network that is peered.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] local_subnet_names: List of local subnet names that are subnet peered with remote virtual network.
+        :param pulumi.Input['CommonAddressSpaceArgs'] local_virtual_network_address_space: The current local address space of the local virtual network that is peered.
+        :param pulumi.Input[_builtins.str] name: Name of the resource.
+        :param pulumi.Input[_builtins.bool] peer_complete_vnets: Whether complete virtual network address space is peered.
+        :param pulumi.Input[Union[_builtins.str, 'VirtualNetworkPeeringState']] peering_state: The status of the virtual network peering.
+        :param pulumi.Input[Union[_builtins.str, 'VirtualNetworkPeeringLevel']] peering_sync_level: The peering sync status of the virtual network peering.
+        :param pulumi.Input['CommonAddressSpaceArgs'] remote_address_space: The reference to the address space peered with the remote virtual network.
+        :param pulumi.Input['CommonVirtualNetworkBgpCommunitiesArgs'] remote_bgp_communities: The reference to the remote virtual network's Bgp Communities.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] remote_subnet_names: List of remote subnet names from remote virtual network that are subnet peered.
+        :param pulumi.Input['CommonSubResourceArgs'] remote_virtual_network: The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
+        :param pulumi.Input['CommonAddressSpaceArgs'] remote_virtual_network_address_space: The reference to the current address space of the remote virtual network.
+        :param pulumi.Input[_builtins.bool] use_remote_gateways: If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
+        """
+        if allow_forwarded_traffic is not None:
+            pulumi.set(__self__, "allow_forwarded_traffic", allow_forwarded_traffic)
+        if allow_gateway_transit is not None:
+            pulumi.set(__self__, "allow_gateway_transit", allow_gateway_transit)
+        if allow_virtual_network_access is not None:
+            pulumi.set(__self__, "allow_virtual_network_access", allow_virtual_network_access)
+        if do_not_verify_remote_gateways is not None:
+            pulumi.set(__self__, "do_not_verify_remote_gateways", do_not_verify_remote_gateways)
+        if enable_only_i_pv6_peering is not None:
+            pulumi.set(__self__, "enable_only_i_pv6_peering", enable_only_i_pv6_peering)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if local_address_space is not None:
+            pulumi.set(__self__, "local_address_space", local_address_space)
+        if local_subnet_names is not None:
+            pulumi.set(__self__, "local_subnet_names", local_subnet_names)
+        if local_virtual_network_address_space is not None:
+            pulumi.set(__self__, "local_virtual_network_address_space", local_virtual_network_address_space)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if peer_complete_vnets is not None:
+            pulumi.set(__self__, "peer_complete_vnets", peer_complete_vnets)
+        if peering_state is not None:
+            pulumi.set(__self__, "peering_state", peering_state)
+        if peering_sync_level is not None:
+            pulumi.set(__self__, "peering_sync_level", peering_sync_level)
+        if remote_address_space is not None:
+            pulumi.set(__self__, "remote_address_space", remote_address_space)
+        if remote_bgp_communities is not None:
+            pulumi.set(__self__, "remote_bgp_communities", remote_bgp_communities)
+        if remote_subnet_names is not None:
+            pulumi.set(__self__, "remote_subnet_names", remote_subnet_names)
+        if remote_virtual_network is not None:
+            pulumi.set(__self__, "remote_virtual_network", remote_virtual_network)
+        if remote_virtual_network_address_space is not None:
+            pulumi.set(__self__, "remote_virtual_network_address_space", remote_virtual_network_address_space)
+        if use_remote_gateways is not None:
+            pulumi.set(__self__, "use_remote_gateways", use_remote_gateways)
+
+    @_builtins.property
+    @pulumi.getter(name="allowForwardedTraffic")
+    def allow_forwarded_traffic(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
+        """
+        return pulumi.get(self, "allow_forwarded_traffic")
+
+    @allow_forwarded_traffic.setter
+    def allow_forwarded_traffic(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "allow_forwarded_traffic", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowGatewayTransit")
+    def allow_gateway_transit(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If gateway links can be used in remote virtual networking to link to this virtual network.
+        """
+        return pulumi.get(self, "allow_gateway_transit")
+
+    @allow_gateway_transit.setter
+    def allow_gateway_transit(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "allow_gateway_transit", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowVirtualNetworkAccess")
+    def allow_virtual_network_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
+        """
+        return pulumi.get(self, "allow_virtual_network_access")
+
+    @allow_virtual_network_access.setter
+    def allow_virtual_network_access(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "allow_virtual_network_access", value)
+
+    @_builtins.property
+    @pulumi.getter(name="doNotVerifyRemoteGateways")
+    def do_not_verify_remote_gateways(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If we need to verify the provisioning state of the remote gateway.
+        """
+        return pulumi.get(self, "do_not_verify_remote_gateways")
+
+    @do_not_verify_remote_gateways.setter
+    def do_not_verify_remote_gateways(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "do_not_verify_remote_gateways", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enableOnlyIPv6Peering")
+    def enable_only_i_pv6_peering(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether only Ipv6 address space is peered for subnet peering.
+        """
+        return pulumi.get(self, "enable_only_i_pv6_peering")
+
+    @enable_only_i_pv6_peering.setter
+    def enable_only_i_pv6_peering(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enable_only_i_pv6_peering", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="localAddressSpace")
+    def local_address_space(self) -> Optional[pulumi.Input['CommonAddressSpaceArgs']]:
+        """
+        The local address space of the local virtual network that is peered.
+        """
+        return pulumi.get(self, "local_address_space")
+
+    @local_address_space.setter
+    def local_address_space(self, value: Optional[pulumi.Input['CommonAddressSpaceArgs']]):
+        pulumi.set(self, "local_address_space", value)
+
+    @_builtins.property
+    @pulumi.getter(name="localSubnetNames")
+    def local_subnet_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of local subnet names that are subnet peered with remote virtual network.
+        """
+        return pulumi.get(self, "local_subnet_names")
+
+    @local_subnet_names.setter
+    def local_subnet_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "local_subnet_names", value)
+
+    @_builtins.property
+    @pulumi.getter(name="localVirtualNetworkAddressSpace")
+    def local_virtual_network_address_space(self) -> Optional[pulumi.Input['CommonAddressSpaceArgs']]:
+        """
+        The current local address space of the local virtual network that is peered.
+        """
+        return pulumi.get(self, "local_virtual_network_address_space")
+
+    @local_virtual_network_address_space.setter
+    def local_virtual_network_address_space(self, value: Optional[pulumi.Input['CommonAddressSpaceArgs']]):
+        pulumi.set(self, "local_virtual_network_address_space", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="peerCompleteVnets")
+    def peer_complete_vnets(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether complete virtual network address space is peered.
+        """
+        return pulumi.get(self, "peer_complete_vnets")
+
+    @peer_complete_vnets.setter
+    def peer_complete_vnets(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "peer_complete_vnets", value)
+
+    @_builtins.property
+    @pulumi.getter(name="peeringState")
+    def peering_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'VirtualNetworkPeeringState']]]:
+        """
+        The status of the virtual network peering.
+        """
+        return pulumi.get(self, "peering_state")
+
+    @peering_state.setter
+    def peering_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'VirtualNetworkPeeringState']]]):
+        pulumi.set(self, "peering_state", value)
+
+    @_builtins.property
+    @pulumi.getter(name="peeringSyncLevel")
+    def peering_sync_level(self) -> Optional[pulumi.Input[Union[_builtins.str, 'VirtualNetworkPeeringLevel']]]:
+        """
+        The peering sync status of the virtual network peering.
+        """
+        return pulumi.get(self, "peering_sync_level")
+
+    @peering_sync_level.setter
+    def peering_sync_level(self, value: Optional[pulumi.Input[Union[_builtins.str, 'VirtualNetworkPeeringLevel']]]):
+        pulumi.set(self, "peering_sync_level", value)
+
+    @_builtins.property
+    @pulumi.getter(name="remoteAddressSpace")
+    def remote_address_space(self) -> Optional[pulumi.Input['CommonAddressSpaceArgs']]:
+        """
+        The reference to the address space peered with the remote virtual network.
+        """
+        return pulumi.get(self, "remote_address_space")
+
+    @remote_address_space.setter
+    def remote_address_space(self, value: Optional[pulumi.Input['CommonAddressSpaceArgs']]):
+        pulumi.set(self, "remote_address_space", value)
+
+    @_builtins.property
+    @pulumi.getter(name="remoteBgpCommunities")
+    def remote_bgp_communities(self) -> Optional[pulumi.Input['CommonVirtualNetworkBgpCommunitiesArgs']]:
+        """
+        The reference to the remote virtual network's Bgp Communities.
+        """
+        return pulumi.get(self, "remote_bgp_communities")
+
+    @remote_bgp_communities.setter
+    def remote_bgp_communities(self, value: Optional[pulumi.Input['CommonVirtualNetworkBgpCommunitiesArgs']]):
+        pulumi.set(self, "remote_bgp_communities", value)
+
+    @_builtins.property
+    @pulumi.getter(name="remoteSubnetNames")
+    def remote_subnet_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of remote subnet names from remote virtual network that are subnet peered.
+        """
+        return pulumi.get(self, "remote_subnet_names")
+
+    @remote_subnet_names.setter
+    def remote_subnet_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "remote_subnet_names", value)
+
+    @_builtins.property
+    @pulumi.getter(name="remoteVirtualNetwork")
+    def remote_virtual_network(self) -> Optional[pulumi.Input['CommonSubResourceArgs']]:
+        """
+        The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
+        """
+        return pulumi.get(self, "remote_virtual_network")
+
+    @remote_virtual_network.setter
+    def remote_virtual_network(self, value: Optional[pulumi.Input['CommonSubResourceArgs']]):
+        pulumi.set(self, "remote_virtual_network", value)
+
+    @_builtins.property
+    @pulumi.getter(name="remoteVirtualNetworkAddressSpace")
+    def remote_virtual_network_address_space(self) -> Optional[pulumi.Input['CommonAddressSpaceArgs']]:
+        """
+        The reference to the current address space of the remote virtual network.
+        """
+        return pulumi.get(self, "remote_virtual_network_address_space")
+
+    @remote_virtual_network_address_space.setter
+    def remote_virtual_network_address_space(self, value: Optional[pulumi.Input['CommonAddressSpaceArgs']]):
+        pulumi.set(self, "remote_virtual_network_address_space", value)
+
+    @_builtins.property
+    @pulumi.getter(name="useRemoteGateways")
+    def use_remote_gateways(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
+        """
+        return pulumi.get(self, "use_remote_gateways")
+
+    @use_remote_gateways.setter
+    def use_remote_gateways(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "use_remote_gateways", value)
+
+
+class CommonVirtualNetworkArgsDict(TypedDict):
+    """
+    Virtual Network resource.
+    """
+    address_space: NotRequired[pulumi.Input['CommonAddressSpaceArgsDict']]
+    """
+    The AddressSpace that contains an array of IP address ranges that can be used by subnets.
+    """
+    bgp_communities: NotRequired[pulumi.Input['CommonVirtualNetworkBgpCommunitiesArgsDict']]
+    """
+    Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
+    """
+    ddos_protection_plan: NotRequired[pulumi.Input['CommonSubResourceArgsDict']]
+    """
+    The DDoS protection plan associated with the virtual network.
+    """
+    dhcp_options: NotRequired[pulumi.Input['CommonDhcpOptionsArgsDict']]
+    """
+    The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
+    """
+    enable_ddos_protection: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
+    """
+    enable_vm_protection: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates if VM protection is enabled for all the subnets in the virtual network.
+    """
+    encryption: NotRequired[pulumi.Input['CommonVirtualNetworkEncryptionArgsDict']]
+    """
+    Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
+    """
+    extended_location: NotRequired[pulumi.Input['CommonExtendedLocationArgsDict']]
+    """
+    The extended location of the virtual network.
+    """
+    flow_timeout_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The FlowTimeout value (in minutes) for the Virtual Network
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource ID.
+    """
+    ip_allocations: NotRequired[pulumi.Input[Sequence[pulumi.Input['CommonSubResourceArgsDict']]]]
+    """
+    Array of IpAllocation which reference this VNET.
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource location.
+    """
+    private_endpoint_v_net_policies: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointVNetPolicies']]]
+    """
+    Private Endpoint VNet Policies.
+    """
+    subnets: NotRequired[pulumi.Input[Sequence[pulumi.Input['CommonSubnetArgsDict']]]]
+    """
+    A list of subnets in a Virtual Network.
+    """
+    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Resource tags.
+    """
+    virtual_network_peerings: NotRequired[pulumi.Input[Sequence[pulumi.Input['CommonVirtualNetworkPeeringArgsDict']]]]
+    """
+    A list of peerings in a Virtual Network.
+    """
+
+@pulumi.input_type
+class CommonVirtualNetworkArgs:
+    def __init__(__self__, *,
+                 address_space: Optional[pulumi.Input['CommonAddressSpaceArgs']] = None,
+                 bgp_communities: Optional[pulumi.Input['CommonVirtualNetworkBgpCommunitiesArgs']] = None,
+                 ddos_protection_plan: Optional[pulumi.Input['CommonSubResourceArgs']] = None,
+                 dhcp_options: Optional[pulumi.Input['CommonDhcpOptionsArgs']] = None,
+                 enable_ddos_protection: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enable_vm_protection: Optional[pulumi.Input[_builtins.bool]] = None,
+                 encryption: Optional[pulumi.Input['CommonVirtualNetworkEncryptionArgs']] = None,
+                 extended_location: Optional[pulumi.Input['CommonExtendedLocationArgs']] = None,
+                 flow_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 ip_allocations: Optional[pulumi.Input[Sequence[pulumi.Input['CommonSubResourceArgs']]]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 private_endpoint_v_net_policies: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointVNetPolicies']]] = None,
+                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input['CommonSubnetArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network_peerings: Optional[pulumi.Input[Sequence[pulumi.Input['CommonVirtualNetworkPeeringArgs']]]] = None):
+        """
+        Virtual Network resource.
+
+        :param pulumi.Input['CommonAddressSpaceArgs'] address_space: The AddressSpace that contains an array of IP address ranges that can be used by subnets.
+        :param pulumi.Input['CommonVirtualNetworkBgpCommunitiesArgs'] bgp_communities: Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
+        :param pulumi.Input['CommonSubResourceArgs'] ddos_protection_plan: The DDoS protection plan associated with the virtual network.
+        :param pulumi.Input['CommonDhcpOptionsArgs'] dhcp_options: The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
+        :param pulumi.Input[_builtins.bool] enable_ddos_protection: Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
+        :param pulumi.Input[_builtins.bool] enable_vm_protection: Indicates if VM protection is enabled for all the subnets in the virtual network.
+        :param pulumi.Input['CommonVirtualNetworkEncryptionArgs'] encryption: Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
+        :param pulumi.Input['CommonExtendedLocationArgs'] extended_location: The extended location of the virtual network.
+        :param pulumi.Input[_builtins.int] flow_timeout_in_minutes: The FlowTimeout value (in minutes) for the Virtual Network
+        :param pulumi.Input[_builtins.str] id: Resource ID.
+        :param pulumi.Input[Sequence[pulumi.Input['CommonSubResourceArgs']]] ip_allocations: Array of IpAllocation which reference this VNET.
+        :param pulumi.Input[_builtins.str] location: Resource location.
+        :param pulumi.Input[Union[_builtins.str, 'PrivateEndpointVNetPolicies']] private_endpoint_v_net_policies: Private Endpoint VNet Policies.
+        :param pulumi.Input[Sequence[pulumi.Input['CommonSubnetArgs']]] subnets: A list of subnets in a Virtual Network.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
+        :param pulumi.Input[Sequence[pulumi.Input['CommonVirtualNetworkPeeringArgs']]] virtual_network_peerings: A list of peerings in a Virtual Network.
+        """
+        if address_space is not None:
+            pulumi.set(__self__, "address_space", address_space)
+        if bgp_communities is not None:
+            pulumi.set(__self__, "bgp_communities", bgp_communities)
+        if ddos_protection_plan is not None:
+            pulumi.set(__self__, "ddos_protection_plan", ddos_protection_plan)
+        if dhcp_options is not None:
+            pulumi.set(__self__, "dhcp_options", dhcp_options)
+        if enable_ddos_protection is None:
+            enable_ddos_protection = False
+        if enable_ddos_protection is not None:
+            pulumi.set(__self__, "enable_ddos_protection", enable_ddos_protection)
+        if enable_vm_protection is None:
+            enable_vm_protection = False
+        if enable_vm_protection is not None:
+            pulumi.set(__self__, "enable_vm_protection", enable_vm_protection)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
+        if extended_location is not None:
+            pulumi.set(__self__, "extended_location", extended_location)
+        if flow_timeout_in_minutes is not None:
+            pulumi.set(__self__, "flow_timeout_in_minutes", flow_timeout_in_minutes)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if ip_allocations is not None:
+            pulumi.set(__self__, "ip_allocations", ip_allocations)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if private_endpoint_v_net_policies is not None:
+            pulumi.set(__self__, "private_endpoint_v_net_policies", private_endpoint_v_net_policies)
+        if subnets is not None:
+            pulumi.set(__self__, "subnets", subnets)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if virtual_network_peerings is not None:
+            pulumi.set(__self__, "virtual_network_peerings", virtual_network_peerings)
+
+    @_builtins.property
+    @pulumi.getter(name="addressSpace")
+    def address_space(self) -> Optional[pulumi.Input['CommonAddressSpaceArgs']]:
+        """
+        The AddressSpace that contains an array of IP address ranges that can be used by subnets.
+        """
+        return pulumi.get(self, "address_space")
+
+    @address_space.setter
+    def address_space(self, value: Optional[pulumi.Input['CommonAddressSpaceArgs']]):
+        pulumi.set(self, "address_space", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bgpCommunities")
+    def bgp_communities(self) -> Optional[pulumi.Input['CommonVirtualNetworkBgpCommunitiesArgs']]:
+        """
+        Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
+        """
+        return pulumi.get(self, "bgp_communities")
+
+    @bgp_communities.setter
+    def bgp_communities(self, value: Optional[pulumi.Input['CommonVirtualNetworkBgpCommunitiesArgs']]):
+        pulumi.set(self, "bgp_communities", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ddosProtectionPlan")
+    def ddos_protection_plan(self) -> Optional[pulumi.Input['CommonSubResourceArgs']]:
+        """
+        The DDoS protection plan associated with the virtual network.
+        """
+        return pulumi.get(self, "ddos_protection_plan")
+
+    @ddos_protection_plan.setter
+    def ddos_protection_plan(self, value: Optional[pulumi.Input['CommonSubResourceArgs']]):
+        pulumi.set(self, "ddos_protection_plan", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dhcpOptions")
+    def dhcp_options(self) -> Optional[pulumi.Input['CommonDhcpOptionsArgs']]:
+        """
+        The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
+        """
+        return pulumi.get(self, "dhcp_options")
+
+    @dhcp_options.setter
+    def dhcp_options(self, value: Optional[pulumi.Input['CommonDhcpOptionsArgs']]):
+        pulumi.set(self, "dhcp_options", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enableDdosProtection")
+    def enable_ddos_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
+        """
+        return pulumi.get(self, "enable_ddos_protection")
+
+    @enable_ddos_protection.setter
+    def enable_ddos_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enable_ddos_protection", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enableVmProtection")
+    def enable_vm_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Indicates if VM protection is enabled for all the subnets in the virtual network.
+        """
+        return pulumi.get(self, "enable_vm_protection")
+
+    @enable_vm_protection.setter
+    def enable_vm_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enable_vm_protection", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def encryption(self) -> Optional[pulumi.Input['CommonVirtualNetworkEncryptionArgs']]:
+        """
+        Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
+        """
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: Optional[pulumi.Input['CommonVirtualNetworkEncryptionArgs']]):
+        pulumi.set(self, "encryption", value)
+
+    @_builtins.property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional[pulumi.Input['CommonExtendedLocationArgs']]:
+        """
+        The extended location of the virtual network.
+        """
+        return pulumi.get(self, "extended_location")
+
+    @extended_location.setter
+    def extended_location(self, value: Optional[pulumi.Input['CommonExtendedLocationArgs']]):
+        pulumi.set(self, "extended_location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="flowTimeoutInMinutes")
+    def flow_timeout_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The FlowTimeout value (in minutes) for the Virtual Network
+        """
+        return pulumi.get(self, "flow_timeout_in_minutes")
+
+    @flow_timeout_in_minutes.setter
+    def flow_timeout_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "flow_timeout_in_minutes", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipAllocations")
+    def ip_allocations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CommonSubResourceArgs']]]]:
+        """
+        Array of IpAllocation which reference this VNET.
+        """
+        return pulumi.get(self, "ip_allocations")
+
+    @ip_allocations.setter
+    def ip_allocations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CommonSubResourceArgs']]]]):
+        pulumi.set(self, "ip_allocations", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpointVNetPolicies")
+    def private_endpoint_v_net_policies(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointVNetPolicies']]]:
+        """
+        Private Endpoint VNet Policies.
+        """
+        return pulumi.get(self, "private_endpoint_v_net_policies")
+
+    @private_endpoint_v_net_policies.setter
+    def private_endpoint_v_net_policies(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointVNetPolicies']]]):
+        pulumi.set(self, "private_endpoint_v_net_policies", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CommonSubnetArgs']]]]:
+        """
+        A list of subnets in a Virtual Network.
+        """
+        return pulumi.get(self, "subnets")
+
+    @subnets.setter
+    def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CommonSubnetArgs']]]]):
+        pulumi.set(self, "subnets", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="virtualNetworkPeerings")
+    def virtual_network_peerings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CommonVirtualNetworkPeeringArgs']]]]:
+        """
+        A list of peerings in a Virtual Network.
+        """
+        return pulumi.get(self, "virtual_network_peerings")
+
+    @virtual_network_peerings.setter
+    def virtual_network_peerings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CommonVirtualNetworkPeeringArgs']]]]):
+        pulumi.set(self, "virtual_network_peerings", value)
+
+
 class ConnectionMonitorDestinationArgsDict(TypedDict):
     """
     Describes the destination of connection monitor.
@@ -9281,6 +12142,60 @@ class ConnectionMonitorWorkspaceSettingsArgs:
     @workspace_resource_id.setter
     def workspace_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "workspace_resource_id", value)
+
+
+class ConnectionPolicyPropertiesArgsDict(TypedDict):
+    """
+    Properties of the ConnectionPolicy resource.
+    """
+    enable_internet_security: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable internet security.
+    """
+    routing_configuration: NotRequired[pulumi.Input['RoutingConfigurationArgsDict']]
+    """
+    The Routing Configuration indicating the associated and propagated route tables on this connection.
+    """
+
+@pulumi.input_type
+class ConnectionPolicyPropertiesArgs:
+    def __init__(__self__, *,
+                 enable_internet_security: Optional[pulumi.Input[_builtins.bool]] = None,
+                 routing_configuration: Optional[pulumi.Input['RoutingConfigurationArgs']] = None):
+        """
+        Properties of the ConnectionPolicy resource.
+
+        :param pulumi.Input[_builtins.bool] enable_internet_security: Enable internet security.
+        :param pulumi.Input['RoutingConfigurationArgs'] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
+        """
+        if enable_internet_security is not None:
+            pulumi.set(__self__, "enable_internet_security", enable_internet_security)
+        if routing_configuration is not None:
+            pulumi.set(__self__, "routing_configuration", routing_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="enableInternetSecurity")
+    def enable_internet_security(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable internet security.
+        """
+        return pulumi.get(self, "enable_internet_security")
+
+    @enable_internet_security.setter
+    def enable_internet_security(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enable_internet_security", value)
+
+    @_builtins.property
+    @pulumi.getter(name="routingConfiguration")
+    def routing_configuration(self) -> Optional[pulumi.Input['RoutingConfigurationArgs']]:
+        """
+        The Routing Configuration indicating the associated and propagated route tables on this connection.
+        """
+        return pulumi.get(self, "routing_configuration")
+
+    @routing_configuration.setter
+    def routing_configuration(self, value: Optional[pulumi.Input['RoutingConfigurationArgs']]):
+        pulumi.set(self, "routing_configuration", value)
 
 
 class ConnectivityGroupItemArgsDict(TypedDict):
@@ -11523,7 +14438,7 @@ class ExpressRouteConnectionArgsDict(TypedDict):
     """
     Resource ID.
     """
-    routing_configuration: NotRequired[pulumi.Input['RoutingConfigurationArgsDict']]
+    routing_configuration: NotRequired[pulumi.Input['RoutingConfigurationV2ArgsDict']]
     """
     The Routing Configuration indicating the associated and propagated route tables on this connection.
     """
@@ -11542,7 +14457,7 @@ class ExpressRouteConnectionArgs:
                  enable_private_link_fast_path: Optional[pulumi.Input[_builtins.bool]] = None,
                  express_route_gateway_bypass: Optional[pulumi.Input[_builtins.bool]] = None,
                  id: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_configuration: Optional[pulumi.Input['RoutingConfigurationArgs']] = None,
+                 routing_configuration: Optional[pulumi.Input['RoutingConfigurationV2Args']] = None,
                  routing_weight: Optional[pulumi.Input[_builtins.int]] = None):
         """
         ExpressRouteConnection resource.
@@ -11554,7 +14469,7 @@ class ExpressRouteConnectionArgs:
         :param pulumi.Input[_builtins.bool] enable_private_link_fast_path: Bypass the ExpressRoute gateway when accessing private-links. ExpressRoute FastPath (expressRouteGatewayBypass) must be enabled.
         :param pulumi.Input[_builtins.bool] express_route_gateway_bypass: Enable FastPath to vWan Firewall hub.
         :param pulumi.Input[_builtins.str] id: Resource ID.
-        :param pulumi.Input['RoutingConfigurationArgs'] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
+        :param pulumi.Input['RoutingConfigurationV2Args'] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
         :param pulumi.Input[_builtins.int] routing_weight: The routing weight associated to the connection.
         """
         pulumi.set(__self__, "express_route_circuit_peering", express_route_circuit_peering)
@@ -11660,14 +14575,14 @@ class ExpressRouteConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="routingConfiguration")
-    def routing_configuration(self) -> Optional[pulumi.Input['RoutingConfigurationArgs']]:
+    def routing_configuration(self) -> Optional[pulumi.Input['RoutingConfigurationV2Args']]:
         """
         The Routing Configuration indicating the associated and propagated route tables on this connection.
         """
         return pulumi.get(self, "routing_configuration")
 
     @routing_configuration.setter
-    def routing_configuration(self, value: Optional[pulumi.Input['RoutingConfigurationArgs']]):
+    def routing_configuration(self, value: Optional[pulumi.Input['RoutingConfigurationV2Args']]):
         pulumi.set(self, "routing_configuration", value)
 
     @_builtins.property
@@ -19402,7 +22317,7 @@ class P2SConnectionConfigurationArgsDict(TypedDict):
     """
     The name of the resource that is unique within a resource group. This name can be used to access the resource.
     """
-    routing_configuration: NotRequired[pulumi.Input['RoutingConfigurationArgsDict']]
+    routing_configuration: NotRequired[pulumi.Input['RoutingConfigurationV5ArgsDict']]
     """
     The Routing Configuration indicating the associated and propagated route tables on this connection.
     """
@@ -19417,7 +22332,7 @@ class P2SConnectionConfigurationArgs:
                  enable_internet_security: Optional[pulumi.Input[_builtins.bool]] = None,
                  id: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_configuration: Optional[pulumi.Input['RoutingConfigurationArgs']] = None,
+                 routing_configuration: Optional[pulumi.Input['RoutingConfigurationV5Args']] = None,
                  vpn_client_address_pool: Optional[pulumi.Input['AddressSpaceArgs']] = None):
         """
         P2SConnectionConfiguration Resource.
@@ -19425,7 +22340,7 @@ class P2SConnectionConfigurationArgs:
         :param pulumi.Input[_builtins.bool] enable_internet_security: Flag indicating whether the enable internet security flag is turned on for the P2S Connections or not.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param pulumi.Input['RoutingConfigurationArgs'] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
+        :param pulumi.Input['RoutingConfigurationV5Args'] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
         :param pulumi.Input['AddressSpaceArgs'] vpn_client_address_pool: The reference to the address space resource which represents Address space for P2S VpnClient.
         """
         if enable_internet_security is not None:
@@ -19477,14 +22392,14 @@ class P2SConnectionConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="routingConfiguration")
-    def routing_configuration(self) -> Optional[pulumi.Input['RoutingConfigurationArgs']]:
+    def routing_configuration(self) -> Optional[pulumi.Input['RoutingConfigurationV5Args']]:
         """
         The Routing Configuration indicating the associated and propagated route tables on this connection.
         """
         return pulumi.get(self, "routing_configuration")
 
     @routing_configuration.setter
-    def routing_configuration(self, value: Optional[pulumi.Input['RoutingConfigurationArgs']]):
+    def routing_configuration(self, value: Optional[pulumi.Input['RoutingConfigurationV5Args']]):
         pulumi.set(self, "routing_configuration", value)
 
     @_builtins.property
@@ -21822,7 +24737,7 @@ class ProbeArgs:
         pulumi.set(self, "request_path", value)
 
 
-class PropagatedRouteTableArgsDict(TypedDict):
+class PropagatedRouteTableV1ArgsDict(TypedDict):
     """
     The list of RouteTables to advertise the routes to.
     """
@@ -21836,7 +24751,7 @@ class PropagatedRouteTableArgsDict(TypedDict):
     """
 
 @pulumi.input_type
-class PropagatedRouteTableArgs:
+class PropagatedRouteTableV1Args:
     def __init__(__self__, *,
                  ids: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
@@ -21861,6 +24776,330 @@ class PropagatedRouteTableArgs:
 
     @ids.setter
     def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
+        pulumi.set(self, "ids", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The list of labels.
+        """
+        return pulumi.get(self, "labels")
+
+    @labels.setter
+    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "labels", value)
+
+
+class PropagatedRouteTableV2ArgsDict(TypedDict):
+    """
+    The list of RouteTables to advertise the routes to.
+    """
+    ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
+    """
+    The list of resource ids of all the RouteTables.
+    """
+    labels: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of labels.
+    """
+
+@pulumi.input_type
+class PropagatedRouteTableV2Args:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        The list of RouteTables to advertise the routes to.
+
+        :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] ids: The list of resource ids of all the RouteTables.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] labels: The list of labels.
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+
+    @_builtins.property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]:
+        """
+        The list of resource ids of all the RouteTables.
+        """
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
+        pulumi.set(self, "ids", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The list of labels.
+        """
+        return pulumi.get(self, "labels")
+
+    @labels.setter
+    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "labels", value)
+
+
+class PropagatedRouteTableV3ArgsDict(TypedDict):
+    """
+    The list of RouteTables to advertise the routes to.
+    """
+    ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
+    """
+    The list of resource ids of all the RouteTables.
+    """
+    labels: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of labels.
+    """
+
+@pulumi.input_type
+class PropagatedRouteTableV3Args:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        The list of RouteTables to advertise the routes to.
+
+        :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] ids: The list of resource ids of all the RouteTables.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] labels: The list of labels.
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+
+    @_builtins.property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]:
+        """
+        The list of resource ids of all the RouteTables.
+        """
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
+        pulumi.set(self, "ids", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The list of labels.
+        """
+        return pulumi.get(self, "labels")
+
+    @labels.setter
+    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "labels", value)
+
+
+class PropagatedRouteTableV5ArgsDict(TypedDict):
+    """
+    The list of RouteTables to advertise the routes to.
+    """
+    ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
+    """
+    The list of resource ids of all the RouteTables.
+    """
+    labels: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of labels.
+    """
+
+@pulumi.input_type
+class PropagatedRouteTableV5Args:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        The list of RouteTables to advertise the routes to.
+
+        :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] ids: The list of resource ids of all the RouteTables.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] labels: The list of labels.
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+
+    @_builtins.property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]:
+        """
+        The list of resource ids of all the RouteTables.
+        """
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
+        pulumi.set(self, "ids", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The list of labels.
+        """
+        return pulumi.get(self, "labels")
+
+    @labels.setter
+    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "labels", value)
+
+
+class PropagatedRouteTableV6ArgsDict(TypedDict):
+    """
+    The list of RouteTables to advertise the routes to.
+    """
+    ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
+    """
+    The list of resource ids of all the RouteTables.
+    """
+    labels: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of labels.
+    """
+
+@pulumi.input_type
+class PropagatedRouteTableV6Args:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        The list of RouteTables to advertise the routes to.
+
+        :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] ids: The list of resource ids of all the RouteTables.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] labels: The list of labels.
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+
+    @_builtins.property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]:
+        """
+        The list of resource ids of all the RouteTables.
+        """
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
+        pulumi.set(self, "ids", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The list of labels.
+        """
+        return pulumi.get(self, "labels")
+
+    @labels.setter
+    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "labels", value)
+
+
+class PropagatedRouteTableV7ArgsDict(TypedDict):
+    """
+    The list of RouteTables to advertise the routes to.
+    """
+    ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
+    """
+    The list of resource ids of all the RouteTables.
+    """
+    labels: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of labels.
+    """
+
+@pulumi.input_type
+class PropagatedRouteTableV7Args:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        The list of RouteTables to advertise the routes to.
+
+        :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] ids: The list of resource ids of all the RouteTables.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] labels: The list of labels.
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+
+    @_builtins.property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]:
+        """
+        The list of resource ids of all the RouteTables.
+        """
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
+        pulumi.set(self, "ids", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The list of labels.
+        """
+        return pulumi.get(self, "labels")
+
+    @labels.setter
+    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "labels", value)
+
+
+class PropagatedRouteTableArgsDict(TypedDict):
+    """
+    The list of RouteTables to advertise the routes to.
+    """
+    ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['CommonSubResourceArgsDict']]]]
+    """
+    The list of resource ids of all the RouteTables.
+    """
+    labels: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of labels.
+    """
+
+@pulumi.input_type
+class PropagatedRouteTableArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input['CommonSubResourceArgs']]]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        The list of RouteTables to advertise the routes to.
+
+        :param pulumi.Input[Sequence[pulumi.Input['CommonSubResourceArgs']]] ids: The list of resource ids of all the RouteTables.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] labels: The list of labels.
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+
+    @_builtins.property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CommonSubResourceArgs']]]]:
+        """
+        The list of resource ids of all the RouteTables.
+        """
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CommonSubResourceArgs']]]]):
         pulumi.set(self, "ids", value)
 
     @_builtins.property
@@ -23460,7 +26699,7 @@ class RouteTargetAddressPropertiesFormatArgsDict(TypedDict):
     """
     The Private IP allocation method.
     """
-    subnet: NotRequired[pulumi.Input['SubnetArgsDict']]
+    subnet: NotRequired[pulumi.Input['CommonSubnetArgsDict']]
     """
     The reference to the subnet resource.
     """
@@ -23470,13 +26709,13 @@ class RouteTargetAddressPropertiesFormatArgs:
     def __init__(__self__, *,
                  private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
                  private_ip_allocation_method: Optional[pulumi.Input[Union[_builtins.str, 'IPAllocationMethod']]] = None,
-                 subnet: Optional[pulumi.Input['SubnetArgs']] = None):
+                 subnet: Optional[pulumi.Input['CommonSubnetArgs']] = None):
         """
         Properties of route target address
 
         :param pulumi.Input[_builtins.str] private_ip_address: The private IPv4 or IPv6 address of the service gateway route target address.
         :param pulumi.Input[Union[_builtins.str, 'IPAllocationMethod']] private_ip_allocation_method: The Private IP allocation method.
-        :param pulumi.Input['SubnetArgs'] subnet: The reference to the subnet resource.
+        :param pulumi.Input['CommonSubnetArgs'] subnet: The reference to the subnet resource.
         """
         if private_ip_address is not None:
             pulumi.set(__self__, "private_ip_address", private_ip_address)
@@ -23511,14 +26750,14 @@ class RouteTargetAddressPropertiesFormatArgs:
 
     @_builtins.property
     @pulumi.getter
-    def subnet(self) -> Optional[pulumi.Input['SubnetArgs']]:
+    def subnet(self) -> Optional[pulumi.Input['CommonSubnetArgs']]:
         """
         The reference to the subnet resource.
         """
         return pulumi.get(self, "subnet")
 
     @subnet.setter
-    def subnet(self, value: Optional[pulumi.Input['SubnetArgs']]):
+    def subnet(self, value: Optional[pulumi.Input['CommonSubnetArgs']]):
         pulumi.set(self, "subnet", value)
 
 
@@ -23695,7 +26934,7 @@ class RouteArgs:
         pulumi.set(self, "type", value)
 
 
-class RoutingConfigurationArgsDict(TypedDict):
+class RoutingConfigurationV1ArgsDict(TypedDict):
     """
     Routing Configuration indicating the associated and propagated route tables for this connection.
     """
@@ -23711,7 +26950,7 @@ class RoutingConfigurationArgsDict(TypedDict):
     """
     The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
     """
-    propagated_route_tables: NotRequired[pulumi.Input['PropagatedRouteTableArgsDict']]
+    propagated_route_tables: NotRequired[pulumi.Input['PropagatedRouteTableV1ArgsDict']]
     """
     The list of RouteTables to advertise the routes to.
     """
@@ -23721,12 +26960,12 @@ class RoutingConfigurationArgsDict(TypedDict):
     """
 
 @pulumi.input_type
-class RoutingConfigurationArgs:
+class RoutingConfigurationV1Args:
     def __init__(__self__, *,
                  associated_route_table: Optional[pulumi.Input['SubResourceArgs']] = None,
                  inbound_route_map: Optional[pulumi.Input['SubResourceArgs']] = None,
                  outbound_route_map: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 propagated_route_tables: Optional[pulumi.Input['PropagatedRouteTableArgs']] = None,
+                 propagated_route_tables: Optional[pulumi.Input['PropagatedRouteTableV1Args']] = None,
                  vnet_routes: Optional[pulumi.Input['VnetRouteArgs']] = None):
         """
         Routing Configuration indicating the associated and propagated route tables for this connection.
@@ -23734,7 +26973,7 @@ class RoutingConfigurationArgs:
         :param pulumi.Input['SubResourceArgs'] associated_route_table: The resource id RouteTable associated with this RoutingConfiguration.
         :param pulumi.Input['SubResourceArgs'] inbound_route_map: The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
         :param pulumi.Input['SubResourceArgs'] outbound_route_map: The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-        :param pulumi.Input['PropagatedRouteTableArgs'] propagated_route_tables: The list of RouteTables to advertise the routes to.
+        :param pulumi.Input['PropagatedRouteTableV1Args'] propagated_route_tables: The list of RouteTables to advertise the routes to.
         :param pulumi.Input['VnetRouteArgs'] vnet_routes: List of routes that control routing from VirtualHub into a virtual network connection.
         """
         if associated_route_table is not None:
@@ -23782,6 +27021,690 @@ class RoutingConfigurationArgs:
 
     @outbound_route_map.setter
     def outbound_route_map(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "outbound_route_map", value)
+
+    @_builtins.property
+    @pulumi.getter(name="propagatedRouteTables")
+    def propagated_route_tables(self) -> Optional[pulumi.Input['PropagatedRouteTableV1Args']]:
+        """
+        The list of RouteTables to advertise the routes to.
+        """
+        return pulumi.get(self, "propagated_route_tables")
+
+    @propagated_route_tables.setter
+    def propagated_route_tables(self, value: Optional[pulumi.Input['PropagatedRouteTableV1Args']]):
+        pulumi.set(self, "propagated_route_tables", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vnetRoutes")
+    def vnet_routes(self) -> Optional[pulumi.Input['VnetRouteArgs']]:
+        """
+        List of routes that control routing from VirtualHub into a virtual network connection.
+        """
+        return pulumi.get(self, "vnet_routes")
+
+    @vnet_routes.setter
+    def vnet_routes(self, value: Optional[pulumi.Input['VnetRouteArgs']]):
+        pulumi.set(self, "vnet_routes", value)
+
+
+class RoutingConfigurationV2ArgsDict(TypedDict):
+    """
+    Routing Configuration indicating the associated and propagated route tables for this connection.
+    """
+    associated_route_table: NotRequired[pulumi.Input['SubResourceArgsDict']]
+    """
+    The resource id RouteTable associated with this RoutingConfiguration.
+    """
+    inbound_route_map: NotRequired[pulumi.Input['SubResourceArgsDict']]
+    """
+    The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
+    """
+    outbound_route_map: NotRequired[pulumi.Input['SubResourceArgsDict']]
+    """
+    The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
+    """
+    propagated_route_tables: NotRequired[pulumi.Input['PropagatedRouteTableV2ArgsDict']]
+    """
+    The list of RouteTables to advertise the routes to.
+    """
+    vnet_routes: NotRequired[pulumi.Input['VnetRouteArgsDict']]
+    """
+    List of routes that control routing from VirtualHub into a virtual network connection.
+    """
+
+@pulumi.input_type
+class RoutingConfigurationV2Args:
+    def __init__(__self__, *,
+                 associated_route_table: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 inbound_route_map: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 outbound_route_map: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 propagated_route_tables: Optional[pulumi.Input['PropagatedRouteTableV2Args']] = None,
+                 vnet_routes: Optional[pulumi.Input['VnetRouteArgs']] = None):
+        """
+        Routing Configuration indicating the associated and propagated route tables for this connection.
+
+        :param pulumi.Input['SubResourceArgs'] associated_route_table: The resource id RouteTable associated with this RoutingConfiguration.
+        :param pulumi.Input['SubResourceArgs'] inbound_route_map: The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
+        :param pulumi.Input['SubResourceArgs'] outbound_route_map: The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
+        :param pulumi.Input['PropagatedRouteTableV2Args'] propagated_route_tables: The list of RouteTables to advertise the routes to.
+        :param pulumi.Input['VnetRouteArgs'] vnet_routes: List of routes that control routing from VirtualHub into a virtual network connection.
+        """
+        if associated_route_table is not None:
+            pulumi.set(__self__, "associated_route_table", associated_route_table)
+        if inbound_route_map is not None:
+            pulumi.set(__self__, "inbound_route_map", inbound_route_map)
+        if outbound_route_map is not None:
+            pulumi.set(__self__, "outbound_route_map", outbound_route_map)
+        if propagated_route_tables is not None:
+            pulumi.set(__self__, "propagated_route_tables", propagated_route_tables)
+        if vnet_routes is not None:
+            pulumi.set(__self__, "vnet_routes", vnet_routes)
+
+    @_builtins.property
+    @pulumi.getter(name="associatedRouteTable")
+    def associated_route_table(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The resource id RouteTable associated with this RoutingConfiguration.
+        """
+        return pulumi.get(self, "associated_route_table")
+
+    @associated_route_table.setter
+    def associated_route_table(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "associated_route_table", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inboundRouteMap")
+    def inbound_route_map(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
+        """
+        return pulumi.get(self, "inbound_route_map")
+
+    @inbound_route_map.setter
+    def inbound_route_map(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "inbound_route_map", value)
+
+    @_builtins.property
+    @pulumi.getter(name="outboundRouteMap")
+    def outbound_route_map(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
+        """
+        return pulumi.get(self, "outbound_route_map")
+
+    @outbound_route_map.setter
+    def outbound_route_map(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "outbound_route_map", value)
+
+    @_builtins.property
+    @pulumi.getter(name="propagatedRouteTables")
+    def propagated_route_tables(self) -> Optional[pulumi.Input['PropagatedRouteTableV2Args']]:
+        """
+        The list of RouteTables to advertise the routes to.
+        """
+        return pulumi.get(self, "propagated_route_tables")
+
+    @propagated_route_tables.setter
+    def propagated_route_tables(self, value: Optional[pulumi.Input['PropagatedRouteTableV2Args']]):
+        pulumi.set(self, "propagated_route_tables", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vnetRoutes")
+    def vnet_routes(self) -> Optional[pulumi.Input['VnetRouteArgs']]:
+        """
+        List of routes that control routing from VirtualHub into a virtual network connection.
+        """
+        return pulumi.get(self, "vnet_routes")
+
+    @vnet_routes.setter
+    def vnet_routes(self, value: Optional[pulumi.Input['VnetRouteArgs']]):
+        pulumi.set(self, "vnet_routes", value)
+
+
+class RoutingConfigurationV3ArgsDict(TypedDict):
+    """
+    Routing Configuration indicating the associated and propagated route tables for this connection.
+    """
+    associated_route_table: NotRequired[pulumi.Input['SubResourceArgsDict']]
+    """
+    The resource id RouteTable associated with this RoutingConfiguration.
+    """
+    inbound_route_map: NotRequired[pulumi.Input['SubResourceArgsDict']]
+    """
+    The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
+    """
+    outbound_route_map: NotRequired[pulumi.Input['SubResourceArgsDict']]
+    """
+    The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
+    """
+    propagated_route_tables: NotRequired[pulumi.Input['PropagatedRouteTableV3ArgsDict']]
+    """
+    The list of RouteTables to advertise the routes to.
+    """
+    vnet_routes: NotRequired[pulumi.Input['VnetRouteArgsDict']]
+    """
+    List of routes that control routing from VirtualHub into a virtual network connection.
+    """
+
+@pulumi.input_type
+class RoutingConfigurationV3Args:
+    def __init__(__self__, *,
+                 associated_route_table: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 inbound_route_map: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 outbound_route_map: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 propagated_route_tables: Optional[pulumi.Input['PropagatedRouteTableV3Args']] = None,
+                 vnet_routes: Optional[pulumi.Input['VnetRouteArgs']] = None):
+        """
+        Routing Configuration indicating the associated and propagated route tables for this connection.
+
+        :param pulumi.Input['SubResourceArgs'] associated_route_table: The resource id RouteTable associated with this RoutingConfiguration.
+        :param pulumi.Input['SubResourceArgs'] inbound_route_map: The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
+        :param pulumi.Input['SubResourceArgs'] outbound_route_map: The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
+        :param pulumi.Input['PropagatedRouteTableV3Args'] propagated_route_tables: The list of RouteTables to advertise the routes to.
+        :param pulumi.Input['VnetRouteArgs'] vnet_routes: List of routes that control routing from VirtualHub into a virtual network connection.
+        """
+        if associated_route_table is not None:
+            pulumi.set(__self__, "associated_route_table", associated_route_table)
+        if inbound_route_map is not None:
+            pulumi.set(__self__, "inbound_route_map", inbound_route_map)
+        if outbound_route_map is not None:
+            pulumi.set(__self__, "outbound_route_map", outbound_route_map)
+        if propagated_route_tables is not None:
+            pulumi.set(__self__, "propagated_route_tables", propagated_route_tables)
+        if vnet_routes is not None:
+            pulumi.set(__self__, "vnet_routes", vnet_routes)
+
+    @_builtins.property
+    @pulumi.getter(name="associatedRouteTable")
+    def associated_route_table(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The resource id RouteTable associated with this RoutingConfiguration.
+        """
+        return pulumi.get(self, "associated_route_table")
+
+    @associated_route_table.setter
+    def associated_route_table(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "associated_route_table", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inboundRouteMap")
+    def inbound_route_map(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
+        """
+        return pulumi.get(self, "inbound_route_map")
+
+    @inbound_route_map.setter
+    def inbound_route_map(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "inbound_route_map", value)
+
+    @_builtins.property
+    @pulumi.getter(name="outboundRouteMap")
+    def outbound_route_map(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
+        """
+        return pulumi.get(self, "outbound_route_map")
+
+    @outbound_route_map.setter
+    def outbound_route_map(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "outbound_route_map", value)
+
+    @_builtins.property
+    @pulumi.getter(name="propagatedRouteTables")
+    def propagated_route_tables(self) -> Optional[pulumi.Input['PropagatedRouteTableV3Args']]:
+        """
+        The list of RouteTables to advertise the routes to.
+        """
+        return pulumi.get(self, "propagated_route_tables")
+
+    @propagated_route_tables.setter
+    def propagated_route_tables(self, value: Optional[pulumi.Input['PropagatedRouteTableV3Args']]):
+        pulumi.set(self, "propagated_route_tables", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vnetRoutes")
+    def vnet_routes(self) -> Optional[pulumi.Input['VnetRouteArgs']]:
+        """
+        List of routes that control routing from VirtualHub into a virtual network connection.
+        """
+        return pulumi.get(self, "vnet_routes")
+
+    @vnet_routes.setter
+    def vnet_routes(self, value: Optional[pulumi.Input['VnetRouteArgs']]):
+        pulumi.set(self, "vnet_routes", value)
+
+
+class RoutingConfigurationV5ArgsDict(TypedDict):
+    """
+    Routing Configuration indicating the associated and propagated route tables for this connection.
+    """
+    associated_route_table: NotRequired[pulumi.Input['SubResourceArgsDict']]
+    """
+    The resource id RouteTable associated with this RoutingConfiguration.
+    """
+    inbound_route_map: NotRequired[pulumi.Input['SubResourceArgsDict']]
+    """
+    The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
+    """
+    outbound_route_map: NotRequired[pulumi.Input['SubResourceArgsDict']]
+    """
+    The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
+    """
+    propagated_route_tables: NotRequired[pulumi.Input['PropagatedRouteTableV5ArgsDict']]
+    """
+    The list of RouteTables to advertise the routes to.
+    """
+    vnet_routes: NotRequired[pulumi.Input['VnetRouteArgsDict']]
+    """
+    List of routes that control routing from VirtualHub into a virtual network connection.
+    """
+
+@pulumi.input_type
+class RoutingConfigurationV5Args:
+    def __init__(__self__, *,
+                 associated_route_table: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 inbound_route_map: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 outbound_route_map: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 propagated_route_tables: Optional[pulumi.Input['PropagatedRouteTableV5Args']] = None,
+                 vnet_routes: Optional[pulumi.Input['VnetRouteArgs']] = None):
+        """
+        Routing Configuration indicating the associated and propagated route tables for this connection.
+
+        :param pulumi.Input['SubResourceArgs'] associated_route_table: The resource id RouteTable associated with this RoutingConfiguration.
+        :param pulumi.Input['SubResourceArgs'] inbound_route_map: The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
+        :param pulumi.Input['SubResourceArgs'] outbound_route_map: The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
+        :param pulumi.Input['PropagatedRouteTableV5Args'] propagated_route_tables: The list of RouteTables to advertise the routes to.
+        :param pulumi.Input['VnetRouteArgs'] vnet_routes: List of routes that control routing from VirtualHub into a virtual network connection.
+        """
+        if associated_route_table is not None:
+            pulumi.set(__self__, "associated_route_table", associated_route_table)
+        if inbound_route_map is not None:
+            pulumi.set(__self__, "inbound_route_map", inbound_route_map)
+        if outbound_route_map is not None:
+            pulumi.set(__self__, "outbound_route_map", outbound_route_map)
+        if propagated_route_tables is not None:
+            pulumi.set(__self__, "propagated_route_tables", propagated_route_tables)
+        if vnet_routes is not None:
+            pulumi.set(__self__, "vnet_routes", vnet_routes)
+
+    @_builtins.property
+    @pulumi.getter(name="associatedRouteTable")
+    def associated_route_table(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The resource id RouteTable associated with this RoutingConfiguration.
+        """
+        return pulumi.get(self, "associated_route_table")
+
+    @associated_route_table.setter
+    def associated_route_table(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "associated_route_table", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inboundRouteMap")
+    def inbound_route_map(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
+        """
+        return pulumi.get(self, "inbound_route_map")
+
+    @inbound_route_map.setter
+    def inbound_route_map(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "inbound_route_map", value)
+
+    @_builtins.property
+    @pulumi.getter(name="outboundRouteMap")
+    def outbound_route_map(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
+        """
+        return pulumi.get(self, "outbound_route_map")
+
+    @outbound_route_map.setter
+    def outbound_route_map(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "outbound_route_map", value)
+
+    @_builtins.property
+    @pulumi.getter(name="propagatedRouteTables")
+    def propagated_route_tables(self) -> Optional[pulumi.Input['PropagatedRouteTableV5Args']]:
+        """
+        The list of RouteTables to advertise the routes to.
+        """
+        return pulumi.get(self, "propagated_route_tables")
+
+    @propagated_route_tables.setter
+    def propagated_route_tables(self, value: Optional[pulumi.Input['PropagatedRouteTableV5Args']]):
+        pulumi.set(self, "propagated_route_tables", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vnetRoutes")
+    def vnet_routes(self) -> Optional[pulumi.Input['VnetRouteArgs']]:
+        """
+        List of routes that control routing from VirtualHub into a virtual network connection.
+        """
+        return pulumi.get(self, "vnet_routes")
+
+    @vnet_routes.setter
+    def vnet_routes(self, value: Optional[pulumi.Input['VnetRouteArgs']]):
+        pulumi.set(self, "vnet_routes", value)
+
+
+class RoutingConfigurationV6ArgsDict(TypedDict):
+    """
+    Routing Configuration indicating the associated and propagated route tables for this connection.
+    """
+    associated_route_table: NotRequired[pulumi.Input['SubResourceArgsDict']]
+    """
+    The resource id RouteTable associated with this RoutingConfiguration.
+    """
+    inbound_route_map: NotRequired[pulumi.Input['SubResourceArgsDict']]
+    """
+    The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
+    """
+    outbound_route_map: NotRequired[pulumi.Input['SubResourceArgsDict']]
+    """
+    The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
+    """
+    propagated_route_tables: NotRequired[pulumi.Input['PropagatedRouteTableV6ArgsDict']]
+    """
+    The list of RouteTables to advertise the routes to.
+    """
+    vnet_routes: NotRequired[pulumi.Input['VnetRouteArgsDict']]
+    """
+    List of routes that control routing from VirtualHub into a virtual network connection.
+    """
+
+@pulumi.input_type
+class RoutingConfigurationV6Args:
+    def __init__(__self__, *,
+                 associated_route_table: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 inbound_route_map: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 outbound_route_map: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 propagated_route_tables: Optional[pulumi.Input['PropagatedRouteTableV6Args']] = None,
+                 vnet_routes: Optional[pulumi.Input['VnetRouteArgs']] = None):
+        """
+        Routing Configuration indicating the associated and propagated route tables for this connection.
+
+        :param pulumi.Input['SubResourceArgs'] associated_route_table: The resource id RouteTable associated with this RoutingConfiguration.
+        :param pulumi.Input['SubResourceArgs'] inbound_route_map: The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
+        :param pulumi.Input['SubResourceArgs'] outbound_route_map: The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
+        :param pulumi.Input['PropagatedRouteTableV6Args'] propagated_route_tables: The list of RouteTables to advertise the routes to.
+        :param pulumi.Input['VnetRouteArgs'] vnet_routes: List of routes that control routing from VirtualHub into a virtual network connection.
+        """
+        if associated_route_table is not None:
+            pulumi.set(__self__, "associated_route_table", associated_route_table)
+        if inbound_route_map is not None:
+            pulumi.set(__self__, "inbound_route_map", inbound_route_map)
+        if outbound_route_map is not None:
+            pulumi.set(__self__, "outbound_route_map", outbound_route_map)
+        if propagated_route_tables is not None:
+            pulumi.set(__self__, "propagated_route_tables", propagated_route_tables)
+        if vnet_routes is not None:
+            pulumi.set(__self__, "vnet_routes", vnet_routes)
+
+    @_builtins.property
+    @pulumi.getter(name="associatedRouteTable")
+    def associated_route_table(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The resource id RouteTable associated with this RoutingConfiguration.
+        """
+        return pulumi.get(self, "associated_route_table")
+
+    @associated_route_table.setter
+    def associated_route_table(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "associated_route_table", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inboundRouteMap")
+    def inbound_route_map(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
+        """
+        return pulumi.get(self, "inbound_route_map")
+
+    @inbound_route_map.setter
+    def inbound_route_map(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "inbound_route_map", value)
+
+    @_builtins.property
+    @pulumi.getter(name="outboundRouteMap")
+    def outbound_route_map(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
+        """
+        return pulumi.get(self, "outbound_route_map")
+
+    @outbound_route_map.setter
+    def outbound_route_map(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "outbound_route_map", value)
+
+    @_builtins.property
+    @pulumi.getter(name="propagatedRouteTables")
+    def propagated_route_tables(self) -> Optional[pulumi.Input['PropagatedRouteTableV6Args']]:
+        """
+        The list of RouteTables to advertise the routes to.
+        """
+        return pulumi.get(self, "propagated_route_tables")
+
+    @propagated_route_tables.setter
+    def propagated_route_tables(self, value: Optional[pulumi.Input['PropagatedRouteTableV6Args']]):
+        pulumi.set(self, "propagated_route_tables", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vnetRoutes")
+    def vnet_routes(self) -> Optional[pulumi.Input['VnetRouteArgs']]:
+        """
+        List of routes that control routing from VirtualHub into a virtual network connection.
+        """
+        return pulumi.get(self, "vnet_routes")
+
+    @vnet_routes.setter
+    def vnet_routes(self, value: Optional[pulumi.Input['VnetRouteArgs']]):
+        pulumi.set(self, "vnet_routes", value)
+
+
+class RoutingConfigurationV7ArgsDict(TypedDict):
+    """
+    Routing Configuration indicating the associated and propagated route tables for this connection.
+    """
+    associated_route_table: NotRequired[pulumi.Input['SubResourceArgsDict']]
+    """
+    The resource id RouteTable associated with this RoutingConfiguration.
+    """
+    inbound_route_map: NotRequired[pulumi.Input['SubResourceArgsDict']]
+    """
+    The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
+    """
+    outbound_route_map: NotRequired[pulumi.Input['SubResourceArgsDict']]
+    """
+    The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
+    """
+    propagated_route_tables: NotRequired[pulumi.Input['PropagatedRouteTableV7ArgsDict']]
+    """
+    The list of RouteTables to advertise the routes to.
+    """
+    vnet_routes: NotRequired[pulumi.Input['VnetRouteArgsDict']]
+    """
+    List of routes that control routing from VirtualHub into a virtual network connection.
+    """
+
+@pulumi.input_type
+class RoutingConfigurationV7Args:
+    def __init__(__self__, *,
+                 associated_route_table: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 inbound_route_map: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 outbound_route_map: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 propagated_route_tables: Optional[pulumi.Input['PropagatedRouteTableV7Args']] = None,
+                 vnet_routes: Optional[pulumi.Input['VnetRouteArgs']] = None):
+        """
+        Routing Configuration indicating the associated and propagated route tables for this connection.
+
+        :param pulumi.Input['SubResourceArgs'] associated_route_table: The resource id RouteTable associated with this RoutingConfiguration.
+        :param pulumi.Input['SubResourceArgs'] inbound_route_map: The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
+        :param pulumi.Input['SubResourceArgs'] outbound_route_map: The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
+        :param pulumi.Input['PropagatedRouteTableV7Args'] propagated_route_tables: The list of RouteTables to advertise the routes to.
+        :param pulumi.Input['VnetRouteArgs'] vnet_routes: List of routes that control routing from VirtualHub into a virtual network connection.
+        """
+        if associated_route_table is not None:
+            pulumi.set(__self__, "associated_route_table", associated_route_table)
+        if inbound_route_map is not None:
+            pulumi.set(__self__, "inbound_route_map", inbound_route_map)
+        if outbound_route_map is not None:
+            pulumi.set(__self__, "outbound_route_map", outbound_route_map)
+        if propagated_route_tables is not None:
+            pulumi.set(__self__, "propagated_route_tables", propagated_route_tables)
+        if vnet_routes is not None:
+            pulumi.set(__self__, "vnet_routes", vnet_routes)
+
+    @_builtins.property
+    @pulumi.getter(name="associatedRouteTable")
+    def associated_route_table(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The resource id RouteTable associated with this RoutingConfiguration.
+        """
+        return pulumi.get(self, "associated_route_table")
+
+    @associated_route_table.setter
+    def associated_route_table(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "associated_route_table", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inboundRouteMap")
+    def inbound_route_map(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
+        """
+        return pulumi.get(self, "inbound_route_map")
+
+    @inbound_route_map.setter
+    def inbound_route_map(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "inbound_route_map", value)
+
+    @_builtins.property
+    @pulumi.getter(name="outboundRouteMap")
+    def outbound_route_map(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
+        """
+        return pulumi.get(self, "outbound_route_map")
+
+    @outbound_route_map.setter
+    def outbound_route_map(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "outbound_route_map", value)
+
+    @_builtins.property
+    @pulumi.getter(name="propagatedRouteTables")
+    def propagated_route_tables(self) -> Optional[pulumi.Input['PropagatedRouteTableV7Args']]:
+        """
+        The list of RouteTables to advertise the routes to.
+        """
+        return pulumi.get(self, "propagated_route_tables")
+
+    @propagated_route_tables.setter
+    def propagated_route_tables(self, value: Optional[pulumi.Input['PropagatedRouteTableV7Args']]):
+        pulumi.set(self, "propagated_route_tables", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vnetRoutes")
+    def vnet_routes(self) -> Optional[pulumi.Input['VnetRouteArgs']]:
+        """
+        List of routes that control routing from VirtualHub into a virtual network connection.
+        """
+        return pulumi.get(self, "vnet_routes")
+
+    @vnet_routes.setter
+    def vnet_routes(self, value: Optional[pulumi.Input['VnetRouteArgs']]):
+        pulumi.set(self, "vnet_routes", value)
+
+
+class RoutingConfigurationArgsDict(TypedDict):
+    """
+    Routing Configuration indicating the associated and propagated route tables for this connection.
+    """
+    associated_route_table: NotRequired[pulumi.Input['CommonSubResourceArgsDict']]
+    """
+    The resource id RouteTable associated with this RoutingConfiguration.
+    """
+    inbound_route_map: NotRequired[pulumi.Input['CommonSubResourceArgsDict']]
+    """
+    The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
+    """
+    outbound_route_map: NotRequired[pulumi.Input['CommonSubResourceArgsDict']]
+    """
+    The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
+    """
+    propagated_route_tables: NotRequired[pulumi.Input['PropagatedRouteTableArgsDict']]
+    """
+    The list of RouteTables to advertise the routes to.
+    """
+    vnet_routes: NotRequired[pulumi.Input['VnetRouteArgsDict']]
+    """
+    List of routes that control routing from VirtualHub into a virtual network connection.
+    """
+
+@pulumi.input_type
+class RoutingConfigurationArgs:
+    def __init__(__self__, *,
+                 associated_route_table: Optional[pulumi.Input['CommonSubResourceArgs']] = None,
+                 inbound_route_map: Optional[pulumi.Input['CommonSubResourceArgs']] = None,
+                 outbound_route_map: Optional[pulumi.Input['CommonSubResourceArgs']] = None,
+                 propagated_route_tables: Optional[pulumi.Input['PropagatedRouteTableArgs']] = None,
+                 vnet_routes: Optional[pulumi.Input['VnetRouteArgs']] = None):
+        """
+        Routing Configuration indicating the associated and propagated route tables for this connection.
+
+        :param pulumi.Input['CommonSubResourceArgs'] associated_route_table: The resource id RouteTable associated with this RoutingConfiguration.
+        :param pulumi.Input['CommonSubResourceArgs'] inbound_route_map: The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
+        :param pulumi.Input['CommonSubResourceArgs'] outbound_route_map: The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
+        :param pulumi.Input['PropagatedRouteTableArgs'] propagated_route_tables: The list of RouteTables to advertise the routes to.
+        :param pulumi.Input['VnetRouteArgs'] vnet_routes: List of routes that control routing from VirtualHub into a virtual network connection.
+        """
+        if associated_route_table is not None:
+            pulumi.set(__self__, "associated_route_table", associated_route_table)
+        if inbound_route_map is not None:
+            pulumi.set(__self__, "inbound_route_map", inbound_route_map)
+        if outbound_route_map is not None:
+            pulumi.set(__self__, "outbound_route_map", outbound_route_map)
+        if propagated_route_tables is not None:
+            pulumi.set(__self__, "propagated_route_tables", propagated_route_tables)
+        if vnet_routes is not None:
+            pulumi.set(__self__, "vnet_routes", vnet_routes)
+
+    @_builtins.property
+    @pulumi.getter(name="associatedRouteTable")
+    def associated_route_table(self) -> Optional[pulumi.Input['CommonSubResourceArgs']]:
+        """
+        The resource id RouteTable associated with this RoutingConfiguration.
+        """
+        return pulumi.get(self, "associated_route_table")
+
+    @associated_route_table.setter
+    def associated_route_table(self, value: Optional[pulumi.Input['CommonSubResourceArgs']]):
+        pulumi.set(self, "associated_route_table", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inboundRouteMap")
+    def inbound_route_map(self) -> Optional[pulumi.Input['CommonSubResourceArgs']]:
+        """
+        The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
+        """
+        return pulumi.get(self, "inbound_route_map")
+
+    @inbound_route_map.setter
+    def inbound_route_map(self, value: Optional[pulumi.Input['CommonSubResourceArgs']]):
+        pulumi.set(self, "inbound_route_map", value)
+
+    @_builtins.property
+    @pulumi.getter(name="outboundRouteMap")
+    def outbound_route_map(self) -> Optional[pulumi.Input['CommonSubResourceArgs']]:
+        """
+        The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
+        """
+        return pulumi.get(self, "outbound_route_map")
+
+    @outbound_route_map.setter
+    def outbound_route_map(self, value: Optional[pulumi.Input['CommonSubResourceArgs']]):
         pulumi.set(self, "outbound_route_map", value)
 
     @_builtins.property
@@ -25086,6 +29009,10 @@ class StaticRoutesConfigArgsDict(TypedDict):
     """
     Configuration for static routes on this HubVnetConnectionConfiguration for static routes on this HubVnetConnection.
     """
+    propagate_static_routes: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Boolean indicating whether static routes on this connection are automatically propagate to route tables which this connection propagates to.
+    """
     vnet_local_route_override_criteria: NotRequired[pulumi.Input[Union[_builtins.str, 'VnetLocalRouteOverrideCriteria']]]
     """
     Parameter determining whether NVA in spoke vnet is bypassed for traffic with destination in spoke.
@@ -25094,14 +29021,30 @@ class StaticRoutesConfigArgsDict(TypedDict):
 @pulumi.input_type
 class StaticRoutesConfigArgs:
     def __init__(__self__, *,
+                 propagate_static_routes: Optional[pulumi.Input[_builtins.bool]] = None,
                  vnet_local_route_override_criteria: Optional[pulumi.Input[Union[_builtins.str, 'VnetLocalRouteOverrideCriteria']]] = None):
         """
         Configuration for static routes on this HubVnetConnectionConfiguration for static routes on this HubVnetConnection.
 
+        :param pulumi.Input[_builtins.bool] propagate_static_routes: Boolean indicating whether static routes on this connection are automatically propagate to route tables which this connection propagates to.
         :param pulumi.Input[Union[_builtins.str, 'VnetLocalRouteOverrideCriteria']] vnet_local_route_override_criteria: Parameter determining whether NVA in spoke vnet is bypassed for traffic with destination in spoke.
         """
+        if propagate_static_routes is not None:
+            pulumi.set(__self__, "propagate_static_routes", propagate_static_routes)
         if vnet_local_route_override_criteria is not None:
             pulumi.set(__self__, "vnet_local_route_override_criteria", vnet_local_route_override_criteria)
+
+    @_builtins.property
+    @pulumi.getter(name="propagateStaticRoutes")
+    def propagate_static_routes(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Boolean indicating whether static routes on this connection are automatically propagate to route tables which this connection propagates to.
+        """
+        return pulumi.get(self, "propagate_static_routes")
+
+    @propagate_static_routes.setter
+    def propagate_static_routes(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "propagate_static_routes", value)
 
     @_builtins.property
     @pulumi.getter(name="vnetLocalRouteOverrideCriteria")
@@ -25276,6 +29219,79 @@ class SubResourceArgs:
         pulumi.set(self, "id", value)
 
 
+class SubgroupProfileArgsDict(TypedDict):
+    """
+    Subgroup profile of the interconnect group resource.
+    """
+    vm_size: pulumi.Input[_builtins.str]
+    """
+    VM size of the subgroup profile.
+    """
+    scope: NotRequired[pulumi.Input[Union[_builtins.str, 'SubgroupProfileScope']]]
+    """
+    Scope of the subgroup profile.
+    """
+    size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Size of the subgroup profile.
+    """
+
+@pulumi.input_type
+class SubgroupProfileArgs:
+    def __init__(__self__, *,
+                 vm_size: pulumi.Input[_builtins.str],
+                 scope: Optional[pulumi.Input[Union[_builtins.str, 'SubgroupProfileScope']]] = None,
+                 size: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        Subgroup profile of the interconnect group resource.
+
+        :param pulumi.Input[_builtins.str] vm_size: VM size of the subgroup profile.
+        :param pulumi.Input[Union[_builtins.str, 'SubgroupProfileScope']] scope: Scope of the subgroup profile.
+        :param pulumi.Input[_builtins.int] size: Size of the subgroup profile.
+        """
+        pulumi.set(__self__, "vm_size", vm_size)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+
+    @_builtins.property
+    @pulumi.getter(name="vmSize")
+    def vm_size(self) -> pulumi.Input[_builtins.str]:
+        """
+        VM size of the subgroup profile.
+        """
+        return pulumi.get(self, "vm_size")
+
+    @vm_size.setter
+    def vm_size(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "vm_size", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SubgroupProfileScope']]]:
+        """
+        Scope of the subgroup profile.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SubgroupProfileScope']]]):
+        pulumi.set(self, "scope", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def size(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Size of the subgroup profile.
+        """
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "size", value)
+
+
 class SubnetArgsDict(TypedDict):
     """
     Subnet in a virtual network resource.
@@ -25360,10 +29376,6 @@ class SubnetArgsDict(TypedDict):
     """
     An array of service endpoints.
     """
-    service_gateway: NotRequired[pulumi.Input['SubResourceArgsDict']]
-    """
-    Reference to an existing service gateway.
-    """
     sharing_scope: NotRequired[pulumi.Input[Union[_builtins.str, 'SharingScope']]]
     """
     Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.
@@ -25396,7 +29408,6 @@ class SubnetArgs:
                  service_association_links: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceAssociationLinkArgs']]]] = None,
                  service_endpoint_policies: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPolicyArgs']]]] = None,
                  service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPropertiesFormatArgs']]]] = None,
-                 service_gateway: Optional[pulumi.Input['SubResourceArgs']] = None,
                  sharing_scope: Optional[pulumi.Input[Union[_builtins.str, 'SharingScope']]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
@@ -25422,7 +29433,6 @@ class SubnetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ServiceAssociationLinkArgs']]] service_association_links: Gets an array of references to services injecting into this subnet.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPolicyArgs']]] service_endpoint_policies: An array of service endpoint policies.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPropertiesFormatArgs']]] service_endpoints: An array of service endpoints.
-        :param pulumi.Input['SubResourceArgs'] service_gateway: Reference to an existing service gateway.
         :param pulumi.Input[Union[_builtins.str, 'SharingScope']] sharing_scope: Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.
         :param pulumi.Input[_builtins.str] type: Resource type.
         """
@@ -25470,8 +29480,6 @@ class SubnetArgs:
             pulumi.set(__self__, "service_endpoint_policies", service_endpoint_policies)
         if service_endpoints is not None:
             pulumi.set(__self__, "service_endpoints", service_endpoints)
-        if service_gateway is not None:
-            pulumi.set(__self__, "service_gateway", service_gateway)
         if sharing_scope is not None:
             pulumi.set(__self__, "sharing_scope", sharing_scope)
         if type is not None:
@@ -25716,18 +29724,6 @@ class SubnetArgs:
     @service_endpoints.setter
     def service_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPropertiesFormatArgs']]]]):
         pulumi.set(self, "service_endpoints", value)
-
-    @_builtins.property
-    @pulumi.getter(name="serviceGateway")
-    def service_gateway(self) -> Optional[pulumi.Input['SubResourceArgs']]:
-        """
-        Reference to an existing service gateway.
-        """
-        return pulumi.get(self, "service_gateway")
-
-    @service_gateway.setter
-    def service_gateway(self, value: Optional[pulumi.Input['SubResourceArgs']]):
-        pulumi.set(self, "service_gateway", value)
 
     @_builtins.property
     @pulumi.getter(name="sharingScope")
@@ -28487,344 +32483,6 @@ class VirtualNetworkTapArgs:
         pulumi.set(self, "tags", value)
 
 
-class VirtualNetworkArgsDict(TypedDict):
-    """
-    Virtual Network resource.
-    """
-    address_space: NotRequired[pulumi.Input['AddressSpaceArgsDict']]
-    """
-    The AddressSpace that contains an array of IP address ranges that can be used by subnets.
-    """
-    bgp_communities: NotRequired[pulumi.Input['VirtualNetworkBgpCommunitiesArgsDict']]
-    """
-    Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
-    """
-    ddos_protection_plan: NotRequired[pulumi.Input['SubResourceArgsDict']]
-    """
-    The DDoS protection plan associated with the virtual network.
-    """
-    dhcp_options: NotRequired[pulumi.Input['DhcpOptionsArgsDict']]
-    """
-    The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
-    """
-    enable_ddos_protection: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
-    """
-    enable_vm_protection: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    Indicates if VM protection is enabled for all the subnets in the virtual network.
-    """
-    encryption: NotRequired[pulumi.Input['VirtualNetworkEncryptionArgsDict']]
-    """
-    Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
-    """
-    extended_location: NotRequired[pulumi.Input['ExtendedLocationArgsDict']]
-    """
-    The extended location of the virtual network.
-    """
-    flow_timeout_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
-    """
-    The FlowTimeout value (in minutes) for the Virtual Network
-    """
-    id: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Resource ID.
-    """
-    ip_allocations: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
-    """
-    Array of IpAllocation which reference this VNET.
-    """
-    location: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Resource location.
-    """
-    private_endpoint_v_net_policies: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointVNetPolicies']]]
-    """
-    Private Endpoint VNet Policies.
-    """
-    subnets: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubnetArgsDict']]]]
-    """
-    A list of subnets in a Virtual Network.
-    """
-    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-    """
-    Resource tags.
-    """
-    virtual_network_peerings: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPeeringArgsDict']]]]
-    """
-    A list of peerings in a Virtual Network.
-    """
-
-@pulumi.input_type
-class VirtualNetworkArgs:
-    def __init__(__self__, *,
-                 address_space: Optional[pulumi.Input['AddressSpaceArgs']] = None,
-                 bgp_communities: Optional[pulumi.Input['VirtualNetworkBgpCommunitiesArgs']] = None,
-                 ddos_protection_plan: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 dhcp_options: Optional[pulumi.Input['DhcpOptionsArgs']] = None,
-                 enable_ddos_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_vm_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption: Optional[pulumi.Input['VirtualNetworkEncryptionArgs']] = None,
-                 extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
-                 flow_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_allocations: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoint_v_net_policies: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointVNetPolicies']]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network_peerings: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPeeringArgs']]]] = None):
-        """
-        Virtual Network resource.
-
-        :param pulumi.Input['AddressSpaceArgs'] address_space: The AddressSpace that contains an array of IP address ranges that can be used by subnets.
-        :param pulumi.Input['VirtualNetworkBgpCommunitiesArgs'] bgp_communities: Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
-        :param pulumi.Input['SubResourceArgs'] ddos_protection_plan: The DDoS protection plan associated with the virtual network.
-        :param pulumi.Input['DhcpOptionsArgs'] dhcp_options: The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
-        :param pulumi.Input[_builtins.bool] enable_ddos_protection: Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
-        :param pulumi.Input[_builtins.bool] enable_vm_protection: Indicates if VM protection is enabled for all the subnets in the virtual network.
-        :param pulumi.Input['VirtualNetworkEncryptionArgs'] encryption: Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
-        :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the virtual network.
-        :param pulumi.Input[_builtins.int] flow_timeout_in_minutes: The FlowTimeout value (in minutes) for the Virtual Network
-        :param pulumi.Input[_builtins.str] id: Resource ID.
-        :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] ip_allocations: Array of IpAllocation which reference this VNET.
-        :param pulumi.Input[_builtins.str] location: Resource location.
-        :param pulumi.Input[Union[_builtins.str, 'PrivateEndpointVNetPolicies']] private_endpoint_v_net_policies: Private Endpoint VNet Policies.
-        :param pulumi.Input[Sequence[pulumi.Input['SubnetArgs']]] subnets: A list of subnets in a Virtual Network.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPeeringArgs']]] virtual_network_peerings: A list of peerings in a Virtual Network.
-        """
-        if address_space is not None:
-            pulumi.set(__self__, "address_space", address_space)
-        if bgp_communities is not None:
-            pulumi.set(__self__, "bgp_communities", bgp_communities)
-        if ddos_protection_plan is not None:
-            pulumi.set(__self__, "ddos_protection_plan", ddos_protection_plan)
-        if dhcp_options is not None:
-            pulumi.set(__self__, "dhcp_options", dhcp_options)
-        if enable_ddos_protection is None:
-            enable_ddos_protection = False
-        if enable_ddos_protection is not None:
-            pulumi.set(__self__, "enable_ddos_protection", enable_ddos_protection)
-        if enable_vm_protection is None:
-            enable_vm_protection = False
-        if enable_vm_protection is not None:
-            pulumi.set(__self__, "enable_vm_protection", enable_vm_protection)
-        if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
-        if extended_location is not None:
-            pulumi.set(__self__, "extended_location", extended_location)
-        if flow_timeout_in_minutes is not None:
-            pulumi.set(__self__, "flow_timeout_in_minutes", flow_timeout_in_minutes)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if ip_allocations is not None:
-            pulumi.set(__self__, "ip_allocations", ip_allocations)
-        if location is not None:
-            pulumi.set(__self__, "location", location)
-        if private_endpoint_v_net_policies is not None:
-            pulumi.set(__self__, "private_endpoint_v_net_policies", private_endpoint_v_net_policies)
-        if subnets is not None:
-            pulumi.set(__self__, "subnets", subnets)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-        if virtual_network_peerings is not None:
-            pulumi.set(__self__, "virtual_network_peerings", virtual_network_peerings)
-
-    @_builtins.property
-    @pulumi.getter(name="addressSpace")
-    def address_space(self) -> Optional[pulumi.Input['AddressSpaceArgs']]:
-        """
-        The AddressSpace that contains an array of IP address ranges that can be used by subnets.
-        """
-        return pulumi.get(self, "address_space")
-
-    @address_space.setter
-    def address_space(self, value: Optional[pulumi.Input['AddressSpaceArgs']]):
-        pulumi.set(self, "address_space", value)
-
-    @_builtins.property
-    @pulumi.getter(name="bgpCommunities")
-    def bgp_communities(self) -> Optional[pulumi.Input['VirtualNetworkBgpCommunitiesArgs']]:
-        """
-        Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
-        """
-        return pulumi.get(self, "bgp_communities")
-
-    @bgp_communities.setter
-    def bgp_communities(self, value: Optional[pulumi.Input['VirtualNetworkBgpCommunitiesArgs']]):
-        pulumi.set(self, "bgp_communities", value)
-
-    @_builtins.property
-    @pulumi.getter(name="ddosProtectionPlan")
-    def ddos_protection_plan(self) -> Optional[pulumi.Input['SubResourceArgs']]:
-        """
-        The DDoS protection plan associated with the virtual network.
-        """
-        return pulumi.get(self, "ddos_protection_plan")
-
-    @ddos_protection_plan.setter
-    def ddos_protection_plan(self, value: Optional[pulumi.Input['SubResourceArgs']]):
-        pulumi.set(self, "ddos_protection_plan", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dhcpOptions")
-    def dhcp_options(self) -> Optional[pulumi.Input['DhcpOptionsArgs']]:
-        """
-        The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
-        """
-        return pulumi.get(self, "dhcp_options")
-
-    @dhcp_options.setter
-    def dhcp_options(self, value: Optional[pulumi.Input['DhcpOptionsArgs']]):
-        pulumi.set(self, "dhcp_options", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableDdosProtection")
-    def enable_ddos_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
-        """
-        return pulumi.get(self, "enable_ddos_protection")
-
-    @enable_ddos_protection.setter
-    def enable_ddos_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enable_ddos_protection", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableVmProtection")
-    def enable_vm_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates if VM protection is enabled for all the subnets in the virtual network.
-        """
-        return pulumi.get(self, "enable_vm_protection")
-
-    @enable_vm_protection.setter
-    def enable_vm_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enable_vm_protection", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['VirtualNetworkEncryptionArgs']]:
-        """
-        Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
-        """
-        return pulumi.get(self, "encryption")
-
-    @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['VirtualNetworkEncryptionArgs']]):
-        pulumi.set(self, "encryption", value)
-
-    @_builtins.property
-    @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
-        """
-        The extended location of the virtual network.
-        """
-        return pulumi.get(self, "extended_location")
-
-    @extended_location.setter
-    def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
-        pulumi.set(self, "extended_location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="flowTimeoutInMinutes")
-    def flow_timeout_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The FlowTimeout value (in minutes) for the Virtual Network
-        """
-        return pulumi.get(self, "flow_timeout_in_minutes")
-
-    @flow_timeout_in_minutes.setter
-    def flow_timeout_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "flow_timeout_in_minutes", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Resource ID.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="ipAllocations")
-    def ip_allocations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]:
-        """
-        Array of IpAllocation which reference this VNET.
-        """
-        return pulumi.get(self, "ip_allocations")
-
-    @ip_allocations.setter
-    def ip_allocations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
-        pulumi.set(self, "ip_allocations", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Resource location.
-        """
-        return pulumi.get(self, "location")
-
-    @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="privateEndpointVNetPolicies")
-    def private_endpoint_v_net_policies(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointVNetPolicies']]]:
-        """
-        Private Endpoint VNet Policies.
-        """
-        return pulumi.get(self, "private_endpoint_v_net_policies")
-
-    @private_endpoint_v_net_policies.setter
-    def private_endpoint_v_net_policies(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointVNetPolicies']]]):
-        pulumi.set(self, "private_endpoint_v_net_policies", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubnetArgs']]]]:
-        """
-        A list of subnets in a Virtual Network.
-        """
-        return pulumi.get(self, "subnets")
-
-    @subnets.setter
-    def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetArgs']]]]):
-        pulumi.set(self, "subnets", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Resource tags.
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "tags", value)
-
-    @_builtins.property
-    @pulumi.getter(name="virtualNetworkPeerings")
-    def virtual_network_peerings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPeeringArgs']]]]:
-        """
-        A list of peerings in a Virtual Network.
-        """
-        return pulumi.get(self, "virtual_network_peerings")
-
-    @virtual_network_peerings.setter
-    def virtual_network_peerings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPeeringArgs']]]]):
-        pulumi.set(self, "virtual_network_peerings", value)
-
-
 class VirtualRouterAutoScaleConfigurationArgsDict(TypedDict):
     """
     The VirtualHub Router autoscale configuration.
@@ -29466,7 +33124,7 @@ class VpnConnectionArgsDict(TypedDict):
     """
     Id of the connected vpn site.
     """
-    routing_configuration: NotRequired[pulumi.Input['RoutingConfigurationArgsDict']]
+    routing_configuration: NotRequired[pulumi.Input['RoutingConfigurationV7ArgsDict']]
     """
     The Routing Configuration indicating the associated and propagated route tables on this connection.
     """
@@ -29511,7 +33169,7 @@ class VpnConnectionArgs:
                  ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgs']]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  remote_vpn_site: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 routing_configuration: Optional[pulumi.Input['RoutingConfigurationArgs']] = None,
+                 routing_configuration: Optional[pulumi.Input['RoutingConfigurationV7Args']] = None,
                  routing_weight: Optional[pulumi.Input[_builtins.int]] = None,
                  shared_key: Optional[pulumi.Input[_builtins.str]] = None,
                  traffic_selector_policies: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficSelectorPolicyArgs']]]] = None,
@@ -29531,7 +33189,7 @@ class VpnConnectionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgs']]] ipsec_policies: The IPSec Policies to be considered by this connection.
         :param pulumi.Input[_builtins.str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input['SubResourceArgs'] remote_vpn_site: Id of the connected vpn site.
-        :param pulumi.Input['RoutingConfigurationArgs'] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
+        :param pulumi.Input['RoutingConfigurationV7Args'] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
         :param pulumi.Input[_builtins.int] routing_weight: Routing weight for vpn connection.
         :param pulumi.Input[_builtins.str] shared_key: SharedKey for the vpn connection.
         :param pulumi.Input[Sequence[pulumi.Input['TrafficSelectorPolicyArgs']]] traffic_selector_policies: The Traffic Selector Policies to be considered by this connection.
@@ -29685,14 +33343,14 @@ class VpnConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="routingConfiguration")
-    def routing_configuration(self) -> Optional[pulumi.Input['RoutingConfigurationArgs']]:
+    def routing_configuration(self) -> Optional[pulumi.Input['RoutingConfigurationV7Args']]:
         """
         The Routing Configuration indicating the associated and propagated route tables on this connection.
         """
         return pulumi.get(self, "routing_configuration")
 
     @routing_configuration.setter
-    def routing_configuration(self, value: Optional[pulumi.Input['RoutingConfigurationArgs']]):
+    def routing_configuration(self, value: Optional[pulumi.Input['RoutingConfigurationV7Args']]):
         pulumi.set(self, "routing_configuration", value)
 
     @_builtins.property

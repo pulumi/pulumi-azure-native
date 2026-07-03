@@ -95,7 +95,6 @@ namespace Pulumi.AzureNative.Automation.Inputs
 
         public SUCSchedulePropertiesArgs()
         {
-            IsEnabled = false;
         }
         public static new SUCSchedulePropertiesArgs Empty => new SUCSchedulePropertiesArgs();
     }

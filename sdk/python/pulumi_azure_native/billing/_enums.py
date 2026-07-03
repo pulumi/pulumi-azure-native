@@ -20,9 +20,21 @@ class BillingManagementTenantState(_builtins.str, Enum):
     The state determines whether users from the associated tenant can be assigned roles for commerce activities like viewing and downloading invoices, managing payments, and making purchases.
     """
     OTHER = "Other"
+    """
+    Other
+    """
     NOT_ALLOWED = "NotAllowed"
+    """
+    NotAllowed
+    """
     ACTIVE = "Active"
+    """
+    Active
+    """
     REVOKED = "Revoked"
+    """
+    Revoked
+    """
 
 
 @pulumi.type_token("azure-native:billing:InvoiceSectionState")
@@ -31,12 +43,33 @@ class InvoiceSectionState(_builtins.str, Enum):
     Identifies the status of an invoice section.
     """
     OTHER = "Other"
+    """
+    Other
+    """
     ACTIVE = "Active"
+    """
+    Active
+    """
     DELETED = "Deleted"
+    """
+    Deleted
+    """
     DISABLED = "Disabled"
+    """
+    Disabled
+    """
     UNDER_REVIEW = "UnderReview"
+    """
+    UnderReview
+    """
     WARNED = "Warned"
+    """
+    Warned
+    """
     RESTRICTED = "Restricted"
+    """
+    Restricted
+    """
 
 
 @pulumi.type_token("azure-native:billing:InvoiceSectionStateReasonCode")
@@ -45,10 +78,25 @@ class InvoiceSectionStateReasonCode(_builtins.str, Enum):
     Reason for the specified invoice section status.
     """
     OTHER = "Other"
+    """
+    Other
+    """
     PAST_DUE = "PastDue"
+    """
+    PastDue
+    """
     UNUSUAL_ACTIVITY = "UnusualActivity"
+    """
+    UnusualActivity
+    """
     SPENDING_LIMIT_REACHED = "SpendingLimitReached"
+    """
+    SpendingLimitReached
+    """
     SPENDING_LIMIT_EXPIRED = "SpendingLimitExpired"
+    """
+    SpendingLimitExpired
+    """
 
 
 @pulumi.type_token("azure-native:billing:ProvisioningTenantState")
@@ -57,9 +105,30 @@ class ProvisioningTenantState(_builtins.str, Enum):
     The state determines whether subscriptions and licenses can be provisioned in the associated tenant. It can be set to 'Pending' to initiate a billing request.
     """
     OTHER = "Other"
+    """
+    Other
+    """
     NOT_REQUESTED = "NotRequested"
+    """
+    NotRequested
+    """
     ACTIVE = "Active"
+    """
+    Active
+    """
     PENDING = "Pending"
+    """
+    Pending
+    """
     BILLING_REQUEST_EXPIRED = "BillingRequestExpired"
+    """
+    BillingRequestExpired
+    """
     BILLING_REQUEST_DECLINED = "BillingRequestDeclined"
+    """
+    BillingRequestDeclined
+    """
     REVOKED = "Revoked"
+    """
+    Revoked
+    """

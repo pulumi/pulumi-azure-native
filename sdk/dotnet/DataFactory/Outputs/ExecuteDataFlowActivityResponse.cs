@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// Compute properties for data flow activity.
         /// </summary>
-        public readonly Outputs.ExecuteDataFlowActivityTypePropertiesResponseCompute? Compute;
+        public readonly Outputs.ExecuteDataFlowActivityTypePropertiesComputeResponse? Compute;
         /// <summary>
         /// Continuation settings for execute data flow activity.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
         [OutputConstructor]
         private ExecuteDataFlowActivityResponse(
-            Outputs.ExecuteDataFlowActivityTypePropertiesResponseCompute? compute,
+            Outputs.ExecuteDataFlowActivityTypePropertiesComputeResponse? compute,
 
             Outputs.ContinuationSettingsReferenceResponse? continuationSettings,
 

@@ -19,11 +19,11 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// <summary>
         /// The ARC autoprovisioning configuration
         /// </summary>
-        public readonly Outputs.DefenderFoDatabasesAwsOfferingResponseArcAutoProvisioning? ArcAutoProvisioning;
+        public readonly Outputs.DefenderFoDatabasesAwsOfferingArcAutoProvisioningResponse? ArcAutoProvisioning;
         /// <summary>
         /// The databases data security posture management (DSPM) configuration
         /// </summary>
-        public readonly Outputs.DefenderFoDatabasesAwsOfferingResponseDatabasesDspm? DatabasesDspm;
+        public readonly Outputs.DefenderFoDatabasesAwsOfferingDatabasesDspmResponse? DatabasesDspm;
         /// <summary>
         /// The offering description.
         /// </summary>
@@ -36,19 +36,19 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// <summary>
         /// The RDS configuration
         /// </summary>
-        public readonly Outputs.DefenderFoDatabasesAwsOfferingResponseRds? Rds;
+        public readonly Outputs.DefenderFoDatabasesAwsOfferingRdsResponse? Rds;
 
         [OutputConstructor]
         private DefenderFoDatabasesAwsOfferingResponse(
-            Outputs.DefenderFoDatabasesAwsOfferingResponseArcAutoProvisioning? arcAutoProvisioning,
+            Outputs.DefenderFoDatabasesAwsOfferingArcAutoProvisioningResponse? arcAutoProvisioning,
 
-            Outputs.DefenderFoDatabasesAwsOfferingResponseDatabasesDspm? databasesDspm,
+            Outputs.DefenderFoDatabasesAwsOfferingDatabasesDspmResponse? databasesDspm,
 
             string description,
 
             string offeringType,
 
-            Outputs.DefenderFoDatabasesAwsOfferingResponseRds? rds)
+            Outputs.DefenderFoDatabasesAwsOfferingRdsResponse? rds)
         {
             ArcAutoProvisioning = arcAutoProvisioning;
             DatabasesDspm = databasesDspm;

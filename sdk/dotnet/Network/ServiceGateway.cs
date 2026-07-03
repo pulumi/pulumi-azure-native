@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.Network
     /// ServiceGateway resource.
     /// 
     /// Uses Azure REST API version 2025-05-01.
+    /// 
+    /// Other available API versions: 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ServiceGateway")]
     public partial class ServiceGateway : global::Pulumi.CustomResource
@@ -93,10 +95,10 @@ namespace Pulumi.AzureNative.Network
         /// Reference to an existing virtual network.
         /// </summary>
         [Output("virtualNetwork")]
-        public Output<Outputs.VirtualNetworkResponse?> VirtualNetwork { get; private set; } = null!;
+        public Output<Outputs.CommonVirtualNetworkResponse?> VirtualNetwork { get; private set; } = null!;
 
         /// <summary>
-        /// A list of availability zones denoting the zone in which service gateway should be deployed. 
+        /// A list of availability zones denoting the zone in which service gateway should be deployed.
         /// 
         /// - The zone values must be provided as strings representing numeric identifiers like "1", "2", "3" etc.
         /// </summary>
@@ -129,6 +131,7 @@ namespace Pulumi.AzureNative.Network
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network/v20250501:ServiceGateway" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20250701:ServiceGateway" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -204,13 +207,13 @@ namespace Pulumi.AzureNative.Network
         /// Reference to an existing virtual network.
         /// </summary>
         [Input("virtualNetwork")]
-        public Input<Inputs.VirtualNetworkArgs>? VirtualNetwork { get; set; }
+        public Input<Inputs.CommonVirtualNetworkArgs>? VirtualNetwork { get; set; }
 
         [Input("zones")]
         private InputList<string>? _zones;
 
         /// <summary>
-        /// A list of availability zones denoting the zone in which service gateway should be deployed. 
+        /// A list of availability zones denoting the zone in which service gateway should be deployed.
         /// 
         /// - The zone values must be provided as strings representing numeric identifiers like "1", "2", "3" etc.
         /// </summary>

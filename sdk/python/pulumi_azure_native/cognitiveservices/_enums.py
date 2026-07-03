@@ -19,10 +19,14 @@ __all__ = [
     'DeploymentModelVersionUpgradeOption',
     'DeploymentScaleType',
     'EncryptionScopeState',
+    'FirewallSku',
     'HostingModel',
     'IdentityKind',
     'IdentityManagementType',
+    'IsolationMode',
     'KeySource',
+    'ManagedNetworkKind',
+    'ManagedNetworkStatus',
     'ManagedPERequirement',
     'ManagedPEStatus',
     'NetworkRuleAction',
@@ -33,6 +37,7 @@ __all__ = [
     'RaiPolicyMode',
     'ResourceIdentityType',
     'RoutingMethods',
+    'RuleAction',
     'RuleCategory',
     'RuleStatus',
     'RuleType',
@@ -328,6 +333,15 @@ class EncryptionScopeState(_builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("azure-native:cognitiveservices:FirewallSku")
+class FirewallSku(_builtins.str, Enum):
+    """
+    Firewall Sku used for FQDN Rules
+    """
+    STANDARD = "Standard"
+    BASIC = "Basic"
+
+
 @pulumi.type_token("azure-native:cognitiveservices:HostingModel")
 class HostingModel(_builtins.str, Enum):
     """
@@ -385,6 +399,16 @@ class IdentityManagementType(_builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:cognitiveservices:IsolationMode")
+class IsolationMode(_builtins.str, Enum):
+    """
+    Isolation mode for the managed network of a cognitive services account.
+    """
+    DISABLED = "Disabled"
+    ALLOW_INTERNET_OUTBOUND = "AllowInternetOutbound"
+    ALLOW_ONLY_APPROVED_OUTBOUND = "AllowOnlyApprovedOutbound"
+
+
 @pulumi.type_token("azure-native:cognitiveservices:KeySource")
 class KeySource(_builtins.str, Enum):
     """
@@ -392,6 +416,24 @@ class KeySource(_builtins.str, Enum):
     """
     MICROSOFT_COGNITIVE_SERVICES = "Microsoft.CognitiveServices"
     MICROSOFT_KEY_VAULT = "Microsoft.KeyVault"
+
+
+@pulumi.type_token("azure-native:cognitiveservices:ManagedNetworkKind")
+class ManagedNetworkKind(_builtins.str, Enum):
+    """
+    The Kind of the managed network. Users can switch from V1 to V2 for granular access controls, but cannot switch back to V1 once V2 is enabled.
+    """
+    V1 = "V1"
+    V2 = "V2"
+
+
+@pulumi.type_token("azure-native:cognitiveservices:ManagedNetworkStatus")
+class ManagedNetworkStatus(_builtins.str, Enum):
+    """
+    Status for the managed network of a cognitive services account.
+    """
+    INACTIVE = "Inactive"
+    ACTIVE = "Active"
 
 
 @pulumi.type_token("azure-native:cognitiveservices:ManagedPERequirement")
@@ -497,6 +539,15 @@ class RoutingMethods(_builtins.str, Enum):
     PRIORITY = "Priority"
     WEIGHTED = "Weighted"
     PERFORMANCE = "Performance"
+
+
+@pulumi.type_token("azure-native:cognitiveservices:RuleAction")
+class RuleAction(_builtins.str, Enum):
+    """
+    The action for the service tag outbound rule.
+    """
+    ALLOW = "Allow"
+    DENY = "Deny"
 
 
 @pulumi.type_token("azure-native:cognitiveservices:RuleCategory")

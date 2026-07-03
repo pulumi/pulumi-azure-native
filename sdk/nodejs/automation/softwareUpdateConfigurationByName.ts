@@ -56,7 +56,7 @@ export class SoftwareUpdateConfigurationByName extends pulumi.CustomResource {
     /**
      * Details of provisioning error
      */
-    declare public readonly error: pulumi.Output<outputs.automation.ErrorResponseResponse | undefined>;
+    declare public readonly error: pulumi.Output<outputs.automation.AutomationErrorResponseResponse | undefined>;
     /**
      * LastModifiedBy property, which only appears in the response.
      */
@@ -66,7 +66,7 @@ export class SoftwareUpdateConfigurationByName extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
@@ -78,11 +78,15 @@ export class SoftwareUpdateConfigurationByName extends pulumi.CustomResource {
      */
     declare public readonly scheduleInfo: pulumi.Output<outputs.automation.SUCSchedulePropertiesResponse>;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.automation.SystemDataResponse>;
+    /**
      * Tasks information for the Software update configuration.
      */
     declare public readonly tasks: pulumi.Output<outputs.automation.SoftwareUpdateConfigurationTasksResponse | undefined>;
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
@@ -116,7 +120,7 @@ export class SoftwareUpdateConfigurationByName extends pulumi.CustomResource {
             resourceInputs["automationAccountName"] = args?.automationAccountName;
             resourceInputs["error"] = args?.error;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
-            resourceInputs["scheduleInfo"] = args ? (args.scheduleInfo ? pulumi.output(args.scheduleInfo).apply(inputs.automation.sucschedulePropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["scheduleInfo"] = args?.scheduleInfo;
             resourceInputs["softwareUpdateConfigurationName"] = args?.softwareUpdateConfigurationName;
             resourceInputs["tasks"] = args?.tasks;
             resourceInputs["updateConfiguration"] = args?.updateConfiguration;
@@ -127,6 +131,7 @@ export class SoftwareUpdateConfigurationByName extends pulumi.CustomResource {
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -138,6 +143,7 @@ export class SoftwareUpdateConfigurationByName extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["scheduleInfo"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tasks"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["updateConfiguration"] = undefined /*out*/;
@@ -160,9 +166,9 @@ export interface SoftwareUpdateConfigurationByNameArgs {
     /**
      * Details of provisioning error
      */
-    error?: pulumi.Input<inputs.automation.ErrorResponseArgs>;
+    error?: pulumi.Input<inputs.automation.AutomationErrorResponseArgs>;
     /**
-     * Name of an Azure Resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

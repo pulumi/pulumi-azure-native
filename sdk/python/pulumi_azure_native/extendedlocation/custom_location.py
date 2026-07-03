@@ -371,7 +371,7 @@ class CustomLocation(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def authentication(self) -> pulumi.Output[Optional['outputs.CustomLocationPropertiesResponseAuthentication']]:
+    def authentication(self) -> pulumi.Output[Optional['outputs.CustomLocationPropertiesAuthenticationResponse']]:
         """
         This is optional input that contains the authentication that should be used to generate the namespace.
         """
@@ -461,7 +461,7 @@ class CustomLocation(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

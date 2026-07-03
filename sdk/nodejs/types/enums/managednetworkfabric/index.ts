@@ -233,6 +233,18 @@ export const Layer4Protocol = {
  */
 export type Layer4Protocol = (typeof Layer4Protocol)[keyof typeof Layer4Protocol];
 
+export const ManagedServiceIdentityType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
+} as const;
+
+/**
+ * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+ */
+export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
+
 export const NetworkRackType = {
     Aggregate: "Aggregate",
     Compute: "Compute",

@@ -483,7 +483,7 @@ class WebTest(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> pulumi.Output[Optional['outputs.WebTestPropertiesResponseConfiguration']]:
+    def configuration(self) -> pulumi.Output[Optional['outputs.WebTestPropertiesConfigurationResponse']]:
         """
         An XML configuration specification for a WebTest.
         """
@@ -555,7 +555,7 @@ class WebTest(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def request(self) -> pulumi.Output[Optional['outputs.WebTestPropertiesResponseRequest']]:
+    def request(self) -> pulumi.Output[Optional['outputs.WebTestPropertiesRequestResponse']]:
         """
         The collection of request properties
         """
@@ -603,7 +603,7 @@ class WebTest(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="validationRules")
-    def validation_rules(self) -> pulumi.Output[Optional['outputs.WebTestPropertiesResponseValidationRules']]:
+    def validation_rules(self) -> pulumi.Output[Optional['outputs.WebTestPropertiesValidationRulesResponse']]:
         """
         The collection of validation rule properties
         """

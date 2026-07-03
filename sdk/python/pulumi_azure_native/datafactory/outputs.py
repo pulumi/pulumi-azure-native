@@ -105,7 +105,7 @@ __all__ = [
     'AzureMySqlTableDatasetResponse',
     'AzurePostgreSqlLinkedServiceResponse',
     'AzurePostgreSqlSinkResponse',
-    'AzurePostgreSqlSinkResponseUpsertSettings',
+    'AzurePostgreSqlSinkUpsertSettingsResponse',
     'AzurePostgreSqlSourceResponse',
     'AzurePostgreSqlTableDatasetResponse',
     'AzureQueueSinkResponse',
@@ -140,7 +140,7 @@ __all__ = [
     'CassandraSourceResponse',
     'CassandraTableDatasetResponse',
     'ChainingTriggerResponse',
-    'ChangeDataCaptureResponseFolder',
+    'ChangeDataCaptureFolderResponse',
     'CmdkeySetupResponse',
     'CommonDataServiceForAppsEntityDatasetResponse',
     'CommonDataServiceForAppsLinkedServiceResponse',
@@ -175,8 +175,8 @@ __all__ = [
     'CustomEventsTriggerResponse',
     'DWCopyCommandDefaultValueResponse',
     'DWCopyCommandSettingsResponse',
+    'DataFlowFolderResponse',
     'DataFlowReferenceResponse',
-    'DataFlowResponseFolder',
     'DataFlowSinkResponse',
     'DataFlowSourceResponse',
     'DataFlowStagingInfoResponse',
@@ -187,8 +187,8 @@ __all__ = [
     'DatabricksSparkJarActivityResponse',
     'DatabricksSparkPythonActivityResponse',
     'DatasetCompressionResponse',
+    'DatasetFolderResponse',
     'DatasetReferenceResponse',
-    'DatasetResponseFolder',
     'DataworldLinkedServiceResponse',
     'Db2LinkedServiceResponse',
     'Db2SourceResponse',
@@ -226,7 +226,7 @@ __all__ = [
     'ExcelDatasetResponse',
     'ExcelSourceResponse',
     'ExecuteDataFlowActivityResponse',
-    'ExecuteDataFlowActivityTypePropertiesResponseCompute',
+    'ExecuteDataFlowActivityTypePropertiesComputeResponse',
     'ExecutePipelineActivityPolicyResponse',
     'ExecutePipelineActivityResponse',
     'ExecuteSSISPackageActivityResponse',
@@ -309,8 +309,8 @@ __all__ = [
     'IntegrationRuntimeComputePropertiesResponse',
     'IntegrationRuntimeCustomSetupScriptPropertiesResponse',
     'IntegrationRuntimeCustomerVirtualNetworkResponse',
+    'IntegrationRuntimeDataFlowPropertiesCustomPropertiesItemResponse',
     'IntegrationRuntimeDataFlowPropertiesResponse',
-    'IntegrationRuntimeDataFlowPropertiesResponseCustomProperties',
     'IntegrationRuntimeDataProxyPropertiesResponse',
     'IntegrationRuntimeReferenceResponse',
     'IntegrationRuntimeSsisCatalogInfoResponse',
@@ -439,9 +439,9 @@ __all__ = [
     'PhoenixSourceResponse',
     'PipelineElapsedTimeMetricPolicyResponse',
     'PipelineExternalComputeScalePropertiesResponse',
+    'PipelineFolderResponse',
     'PipelinePolicyResponse',
     'PipelineReferenceResponse',
-    'PipelineResponseFolder',
     'PolybaseSettingsResponse',
     'PostgreSqlLinkedServiceResponse',
     'PostgreSqlSourceResponse',
@@ -533,7 +533,7 @@ __all__ = [
     'ScriptActivityParameterResponse',
     'ScriptActivityResponse',
     'ScriptActivityScriptBlockResponse',
-    'ScriptActivityTypePropertiesResponseLogSettings',
+    'ScriptActivityTypePropertiesLogSettingsResponse',
     'SecureInputOutputPolicyResponse',
     'SecureStringResponse',
     'SelfDependencyTumblingWindowTriggerReferenceResponse',
@@ -609,6 +609,7 @@ __all__ = [
     'SynapseNotebookReferenceResponse',
     'SynapseSparkJobDefinitionActivityResponse',
     'SynapseSparkJobReferenceResponse',
+    'SystemDataResponse',
     'TabularSourceResponse',
     'TarGZipReadSettingsResponse',
     'TarReadSettingsResponse',
@@ -1072,7 +1073,7 @@ class AmazonMWSObjectDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -1085,7 +1086,7 @@ class AmazonMWSObjectDatasetResponse(dict):
                Expected value is 'AmazonMWSObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -1143,7 +1144,7 @@ class AmazonMWSObjectDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -1683,14 +1684,14 @@ class AmazonRdsForOraclePartitionSettingsResponse(dict):
     def __init__(__self__, *,
                  partition_column_name: Optional[Any] = None,
                  partition_lower_bound: Optional[Any] = None,
-                 partition_names: Optional[Sequence[Any]] = None,
+                 partition_names: Optional[Any] = None,
                  partition_upper_bound: Optional[Any] = None):
         """
         The settings that will be leveraged for AmazonRdsForOracle source partitioning.
 
         :param Any partition_column_name: The name of the column in integer type that will be used for proceeding range partitioning. Type: string (or Expression with resultType string).
         :param Any partition_lower_bound: The minimum value of column specified in partitionColumnName that will be used for proceeding range partitioning. Type: string (or Expression with resultType string).
-        :param Sequence[Any] partition_names: Names of the physical partitions of AmazonRdsForOracle table. 
+        :param Any partition_names: Names of the physical partitions of AmazonRdsForOracle table.
         :param Any partition_upper_bound: The maximum value of column specified in partitionColumnName that will be used for proceeding range partitioning. Type: string (or Expression with resultType string).
         """
         if partition_column_name is not None:
@@ -1720,9 +1721,9 @@ class AmazonRdsForOraclePartitionSettingsResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="partitionNames")
-    def partition_names(self) -> Optional[Sequence[Any]]:
+    def partition_names(self) -> Optional[Any]:
         """
-        Names of the physical partitions of AmazonRdsForOracle table. 
+        Names of the physical partitions of AmazonRdsForOracle table.
         """
         return pulumi.get(self, "partition_names")
 
@@ -1956,7 +1957,7 @@ class AmazonRdsForOracleTableDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -1969,7 +1970,7 @@ class AmazonRdsForOracleTableDatasetResponse(dict):
                Expected value is 'AmazonRdsForOracleTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -2027,7 +2028,7 @@ class AmazonRdsForOracleTableDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -2757,7 +2758,7 @@ class AmazonRdsForSqlServerTableDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -2770,7 +2771,7 @@ class AmazonRdsForSqlServerTableDatasetResponse(dict):
                Expected value is 'AmazonRdsForSqlServerTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -2828,7 +2829,7 @@ class AmazonRdsForSqlServerTableDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -3220,7 +3221,7 @@ class AmazonRedshiftTableDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -3234,7 +3235,7 @@ class AmazonRedshiftTableDatasetResponse(dict):
                Expected value is 'AmazonRedshiftTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -3295,7 +3296,7 @@ class AmazonRedshiftTableDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -3847,7 +3848,7 @@ class AmazonS3DatasetResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  compression: Optional['outputs.DatasetCompressionResponse'] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  format: Optional[Any] = None,
                  key: Optional[Any] = None,
                  modified_datetime_end: Optional[Any] = None,
@@ -3867,7 +3868,7 @@ class AmazonS3DatasetResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'DatasetCompressionResponse' compression: The data compression method used for the Amazon S3 object.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Union['AvroFormatResponse', 'JsonFormatResponse', 'OrcFormatResponse', 'ParquetFormatResponse', 'TextFormatResponse'] format: The format of files.
         :param Any key: The key of the Amazon S3 object. Type: string (or Expression with resultType string).
         :param Any modified_datetime_end: The end of S3 object's modified datetime. Type: string (or Expression with resultType string).
@@ -3959,7 +3960,7 @@ class AmazonS3DatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -4985,7 +4986,7 @@ class AvroDatasetResponse(dict):
                  avro_compression_codec: Optional[Any] = None,
                  avro_compression_level: Optional[_builtins.int] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None):
@@ -4999,7 +5000,7 @@ class AvroDatasetResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Any avro_compression_codec: The data avroCompressionCodec. Type: string (or Expression with resultType string).
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -5080,7 +5081,7 @@ class AvroDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -5801,7 +5802,7 @@ class AzureBlobDatasetResponse(dict):
                  compression: Optional['outputs.DatasetCompressionResponse'] = None,
                  description: Optional[_builtins.str] = None,
                  file_name: Optional[Any] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  folder_path: Optional[Any] = None,
                  format: Optional[Any] = None,
                  modified_datetime_end: Optional[Any] = None,
@@ -5820,7 +5821,7 @@ class AzureBlobDatasetResponse(dict):
         :param 'DatasetCompressionResponse' compression: The data compression method used for the blob storage.
         :param _builtins.str description: Dataset description.
         :param Any file_name: The name of the Azure Blob. Type: string (or Expression with resultType string).
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Any folder_path: The path of the Azure Blob storage. Type: string (or Expression with resultType string).
         :param Union['AvroFormatResponse', 'JsonFormatResponse', 'OrcFormatResponse', 'ParquetFormatResponse', 'TextFormatResponse'] format: The format of the Azure Blob storage.
         :param Any modified_datetime_end: The end of Azure Blob's modified datetime. Type: string (or Expression with resultType string).
@@ -5910,7 +5911,7 @@ class AzureBlobDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -6014,7 +6015,7 @@ class AzureBlobFSDatasetResponse(dict):
                  compression: Optional['outputs.DatasetCompressionResponse'] = None,
                  description: Optional[_builtins.str] = None,
                  file_name: Optional[Any] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  folder_path: Optional[Any] = None,
                  format: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -6030,7 +6031,7 @@ class AzureBlobFSDatasetResponse(dict):
         :param 'DatasetCompressionResponse' compression: The data compression method used for the blob storage.
         :param _builtins.str description: Dataset description.
         :param Any file_name: The name of the Azure Data Lake Storage Gen2. Type: string (or Expression with resultType string).
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Any folder_path: The path of the Azure Data Lake Storage Gen2 storage. Type: string (or Expression with resultType string).
         :param Union['AvroFormatResponse', 'JsonFormatResponse', 'OrcFormatResponse', 'ParquetFormatResponse', 'TextFormatResponse'] format: The format of the Azure Data Lake Storage Gen2 storage.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
@@ -6111,7 +6112,7 @@ class AzureBlobFSDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -8462,7 +8463,7 @@ class AzureDataExplorerTableDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -8475,7 +8476,7 @@ class AzureDataExplorerTableDatasetResponse(dict):
                Expected value is 'AzureDataExplorerTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -8533,7 +8534,7 @@ class AzureDataExplorerTableDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -8815,7 +8816,7 @@ class AzureDataLakeStoreDatasetResponse(dict):
                  compression: Optional['outputs.DatasetCompressionResponse'] = None,
                  description: Optional[_builtins.str] = None,
                  file_name: Optional[Any] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  folder_path: Optional[Any] = None,
                  format: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -8831,7 +8832,7 @@ class AzureDataLakeStoreDatasetResponse(dict):
         :param 'DatasetCompressionResponse' compression: The data compression method used for the item(s) in the Azure Data Lake Store.
         :param _builtins.str description: Dataset description.
         :param Any file_name: The name of the file in the Azure Data Lake Store. Type: string (or Expression with resultType string).
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Any folder_path: Path to the folder in the Azure Data Lake Store. Type: string (or Expression with resultType string).
         :param Union['AvroFormatResponse', 'JsonFormatResponse', 'OrcFormatResponse', 'ParquetFormatResponse', 'TextFormatResponse'] format: The format of the Data Lake Store.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
@@ -8912,7 +8913,7 @@ class AzureDataLakeStoreDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -9880,7 +9881,7 @@ class AzureDatabricksDeltaLakeDatasetResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  database: Optional[Any] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -9894,7 +9895,7 @@ class AzureDatabricksDeltaLakeDatasetResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Any database: The database name of delta table. Type: string (or Expression with resultType string).
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -9962,7 +9963,7 @@ class AzureDatabricksDeltaLakeDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -10661,15 +10662,15 @@ class AzureDatabricksLinkedServiceResponse(dict):
                  encrypted_credential: Optional[_builtins.str] = None,
                  existing_cluster_id: Optional[Any] = None,
                  instance_pool_id: Optional[Any] = None,
-                 new_cluster_custom_tags: Optional[Mapping[str, Any]] = None,
+                 new_cluster_custom_tags: Optional[Any] = None,
                  new_cluster_driver_node_type: Optional[Any] = None,
                  new_cluster_enable_elastic_disk: Optional[Any] = None,
                  new_cluster_init_scripts: Optional[Any] = None,
                  new_cluster_log_destination: Optional[Any] = None,
                  new_cluster_node_type: Optional[Any] = None,
                  new_cluster_num_of_worker: Optional[Any] = None,
-                 new_cluster_spark_conf: Optional[Mapping[str, Any]] = None,
-                 new_cluster_spark_env_vars: Optional[Mapping[str, Any]] = None,
+                 new_cluster_spark_conf: Optional[Any] = None,
+                 new_cluster_spark_env_vars: Optional[Any] = None,
                  new_cluster_version: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  policy_id: Optional[Any] = None,
@@ -10691,15 +10692,15 @@ class AzureDatabricksLinkedServiceResponse(dict):
         :param _builtins.str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Any existing_cluster_id: The id of an existing interactive cluster that will be used for all runs of this activity. Type: string (or Expression with resultType string).
         :param Any instance_pool_id: The id of an existing instance pool that will be used for all runs of this activity. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] new_cluster_custom_tags: Additional tags for cluster resources. This property is ignored in instance pool configurations.
+        :param Any new_cluster_custom_tags: Additional tags for cluster resources. This property is ignored in instance pool configurations.
         :param Any new_cluster_driver_node_type: The driver node type for the new job cluster. This property is ignored in instance pool configurations. Type: string (or Expression with resultType string).
         :param Any new_cluster_enable_elastic_disk: Enable the elastic disk on the new cluster. This property is now ignored, and takes the default elastic disk behavior in Databricks (elastic disks are always enabled). Type: boolean (or Expression with resultType boolean).
         :param Any new_cluster_init_scripts: User-defined initialization scripts for the new cluster. Type: array of strings (or Expression with resultType array of strings).
         :param Any new_cluster_log_destination: Specify a location to deliver Spark driver, worker, and event logs. Type: string (or Expression with resultType string).
         :param Any new_cluster_node_type: The node type of the new job cluster. This property is required if newClusterVersion is specified and instancePoolId is not specified. If instancePoolId is specified, this property is ignored. Type: string (or Expression with resultType string).
         :param Any new_cluster_num_of_worker: If not using an existing interactive cluster, this specifies the number of worker nodes to use for the new job cluster or instance pool. For new job clusters, this a string-formatted Int32, like '1' means numOfWorker is 1 or '1:10' means auto-scale from 1 (min) to 10 (max). For instance pools, this is a string-formatted Int32, and can only specify a fixed number of worker nodes, such as '2'. Required if newClusterVersion is specified. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] new_cluster_spark_conf: A set of optional, user-specified Spark configuration key-value pairs.
-        :param Mapping[str, Any] new_cluster_spark_env_vars: A set of optional, user-specified Spark environment variables key-value pairs.
+        :param Any new_cluster_spark_conf: A set of optional, user-specified Spark configuration key-value pairs.
+        :param Any new_cluster_spark_env_vars: A set of optional, user-specified Spark environment variables key-value pairs.
         :param Any new_cluster_version: If not using an existing interactive cluster, this specifies the Spark version of a new job cluster or instance pool nodes created for each run of this activity. Required if instancePoolId is specified. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any policy_id: The policy id for limiting the ability to configure clusters based on a user defined set of rules. Type: string (or Expression with resultType string).
@@ -10856,7 +10857,7 @@ class AzureDatabricksLinkedServiceResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="newClusterCustomTags")
-    def new_cluster_custom_tags(self) -> Optional[Mapping[str, Any]]:
+    def new_cluster_custom_tags(self) -> Optional[Any]:
         """
         Additional tags for cluster resources. This property is ignored in instance pool configurations.
         """
@@ -10912,7 +10913,7 @@ class AzureDatabricksLinkedServiceResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="newClusterSparkConf")
-    def new_cluster_spark_conf(self) -> Optional[Mapping[str, Any]]:
+    def new_cluster_spark_conf(self) -> Optional[Any]:
         """
         A set of optional, user-specified Spark configuration key-value pairs.
         """
@@ -10920,7 +10921,7 @@ class AzureDatabricksLinkedServiceResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="newClusterSparkEnvVars")
-    def new_cluster_spark_env_vars(self) -> Optional[Mapping[str, Any]]:
+    def new_cluster_spark_env_vars(self) -> Optional[Any]:
         """
         A set of optional, user-specified Spark environment variables key-value pairs.
         """
@@ -11633,7 +11634,7 @@ class AzureFunctionActivityResponse(dict):
                  body: Optional[Any] = None,
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[_builtins.str] = None,
-                 headers: Optional[Mapping[str, Any]] = None,
+                 headers: Optional[Any] = None,
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  on_inactive_mark_as: Optional[_builtins.str] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
@@ -11650,7 +11651,7 @@ class AzureFunctionActivityResponse(dict):
         :param Any body: Represents the payload that will be sent to the endpoint. Required for POST/PUT method, not allowed for GET method Type: string (or Expression with resultType string).
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param _builtins.str description: Activity description.
-        :param Mapping[str, Any] headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
+        :param Any headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param 'ActivityPolicyResponse' policy: Activity policy.
@@ -11739,7 +11740,7 @@ class AzureFunctionActivityResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def headers(self) -> Optional[Mapping[str, Any]]:
+    def headers(self) -> Optional[Any]:
         """
         Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         """
@@ -12211,7 +12212,7 @@ class AzureMLBatchExecutionActivityResponse(dict):
                  type: _builtins.str,
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[_builtins.str] = None,
-                 global_parameters: Optional[Mapping[str, Any]] = None,
+                 global_parameters: Optional[Any] = None,
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  on_inactive_mark_as: Optional[_builtins.str] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
@@ -12227,7 +12228,7 @@ class AzureMLBatchExecutionActivityResponse(dict):
                Expected value is 'AzureMLBatchExecution'.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param _builtins.str description: Activity description.
-        :param Mapping[str, Any] global_parameters: Key,Value pairs to be passed to the Azure ML Batch Execution Service endpoint. Keys must match the names of web service parameters defined in the published Azure ML web service. Values will be passed in the GlobalParameters property of the Azure ML batch execution request.
+        :param Any global_parameters: Key,Value pairs to be passed to the Azure ML Batch Execution Service endpoint. Keys must match the names of web service parameters defined in the published Azure ML web service. Values will be passed in the GlobalParameters property of the Azure ML batch execution request.
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param 'ActivityPolicyResponse' policy: Activity policy.
@@ -12294,7 +12295,7 @@ class AzureMLBatchExecutionActivityResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="globalParameters")
-    def global_parameters(self) -> Optional[Mapping[str, Any]]:
+    def global_parameters(self) -> Optional[Any]:
         """
         Key,Value pairs to be passed to the Azure ML Batch Execution Service endpoint. Keys must match the names of web service parameters defined in the published Azure ML web service. Values will be passed in the GlobalParameters property of the Azure ML batch execution request.
         """
@@ -13567,7 +13568,7 @@ class AzureMariaDBTableDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -13580,7 +13581,7 @@ class AzureMariaDBTableDatasetResponse(dict):
                Expected value is 'AzureMariaDBTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -13638,7 +13639,7 @@ class AzureMariaDBTableDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -14121,7 +14122,7 @@ class AzureMySqlTableDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -14135,7 +14136,7 @@ class AzureMySqlTableDatasetResponse(dict):
                Expected value is 'AzureMySqlTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -14196,7 +14197,7 @@ class AzureMySqlTableDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -14678,7 +14679,7 @@ class AzurePostgreSqlSinkResponse(dict):
                  pre_copy_script: Optional[Any] = None,
                  sink_retry_count: Optional[Any] = None,
                  sink_retry_wait: Optional[Any] = None,
-                 upsert_settings: Optional['outputs.AzurePostgreSqlSinkResponseUpsertSettings'] = None,
+                 upsert_settings: Optional['outputs.AzurePostgreSqlSinkUpsertSettingsResponse'] = None,
                  write_batch_size: Optional[Any] = None,
                  write_batch_timeout: Optional[Any] = None,
                  write_method: Optional[_builtins.str] = None):
@@ -14692,7 +14693,7 @@ class AzurePostgreSqlSinkResponse(dict):
         :param Any pre_copy_script: A query to execute before starting the copy. Type: string (or Expression with resultType string).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param 'AzurePostgreSqlSinkResponseUpsertSettings' upsert_settings: Azure Database for PostgreSQL upsert option settings
+        :param 'AzurePostgreSqlSinkUpsertSettingsResponse' upsert_settings: Azure Database for PostgreSQL upsert option settings
         :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param _builtins.str write_method: The write behavior for the operation. Default is Bulk Insert.
@@ -14768,7 +14769,7 @@ class AzurePostgreSqlSinkResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="upsertSettings")
-    def upsert_settings(self) -> Optional['outputs.AzurePostgreSqlSinkResponseUpsertSettings']:
+    def upsert_settings(self) -> Optional['outputs.AzurePostgreSqlSinkUpsertSettingsResponse']:
         """
         Azure Database for PostgreSQL upsert option settings
         """
@@ -14800,7 +14801,7 @@ class AzurePostgreSqlSinkResponse(dict):
 
 
 @pulumi.output_type
-class AzurePostgreSqlSinkResponseUpsertSettings(dict):
+class AzurePostgreSqlSinkUpsertSettingsResponse(dict):
     """
     Azure Database for PostgreSQL upsert option settings
     """
@@ -14988,7 +14989,7 @@ class AzurePostgreSqlTableDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -15002,7 +15003,7 @@ class AzurePostgreSqlTableDatasetResponse(dict):
                Expected value is 'AzurePostgreSqlTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -15063,7 +15064,7 @@ class AzurePostgreSqlTableDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -15264,7 +15265,7 @@ class AzureSearchIndexDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None):
@@ -15277,7 +15278,7 @@ class AzureSearchIndexDatasetResponse(dict):
                Expected value is 'AzureSearchIndex'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -15341,7 +15342,7 @@ class AzureSearchIndexDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -16200,7 +16201,7 @@ class AzureSqlDWTableDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -16214,7 +16215,7 @@ class AzureSqlDWTableDatasetResponse(dict):
                Expected value is 'AzureSqlDWTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -16275,7 +16276,7 @@ class AzureSqlDWTableDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -17423,7 +17424,7 @@ class AzureSqlMITableDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -17437,7 +17438,7 @@ class AzureSqlMITableDatasetResponse(dict):
                Expected value is 'AzureSqlMITable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -17498,7 +17499,7 @@ class AzureSqlMITableDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -18046,7 +18047,7 @@ class AzureSqlTableDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -18060,7 +18061,7 @@ class AzureSqlTableDatasetResponse(dict):
                Expected value is 'AzureSqlTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -18121,7 +18122,7 @@ class AzureSqlTableDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -18509,7 +18510,7 @@ class AzureTableDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None):
@@ -18522,7 +18523,7 @@ class AzureTableDatasetResponse(dict):
                Expected value is 'AzureTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -18586,7 +18587,7 @@ class AzureTableDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -19227,7 +19228,7 @@ class BinaryDatasetResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  compression: Optional['outputs.DatasetCompressionResponse'] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None):
@@ -19241,7 +19242,7 @@ class BinaryDatasetResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'DatasetCompressionResponse' compression: The data compression method used for the binary dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -19315,7 +19316,7 @@ class BinaryDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -20668,7 +20669,7 @@ class CassandraTableDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  keyspace: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
@@ -20682,7 +20683,7 @@ class CassandraTableDatasetResponse(dict):
                Expected value is 'CassandraTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Any keyspace: The keyspace of the Cassandra database. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
@@ -20743,7 +20744,7 @@ class CassandraTableDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -20905,7 +20906,7 @@ class ChainingTriggerResponse(dict):
 
 
 @pulumi.output_type
-class ChangeDataCaptureResponseFolder(dict):
+class ChangeDataCaptureFolderResponse(dict):
     """
     The folder that this CDC is in. If not specified, CDC will appear at the root level.
     """
@@ -21035,7 +21036,7 @@ class CommonDataServiceForAppsEntityDatasetResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
                  entity_name: Optional[Any] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None):
@@ -21048,7 +21049,7 @@ class CommonDataServiceForAppsEntityDatasetResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
         :param Any entity_name: The logical name of the entity. Type: string (or Expression with resultType string).
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -21113,7 +21114,7 @@ class CommonDataServiceForAppsEntityDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -22037,7 +22038,7 @@ class ConcurObjectDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -22050,7 +22051,7 @@ class ConcurObjectDatasetResponse(dict):
                Expected value is 'ConcurObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -22108,7 +22109,7 @@ class ConcurObjectDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -23300,7 +23301,7 @@ class CosmosDbMongoDbApiCollectionDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None):
@@ -23313,7 +23314,7 @@ class CosmosDbMongoDbApiCollectionDatasetResponse(dict):
                Expected value is 'CosmosDbMongoDbApiCollection'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -23377,7 +23378,7 @@ class CosmosDbMongoDbApiCollectionDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -23880,7 +23881,7 @@ class CosmosDbSqlApiCollectionDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None):
@@ -23893,7 +23894,7 @@ class CosmosDbSqlApiCollectionDatasetResponse(dict):
                Expected value is 'CosmosDbSqlApiCollection'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -23957,7 +23958,7 @@ class CosmosDbSqlApiCollectionDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -24599,7 +24600,7 @@ class CouchbaseTableDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -24612,7 +24613,7 @@ class CouchbaseTableDatasetResponse(dict):
                Expected value is 'CouchbaseTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -24670,7 +24671,7 @@ class CouchbaseTableDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -24860,7 +24861,7 @@ class CustomActivityResponse(dict):
                  auto_user_specification: Optional[Any] = None,
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[_builtins.str] = None,
-                 extended_properties: Optional[Mapping[str, Any]] = None,
+                 extended_properties: Optional[Any] = None,
                  folder_path: Optional[Any] = None,
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  on_inactive_mark_as: Optional[_builtins.str] = None,
@@ -24880,7 +24881,7 @@ class CustomActivityResponse(dict):
         :param Any auto_user_specification: Elevation level and scope for the user, default is nonadmin task. Type: string (or Expression with resultType double).
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param _builtins.str description: Activity description.
-        :param Mapping[str, Any] extended_properties: User defined property bag. There is no restriction on the keys or values that can be used. The user specified custom activity has the full responsibility to consume and interpret the content defined.
+        :param Any extended_properties: User defined property bag. There is no restriction on the keys or values that can be used. The user specified custom activity has the full responsibility to consume and interpret the content defined.
         :param Any folder_path: Folder path for resource files Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
@@ -24972,7 +24973,7 @@ class CustomActivityResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="extendedProperties")
-    def extended_properties(self) -> Optional[Mapping[str, Any]]:
+    def extended_properties(self) -> Optional[Any]:
         """
         User defined property bag. There is no restriction on the keys or values that can be used. The user specified custom activity has the full responsibility to consume and interpret the content defined.
         """
@@ -25180,7 +25181,7 @@ class CustomDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None):
@@ -25192,7 +25193,7 @@ class CustomDatasetResponse(dict):
                Expected value is 'CustomDataset'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -25247,7 +25248,7 @@ class CustomDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -25528,6 +25529,30 @@ class DWCopyCommandSettingsResponse(dict):
 
 
 @pulumi.output_type
+class DataFlowFolderResponse(dict):
+    """
+    The folder that this data flow is in. If not specified, Data flow will appear at the root level.
+    """
+    def __init__(__self__, *,
+                 name: Optional[_builtins.str] = None):
+        """
+        The folder that this data flow is in. If not specified, Data flow will appear at the root level.
+
+        :param _builtins.str name: The name of the folder that this data flow is in.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        The name of the folder that this data flow is in.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class DataFlowReferenceResponse(dict):
     """
     Data flow reference type.
@@ -25555,14 +25580,14 @@ class DataFlowReferenceResponse(dict):
                  reference_name: _builtins.str,
                  type: _builtins.str,
                  dataset_parameters: Optional[Any] = None,
-                 parameters: Optional[Mapping[str, Any]] = None):
+                 parameters: Optional[Any] = None):
         """
         Data flow reference type.
 
         :param _builtins.str reference_name: Reference data flow name.
         :param _builtins.str type: Data flow reference type.
         :param Any dataset_parameters: Reference data flow parameters from dataset.
-        :param Mapping[str, Any] parameters: Data flow parameters
+        :param Any parameters: Data flow parameters
         """
         pulumi.set(__self__, "reference_name", reference_name)
         pulumi.set(__self__, "type", type)
@@ -25597,35 +25622,11 @@ class DataFlowReferenceResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, Any]]:
+    def parameters(self) -> Optional[Any]:
         """
         Data flow parameters
         """
         return pulumi.get(self, "parameters")
-
-
-@pulumi.output_type
-class DataFlowResponseFolder(dict):
-    """
-    The folder that this data flow is in. If not specified, Data flow will appear at the root level.
-    """
-    def __init__(__self__, *,
-                 name: Optional[_builtins.str] = None):
-        """
-        The folder that this data flow is in. If not specified, Data flow will appear at the root level.
-
-        :param _builtins.str name: The name of the folder that this data flow is in.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[_builtins.str]:
-        """
-        The name of the folder that this data flow is in.
-        """
-        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -25950,7 +25951,7 @@ class DataLakeAnalyticsUSQLActivityResponse(dict):
                  description: Optional[_builtins.str] = None,
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  on_inactive_mark_as: Optional[_builtins.str] = None,
-                 parameters: Optional[Mapping[str, Any]] = None,
+                 parameters: Optional[Any] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
                  priority: Optional[Any] = None,
                  runtime_version: Optional[Any] = None,
@@ -25970,7 +25971,7 @@ class DataLakeAnalyticsUSQLActivityResponse(dict):
         :param _builtins.str description: Activity description.
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
-        :param Mapping[str, Any] parameters: Parameters for U-SQL job request.
+        :param Any parameters: Parameters for U-SQL job request.
         :param 'ActivityPolicyResponse' policy: Activity policy.
         :param Any priority: Determines which jobs out of all that are queued should be selected to run first. The lower the number, the higher the priority. Default value is 1000. Type: integer (or Expression with resultType integer), minimum: 1.
         :param Any runtime_version: Runtime version of the U-SQL engine to use. Type: string (or Expression with resultType string).
@@ -26089,7 +26090,7 @@ class DataLakeAnalyticsUSQLActivityResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, Any]]:
+    def parameters(self) -> Optional[Any]:
         """
         Parameters for U-SQL job request.
         """
@@ -26271,7 +26272,7 @@ class DatabricksJobActivityResponse(dict):
                  type: _builtins.str,
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[_builtins.str] = None,
-                 job_parameters: Optional[Mapping[str, Any]] = None,
+                 job_parameters: Optional[Any] = None,
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  on_inactive_mark_as: Optional[_builtins.str] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
@@ -26286,7 +26287,7 @@ class DatabricksJobActivityResponse(dict):
                Expected value is 'DatabricksJob'.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param _builtins.str description: Activity description.
-        :param Mapping[str, Any] job_parameters: Job parameters to be used for each run of this job. If the job takes a parameter that is not specified, the default value from the job will be used.
+        :param Any job_parameters: Job parameters to be used for each run of this job. If the job takes a parameter that is not specified, the default value from the job will be used.
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param 'ActivityPolicyResponse' policy: Activity policy.
@@ -26356,7 +26357,7 @@ class DatabricksJobActivityResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="jobParameters")
-    def job_parameters(self) -> Optional[Mapping[str, Any]]:
+    def job_parameters(self) -> Optional[Any]:
         """
         Job parameters to be used for each run of this job. If the job takes a parameter that is not specified, the default value from the job will be used.
         """
@@ -26439,10 +26440,10 @@ class DatabricksNotebookActivityResponse(dict):
                  name: _builtins.str,
                  notebook_path: Any,
                  type: _builtins.str,
-                 base_parameters: Optional[Mapping[str, Any]] = None,
+                 base_parameters: Optional[Any] = None,
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[_builtins.str] = None,
-                 libraries: Optional[Sequence[Mapping[str, Any]]] = None,
+                 libraries: Optional[Sequence[Any]] = None,
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  on_inactive_mark_as: Optional[_builtins.str] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
@@ -26455,10 +26456,10 @@ class DatabricksNotebookActivityResponse(dict):
         :param Any notebook_path: The absolute path of the notebook to be run in the Databricks Workspace. This path must begin with a slash. Type: string (or Expression with resultType string).
         :param _builtins.str type: Type of activity.
                Expected value is 'DatabricksNotebook'.
-        :param Mapping[str, Any] base_parameters: Base parameters to be used for each run of this job.If the notebook takes a parameter that is not specified, the default value from the notebook will be used.
+        :param Any base_parameters: Base parameters to be used for each run of this job.If the notebook takes a parameter that is not specified, the default value from the notebook will be used.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param _builtins.str description: Activity description.
-        :param Sequence[Mapping[str, Any]] libraries: A list of libraries to be installed on the cluster that will execute the job.
+        :param Sequence[Any] libraries: A list of libraries to be installed on the cluster that will execute the job.
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param 'ActivityPolicyResponse' policy: Activity policy.
@@ -26514,7 +26515,7 @@ class DatabricksNotebookActivityResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="baseParameters")
-    def base_parameters(self) -> Optional[Mapping[str, Any]]:
+    def base_parameters(self) -> Optional[Any]:
         """
         Base parameters to be used for each run of this job.If the notebook takes a parameter that is not specified, the default value from the notebook will be used.
         """
@@ -26538,7 +26539,7 @@ class DatabricksNotebookActivityResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def libraries(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def libraries(self) -> Optional[Sequence[Any]]:
         """
         A list of libraries to be installed on the cluster that will execute the job.
         """
@@ -26621,7 +26622,7 @@ class DatabricksSparkJarActivityResponse(dict):
                  type: _builtins.str,
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[_builtins.str] = None,
-                 libraries: Optional[Sequence[Mapping[str, Any]]] = None,
+                 libraries: Optional[Sequence[Any]] = None,
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  on_inactive_mark_as: Optional[_builtins.str] = None,
                  parameters: Optional[Sequence[Any]] = None,
@@ -26637,7 +26638,7 @@ class DatabricksSparkJarActivityResponse(dict):
                Expected value is 'DatabricksSparkJar'.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param _builtins.str description: Activity description.
-        :param Sequence[Mapping[str, Any]] libraries: A list of libraries to be installed on the cluster that will execute the job.
+        :param Sequence[Any] libraries: A list of libraries to be installed on the cluster that will execute the job.
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param Sequence[Any] parameters: Parameters that will be passed to the main method.
@@ -26710,7 +26711,7 @@ class DatabricksSparkJarActivityResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def libraries(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def libraries(self) -> Optional[Sequence[Any]]:
         """
         A list of libraries to be installed on the cluster that will execute the job.
         """
@@ -26801,7 +26802,7 @@ class DatabricksSparkPythonActivityResponse(dict):
                  type: _builtins.str,
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[_builtins.str] = None,
-                 libraries: Optional[Sequence[Mapping[str, Any]]] = None,
+                 libraries: Optional[Sequence[Any]] = None,
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  on_inactive_mark_as: Optional[_builtins.str] = None,
                  parameters: Optional[Sequence[Any]] = None,
@@ -26817,7 +26818,7 @@ class DatabricksSparkPythonActivityResponse(dict):
                Expected value is 'DatabricksSparkPython'.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param _builtins.str description: Activity description.
-        :param Sequence[Mapping[str, Any]] libraries: A list of libraries to be installed on the cluster that will execute the job.
+        :param Sequence[Any] libraries: A list of libraries to be installed on the cluster that will execute the job.
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param Sequence[Any] parameters: Command line parameters that will be passed to the Python file.
@@ -26890,7 +26891,7 @@ class DatabricksSparkPythonActivityResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def libraries(self) -> Optional[Sequence[Mapping[str, Any]]]:
+    def libraries(self) -> Optional[Sequence[Any]]:
         """
         A list of libraries to be installed on the cluster that will execute the job.
         """
@@ -26981,6 +26982,30 @@ class DatasetCompressionResponse(dict):
 
 
 @pulumi.output_type
+class DatasetFolderResponse(dict):
+    """
+    The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+    """
+    def __init__(__self__, *,
+                 name: Optional[_builtins.str] = None):
+        """
+        The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+
+        :param _builtins.str name: The name of the folder that this Dataset is in.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        The name of the folder that this Dataset is in.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class DatasetReferenceResponse(dict):
     """
     Dataset reference type.
@@ -27005,13 +27030,13 @@ class DatasetReferenceResponse(dict):
     def __init__(__self__, *,
                  reference_name: _builtins.str,
                  type: _builtins.str,
-                 parameters: Optional[Mapping[str, Any]] = None):
+                 parameters: Optional[Any] = None):
         """
         Dataset reference type.
 
         :param _builtins.str reference_name: Reference dataset name.
         :param _builtins.str type: Dataset reference type.
-        :param Mapping[str, Any] parameters: Arguments for dataset.
+        :param Any parameters: Arguments for dataset.
         """
         pulumi.set(__self__, "reference_name", reference_name)
         pulumi.set(__self__, "type", type)
@@ -27036,35 +27061,11 @@ class DatasetReferenceResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, Any]]:
+    def parameters(self) -> Optional[Any]:
         """
         Arguments for dataset.
         """
         return pulumi.get(self, "parameters")
-
-
-@pulumi.output_type
-class DatasetResponseFolder(dict):
-    """
-    The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-    """
-    def __init__(__self__, *,
-                 name: Optional[_builtins.str] = None):
-        """
-        The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-
-        :param _builtins.str name: The name of the folder that this Dataset is in.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[_builtins.str]:
-        """
-        The name of the folder that this Dataset is in.
-        """
-        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -27581,7 +27582,7 @@ class Db2TableDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -27595,7 +27596,7 @@ class Db2TableDatasetResponse(dict):
                Expected value is 'Db2Table'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -27656,7 +27657,7 @@ class Db2TableDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -27977,7 +27978,7 @@ class DelimitedTextDatasetResponse(dict):
                  encoding_name: Optional[Any] = None,
                  escape_char: Optional[Any] = None,
                  first_row_as_header: Optional[Any] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  null_value: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  quote_char: Optional[Any] = None,
@@ -27999,7 +28000,7 @@ class DelimitedTextDatasetResponse(dict):
         :param Any encoding_name: The code page name of the preferred encoding. If miss, the default value is UTF-8, unless BOM denotes another Unicode encoding. Refer to the name column of the table in the following link to set supported values: https://msdn.microsoft.com/library/system.text.encoding.aspx. Type: string (or Expression with resultType string).
         :param Any escape_char: The escape character. Type: string (or Expression with resultType string).
         :param Any first_row_as_header: When used as input, treat the first row of data as headers. When used as output,write the headers into the output as the first row of data. The default value is false. Type: boolean (or Expression with resultType boolean).
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Any null_value: The null value string. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any quote_char: The quote character. Type: string (or Expression with resultType string).
@@ -28132,7 +28133,7 @@ class DelimitedTextDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -28737,7 +28738,7 @@ class DocumentDbCollectionDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None):
@@ -28750,7 +28751,7 @@ class DocumentDbCollectionDatasetResponse(dict):
                Expected value is 'DocumentDbCollection'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -28814,7 +28815,7 @@ class DocumentDbCollectionDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -29454,7 +29455,7 @@ class DrillTableDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -29468,7 +29469,7 @@ class DrillTableDatasetResponse(dict):
                Expected value is 'DrillTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -29529,7 +29530,7 @@ class DrillTableDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -29781,7 +29782,7 @@ class DynamicsAXResourceDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None):
@@ -29794,7 +29795,7 @@ class DynamicsAXResourceDatasetResponse(dict):
                Expected value is 'DynamicsAXResource'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -29858,7 +29859,7 @@ class DynamicsAXResourceDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -30069,7 +30070,7 @@ class DynamicsCrmEntityDatasetResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
                  entity_name: Optional[Any] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None):
@@ -30082,7 +30083,7 @@ class DynamicsCrmEntityDatasetResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
         :param Any entity_name: The logical name of the entity. Type: string (or Expression with resultType string).
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -30147,7 +30148,7 @@ class DynamicsCrmEntityDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -30809,7 +30810,7 @@ class DynamicsEntityDatasetResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
                  entity_name: Optional[Any] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None):
@@ -30822,7 +30823,7 @@ class DynamicsEntityDatasetResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
         :param Any entity_name: The logical name of the entity. Type: string (or Expression with resultType string).
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -30887,7 +30888,7 @@ class DynamicsEntityDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -31740,7 +31741,7 @@ class EloquaObjectDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -31753,7 +31754,7 @@ class EloquaObjectDatasetResponse(dict):
                Expected value is 'EloquaObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -31811,7 +31812,7 @@ class EloquaObjectDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -32222,7 +32223,7 @@ class ExcelDatasetResponse(dict):
                  compression: Optional['outputs.DatasetCompressionResponse'] = None,
                  description: Optional[_builtins.str] = None,
                  first_row_as_header: Optional[Any] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  null_value: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  range: Optional[Any] = None,
@@ -32241,7 +32242,7 @@ class ExcelDatasetResponse(dict):
         :param 'DatasetCompressionResponse' compression: The data compression method used for the json dataset.
         :param _builtins.str description: Dataset description.
         :param Any first_row_as_header: When used as input, treat the first row of data as headers. When used as output,write the headers into the output as the first row of data. The default value is false. Type: boolean (or Expression with resultType boolean).
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Any null_value: The null value string. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any range: The partial data of one sheet. Type: string (or Expression with resultType string).
@@ -32337,7 +32338,7 @@ class ExcelDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -32570,7 +32571,7 @@ class ExecuteDataFlowActivityResponse(dict):
                  data_flow: 'outputs.DataFlowReferenceResponse',
                  name: _builtins.str,
                  type: _builtins.str,
-                 compute: Optional['outputs.ExecuteDataFlowActivityTypePropertiesResponseCompute'] = None,
+                 compute: Optional['outputs.ExecuteDataFlowActivityTypePropertiesComputeResponse'] = None,
                  continuation_settings: Optional['outputs.ContinuationSettingsReferenceResponse'] = None,
                  continue_on_error: Optional[Any] = None,
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
@@ -32592,7 +32593,7 @@ class ExecuteDataFlowActivityResponse(dict):
         :param _builtins.str name: Activity name.
         :param _builtins.str type: Type of activity.
                Expected value is 'ExecuteDataFlow'.
-        :param 'ExecuteDataFlowActivityTypePropertiesResponseCompute' compute: Compute properties for data flow activity.
+        :param 'ExecuteDataFlowActivityTypePropertiesComputeResponse' compute: Compute properties for data flow activity.
         :param 'ContinuationSettingsReferenceResponse' continuation_settings: Continuation settings for execute data flow activity.
         :param Any continue_on_error: Continue on error setting used for data flow execution. Enables processing to continue if a sink fails. Type: boolean (or Expression with resultType boolean)
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
@@ -32669,7 +32670,7 @@ class ExecuteDataFlowActivityResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def compute(self) -> Optional['outputs.ExecuteDataFlowActivityTypePropertiesResponseCompute']:
+    def compute(self) -> Optional['outputs.ExecuteDataFlowActivityTypePropertiesComputeResponse']:
         """
         Compute properties for data flow activity.
         """
@@ -32789,7 +32790,7 @@ class ExecuteDataFlowActivityResponse(dict):
 
 
 @pulumi.output_type
-class ExecuteDataFlowActivityTypePropertiesResponseCompute(dict):
+class ExecuteDataFlowActivityTypePropertiesComputeResponse(dict):
     """
     Compute properties for data flow activity.
     """
@@ -32802,14 +32803,14 @@ class ExecuteDataFlowActivityTypePropertiesResponseCompute(dict):
             suggest = "core_count"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ExecuteDataFlowActivityTypePropertiesResponseCompute. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ExecuteDataFlowActivityTypePropertiesComputeResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ExecuteDataFlowActivityTypePropertiesResponseCompute.__key_warning(key)
+        ExecuteDataFlowActivityTypePropertiesComputeResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ExecuteDataFlowActivityTypePropertiesResponseCompute.__key_warning(key)
+        ExecuteDataFlowActivityTypePropertiesComputeResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -32919,7 +32920,7 @@ class ExecutePipelineActivityResponse(dict):
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[_builtins.str] = None,
                  on_inactive_mark_as: Optional[_builtins.str] = None,
-                 parameters: Optional[Mapping[str, Any]] = None,
+                 parameters: Optional[Any] = None,
                  policy: Optional['outputs.ExecutePipelineActivityPolicyResponse'] = None,
                  state: Optional[_builtins.str] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None,
@@ -32934,7 +32935,7 @@ class ExecutePipelineActivityResponse(dict):
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param _builtins.str description: Activity description.
         :param _builtins.str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
-        :param Mapping[str, Any] parameters: Pipeline parameters.
+        :param Any parameters: Pipeline parameters.
         :param 'ExecutePipelineActivityPolicyResponse' policy: Execute pipeline activity policy.
         :param _builtins.str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
@@ -33011,7 +33012,7 @@ class ExecutePipelineActivityResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, Any]]:
+    def parameters(self) -> Optional[Any]:
         """
         Pipeline parameters.
         """
@@ -33401,7 +33402,7 @@ class ExecuteWranglingDataflowActivityResponse(dict):
                  data_flow: 'outputs.DataFlowReferenceResponse',
                  name: _builtins.str,
                  type: _builtins.str,
-                 compute: Optional['outputs.ExecuteDataFlowActivityTypePropertiesResponseCompute'] = None,
+                 compute: Optional['outputs.ExecuteDataFlowActivityTypePropertiesComputeResponse'] = None,
                  continuation_settings: Optional['outputs.ContinuationSettingsReferenceResponse'] = None,
                  continue_on_error: Optional[Any] = None,
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
@@ -33424,7 +33425,7 @@ class ExecuteWranglingDataflowActivityResponse(dict):
         :param _builtins.str name: Activity name.
         :param _builtins.str type: Type of activity.
                Expected value is 'ExecuteWranglingDataflow'.
-        :param 'ExecuteDataFlowActivityTypePropertiesResponseCompute' compute: Compute properties for data flow activity.
+        :param 'ExecuteDataFlowActivityTypePropertiesComputeResponse' compute: Compute properties for data flow activity.
         :param 'ContinuationSettingsReferenceResponse' continuation_settings: Continuation settings for execute data flow activity.
         :param Any continue_on_error: Continue on error setting used for data flow execution. Enables processing to continue if a sink fails. Type: boolean (or Expression with resultType boolean)
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
@@ -33504,7 +33505,7 @@ class ExecuteWranglingDataflowActivityResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def compute(self) -> Optional['outputs.ExecuteDataFlowActivityTypePropertiesResponseCompute']:
+    def compute(self) -> Optional['outputs.ExecuteDataFlowActivityTypePropertiesComputeResponse']:
         """
         Compute properties for data flow activity.
         """
@@ -34060,14 +34061,14 @@ class FactoryIdentityResponse(dict):
                  principal_id: _builtins.str,
                  tenant_id: _builtins.str,
                  type: _builtins.str,
-                 user_assigned_identities: Optional[Mapping[str, Any]] = None):
+                 user_assigned_identities: Optional[Any] = None):
         """
         Identity properties of the factory resource.
 
         :param _builtins.str principal_id: The principal id of the identity.
         :param _builtins.str tenant_id: The client tenant id of the identity.
         :param _builtins.str type: The identity type.
-        :param Mapping[str, Any] user_assigned_identities: List of user assigned identities for the factory.
+        :param Any user_assigned_identities: List of user assigned identities for the factory.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -34101,7 +34102,7 @@ class FactoryIdentityResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, Any]]:
+    def user_assigned_identities(self) -> Optional[Any]:
         """
         List of user assigned identities for the factory.
         """
@@ -34957,7 +34958,7 @@ class FileShareDatasetResponse(dict):
                  description: Optional[_builtins.str] = None,
                  file_filter: Optional[Any] = None,
                  file_name: Optional[Any] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  folder_path: Optional[Any] = None,
                  format: Optional[Any] = None,
                  modified_datetime_end: Optional[Any] = None,
@@ -34976,7 +34977,7 @@ class FileShareDatasetResponse(dict):
         :param _builtins.str description: Dataset description.
         :param Any file_filter: Specify a filter to be used to select a subset of files in the folderPath rather than all files. Type: string (or Expression with resultType string).
         :param Any file_name: The name of the on-premises file system. Type: string (or Expression with resultType string).
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Any folder_path: The path of the on-premises file system. Type: string (or Expression with resultType string).
         :param Union['AvroFormatResponse', 'JsonFormatResponse', 'OrcFormatResponse', 'ParquetFormatResponse', 'TextFormatResponse'] format: The format of the files.
         :param Any modified_datetime_end: The end of file's modified datetime. Type: string (or Expression with resultType string).
@@ -35073,7 +35074,7 @@ class FileShareDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -35561,7 +35562,7 @@ class FlowletResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DataFlowResponseFolder'] = None,
+                 folder: Optional['outputs.DataFlowFolderResponse'] = None,
                  script: Optional[_builtins.str] = None,
                  script_lines: Optional[Sequence[_builtins.str]] = None,
                  sinks: Optional[Sequence['outputs.DataFlowSinkResponse']] = None,
@@ -35574,7 +35575,7 @@ class FlowletResponse(dict):
                Expected value is 'Flowlet'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the data flow.
         :param _builtins.str description: The description of the data flow.
-        :param 'DataFlowResponseFolder' folder: The folder that this data flow is in. If not specified, Data flow will appear at the root level.
+        :param 'DataFlowFolderResponse' folder: The folder that this data flow is in. If not specified, Data flow will appear at the root level.
         :param _builtins.str script: Flowlet script.
         :param Sequence[_builtins.str] script_lines: Flowlet script lines.
         :param Sequence['DataFlowSinkResponse'] sinks: List of sinks in Flowlet.
@@ -35626,7 +35627,7 @@ class FlowletResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DataFlowResponseFolder']:
+    def folder(self) -> Optional['outputs.DataFlowFolderResponse']:
         """
         The folder that this data flow is in. If not specified, Data flow will appear at the root level.
         """
@@ -36945,7 +36946,7 @@ class GoogleAdWordsObjectDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -36958,7 +36959,7 @@ class GoogleAdWordsObjectDatasetResponse(dict):
                Expected value is 'GoogleAdWordsObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -37016,7 +37017,7 @@ class GoogleAdWordsObjectDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -37485,7 +37486,7 @@ class GoogleBigQueryObjectDatasetResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  dataset: Optional[Any] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -37500,7 +37501,7 @@ class GoogleBigQueryObjectDatasetResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Any dataset: The database name of the Google BigQuery. Type: string (or Expression with resultType string).
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -37571,7 +37572,7 @@ class GoogleBigQueryObjectDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -37980,7 +37981,7 @@ class GoogleBigQueryV2ObjectDatasetResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  dataset: Optional[Any] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -37994,7 +37995,7 @@ class GoogleBigQueryV2ObjectDatasetResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Any dataset: The database name of the Google BigQuery. Type: string (or Expression with resultType string).
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -38062,7 +38063,7 @@ class GoogleBigQueryV2ObjectDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -39233,7 +39234,7 @@ class GreenplumTableDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -39247,7 +39248,7 @@ class GreenplumTableDatasetResponse(dict):
                Expected value is 'GreenplumTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -39308,7 +39309,7 @@ class GreenplumTableDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -39630,7 +39631,7 @@ class HBaseObjectDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -39643,7 +39644,7 @@ class HBaseObjectDatasetResponse(dict):
                Expected value is 'HBaseObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -39701,7 +39702,7 @@ class HBaseObjectDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -39918,7 +39919,7 @@ class HDInsightHiveActivityResponse(dict):
                  name: _builtins.str,
                  type: _builtins.str,
                  arguments: Optional[Sequence[Any]] = None,
-                 defines: Optional[Mapping[str, Any]] = None,
+                 defines: Optional[Any] = None,
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[_builtins.str] = None,
                  get_debug_info: Optional[_builtins.str] = None,
@@ -39931,7 +39932,7 @@ class HDInsightHiveActivityResponse(dict):
                  state: Optional[_builtins.str] = None,
                  storage_linked_services: Optional[Sequence['outputs.LinkedServiceReferenceResponse']] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None,
-                 variables: Optional[Mapping[str, Any]] = None):
+                 variables: Optional[Any] = None):
         """
         HDInsight Hive activity type.
 
@@ -39939,7 +39940,7 @@ class HDInsightHiveActivityResponse(dict):
         :param _builtins.str type: Type of activity.
                Expected value is 'HDInsightHive'.
         :param Sequence[Any] arguments: User specified arguments to HDInsightActivity.
-        :param Mapping[str, Any] defines: Allows user to specify defines for Hive job request.
+        :param Any defines: Allows user to specify defines for Hive job request.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param _builtins.str description: Activity description.
         :param _builtins.str get_debug_info: Debug info option.
@@ -39952,7 +39953,7 @@ class HDInsightHiveActivityResponse(dict):
         :param _builtins.str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Sequence['LinkedServiceReferenceResponse'] storage_linked_services: Storage linked service references.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
-        :param Mapping[str, Any] variables: User specified arguments under hivevar namespace.
+        :param Any variables: User specified arguments under hivevar namespace.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", 'HDInsightHive')
@@ -40014,7 +40015,7 @@ class HDInsightHiveActivityResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def defines(self) -> Optional[Mapping[str, Any]]:
+    def defines(self) -> Optional[Any]:
         """
         Allows user to specify defines for Hive job request.
         """
@@ -40118,7 +40119,7 @@ class HDInsightHiveActivityResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def variables(self) -> Optional[Mapping[str, Any]]:
+    def variables(self) -> Optional[Any]:
         """
         User specified arguments under hivevar namespace.
         """
@@ -40408,7 +40409,7 @@ class HDInsightMapReduceActivityResponse(dict):
                  name: _builtins.str,
                  type: _builtins.str,
                  arguments: Optional[Sequence[Any]] = None,
-                 defines: Optional[Mapping[str, Any]] = None,
+                 defines: Optional[Any] = None,
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[_builtins.str] = None,
                  get_debug_info: Optional[_builtins.str] = None,
@@ -40429,7 +40430,7 @@ class HDInsightMapReduceActivityResponse(dict):
         :param _builtins.str type: Type of activity.
                Expected value is 'HDInsightMapReduce'.
         :param Sequence[Any] arguments: User specified arguments to HDInsightActivity.
-        :param Mapping[str, Any] defines: Allows user to specify defines for the MapReduce job request.
+        :param Any defines: Allows user to specify defines for the MapReduce job request.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param _builtins.str description: Activity description.
         :param _builtins.str get_debug_info: Debug info option.
@@ -40516,7 +40517,7 @@ class HDInsightMapReduceActivityResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def defines(self) -> Optional[Mapping[str, Any]]:
+    def defines(self) -> Optional[Any]:
         """
         Allows user to specify defines for the MapReduce job request.
         """
@@ -41218,7 +41219,7 @@ class HDInsightPigActivityResponse(dict):
                  name: _builtins.str,
                  type: _builtins.str,
                  arguments: Optional[Any] = None,
-                 defines: Optional[Mapping[str, Any]] = None,
+                 defines: Optional[Any] = None,
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[_builtins.str] = None,
                  get_debug_info: Optional[_builtins.str] = None,
@@ -41237,7 +41238,7 @@ class HDInsightPigActivityResponse(dict):
         :param _builtins.str type: Type of activity.
                Expected value is 'HDInsightPig'.
         :param Any arguments: User specified arguments to HDInsightActivity. Type: array (or Expression with resultType array).
-        :param Mapping[str, Any] defines: Allows user to specify defines for Pig job request.
+        :param Any defines: Allows user to specify defines for Pig job request.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param _builtins.str description: Activity description.
         :param _builtins.str get_debug_info: Debug info option.
@@ -41306,7 +41307,7 @@ class HDInsightPigActivityResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def defines(self) -> Optional[Mapping[str, Any]]:
+    def defines(self) -> Optional[Any]:
         """
         Allows user to specify defines for Pig job request.
         """
@@ -41457,7 +41458,7 @@ class HDInsightSparkActivityResponse(dict):
                  on_inactive_mark_as: Optional[_builtins.str] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
                  proxy_user: Optional[Any] = None,
-                 spark_config: Optional[Mapping[str, Any]] = None,
+                 spark_config: Optional[Any] = None,
                  spark_job_linked_service: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  state: Optional[_builtins.str] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
@@ -41478,7 +41479,7 @@ class HDInsightSparkActivityResponse(dict):
         :param _builtins.str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param 'ActivityPolicyResponse' policy: Activity policy.
         :param Any proxy_user: The user to impersonate that will execute the job. Type: string (or Expression with resultType string).
-        :param Mapping[str, Any] spark_config: Spark configuration property.
+        :param Any spark_config: Spark configuration property.
         :param 'LinkedServiceReferenceResponse' spark_job_linked_service: The storage linked service for uploading the entry file and dependencies, and for receiving logs.
         :param _builtins.str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
@@ -41621,7 +41622,7 @@ class HDInsightSparkActivityResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="sparkConfig")
-    def spark_config(self) -> Optional[Mapping[str, Any]]:
+    def spark_config(self) -> Optional[Any]:
         """
         Spark configuration property.
         """
@@ -41701,7 +41702,7 @@ class HDInsightStreamingActivityResponse(dict):
                  arguments: Optional[Sequence[Any]] = None,
                  combiner: Optional[Any] = None,
                  command_environment: Optional[Sequence[Any]] = None,
-                 defines: Optional[Mapping[str, Any]] = None,
+                 defines: Optional[Any] = None,
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[_builtins.str] = None,
                  file_linked_service: Optional['outputs.LinkedServiceReferenceResponse'] = None,
@@ -41726,7 +41727,7 @@ class HDInsightStreamingActivityResponse(dict):
         :param Sequence[Any] arguments: User specified arguments to HDInsightActivity.
         :param Any combiner: Combiner executable name. Type: string (or Expression with resultType string).
         :param Sequence[Any] command_environment: Command line environment values.
-        :param Mapping[str, Any] defines: Allows user to specify defines for streaming job request.
+        :param Any defines: Allows user to specify defines for streaming job request.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param _builtins.str description: Activity description.
         :param 'LinkedServiceReferenceResponse' file_linked_service: Linked service reference where the files are located.
@@ -41857,7 +41858,7 @@ class HDInsightStreamingActivityResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def defines(self) -> Optional[Mapping[str, Any]]:
+    def defines(self) -> Optional[Any]:
         """
         Allows user to specify defines for streaming job request.
         """
@@ -42880,7 +42881,7 @@ class HiveObjectDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -42894,7 +42895,7 @@ class HiveObjectDatasetResponse(dict):
                Expected value is 'HiveObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -42955,7 +42956,7 @@ class HiveObjectDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -43175,7 +43176,7 @@ class HttpDatasetResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  compression: Optional['outputs.DatasetCompressionResponse'] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  format: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  relative_url: Optional[Any] = None,
@@ -43195,7 +43196,7 @@ class HttpDatasetResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param 'DatasetCompressionResponse' compression: The data compression method used on files.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Union['AvroFormatResponse', 'JsonFormatResponse', 'OrcFormatResponse', 'ParquetFormatResponse', 'TextFormatResponse'] format: The format of files.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any relative_url: The relative URL based on the URL in the HttpLinkedService refers to an HTTP file Type: string (or Expression with resultType string).
@@ -43284,7 +43285,7 @@ class HttpDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -44142,7 +44143,7 @@ class HubspotObjectDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -44155,7 +44156,7 @@ class HubspotObjectDatasetResponse(dict):
                Expected value is 'HubspotObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -44213,7 +44214,7 @@ class HubspotObjectDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -44416,7 +44417,7 @@ class IcebergDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None):
@@ -44429,7 +44430,7 @@ class IcebergDatasetResponse(dict):
                Expected value is 'Iceberg'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -44493,7 +44494,7 @@ class IcebergDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -45160,7 +45161,7 @@ class ImpalaObjectDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -45174,7 +45175,7 @@ class ImpalaObjectDatasetResponse(dict):
                Expected value is 'ImpalaObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -45235,7 +45236,7 @@ class ImpalaObjectDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -45902,7 +45903,7 @@ class InformixTableDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -45915,7 +45916,7 @@ class InformixTableDatasetResponse(dict):
                Expected value is 'InformixTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -45973,7 +45974,7 @@ class InformixTableDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -46246,6 +46247,37 @@ class IntegrationRuntimeCustomerVirtualNetworkResponse(dict):
 
 
 @pulumi.output_type
+class IntegrationRuntimeDataFlowPropertiesCustomPropertiesItemResponse(dict):
+    def __init__(__self__, *,
+                 name: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str name: Name of custom property.
+        :param _builtins.str value: Value of custom property.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        Name of custom property.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        """
+        Value of custom property.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class IntegrationRuntimeDataFlowPropertiesResponse(dict):
     """
     Data flow properties for managed integration runtime.
@@ -46277,7 +46309,7 @@ class IntegrationRuntimeDataFlowPropertiesResponse(dict):
                  cleanup: Optional[_builtins.bool] = None,
                  compute_type: Optional[_builtins.str] = None,
                  core_count: Optional[_builtins.int] = None,
-                 custom_properties: Optional[Sequence['outputs.IntegrationRuntimeDataFlowPropertiesResponseCustomProperties']] = None,
+                 custom_properties: Optional[Sequence['outputs.IntegrationRuntimeDataFlowPropertiesCustomPropertiesItemResponse']] = None,
                  time_to_live: Optional[_builtins.int] = None):
         """
         Data flow properties for managed integration runtime.
@@ -46285,7 +46317,7 @@ class IntegrationRuntimeDataFlowPropertiesResponse(dict):
         :param _builtins.bool cleanup: Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as false. Default is true.
         :param _builtins.str compute_type: Compute type of the cluster which will execute data flow job.
         :param _builtins.int core_count: Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272.
-        :param Sequence['IntegrationRuntimeDataFlowPropertiesResponseCustomProperties'] custom_properties: Custom properties are used to tune the data flow runtime performance.
+        :param Sequence['IntegrationRuntimeDataFlowPropertiesCustomPropertiesItemResponse'] custom_properties: Custom properties are used to tune the data flow runtime performance.
         :param _builtins.int time_to_live: Time to live (in minutes) setting of the cluster which will execute data flow job.
         """
         if cleanup is not None:
@@ -46325,7 +46357,7 @@ class IntegrationRuntimeDataFlowPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="customProperties")
-    def custom_properties(self) -> Optional[Sequence['outputs.IntegrationRuntimeDataFlowPropertiesResponseCustomProperties']]:
+    def custom_properties(self) -> Optional[Sequence['outputs.IntegrationRuntimeDataFlowPropertiesCustomPropertiesItemResponse']]:
         """
         Custom properties are used to tune the data flow runtime performance.
         """
@@ -46338,37 +46370,6 @@ class IntegrationRuntimeDataFlowPropertiesResponse(dict):
         Time to live (in minutes) setting of the cluster which will execute data flow job.
         """
         return pulumi.get(self, "time_to_live")
-
-
-@pulumi.output_type
-class IntegrationRuntimeDataFlowPropertiesResponseCustomProperties(dict):
-    def __init__(__self__, *,
-                 name: Optional[_builtins.str] = None,
-                 value: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str name: Name of custom property.
-        :param _builtins.str value: Value of custom property.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[_builtins.str]:
-        """
-        Name of custom property.
-        """
-        return pulumi.get(self, "name")
-
-    @_builtins.property
-    @pulumi.getter
-    def value(self) -> Optional[_builtins.str]:
-        """
-        Value of custom property.
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -46463,13 +46464,13 @@ class IntegrationRuntimeReferenceResponse(dict):
     def __init__(__self__, *,
                  reference_name: _builtins.str,
                  type: _builtins.str,
-                 parameters: Optional[Mapping[str, Any]] = None):
+                 parameters: Optional[Any] = None):
         """
         Integration runtime reference type.
 
         :param _builtins.str reference_name: Reference integration runtime name.
         :param _builtins.str type: Type of integration runtime.
-        :param Mapping[str, Any] parameters: Arguments for integration runtime.
+        :param Any parameters: Arguments for integration runtime.
         """
         pulumi.set(__self__, "reference_name", reference_name)
         pulumi.set(__self__, "type", type)
@@ -46494,7 +46495,7 @@ class IntegrationRuntimeReferenceResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, Any]]:
+    def parameters(self) -> Optional[Any]:
         """
         Arguments for integration runtime.
         """
@@ -47098,7 +47099,7 @@ class JiraObjectDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -47112,7 +47113,7 @@ class JiraObjectDatasetResponse(dict):
                Expected value is 'JiraObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -47173,7 +47174,7 @@ class JiraObjectDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -47388,7 +47389,7 @@ class JsonDatasetResponse(dict):
                  compression: Optional['outputs.DatasetCompressionResponse'] = None,
                  description: Optional[_builtins.str] = None,
                  encoding_name: Optional[Any] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None):
@@ -47403,7 +47404,7 @@ class JsonDatasetResponse(dict):
         :param 'DatasetCompressionResponse' compression: The data compression method used for the json dataset.
         :param _builtins.str description: Dataset description.
         :param Any encoding_name: The code page name of the preferred encoding. If not specified, the default value is UTF-8, unless BOM denotes another Unicode encoding. Refer to the name column of the table in the following link to set supported values: https://msdn.microsoft.com/library/system.text.encoding.aspx. Type: string (or Expression with resultType string).
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -47487,7 +47488,7 @@ class JsonDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -48575,7 +48576,7 @@ class LakeHouseTableDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -48588,7 +48589,7 @@ class LakeHouseTableDatasetResponse(dict):
                Expected value is 'LakehouseTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -48646,7 +48647,7 @@ class LakeHouseTableDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -49295,13 +49296,13 @@ class LinkedServiceReferenceResponse(dict):
     def __init__(__self__, *,
                  reference_name: _builtins.str,
                  type: _builtins.str,
-                 parameters: Optional[Mapping[str, Any]] = None):
+                 parameters: Optional[Any] = None):
         """
         Linked service reference type.
 
         :param _builtins.str reference_name: Reference LinkedService name.
         :param _builtins.str type: Linked service reference type.
-        :param Mapping[str, Any] parameters: Arguments for LinkedService.
+        :param Any parameters: Arguments for LinkedService.
         """
         pulumi.set(__self__, "reference_name", reference_name)
         pulumi.set(__self__, "type", type)
@@ -49326,7 +49327,7 @@ class LinkedServiceReferenceResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, Any]]:
+    def parameters(self) -> Optional[Any]:
         """
         Arguments for LinkedService.
         """
@@ -49938,7 +49939,7 @@ class MagentoObjectDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -49951,7 +49952,7 @@ class MagentoObjectDatasetResponse(dict):
                Expected value is 'MagentoObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -50009,7 +50010,7 @@ class MagentoObjectDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -51566,7 +51567,7 @@ class MappingDataFlowResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DataFlowResponseFolder'] = None,
+                 folder: Optional['outputs.DataFlowFolderResponse'] = None,
                  script: Optional[_builtins.str] = None,
                  script_lines: Optional[Sequence[_builtins.str]] = None,
                  sinks: Optional[Sequence['outputs.DataFlowSinkResponse']] = None,
@@ -51579,7 +51580,7 @@ class MappingDataFlowResponse(dict):
                Expected value is 'MappingDataFlow'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the data flow.
         :param _builtins.str description: The description of the data flow.
-        :param 'DataFlowResponseFolder' folder: The folder that this data flow is in. If not specified, Data flow will appear at the root level.
+        :param 'DataFlowFolderResponse' folder: The folder that this data flow is in. If not specified, Data flow will appear at the root level.
         :param _builtins.str script: DataFlow script.
         :param Sequence[_builtins.str] script_lines: Data flow script lines.
         :param Sequence['DataFlowSinkResponse'] sinks: List of sinks in data flow.
@@ -51631,7 +51632,7 @@ class MappingDataFlowResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DataFlowResponseFolder']:
+    def folder(self) -> Optional['outputs.DataFlowFolderResponse']:
         """
         The folder that this data flow is in. If not specified, Data flow will appear at the root level.
         """
@@ -52075,7 +52076,7 @@ class MariaDBTableDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -52088,7 +52089,7 @@ class MariaDBTableDatasetResponse(dict):
                Expected value is 'MariaDBTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -52146,7 +52147,7 @@ class MariaDBTableDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -52410,7 +52411,7 @@ class MarketoObjectDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -52423,7 +52424,7 @@ class MarketoObjectDatasetResponse(dict):
                Expected value is 'MarketoObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -52481,7 +52482,7 @@ class MarketoObjectDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -53162,7 +53163,7 @@ class MicrosoftAccessTableDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -53175,7 +53176,7 @@ class MicrosoftAccessTableDatasetResponse(dict):
                Expected value is 'MicrosoftAccessTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -53233,7 +53234,7 @@ class MicrosoftAccessTableDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -53300,7 +53301,7 @@ class MongoDbAtlasCollectionDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None):
@@ -53313,7 +53314,7 @@ class MongoDbAtlasCollectionDatasetResponse(dict):
                Expected value is 'MongoDbAtlasCollection'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -53377,7 +53378,7 @@ class MongoDbAtlasCollectionDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -53880,7 +53881,7 @@ class MongoDbCollectionDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None):
@@ -53893,7 +53894,7 @@ class MongoDbCollectionDatasetResponse(dict):
                Expected value is 'MongoDbCollection'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -53957,7 +53958,7 @@ class MongoDbCollectionDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -54430,7 +54431,7 @@ class MongoDbV2CollectionDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None):
@@ -54443,7 +54444,7 @@ class MongoDbV2CollectionDatasetResponse(dict):
                Expected value is 'MongoDbV2Collection'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -54507,7 +54508,7 @@ class MongoDbV2CollectionDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -55550,7 +55551,7 @@ class MySqlTableDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -55563,7 +55564,7 @@ class MySqlTableDatasetResponse(dict):
                Expected value is 'MySqlTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -55621,7 +55622,7 @@ class MySqlTableDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -56126,7 +56127,7 @@ class NetezzaTableDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -56140,7 +56141,7 @@ class NetezzaTableDatasetResponse(dict):
                Expected value is 'NetezzaTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -56201,7 +56202,7 @@ class NetezzaTableDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -56602,7 +56603,7 @@ class ODataResourceDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  path: Optional[Any] = None,
                  schema: Optional[Any] = None,
@@ -56615,7 +56616,7 @@ class ODataResourceDatasetResponse(dict):
                Expected value is 'ODataResource'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any path: The OData resource path. Type: string (or Expression with resultType string).
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
@@ -56673,7 +56674,7 @@ class ODataResourceDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -57332,7 +57333,7 @@ class OdbcTableDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -57345,7 +57346,7 @@ class OdbcTableDatasetResponse(dict):
                Expected value is 'OdbcTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -57403,7 +57404,7 @@ class OdbcTableDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -57472,7 +57473,7 @@ class Office365DatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  predicate: Optional[Any] = None,
                  schema: Optional[Any] = None,
@@ -57486,7 +57487,7 @@ class Office365DatasetResponse(dict):
                Expected value is 'Office365Table'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any predicate: A predicate expression that can be used to filter the specific rows to extract from Office 365. Type: string (or Expression with resultType string).
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
@@ -57553,7 +57554,7 @@ class Office365DatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -58803,14 +58804,14 @@ class OraclePartitionSettingsResponse(dict):
     def __init__(__self__, *,
                  partition_column_name: Optional[Any] = None,
                  partition_lower_bound: Optional[Any] = None,
-                 partition_names: Optional[Sequence[Any]] = None,
+                 partition_names: Optional[Any] = None,
                  partition_upper_bound: Optional[Any] = None):
         """
         The settings that will be leveraged for Oracle source partitioning.
 
         :param Any partition_column_name: The name of the column in integer type that will be used for proceeding range partitioning. Type: string (or Expression with resultType string).
         :param Any partition_lower_bound: The minimum value of column specified in partitionColumnName that will be used for proceeding range partitioning. Type: string (or Expression with resultType string).
-        :param Sequence[Any] partition_names: Names of the physical partitions of Oracle table. 
+        :param Any partition_names: Names of the physical partitions of Oracle table.
         :param Any partition_upper_bound: The maximum value of column specified in partitionColumnName that will be used for proceeding range partitioning. Type: string (or Expression with resultType string).
         """
         if partition_column_name is not None:
@@ -58840,9 +58841,9 @@ class OraclePartitionSettingsResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="partitionNames")
-    def partition_names(self) -> Optional[Sequence[Any]]:
+    def partition_names(self) -> Optional[Any]:
         """
-        Names of the physical partitions of Oracle table. 
+        Names of the physical partitions of Oracle table.
         """
         return pulumi.get(self, "partition_names")
 
@@ -59075,7 +59076,7 @@ class OracleServiceCloudObjectDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -59088,7 +59089,7 @@ class OracleServiceCloudObjectDatasetResponse(dict):
                Expected value is 'OracleServiceCloudObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -59146,7 +59147,7 @@ class OracleServiceCloudObjectDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -59682,7 +59683,7 @@ class OracleTableDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -59696,7 +59697,7 @@ class OracleTableDatasetResponse(dict):
                Expected value is 'OracleTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -59757,7 +59758,7 @@ class OracleTableDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -59834,7 +59835,7 @@ class OrcDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  orc_compression_codec: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
@@ -59848,7 +59849,7 @@ class OrcDatasetResponse(dict):
                Expected value is 'Orc'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Any orc_compression_codec: The data orcCompressionCodec. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
@@ -59915,7 +59916,7 @@ class OrcDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -60481,7 +60482,7 @@ class ParquetDatasetResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  compression_codec: Optional[Any] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None):
@@ -60495,7 +60496,7 @@ class ParquetDatasetResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Any compression_codec: The data compressionCodec. Type: string (or Expression with resultType string).
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -60569,7 +60570,7 @@ class ParquetDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -61286,7 +61287,7 @@ class PaypalObjectDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -61299,7 +61300,7 @@ class PaypalObjectDatasetResponse(dict):
                Expected value is 'PaypalObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -61357,7 +61358,7 @@ class PaypalObjectDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -61821,7 +61822,7 @@ class PhoenixObjectDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -61835,7 +61836,7 @@ class PhoenixObjectDatasetResponse(dict):
                Expected value is 'PhoenixObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -61896,7 +61897,7 @@ class PhoenixObjectDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -62173,6 +62174,30 @@ class PipelineExternalComputeScalePropertiesResponse(dict):
 
 
 @pulumi.output_type
+class PipelineFolderResponse(dict):
+    """
+    The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
+    """
+    def __init__(__self__, *,
+                 name: Optional[_builtins.str] = None):
+        """
+        The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
+
+        :param _builtins.str name: The name of the folder that this Pipeline is in.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        The name of the folder that this Pipeline is in.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class PipelinePolicyResponse(dict):
     """
     Pipeline Policy.
@@ -62272,30 +62297,6 @@ class PipelineReferenceResponse(dict):
     def name(self) -> Optional[_builtins.str]:
         """
         Reference name.
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class PipelineResponseFolder(dict):
-    """
-    The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
-    """
-    def __init__(__self__, *,
-                 name: Optional[_builtins.str] = None):
-        """
-        The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
-
-        :param _builtins.str name: The name of the folder that this Pipeline is in.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[_builtins.str]:
-        """
-        The name of the folder that this Pipeline is in.
         """
         return pulumi.get(self, "name")
 
@@ -62689,7 +62690,7 @@ class PostgreSqlTableDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -62703,7 +62704,7 @@ class PostgreSqlTableDatasetResponse(dict):
                Expected value is 'PostgreSqlTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -62764,7 +62765,7 @@ class PostgreSqlTableDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -63333,7 +63334,7 @@ class PostgreSqlV2TableDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -63346,7 +63347,7 @@ class PostgreSqlV2TableDatasetResponse(dict):
                Expected value is 'PostgreSqlV2Table'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -63404,7 +63405,7 @@ class PostgreSqlV2TableDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -64068,7 +64069,7 @@ class PrestoObjectDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -64082,7 +64083,7 @@ class PrestoObjectDatasetResponse(dict):
                Expected value is 'PrestoObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -64143,7 +64144,7 @@ class PrestoObjectDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -64701,7 +64702,7 @@ class QuickBooksObjectDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -64714,7 +64715,7 @@ class QuickBooksObjectDatasetResponse(dict):
                Expected value is 'QuickBooksObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -64772,7 +64773,7 @@ class QuickBooksObjectDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -65472,7 +65473,7 @@ class RelationalTableDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -65485,7 +65486,7 @@ class RelationalTableDatasetResponse(dict):
                Expected value is 'RelationalTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -65543,7 +65544,7 @@ class RelationalTableDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -66000,7 +66001,7 @@ class ResponsysObjectDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -66013,7 +66014,7 @@ class ResponsysObjectDatasetResponse(dict):
                Expected value is 'ResponsysObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -66071,7 +66072,7 @@ class ResponsysObjectDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -66281,11 +66282,11 @@ class RestResourceDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: _builtins.str,
-                 additional_headers: Optional[Mapping[str, Any]] = None,
+                 additional_headers: Optional[Any] = None,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
-                 pagination_rules: Optional[Mapping[str, Any]] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
+                 pagination_rules: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  relative_url: Optional[Any] = None,
                  request_body: Optional[Any] = None,
@@ -66298,11 +66299,11 @@ class RestResourceDatasetResponse(dict):
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'RestResource'.
-        :param Mapping[str, Any] additional_headers: The additional HTTP headers in the request to the RESTful API.
+        :param Any additional_headers: The additional HTTP headers in the request to the RESTful API.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Mapping[str, Any] pagination_rules: The pagination rules to compose next page requests.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Any pagination_rules: The pagination rules to compose next page requests.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any relative_url: The relative URL to the resource that the RESTful API provides. Type: string (or Expression with resultType string).
         :param Any request_body: The HTTP request body to the RESTful API if requestMethod is POST. Type: string (or Expression with resultType string).
@@ -66354,7 +66355,7 @@ class RestResourceDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="additionalHeaders")
-    def additional_headers(self) -> Optional[Mapping[str, Any]]:
+    def additional_headers(self) -> Optional[Any]:
         """
         The additional HTTP headers in the request to the RESTful API.
         """
@@ -66378,7 +66379,7 @@ class RestResourceDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -66386,7 +66387,7 @@ class RestResourceDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="paginationRules")
-    def pagination_rules(self) -> Optional[Mapping[str, Any]]:
+    def pagination_rules(self) -> Optional[Any]:
         """
         The pagination rules to compose next page requests.
         """
@@ -66888,7 +66889,7 @@ class RestSinkResponse(dict):
         :param Any http_compression_type: Http Compression Type to Send data in compressed format with Optimal Compression Level, Default is None. And The Only Supported option is Gzip. Type: string (or Expression with resultType string).
         :param Any http_request_timeout: The timeout (TimeSpan) to get an HTTP response. It is the timeout to get a response, not the timeout to read response data. Default value: 00:01:40. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
-        :param Any request_interval: The time to await before sending next request, in milliseconds 
+        :param Any request_interval: The time to await before sending next request, in milliseconds
         :param Any request_method: The HTTP method used to call the RESTful API. The default is POST. Type: string (or Expression with resultType string).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -66972,7 +66973,7 @@ class RestSinkResponse(dict):
     @pulumi.getter(name="requestInterval")
     def request_interval(self) -> Optional[Any]:
         """
-        The time to await before sending next request, in milliseconds 
+        The time to await before sending next request, in milliseconds
         """
         return pulumi.get(self, "request_interval")
 
@@ -67084,7 +67085,7 @@ class RestSourceResponse(dict):
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any pagination_rules: The pagination rules to compose next page requests. Type: string (or Expression with resultType string).
         :param Any request_body: The HTTP request body to the RESTful API if requestMethod is POST. Type: string (or Expression with resultType string).
-        :param Any request_interval: The time to await before sending next page request. 
+        :param Any request_interval: The time to await before sending next page request.
         :param Any request_method: The HTTP method used to call the RESTful API. The default is GET. Type: string (or Expression with resultType string).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -67182,7 +67183,7 @@ class RestSourceResponse(dict):
     @pulumi.getter(name="requestInterval")
     def request_interval(self) -> Optional[Any]:
         """
-        The time to await before sending next page request. 
+        The time to await before sending next page request.
         """
         return pulumi.get(self, "request_interval")
 
@@ -68199,7 +68200,7 @@ class SalesforceMarketingCloudObjectDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -68212,7 +68213,7 @@ class SalesforceMarketingCloudObjectDatasetResponse(dict):
                Expected value is 'SalesforceMarketingCloudObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -68270,7 +68271,7 @@ class SalesforceMarketingCloudObjectDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -68474,7 +68475,7 @@ class SalesforceObjectDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  object_api_name: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
@@ -68487,7 +68488,7 @@ class SalesforceObjectDatasetResponse(dict):
                Expected value is 'SalesforceObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Any object_api_name: The Salesforce object API name. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
@@ -68545,7 +68546,7 @@ class SalesforceObjectDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -68809,7 +68810,7 @@ class SalesforceServiceCloudObjectDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  object_api_name: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
@@ -68822,7 +68823,7 @@ class SalesforceServiceCloudObjectDatasetResponse(dict):
                Expected value is 'SalesforceServiceCloudObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Any object_api_name: The Salesforce Service Cloud object API name. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
@@ -68880,7 +68881,7 @@ class SalesforceServiceCloudObjectDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -69438,7 +69439,7 @@ class SalesforceServiceCloudV2ObjectDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  object_api_name: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  report_id: Optional[Any] = None,
@@ -69452,7 +69453,7 @@ class SalesforceServiceCloudV2ObjectDatasetResponse(dict):
                Expected value is 'SalesforceServiceCloudV2Object'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Any object_api_name: The Salesforce Service Cloud V2 object API name. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any report_id: The Salesforce Service Cloud V2 reportId. Type: string (or Expression with resultType string).
@@ -69513,7 +69514,7 @@ class SalesforceServiceCloudV2ObjectDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -70409,7 +70410,7 @@ class SalesforceV2ObjectDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  object_api_name: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  report_id: Optional[Any] = None,
@@ -70423,7 +70424,7 @@ class SalesforceV2ObjectDatasetResponse(dict):
                Expected value is 'SalesforceV2Object'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Any object_api_name: The Salesforce V2 object API name. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any report_id: The Salesforce V2 report Id. Type: string (or Expression with resultType string).
@@ -70484,7 +70485,7 @@ class SalesforceV2ObjectDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -71095,7 +71096,7 @@ class SapBwCubeDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None):
@@ -71107,7 +71108,7 @@ class SapBwCubeDatasetResponse(dict):
                Expected value is 'SapBwCube'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -71162,7 +71163,7 @@ class SapBwCubeDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -71508,7 +71509,7 @@ class SapCloudForCustomerResourceDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None):
@@ -71521,7 +71522,7 @@ class SapCloudForCustomerResourceDatasetResponse(dict):
                Expected value is 'SapCloudForCustomerResource'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -71585,7 +71586,7 @@ class SapCloudForCustomerResourceDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -72097,7 +72098,7 @@ class SapEccResourceDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None):
@@ -72110,7 +72111,7 @@ class SapEccResourceDatasetResponse(dict):
                Expected value is 'SapEccResource'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -72174,7 +72175,7 @@ class SapEccResourceDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -72637,7 +72638,7 @@ class SapHanaSourceResponse(dict):
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any packet_size: The packet size of data read from SAP HANA. Type: integer(or Expression with resultType integer).
-        :param Any partition_option: The partition mechanism that will be used for SAP HANA read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "SapHanaDynamicRange". 
+        :param Any partition_option: The partition mechanism that will be used for SAP HANA read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "SapHanaDynamicRange".
         :param 'SapHanaPartitionSettingsResponse' partition_settings: The settings that will be leveraged for SAP HANA source partitioning.
         :param Any query: SAP HANA Sql query. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -72711,7 +72712,7 @@ class SapHanaSourceResponse(dict):
     @pulumi.getter(name="partitionOption")
     def partition_option(self) -> Optional[Any]:
         """
-        The partition mechanism that will be used for SAP HANA read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "SapHanaDynamicRange". 
+        The partition mechanism that will be used for SAP HANA read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "SapHanaDynamicRange".
         """
         return pulumi.get(self, "partition_option")
 
@@ -72783,7 +72784,7 @@ class SapHanaTableDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -72796,7 +72797,7 @@ class SapHanaTableDatasetResponse(dict):
                Expected value is 'SapHanaTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -72854,7 +72855,7 @@ class SapHanaTableDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -73272,7 +73273,7 @@ class SapOdpResourceDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None):
@@ -73286,7 +73287,7 @@ class SapOdpResourceDatasetResponse(dict):
                Expected value is 'SapOdpResource'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -73359,7 +73360,7 @@ class SapOdpResourceDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -74032,7 +74033,7 @@ class SapOpenHubTableDatasetResponse(dict):
                  base_request_id: Optional[Any] = None,
                  description: Optional[_builtins.str] = None,
                  exclude_last_request: Optional[Any] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None):
@@ -74047,7 +74048,7 @@ class SapOpenHubTableDatasetResponse(dict):
         :param Any base_request_id: The ID of request for delta loading. Once it is set, only data with requestId larger than the value of this property will be retrieved. The default value is 0. Type: integer (or Expression with resultType integer ).
         :param _builtins.str description: Dataset description.
         :param Any exclude_last_request: Whether to exclude the records of the last request. The default value is true. Type: boolean (or Expression with resultType boolean).
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -74131,7 +74132,7 @@ class SapOpenHubTableDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -74595,7 +74596,7 @@ class SapTableResourceDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None):
@@ -74608,7 +74609,7 @@ class SapTableResourceDatasetResponse(dict):
                Expected value is 'SapTableResource'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -74672,7 +74673,7 @@ class SapTableResourceDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -75295,10 +75296,10 @@ class ScriptActivityResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "linkedServiceName":
-            suggest = "linked_service_name"
-        elif key == "dependsOn":
+        if key == "dependsOn":
             suggest = "depends_on"
+        elif key == "linkedServiceName":
+            suggest = "linked_service_name"
         elif key == "logSettings":
             suggest = "log_settings"
         elif key == "onInactiveMarkAs":
@@ -75324,12 +75325,12 @@ class ScriptActivityResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  name: _builtins.str,
                  type: _builtins.str,
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[_builtins.str] = None,
-                 log_settings: Optional['outputs.ScriptActivityTypePropertiesResponseLogSettings'] = None,
+                 linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
+                 log_settings: Optional['outputs.ScriptActivityTypePropertiesLogSettingsResponse'] = None,
                  on_inactive_mark_as: Optional[_builtins.str] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
                  return_multistatement_result: Optional[Any] = None,
@@ -75341,13 +75342,13 @@ class ScriptActivityResponse(dict):
         """
         Script activity type.
 
-        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str name: Activity name.
         :param _builtins.str type: Type of activity.
                Expected value is 'Script'.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param _builtins.str description: Activity description.
-        :param 'ScriptActivityTypePropertiesResponseLogSettings' log_settings: Log settings of script activity.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param 'ScriptActivityTypePropertiesLogSettingsResponse' log_settings: Log settings of script activity.
         :param _builtins.str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param 'ActivityPolicyResponse' policy: Activity policy.
         :param Any return_multistatement_result: Enable to retrieve result sets from multiple SQL statements and the number of rows affected by the DML statement. Supported connector: SnowflakeV2. Type: boolean (or Expression with resultType boolean).
@@ -75357,13 +75358,14 @@ class ScriptActivityResponse(dict):
         :param Any treat_decimal_as_string: Indicates whether to treat decimal values as strings to avoid value overflow issue. This option is enabled for SnowflakeV2 connector only. Type: boolean (or Expression with resultType boolean).
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
-        pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", 'Script')
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if linked_service_name is not None:
+            pulumi.set(__self__, "linked_service_name", linked_service_name)
         if log_settings is not None:
             pulumi.set(__self__, "log_settings", log_settings)
         if on_inactive_mark_as is not None:
@@ -75382,14 +75384,6 @@ class ScriptActivityResponse(dict):
             pulumi.set(__self__, "treat_decimal_as_string", treat_decimal_as_string)
         if user_properties is not None:
             pulumi.set(__self__, "user_properties", user_properties)
-
-    @_builtins.property
-    @pulumi.getter(name="linkedServiceName")
-    def linked_service_name(self) -> 'outputs.LinkedServiceReferenceResponse':
-        """
-        Linked service reference.
-        """
-        return pulumi.get(self, "linked_service_name")
 
     @_builtins.property
     @pulumi.getter
@@ -75425,8 +75419,16 @@ class ScriptActivityResponse(dict):
         return pulumi.get(self, "description")
 
     @_builtins.property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> Optional['outputs.LinkedServiceReferenceResponse']:
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @_builtins.property
     @pulumi.getter(name="logSettings")
-    def log_settings(self) -> Optional['outputs.ScriptActivityTypePropertiesResponseLogSettings']:
+    def log_settings(self) -> Optional['outputs.ScriptActivityTypePropertiesLogSettingsResponse']:
         """
         Log settings of script activity.
         """
@@ -75544,7 +75546,7 @@ class ScriptActivityScriptBlockResponse(dict):
 
 
 @pulumi.output_type
-class ScriptActivityTypePropertiesResponseLogSettings(dict):
+class ScriptActivityTypePropertiesLogSettingsResponse(dict):
     """
     Log settings of script activity.
     """
@@ -75557,14 +75559,14 @@ class ScriptActivityTypePropertiesResponseLogSettings(dict):
             suggest = "log_location_settings"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ScriptActivityTypePropertiesResponseLogSettings. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ScriptActivityTypePropertiesLogSettingsResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ScriptActivityTypePropertiesResponseLogSettings.__key_warning(key)
+        ScriptActivityTypePropertiesLogSettingsResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ScriptActivityTypePropertiesResponseLogSettings.__key_warning(key)
+        ScriptActivityTypePropertiesLogSettingsResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -76525,7 +76527,7 @@ class ServiceNowObjectDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -76538,7 +76540,7 @@ class ServiceNowObjectDatasetResponse(dict):
                Expected value is 'ServiceNowObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -76596,7 +76598,7 @@ class ServiceNowObjectDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -77008,7 +77010,7 @@ class ServiceNowV2ObjectDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -77022,7 +77024,7 @@ class ServiceNowV2ObjectDatasetResponse(dict):
                Expected value is 'ServiceNowV2Object'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -77083,7 +77085,7 @@ class ServiceNowV2ObjectDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -77830,7 +77832,7 @@ class SftpReadSettingsResponse(dict):
 @pulumi.output_type
 class SftpServerLinkedServiceResponse(dict):
     """
-    A linked service for an SSH File Transfer Protocol (SFTP) server. 
+    A linked service for an SSH File Transfer Protocol (SFTP) server.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -77884,7 +77886,7 @@ class SftpServerLinkedServiceResponse(dict):
                  user_name: Optional[Any] = None,
                  version: Optional[_builtins.str] = None):
         """
-        A linked service for an SSH File Transfer Protocol (SFTP) server. 
+        A linked service for an SSH File Transfer Protocol (SFTP) server.
 
         :param Any host: The SFTP server host name. Type: string (or Expression with resultType string).
         :param _builtins.str type: Type of linked service.
@@ -78438,7 +78440,7 @@ class SharePointOnlineListResourceDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  list_name: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
@@ -78451,7 +78453,7 @@ class SharePointOnlineListResourceDatasetResponse(dict):
                Expected value is 'SharePointOnlineListResource'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Any list_name: The name of the SharePoint Online list. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
@@ -78509,7 +78511,7 @@ class SharePointOnlineListResourceDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -78882,7 +78884,7 @@ class ShopifyObjectDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -78895,7 +78897,7 @@ class ShopifyObjectDatasetResponse(dict):
                Expected value is 'ShopifyObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -78953,7 +78955,7 @@ class ShopifyObjectDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -79339,7 +79341,7 @@ class SnowflakeDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -79352,7 +79354,7 @@ class SnowflakeDatasetResponse(dict):
                Expected value is 'SnowflakeTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -79410,7 +79412,7 @@ class SnowflakeDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -79477,16 +79479,16 @@ class SnowflakeExportCopyCommandResponse(dict):
 
     def __init__(__self__, *,
                  type: _builtins.str,
-                 additional_copy_options: Optional[Mapping[str, Any]] = None,
-                 additional_format_options: Optional[Mapping[str, Any]] = None,
+                 additional_copy_options: Optional[Any] = None,
+                 additional_format_options: Optional[Any] = None,
                  storage_integration: Optional[Any] = None):
         """
         Snowflake export command settings.
 
         :param _builtins.str type: The export setting type.
                Expected value is 'SnowflakeExportCopyCommand'.
-        :param Mapping[str, Any] additional_copy_options: Additional copy options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalCopyOptions": { "DATE_FORMAT": "MM/DD/YYYY", "TIME_FORMAT": "'HH24:MI:SS.FF'" }
-        :param Mapping[str, Any] additional_format_options: Additional format options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalFormatOptions": { "OVERWRITE": "TRUE", "MAX_FILE_SIZE": "'FALSE'" }
+        :param Any additional_copy_options: Additional copy options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalCopyOptions": { "DATE_FORMAT": "MM/DD/YYYY", "TIME_FORMAT": "'HH24:MI:SS.FF'" }
+        :param Any additional_format_options: Additional format options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalFormatOptions": { "OVERWRITE": "TRUE", "MAX_FILE_SIZE": "'FALSE'" }
         :param Any storage_integration: The name of the snowflake storage integration to use for the copy operation. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'SnowflakeExportCopyCommand')
@@ -79508,7 +79510,7 @@ class SnowflakeExportCopyCommandResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="additionalCopyOptions")
-    def additional_copy_options(self) -> Optional[Mapping[str, Any]]:
+    def additional_copy_options(self) -> Optional[Any]:
         """
         Additional copy options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalCopyOptions": { "DATE_FORMAT": "MM/DD/YYYY", "TIME_FORMAT": "'HH24:MI:SS.FF'" }
         """
@@ -79516,7 +79518,7 @@ class SnowflakeExportCopyCommandResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="additionalFormatOptions")
-    def additional_format_options(self) -> Optional[Mapping[str, Any]]:
+    def additional_format_options(self) -> Optional[Any]:
         """
         Additional format options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalFormatOptions": { "OVERWRITE": "TRUE", "MAX_FILE_SIZE": "'FALSE'" }
         """
@@ -79559,16 +79561,16 @@ class SnowflakeImportCopyCommandResponse(dict):
 
     def __init__(__self__, *,
                  type: _builtins.str,
-                 additional_copy_options: Optional[Mapping[str, Any]] = None,
-                 additional_format_options: Optional[Mapping[str, Any]] = None,
+                 additional_copy_options: Optional[Any] = None,
+                 additional_format_options: Optional[Any] = None,
                  storage_integration: Optional[Any] = None):
         """
         Snowflake import command settings.
 
         :param _builtins.str type: The import setting type.
                Expected value is 'SnowflakeImportCopyCommand'.
-        :param Mapping[str, Any] additional_copy_options: Additional copy options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalCopyOptions": { "DATE_FORMAT": "MM/DD/YYYY", "TIME_FORMAT": "'HH24:MI:SS.FF'" }
-        :param Mapping[str, Any] additional_format_options: Additional format options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalFormatOptions": { "FORCE": "TRUE", "LOAD_UNCERTAIN_FILES": "'FALSE'" }
+        :param Any additional_copy_options: Additional copy options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalCopyOptions": { "DATE_FORMAT": "MM/DD/YYYY", "TIME_FORMAT": "'HH24:MI:SS.FF'" }
+        :param Any additional_format_options: Additional format options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalFormatOptions": { "FORCE": "TRUE", "LOAD_UNCERTAIN_FILES": "'FALSE'" }
         :param Any storage_integration: The name of the snowflake storage integration to use for the copy operation. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'SnowflakeImportCopyCommand')
@@ -79590,7 +79592,7 @@ class SnowflakeImportCopyCommandResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="additionalCopyOptions")
-    def additional_copy_options(self) -> Optional[Mapping[str, Any]]:
+    def additional_copy_options(self) -> Optional[Any]:
         """
         Additional copy options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalCopyOptions": { "DATE_FORMAT": "MM/DD/YYYY", "TIME_FORMAT": "'HH24:MI:SS.FF'" }
         """
@@ -79598,7 +79600,7 @@ class SnowflakeImportCopyCommandResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="additionalFormatOptions")
-    def additional_format_options(self) -> Optional[Mapping[str, Any]]:
+    def additional_format_options(self) -> Optional[Any]:
         """
         Additional format options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalFormatOptions": { "FORCE": "TRUE", "LOAD_UNCERTAIN_FILES": "'FALSE'" }
         """
@@ -80054,7 +80056,7 @@ class SnowflakeV2DatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -80067,7 +80069,7 @@ class SnowflakeV2DatasetResponse(dict):
                Expected value is 'SnowflakeV2Table'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -80125,7 +80127,7 @@ class SnowflakeV2DatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -81141,7 +81143,7 @@ class SparkObjectDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -81155,7 +81157,7 @@ class SparkObjectDatasetResponse(dict):
                Expected value is 'SparkObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -81216,7 +81218,7 @@ class SparkObjectDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -83465,12 +83467,12 @@ class SqlServerStoredProcedureActivityResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "linkedServiceName":
-            suggest = "linked_service_name"
-        elif key == "storedProcedureName":
+        if key == "storedProcedureName":
             suggest = "stored_procedure_name"
         elif key == "dependsOn":
             suggest = "depends_on"
+        elif key == "linkedServiceName":
+            suggest = "linked_service_name"
         elif key == "onInactiveMarkAs":
             suggest = "on_inactive_mark_as"
         elif key == "storedProcedureParameters":
@@ -83490,12 +83492,12 @@ class SqlServerStoredProcedureActivityResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  name: _builtins.str,
                  stored_procedure_name: Any,
                  type: _builtins.str,
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[_builtins.str] = None,
+                 linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  on_inactive_mark_as: Optional[_builtins.str] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
                  state: Optional[_builtins.str] = None,
@@ -83504,20 +83506,19 @@ class SqlServerStoredProcedureActivityResponse(dict):
         """
         SQL stored procedure activity type.
 
-        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str name: Activity name.
         :param Any stored_procedure_name: Stored procedure name. Type: string (or Expression with resultType string).
         :param _builtins.str type: Type of activity.
                Expected value is 'SqlServerStoredProcedure'.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param _builtins.str description: Activity description.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param 'ActivityPolicyResponse' policy: Activity policy.
         :param _builtins.str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Any stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
-        pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "stored_procedure_name", stored_procedure_name)
         pulumi.set(__self__, "type", 'SqlServerStoredProcedure')
@@ -83525,6 +83526,8 @@ class SqlServerStoredProcedureActivityResponse(dict):
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if linked_service_name is not None:
+            pulumi.set(__self__, "linked_service_name", linked_service_name)
         if on_inactive_mark_as is not None:
             pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
         if policy is not None:
@@ -83535,14 +83538,6 @@ class SqlServerStoredProcedureActivityResponse(dict):
             pulumi.set(__self__, "stored_procedure_parameters", stored_procedure_parameters)
         if user_properties is not None:
             pulumi.set(__self__, "user_properties", user_properties)
-
-    @_builtins.property
-    @pulumi.getter(name="linkedServiceName")
-    def linked_service_name(self) -> 'outputs.LinkedServiceReferenceResponse':
-        """
-        Linked service reference.
-        """
-        return pulumi.get(self, "linked_service_name")
 
     @_builtins.property
     @pulumi.getter
@@ -83584,6 +83579,14 @@ class SqlServerStoredProcedureActivityResponse(dict):
         Activity description.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> Optional['outputs.LinkedServiceReferenceResponse']:
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service_name")
 
     @_builtins.property
     @pulumi.getter(name="onInactiveMarkAs")
@@ -83655,7 +83658,7 @@ class SqlServerTableDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -83669,7 +83672,7 @@ class SqlServerTableDatasetResponse(dict):
                Expected value is 'SqlServerTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -83730,7 +83733,7 @@ class SqlServerTableDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -84557,7 +84560,7 @@ class SquareObjectDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -84570,7 +84573,7 @@ class SquareObjectDatasetResponse(dict):
                Expected value is 'SquareObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -84628,7 +84631,7 @@ class SquareObjectDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -86088,7 +86091,7 @@ class SybaseTableDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -86101,7 +86104,7 @@ class SybaseTableDatasetResponse(dict):
                Expected value is 'SybaseTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -86159,7 +86162,7 @@ class SybaseTableDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -86255,7 +86258,7 @@ class SynapseNotebookActivityResponse(dict):
                  on_inactive_mark_as: Optional[_builtins.str] = None,
                  parameters: Optional[Mapping[str, 'outputs.NotebookParameterResponse']] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
-                 spark_config: Optional[Mapping[str, Any]] = None,
+                 spark_config: Optional[Any] = None,
                  spark_pool: Optional['outputs.BigDataPoolParametrizationReferenceResponse'] = None,
                  state: Optional[_builtins.str] = None,
                  target_spark_configuration: Optional['outputs.SparkConfigurationParametrizationReferenceResponse'] = None,
@@ -86278,7 +86281,7 @@ class SynapseNotebookActivityResponse(dict):
         :param _builtins.str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param Mapping[str, 'NotebookParameterResponse'] parameters: Notebook parameters.
         :param 'ActivityPolicyResponse' policy: Activity policy.
-        :param Mapping[str, Any] spark_config: Spark configuration property.
+        :param Any spark_config: Spark configuration property.
         :param 'BigDataPoolParametrizationReferenceResponse' spark_pool: The name of the big data pool which will be used to execute the notebook.
         :param _builtins.str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param 'SparkConfigurationParametrizationReferenceResponse' target_spark_configuration: The spark configuration of the spark job.
@@ -86435,7 +86438,7 @@ class SynapseNotebookActivityResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="sparkConfig")
-    def spark_config(self) -> Optional[Mapping[str, Any]]:
+    def spark_config(self) -> Optional[Any]:
         """
         Spark configuration property.
         """
@@ -86598,7 +86601,7 @@ class SynapseSparkJobDefinitionActivityResponse(dict):
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
                  python_code_reference: Optional[Sequence[Any]] = None,
                  scan_folder: Optional[Any] = None,
-                 spark_config: Optional[Mapping[str, Any]] = None,
+                 spark_config: Optional[Any] = None,
                  state: Optional[_builtins.str] = None,
                  target_big_data_pool: Optional['outputs.BigDataPoolParametrizationReferenceResponse'] = None,
                  target_spark_configuration: Optional['outputs.SparkConfigurationParametrizationReferenceResponse'] = None,
@@ -86627,7 +86630,7 @@ class SynapseSparkJobDefinitionActivityResponse(dict):
         :param 'ActivityPolicyResponse' policy: Activity policy.
         :param Sequence[Any] python_code_reference: Additional python code files used for reference in the main definition file, which will override the 'pyFiles' of the spark job definition you provide.
         :param Any scan_folder: Scanning subfolders from the root folder of the main definition file, these files will be added as reference files. The folders named 'jars', 'pyFiles', 'files' or 'archives' will be scanned, and the folders name are case sensitive. Type: boolean (or Expression with resultType boolean).
-        :param Mapping[str, Any] spark_config: Spark configuration property.
+        :param Any spark_config: Spark configuration property.
         :param _builtins.str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param 'BigDataPoolParametrizationReferenceResponse' target_big_data_pool: The name of the big data pool which will be used to execute the spark batch job, which will override the 'targetBigDataPool' of the spark job definition you provide.
         :param 'SparkConfigurationParametrizationReferenceResponse' target_spark_configuration: The spark configuration of the spark job.
@@ -86844,7 +86847,7 @@ class SynapseSparkJobDefinitionActivityResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="sparkConfig")
-    def spark_config(self) -> Optional[Mapping[str, Any]]:
+    def spark_config(self) -> Optional[Any]:
         """
         Spark configuration property.
         """
@@ -86932,6 +86935,117 @@ class SynapseSparkJobReferenceResponse(dict):
         Synapse spark job reference type.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[_builtins.str] = None,
+                 created_by: Optional[_builtins.str] = None,
+                 created_by_type: Optional[_builtins.str] = None,
+                 last_modified_at: Optional[_builtins.str] = None,
+                 last_modified_by: Optional[_builtins.str] = None,
+                 last_modified_by_type: Optional[_builtins.str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+
+        :param _builtins.str created_at: The timestamp of resource creation (UTC).
+        :param _builtins.str created_by: The identity that created the resource.
+        :param _builtins.str created_by_type: The type of identity that created the resource.
+        :param _builtins.str last_modified_at: The timestamp of resource last modification (UTC)
+        :param _builtins.str last_modified_by: The identity that last modified the resource.
+        :param _builtins.str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @_builtins.property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[_builtins.str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[_builtins.str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @_builtins.property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[_builtins.str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @_builtins.property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[_builtins.str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @_builtins.property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[_builtins.str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @_builtins.property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[_builtins.str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
 
 @pulumi.output_type
@@ -88063,7 +88177,7 @@ class TeradataTableDatasetResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  database: Optional[Any] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -88077,7 +88191,7 @@ class TeradataTableDatasetResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Any database: The database name of Teradata. Type: string (or Expression with resultType string).
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -88145,7 +88259,7 @@ class TeradataTableDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -88538,12 +88652,12 @@ class TriggerPipelineReferenceResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 parameters: Optional[Mapping[str, Any]] = None,
+                 parameters: Optional[Any] = None,
                  pipeline_reference: Optional['outputs.PipelineReferenceResponse'] = None):
         """
         Pipeline that needs to be triggered with the given parameters.
 
-        :param Mapping[str, Any] parameters: Pipeline parameters.
+        :param Any parameters: Pipeline parameters.
         :param 'PipelineReferenceResponse' pipeline_reference: Pipeline reference.
         """
         if parameters is not None:
@@ -88553,7 +88667,7 @@ class TriggerPipelineReferenceResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, Any]]:
+    def parameters(self) -> Optional[Any]:
         """
         Pipeline parameters.
         """
@@ -89856,7 +89970,7 @@ class VerticaTableDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -89870,7 +89984,7 @@ class VerticaTableDatasetResponse(dict):
                Expected value is 'VerticaTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -89931,7 +90045,7 @@ class VerticaTableDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -90785,7 +90899,7 @@ class WarehouseTableDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -90798,7 +90912,7 @@ class WarehouseTableDatasetResponse(dict):
                Expected value is 'WarehouseTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -90856,7 +90970,7 @@ class WarehouseTableDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -91058,7 +91172,7 @@ class WebActivityResponse(dict):
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[_builtins.str] = None,
                  disable_cert_validation: Optional[_builtins.bool] = None,
-                 headers: Optional[Mapping[str, Any]] = None,
+                 headers: Optional[Any] = None,
                  http_request_timeout: Optional[Any] = None,
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  linked_services: Optional[Sequence['outputs.LinkedServiceReferenceResponse']] = None,
@@ -91082,7 +91196,7 @@ class WebActivityResponse(dict):
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param _builtins.str description: Activity description.
         :param _builtins.bool disable_cert_validation: When set to true, Certificate validation will be disabled.
-        :param Mapping[str, Any] headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
+        :param Any headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         :param Any http_request_timeout: Timeout for the HTTP request to get a response. Format is in TimeSpan (hh:mm:ss). This value is the timeout to get a response, not the activity timeout. The default value is 00:01:00 (1 minute). The range is from 1 to 10 minutes
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Sequence['LinkedServiceReferenceResponse'] linked_services: List of linked services passed to web endpoint.
@@ -91220,7 +91334,7 @@ class WebActivityResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def headers(self) -> Optional[Mapping[str, Any]]:
+    def headers(self) -> Optional[Any]:
         """
         Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         """
@@ -91531,7 +91645,7 @@ class WebHookActivityResponse(dict):
                  body: Optional[Any] = None,
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[_builtins.str] = None,
-                 headers: Optional[Mapping[str, Any]] = None,
+                 headers: Optional[Any] = None,
                  on_inactive_mark_as: Optional[_builtins.str] = None,
                  policy: Optional['outputs.SecureInputOutputPolicyResponse'] = None,
                  report_status_on_call_back: Optional[Any] = None,
@@ -91550,7 +91664,7 @@ class WebHookActivityResponse(dict):
         :param Any body: Represents the payload that will be sent to the endpoint. Required for POST/PUT method, not allowed for GET method Type: string (or Expression with resultType string).
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param _builtins.str description: Activity description.
-        :param Mapping[str, Any] headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
+        :param Any headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         :param _builtins.str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param 'SecureInputOutputPolicyResponse' policy: Activity policy.
         :param Any report_status_on_call_back: When set to true, statusCode, output and error in callback request body will be consumed by activity. The activity can be marked as failed by setting statusCode >= 400 in callback request. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -91652,7 +91766,7 @@ class WebHookActivityResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def headers(self) -> Optional[Mapping[str, Any]]:
+    def headers(self) -> Optional[Any]:
         """
         Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         """
@@ -91960,7 +92074,7 @@ class WebTableDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  path: Optional[Any] = None,
                  schema: Optional[Any] = None,
@@ -91974,7 +92088,7 @@ class WebTableDatasetResponse(dict):
                Expected value is 'WebTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any path: The relative URL to the web page from the linked service URL. Type: string (or Expression with resultType string).
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
@@ -92041,7 +92155,7 @@ class WebTableDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -92107,7 +92221,7 @@ class WranglingDataFlowResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
                  document_locale: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DataFlowResponseFolder'] = None,
+                 folder: Optional['outputs.DataFlowFolderResponse'] = None,
                  script: Optional[_builtins.str] = None,
                  sources: Optional[Sequence['outputs.PowerQuerySourceResponse']] = None):
         """
@@ -92118,7 +92232,7 @@ class WranglingDataFlowResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the data flow.
         :param _builtins.str description: The description of the data flow.
         :param _builtins.str document_locale: Locale of the Power query mashup document.
-        :param 'DataFlowResponseFolder' folder: The folder that this data flow is in. If not specified, Data flow will appear at the root level.
+        :param 'DataFlowFolderResponse' folder: The folder that this data flow is in. If not specified, Data flow will appear at the root level.
         :param _builtins.str script: Power query mashup script.
         :param Sequence['PowerQuerySourceResponse'] sources: List of sources in Power Query.
         """
@@ -92171,7 +92285,7 @@ class WranglingDataFlowResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DataFlowResponseFolder']:
+    def folder(self) -> Optional['outputs.DataFlowFolderResponse']:
         """
         The folder that this data flow is in. If not specified, Data flow will appear at the root level.
         """
@@ -92437,7 +92551,7 @@ class XeroObjectDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -92450,7 +92564,7 @@ class XeroObjectDatasetResponse(dict):
                Expected value is 'XeroObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -92508,7 +92622,7 @@ class XeroObjectDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -92717,7 +92831,7 @@ class XmlDatasetResponse(dict):
                  compression: Optional['outputs.DatasetCompressionResponse'] = None,
                  description: Optional[_builtins.str] = None,
                  encoding_name: Optional[Any] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  null_value: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
@@ -92733,7 +92847,7 @@ class XmlDatasetResponse(dict):
         :param 'DatasetCompressionResponse' compression: The data compression method used for the json dataset.
         :param _builtins.str description: Dataset description.
         :param Any encoding_name: The code page name of the preferred encoding. If not specified, the default value is UTF-8, unless BOM denotes another Unicode encoding. Refer to the name column of the table in the following link to set supported values: https://msdn.microsoft.com/library/system.text.encoding.aspx. Type: string (or Expression with resultType string).
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Any null_value: The null value string. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
@@ -92820,7 +92934,7 @@ class XmlDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """
@@ -93566,7 +93680,7 @@ class ZohoObjectDatasetResponse(dict):
                  type: _builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[_builtins.str] = None,
-                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 folder: Optional['outputs.DatasetFolderResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
@@ -93579,7 +93693,7 @@ class ZohoObjectDatasetResponse(dict):
                Expected value is 'ZohoObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param _builtins.str description: Dataset description.
-        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param 'DatasetFolderResponse' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -93637,7 +93751,7 @@ class ZohoObjectDatasetResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+    def folder(self) -> Optional['outputs.DatasetFolderResponse']:
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         """

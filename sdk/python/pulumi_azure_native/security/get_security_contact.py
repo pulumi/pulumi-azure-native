@@ -27,7 +27,7 @@ class GetSecurityContactResult:
     """
     Contact details and configurations for notifications coming from Microsoft Defender for Cloud.
     """
-    def __init__(__self__, azure_api_version=None, emails=None, id=None, is_enabled=None, name=None, notifications_by_role=None, notifications_sources=None, phone=None, type=None):
+    def __init__(__self__, azure_api_version=None, emails=None, id=None, is_enabled=None, name=None, notifications_by_role=None, notifications_sources=None, phone=None, system_data=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -52,6 +52,9 @@ class GetSecurityContactResult:
         if phone and not isinstance(phone, str):
             raise TypeError("Expected argument 'phone' to be a str")
         pulumi.set(__self__, "phone", phone)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -76,7 +79,7 @@ class GetSecurityContactResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -92,13 +95,13 @@ class GetSecurityContactResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="notificationsByRole")
-    def notifications_by_role(self) -> Optional['outputs.SecurityContactPropertiesResponseNotificationsByRole']:
+    def notifications_by_role(self) -> Optional['outputs.SecurityContactPropertiesNotificationsByRoleResponse']:
         """
         Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
         """
@@ -121,10 +124,18 @@ class GetSecurityContactResult:
         return pulumi.get(self, "phone")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -143,6 +154,7 @@ class AwaitableGetSecurityContactResult(GetSecurityContactResult):
             notifications_by_role=self.notifications_by_role,
             notifications_sources=self.notifications_sources,
             phone=self.phone,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -172,6 +184,7 @@ def get_security_contact(security_contact_name: Optional[_builtins.str] = None,
         notifications_by_role=pulumi.get(__ret__, 'notifications_by_role'),
         notifications_sources=pulumi.get(__ret__, 'notifications_sources'),
         phone=pulumi.get(__ret__, 'phone'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_security_contact_output(security_contact_name: Optional[pulumi.Input[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityContactResult]:
@@ -198,4 +211,5 @@ def get_security_contact_output(security_contact_name: Optional[pulumi.Input[_bu
         notifications_by_role=pulumi.get(__response__, 'notifications_by_role'),
         notifications_sources=pulumi.get(__response__, 'notifications_sources'),
         phone=pulumi.get(__response__, 'phone'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

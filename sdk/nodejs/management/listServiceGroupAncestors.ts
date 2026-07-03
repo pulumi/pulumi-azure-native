@@ -31,13 +31,13 @@ export interface ListServiceGroupAncestorsArgs {
  */
 export interface ListServiceGroupAncestorsResult {
     /**
-     * URL to query the next page of results for this request
+     * The link to the next page of items
      */
     readonly nextLink?: string;
     /**
-     * Array of service groups based on the request criteria
+     * The ServiceGroup items on this page
      */
-    readonly value?: outputs.management.ServiceGroupResponse[];
+    readonly value: outputs.management.ServiceGroupResponse[];
 }
 /**
  * Get the details of the serviceGroup's ancestors

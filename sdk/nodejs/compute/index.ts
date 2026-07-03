@@ -20,11 +20,6 @@ export type CapacityReservationGroup = import("./capacityReservationGroup").Capa
 export const CapacityReservationGroup: typeof import("./capacityReservationGroup").CapacityReservationGroup = null as any;
 utilities.lazyLoad(exports, ["CapacityReservationGroup"], () => require("./capacityReservationGroup"));
 
-export { CloudServiceArgs } from "./cloudService";
-export type CloudService = import("./cloudService").CloudService;
-export const CloudService: typeof import("./cloudService").CloudService = null as any;
-utilities.lazyLoad(exports, ["CloudService"], () => require("./cloudService"));
-
 export { DedicatedHostArgs } from "./dedicatedHost";
 export type DedicatedHost = import("./dedicatedHost").DedicatedHost;
 export const DedicatedHost: typeof import("./dedicatedHost").DedicatedHost = null as any;
@@ -114,11 +109,6 @@ export { GetCapacityReservationGroupArgs, GetCapacityReservationGroupResult, Get
 export const getCapacityReservationGroup: typeof import("./getCapacityReservationGroup").getCapacityReservationGroup = null as any;
 export const getCapacityReservationGroupOutput: typeof import("./getCapacityReservationGroup").getCapacityReservationGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getCapacityReservationGroup","getCapacityReservationGroupOutput"], () => require("./getCapacityReservationGroup"));
-
-export { GetCloudServiceArgs, GetCloudServiceResult, GetCloudServiceOutputArgs } from "./getCloudService";
-export const getCloudService: typeof import("./getCloudService").getCloudService = null as any;
-export const getCloudServiceOutput: typeof import("./getCloudService").getCloudServiceOutput = null as any;
-utilities.lazyLoad(exports, ["getCloudService","getCloudServiceOutput"], () => require("./getCloudService"));
 
 export { GetDedicatedHostArgs, GetDedicatedHostResult, GetDedicatedHostOutputArgs } from "./getDedicatedHost";
 export const getDedicatedHost: typeof import("./getDedicatedHost").getDedicatedHost = null as any;
@@ -359,8 +349,6 @@ const _module = {
                 return new CapacityReservation(name, <any>undefined, { urn })
             case "azure-native:compute:CapacityReservationGroup":
                 return new CapacityReservationGroup(name, <any>undefined, { urn })
-            case "azure-native:compute:CloudService":
-                return new CloudService(name, <any>undefined, { urn })
             case "azure-native:compute:DedicatedHost":
                 return new DedicatedHost(name, <any>undefined, { urn })
             case "azure-native:compute:DedicatedHostGroup":

@@ -7,6 +7,10 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .agent import *
+from .agent_space import *
+from .agent_spaces_connector import *
+from .agents_connector import *
 from .app_resiliency import *
 from .build import *
 from .builder import *
@@ -23,6 +27,10 @@ from .dapr_component import *
 from .dapr_component_resiliency_policy import *
 from .dapr_subscription import *
 from .dot_net_component import *
+from .get_agent import *
+from .get_agent_space import *
+from .get_agent_spaces_connector import *
+from .get_agents_connector import *
 from .get_app_resiliency import *
 from .get_build import *
 from .get_builder import *
@@ -54,6 +62,10 @@ from .get_managed_environments_storage import *
 from .http_route_config import *
 from .java_component import *
 from .job import *
+from .list_agent_spaces_connector_all_secrets import *
+from .list_agent_spaces_connector_secrets import *
+from .list_agents_connector_secrets import *
+from .list_agents_connector_with_secrets_by_agent import *
 from .list_build_auth_token import *
 from .list_connected_environments_dapr_component_secrets import *
 from .list_container_app_custom_host_name_analysis import *

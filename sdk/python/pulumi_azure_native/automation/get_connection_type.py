@@ -27,7 +27,7 @@ class GetConnectionTypeResult:
     """
     Definition of the connection type.
     """
-    def __init__(__self__, azure_api_version=None, creation_time=None, description=None, field_definitions=None, id=None, is_global=None, last_modified_time=None, name=None, type=None):
+    def __init__(__self__, azure_api_version=None, creation_time=None, description=None, field_definitions=None, id=None, is_global=None, last_modified_time=None, name=None, system_data=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -52,6 +52,9 @@ class GetConnectionTypeResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -92,7 +95,7 @@ class GetConnectionTypeResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Gets the id of the resource.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -116,15 +119,23 @@ class GetConnectionTypeResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Gets the name of the connection type.
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -143,6 +154,7 @@ class AwaitableGetConnectionTypeResult(GetConnectionTypeResult):
             is_global=self.is_global,
             last_modified_time=self.last_modified_time,
             name=self.name,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -160,7 +172,7 @@ def get_connection_type(automation_account_name: Optional[_builtins.str] = None,
 
     :param _builtins.str automation_account_name: The name of the automation account.
     :param _builtins.str connection_type_name: The name of connection type.
-    :param _builtins.str resource_group_name: Name of an Azure Resource group.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
@@ -178,6 +190,7 @@ def get_connection_type(automation_account_name: Optional[_builtins.str] = None,
         is_global=pulumi.get(__ret__, 'is_global'),
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
         name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_connection_type_output(automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
                                connection_type_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -193,7 +206,7 @@ def get_connection_type_output(automation_account_name: Optional[pulumi.Input[_b
 
     :param _builtins.str automation_account_name: The name of the automation account.
     :param _builtins.str connection_type_name: The name of connection type.
-    :param _builtins.str resource_group_name: Name of an Azure Resource group.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
@@ -210,4 +223,5 @@ def get_connection_type_output(automation_account_name: Optional[pulumi.Input[_b
         is_global=pulumi.get(__response__, 'is_global'),
         last_modified_time=pulumi.get(__response__, 'last_modified_time'),
         name=pulumi.get(__response__, 'name'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

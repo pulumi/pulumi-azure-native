@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.ApplicationInsights
         /// </summary>
         public readonly ImmutableArray<Outputs.WorkbookTemplateGalleryResponse> Galleries;
         /// <summary>
-        /// Azure resource Id
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -108,11 +108,11 @@ namespace Pulumi.AzureNative.ApplicationInsights
         /// </summary>
         public readonly ImmutableDictionary<string, ImmutableArray<Outputs.WorkbookTemplateLocalizedGalleryResponse>>? Localized;
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Azure resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -120,7 +120,11 @@ namespace Pulumi.AzureNative.ApplicationInsights
         /// </summary>
         public readonly int? Priority;
         /// <summary>
-        /// Resource tags
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
@@ -128,7 +132,7 @@ namespace Pulumi.AzureNative.ApplicationInsights
         /// </summary>
         public readonly object TemplateData;
         /// <summary>
-        /// Azure resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -150,6 +154,8 @@ namespace Pulumi.AzureNative.ApplicationInsights
 
             int? priority,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             object templateData,
@@ -164,6 +170,7 @@ namespace Pulumi.AzureNative.ApplicationInsights
             Location = location;
             Name = name;
             Priority = priority;
+            SystemData = systemData;
             Tags = tags;
             TemplateData = templateData;
             Type = type;

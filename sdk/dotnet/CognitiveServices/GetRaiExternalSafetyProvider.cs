@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// Gets the specified external safety provider associated with the Subscription
         /// 
         /// Uses Azure REST API version 2025-10-01-preview.
+        /// 
+        /// Other available API versions: 2025-12-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-05-01, 2026-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetRaiExternalSafetyProviderResult> InvokeAsync(GetRaiExternalSafetyProviderArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRaiExternalSafetyProviderResult>("azure-native:cognitiveservices:getRaiExternalSafetyProvider", args ?? new GetRaiExternalSafetyProviderArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// Gets the specified external safety provider associated with the Subscription
         /// 
         /// Uses Azure REST API version 2025-10-01-preview.
+        /// 
+        /// Other available API versions: 2025-12-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-05-01, 2026-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetRaiExternalSafetyProviderResult> Invoke(GetRaiExternalSafetyProviderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRaiExternalSafetyProviderResult>("azure-native:cognitiveservices:getRaiExternalSafetyProvider", args ?? new GetRaiExternalSafetyProviderInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// Gets the specified external safety provider associated with the Subscription
         /// 
         /// Uses Azure REST API version 2025-10-01-preview.
+        /// 
+        /// Other available API versions: 2025-12-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-05-01, 2026-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetRaiExternalSafetyProviderResult> Invoke(GetRaiExternalSafetyProviderInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRaiExternalSafetyProviderResult>("azure-native:cognitiveservices:getRaiExternalSafetyProvider", args ?? new GetRaiExternalSafetyProviderInvokeArgs(), options.WithDefaults());
@@ -96,7 +102,7 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// Resource tags.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -116,7 +122,7 @@ namespace Pulumi.AzureNative.CognitiveServices
 
             Outputs.SystemDataResponse systemData,
 
-            ImmutableDictionary<string, string>? tags,
+            ImmutableDictionary<string, string> tags,
 
             string type)
         {

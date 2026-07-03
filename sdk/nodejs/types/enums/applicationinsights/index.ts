@@ -3,7 +3,13 @@
 
 
 export const ApplicationType = {
+    /**
+     * web
+     */
     Web: "web",
+    /**
+     * other
+     */
     Other: "other",
 } as const;
 
@@ -13,7 +19,13 @@ export const ApplicationType = {
 export type ApplicationType = (typeof ApplicationType)[keyof typeof ApplicationType];
 
 export const FavoriteType = {
+    /**
+     * shared
+     */
     Shared: "shared",
+    /**
+     * user
+     */
     User: "user",
 } as const;
 
@@ -23,6 +35,9 @@ export const FavoriteType = {
 export type FavoriteType = (typeof FavoriteType)[keyof typeof FavoriteType];
 
 export const FlowType = {
+    /**
+     * Bluefield
+     */
     Bluefield: "Bluefield",
 } as const;
 
@@ -32,8 +47,17 @@ export const FlowType = {
 export type FlowType = (typeof FlowType)[keyof typeof FlowType];
 
 export const IngestionMode = {
+    /**
+     * ApplicationInsights
+     */
     ApplicationInsights: "ApplicationInsights",
+    /**
+     * ApplicationInsightsWithDiagnosticSettings
+     */
     ApplicationInsightsWithDiagnosticSettings: "ApplicationInsightsWithDiagnosticSettings",
+    /**
+     * LogAnalytics
+     */
     LogAnalytics: "LogAnalytics",
 } as const;
 
@@ -43,7 +67,13 @@ export const IngestionMode = {
 export type IngestionMode = (typeof IngestionMode)[keyof typeof IngestionMode];
 
 export const ItemScope = {
+    /**
+     * shared
+     */
     Shared: "shared",
+    /**
+     * user
+     */
     User: "user",
 } as const;
 
@@ -53,9 +83,21 @@ export const ItemScope = {
 export type ItemScope = (typeof ItemScope)[keyof typeof ItemScope];
 
 export const ItemType = {
+    /**
+     * none
+     */
     None: "none",
+    /**
+     * query
+     */
     Query: "query",
+    /**
+     * recent
+     */
     Recent: "recent",
+    /**
+     * function
+     */
     Function: "function",
 } as const;
 
@@ -103,6 +145,9 @@ export const PublicNetworkAccessType = {
 export type PublicNetworkAccessType = (typeof PublicNetworkAccessType)[keyof typeof PublicNetworkAccessType];
 
 export const RequestSource = {
+    /**
+     * rest
+     */
     Rest: "rest",
 } as const;
 
@@ -112,8 +157,17 @@ export const RequestSource = {
 export type RequestSource = (typeof RequestSource)[keyof typeof RequestSource];
 
 export const WebTestKind = {
+    /**
+     * ping
+     */
     Ping: "ping",
+    /**
+     * multistep
+     */
     Multistep: "multistep",
+    /**
+     * standard
+     */
     Standard: "standard",
 } as const;
 
@@ -123,6 +177,9 @@ export const WebTestKind = {
 export type WebTestKind = (typeof WebTestKind)[keyof typeof WebTestKind];
 
 export const WorkbookSharedTypeKind = {
+    /**
+     * shared
+     */
     Shared: "shared",
 } as const;
 

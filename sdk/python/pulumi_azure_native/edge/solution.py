@@ -106,7 +106,7 @@ class Solution(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-06-01.
 
-        Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2025-08-01, 2025-08-15-preview, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -127,7 +127,7 @@ class Solution(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-06-01.
 
-        Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2025-08-01, 2025-08-15-preview, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -172,7 +172,7 @@ class Solution(pulumi.CustomResource):
             __props__.__dict__["properties"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:edge/v20250601:Solution"), pulumi.Alias(type_="azure-native:edge/v20250801:Solution")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:edge/v20250601:Solution"), pulumi.Alias(type_="azure-native:edge/v20250801:Solution"), pulumi.Alias(type_="azure-native:edge/v20250815preview:Solution"), pulumi.Alias(type_="azure-native:edge/v20260301:Solution")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Solution, __self__).__init__(
             'azure-native:edge:Solution',

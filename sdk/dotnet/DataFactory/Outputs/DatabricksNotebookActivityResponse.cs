@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// Base parameters to be used for each run of this job.If the notebook takes a parameter that is not specified, the default value from the notebook will be used.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? BaseParameters;
+        public readonly object? BaseParameters;
         /// <summary>
         /// Activity depends on condition.
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// A list of libraries to be installed on the cluster that will execute the job.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Libraries;
+        public readonly ImmutableArray<object> Libraries;
         /// <summary>
         /// Linked service reference.
         /// </summary>
@@ -68,13 +68,13 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
         [OutputConstructor]
         private DatabricksNotebookActivityResponse(
-            ImmutableDictionary<string, object>? baseParameters,
+            object? baseParameters,
 
             ImmutableArray<Outputs.ActivityDependencyResponse> dependsOn,
 
             string? description,
 
-            ImmutableArray<ImmutableDictionary<string, object>> libraries,
+            ImmutableArray<object> libraries,
 
             Outputs.LinkedServiceReferenceResponse? linkedServiceName,
 

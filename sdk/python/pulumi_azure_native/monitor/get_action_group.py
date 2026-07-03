@@ -27,7 +27,7 @@ class GetActionGroupResult:
     """
     An action group resource.
     """
-    def __init__(__self__, arm_role_receivers=None, automation_runbook_receivers=None, azure_api_version=None, azure_app_push_receivers=None, azure_function_receivers=None, email_receivers=None, enabled=None, event_hub_receivers=None, group_short_name=None, id=None, identity=None, incident_receivers=None, itsm_receivers=None, location=None, logic_app_receivers=None, name=None, sms_receivers=None, tags=None, type=None, voice_receivers=None, webhook_receivers=None):
+    def __init__(__self__, arm_role_receivers=None, automation_runbook_receivers=None, azure_api_version=None, azure_app_push_receivers=None, azure_function_receivers=None, email_receivers=None, enabled=None, event_hub_receivers=None, group_short_name=None, id=None, identity=None, incident_receivers=None, itsm_receivers=None, location=None, logic_app_receivers=None, name=None, sms_receivers=None, system_data=None, tags=None, type=None, voice_receivers=None, webhook_receivers=None):
         if arm_role_receivers and not isinstance(arm_role_receivers, list):
             raise TypeError("Expected argument 'arm_role_receivers' to be a list")
         pulumi.set(__self__, "arm_role_receivers", arm_role_receivers)
@@ -79,6 +79,9 @@ class GetActionGroupResult:
         if sms_receivers and not isinstance(sms_receivers, list):
             raise TypeError("Expected argument 'sms_receivers' to be a list")
         pulumi.set(__self__, "sms_receivers", sms_receivers)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -168,7 +171,7 @@ class GetActionGroupResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Azure resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -176,7 +179,7 @@ class GetActionGroupResult:
     @pulumi.getter
     def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
         """
-        Managed service identity (system assigned and/or user assigned identities)
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
@@ -200,7 +203,7 @@ class GetActionGroupResult:
     @pulumi.getter
     def location(self) -> _builtins.str:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -216,7 +219,7 @@ class GetActionGroupResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -229,10 +232,18 @@ class GetActionGroupResult:
         return pulumi.get(self, "sms_receivers")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -240,7 +251,7 @@ class GetActionGroupResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -284,6 +295,7 @@ class AwaitableGetActionGroupResult(GetActionGroupResult):
             logic_app_receivers=self.logic_app_receivers,
             name=self.name,
             sms_receivers=self.sms_receivers,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             voice_receivers=self.voice_receivers,
@@ -328,6 +340,7 @@ def get_action_group(action_group_name: Optional[_builtins.str] = None,
         logic_app_receivers=pulumi.get(__ret__, 'logic_app_receivers'),
         name=pulumi.get(__ret__, 'name'),
         sms_receivers=pulumi.get(__ret__, 'sms_receivers'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         voice_receivers=pulumi.get(__ret__, 'voice_receivers'),
@@ -369,6 +382,7 @@ def get_action_group_output(action_group_name: Optional[pulumi.Input[_builtins.s
         logic_app_receivers=pulumi.get(__response__, 'logic_app_receivers'),
         name=pulumi.get(__response__, 'name'),
         sms_receivers=pulumi.get(__response__, 'sms_receivers'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),
         voice_receivers=pulumi.get(__response__, 'voice_receivers'),

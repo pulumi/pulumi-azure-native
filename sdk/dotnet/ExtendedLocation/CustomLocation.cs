@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.ExtendedLocation
         /// This is optional input that contains the authentication that should be used to generate the namespace.
         /// </summary>
         [Output("authentication")]
-        public Output<Outputs.CustomLocationPropertiesResponseAuthentication?> Authentication { get; private set; } = null!;
+        public Output<Outputs.CustomLocationPropertiesAuthenticationResponse?> Authentication { get; private set; } = null!;
 
         /// <summary>
         /// The Azure API version of the resource.
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNative.ExtendedLocation
         public Output<string?> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;

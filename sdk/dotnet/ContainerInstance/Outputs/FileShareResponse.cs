@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.ContainerInstance.Outputs
     public sealed class FileShareResponse
     {
         public readonly string? Name;
-        public readonly Outputs.FileShareResponseProperties? Properties;
+        public readonly Outputs.FileSharePropertiesResponse? Properties;
         public readonly string? ResourceGroupName;
         public readonly string? StorageAccountName;
 
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ContainerInstance.Outputs
         private FileShareResponse(
             string? name,
 
-            Outputs.FileShareResponseProperties? properties,
+            Outputs.FileSharePropertiesResponse? properties,
 
             string? resourceGroupName,
 

@@ -27,7 +27,7 @@ class GetStandardAssignmentResult:
     """
     Security Assignment on a resource group over a given scope
     """
-    def __init__(__self__, assigned_standard=None, attestation_data=None, azure_api_version=None, description=None, display_name=None, effect=None, excluded_scopes=None, exemption_data=None, expires_on=None, id=None, metadata=None, name=None, type=None):
+    def __init__(__self__, assigned_standard=None, attestation_data=None, azure_api_version=None, description=None, display_name=None, effect=None, excluded_scopes=None, exemption_data=None, expires_on=None, id=None, metadata=None, name=None, system_data=None, type=None):
         if assigned_standard and not isinstance(assigned_standard, dict):
             raise TypeError("Expected argument 'assigned_standard' to be a dict")
         pulumi.set(__self__, "assigned_standard", assigned_standard)
@@ -64,13 +64,16 @@ class GetStandardAssignmentResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter(name="assignedStandard")
-    def assigned_standard(self) -> Optional['outputs.AssignedStandardItemResponse']:
+    def assigned_standard(self) -> Optional['outputs.CommonAssignedStandardItemResponse']:
         """
         Standard item with key as applied to this standard assignment over the given scope
         """
@@ -78,7 +81,7 @@ class GetStandardAssignmentResult:
 
     @_builtins.property
     @pulumi.getter(name="attestationData")
-    def attestation_data(self) -> Optional['outputs.StandardAssignmentPropertiesResponseAttestationData']:
+    def attestation_data(self) -> Optional['outputs.StandardAssignmentPropertiesAttestationDataResponse']:
         """
         Additional data about assignment that has Attest effect
         """
@@ -126,7 +129,7 @@ class GetStandardAssignmentResult:
 
     @_builtins.property
     @pulumi.getter(name="exemptionData")
-    def exemption_data(self) -> Optional['outputs.StandardAssignmentPropertiesResponseExemptionData']:
+    def exemption_data(self) -> Optional['outputs.StandardAssignmentPropertiesExemptionDataResponse']:
         """
         Additional data about assignment that has Exempt effect
         """
@@ -144,7 +147,7 @@ class GetStandardAssignmentResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -160,15 +163,23 @@ class GetStandardAssignmentResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -191,6 +202,7 @@ class AwaitableGetStandardAssignmentResult(GetStandardAssignmentResult):
             id=self.id,
             metadata=self.metadata,
             name=self.name,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -203,7 +215,7 @@ def get_standard_assignment(resource_id: Optional[_builtins.str] = None,
     Uses Azure REST API version 2024-08-01.
 
 
-    :param _builtins.str resource_id: The identifier of the resource.
+    :param _builtins.str resource_id: The fully qualified Azure Resource manager identifier of the resource.
     :param _builtins.str standard_assignment_name: The standard assignments assignment key - unique key for the standard assignment
     """
     __args__ = dict()
@@ -225,6 +237,7 @@ def get_standard_assignment(resource_id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         metadata=pulumi.get(__ret__, 'metadata'),
         name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_standard_assignment_output(resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                                    standard_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -235,7 +248,7 @@ def get_standard_assignment_output(resource_id: Optional[pulumi.Input[_builtins.
     Uses Azure REST API version 2024-08-01.
 
 
-    :param _builtins.str resource_id: The identifier of the resource.
+    :param _builtins.str resource_id: The fully qualified Azure Resource manager identifier of the resource.
     :param _builtins.str standard_assignment_name: The standard assignments assignment key - unique key for the standard assignment
     """
     __args__ = dict()
@@ -256,4 +269,5 @@ def get_standard_assignment_output(resource_id: Optional[pulumi.Input[_builtins.
         id=pulumi.get(__response__, 'id'),
         metadata=pulumi.get(__response__, 'metadata'),
         name=pulumi.get(__response__, 'name'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

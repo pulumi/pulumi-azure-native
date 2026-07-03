@@ -140,6 +140,8 @@ namespace Pulumi.AzureNative.CosmosDB
                     new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20250501preview:DatabaseAccountGremlinDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20251015:DatabaseAccountGremlinDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20251101preview:DatabaseAccountGremlinDatabase" },
+                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20260315:DatabaseAccountGremlinDatabase" },
+                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20260401preview:DatabaseAccountGremlinDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315preview:GremlinResourceGremlinDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230415:GremlinResourceGremlinDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230915:GremlinResourceGremlinDatabase" },

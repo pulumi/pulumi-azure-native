@@ -89,7 +89,7 @@ class RetentionPolicy(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-04-01-preview.
 
-        Other available API versions: 2025-11-01, 2026-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native durabletask [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2025-11-01, 2026-02-01, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native durabletask [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -109,7 +109,7 @@ class RetentionPolicy(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-04-01-preview.
 
-        Other available API versions: 2025-11-01, 2026-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native durabletask [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2025-11-01, 2026-02-01, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native durabletask [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -150,7 +150,7 @@ class RetentionPolicy(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:durabletask/v20250401preview:RetentionPolicy"), pulumi.Alias(type_="azure-native:durabletask/v20251101:RetentionPolicy"), pulumi.Alias(type_="azure-native:durabletask/v20260201:RetentionPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:durabletask/v20250401preview:RetentionPolicy"), pulumi.Alias(type_="azure-native:durabletask/v20251101:RetentionPolicy"), pulumi.Alias(type_="azure-native:durabletask/v20260201:RetentionPolicy"), pulumi.Alias(type_="azure-native:durabletask/v20260501preview:RetentionPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RetentionPolicy, __self__).__init__(
             'azure-native:durabletask:RetentionPolicy',

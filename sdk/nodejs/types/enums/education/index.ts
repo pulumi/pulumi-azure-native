@@ -3,7 +3,13 @@
 
 
 export const StudentRole = {
+    /**
+     * Student
+     */
     Student: "Student",
+    /**
+     * Admin
+     */
     Admin: "Admin",
 } as const;
 

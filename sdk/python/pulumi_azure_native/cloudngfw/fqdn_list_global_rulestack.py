@@ -121,7 +121,7 @@ class FqdnListGlobalRulestack(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-05-23. In version 2.x of the Azure Native provider, it used API version 2023-09-01.
 
-        Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview, 2025-07-07-preview, 2025-10-08, 2026-01-26-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview, 2025-07-07-preview, 2025-10-08, 2026-01-26-preview, 2026-05-11-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -143,7 +143,7 @@ class FqdnListGlobalRulestack(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-05-23. In version 2.x of the Azure Native provider, it used API version 2023-09-01.
 
-        Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview, 2025-07-07-preview, 2025-10-08, 2026-01-26-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview, 2025-07-07-preview, 2025-10-08, 2026-01-26-preview, 2026-05-11-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -189,7 +189,7 @@ class FqdnListGlobalRulestack(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cloudngfw/v20220829:FqdnListGlobalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20220829preview:FqdnListGlobalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20230901:FqdnListGlobalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20230901preview:FqdnListGlobalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20231010preview:FqdnListGlobalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20240119preview:FqdnListGlobalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20240207preview:FqdnListGlobalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20250206preview:FqdnListGlobalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20250523:FqdnListGlobalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20250707preview:FqdnListGlobalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20251008:FqdnListGlobalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20260126preview:FqdnListGlobalRulestack")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cloudngfw/v20220829:FqdnListGlobalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20220829preview:FqdnListGlobalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20230901:FqdnListGlobalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20230901preview:FqdnListGlobalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20231010preview:FqdnListGlobalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20240119preview:FqdnListGlobalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20240207preview:FqdnListGlobalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20250206preview:FqdnListGlobalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20250523:FqdnListGlobalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20250707preview:FqdnListGlobalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20251008:FqdnListGlobalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20260126preview:FqdnListGlobalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20260511preview:FqdnListGlobalRulestack")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FqdnListGlobalRulestack, __self__).__init__(
             'azure-native:cloudngfw:FqdnListGlobalRulestack',

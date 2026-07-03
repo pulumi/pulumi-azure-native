@@ -39,7 +39,7 @@ class ScheduleArgs:
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
         :param pulumi.Input[Union[_builtins.str, 'ScheduleFrequency']] frequency: Gets or sets the frequency of the schedule.
         :param pulumi.Input[_builtins.str] name: Gets or sets the name of the Schedule.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] start_time: Gets or sets the start time of the schedule.
         :param pulumi.Input['AdvancedScheduleArgs'] advanced_schedule: Gets or sets the AdvancedSchedule.
         :param pulumi.Input[_builtins.str] description: Gets or sets the description of the schedule.
@@ -106,7 +106,7 @@ class ScheduleArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of an Azure Resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -234,7 +234,7 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[Union[_builtins.str, 'ScheduleFrequency']] frequency: Gets or sets the frequency of the schedule.
         :param Any interval: Gets or sets the interval of the schedule.
         :param pulumi.Input[_builtins.str] name: Gets or sets the name of the Schedule.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] schedule_name: The schedule name.
         :param pulumi.Input[_builtins.str] start_time: Gets or sets the start time of the schedule.
         :param pulumi.Input[_builtins.str] time_zone: Gets or sets the time zone of the schedule.

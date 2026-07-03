@@ -98,6 +98,8 @@ __all__ = [
     'InboundNATRulePropertiesArgsDict',
     'InboundNATRuleArgs',
     'InboundNATRuleArgsDict',
+    'InboundRulePropertiesArgs',
+    'InboundRulePropertiesArgsDict',
     'InfrastructureNetworkArgs',
     'InfrastructureNetworkArgsDict',
     'IntentsArgs',
@@ -3673,6 +3675,115 @@ class InboundNATRuleArgs:
         pulumi.set(self, "properties", value)
 
 
+class InboundRulePropertiesArgsDict(TypedDict):
+    """
+    Inbound rule properties - extends InboundNATRuleProperties with additional status tracking
+    """
+    backend_ip_configuration: pulumi.Input['IPConfigurationArmReferenceArgsDict']
+    """
+    IP configuration for the target backend.
+    """
+    backend_port: pulumi.Input[_builtins.int]
+    """
+    backend Port for the inbound rule
+    """
+    frontend_port: pulumi.Input[_builtins.int]
+    """
+    Frontend Port for the inbound rule
+    """
+    protocol: pulumi.Input[Union[_builtins.str, 'InboundNATRuleProtocol']]
+    """
+    Protocol for the NAT rule
+    """
+    public_ip_address: pulumi.Input['PublicIPAddressArmReferenceArgsDict']
+    """
+    Public IP Address for this NAT rule
+    """
+
+@pulumi.input_type
+class InboundRulePropertiesArgs:
+    def __init__(__self__, *,
+                 backend_ip_configuration: pulumi.Input['IPConfigurationArmReferenceArgs'],
+                 backend_port: pulumi.Input[_builtins.int],
+                 frontend_port: pulumi.Input[_builtins.int],
+                 protocol: pulumi.Input[Union[_builtins.str, 'InboundNATRuleProtocol']],
+                 public_ip_address: pulumi.Input['PublicIPAddressArmReferenceArgs']):
+        """
+        Inbound rule properties - extends InboundNATRuleProperties with additional status tracking
+
+        :param pulumi.Input['IPConfigurationArmReferenceArgs'] backend_ip_configuration: IP configuration for the target backend.
+        :param pulumi.Input[_builtins.int] backend_port: backend Port for the inbound rule
+        :param pulumi.Input[_builtins.int] frontend_port: Frontend Port for the inbound rule
+        :param pulumi.Input[Union[_builtins.str, 'InboundNATRuleProtocol']] protocol: Protocol for the NAT rule
+        :param pulumi.Input['PublicIPAddressArmReferenceArgs'] public_ip_address: Public IP Address for this NAT rule
+        """
+        pulumi.set(__self__, "backend_ip_configuration", backend_ip_configuration)
+        pulumi.set(__self__, "backend_port", backend_port)
+        pulumi.set(__self__, "frontend_port", frontend_port)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "public_ip_address", public_ip_address)
+
+    @_builtins.property
+    @pulumi.getter(name="backendIPConfiguration")
+    def backend_ip_configuration(self) -> pulumi.Input['IPConfigurationArmReferenceArgs']:
+        """
+        IP configuration for the target backend.
+        """
+        return pulumi.get(self, "backend_ip_configuration")
+
+    @backend_ip_configuration.setter
+    def backend_ip_configuration(self, value: pulumi.Input['IPConfigurationArmReferenceArgs']):
+        pulumi.set(self, "backend_ip_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="backendPort")
+    def backend_port(self) -> pulumi.Input[_builtins.int]:
+        """
+        backend Port for the inbound rule
+        """
+        return pulumi.get(self, "backend_port")
+
+    @backend_port.setter
+    def backend_port(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "backend_port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="frontendPort")
+    def frontend_port(self) -> pulumi.Input[_builtins.int]:
+        """
+        Frontend Port for the inbound rule
+        """
+        return pulumi.get(self, "frontend_port")
+
+    @frontend_port.setter
+    def frontend_port(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "frontend_port", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def protocol(self) -> pulumi.Input[Union[_builtins.str, 'InboundNATRuleProtocol']]:
+        """
+        Protocol for the NAT rule
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: pulumi.Input[Union[_builtins.str, 'InboundNATRuleProtocol']]):
+        pulumi.set(self, "protocol", value)
+
+    @_builtins.property
+    @pulumi.getter(name="publicIPAddress")
+    def public_ip_address(self) -> pulumi.Input['PublicIPAddressArmReferenceArgs']:
+        """
+        Public IP Address for this NAT rule
+        """
+        return pulumi.get(self, "public_ip_address")
+
+    @public_ip_address.setter
+    def public_ip_address(self, value: pulumi.Input['PublicIPAddressArmReferenceArgs']):
+        pulumi.set(self, "public_ip_address", value)
+
+
 class InfrastructureNetworkArgsDict(TypedDict):
     """
     The InfrastructureNetwork of a AzureStackHCI Cluster.
@@ -4809,7 +4920,7 @@ class NatGatewayPropertiesArgsDict(TypedDict):
     """
     inbound_nat_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['InboundNATRuleArgsDict']]]]
     """
-    List of inbound NAT rules. InboundNATRules can only be set after the NAT Gateway has been associated with a vnet
+    List of inbound NAT rules. InboundNATRules can only be set after the NAT Gateway has been associated with a vnet. Removed in 2026-04-01-preview; use InboundRule Child resource instead.
     """
     public_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['PublicIPAddressArmReferenceArgsDict']]]]
     """
@@ -4824,7 +4935,7 @@ class NatGatewayPropertiesArgs:
         """
         Nat Gateway resource properties
 
-        :param pulumi.Input[Sequence[pulumi.Input['InboundNATRuleArgs']]] inbound_nat_rules: List of inbound NAT rules. InboundNATRules can only be set after the NAT Gateway has been associated with a vnet
+        :param pulumi.Input[Sequence[pulumi.Input['InboundNATRuleArgs']]] inbound_nat_rules: List of inbound NAT rules. InboundNATRules can only be set after the NAT Gateway has been associated with a vnet. Removed in 2026-04-01-preview; use InboundRule Child resource instead.
         :param pulumi.Input[Sequence[pulumi.Input['PublicIPAddressArmReferenceArgs']]] public_ip_addresses: List of public ip addresses that the gateway can use for NAT.
         """
         if inbound_nat_rules is not None:
@@ -4836,7 +4947,7 @@ class NatGatewayPropertiesArgs:
     @pulumi.getter(name="inboundNATRules")
     def inbound_nat_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InboundNATRuleArgs']]]]:
         """
-        List of inbound NAT rules. InboundNATRules can only be set after the NAT Gateway has been associated with a vnet
+        List of inbound NAT rules. InboundNATRules can only be set after the NAT Gateway has been associated with a vnet. Removed in 2026-04-01-preview; use InboundRule Child resource instead.
         """
         return pulumi.get(self, "inbound_nat_rules")
 

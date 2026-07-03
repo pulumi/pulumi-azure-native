@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// Parameters for U-SQL job request.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Parameters;
+        public readonly object? Parameters;
         /// <summary>
         /// Activity policy.
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string? onInactiveMarkAs,
 
-            ImmutableDictionary<string, object>? parameters,
+            object? parameters,
 
             Outputs.ActivityPolicyResponse? policy,
 

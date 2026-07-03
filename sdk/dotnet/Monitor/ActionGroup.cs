@@ -74,7 +74,7 @@ namespace Pulumi.AzureNative.Monitor
         public Output<string> GroupShortName { get; private set; } = null!;
 
         /// <summary>
-        /// Managed service identity (system assigned and/or user assigned identities)
+        /// The managed service identities assigned to this resource.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.Monitor
         public Output<ImmutableArray<Outputs.ItsmReceiverResponse>> ItsmReceivers { get; private set; } = null!;
 
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.Monitor
         public Output<ImmutableArray<Outputs.LogicAppReceiverResponse>> LogicAppReceivers { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -116,13 +116,19 @@ namespace Pulumi.AzureNative.Monitor
         public Output<ImmutableArray<Outputs.SmsReceiverResponse>> SmsReceivers { get; private set; } = null!;
 
         /// <summary>
-        /// Resource tags
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -293,7 +299,7 @@ namespace Pulumi.AzureNative.Monitor
         public Input<string> GroupShortName { get; set; } = null!;
 
         /// <summary>
-        /// Managed service identity (system assigned and/or user assigned identities)
+        /// The managed service identities assigned to this resource.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
@@ -323,7 +329,7 @@ namespace Pulumi.AzureNative.Monitor
         }
 
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -362,7 +368,7 @@ namespace Pulumi.AzureNative.Monitor
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {

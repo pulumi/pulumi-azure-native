@@ -170,6 +170,8 @@ namespace Pulumi.AzureNative.CosmosDB
                     new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20250501preview:DatabaseAccountSqlContainer" },
                     new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20251015:DatabaseAccountSqlContainer" },
                     new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20251101preview:DatabaseAccountSqlContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20260315:DatabaseAccountSqlContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20260401preview:DatabaseAccountSqlContainer" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315preview:SqlResourceSqlContainer" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230415:SqlResourceSqlContainer" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230915:SqlResourceSqlContainer" },

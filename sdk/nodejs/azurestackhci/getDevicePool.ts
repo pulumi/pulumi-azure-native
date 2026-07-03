@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Get a DevicePool
  *
  * Uses Azure REST API version 2026-03-01-preview.
+ *
+ * Other available API versions: 2026-04-01-preview, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDevicePool(args: GetDevicePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetDevicePoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -76,6 +78,8 @@ export interface GetDevicePoolResult {
  * Get a DevicePool
  *
  * Uses Azure REST API version 2026-03-01-preview.
+ *
+ * Other available API versions: 2026-04-01-preview, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDevicePoolOutput(args: GetDevicePoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDevicePoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

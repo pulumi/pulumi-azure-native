@@ -20,7 +20,13 @@ namespace Pulumi.AzureNative.Education
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Student
+        /// </summary>
         public static StudentRole Student { get; } = new StudentRole("Student");
+        /// <summary>
+        /// Admin
+        /// </summary>
         public static StudentRole Admin { get; } = new StudentRole("Admin");
 
         public static bool operator ==(StudentRole left, StudentRole right) => left.Equals(right);

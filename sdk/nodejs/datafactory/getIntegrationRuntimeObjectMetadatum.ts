@@ -36,7 +36,7 @@ export interface GetIntegrationRuntimeObjectMetadatumArgs {
      */
     metadataPath?: string;
     /**
-     * The resource group name.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -46,13 +46,13 @@ export interface GetIntegrationRuntimeObjectMetadatumArgs {
  */
 export interface GetIntegrationRuntimeObjectMetadatumResult {
     /**
-     * The link to the next page of results, if any remaining results exist.
+     * The link to the next page of items
      */
     readonly nextLink?: string;
     /**
-     * List of SSIS object metadata.
+     * The SsisObjectMetadata items on this page
      */
-    readonly value?: (outputs.datafactory.SsisEnvironmentResponse | outputs.datafactory.SsisFolderResponse | outputs.datafactory.SsisPackageResponse | outputs.datafactory.SsisProjectResponse)[];
+    readonly value: (outputs.datafactory.SsisEnvironmentResponse | outputs.datafactory.SsisFolderResponse | outputs.datafactory.SsisPackageResponse | outputs.datafactory.SsisProjectResponse)[];
 }
 /**
  * Get a SSIS integration runtime object metadata by specified path. The return is pageable metadata list.
@@ -83,7 +83,7 @@ export interface GetIntegrationRuntimeObjectMetadatumOutputArgs {
      */
     metadataPath?: pulumi.Input<string>;
     /**
-     * The resource group name.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

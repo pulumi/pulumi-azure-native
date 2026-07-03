@@ -17,4 +17,10 @@ class StudentRole(_builtins.str, Enum):
     Student Role
     """
     STUDENT = "Student"
+    """
+    Student
+    """
     ADMIN = "Admin"
+    """
+    Admin
+    """

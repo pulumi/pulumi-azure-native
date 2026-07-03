@@ -29,7 +29,7 @@ export interface GetSoftwareUpdateConfigurationByNameArgs {
      */
     automationAccountName: string;
     /**
-     * Name of an Azure Resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -57,9 +57,9 @@ export interface GetSoftwareUpdateConfigurationByNameResult {
     /**
      * Details of provisioning error
      */
-    readonly error?: outputs.automation.ErrorResponseResponse;
+    readonly error?: outputs.automation.AutomationErrorResponseResponse;
     /**
-     * Resource Id.
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -71,7 +71,7 @@ export interface GetSoftwareUpdateConfigurationByNameResult {
      */
     readonly lastModifiedTime: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -83,11 +83,15 @@ export interface GetSoftwareUpdateConfigurationByNameResult {
      */
     readonly scheduleInfo: outputs.automation.SUCSchedulePropertiesResponse;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.automation.SystemDataResponse;
+    /**
      * Tasks information for the Software update configuration.
      */
     readonly tasks?: outputs.automation.SoftwareUpdateConfigurationTasksResponse;
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -117,7 +121,7 @@ export interface GetSoftwareUpdateConfigurationByNameOutputArgs {
      */
     automationAccountName: pulumi.Input<string>;
     /**
-     * Name of an Azure Resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

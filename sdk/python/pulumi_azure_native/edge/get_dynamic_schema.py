@@ -131,7 +131,7 @@ def get_dynamic_schema(dynamic_schema_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2025-06-01.
 
-    Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2025-08-01, 2025-08-15-preview, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str dynamic_schema_name: The name of the DynamicSchema
@@ -162,7 +162,7 @@ def get_dynamic_schema_output(dynamic_schema_name: Optional[pulumi.Input[_builti
 
     Uses Azure REST API version 2025-06-01.
 
-    Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2025-08-01, 2025-08-15-preview, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str dynamic_schema_name: The name of the DynamicSchema

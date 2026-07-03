@@ -24,19 +24,19 @@ export function getStudent(args: GetStudentArgs, opts?: pulumi.InvokeOptions): P
 
 export interface GetStudentArgs {
     /**
-     * The ID that uniquely identifies a billing account.
+     * The name of the billing account.
      */
     billingAccountName: string;
     /**
-     * The ID that uniquely identifies a billing profile.
+     * The name of the billing profile.
      */
     billingProfileName: string;
     /**
-     * The ID that uniquely identifies an invoice section.
+     * The name of the invoice section.
      */
     invoiceSectionName: string;
     /**
-     * Student alias.
+     * The student alias.
      */
     studentAlias: string;
 }
@@ -127,19 +127,19 @@ export function getStudentOutput(args: GetStudentOutputArgs, opts?: pulumi.Invok
 
 export interface GetStudentOutputArgs {
     /**
-     * The ID that uniquely identifies a billing account.
+     * The name of the billing account.
      */
     billingAccountName: pulumi.Input<string>;
     /**
-     * The ID that uniquely identifies a billing profile.
+     * The name of the billing profile.
      */
     billingProfileName: pulumi.Input<string>;
     /**
-     * The ID that uniquely identifies an invoice section.
+     * The name of the invoice section.
      */
     invoiceSectionName: pulumi.Input<string>;
     /**
-     * Student alias.
+     * The student alias.
      */
     studentAlias: pulumi.Input<string>;
 }
