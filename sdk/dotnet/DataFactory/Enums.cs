@@ -3053,15 +3053,15 @@ namespace Pulumi.AzureNative.DataFactory
         /// <summary>
         /// Input
         /// </summary>
-        public static ScriptActivityParameterDirection Input { get; } = new ScriptActivityParameterDirection("Input");
+        public static ScriptActivityParameterDirection ValueInput { get; } = new ScriptActivityParameterDirection("Input");
         /// <summary>
         /// Output
         /// </summary>
-        public static ScriptActivityParameterDirection Output { get; } = new ScriptActivityParameterDirection("Output");
+        public static ScriptActivityParameterDirection ValueOutput { get; } = new ScriptActivityParameterDirection("Output");
         /// <summary>
         /// InputOutput
         /// </summary>
-        public static ScriptActivityParameterDirection InputOutput { get; } = new ScriptActivityParameterDirection("InputOutput");
+        public static ScriptActivityParameterDirection ValueInputOutput { get; } = new ScriptActivityParameterDirection("InputOutput");
 
         public static bool operator ==(ScriptActivityParameterDirection left, ScriptActivityParameterDirection right) => left.Equals(right);
         public static bool operator !=(ScriptActivityParameterDirection left, ScriptActivityParameterDirection right) => !left.Equals(right);

@@ -1498,15 +1498,15 @@ class ScriptActivityParameterDirection(_builtins.str, Enum):
     """
     The direction of the parameter.
     """
-    INPUT = "Input"
+    VALUE_INPUT = "Input"
     """
     Input
     """
-    OUTPUT = "Output"
+    VALUE_OUTPUT = "Output"
     """
     Output
     """
-    INPUT_OUTPUT = "InputOutput"
+    VALUE_INPUT_OUTPUT = "InputOutput"
     """
     InputOutput
     """

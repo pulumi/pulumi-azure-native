@@ -1461,15 +1461,15 @@ export const ScriptActivityParameterDirection = {
     /**
      * Input
      */
-    Input: "Input",
+    ValueInput: "Input",
     /**
      * Output
      */
-    Output: "Output",
+    ValueOutput: "Output",
     /**
      * InputOutput
      */
-    InputOutput: "InputOutput",
+    ValueInputOutput: "InputOutput",
 } as const;
 
 /**
