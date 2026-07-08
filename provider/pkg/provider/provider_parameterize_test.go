@@ -428,9 +428,11 @@ func TestUpdateMetadataRefs(t *testing.T) {
 }
 
 // Ensure that we can run `pulumi package add` with a local provider binary and get a new SDK.
+//
+// Deliberately not run in parallel: it does a real network-bound `yarn install` plus SDK codegen,
+// and running that alongside this package's other parallel, real-Azure e2e tests risks resource
+// exhaustion on CI runners (see the 52-minute "runner lost communication" failures on PR #4755).
 func TestParameterizePackageAdd(t *testing.T) {
-	t.Parallel()
-
 	pt := pulumitest.NewPulumiTest(t, filepath.Join("test-programs", "parameterize-storage"))
 	pulumiPackageAdd(t, pt, "../../../bin/pulumi-resource-azure-native", "storage", "v20240101")
 

@@ -1151,6 +1151,45 @@ func TestIsParameterized(t *testing.T) {
 	})
 }
 
+func TestParseLegacyConfigVariables(t *testing.T) {
+	t.Run("non-parameterized provider strips base package prefix", func(t *testing.T) {
+		variables := map[string]string{
+			"azure-native:config:subscriptionId": "11111111-1111-1111-1111-111111111111",
+			"azure-native:config:useMsi":         "true",
+		}
+		config := parseLegacyConfigVariables("azure-native", variables)
+		assert.Equal(t, "11111111-1111-1111-1111-111111111111", config["subscriptionId"])
+		assert.Equal(t, "true", config["useMsi"])
+	})
+
+	t.Run("parameterized provider strips its own package prefix", func(t *testing.T) {
+		// Regression test for https://github.com/pulumi/pulumi/pull/23363: since pulumi/pulumi
+		// v3.245.0, the legacy `variables` map is keyed using the resource's actual (possibly
+		// parameterized) package name, not the base "azure-native" plugin name.
+		name := generateNewPackageName("azure-native", "network", "v20230201")
+		variables := map[string]string{
+			name + ":config:subscriptionId": "11111111-1111-1111-1111-111111111111",
+			name + ":config:useMsi":         "true",
+		}
+		config := parseLegacyConfigVariables(name, variables)
+		assert.Equal(t, "11111111-1111-1111-1111-111111111111", config["subscriptionId"])
+		assert.Equal(t, "true", config["useMsi"])
+	})
+
+	t.Run("parameterized provider does not match base package prefix", func(t *testing.T) {
+		// Prior to the fix, the prefix was hardcoded to "azure-native:config:", which does not
+		// match a parameterized provider's variables and left keys un-stripped, silently
+		// dropping config such as subscriptionId.
+		name := generateNewPackageName("azure-native", "network", "v20230201")
+		variables := map[string]string{
+			name + ":config:subscriptionId": "11111111-1111-1111-1111-111111111111",
+		}
+		config := parseLegacyConfigVariables("azure-native", variables)
+		_, ok := config["subscriptionId"]
+		assert.False(t, ok, "subscriptionId should not resolve when using the wrong package prefix")
+	})
+}
+
 func TestGetApiVersion(t *testing.T) {
 	t.Run("no override", func(t *testing.T) {
 		res := &resources.AzureAPIResource{
