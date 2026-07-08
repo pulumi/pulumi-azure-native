@@ -162,6 +162,12 @@ __all__ = [
     'PropertyChangedConditionPropertiesArgsDict',
     'PropertyConditionPropertiesArgs',
     'PropertyConditionPropertiesArgsDict',
+    'RepositoryAccessArgs',
+    'RepositoryAccessArgsDict',
+    'RepositoryResourceInfoArgs',
+    'RepositoryResourceInfoArgsDict',
+    'RepositoryArgs',
+    'RepositoryArgsDict',
     'ResourceProviderRequiredPermissionsArgs',
     'ResourceProviderRequiredPermissionsArgsDict',
     'RestApiPollerRequestConfigArgs',
@@ -170,6 +176,8 @@ __all__ = [
     'RestApiPollerRequestPagingConfigArgsDict',
     'SecurityMLAnalyticsSettingsDataSourceArgs',
     'SecurityMLAnalyticsSettingsDataSourceArgsDict',
+    'ServicePrincipalArgs',
+    'ServicePrincipalArgsDict',
     'SessionAuthModelArgs',
     'SessionAuthModelArgsDict',
     'TIDataConnectorDataTypesIndicatorsArgs',
@@ -190,6 +198,8 @@ __all__ = [
     'UserInfoArgsDict',
     'WatchlistUserInfoArgs',
     'WatchlistUserInfoArgsDict',
+    'WebhookArgs',
+    'WebhookArgsDict',
 ]
 
 class AWSAuthModelArgsDict(TypedDict):
@@ -5711,6 +5721,245 @@ class PropertyConditionPropertiesArgs:
         pulumi.set(self, "condition_properties", value)
 
 
+class RepositoryAccessArgsDict(TypedDict):
+    """
+    Credentials to access repository.
+    """
+    kind: pulumi.Input[Union[_builtins.str, 'RepositoryAccessKind']]
+    """
+    The kind of repository access credentials
+    """
+    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    OAuth ClientId. Required when `kind` is `OAuth`
+    """
+    code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    OAuth Code. Required when `kind` is `OAuth`
+    """
+    installation_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Application installation ID. Required when `kind` is `App`. Supported by `GitHub` only.
+    """
+    state: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    OAuth State. Required when `kind` is `OAuth`
+    """
+    token: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Personal Access Token. Required when `kind` is `PAT`
+    """
+
+@pulumi.input_type
+class RepositoryAccessArgs:
+    def __init__(__self__, *,
+                 kind: pulumi.Input[Union[_builtins.str, 'RepositoryAccessKind']],
+                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 code: Optional[pulumi.Input[_builtins.str]] = None,
+                 installation_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 state: Optional[pulumi.Input[_builtins.str]] = None,
+                 token: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Credentials to access repository.
+
+        :param pulumi.Input[Union[_builtins.str, 'RepositoryAccessKind']] kind: The kind of repository access credentials
+        :param pulumi.Input[_builtins.str] client_id: OAuth ClientId. Required when `kind` is `OAuth`
+        :param pulumi.Input[_builtins.str] code: OAuth Code. Required when `kind` is `OAuth`
+        :param pulumi.Input[_builtins.str] installation_id: Application installation ID. Required when `kind` is `App`. Supported by `GitHub` only.
+        :param pulumi.Input[_builtins.str] state: OAuth State. Required when `kind` is `OAuth`
+        :param pulumi.Input[_builtins.str] token: Personal Access Token. Required when `kind` is `PAT`
+        """
+        pulumi.set(__self__, "kind", kind)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if installation_id is not None:
+            pulumi.set(__self__, "installation_id", installation_id)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if token is not None:
+            pulumi.set(__self__, "token", token)
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[Union[_builtins.str, 'RepositoryAccessKind']]:
+        """
+        The kind of repository access credentials
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[Union[_builtins.str, 'RepositoryAccessKind']]):
+        pulumi.set(self, "kind", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        OAuth ClientId. Required when `kind` is `OAuth`
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "client_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def code(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        OAuth Code. Required when `kind` is `OAuth`
+        """
+        return pulumi.get(self, "code")
+
+    @code.setter
+    def code(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "code", value)
+
+    @_builtins.property
+    @pulumi.getter(name="installationId")
+    def installation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Application installation ID. Required when `kind` is `App`. Supported by `GitHub` only.
+        """
+        return pulumi.get(self, "installation_id")
+
+    @installation_id.setter
+    def installation_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "installation_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        OAuth State. Required when `kind` is `OAuth`
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "state", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def token(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Personal Access Token. Required when `kind` is `PAT`
+        """
+        return pulumi.get(self, "token")
+
+    @token.setter
+    def token(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "token", value)
+
+
+class RepositoryResourceInfoArgsDict(TypedDict):
+    """
+    Resources created in user's repository for the source-control.
+    """
+    webhook: NotRequired[pulumi.Input['WebhookArgsDict']]
+    """
+    The webhook object created for the source-control.
+    """
+
+@pulumi.input_type
+class RepositoryResourceInfoArgs:
+    def __init__(__self__, *,
+                 webhook: Optional[pulumi.Input['WebhookArgs']] = None):
+        """
+        Resources created in user's repository for the source-control.
+
+        :param pulumi.Input['WebhookArgs'] webhook: The webhook object created for the source-control.
+        """
+        if webhook is not None:
+            pulumi.set(__self__, "webhook", webhook)
+
+    @_builtins.property
+    @pulumi.getter
+    def webhook(self) -> Optional[pulumi.Input['WebhookArgs']]:
+        """
+        The webhook object created for the source-control.
+        """
+        return pulumi.get(self, "webhook")
+
+    @webhook.setter
+    def webhook(self, value: Optional[pulumi.Input['WebhookArgs']]):
+        pulumi.set(self, "webhook", value)
+
+
+class RepositoryArgsDict(TypedDict):
+    """
+    metadata of a repository.
+    """
+    branch: pulumi.Input[_builtins.str]
+    """
+    Branch name of repository.
+    """
+    url: pulumi.Input[_builtins.str]
+    """
+    Url of repository.
+    """
+    display_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Display url of repository.
+    """
+
+@pulumi.input_type
+class RepositoryArgs:
+    def __init__(__self__, *,
+                 branch: pulumi.Input[_builtins.str],
+                 url: pulumi.Input[_builtins.str],
+                 display_url: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        metadata of a repository.
+
+        :param pulumi.Input[_builtins.str] branch: Branch name of repository.
+        :param pulumi.Input[_builtins.str] url: Url of repository.
+        :param pulumi.Input[_builtins.str] display_url: Display url of repository.
+        """
+        pulumi.set(__self__, "branch", branch)
+        pulumi.set(__self__, "url", url)
+        if display_url is not None:
+            pulumi.set(__self__, "display_url", display_url)
+
+    @_builtins.property
+    @pulumi.getter
+    def branch(self) -> pulumi.Input[_builtins.str]:
+        """
+        Branch name of repository.
+        """
+        return pulumi.get(self, "branch")
+
+    @branch.setter
+    def branch(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "branch", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[_builtins.str]:
+        """
+        Url of repository.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="displayUrl")
+    def display_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Display url of repository.
+        """
+        return pulumi.get(self, "display_url")
+
+    @display_url.setter
+    def display_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "display_url", value)
+
+
 class ResourceProviderRequiredPermissionsArgsDict(TypedDict):
     """
     Required permissions for the connector resource provider that define in ResourceProviders.
@@ -6265,6 +6514,40 @@ class SecurityMLAnalyticsSettingsDataSourceArgs:
     @data_types.setter
     def data_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "data_types", value)
+
+
+class ServicePrincipalArgsDict(TypedDict):
+    """
+    Service principal metadata.
+    """
+    credentials_expire_on: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Expiration time of service principal credentials.
+    """
+
+@pulumi.input_type
+class ServicePrincipalArgs:
+    def __init__(__self__, *,
+                 credentials_expire_on: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Service principal metadata.
+
+        :param pulumi.Input[_builtins.str] credentials_expire_on: Expiration time of service principal credentials.
+        """
+        if credentials_expire_on is not None:
+            pulumi.set(__self__, "credentials_expire_on", credentials_expire_on)
+
+    @_builtins.property
+    @pulumi.getter(name="credentialsExpireOn")
+    def credentials_expire_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Expiration time of service principal credentials.
+        """
+        return pulumi.get(self, "credentials_expire_on")
+
+    @credentials_expire_on.setter
+    def credentials_expire_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "credentials_expire_on", value)
 
 
 class SessionAuthModelArgsDict(TypedDict):
@@ -6943,5 +7226,39 @@ class WatchlistUserInfoArgs:
     @object_id.setter
     def object_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "object_id", value)
+
+
+class WebhookArgsDict(TypedDict):
+    """
+    Detail about the webhook object.
+    """
+    rotate_webhook_secret: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A flag to instruct the backend service to rotate webhook secret.
+    """
+
+@pulumi.input_type
+class WebhookArgs:
+    def __init__(__self__, *,
+                 rotate_webhook_secret: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        Detail about the webhook object.
+
+        :param pulumi.Input[_builtins.bool] rotate_webhook_secret: A flag to instruct the backend service to rotate webhook secret.
+        """
+        if rotate_webhook_secret is not None:
+            pulumi.set(__self__, "rotate_webhook_secret", rotate_webhook_secret)
+
+    @_builtins.property
+    @pulumi.getter(name="rotateWebhookSecret")
+    def rotate_webhook_secret(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        A flag to instruct the backend service to rotate webhook secret.
+        """
+        return pulumi.get(self, "rotate_webhook_secret")
+
+    @rotate_webhook_secret.setter
+    def rotate_webhook_secret(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "rotate_webhook_secret", value)
 
 

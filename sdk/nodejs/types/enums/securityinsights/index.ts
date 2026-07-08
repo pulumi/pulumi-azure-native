@@ -567,6 +567,20 @@ export const ConditionType = {
 
 export type ConditionType = (typeof ConditionType)[keyof typeof ConditionType];
 
+export const ContentType = {
+    AnalyticsRule: "AnalyticsRule",
+    AutomationRule: "AutomationRule",
+    HuntingQuery: "HuntingQuery",
+    Parser: "Parser",
+    Playbook: "Playbook",
+    Workbook: "Workbook",
+} as const;
+
+/**
+ * The content type of a source control path.
+ */
+export type ContentType = (typeof ContentType)[keyof typeof ContentType];
+
 export const CustomEntityQueryKind = {
     Activity: "Activity",
 } as const;
@@ -1159,6 +1173,16 @@ export const ProviderPermissionsScope = {
  * The scope on which the user should have permissions, in order to be able to create connections.
  */
 export type ProviderPermissionsScope = (typeof ProviderPermissionsScope)[keyof typeof ProviderPermissionsScope];
+
+export const RepoType = {
+    Github: "Github",
+    AzureDevOps: "AzureDevOps",
+} as const;
+
+/**
+ * The repository type of the source control
+ */
+export type RepoType = (typeof RepoType)[keyof typeof RepoType];
 
 export const RepositoryAccessKind = {
     OAuth: "OAuth",

@@ -12072,6 +12072,11 @@ SecurityInsights:
         SpecFilePath: specification/securityinsights/resource-manager/Microsoft.SecurityInsights/SecurityInsights/stable/2024-09-01/OnboardingStates.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/onboardingStates/{sentinelOnboardingStateName}
         RpNamespace: Microsoft.SecurityInsights
+    SourceControl:
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/securityinsights/resource-manager/Microsoft.SecurityInsights/SecurityInsights/stable/2025-09-01/SourceControls.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/sourcecontrols/{sourceControlId}
+        RpNamespace: Microsoft.SecurityInsights
     ThreatIntelligenceIndicator:
         ApiVersion: "2024-09-01"
         SpecFilePath: specification/securityinsights/resource-manager/Microsoft.SecurityInsights/SecurityInsights/stable/2024-09-01/ThreatIntelligence.json

@@ -217,6 +217,12 @@
     },
     {
       "ModuleName": "SecurityInsights",
+      "ResourceName": "SourceControl",
+      "Version": "2023-05-01-preview",
+      "IsPrevious": true
+    },
+    {
+      "ModuleName": "SecurityInsights",
       "ResourceName": "listSourceControlRepositories",
       "Version": "2023-06-01-preview",
       "IsPrevious": true

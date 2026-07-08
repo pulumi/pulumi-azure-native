@@ -231999,6 +231999,20 @@ export namespace securityinsights {
     }
 
     /**
+     * Resources created in Azure DevOps repository.
+     */
+    export interface AzureDevOpsResourceInfoResponse {
+        /**
+         * Id of the pipeline created for the source-control.
+         */
+        pipelineId?: string;
+        /**
+         * Id of the service-connection created for the source-control.
+         */
+        serviceConnectionId?: string;
+    }
+
+    /**
      * Model for API authentication with basic flow - user name + password.
      */
     export interface BasicAuthModelResponse {
@@ -232364,6 +232378,50 @@ export namespace securityinsights {
     }
 
     /**
+     * Information regarding a deployment.
+     */
+    export interface DeploymentInfoResponse {
+        /**
+         * Deployment information.
+         */
+        deployment?: outputs.securityinsights.DeploymentResponse;
+        /**
+         * Status while fetching the last deployment.
+         */
+        deploymentFetchStatus?: string;
+        /**
+         * Additional details about the deployment that can be shown to the user.
+         */
+        message?: string;
+    }
+
+    /**
+     * Description about a deployment.
+     */
+    export interface DeploymentResponse {
+        /**
+         * Deployment identifier.
+         */
+        deploymentId?: string;
+        /**
+         * Url to access repository action logs.
+         */
+        deploymentLogsUrl?: string;
+        /**
+         * The outcome of the deployment.
+         */
+        deploymentResult?: string;
+        /**
+         * Current status of the deployment.
+         */
+        deploymentState?: string;
+        /**
+         * The time when the deployment finished.
+         */
+        deploymentTime?: string;
+    }
+
+    /**
      * An individual contact associated with this domain
      */
     export interface EnrichmentDomainWhoisContactResponse {
@@ -232670,6 +232728,16 @@ export namespace securityinsights {
          * Expected value is 'GitHub'.
          */
         type: "GitHub";
+    }
+
+    /**
+     * Resources created in GitHub repository.
+     */
+    export interface GitHubResourceInfoResponse {
+        /**
+         * GitHub application installation id.
+         */
+        appInstallationId?: string;
     }
 
     /**
@@ -233392,6 +233460,20 @@ export namespace securityinsights {
     }
 
     /**
+     * Information regarding pull request for protected branches.
+     */
+    export interface PullRequestResponse {
+        /**
+         * State of the pull request
+         */
+        state: string;
+        /**
+         * URL of pull request
+         */
+        url: string;
+    }
+
+    /**
      * Represents a repository.
      */
     export interface RepoResponse {
@@ -233411,6 +233493,46 @@ export namespace securityinsights {
          * The url to access the repository.
          */
         url?: string;
+    }
+
+    /**
+     * Resources created in user's repository for the source-control.
+     */
+    export interface RepositoryResourceInfoResponse {
+        /**
+         * Resources created in Azure DevOps for this source-control.
+         */
+        azureDevOpsResourceInfo: outputs.securityinsights.AzureDevOpsResourceInfoResponse;
+        /**
+         * Resources created in GitHub for this source-control.
+         */
+        gitHubResourceInfo: outputs.securityinsights.GitHubResourceInfoResponse;
+        /**
+         * The webhook object created for the source-control.
+         */
+        webhook?: outputs.securityinsights.WebhookResponse;
+    }
+
+    /**
+     * metadata of a repository.
+     */
+    export interface RepositoryResponse {
+        /**
+         * Branch name of repository.
+         */
+        branch: string;
+        /**
+         * Url to access repository action logs.
+         */
+        deploymentLogsUrl: string;
+        /**
+         * Display url of repository.
+         */
+        displayUrl?: string;
+        /**
+         * Url of repository.
+         */
+        url: string;
     }
 
     /**
@@ -233591,6 +233713,28 @@ export namespace securityinsights {
          * The data types used by the security ml analytics settings
          */
         dataTypes?: string[];
+    }
+
+    /**
+     * Service principal metadata.
+     */
+    export interface ServicePrincipalResponse {
+        /**
+         * App id of service principal.
+         */
+        appId: string;
+        /**
+         * Expiration time of service principal credentials.
+         */
+        credentialsExpireOn?: string;
+        /**
+         * Id of service principal.
+         */
+        id: string;
+        /**
+         * Tenant id of service principal.
+         */
+        tenantId: string;
     }
 
     /**
@@ -233898,6 +234042,54 @@ export namespace securityinsights {
          * The object id of the user.
          */
         objectId?: string;
+    }
+
+    /**
+     * Detail about the webhook object.
+     */
+    export interface WebhookResponse {
+        /**
+         * A flag to instruct the backend service to rotate webhook secret.
+         */
+        rotateWebhookSecret?: boolean;
+        /**
+         * Unique identifier for the webhook.
+         */
+        webhookId: string;
+        /**
+         * Time when the webhook secret was updated.
+         */
+        webhookSecretUpdateTime: string;
+        /**
+         * URL that gets invoked by the webhook.
+         */
+        webhookUrl: string;
+    }
+
+    /**
+     * Workload Identity Federation metadata.
+     */
+    export interface WorkloadIdentityFederationResponse {
+        /**
+         * App id of Workload Identity Federation.
+         */
+        appId: string;
+        /**
+         * Id of Workload Identity Federation.
+         */
+        id: string;
+        /**
+         * Issuer of Workload Identity Federation.
+         */
+        issuer: string;
+        /**
+         * Subject of Workload Identity Federation.
+         */
+        subject: string;
+        /**
+         * Tenant id of Workload Identity Federation.
+         */
+        tenantId: string;
     }
 
 }

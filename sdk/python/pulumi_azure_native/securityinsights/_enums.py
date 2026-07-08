@@ -24,6 +24,7 @@ __all__ = [
     'AutomationRulePropertyConditionSupportedProperty',
     'CcpAuthType',
     'ConditionType',
+    'ContentType',
     'CustomEntityQueryKind',
     'DataConnectorDefinitionKind',
     'DataConnectorKind',
@@ -52,6 +53,7 @@ __all__ = [
     'OwnerType',
     'PackageKind',
     'ProviderPermissionsScope',
+    'RepoType',
     'RepositoryAccessKind',
     'RestApiPollerRequestPagingKind',
     'SecurityMLAnalyticsSettingsKind',
@@ -617,6 +619,19 @@ class ConditionType(_builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:securityinsights:ContentType")
+class ContentType(_builtins.str, Enum):
+    """
+    The content type of a source control path.
+    """
+    ANALYTICS_RULE = "AnalyticsRule"
+    AUTOMATION_RULE = "AutomationRule"
+    HUNTING_QUERY = "HuntingQuery"
+    PARSER = "Parser"
+    PLAYBOOK = "Playbook"
+    WORKBOOK = "Workbook"
+
+
 @pulumi.type_token("azure-native:securityinsights:CustomEntityQueryKind")
 class CustomEntityQueryKind(_builtins.str, Enum):
     """
@@ -1180,6 +1195,15 @@ class ProviderPermissionsScope(_builtins.str, Enum):
     SUBSCRIPTION = "Subscription"
     RESOURCE_GROUP = "ResourceGroup"
     WORKSPACE = "Workspace"
+
+
+@pulumi.type_token("azure-native:securityinsights:RepoType")
+class RepoType(_builtins.str, Enum):
+    """
+    The repository type of the source control
+    """
+    GITHUB = "Github"
+    AZURE_DEV_OPS = "AzureDevOps"
 
 
 @pulumi.type_token("azure-native:securityinsights:RepositoryAccessKind")

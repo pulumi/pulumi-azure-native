@@ -62,6 +62,7 @@ from .get_premium_microsoft_defender_for_threat_intelligence import *
 from .get_rest_api_poller_data_connector import *
 from .get_scheduled_alert_rule import *
 from .get_sentinel_onboarding_state import *
+from .get_source_control import *
 from .get_threat_intelligence_indicator import *
 from .get_ti_data_connector import *
 from .get_ueba import *
@@ -91,6 +92,7 @@ from .premium_microsoft_defender_for_threat_intelligence import *
 from .rest_api_poller_data_connector import *
 from .scheduled_alert_rule import *
 from .sentinel_onboarding_state import *
+from .source_control import *
 from .threat_intelligence_indicator import *
 from .ti_data_connector import *
 from .ueba import *

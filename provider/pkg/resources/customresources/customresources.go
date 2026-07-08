@@ -265,6 +265,7 @@ func BuildCustomResources(
 		pimRoleEligibilitySchedule,
 		customRoleAssignment,
 		customTagAtScope,
+		securityInsightsSourceControl(azureClient),
 	}
 
 	resources = append(resources, keyVaultSecret(cloud, tokenCred))

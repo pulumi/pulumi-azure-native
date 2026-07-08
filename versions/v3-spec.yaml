@@ -1703,6 +1703,7 @@ SecurityInsights:
         HuntComment: 2025-01-01-preview
         HuntRelation: 2025-01-01-preview
         ProductSetting: 2025-01-01-preview
+        SourceControl: "2025-09-01"
         WorkspaceManagerAssignment: 2025-01-01-preview
         WorkspaceManagerConfiguration: 2025-01-01-preview
         WorkspaceManagerGroup: 2025-01-01-preview

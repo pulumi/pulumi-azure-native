@@ -30383,6 +30383,11 @@
       "2025-07-01-preview",
       "2025-09-01"
     ],
+    "SourceControl": [
+      "2025-06-01",
+      "2025-07-01-preview",
+      "2025-09-01"
+    ],
     "ThreatIntelligenceIndicator": [
       "2019-01-01-preview",
       "2021-04-01",

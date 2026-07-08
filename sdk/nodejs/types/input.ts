@@ -170070,6 +170070,64 @@ export namespace securityinsights {
     }
 
     /**
+     * metadata of a repository.
+     */
+    export interface RepositoryArgs {
+        /**
+         * Branch name of repository.
+         */
+        branch: pulumi.Input<string>;
+        /**
+         * Display url of repository.
+         */
+        displayUrl?: pulumi.Input<string>;
+        /**
+         * Url of repository.
+         */
+        url: pulumi.Input<string>;
+    }
+
+    /**
+     * Credentials to access repository.
+     */
+    export interface RepositoryAccessArgs {
+        /**
+         * OAuth ClientId. Required when `kind` is `OAuth`
+         */
+        clientId?: pulumi.Input<string>;
+        /**
+         * OAuth Code. Required when `kind` is `OAuth`
+         */
+        code?: pulumi.Input<string>;
+        /**
+         * Application installation ID. Required when `kind` is `App`. Supported by `GitHub` only.
+         */
+        installationId?: pulumi.Input<string>;
+        /**
+         * The kind of repository access credentials
+         */
+        kind: pulumi.Input<string | enums.securityinsights.RepositoryAccessKind>;
+        /**
+         * OAuth State. Required when `kind` is `OAuth`
+         */
+        state?: pulumi.Input<string>;
+        /**
+         * Personal Access Token. Required when `kind` is `PAT`
+         */
+        token?: pulumi.Input<string>;
+    }
+
+    /**
+     * Resources created in user's repository for the source-control.
+     */
+    export interface RepositoryResourceInfoArgs {
+        /**
+         * The webhook object created for the source-control.
+         */
+        webhook?: pulumi.Input<inputs.securityinsights.WebhookArgs>;
+    }
+
+    /**
      * Required permissions for the connector resource provider that define in ResourceProviders.
      * For more information about the permissions see <see href="https://docs.microsoft.com/en-us/azure/role-based-access-control/role-definitions#actions-format">here</see>.
      */
@@ -170192,6 +170250,16 @@ export namespace securityinsights {
          * The data types used by the security ml analytics settings
          */
         dataTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * Service principal metadata.
+     */
+    export interface ServicePrincipalArgs {
+        /**
+         * Expiration time of service principal credentials.
+         */
+        credentialsExpireOn?: pulumi.Input<string>;
     }
 
     /**
@@ -170361,6 +170429,16 @@ export namespace securityinsights {
          * The object id of the user.
          */
         objectId?: pulumi.Input<string>;
+    }
+
+    /**
+     * Detail about the webhook object.
+     */
+    export interface WebhookArgs {
+        /**
+         * A flag to instruct the backend service to rotate webhook secret.
+         */
+        rotateWebhookSecret?: pulumi.Input<boolean>;
     }
 
 }

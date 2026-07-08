@@ -4243,6 +4243,7 @@ _utilities.register(
    "azure-native:securityinsights:RestApiPollerDataConnector": "RestApiPollerDataConnector",
    "azure-native:securityinsights:ScheduledAlertRule": "ScheduledAlertRule",
    "azure-native:securityinsights:SentinelOnboardingState": "SentinelOnboardingState",
+   "azure-native:securityinsights:SourceControl": "SourceControl",
    "azure-native:securityinsights:TIDataConnector": "TIDataConnector",
    "azure-native:securityinsights:ThreatIntelligenceIndicator": "ThreatIntelligenceIndicator",
    "azure-native:securityinsights:Ueba": "Ueba",
