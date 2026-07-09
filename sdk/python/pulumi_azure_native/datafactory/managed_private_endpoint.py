@@ -32,7 +32,7 @@ class ManagedPrivateEndpointInitArgs:
         :param pulumi.Input[_builtins.str] factory_name: The factory name.
         :param pulumi.Input[_builtins.str] managed_virtual_network_name: Managed virtual network name
         :param pulumi.Input['ManagedPrivateEndpointArgs'] properties: Managed private endpoint properties.
-        :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] managed_private_endpoint_name: Managed private endpoint name
         """
         pulumi.set(__self__, "factory_name", factory_name)
@@ -82,7 +82,7 @@ class ManagedPrivateEndpointInitArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The resource group name.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -127,7 +127,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] managed_private_endpoint_name: Managed private endpoint name
         :param pulumi.Input[_builtins.str] managed_virtual_network_name: Managed virtual network name
         :param pulumi.Input[Union['ManagedPrivateEndpointArgs', 'ManagedPrivateEndpointArgsDict']] properties: Managed private endpoint properties.
-        :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
     @overload
@@ -186,6 +186,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datafactory/v20180601:ManagedPrivateEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -215,6 +216,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         __props__.__dict__["etag"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return ManagedPrivateEndpoint(resource_name, opts=opts, __props__=__props__)
 
@@ -230,7 +232,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
     @pulumi.getter
     def etag(self) -> pulumi.Output[_builtins.str]:
         """
-        Etag identifies change in the resource.
+        "If etag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.")
         """
         return pulumi.get(self, "etag")
 
@@ -238,7 +240,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -251,10 +253,18 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         return pulumi.get(self, "properties")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        The resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

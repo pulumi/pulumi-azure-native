@@ -27,17 +27,11 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
             set => _arguments = value;
         }
 
-        [Input("defines")]
-        private InputMap<object>? _defines;
-
         /// <summary>
         /// Allows user to specify defines for Hive job request.
         /// </summary>
-        public InputMap<object> Defines
-        {
-            get => _defines ?? (_defines = new InputMap<object>());
-            set => _defines = value;
-        }
+        [Input("defines")]
+        public Input<object>? Defines { get; set; }
 
         [Input("dependsOn")]
         private InputList<Inputs.ActivityDependencyArgs>? _dependsOn;
@@ -142,17 +136,11 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
             set => _userProperties = value;
         }
 
-        [Input("variables")]
-        private InputMap<object>? _variables;
-
         /// <summary>
         /// User specified arguments under hivevar namespace.
         /// </summary>
-        public InputMap<object> Variables
-        {
-            get => _variables ?? (_variables = new InputMap<object>());
-            set => _variables = value;
-        }
+        [Input("variables")]
+        public Input<object>? Variables { get; set; }
 
         public HDInsightHiveActivityArgs()
         {

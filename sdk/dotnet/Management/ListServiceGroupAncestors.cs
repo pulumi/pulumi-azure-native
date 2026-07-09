@@ -70,11 +70,11 @@ namespace Pulumi.AzureNative.Management
     public sealed class ListServiceGroupAncestorsResult
     {
         /// <summary>
-        /// URL to query the next page of results for this request
+        /// The link to the next page of items
         /// </summary>
         public readonly string? NextLink;
         /// <summary>
-        /// Array of service groups based on the request criteria
+        /// The ServiceGroup items on this page
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceGroupResponse> Value;
 

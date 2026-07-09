@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.FrontDoor.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A priority assigned to this rule. 
+        /// A priority assigned to this rule.
         /// </summary>
         public readonly int Priority;
 

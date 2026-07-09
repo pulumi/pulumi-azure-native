@@ -40,19 +40,19 @@ namespace Pulumi.AzureNative.Security
     public sealed class GetGovernanceAssignmentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Assessment Key - A unique key for the assessment type
+        /// The assessment key of the governance assignment.
         /// </summary>
         [Input("assessmentName", required: true)]
         public string AssessmentName { get; set; } = null!;
 
         /// <summary>
-        /// The governance assignment key - the assessment key of the required governance assignment
+        /// The governance assignment key.
         /// </summary>
         [Input("assignmentKey", required: true)]
         public string AssignmentKey { get; set; } = null!;
 
         /// <summary>
-        /// The scope of the Governance assignments. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
+        /// The scope of the governance assignment.
         /// </summary>
         [Input("scope", required: true)]
         public string Scope { get; set; } = null!;
@@ -66,19 +66,19 @@ namespace Pulumi.AzureNative.Security
     public sealed class GetGovernanceAssignmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Assessment Key - A unique key for the assessment type
+        /// The assessment key of the governance assignment.
         /// </summary>
         [Input("assessmentName", required: true)]
         public Input<string> AssessmentName { get; set; } = null!;
 
         /// <summary>
-        /// The governance assignment key - the assessment key of the required governance assignment
+        /// The governance assignment key.
         /// </summary>
         [Input("assignmentKey", required: true)]
         public Input<string> AssignmentKey { get; set; } = null!;
 
         /// <summary>
-        /// The scope of the Governance assignments. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
+        /// The scope of the governance assignment.
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly Outputs.GovernanceEmailNotificationResponse? GovernanceEmailNotification;
         /// <summary>
-        /// Resource Id
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly bool? IsGracePeriod;
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -130,7 +130,11 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly Outputs.RemediationEtaResponse? RemediationEta;
         /// <summary>
-        /// Resource type
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -154,6 +158,8 @@ namespace Pulumi.AzureNative.Security
 
             Outputs.RemediationEtaResponse? remediationEta,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             AdditionalData = additionalData;
@@ -165,6 +171,7 @@ namespace Pulumi.AzureNative.Security
             Owner = owner;
             RemediationDueDate = remediationDueDate;
             RemediationEta = remediationEta;
+            SystemData = systemData;
             Type = type;
         }
     }

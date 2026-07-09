@@ -371,6 +371,8 @@ def get_session_host(host_pool_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2026-01-01-preview.
 
+    Other available API versions: 2026-03-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param _builtins.str host_pool_name: The name of the host pool within the specified resource group
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -419,6 +421,8 @@ def get_session_host_output(host_pool_name: Optional[pulumi.Input[_builtins.str]
     Get a session host.
 
     Uses Azure REST API version 2026-01-01-preview.
+
+    Other available API versions: 2026-03-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str host_pool_name: The name of the host pool within the specified resource group

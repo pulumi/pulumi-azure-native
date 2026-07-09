@@ -30,10 +30,10 @@ __all__ = [
     'WebTestGeolocationArgsDict',
     'WebTestPropertiesConfigurationArgs',
     'WebTestPropertiesConfigurationArgsDict',
-    'WebTestPropertiesContentValidationArgs',
-    'WebTestPropertiesContentValidationArgsDict',
     'WebTestPropertiesRequestArgs',
     'WebTestPropertiesRequestArgsDict',
+    'WebTestPropertiesValidationRulesContentValidationArgs',
+    'WebTestPropertiesValidationRulesContentValidationArgsDict',
     'WebTestPropertiesValidationRulesArgs',
     'WebTestPropertiesValidationRulesArgsDict',
     'WorkbookResourceIdentityArgs',
@@ -502,80 +502,6 @@ class WebTestPropertiesConfigurationArgs:
         pulumi.set(self, "web_test", value)
 
 
-class WebTestPropertiesContentValidationArgsDict(TypedDict):
-    """
-    The collection of content validation properties
-    """
-    content_match: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Content to look for in the return of the WebTest.  Must not be null or empty.
-    """
-    ignore_case: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    When set, this value makes the ContentMatch validation case insensitive.
-    """
-    pass_if_text_found: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    When true, validation will pass if there is a match for the ContentMatch string.  If false, validation will fail if there is a match
-    """
-
-@pulumi.input_type
-class WebTestPropertiesContentValidationArgs:
-    def __init__(__self__, *,
-                 content_match: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_case: Optional[pulumi.Input[_builtins.bool]] = None,
-                 pass_if_text_found: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        The collection of content validation properties
-
-        :param pulumi.Input[_builtins.str] content_match: Content to look for in the return of the WebTest.  Must not be null or empty.
-        :param pulumi.Input[_builtins.bool] ignore_case: When set, this value makes the ContentMatch validation case insensitive.
-        :param pulumi.Input[_builtins.bool] pass_if_text_found: When true, validation will pass if there is a match for the ContentMatch string.  If false, validation will fail if there is a match
-        """
-        if content_match is not None:
-            pulumi.set(__self__, "content_match", content_match)
-        if ignore_case is not None:
-            pulumi.set(__self__, "ignore_case", ignore_case)
-        if pass_if_text_found is not None:
-            pulumi.set(__self__, "pass_if_text_found", pass_if_text_found)
-
-    @_builtins.property
-    @pulumi.getter(name="contentMatch")
-    def content_match(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Content to look for in the return of the WebTest.  Must not be null or empty.
-        """
-        return pulumi.get(self, "content_match")
-
-    @content_match.setter
-    def content_match(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "content_match", value)
-
-    @_builtins.property
-    @pulumi.getter(name="ignoreCase")
-    def ignore_case(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        When set, this value makes the ContentMatch validation case insensitive.
-        """
-        return pulumi.get(self, "ignore_case")
-
-    @ignore_case.setter
-    def ignore_case(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "ignore_case", value)
-
-    @_builtins.property
-    @pulumi.getter(name="passIfTextFound")
-    def pass_if_text_found(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        When true, validation will pass if there is a match for the ContentMatch string.  If false, validation will fail if there is a match
-        """
-        return pulumi.get(self, "pass_if_text_found")
-
-    @pass_if_text_found.setter
-    def pass_if_text_found(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "pass_if_text_found", value)
-
-
 class WebTestPropertiesRequestArgsDict(TypedDict):
     """
     The collection of request properties
@@ -710,11 +636,85 @@ class WebTestPropertiesRequestArgs:
         pulumi.set(self, "request_url", value)
 
 
+class WebTestPropertiesValidationRulesContentValidationArgsDict(TypedDict):
+    """
+    The collection of content validation properties
+    """
+    content_match: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Content to look for in the return of the WebTest.  Must not be null or empty.
+    """
+    ignore_case: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When set, this value makes the ContentMatch validation case insensitive.
+    """
+    pass_if_text_found: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When true, validation will pass if there is a match for the ContentMatch string.  If false, validation will fail if there is a match
+    """
+
+@pulumi.input_type
+class WebTestPropertiesValidationRulesContentValidationArgs:
+    def __init__(__self__, *,
+                 content_match: Optional[pulumi.Input[_builtins.str]] = None,
+                 ignore_case: Optional[pulumi.Input[_builtins.bool]] = None,
+                 pass_if_text_found: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        The collection of content validation properties
+
+        :param pulumi.Input[_builtins.str] content_match: Content to look for in the return of the WebTest.  Must not be null or empty.
+        :param pulumi.Input[_builtins.bool] ignore_case: When set, this value makes the ContentMatch validation case insensitive.
+        :param pulumi.Input[_builtins.bool] pass_if_text_found: When true, validation will pass if there is a match for the ContentMatch string.  If false, validation will fail if there is a match
+        """
+        if content_match is not None:
+            pulumi.set(__self__, "content_match", content_match)
+        if ignore_case is not None:
+            pulumi.set(__self__, "ignore_case", ignore_case)
+        if pass_if_text_found is not None:
+            pulumi.set(__self__, "pass_if_text_found", pass_if_text_found)
+
+    @_builtins.property
+    @pulumi.getter(name="contentMatch")
+    def content_match(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Content to look for in the return of the WebTest.  Must not be null or empty.
+        """
+        return pulumi.get(self, "content_match")
+
+    @content_match.setter
+    def content_match(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "content_match", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreCase")
+    def ignore_case(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        When set, this value makes the ContentMatch validation case insensitive.
+        """
+        return pulumi.get(self, "ignore_case")
+
+    @ignore_case.setter
+    def ignore_case(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "ignore_case", value)
+
+    @_builtins.property
+    @pulumi.getter(name="passIfTextFound")
+    def pass_if_text_found(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        When true, validation will pass if there is a match for the ContentMatch string.  If false, validation will fail if there is a match
+        """
+        return pulumi.get(self, "pass_if_text_found")
+
+    @pass_if_text_found.setter
+    def pass_if_text_found(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "pass_if_text_found", value)
+
+
 class WebTestPropertiesValidationRulesArgsDict(TypedDict):
     """
     The collection of validation rule properties
     """
-    content_validation: NotRequired[pulumi.Input['WebTestPropertiesContentValidationArgsDict']]
+    content_validation: NotRequired[pulumi.Input['WebTestPropertiesValidationRulesContentValidationArgsDict']]
     """
     The collection of content validation properties
     """
@@ -738,7 +738,7 @@ class WebTestPropertiesValidationRulesArgsDict(TypedDict):
 @pulumi.input_type
 class WebTestPropertiesValidationRulesArgs:
     def __init__(__self__, *,
-                 content_validation: Optional[pulumi.Input['WebTestPropertiesContentValidationArgs']] = None,
+                 content_validation: Optional[pulumi.Input['WebTestPropertiesValidationRulesContentValidationArgs']] = None,
                  expected_http_status_code: Optional[pulumi.Input[_builtins.int]] = None,
                  ignore_http_status_code: Optional[pulumi.Input[_builtins.bool]] = None,
                  s_sl_cert_remaining_lifetime_check: Optional[pulumi.Input[_builtins.int]] = None,
@@ -746,7 +746,7 @@ class WebTestPropertiesValidationRulesArgs:
         """
         The collection of validation rule properties
 
-        :param pulumi.Input['WebTestPropertiesContentValidationArgs'] content_validation: The collection of content validation properties
+        :param pulumi.Input['WebTestPropertiesValidationRulesContentValidationArgs'] content_validation: The collection of content validation properties
         :param pulumi.Input[_builtins.int] expected_http_status_code: Validate that the WebTest returns the http status code provided.
         :param pulumi.Input[_builtins.bool] ignore_http_status_code: When set, validation will ignore the status code.
         :param pulumi.Input[_builtins.int] s_sl_cert_remaining_lifetime_check: A number of days to check still remain before the the existing SSL cert expires.  Value must be positive and the SSLCheck must be set to true.
@@ -765,14 +765,14 @@ class WebTestPropertiesValidationRulesArgs:
 
     @_builtins.property
     @pulumi.getter(name="contentValidation")
-    def content_validation(self) -> Optional[pulumi.Input['WebTestPropertiesContentValidationArgs']]:
+    def content_validation(self) -> Optional[pulumi.Input['WebTestPropertiesValidationRulesContentValidationArgs']]:
         """
         The collection of content validation properties
         """
         return pulumi.get(self, "content_validation")
 
     @content_validation.setter
-    def content_validation(self, value: Optional[pulumi.Input['WebTestPropertiesContentValidationArgs']]):
+    def content_validation(self, value: Optional[pulumi.Input['WebTestPropertiesValidationRulesContentValidationArgs']]):
         pulumi.set(self, "content_validation", value)
 
     @_builtins.property

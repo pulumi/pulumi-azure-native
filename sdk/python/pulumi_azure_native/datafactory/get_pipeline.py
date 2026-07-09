@@ -27,7 +27,7 @@ class GetPipelineResult:
     """
     Pipeline resource type.
     """
-    def __init__(__self__, activities=None, annotations=None, azure_api_version=None, concurrency=None, description=None, etag=None, folder=None, id=None, name=None, parameters=None, policy=None, run_dimensions=None, type=None, variables=None):
+    def __init__(__self__, activities=None, annotations=None, azure_api_version=None, concurrency=None, description=None, etag=None, folder=None, id=None, name=None, parameters=None, policy=None, run_dimensions=None, system_data=None, type=None, variables=None):
         if activities and not isinstance(activities, list):
             raise TypeError("Expected argument 'activities' to be a list")
         pulumi.set(__self__, "activities", activities)
@@ -64,6 +64,9 @@ class GetPipelineResult:
         if run_dimensions and not isinstance(run_dimensions, dict):
             raise TypeError("Expected argument 'run_dimensions' to be a dict")
         pulumi.set(__self__, "run_dimensions", run_dimensions)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -115,13 +118,13 @@ class GetPipelineResult:
     @pulumi.getter
     def etag(self) -> _builtins.str:
         """
-        Etag identifies change in the resource.
+        "If etag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.")
         """
         return pulumi.get(self, "etag")
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.PipelineResponseFolder']:
+    def folder(self) -> Optional['outputs.PipelineFolderResponse']:
         """
         The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
         """
@@ -131,7 +134,7 @@ class GetPipelineResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The resource identifier.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -139,7 +142,7 @@ class GetPipelineResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -161,17 +164,25 @@ class GetPipelineResult:
 
     @_builtins.property
     @pulumi.getter(name="runDimensions")
-    def run_dimensions(self) -> Optional[Mapping[str, Any]]:
+    def run_dimensions(self) -> Optional[Any]:
         """
         Dimensions emitted by Pipeline.
         """
         return pulumi.get(self, "run_dimensions")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -202,6 +213,7 @@ class AwaitableGetPipelineResult(GetPipelineResult):
             parameters=self.parameters,
             policy=self.policy,
             run_dimensions=self.run_dimensions,
+            system_data=self.system_data,
             type=self.type,
             variables=self.variables)
 
@@ -218,7 +230,7 @@ def get_pipeline(factory_name: Optional[_builtins.str] = None,
 
     :param _builtins.str factory_name: The factory name.
     :param _builtins.str pipeline_name: The pipeline name.
-    :param _builtins.str resource_group_name: The resource group name.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['factoryName'] = factory_name
@@ -240,6 +252,7 @@ def get_pipeline(factory_name: Optional[_builtins.str] = None,
         parameters=pulumi.get(__ret__, 'parameters'),
         policy=pulumi.get(__ret__, 'policy'),
         run_dimensions=pulumi.get(__ret__, 'run_dimensions'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         variables=pulumi.get(__ret__, 'variables'))
 def get_pipeline_output(factory_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -254,7 +267,7 @@ def get_pipeline_output(factory_name: Optional[pulumi.Input[_builtins.str]] = No
 
     :param _builtins.str factory_name: The factory name.
     :param _builtins.str pipeline_name: The pipeline name.
-    :param _builtins.str resource_group_name: The resource group name.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['factoryName'] = factory_name
@@ -275,5 +288,6 @@ def get_pipeline_output(factory_name: Optional[pulumi.Input[_builtins.str]] = No
         parameters=pulumi.get(__response__, 'parameters'),
         policy=pulumi.get(__response__, 'policy'),
         run_dimensions=pulumi.get(__response__, 'run_dimensions'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type'),
         variables=pulumi.get(__response__, 'variables')))

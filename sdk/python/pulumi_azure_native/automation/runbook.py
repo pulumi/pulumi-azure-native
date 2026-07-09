@@ -40,7 +40,7 @@ class RunbookArgs:
         The set of arguments for constructing a Runbook resource.
 
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[_builtins.str, 'RunbookTypeEnum']] runbook_type: Gets or sets the type of the runbook.
         :param pulumi.Input[_builtins.str] description: Gets or sets the description of the runbook.
         :param pulumi.Input['RunbookDraftArgs'] draft: Gets or sets the draft runbook properties.
@@ -96,7 +96,7 @@ class RunbookArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of an Azure Resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -289,7 +289,7 @@ class Runbook(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] log_verbose: Gets or sets verbose log option.
         :param pulumi.Input[_builtins.str] name: Gets or sets the name of the resource.
         :param pulumi.Input[Union['ContentLinkArgs', 'ContentLinkArgsDict']] publish_content_link: Gets or sets the published runbook content link.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] runbook_name: The runbook name.
         :param pulumi.Input[Union[_builtins.str, 'RunbookTypeEnum']] runbook_type: Gets or sets the type of the runbook.
         :param pulumi.Input[_builtins.str] runtime_environment: Environment of the runbook.

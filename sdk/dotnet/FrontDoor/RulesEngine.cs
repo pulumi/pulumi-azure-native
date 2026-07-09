@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.FrontDoor
     /// <summary>
     /// A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
     /// 
-    /// Uses Azure REST API version 2021-06-01.
+    /// Uses Azure REST API version 2025-11-01.
     /// 
-    /// Other available API versions: 2020-01-01, 2020-04-01, 2020-05-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2020-01-01, 2020-04-01, 2020-05-01, 2021-06-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:frontdoor:RulesEngine")]
     public partial class RulesEngine : global::Pulumi.CustomResource
@@ -79,6 +79,7 @@ namespace Pulumi.AzureNative.FrontDoor
                     new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20200501:RulesEngine" },
                     new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20210601:RulesEngine" },
                     new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20251001:RulesEngine" },
+                    new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20251101:RulesEngine" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210601:RulesEngine" },
                     new global::Pulumi.Alias { Type = "azure-native:network:RulesEngine" },
                 },
@@ -111,7 +112,7 @@ namespace Pulumi.AzureNative.FrontDoor
         public Input<string> FrontDoorName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

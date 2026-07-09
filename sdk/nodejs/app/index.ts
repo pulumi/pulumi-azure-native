@@ -5,6 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AgentArgs } from "./agent";
+export type Agent = import("./agent").Agent;
+export const Agent: typeof import("./agent").Agent = null as any;
+utilities.lazyLoad(exports, ["Agent"], () => require("./agent"));
+
+export { AgentSpaceArgs } from "./agentSpace";
+export type AgentSpace = import("./agentSpace").AgentSpace;
+export const AgentSpace: typeof import("./agentSpace").AgentSpace = null as any;
+utilities.lazyLoad(exports, ["AgentSpace"], () => require("./agentSpace"));
+
+export { AgentSpacesConnectorArgs } from "./agentSpacesConnector";
+export type AgentSpacesConnector = import("./agentSpacesConnector").AgentSpacesConnector;
+export const AgentSpacesConnector: typeof import("./agentSpacesConnector").AgentSpacesConnector = null as any;
+utilities.lazyLoad(exports, ["AgentSpacesConnector"], () => require("./agentSpacesConnector"));
+
+export { AgentsConnectorArgs } from "./agentsConnector";
+export type AgentsConnector = import("./agentsConnector").AgentsConnector;
+export const AgentsConnector: typeof import("./agentsConnector").AgentsConnector = null as any;
+utilities.lazyLoad(exports, ["AgentsConnector"], () => require("./agentsConnector"));
+
 export { AppResiliencyArgs } from "./appResiliency";
 export type AppResiliency = import("./appResiliency").AppResiliency;
 export const AppResiliency: typeof import("./appResiliency").AppResiliency = null as any;
@@ -84,6 +104,26 @@ export { DotNetComponentArgs } from "./dotNetComponent";
 export type DotNetComponent = import("./dotNetComponent").DotNetComponent;
 export const DotNetComponent: typeof import("./dotNetComponent").DotNetComponent = null as any;
 utilities.lazyLoad(exports, ["DotNetComponent"], () => require("./dotNetComponent"));
+
+export { GetAgentArgs, GetAgentResult, GetAgentOutputArgs } from "./getAgent";
+export const getAgent: typeof import("./getAgent").getAgent = null as any;
+export const getAgentOutput: typeof import("./getAgent").getAgentOutput = null as any;
+utilities.lazyLoad(exports, ["getAgent","getAgentOutput"], () => require("./getAgent"));
+
+export { GetAgentSpaceArgs, GetAgentSpaceResult, GetAgentSpaceOutputArgs } from "./getAgentSpace";
+export const getAgentSpace: typeof import("./getAgentSpace").getAgentSpace = null as any;
+export const getAgentSpaceOutput: typeof import("./getAgentSpace").getAgentSpaceOutput = null as any;
+utilities.lazyLoad(exports, ["getAgentSpace","getAgentSpaceOutput"], () => require("./getAgentSpace"));
+
+export { GetAgentSpacesConnectorArgs, GetAgentSpacesConnectorResult, GetAgentSpacesConnectorOutputArgs } from "./getAgentSpacesConnector";
+export const getAgentSpacesConnector: typeof import("./getAgentSpacesConnector").getAgentSpacesConnector = null as any;
+export const getAgentSpacesConnectorOutput: typeof import("./getAgentSpacesConnector").getAgentSpacesConnectorOutput = null as any;
+utilities.lazyLoad(exports, ["getAgentSpacesConnector","getAgentSpacesConnectorOutput"], () => require("./getAgentSpacesConnector"));
+
+export { GetAgentsConnectorArgs, GetAgentsConnectorResult, GetAgentsConnectorOutputArgs } from "./getAgentsConnector";
+export const getAgentsConnector: typeof import("./getAgentsConnector").getAgentsConnector = null as any;
+export const getAgentsConnectorOutput: typeof import("./getAgentsConnector").getAgentsConnectorOutput = null as any;
+utilities.lazyLoad(exports, ["getAgentsConnector","getAgentsConnectorOutput"], () => require("./getAgentsConnector"));
 
 export { GetAppResiliencyArgs, GetAppResiliencyResult, GetAppResiliencyOutputArgs } from "./getAppResiliency";
 export const getAppResiliency: typeof import("./getAppResiliency").getAppResiliency = null as any;
@@ -240,6 +280,26 @@ export type Job = import("./job").Job;
 export const Job: typeof import("./job").Job = null as any;
 utilities.lazyLoad(exports, ["Job"], () => require("./job"));
 
+export { ListAgentSpacesConnectorAllSecretsArgs, ListAgentSpacesConnectorAllSecretsResult, ListAgentSpacesConnectorAllSecretsOutputArgs } from "./listAgentSpacesConnectorAllSecrets";
+export const listAgentSpacesConnectorAllSecrets: typeof import("./listAgentSpacesConnectorAllSecrets").listAgentSpacesConnectorAllSecrets = null as any;
+export const listAgentSpacesConnectorAllSecretsOutput: typeof import("./listAgentSpacesConnectorAllSecrets").listAgentSpacesConnectorAllSecretsOutput = null as any;
+utilities.lazyLoad(exports, ["listAgentSpacesConnectorAllSecrets","listAgentSpacesConnectorAllSecretsOutput"], () => require("./listAgentSpacesConnectorAllSecrets"));
+
+export { ListAgentSpacesConnectorSecretsArgs, ListAgentSpacesConnectorSecretsResult, ListAgentSpacesConnectorSecretsOutputArgs } from "./listAgentSpacesConnectorSecrets";
+export const listAgentSpacesConnectorSecrets: typeof import("./listAgentSpacesConnectorSecrets").listAgentSpacesConnectorSecrets = null as any;
+export const listAgentSpacesConnectorSecretsOutput: typeof import("./listAgentSpacesConnectorSecrets").listAgentSpacesConnectorSecretsOutput = null as any;
+utilities.lazyLoad(exports, ["listAgentSpacesConnectorSecrets","listAgentSpacesConnectorSecretsOutput"], () => require("./listAgentSpacesConnectorSecrets"));
+
+export { ListAgentsConnectorSecretsArgs, ListAgentsConnectorSecretsResult, ListAgentsConnectorSecretsOutputArgs } from "./listAgentsConnectorSecrets";
+export const listAgentsConnectorSecrets: typeof import("./listAgentsConnectorSecrets").listAgentsConnectorSecrets = null as any;
+export const listAgentsConnectorSecretsOutput: typeof import("./listAgentsConnectorSecrets").listAgentsConnectorSecretsOutput = null as any;
+utilities.lazyLoad(exports, ["listAgentsConnectorSecrets","listAgentsConnectorSecretsOutput"], () => require("./listAgentsConnectorSecrets"));
+
+export { ListAgentsConnectorWithSecretsByAgentArgs, ListAgentsConnectorWithSecretsByAgentResult, ListAgentsConnectorWithSecretsByAgentOutputArgs } from "./listAgentsConnectorWithSecretsByAgent";
+export const listAgentsConnectorWithSecretsByAgent: typeof import("./listAgentsConnectorWithSecretsByAgent").listAgentsConnectorWithSecretsByAgent = null as any;
+export const listAgentsConnectorWithSecretsByAgentOutput: typeof import("./listAgentsConnectorWithSecretsByAgent").listAgentsConnectorWithSecretsByAgentOutput = null as any;
+utilities.lazyLoad(exports, ["listAgentsConnectorWithSecretsByAgent","listAgentsConnectorWithSecretsByAgentOutput"], () => require("./listAgentsConnectorWithSecretsByAgent"));
+
 export { ListBuildAuthTokenArgs, ListBuildAuthTokenResult, ListBuildAuthTokenOutputArgs } from "./listBuildAuthToken";
 export const listBuildAuthToken: typeof import("./listBuildAuthToken").listBuildAuthToken = null as any;
 export const listBuildAuthTokenOutput: typeof import("./listBuildAuthToken").listBuildAuthTokenOutput = null as any;
@@ -313,6 +373,14 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:app:Agent":
+                return new Agent(name, <any>undefined, { urn })
+            case "azure-native:app:AgentSpace":
+                return new AgentSpace(name, <any>undefined, { urn })
+            case "azure-native:app:AgentSpacesConnector":
+                return new AgentSpacesConnector(name, <any>undefined, { urn })
+            case "azure-native:app:AgentsConnector":
+                return new AgentsConnector(name, <any>undefined, { urn })
             case "azure-native:app:AppResiliency":
                 return new AppResiliency(name, <any>undefined, { urn })
             case "azure-native:app:Build":

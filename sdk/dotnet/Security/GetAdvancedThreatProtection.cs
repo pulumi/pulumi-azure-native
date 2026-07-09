@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.Security
     public sealed class GetAdvancedThreatProtectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The identifier of the resource.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("resourceId", required: true)]
         public string ResourceId { get; set; } = null!;
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNative.Security
     public sealed class GetAdvancedThreatProtectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The identifier of the resource.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly string AzureApiVersion;
         /// <summary>
-        /// Resource Id
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -100,11 +100,15 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly bool? IsEnabled;
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Resource type
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -118,12 +122,15 @@ namespace Pulumi.AzureNative.Security
 
             string name,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             AzureApiVersion = azureApiVersion;
             Id = id;
             IsEnabled = isEnabled;
             Name = name;
+            SystemData = systemData;
             Type = type;
         }
     }

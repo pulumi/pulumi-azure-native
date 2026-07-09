@@ -42,7 +42,7 @@ export class Assignment extends pulumi.CustomResource {
     /**
      * Additional data about the assignment
      */
-    declare public readonly additionalData: pulumi.Output<outputs.security.AssignmentPropertiesResponseAdditionalData | undefined>;
+    declare public readonly additionalData: pulumi.Output<outputs.security.AssignmentPropertiesAdditionalDataResponse | undefined>;
     /**
      * Component item with key as applied to this standard assignment over the given scope
      */
@@ -50,7 +50,7 @@ export class Assignment extends pulumi.CustomResource {
     /**
      * Standard item with key as applied to this standard assignment over the given scope
      */
-    declare public readonly assignedStandard: pulumi.Output<outputs.security.AssignedStandardItemResponse | undefined>;
+    declare public readonly assignedStandard: pulumi.Output<outputs.security.CommonAssignedStandardItemResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
@@ -80,7 +80,7 @@ export class Assignment extends pulumi.CustomResource {
      */
     declare public readonly kind: pulumi.Output<string | undefined>;
     /**
-     * Location where the resource is stored
+     * The geo-location where the resource lives
      */
     declare public readonly location: pulumi.Output<string | undefined>;
     /**
@@ -88,7 +88,7 @@ export class Assignment extends pulumi.CustomResource {
      */
     declare public readonly metadata: pulumi.Output<any | undefined>;
     /**
-     * Resource name
+     * The name of the resource
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
@@ -100,11 +100,11 @@ export class Assignment extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly systemData: pulumi.Output<outputs.security.SystemDataResponse>;
     /**
-     * A list of key value pairs that describe the resource.
+     * Resource tags.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
 
@@ -182,7 +182,7 @@ export interface AssignmentArgs {
     /**
      * Standard item with key as applied to this standard assignment over the given scope
      */
-    assignedStandard?: pulumi.Input<inputs.security.AssignedStandardItemArgs>;
+    assignedStandard?: pulumi.Input<inputs.security.CommonAssignedStandardItemArgs>;
     /**
      * The security assignment key - unique key for the standard assignment
      */
@@ -208,7 +208,7 @@ export interface AssignmentArgs {
      */
     kind?: pulumi.Input<string>;
     /**
-     * Location where the resource is stored
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
@@ -216,7 +216,7 @@ export interface AssignmentArgs {
      */
     metadata?: any;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -224,7 +224,7 @@ export interface AssignmentArgs {
      */
     scope?: pulumi.Input<string>;
     /**
-     * A list of key value pairs that describe the resource.
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

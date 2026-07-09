@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.Security.Outputs
     public sealed class AutomationActionWorkspaceResponse
     {
         /// <summary>
-        /// The type of the action that will be triggered by the Automation
+        /// Enum. Indicates the action type.
         /// Expected value is 'Workspace'.
         /// </summary>
         public readonly string ActionType;

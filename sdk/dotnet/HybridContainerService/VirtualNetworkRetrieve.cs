@@ -10,11 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HybridContainerService
 {
     /// <summary>
-    /// The virtualNetworks resource definition.
+    /// The Virtual Network resource definition.
     /// 
-    /// Uses Azure REST API version 2022-09-01-preview.
+    /// Uses Azure REST API version 2024-01-01.
     /// 
-    /// Other available API versions: 2023-11-15-preview, 2024-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2023-11-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcontainerservice:VirtualNetworkRetrieve")]
     public partial class VirtualNetworkRetrieve : global::Pulumi.CustomResource
@@ -25,8 +25,11 @@ namespace Pulumi.AzureNative.HybridContainerService
         [Output("azureApiVersion")]
         public Output<string> AzureApiVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// Extended location pointing to the underlying infrastructure
+        /// </summary>
         [Output("extendedLocation")]
-        public Output<Outputs.VirtualNetworksResponseExtendedLocation?> ExtendedLocation { get; private set; } = null!;
+        public Output<Outputs.VirtualNetworkResponseExtendedLocation?> ExtendedLocation { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -41,13 +44,13 @@ namespace Pulumi.AzureNative.HybridContainerService
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// HybridAKSNetworkSpec defines the desired state of HybridAKSNetwork
+        /// Properties of the virtual network resource
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.VirtualNetworksPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.VirtualNetworkPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -89,11 +92,10 @@ namespace Pulumi.AzureNative.HybridContainerService
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220501preview:VirtualNetworkRetrieve" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220901preview:VirtualNetworkRetrieve" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20231115preview:VirtualNetworkRetrieve" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20240101:VirtualNetworkRetrieve" },
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20250201preview:VirtualNetworkRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20260401preview:VirtualNetworkRetrieve" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,8 +119,11 @@ namespace Pulumi.AzureNative.HybridContainerService
 
     public sealed class VirtualNetworkRetrieveArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Extended location pointing to the underlying infrastructure
+        /// </summary>
         [Input("extendedLocation")]
-        public Input<Inputs.VirtualNetworksExtendedLocationArgs>? ExtendedLocation { get; set; }
+        public Input<Inputs.VirtualNetworkExtendedLocationArgs>? ExtendedLocation { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -127,10 +132,10 @@ namespace Pulumi.AzureNative.HybridContainerService
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// HybridAKSNetworkSpec defines the desired state of HybridAKSNetwork
+        /// Properties of the virtual network resource
         /// </summary>
         [Input("properties")]
-        public Input<Inputs.VirtualNetworksPropertiesArgs>? Properties { get; set; }
+        public Input<Inputs.VirtualNetworkPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -153,8 +158,8 @@ namespace Pulumi.AzureNative.HybridContainerService
         /// <summary>
         /// Parameter for the name of the virtual network
         /// </summary>
-        [Input("virtualNetworksName")]
-        public Input<string>? VirtualNetworksName { get; set; }
+        [Input("virtualNetworkName")]
+        public Input<string>? VirtualNetworkName { get; set; }
 
         public VirtualNetworkRetrieveArgs()
         {

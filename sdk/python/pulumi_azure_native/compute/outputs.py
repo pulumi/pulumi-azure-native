@@ -41,17 +41,7 @@ __all__ = [
     'CapacityReservationInstanceViewWithNameResponse',
     'CapacityReservationProfileResponse',
     'CapacityReservationUtilizationResponse',
-    'CloudServiceExtensionProfileResponse',
-    'CloudServiceExtensionPropertiesResponse',
-    'CloudServiceNetworkProfileResponse',
-    'CloudServiceOsProfileResponse',
-    'CloudServicePropertiesResponse',
-    'CloudServiceRoleProfilePropertiesResponse',
-    'CloudServiceRoleProfileResponse',
-    'CloudServiceRoleSkuResponse',
-    'CloudServiceVaultAndSecretReferenceResponse',
-    'CloudServiceVaultCertificateResponse',
-    'CloudServiceVaultSecretGroupResponse',
+    'CommonUserAssignedIdentitiesValueResponse',
     'CommunityGalleryInfoResponse',
     'CopyCompletionErrorResponse',
     'CreationDataResponse',
@@ -85,7 +75,6 @@ __all__ = [
     'EventGridAndResourceGraphResponse',
     'ExecutedValidationResponse',
     'ExtendedLocationResponse',
-    'ExtensionResponse',
     'GalleryApplicationCustomActionParameterResponse',
     'GalleryApplicationCustomActionResponse',
     'GalleryApplicationVersionPublishingProfileResponse',
@@ -130,10 +119,6 @@ __all__ = [
     'LinuxConfigurationResponse',
     'LinuxPatchSettingsResponse',
     'LinuxVMGuestPatchAutomaticByPlatformSettingsResponse',
-    'LoadBalancerConfigurationPropertiesResponse',
-    'LoadBalancerConfigurationResponse',
-    'LoadBalancerFrontendIpConfigurationPropertiesResponse',
-    'LoadBalancerFrontendIpConfigurationResponse',
     'LogAnalyticsOutputResponse',
     'MaintenanceRedeployStatusResponse',
     'ManagedDiskParametersResponse',
@@ -204,7 +189,6 @@ __all__ = [
     'SubResourceWithColocationStatusResponse',
     'SupportedCapabilitiesResponse',
     'SystemDataResponse',
-    'SystemDataResponseV1',
     'TargetRegionResponse',
     'TerminateNotificationProfileResponse',
     'UefiKeyResponse',
@@ -214,7 +198,6 @@ __all__ = [
     'UserArtifactManageResponse',
     'UserArtifactSettingsResponse',
     'UserArtifactSourceResponse',
-    'UserAssignedIdentitiesValueResponse',
     'UserInitiatedRebootResponse',
     'UserInitiatedRedeployResponse',
     'VMDiskSecurityProfileResponse',
@@ -1707,754 +1690,51 @@ class CapacityReservationUtilizationResponse(dict):
 
 
 @pulumi.output_type
-class CloudServiceExtensionProfileResponse(dict):
-    """
-    Describes a cloud service extension profile.
-    """
-    def __init__(__self__, *,
-                 extensions: Optional[Sequence['outputs.ExtensionResponse']] = None):
-        """
-        Describes a cloud service extension profile.
-
-        :param Sequence['ExtensionResponse'] extensions: List of extensions for the cloud service.
-        """
-        if extensions is not None:
-            pulumi.set(__self__, "extensions", extensions)
-
-    @_builtins.property
-    @pulumi.getter
-    def extensions(self) -> Optional[Sequence['outputs.ExtensionResponse']]:
-        """
-        List of extensions for the cloud service.
-        """
-        return pulumi.get(self, "extensions")
-
-
-@pulumi.output_type
-class CloudServiceExtensionPropertiesResponse(dict):
-    """
-    Extension Properties.
-    """
+class CommonUserAssignedIdentitiesValueResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "provisioningState":
-            suggest = "provisioning_state"
-        elif key == "autoUpgradeMinorVersion":
-            suggest = "auto_upgrade_minor_version"
-        elif key == "forceUpdateTag":
-            suggest = "force_update_tag"
-        elif key == "protectedSettings":
-            suggest = "protected_settings"
-        elif key == "protectedSettingsFromKeyVault":
-            suggest = "protected_settings_from_key_vault"
-        elif key == "rolesAppliedTo":
-            suggest = "roles_applied_to"
-        elif key == "typeHandlerVersion":
-            suggest = "type_handler_version"
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CloudServiceExtensionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in CommonUserAssignedIdentitiesValueResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        CloudServiceExtensionPropertiesResponse.__key_warning(key)
+        CommonUserAssignedIdentitiesValueResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        CloudServiceExtensionPropertiesResponse.__key_warning(key)
+        CommonUserAssignedIdentitiesValueResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 provisioning_state: _builtins.str,
-                 auto_upgrade_minor_version: Optional[_builtins.bool] = None,
-                 force_update_tag: Optional[_builtins.str] = None,
-                 protected_settings: Optional[Any] = None,
-                 protected_settings_from_key_vault: Optional['outputs.CloudServiceVaultAndSecretReferenceResponse'] = None,
-                 publisher: Optional[_builtins.str] = None,
-                 roles_applied_to: Optional[Sequence[_builtins.str]] = None,
-                 settings: Optional[Any] = None,
-                 type: Optional[_builtins.str] = None,
-                 type_handler_version: Optional[_builtins.str] = None):
+                 client_id: _builtins.str,
+                 principal_id: _builtins.str):
         """
-        Extension Properties.
-
-        :param _builtins.str provisioning_state: The provisioning state, which only appears in the response.
-        :param _builtins.bool auto_upgrade_minor_version: Explicitly specify whether platform can automatically upgrade typeHandlerVersion to higher minor versions when they become available.
-        :param _builtins.str force_update_tag: Tag to force apply the provided public and protected settings.
-               Changing the tag value allows for re-running the extension without changing any of the public or protected settings.
-               If forceUpdateTag is not changed, updates to public or protected settings would still be applied by the handler.
-               If neither forceUpdateTag nor any of public or protected settings change, extension would flow to the role instance with the same sequence-number, and
-               it is up to handler implementation whether to re-run it or not
-        :param Any protected_settings: Protected settings for the extension which are encrypted before sent to the role instance.
-        :param 'CloudServiceVaultAndSecretReferenceResponse' protected_settings_from_key_vault: Protected settings for the extension, referenced using KeyVault which are encrypted before sent to the role instance.
-        :param _builtins.str publisher: The name of the extension handler publisher.
-        :param Sequence[_builtins.str] roles_applied_to: Optional list of roles to apply this extension. If property is not specified or '*' is specified, extension is applied to all roles in the cloud service.
-        :param Any settings: Public settings for the extension. For JSON extensions, this is the JSON settings for the extension. For XML Extension (like RDP), this is the XML setting for the extension.
-        :param _builtins.str type: Specifies the type of the extension.
-        :param _builtins.str type_handler_version: Specifies the version of the extension. Specifies the version of the extension. If this element is not specified or an asterisk (*) is used as the value, the latest version of the extension is used. If the value is specified with a major version number and an asterisk as the minor version number (X.), the latest minor version of the specified major version is selected. If a major version number and a minor version number are specified (X.Y), the specific extension version is selected. If a version is specified, an auto-upgrade is performed on the role instance.
+        :param _builtins.str client_id: The client id of user assigned identity.
+        :param _builtins.str principal_id: The principal id of user assigned identity.
         """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if auto_upgrade_minor_version is not None:
-            pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
-        if force_update_tag is not None:
-            pulumi.set(__self__, "force_update_tag", force_update_tag)
-        if protected_settings is not None:
-            pulumi.set(__self__, "protected_settings", protected_settings)
-        if protected_settings_from_key_vault is not None:
-            pulumi.set(__self__, "protected_settings_from_key_vault", protected_settings_from_key_vault)
-        if publisher is not None:
-            pulumi.set(__self__, "publisher", publisher)
-        if roles_applied_to is not None:
-            pulumi.set(__self__, "roles_applied_to", roles_applied_to)
-        if settings is not None:
-            pulumi.set(__self__, "settings", settings)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if type_handler_version is not None:
-            pulumi.set(__self__, "type_handler_version", type_handler_version)
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
 
     @_builtins.property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> _builtins.str:
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> _builtins.str:
         """
-        The provisioning state, which only appears in the response.
+        The client id of user assigned identity.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "client_id")
 
     @_builtins.property
-    @pulumi.getter(name="autoUpgradeMinorVersion")
-    def auto_upgrade_minor_version(self) -> Optional[_builtins.bool]:
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> _builtins.str:
         """
-        Explicitly specify whether platform can automatically upgrade typeHandlerVersion to higher minor versions when they become available.
+        The principal id of user assigned identity.
         """
-        return pulumi.get(self, "auto_upgrade_minor_version")
-
-    @_builtins.property
-    @pulumi.getter(name="forceUpdateTag")
-    def force_update_tag(self) -> Optional[_builtins.str]:
-        """
-        Tag to force apply the provided public and protected settings.
-        Changing the tag value allows for re-running the extension without changing any of the public or protected settings.
-        If forceUpdateTag is not changed, updates to public or protected settings would still be applied by the handler.
-        If neither forceUpdateTag nor any of public or protected settings change, extension would flow to the role instance with the same sequence-number, and
-        it is up to handler implementation whether to re-run it or not
-        """
-        return pulumi.get(self, "force_update_tag")
-
-    @_builtins.property
-    @pulumi.getter(name="protectedSettings")
-    def protected_settings(self) -> Optional[Any]:
-        """
-        Protected settings for the extension which are encrypted before sent to the role instance.
-        """
-        return pulumi.get(self, "protected_settings")
-
-    @_builtins.property
-    @pulumi.getter(name="protectedSettingsFromKeyVault")
-    def protected_settings_from_key_vault(self) -> Optional['outputs.CloudServiceVaultAndSecretReferenceResponse']:
-        """
-        Protected settings for the extension, referenced using KeyVault which are encrypted before sent to the role instance.
-        """
-        return pulumi.get(self, "protected_settings_from_key_vault")
-
-    @_builtins.property
-    @pulumi.getter
-    def publisher(self) -> Optional[_builtins.str]:
-        """
-        The name of the extension handler publisher.
-        """
-        return pulumi.get(self, "publisher")
-
-    @_builtins.property
-    @pulumi.getter(name="rolesAppliedTo")
-    def roles_applied_to(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Optional list of roles to apply this extension. If property is not specified or '*' is specified, extension is applied to all roles in the cloud service.
-        """
-        return pulumi.get(self, "roles_applied_to")
-
-    @_builtins.property
-    @pulumi.getter
-    def settings(self) -> Optional[Any]:
-        """
-        Public settings for the extension. For JSON extensions, this is the JSON settings for the extension. For XML Extension (like RDP), this is the XML setting for the extension.
-        """
-        return pulumi.get(self, "settings")
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> Optional[_builtins.str]:
-        """
-        Specifies the type of the extension.
-        """
-        return pulumi.get(self, "type")
-
-    @_builtins.property
-    @pulumi.getter(name="typeHandlerVersion")
-    def type_handler_version(self) -> Optional[_builtins.str]:
-        """
-        Specifies the version of the extension. Specifies the version of the extension. If this element is not specified or an asterisk (*) is used as the value, the latest version of the extension is used. If the value is specified with a major version number and an asterisk as the minor version number (X.), the latest minor version of the specified major version is selected. If a major version number and a minor version number are specified (X.Y), the specific extension version is selected. If a version is specified, an auto-upgrade is performed on the role instance.
-        """
-        return pulumi.get(self, "type_handler_version")
-
-
-@pulumi.output_type
-class CloudServiceNetworkProfileResponse(dict):
-    """
-    Network Profile for the cloud service.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "loadBalancerConfigurations":
-            suggest = "load_balancer_configurations"
-        elif key == "slotType":
-            suggest = "slot_type"
-        elif key == "swappableCloudService":
-            suggest = "swappable_cloud_service"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CloudServiceNetworkProfileResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CloudServiceNetworkProfileResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CloudServiceNetworkProfileResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 load_balancer_configurations: Optional[Sequence['outputs.LoadBalancerConfigurationResponse']] = None,
-                 slot_type: Optional[_builtins.str] = None,
-                 swappable_cloud_service: Optional['outputs.SubResourceResponse'] = None):
-        """
-        Network Profile for the cloud service.
-
-        :param Sequence['LoadBalancerConfigurationResponse'] load_balancer_configurations: List of Load balancer configurations. Cloud service can have up to two load balancer configurations, corresponding to a Public Load Balancer and an Internal Load Balancer.
-        :param _builtins.str slot_type: Slot type for the cloud service.
-               Possible values are <br /><br />**Production**<br /><br />**Staging**<br /><br />
-               If not specified, the default value is Production.
-        :param 'SubResourceResponse' swappable_cloud_service: The id reference of the cloud service containing the target IP with which the subject cloud service can perform a swap. This property cannot be updated once it is set. The swappable cloud service referred by this id must be present otherwise an error will be thrown.
-        """
-        if load_balancer_configurations is not None:
-            pulumi.set(__self__, "load_balancer_configurations", load_balancer_configurations)
-        if slot_type is not None:
-            pulumi.set(__self__, "slot_type", slot_type)
-        if swappable_cloud_service is not None:
-            pulumi.set(__self__, "swappable_cloud_service", swappable_cloud_service)
-
-    @_builtins.property
-    @pulumi.getter(name="loadBalancerConfigurations")
-    def load_balancer_configurations(self) -> Optional[Sequence['outputs.LoadBalancerConfigurationResponse']]:
-        """
-        List of Load balancer configurations. Cloud service can have up to two load balancer configurations, corresponding to a Public Load Balancer and an Internal Load Balancer.
-        """
-        return pulumi.get(self, "load_balancer_configurations")
-
-    @_builtins.property
-    @pulumi.getter(name="slotType")
-    def slot_type(self) -> Optional[_builtins.str]:
-        """
-        Slot type for the cloud service.
-        Possible values are <br /><br />**Production**<br /><br />**Staging**<br /><br />
-        If not specified, the default value is Production.
-        """
-        return pulumi.get(self, "slot_type")
-
-    @_builtins.property
-    @pulumi.getter(name="swappableCloudService")
-    def swappable_cloud_service(self) -> Optional['outputs.SubResourceResponse']:
-        """
-        The id reference of the cloud service containing the target IP with which the subject cloud service can perform a swap. This property cannot be updated once it is set. The swappable cloud service referred by this id must be present otherwise an error will be thrown.
-        """
-        return pulumi.get(self, "swappable_cloud_service")
-
-
-@pulumi.output_type
-class CloudServiceOsProfileResponse(dict):
-    """
-    Describes the OS profile for the cloud service.
-    """
-    def __init__(__self__, *,
-                 secrets: Optional[Sequence['outputs.CloudServiceVaultSecretGroupResponse']] = None):
-        """
-        Describes the OS profile for the cloud service.
-
-        :param Sequence['CloudServiceVaultSecretGroupResponse'] secrets: Specifies set of certificates that should be installed onto the role instances.
-        """
-        if secrets is not None:
-            pulumi.set(__self__, "secrets", secrets)
-
-    @_builtins.property
-    @pulumi.getter
-    def secrets(self) -> Optional[Sequence['outputs.CloudServiceVaultSecretGroupResponse']]:
-        """
-        Specifies set of certificates that should be installed onto the role instances.
-        """
-        return pulumi.get(self, "secrets")
-
-
-@pulumi.output_type
-class CloudServicePropertiesResponse(dict):
-    """
-    Cloud service properties
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "provisioningState":
-            suggest = "provisioning_state"
-        elif key == "uniqueId":
-            suggest = "unique_id"
-        elif key == "allowModelOverride":
-            suggest = "allow_model_override"
-        elif key == "configurationUrl":
-            suggest = "configuration_url"
-        elif key == "extensionProfile":
-            suggest = "extension_profile"
-        elif key == "networkProfile":
-            suggest = "network_profile"
-        elif key == "osProfile":
-            suggest = "os_profile"
-        elif key == "packageUrl":
-            suggest = "package_url"
-        elif key == "roleProfile":
-            suggest = "role_profile"
-        elif key == "startCloudService":
-            suggest = "start_cloud_service"
-        elif key == "upgradeMode":
-            suggest = "upgrade_mode"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CloudServicePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CloudServicePropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CloudServicePropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 provisioning_state: _builtins.str,
-                 unique_id: _builtins.str,
-                 allow_model_override: Optional[_builtins.bool] = None,
-                 configuration: Optional[_builtins.str] = None,
-                 configuration_url: Optional[_builtins.str] = None,
-                 extension_profile: Optional['outputs.CloudServiceExtensionProfileResponse'] = None,
-                 network_profile: Optional['outputs.CloudServiceNetworkProfileResponse'] = None,
-                 os_profile: Optional['outputs.CloudServiceOsProfileResponse'] = None,
-                 package_url: Optional[_builtins.str] = None,
-                 role_profile: Optional['outputs.CloudServiceRoleProfileResponse'] = None,
-                 start_cloud_service: Optional[_builtins.bool] = None,
-                 upgrade_mode: Optional[_builtins.str] = None):
-        """
-        Cloud service properties
-
-        :param _builtins.str provisioning_state: The provisioning state, which only appears in the response.
-        :param _builtins.str unique_id: The unique identifier for the cloud service.
-        :param _builtins.bool allow_model_override: (Optional) Indicates whether the role sku properties (roleProfile.roles.sku) specified in the model/template should override the role instance count and vm size specified in the .cscfg and .csdef respectively.
-               The default value is `false`.
-        :param _builtins.str configuration: Specifies the XML service configuration (.cscfg) for the cloud service.
-        :param _builtins.str configuration_url: Specifies a URL that refers to the location of the service configuration in the Blob service. The service package URL  can be Shared Access Signature (SAS) URI from any storage account.
-               This is a write-only property and is not returned in GET calls.
-        :param 'CloudServiceExtensionProfileResponse' extension_profile: Describes a cloud service extension profile.
-        :param 'CloudServiceNetworkProfileResponse' network_profile: Network Profile for the cloud service.
-        :param 'CloudServiceOsProfileResponse' os_profile: Describes the OS profile for the cloud service.
-        :param _builtins.str package_url: Specifies a URL that refers to the location of the service package in the Blob service. The service package URL can be Shared Access Signature (SAS) URI from any storage account.
-               This is a write-only property and is not returned in GET calls.
-        :param 'CloudServiceRoleProfileResponse' role_profile: Describes the role profile for the cloud service.
-        :param _builtins.bool start_cloud_service: (Optional) Indicates whether to start the cloud service immediately after it is created. The default value is `true`.
-               If false, the service model is still deployed, but the code is not run immediately. Instead, the service is PoweredOff until you call Start, at which time the service will be started. A deployed service still incurs charges, even if it is poweredoff.
-        :param _builtins.str upgrade_mode: Update mode for the cloud service. Role instances are allocated to update domains when the service is deployed. Updates can be initiated manually in each update domain or initiated automatically in all update domains.
-               Possible Values are <br /><br />**Auto**<br /><br />**Manual** <br /><br />**Simultaneous**<br /><br />
-               If not specified, the default value is Auto. If set to Manual, PUT UpdateDomain must be called to apply the update. If set to Auto, the update is automatically applied to each update domain in sequence.
-        """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "unique_id", unique_id)
-        if allow_model_override is not None:
-            pulumi.set(__self__, "allow_model_override", allow_model_override)
-        if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
-        if configuration_url is not None:
-            pulumi.set(__self__, "configuration_url", configuration_url)
-        if extension_profile is not None:
-            pulumi.set(__self__, "extension_profile", extension_profile)
-        if network_profile is not None:
-            pulumi.set(__self__, "network_profile", network_profile)
-        if os_profile is not None:
-            pulumi.set(__self__, "os_profile", os_profile)
-        if package_url is not None:
-            pulumi.set(__self__, "package_url", package_url)
-        if role_profile is not None:
-            pulumi.set(__self__, "role_profile", role_profile)
-        if start_cloud_service is not None:
-            pulumi.set(__self__, "start_cloud_service", start_cloud_service)
-        if upgrade_mode is not None:
-            pulumi.set(__self__, "upgrade_mode", upgrade_mode)
-
-    @_builtins.property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> _builtins.str:
-        """
-        The provisioning state, which only appears in the response.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @_builtins.property
-    @pulumi.getter(name="uniqueId")
-    def unique_id(self) -> _builtins.str:
-        """
-        The unique identifier for the cloud service.
-        """
-        return pulumi.get(self, "unique_id")
-
-    @_builtins.property
-    @pulumi.getter(name="allowModelOverride")
-    def allow_model_override(self) -> Optional[_builtins.bool]:
-        """
-        (Optional) Indicates whether the role sku properties (roleProfile.roles.sku) specified in the model/template should override the role instance count and vm size specified in the .cscfg and .csdef respectively.
-        The default value is `false`.
-        """
-        return pulumi.get(self, "allow_model_override")
-
-    @_builtins.property
-    @pulumi.getter
-    def configuration(self) -> Optional[_builtins.str]:
-        """
-        Specifies the XML service configuration (.cscfg) for the cloud service.
-        """
-        return pulumi.get(self, "configuration")
-
-    @_builtins.property
-    @pulumi.getter(name="configurationUrl")
-    def configuration_url(self) -> Optional[_builtins.str]:
-        """
-        Specifies a URL that refers to the location of the service configuration in the Blob service. The service package URL  can be Shared Access Signature (SAS) URI from any storage account.
-        This is a write-only property and is not returned in GET calls.
-        """
-        return pulumi.get(self, "configuration_url")
-
-    @_builtins.property
-    @pulumi.getter(name="extensionProfile")
-    def extension_profile(self) -> Optional['outputs.CloudServiceExtensionProfileResponse']:
-        """
-        Describes a cloud service extension profile.
-        """
-        return pulumi.get(self, "extension_profile")
-
-    @_builtins.property
-    @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> Optional['outputs.CloudServiceNetworkProfileResponse']:
-        """
-        Network Profile for the cloud service.
-        """
-        return pulumi.get(self, "network_profile")
-
-    @_builtins.property
-    @pulumi.getter(name="osProfile")
-    def os_profile(self) -> Optional['outputs.CloudServiceOsProfileResponse']:
-        """
-        Describes the OS profile for the cloud service.
-        """
-        return pulumi.get(self, "os_profile")
-
-    @_builtins.property
-    @pulumi.getter(name="packageUrl")
-    def package_url(self) -> Optional[_builtins.str]:
-        """
-        Specifies a URL that refers to the location of the service package in the Blob service. The service package URL can be Shared Access Signature (SAS) URI from any storage account.
-        This is a write-only property and is not returned in GET calls.
-        """
-        return pulumi.get(self, "package_url")
-
-    @_builtins.property
-    @pulumi.getter(name="roleProfile")
-    def role_profile(self) -> Optional['outputs.CloudServiceRoleProfileResponse']:
-        """
-        Describes the role profile for the cloud service.
-        """
-        return pulumi.get(self, "role_profile")
-
-    @_builtins.property
-    @pulumi.getter(name="startCloudService")
-    def start_cloud_service(self) -> Optional[_builtins.bool]:
-        """
-        (Optional) Indicates whether to start the cloud service immediately after it is created. The default value is `true`.
-        If false, the service model is still deployed, but the code is not run immediately. Instead, the service is PoweredOff until you call Start, at which time the service will be started. A deployed service still incurs charges, even if it is poweredoff.
-        """
-        return pulumi.get(self, "start_cloud_service")
-
-    @_builtins.property
-    @pulumi.getter(name="upgradeMode")
-    def upgrade_mode(self) -> Optional[_builtins.str]:
-        """
-        Update mode for the cloud service. Role instances are allocated to update domains when the service is deployed. Updates can be initiated manually in each update domain or initiated automatically in all update domains.
-        Possible Values are <br /><br />**Auto**<br /><br />**Manual** <br /><br />**Simultaneous**<br /><br />
-        If not specified, the default value is Auto. If set to Manual, PUT UpdateDomain must be called to apply the update. If set to Auto, the update is automatically applied to each update domain in sequence.
-        """
-        return pulumi.get(self, "upgrade_mode")
-
-
-@pulumi.output_type
-class CloudServiceRoleProfilePropertiesResponse(dict):
-    """
-    Describes the role properties.
-    """
-    def __init__(__self__, *,
-                 name: Optional[_builtins.str] = None,
-                 sku: Optional['outputs.CloudServiceRoleSkuResponse'] = None):
-        """
-        Describes the role properties.
-
-        :param _builtins.str name: Resource name.
-        :param 'CloudServiceRoleSkuResponse' sku: Describes the cloud service role sku.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if sku is not None:
-            pulumi.set(__self__, "sku", sku)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[_builtins.str]:
-        """
-        Resource name.
-        """
-        return pulumi.get(self, "name")
-
-    @_builtins.property
-    @pulumi.getter
-    def sku(self) -> Optional['outputs.CloudServiceRoleSkuResponse']:
-        """
-        Describes the cloud service role sku.
-        """
-        return pulumi.get(self, "sku")
-
-
-@pulumi.output_type
-class CloudServiceRoleProfileResponse(dict):
-    """
-    Describes the role profile for the cloud service.
-    """
-    def __init__(__self__, *,
-                 roles: Optional[Sequence['outputs.CloudServiceRoleProfilePropertiesResponse']] = None):
-        """
-        Describes the role profile for the cloud service.
-
-        :param Sequence['CloudServiceRoleProfilePropertiesResponse'] roles: List of roles for the cloud service.
-        """
-        if roles is not None:
-            pulumi.set(__self__, "roles", roles)
-
-    @_builtins.property
-    @pulumi.getter
-    def roles(self) -> Optional[Sequence['outputs.CloudServiceRoleProfilePropertiesResponse']]:
-        """
-        List of roles for the cloud service.
-        """
-        return pulumi.get(self, "roles")
-
-
-@pulumi.output_type
-class CloudServiceRoleSkuResponse(dict):
-    """
-    Describes the cloud service role sku.
-    """
-    def __init__(__self__, *,
-                 capacity: Optional[_builtins.float] = None,
-                 name: Optional[_builtins.str] = None,
-                 tier: Optional[_builtins.str] = None):
-        """
-        Describes the cloud service role sku.
-
-        :param _builtins.float capacity: Specifies the number of role instances in the cloud service.
-        :param _builtins.str name: The sku name. NOTE: If the new SKU is not supported on the hardware the cloud service is currently on, you need to delete and recreate the cloud service or move back to the old sku.
-        :param _builtins.str tier: Specifies the tier of the cloud service. Possible Values are <br /><br /> **Standard** <br /><br /> **Basic**
-        """
-        if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if tier is not None:
-            pulumi.set(__self__, "tier", tier)
-
-    @_builtins.property
-    @pulumi.getter
-    def capacity(self) -> Optional[_builtins.float]:
-        """
-        Specifies the number of role instances in the cloud service.
-        """
-        return pulumi.get(self, "capacity")
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[_builtins.str]:
-        """
-        The sku name. NOTE: If the new SKU is not supported on the hardware the cloud service is currently on, you need to delete and recreate the cloud service or move back to the old sku.
-        """
-        return pulumi.get(self, "name")
-
-    @_builtins.property
-    @pulumi.getter
-    def tier(self) -> Optional[_builtins.str]:
-        """
-        Specifies the tier of the cloud service. Possible Values are <br /><br /> **Standard** <br /><br /> **Basic**
-        """
-        return pulumi.get(self, "tier")
-
-
-@pulumi.output_type
-class CloudServiceVaultAndSecretReferenceResponse(dict):
-    """
-    Protected settings for the extension, referenced using KeyVault which are encrypted before sent to the role instance.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "secretUrl":
-            suggest = "secret_url"
-        elif key == "sourceVault":
-            suggest = "source_vault"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CloudServiceVaultAndSecretReferenceResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CloudServiceVaultAndSecretReferenceResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CloudServiceVaultAndSecretReferenceResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 secret_url: Optional[_builtins.str] = None,
-                 source_vault: Optional['outputs.SubResourceResponse'] = None):
-        """
-        Protected settings for the extension, referenced using KeyVault which are encrypted before sent to the role instance.
-
-        :param _builtins.str secret_url: Secret URL which contains the protected settings of the extension
-        :param 'SubResourceResponse' source_vault: The ARM Resource ID of the Key Vault
-        """
-        if secret_url is not None:
-            pulumi.set(__self__, "secret_url", secret_url)
-        if source_vault is not None:
-            pulumi.set(__self__, "source_vault", source_vault)
-
-    @_builtins.property
-    @pulumi.getter(name="secretUrl")
-    def secret_url(self) -> Optional[_builtins.str]:
-        """
-        Secret URL which contains the protected settings of the extension
-        """
-        return pulumi.get(self, "secret_url")
-
-    @_builtins.property
-    @pulumi.getter(name="sourceVault")
-    def source_vault(self) -> Optional['outputs.SubResourceResponse']:
-        """
-        The ARM Resource ID of the Key Vault
-        """
-        return pulumi.get(self, "source_vault")
-
-
-@pulumi.output_type
-class CloudServiceVaultCertificateResponse(dict):
-    """
-    Describes a single certificate reference in a Key Vault, and where the certificate should reside on the role instance.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "certificateUrl":
-            suggest = "certificate_url"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CloudServiceVaultCertificateResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CloudServiceVaultCertificateResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CloudServiceVaultCertificateResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 certificate_url: Optional[_builtins.str] = None):
-        """
-        Describes a single certificate reference in a Key Vault, and where the certificate should reside on the role instance.
-
-        :param _builtins.str certificate_url: This is the URL of a certificate that has been uploaded to Key Vault as a secret.
-        """
-        if certificate_url is not None:
-            pulumi.set(__self__, "certificate_url", certificate_url)
-
-    @_builtins.property
-    @pulumi.getter(name="certificateUrl")
-    def certificate_url(self) -> Optional[_builtins.str]:
-        """
-        This is the URL of a certificate that has been uploaded to Key Vault as a secret.
-        """
-        return pulumi.get(self, "certificate_url")
-
-
-@pulumi.output_type
-class CloudServiceVaultSecretGroupResponse(dict):
-    """
-    Describes a set of certificates which are all in the same Key Vault.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "sourceVault":
-            suggest = "source_vault"
-        elif key == "vaultCertificates":
-            suggest = "vault_certificates"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CloudServiceVaultSecretGroupResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CloudServiceVaultSecretGroupResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CloudServiceVaultSecretGroupResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 source_vault: Optional['outputs.SubResourceResponse'] = None,
-                 vault_certificates: Optional[Sequence['outputs.CloudServiceVaultCertificateResponse']] = None):
-        """
-        Describes a set of certificates which are all in the same Key Vault.
-
-        :param 'SubResourceResponse' source_vault: The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
-        :param Sequence['CloudServiceVaultCertificateResponse'] vault_certificates: The list of key vault references in SourceVault which contain certificates.
-        """
-        if source_vault is not None:
-            pulumi.set(__self__, "source_vault", source_vault)
-        if vault_certificates is not None:
-            pulumi.set(__self__, "vault_certificates", vault_certificates)
-
-    @_builtins.property
-    @pulumi.getter(name="sourceVault")
-    def source_vault(self) -> Optional['outputs.SubResourceResponse']:
-        """
-        The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
-        """
-        return pulumi.get(self, "source_vault")
-
-    @_builtins.property
-    @pulumi.getter(name="vaultCertificates")
-    def vault_certificates(self) -> Optional[Sequence['outputs.CloudServiceVaultCertificateResponse']]:
-        """
-        The list of key vault references in SourceVault which contain certificates.
-        """
-        return pulumi.get(self, "vault_certificates")
+        return pulumi.get(self, "principal_id")
 
 
 @pulumi.output_type
@@ -4236,14 +3516,14 @@ class EncryptionSetIdentityResponse(dict):
                  principal_id: _builtins.str,
                  tenant_id: _builtins.str,
                  type: Optional[_builtins.str] = None,
-                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentitiesValueResponse']] = None):
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.CommonUserAssignedIdentitiesValueResponse']] = None):
         """
         The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
 
         :param _builtins.str principal_id: The object id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-identity-principal-id header in the PUT request if the resource has a systemAssigned(implicit) identity
         :param _builtins.str tenant_id: The tenant id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-client-tenant-id header in the PUT request if the resource has a systemAssigned(implicit) identity
         :param _builtins.str type: The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
-        :param Mapping[str, 'UserAssignedIdentitiesValueResponse'] user_assigned_identities: The list of user identities associated with the disk encryption set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'CommonUserAssignedIdentitiesValueResponse'] user_assigned_identities: The list of user identities associated with the disk encryption set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -4278,7 +3558,7 @@ class EncryptionSetIdentityResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentitiesValueResponse']]:
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.CommonUserAssignedIdentitiesValueResponse']]:
         """
         The list of user identities associated with the disk encryption set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
@@ -4540,42 +3820,6 @@ class ExtendedLocationResponse(dict):
         The type of the extended location.
         """
         return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class ExtensionResponse(dict):
-    """
-    Describes a cloud service Extension.
-    """
-    def __init__(__self__, *,
-                 name: Optional[_builtins.str] = None,
-                 properties: Optional['outputs.CloudServiceExtensionPropertiesResponse'] = None):
-        """
-        Describes a cloud service Extension.
-
-        :param _builtins.str name: The name of the extension.
-        :param 'CloudServiceExtensionPropertiesResponse' properties: Extension Properties.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[_builtins.str]:
-        """
-        The name of the extension.
-        """
-        return pulumi.get(self, "name")
-
-    @_builtins.property
-    @pulumi.getter
-    def properties(self) -> Optional['outputs.CloudServiceExtensionPropertiesResponse']:
-        """
-        Extension Properties.
-        """
-        return pulumi.get(self, "properties")
 
 
 @pulumi.output_type
@@ -5289,14 +4533,14 @@ class GalleryIdentityResponse(dict):
                  principal_id: _builtins.str,
                  tenant_id: _builtins.str,
                  type: Optional[_builtins.str] = None,
-                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentitiesValueResponse']] = None):
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.CommonUserAssignedIdentitiesValueResponse']] = None):
         """
         Identity for the virtual machine.
 
         :param _builtins.str principal_id: The principal id of the gallery identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The AAD tenant id of the gallery identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: The type of identity used for the gallery. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove all identities from the gallery.
-        :param Mapping[str, 'UserAssignedIdentitiesValueResponse'] user_assigned_identities: The list of user identities associated with the gallery. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'CommonUserAssignedIdentitiesValueResponse'] user_assigned_identities: The list of user identities associated with the gallery. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -5331,7 +4575,7 @@ class GalleryIdentityResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentitiesValueResponse']]:
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.CommonUserAssignedIdentitiesValueResponse']]:
         """
         The list of user identities associated with the gallery. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
@@ -8083,193 +7327,6 @@ class LinuxVMGuestPatchAutomaticByPlatformSettingsResponse(dict):
 
 
 @pulumi.output_type
-class LoadBalancerConfigurationPropertiesResponse(dict):
-    """
-    Describes the properties of the load balancer configuration.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "frontendIpConfigurations":
-            suggest = "frontend_ip_configurations"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LoadBalancerConfigurationPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LoadBalancerConfigurationPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LoadBalancerConfigurationPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 frontend_ip_configurations: Sequence['outputs.LoadBalancerFrontendIpConfigurationResponse']):
-        """
-        Describes the properties of the load balancer configuration.
-
-        :param Sequence['LoadBalancerFrontendIpConfigurationResponse'] frontend_ip_configurations: Specifies the frontend IP to be used for the load balancer. Only IPv4 frontend IP address is supported. Each load balancer configuration must have exactly one frontend IP configuration.
-        """
-        pulumi.set(__self__, "frontend_ip_configurations", frontend_ip_configurations)
-
-    @_builtins.property
-    @pulumi.getter(name="frontendIpConfigurations")
-    def frontend_ip_configurations(self) -> Sequence['outputs.LoadBalancerFrontendIpConfigurationResponse']:
-        """
-        Specifies the frontend IP to be used for the load balancer. Only IPv4 frontend IP address is supported. Each load balancer configuration must have exactly one frontend IP configuration.
-        """
-        return pulumi.get(self, "frontend_ip_configurations")
-
-
-@pulumi.output_type
-class LoadBalancerConfigurationResponse(dict):
-    """
-    Describes the load balancer configuration.
-    """
-    def __init__(__self__, *,
-                 name: _builtins.str,
-                 properties: 'outputs.LoadBalancerConfigurationPropertiesResponse',
-                 id: Optional[_builtins.str] = None):
-        """
-        Describes the load balancer configuration.
-
-        :param _builtins.str name: The name of the Load balancer
-        :param 'LoadBalancerConfigurationPropertiesResponse' properties: Properties of the load balancer configuration.
-        :param _builtins.str id: Resource Id
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "properties", properties)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> _builtins.str:
-        """
-        The name of the Load balancer
-        """
-        return pulumi.get(self, "name")
-
-    @_builtins.property
-    @pulumi.getter
-    def properties(self) -> 'outputs.LoadBalancerConfigurationPropertiesResponse':
-        """
-        Properties of the load balancer configuration.
-        """
-        return pulumi.get(self, "properties")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> Optional[_builtins.str]:
-        """
-        Resource Id
-        """
-        return pulumi.get(self, "id")
-
-
-@pulumi.output_type
-class LoadBalancerFrontendIpConfigurationPropertiesResponse(dict):
-    """
-    Describes a cloud service IP Configuration
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "privateIPAddress":
-            suggest = "private_ip_address"
-        elif key == "publicIPAddress":
-            suggest = "public_ip_address"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LoadBalancerFrontendIpConfigurationPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LoadBalancerFrontendIpConfigurationPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LoadBalancerFrontendIpConfigurationPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 private_ip_address: Optional[_builtins.str] = None,
-                 public_ip_address: Optional['outputs.SubResourceResponse'] = None,
-                 subnet: Optional['outputs.SubResourceResponse'] = None):
-        """
-        Describes a cloud service IP Configuration
-
-        :param _builtins.str private_ip_address: The virtual network private IP address of the IP configuration.
-        :param 'SubResourceResponse' public_ip_address: The reference to the public ip address resource.
-        :param 'SubResourceResponse' subnet: The reference to the virtual network subnet resource.
-        """
-        if private_ip_address is not None:
-            pulumi.set(__self__, "private_ip_address", private_ip_address)
-        if public_ip_address is not None:
-            pulumi.set(__self__, "public_ip_address", public_ip_address)
-        if subnet is not None:
-            pulumi.set(__self__, "subnet", subnet)
-
-    @_builtins.property
-    @pulumi.getter(name="privateIPAddress")
-    def private_ip_address(self) -> Optional[_builtins.str]:
-        """
-        The virtual network private IP address of the IP configuration.
-        """
-        return pulumi.get(self, "private_ip_address")
-
-    @_builtins.property
-    @pulumi.getter(name="publicIPAddress")
-    def public_ip_address(self) -> Optional['outputs.SubResourceResponse']:
-        """
-        The reference to the public ip address resource.
-        """
-        return pulumi.get(self, "public_ip_address")
-
-    @_builtins.property
-    @pulumi.getter
-    def subnet(self) -> Optional['outputs.SubResourceResponse']:
-        """
-        The reference to the virtual network subnet resource.
-        """
-        return pulumi.get(self, "subnet")
-
-
-@pulumi.output_type
-class LoadBalancerFrontendIpConfigurationResponse(dict):
-    """
-    Specifies the frontend IP to be used for the load balancer. Only IPv4 frontend IP address is supported. Each load balancer configuration must have exactly one frontend IP configuration.
-    """
-    def __init__(__self__, *,
-                 name: _builtins.str,
-                 properties: 'outputs.LoadBalancerFrontendIpConfigurationPropertiesResponse'):
-        """
-        Specifies the frontend IP to be used for the load balancer. Only IPv4 frontend IP address is supported. Each load balancer configuration must have exactly one frontend IP configuration.
-
-        :param _builtins.str name: The name of the resource that is unique within the set of frontend IP configurations used by the load balancer. This name can be used to access the resource.
-        :param 'LoadBalancerFrontendIpConfigurationPropertiesResponse' properties: Properties of load balancer frontend ip configuration.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "properties", properties)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> _builtins.str:
-        """
-        The name of the resource that is unique within the set of frontend IP configurations used by the load balancer. This name can be used to access the resource.
-        """
-        return pulumi.get(self, "name")
-
-    @_builtins.property
-    @pulumi.getter
-    def properties(self) -> 'outputs.LoadBalancerFrontendIpConfigurationPropertiesResponse':
-        """
-        Properties of load balancer frontend ip configuration.
-        """
-        return pulumi.get(self, "properties")
-
-
-@pulumi.output_type
 class LogAnalyticsOutputResponse(dict):
     """
     LogAnalytics output properties
@@ -10100,7 +9157,7 @@ class ReplicationStatusResponse(dict):
 @pulumi.output_type
 class ResiliencyPolicyResponse(dict):
     """
-    Describes an resiliency policy - AutomaticZoneRebalancingPolicy, ResilientVMCreationPolicy and/or ResilientVMDeletionPolicy.
+    Describes an resiliency policy - AutomaticZoneRebalancingPolicy, ResilientVMCreationPolicy, ResilientVMDeletionPolicy and OperationRecoverySettings (version > 2025-11-01).
     """
     @staticmethod
     def __key_warning(key: str):
@@ -10128,7 +9185,7 @@ class ResiliencyPolicyResponse(dict):
                  resilient_vm_creation_policy: Optional['outputs.ResilientVMCreationPolicyResponse'] = None,
                  resilient_vm_deletion_policy: Optional['outputs.ResilientVMDeletionPolicyResponse'] = None):
         """
-        Describes an resiliency policy - AutomaticZoneRebalancingPolicy, ResilientVMCreationPolicy and/or ResilientVMDeletionPolicy.
+        Describes an resiliency policy - AutomaticZoneRebalancingPolicy, ResilientVMCreationPolicy, ResilientVMDeletionPolicy and OperationRecoverySettings (version > 2025-11-01).
 
         :param 'AutomaticZoneRebalancingPolicyResponse' automatic_zone_rebalancing_policy: The configuration parameters used while performing automatic AZ balancing.
         :param 'ResilientVMCreationPolicyResponse' resilient_vm_creation_policy: The configuration parameters used while performing resilient VM creation.
@@ -11673,7 +10730,7 @@ class SecurityProfileResponse(dict):
         :param _builtins.bool encryption_at_host: This property can be used by user in the request to enable or disable the Host Encryption for the virtual machine or virtual machine scale set. This will enable the encryption for all the disks including Resource/Temp disk at host itself. The default behavior is: The Encryption at host will be disabled unless this property is set to true for the resource.
         :param 'EncryptionIdentityResponse' encryption_identity: Specifies the Managed Identity used by ADE to get access token for keyvault operations.
         :param 'ProxyAgentSettingsResponse' proxy_agent_settings: Specifies ProxyAgent settings while creating the virtual machine. Minimum api-version: 2023-09-01.
-        :param _builtins.str security_type: Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings. The default behavior is: UefiSettings will not be enabled unless this property is set.
+        :param _builtins.str security_type: Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings. The default behavior is: UefiSettings will not be enabled unless this property is set and is not Standard. If not specified, Standard will be returned starting api version 2025-11-01.
         :param 'UefiSettingsResponse' uefi_settings: Specifies the security settings like secure boot and vTPM used while creating the virtual machine. Minimum api-version: 2020-12-01.
         """
         if encryption_at_host is not None:
@@ -11715,7 +10772,7 @@ class SecurityProfileResponse(dict):
     @pulumi.getter(name="securityType")
     def security_type(self) -> Optional[_builtins.str]:
         """
-        Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings. The default behavior is: UefiSettings will not be enabled unless this property is set.
+        Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings. The default behavior is: UefiSettings will not be enabled unless this property is set and is not Standard. If not specified, Standard will be returned starting api version 2025-11-01.
         """
         return pulumi.get(self, "security_type")
 
@@ -12686,59 +11743,6 @@ class SystemDataResponse(dict):
 
 
 @pulumi.output_type
-class SystemDataResponseV1(dict):
-    """
-    The system meta data relating to this resource.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "createdAt":
-            suggest = "created_at"
-        elif key == "lastModifiedAt":
-            suggest = "last_modified_at"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponseV1. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SystemDataResponseV1.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SystemDataResponseV1.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 created_at: _builtins.str,
-                 last_modified_at: _builtins.str):
-        """
-        The system meta data relating to this resource.
-
-        :param _builtins.str created_at: Specifies the time in UTC at which the Cloud Service (extended support) resource was created. <br />Minimum api-version: 2022-04-04.
-        :param _builtins.str last_modified_at: Specifies the time in UTC at which the Cloud Service (extended support) resource was last modified. <br />Minimum api-version: 2022-04-04.
-        """
-        pulumi.set(__self__, "created_at", created_at)
-        pulumi.set(__self__, "last_modified_at", last_modified_at)
-
-    @_builtins.property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> _builtins.str:
-        """
-        Specifies the time in UTC at which the Cloud Service (extended support) resource was created. <br />Minimum api-version: 2022-04-04.
-        """
-        return pulumi.get(self, "created_at")
-
-    @_builtins.property
-    @pulumi.getter(name="lastModifiedAt")
-    def last_modified_at(self) -> _builtins.str:
-        """
-        Specifies the time in UTC at which the Cloud Service (extended support) resource was last modified. <br />Minimum api-version: 2022-04-04.
-        """
-        return pulumi.get(self, "last_modified_at")
-
-
-@pulumi.output_type
 class TargetRegionResponse(dict):
     """
     Describes the target region information.
@@ -13272,54 +12276,6 @@ class UserArtifactSourceResponse(dict):
         Optional. The defaultConfigurationLink of the artifact, must be a readable storage page blob.
         """
         return pulumi.get(self, "default_configuration_link")
-
-
-@pulumi.output_type
-class UserAssignedIdentitiesValueResponse(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "clientId":
-            suggest = "client_id"
-        elif key == "principalId":
-            suggest = "principal_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentitiesValueResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        UserAssignedIdentitiesValueResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        UserAssignedIdentitiesValueResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 client_id: _builtins.str,
-                 principal_id: _builtins.str):
-        """
-        :param _builtins.str client_id: The client id of user assigned identity.
-        :param _builtins.str principal_id: The principal id of user assigned identity.
-        """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
-
-    @_builtins.property
-    @pulumi.getter(name="clientId")
-    def client_id(self) -> _builtins.str:
-        """
-        The client id of user assigned identity.
-        """
-        return pulumi.get(self, "client_id")
-
-    @_builtins.property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> _builtins.str:
-        """
-        The principal id of user assigned identity.
-        """
-        return pulumi.get(self, "principal_id")
 
 
 @pulumi.output_type
@@ -14352,14 +13308,14 @@ class VirtualMachineIdentityResponse(dict):
                  principal_id: _builtins.str,
                  tenant_id: _builtins.str,
                  type: Optional[_builtins.str] = None,
-                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentitiesValueResponse']] = None):
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.CommonUserAssignedIdentitiesValueResponse']] = None):
         """
         Identity for the virtual machine.
 
         :param _builtins.str principal_id: The principal id of virtual machine identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant id associated with the virtual machine. This property will only be provided for a system assigned identity.
         :param _builtins.str type: The type of identity used for the virtual machine. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
-        :param Mapping[str, 'UserAssignedIdentitiesValueResponse'] user_assigned_identities: The list of user identities associated with the Virtual Machine. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'CommonUserAssignedIdentitiesValueResponse'] user_assigned_identities: The list of user identities associated with the Virtual Machine. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -14394,7 +13350,7 @@ class VirtualMachineIdentityResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentitiesValueResponse']]:
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.CommonUserAssignedIdentitiesValueResponse']]:
         """
         The list of user identities associated with the Virtual Machine. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
@@ -16205,14 +15161,14 @@ class VirtualMachineScaleSetIdentityResponse(dict):
                  principal_id: _builtins.str,
                  tenant_id: _builtins.str,
                  type: Optional[_builtins.str] = None,
-                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentitiesValueResponse']] = None):
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.CommonUserAssignedIdentitiesValueResponse']] = None):
         """
         Identity for the virtual machine scale set.
 
         :param _builtins.str principal_id: The principal id of virtual machine scale set identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant id associated with the virtual machine scale set. This property will only be provided for a system assigned identity.
         :param _builtins.str type: The type of identity used for the virtual machine scale set. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine scale set.
-        :param Mapping[str, 'UserAssignedIdentitiesValueResponse'] user_assigned_identities: The list of user identities associated with the virtual machine scale set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'CommonUserAssignedIdentitiesValueResponse'] user_assigned_identities: The list of user identities associated with the virtual machine scale set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -16247,7 +15203,7 @@ class VirtualMachineScaleSetIdentityResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentitiesValueResponse']]:
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.CommonUserAssignedIdentitiesValueResponse']]:
         """
         The list of user identities associated with the virtual machine scale set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """

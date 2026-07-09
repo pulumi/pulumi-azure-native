@@ -75,8 +75,21 @@ class ActionType(_builtins.str, Enum):
     The type of the action that will be triggered by the Automation
     """
     LOGIC_APP = "LogicApp"
+    """
+    LogicApp
+    """
     EVENT_HUB = "EventHub"
+    """
+    EventHub
+    """
     WORKSPACE = "Workspace"
+    """
+    Workspace
+    """
+    INTERNAL = "Internal"
+    """
+    Internal
+    """
 
 
 @pulumi.type_token("azure-native:security:AdditionalWorkspaceDataType")
@@ -85,7 +98,13 @@ class AdditionalWorkspaceDataType(_builtins.str, Enum):
     Data types sent to workspace.
     """
     ALERTS = "Alerts"
+    """
+    Alerts
+    """
     RAW_EVENTS = "RawEvents"
+    """
+    RawEvents
+    """
 
 
 @pulumi.type_token("azure-native:security:AdditionalWorkspaceType")
@@ -94,6 +113,9 @@ class AdditionalWorkspaceType(_builtins.str, Enum):
     Workspace type.
     """
     SENTINEL = "Sentinel"
+    """
+    Sentinel
+    """
 
 
 @pulumi.type_token("azure-native:security:ApplicationSourceResourceType")
@@ -151,8 +173,17 @@ class AttestationComplianceState(_builtins.str, Enum):
     Attest category of this assignment
     """
     UNKNOWN = "unknown"
+    """
+    unknown
+    """
     COMPLIANT = "compliant"
+    """
+    compliant
+    """
     NON_COMPLIANT = "nonCompliant"
+    """
+    nonCompliant
+    """
 
 
 @pulumi.type_token("azure-native:security:AuthenticationType")
@@ -161,6 +192,9 @@ class AuthenticationType(_builtins.str, Enum):
     The authentication type
     """
     ACCESS_TOKEN = "AccessToken"
+    """
+    AccessToken
+    """
 
 
 @pulumi.type_token("azure-native:security:AutoDiscovery")
@@ -191,13 +225,37 @@ class CloudName(_builtins.str, Enum):
     The multi cloud resource's cloud name.
     """
     AZURE = "Azure"
+    """
+    Azure
+    """
     AWS = "AWS"
+    """
+    AWS
+    """
     GCP = "GCP"
+    """
+    GCP
+    """
     GITHUB = "Github"
+    """
+    Github
+    """
     AZURE_DEV_OPS = "AzureDevOps"
+    """
+    AzureDevOps
+    """
     GIT_LAB = "GitLab"
+    """
+    GitLab
+    """
     DOCKER_HUB = "DockerHub"
+    """
+    DockerHub
+    """
     J_FROG = "JFrog"
+    """
+    JFrog
+    """
 
 
 @pulumi.type_token("azure-native:security:DataSource")
@@ -236,8 +294,17 @@ class Effect(_builtins.str, Enum):
     Expected effect of this assignment (Audit/Exempt/Attest)
     """
     AUDIT = "Audit"
+    """
+    Audit
+    """
     EXEMPT = "Exempt"
+    """
+    Exempt
+    """
     ATTEST = "Attest"
+    """
+    Attest
+    """
 
 
 @pulumi.type_token("azure-native:security:Enforce")
@@ -261,12 +328,33 @@ class EnvironmentType(_builtins.str, Enum):
     The type of the environment data.
     """
     AWS_ACCOUNT = "AwsAccount"
+    """
+    AwsAccount
+    """
     GCP_PROJECT = "GcpProject"
+    """
+    GcpProject
+    """
     GITHUB_SCOPE = "GithubScope"
+    """
+    GithubScope
+    """
     AZURE_DEV_OPS_SCOPE = "AzureDevOpsScope"
+    """
+    AzureDevOpsScope
+    """
     GITLAB_SCOPE = "GitlabScope"
+    """
+    GitlabScope
+    """
     DOCKER_HUB_ORGANIZATION = "DockerHubOrganization"
+    """
+    DockerHubOrganization
+    """
     J_FROG_ARTIFACTORY = "JFrogArtifactory"
+    """
+    JFrogArtifactory
+    """
 
 
 @pulumi.type_token("azure-native:security:EventSource")
@@ -275,18 +363,57 @@ class EventSource(_builtins.str, Enum):
     A valid event source type.
     """
     ASSESSMENTS = "Assessments"
+    """
+    Assessments
+    """
     ASSESSMENTS_SNAPSHOT = "AssessmentsSnapshot"
+    """
+    AssessmentsSnapshot
+    """
     SUB_ASSESSMENTS = "SubAssessments"
+    """
+    SubAssessments
+    """
     SUB_ASSESSMENTS_SNAPSHOT = "SubAssessmentsSnapshot"
+    """
+    SubAssessmentsSnapshot
+    """
     ALERTS = "Alerts"
+    """
+    Alerts
+    """
     SECURE_SCORES = "SecureScores"
+    """
+    SecureScores
+    """
     SECURE_SCORES_SNAPSHOT = "SecureScoresSnapshot"
+    """
+    SecureScoresSnapshot
+    """
     SECURE_SCORE_CONTROLS = "SecureScoreControls"
+    """
+    SecureScoreControls
+    """
     SECURE_SCORE_CONTROLS_SNAPSHOT = "SecureScoreControlsSnapshot"
+    """
+    SecureScoreControlsSnapshot
+    """
     REGULATORY_COMPLIANCE_ASSESSMENT = "RegulatoryComplianceAssessment"
+    """
+    RegulatoryComplianceAssessment
+    """
     REGULATORY_COMPLIANCE_ASSESSMENT_SNAPSHOT = "RegulatoryComplianceAssessmentSnapshot"
+    """
+    RegulatoryComplianceAssessmentSnapshot
+    """
     ATTACK_PATHS = "AttackPaths"
+    """
+    AttackPaths
+    """
     ATTACK_PATHS_SNAPSHOT = "AttackPathsSnapshot"
+    """
+    AttackPathsSnapshot
+    """
 
 
 @pulumi.type_token("azure-native:security:ExemptionCategory")
@@ -295,7 +422,13 @@ class ExemptionCategory(_builtins.str, Enum):
     Exemption category of this assignment
     """
     WAIVER = "waiver"
+    """
+    waiver
+    """
     MITIGATED = "mitigated"
+    """
+    mitigated
+    """
 
 
 @pulumi.type_token("azure-native:security:ExportData")
@@ -420,24 +553,81 @@ class OfferingType(_builtins.str, Enum):
     The type of the security offering.
     """
     CSPM_MONITOR_AWS = "CspmMonitorAws"
+    """
+    CspmMonitorAws
+    """
     DEFENDER_FOR_CONTAINERS_AWS = "DefenderForContainersAws"
+    """
+    DefenderForContainersAws
+    """
     DEFENDER_FOR_SERVERS_AWS = "DefenderForServersAws"
+    """
+    DefenderForServersAws
+    """
     DEFENDER_FOR_DATABASES_AWS = "DefenderForDatabasesAws"
+    """
+    DefenderForDatabasesAws
+    """
     CSPM_MONITOR_GCP = "CspmMonitorGcp"
+    """
+    CspmMonitorGcp
+    """
     CSPM_MONITOR_GITHUB = "CspmMonitorGithub"
+    """
+    CspmMonitorGithub
+    """
     CSPM_MONITOR_AZURE_DEV_OPS = "CspmMonitorAzureDevOps"
+    """
+    CspmMonitorAzureDevOps
+    """
     DEFENDER_FOR_SERVERS_GCP = "DefenderForServersGcp"
+    """
+    DefenderForServersGcp
+    """
     DEFENDER_FOR_CONTAINERS_GCP = "DefenderForContainersGcp"
+    """
+    DefenderForContainersGcp
+    """
     DEFENDER_FOR_DATABASES_GCP = "DefenderForDatabasesGcp"
+    """
+    DefenderForDatabasesGcp
+    """
     DEFENDER_CSPM_AWS = "DefenderCspmAws"
+    """
+    DefenderCspmAws
+    """
     DEFENDER_CSPM_GCP = "DefenderCspmGcp"
+    """
+    DefenderCspmGcp
+    """
     CSPM_MONITOR_GIT_LAB = "CspmMonitorGitLab"
+    """
+    CspmMonitorGitLab
+    """
     CSPM_MONITOR_DOCKER_HUB = "CspmMonitorDockerHub"
+    """
+    CspmMonitorDockerHub
+    """
     DEFENDER_FOR_CONTAINERS_DOCKER_HUB = "DefenderForContainersDockerHub"
+    """
+    DefenderForContainersDockerHub
+    """
     DEFENDER_CSPM_DOCKER_HUB = "DefenderCspmDockerHub"
+    """
+    DefenderCspmDockerHub
+    """
     CSPM_MONITOR_J_FROG = "CspmMonitorJFrog"
+    """
+    CspmMonitorJFrog
+    """
     DEFENDER_FOR_CONTAINERS_J_FROG = "DefenderForContainersJFrog"
+    """
+    DefenderForContainersJFrog
+    """
     DEFENDER_CSPM_J_FROG = "DefenderCspmJFrog"
+    """
+    DefenderCspmJFrog
+    """
 
 
 @pulumi.type_token("azure-native:security:Operator")
@@ -489,7 +679,13 @@ class OrganizationMembershipType(_builtins.str, Enum):
     The multi cloud account's membership type in the organization
     """
     MEMBER = "Member"
+    """
+    Member
+    """
     ORGANIZATION = "Organization"
+    """
+    Organization
+    """
 
 
 @pulumi.type_token("azure-native:security:PricingTier")
@@ -523,16 +719,37 @@ class PropertyType(_builtins.str, Enum):
     The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
     """
     STRING = "String"
+    """
+    String
+    """
     INTEGER = "Integer"
+    """
+    Integer
+    """
     NUMBER = "Number"
+    """
+    Number
+    """
     BOOLEAN = "Boolean"
+    """
+    Boolean
+    """
 
 
 @pulumi.type_token("azure-native:security:Protocol")
 class Protocol(_builtins.str, Enum):
     TCP = "TCP"
+    """
+    TCP
+    """
     UDP = "UDP"
+    """
+    UDP
+    """
     ALL = "*"
+    """
+    *
+    """
 
 
 @pulumi.type_token("azure-native:security:RecommendationConfigStatus")
@@ -541,7 +758,13 @@ class RecommendationConfigStatus(_builtins.str, Enum):
     Recommendation status. When the recommendation status is disabled recommendations are not generated.
     """
     DISABLED = "Disabled"
+    """
+    Disabled
+    """
     ENABLED = "Enabled"
+    """
+    Enabled
+    """
 
 
 @pulumi.type_token("azure-native:security:RecommendationSupportedClouds")
@@ -550,8 +773,17 @@ class RecommendationSupportedClouds(_builtins.str, Enum):
     The cloud that the recommendation is supported on.
     """
     AZURE = "Azure"
+    """
+    Azure
+    """
     AWS = "AWS"
+    """
+    AWS
+    """
     GCP = "GCP"
+    """
+    GCP
+    """
 
 
 @pulumi.type_token("azure-native:security:RecommendationType")
@@ -631,8 +863,17 @@ class RuleState(_builtins.str, Enum):
     Possible states of the rule
     """
     ENABLED = "Enabled"
+    """
+    Enabled
+    """
     DISABLED = "Disabled"
+    """
+    Disabled
+    """
     EXPIRED = "Expired"
+    """
+    Expired
+    """
 
 
 @pulumi.type_token("azure-native:security:ScanningMode")
@@ -641,6 +882,9 @@ class ScanningMode(_builtins.str, Enum):
     The scanning mode for the VM scan.
     """
     DEFAULT = "Default"
+    """
+    Default
+    """
 
 
 @pulumi.type_token("azure-native:security:SecurityContactRole")
@@ -672,11 +916,29 @@ class SecurityIssue(_builtins.str, Enum):
     The severity to relate to the assessments generated by this Recommendation.
     """
     VULNERABILITY = "Vulnerability"
+    """
+    Vulnerability
+    """
     EXCESSIVE_PERMISSIONS = "ExcessivePermissions"
+    """
+    ExcessivePermissions
+    """
     ANONYMOUS_ACCESS = "AnonymousAccess"
+    """
+    AnonymousAccess
+    """
     NETWORK_EXPOSURE = "NetworkExposure"
+    """
+    NetworkExposure
+    """
     TRAFFIC_ENCRYPTION = "TrafficEncryption"
+    """
+    TrafficEncryption
+    """
     BEST_PRACTICES = "BestPractices"
+    """
+    BestPractices
+    """
 
 
 @pulumi.type_token("azure-native:security:SecuritySolutionStatus")
@@ -685,7 +947,13 @@ class SecuritySolutionStatus(_builtins.str, Enum):
     Status of the IoT Security solution.
     """
     ENABLED = "Enabled"
+    """
+    Enabled
+    """
     DISABLED = "Disabled"
+    """
+    Disabled
+    """
 
 
 @pulumi.type_token("azure-native:security:ServerVulnerabilityAssessmentsAzureSettingSelectedProvider")
@@ -705,6 +973,9 @@ class ServerVulnerabilityAssessmentsSettingKind(_builtins.str, Enum):
     The kind of the server vulnerability assessments setting.
     """
     AZURE_SERVERS_SETTING = "AzureServersSetting"
+    """
+    AzureServersSetting
+    """
 
 
 @pulumi.type_token("azure-native:security:Severity")
@@ -723,8 +994,17 @@ class SeverityEnum(_builtins.str, Enum):
     The severity to relate to the assessments generated by this Recommendation.
     """
     HIGH = "High"
+    """
+    High
+    """
     MEDIUM = "Medium"
+    """
+    Medium
+    """
     LOW = "Low"
+    """
+    Low
+    """
 
 
 @pulumi.type_token("azure-native:security:Source")
@@ -752,7 +1032,13 @@ class SourceType(_builtins.str, Enum):
     The source type that will trigger the notification
     """
     ALERT = "Alert"
+    """
+    Alert
+    """
     ATTACK_PATH = "AttackPath"
+    """
+    AttackPath
+    """
 
 
 @pulumi.type_token("azure-native:security:StandardSupportedCloud")
@@ -761,8 +1047,17 @@ class StandardSupportedCloud(_builtins.str, Enum):
     The cloud that the standard is supported on.
     """
     AZURE = "Azure"
+    """
+    Azure
+    """
     AWS = "AWS"
+    """
+    AWS
+    """
     GCP = "GCP"
+    """
+    GCP
+    """
 
 
 @pulumi.type_token("azure-native:security:StandardSupportedClouds")
@@ -771,13 +1066,35 @@ class StandardSupportedClouds(_builtins.str, Enum):
     The cloud that the standard is supported on.
     """
     AWS = "AWS"
+    """
+    AWS
+    """
     GCP = "GCP"
+    """
+    GCP
+    """
 
 
 @pulumi.type_token("azure-native:security:State")
 class State(_builtins.str, Enum):
     """
     Defines whether to send email notifications from AMicrosoft Defender for Cloud to persons with specific RBAC roles on the subscription.
+    """
+    PASSED = "Passed"
+    """
+    All supported regulatory compliance controls in the given standard have a passed state
+    """
+    FAILED = "Failed"
+    """
+    At least one supported regulatory compliance control in the given standard has a state of failed
+    """
+    SKIPPED = "Skipped"
+    """
+    All supported regulatory compliance controls in the given standard have a state of skipped
+    """
+    UNSUPPORTED = "Unsupported"
+    """
+    No supported regulatory compliance data for the given standard
     """
     ON = "On"
     """
@@ -795,7 +1112,13 @@ class Status(_builtins.str, Enum):
     The status of the port
     """
     REVOKED = "Revoked"
+    """
+    Revoked
+    """
     INITIATED = "Initiated"
+    """
+    Initiated
+    """
 
 
 @pulumi.type_token("azure-native:security:StatusReason")
@@ -804,8 +1127,17 @@ class StatusReason(_builtins.str, Enum):
     A description of why the `status` has its value
     """
     EXPIRED = "Expired"
+    """
+    Expired
+    """
     USER_REQUESTED = "UserRequested"
+    """
+    UserRequested
+    """
     NEWER_REQUEST_INITIATED = "NewerRequestInitiated"
+    """
+    NewerRequestInitiated
+    """
 
 
 @pulumi.type_token("azure-native:security:SubPlan")
@@ -814,7 +1146,13 @@ class SubPlan(_builtins.str, Enum):
     The available sub plans
     """
     P1 = "P1"
+    """
+    P1
+    """
     P2 = "P2"
+    """
+    P2
+    """
 
 
 @pulumi.type_token("azure-native:security:Tactics")
@@ -970,7 +1308,13 @@ class Type(_builtins.str, Enum):
     The Vulnerability Assessment solution to be provisioned. Can be either 'TVM' or 'Qualys'
     """
     QUALYS = "Qualys"
+    """
+    Qualys
+    """
     TVM = "TVM"
+    """
+    TVM
+    """
 
 
 @pulumi.type_token("azure-native:security:UnmaskedIpLoggingStatus")

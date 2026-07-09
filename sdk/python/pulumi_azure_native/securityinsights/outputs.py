@@ -49,7 +49,6 @@ __all__ = [
     'ConnectorDefinitionsAvailabilityResponse',
     'ConnectorDefinitionsPermissionsResponse',
     'ConnectorDefinitionsResourceProviderResponse',
-    'ContentPathMapResponse',
     'CustomPermissionDetailsResponse',
     'CustomizableConnectionsConfigResponse',
     'CustomizableConnectorUiConfigResponse',
@@ -109,6 +108,7 @@ __all__ = [
     'PropertyArrayConditionPropertiesResponse',
     'PropertyChangedConditionPropertiesResponse',
     'PropertyConditionPropertiesResponse',
+    'PullRequestResponse',
     'RepoResponse',
     'RepositoryResourceInfoResponse',
     'RepositoryResponse',
@@ -117,6 +117,7 @@ __all__ = [
     'RestApiPollerRequestPagingConfigResponse',
     'SecurityAlertTimelineItemResponse',
     'SecurityMLAnalyticsSettingsDataSourceResponse',
+    'ServicePrincipalResponse',
     'SessionAuthModelResponse',
     'SystemDataResponse',
     'TIDataConnectorDataTypesResponse',
@@ -129,6 +130,7 @@ __all__ = [
     'ValidationErrorResponse',
     'WatchlistUserInfoResponse',
     'WebhookResponse',
+    'WorkloadIdentityFederationResponse',
 ]
 
 @pulumi.output_type
@@ -2264,59 +2266,6 @@ class ConnectorDefinitionsResourceProviderResponse(dict):
         The scope on which the user should have permissions, in order to be able to create connections.
         """
         return pulumi.get(self, "scope")
-
-
-@pulumi.output_type
-class ContentPathMapResponse(dict):
-    """
-    The mapping of content type to a repo path.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "contentType":
-            suggest = "content_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ContentPathMapResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ContentPathMapResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ContentPathMapResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 content_type: Optional[_builtins.str] = None,
-                 path: Optional[_builtins.str] = None):
-        """
-        The mapping of content type to a repo path.
-
-        :param _builtins.str content_type: Content type.
-        :param _builtins.str path: The path to the content.
-        """
-        if content_type is not None:
-            pulumi.set(__self__, "content_type", content_type)
-        if path is not None:
-            pulumi.set(__self__, "path", path)
-
-    @_builtins.property
-    @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[_builtins.str]:
-        """
-        Content type.
-        """
-        return pulumi.get(self, "content_type")
-
-    @_builtins.property
-    @pulumi.getter
-    def path(self) -> Optional[_builtins.str]:
-        """
-        The path to the content.
-        """
-        return pulumi.get(self, "path")
 
 
 @pulumi.output_type
@@ -6189,6 +6138,40 @@ class PropertyConditionPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class PullRequestResponse(dict):
+    """
+    Information regarding pull request for protected branches.
+    """
+    def __init__(__self__, *,
+                 state: _builtins.str,
+                 url: _builtins.str):
+        """
+        Information regarding pull request for protected branches.
+
+        :param _builtins.str state: State of the pull request
+        :param _builtins.str url: URL of pull request
+        """
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "url", url)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> _builtins.str:
+        """
+        State of the pull request
+        """
+        return pulumi.get(self, "state")
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> _builtins.str:
+        """
+        URL of pull request
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
 class RepoResponse(dict):
     """
     Represents a repository.
@@ -6273,8 +6256,8 @@ class RepositoryResourceInfoResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 azure_dev_ops_resource_info: Optional['outputs.AzureDevOpsResourceInfoResponse'] = None,
-                 git_hub_resource_info: Optional['outputs.GitHubResourceInfoResponse'] = None,
+                 azure_dev_ops_resource_info: 'outputs.AzureDevOpsResourceInfoResponse',
+                 git_hub_resource_info: 'outputs.GitHubResourceInfoResponse',
                  webhook: Optional['outputs.WebhookResponse'] = None):
         """
         Resources created in user's repository for the source-control.
@@ -6283,16 +6266,14 @@ class RepositoryResourceInfoResponse(dict):
         :param 'GitHubResourceInfoResponse' git_hub_resource_info: Resources created in GitHub for this source-control.
         :param 'WebhookResponse' webhook: The webhook object created for the source-control.
         """
-        if azure_dev_ops_resource_info is not None:
-            pulumi.set(__self__, "azure_dev_ops_resource_info", azure_dev_ops_resource_info)
-        if git_hub_resource_info is not None:
-            pulumi.set(__self__, "git_hub_resource_info", git_hub_resource_info)
+        pulumi.set(__self__, "azure_dev_ops_resource_info", azure_dev_ops_resource_info)
+        pulumi.set(__self__, "git_hub_resource_info", git_hub_resource_info)
         if webhook is not None:
             pulumi.set(__self__, "webhook", webhook)
 
     @_builtins.property
     @pulumi.getter(name="azureDevOpsResourceInfo")
-    def azure_dev_ops_resource_info(self) -> Optional['outputs.AzureDevOpsResourceInfoResponse']:
+    def azure_dev_ops_resource_info(self) -> 'outputs.AzureDevOpsResourceInfoResponse':
         """
         Resources created in Azure DevOps for this source-control.
         """
@@ -6300,7 +6281,7 @@ class RepositoryResourceInfoResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="gitHubResourceInfo")
-    def git_hub_resource_info(self) -> Optional['outputs.GitHubResourceInfoResponse']:
+    def git_hub_resource_info(self) -> 'outputs.GitHubResourceInfoResponse':
         """
         Resources created in GitHub for this source-control.
         """
@@ -6327,8 +6308,6 @@ class RepositoryResponse(dict):
             suggest = "deployment_logs_url"
         elif key == "displayUrl":
             suggest = "display_url"
-        elif key == "pathMapping":
-            suggest = "path_mapping"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RepositoryResponse. Access the value via the '{suggest}' property getter instead.")
@@ -6342,34 +6321,27 @@ class RepositoryResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 branch: Optional[_builtins.str] = None,
-                 deployment_logs_url: Optional[_builtins.str] = None,
-                 display_url: Optional[_builtins.str] = None,
-                 path_mapping: Optional[Sequence['outputs.ContentPathMapResponse']] = None,
-                 url: Optional[_builtins.str] = None):
+                 branch: _builtins.str,
+                 deployment_logs_url: _builtins.str,
+                 url: _builtins.str,
+                 display_url: Optional[_builtins.str] = None):
         """
         metadata of a repository.
 
         :param _builtins.str branch: Branch name of repository.
         :param _builtins.str deployment_logs_url: Url to access repository action logs.
-        :param _builtins.str display_url: Display url of repository.
-        :param Sequence['ContentPathMapResponse'] path_mapping: Dictionary of source control content type and path mapping.
         :param _builtins.str url: Url of repository.
+        :param _builtins.str display_url: Display url of repository.
         """
-        if branch is not None:
-            pulumi.set(__self__, "branch", branch)
-        if deployment_logs_url is not None:
-            pulumi.set(__self__, "deployment_logs_url", deployment_logs_url)
+        pulumi.set(__self__, "branch", branch)
+        pulumi.set(__self__, "deployment_logs_url", deployment_logs_url)
+        pulumi.set(__self__, "url", url)
         if display_url is not None:
             pulumi.set(__self__, "display_url", display_url)
-        if path_mapping is not None:
-            pulumi.set(__self__, "path_mapping", path_mapping)
-        if url is not None:
-            pulumi.set(__self__, "url", url)
 
     @_builtins.property
     @pulumi.getter
-    def branch(self) -> Optional[_builtins.str]:
+    def branch(self) -> _builtins.str:
         """
         Branch name of repository.
         """
@@ -6377,11 +6349,19 @@ class RepositoryResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="deploymentLogsUrl")
-    def deployment_logs_url(self) -> Optional[_builtins.str]:
+    def deployment_logs_url(self) -> _builtins.str:
         """
         Url to access repository action logs.
         """
         return pulumi.get(self, "deployment_logs_url")
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> _builtins.str:
+        """
+        Url of repository.
+        """
+        return pulumi.get(self, "url")
 
     @_builtins.property
     @pulumi.getter(name="displayUrl")
@@ -6390,22 +6370,6 @@ class RepositoryResponse(dict):
         Display url of repository.
         """
         return pulumi.get(self, "display_url")
-
-    @_builtins.property
-    @pulumi.getter(name="pathMapping")
-    def path_mapping(self) -> Optional[Sequence['outputs.ContentPathMapResponse']]:
-        """
-        Dictionary of source control content type and path mapping.
-        """
-        return pulumi.get(self, "path_mapping")
-
-    @_builtins.property
-    @pulumi.getter
-    def url(self) -> Optional[_builtins.str]:
-        """
-        Url of repository.
-        """
-        return pulumi.get(self, "url")
 
 
 @pulumi.output_type
@@ -6988,6 +6952,84 @@ class SecurityMLAnalyticsSettingsDataSourceResponse(dict):
         The data types used by the security ml analytics settings
         """
         return pulumi.get(self, "data_types")
+
+
+@pulumi.output_type
+class ServicePrincipalResponse(dict):
+    """
+    Service principal metadata.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appId":
+            suggest = "app_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "credentialsExpireOn":
+            suggest = "credentials_expire_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServicePrincipalResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServicePrincipalResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServicePrincipalResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 app_id: _builtins.str,
+                 id: _builtins.str,
+                 tenant_id: _builtins.str,
+                 credentials_expire_on: Optional[_builtins.str] = None):
+        """
+        Service principal metadata.
+
+        :param _builtins.str app_id: App id of service principal.
+        :param _builtins.str id: Id of service principal.
+        :param _builtins.str tenant_id: Tenant id of service principal.
+        :param _builtins.str credentials_expire_on: Expiration time of service principal credentials.
+        """
+        pulumi.set(__self__, "app_id", app_id)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if credentials_expire_on is not None:
+            pulumi.set(__self__, "credentials_expire_on", credentials_expire_on)
+
+    @_builtins.property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> _builtins.str:
+        """
+        App id of service principal.
+        """
+        return pulumi.get(self, "app_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        Id of service principal.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> _builtins.str:
+        """
+        Tenant id of service principal.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @_builtins.property
+    @pulumi.getter(name="credentialsExpireOn")
+    def credentials_expire_on(self) -> Optional[_builtins.str]:
+        """
+        Expiration time of service principal credentials.
+        """
+        return pulumi.get(self, "credentials_expire_on")
 
 
 @pulumi.output_type
@@ -7986,14 +8028,14 @@ class WebhookResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "rotateWebhookSecret":
-            suggest = "rotate_webhook_secret"
-        elif key == "webhookId":
+        if key == "webhookId":
             suggest = "webhook_id"
         elif key == "webhookSecretUpdateTime":
             suggest = "webhook_secret_update_time"
         elif key == "webhookUrl":
             suggest = "webhook_url"
+        elif key == "rotateWebhookSecret":
+            suggest = "rotate_webhook_secret"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in WebhookResponse. Access the value via the '{suggest}' property getter instead.")
@@ -8007,26 +8049,47 @@ class WebhookResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 rotate_webhook_secret: Optional[_builtins.bool] = None,
-                 webhook_id: Optional[_builtins.str] = None,
-                 webhook_secret_update_time: Optional[_builtins.str] = None,
-                 webhook_url: Optional[_builtins.str] = None):
+                 webhook_id: _builtins.str,
+                 webhook_secret_update_time: _builtins.str,
+                 webhook_url: _builtins.str,
+                 rotate_webhook_secret: Optional[_builtins.bool] = None):
         """
         Detail about the webhook object.
 
-        :param _builtins.bool rotate_webhook_secret: A flag to instruct the backend service to rotate webhook secret.
         :param _builtins.str webhook_id: Unique identifier for the webhook.
         :param _builtins.str webhook_secret_update_time: Time when the webhook secret was updated.
         :param _builtins.str webhook_url: URL that gets invoked by the webhook.
+        :param _builtins.bool rotate_webhook_secret: A flag to instruct the backend service to rotate webhook secret.
         """
+        pulumi.set(__self__, "webhook_id", webhook_id)
+        pulumi.set(__self__, "webhook_secret_update_time", webhook_secret_update_time)
+        pulumi.set(__self__, "webhook_url", webhook_url)
         if rotate_webhook_secret is not None:
             pulumi.set(__self__, "rotate_webhook_secret", rotate_webhook_secret)
-        if webhook_id is not None:
-            pulumi.set(__self__, "webhook_id", webhook_id)
-        if webhook_secret_update_time is not None:
-            pulumi.set(__self__, "webhook_secret_update_time", webhook_secret_update_time)
-        if webhook_url is not None:
-            pulumi.set(__self__, "webhook_url", webhook_url)
+
+    @_builtins.property
+    @pulumi.getter(name="webhookId")
+    def webhook_id(self) -> _builtins.str:
+        """
+        Unique identifier for the webhook.
+        """
+        return pulumi.get(self, "webhook_id")
+
+    @_builtins.property
+    @pulumi.getter(name="webhookSecretUpdateTime")
+    def webhook_secret_update_time(self) -> _builtins.str:
+        """
+        Time when the webhook secret was updated.
+        """
+        return pulumi.get(self, "webhook_secret_update_time")
+
+    @_builtins.property
+    @pulumi.getter(name="webhookUrl")
+    def webhook_url(self) -> _builtins.str:
+        """
+        URL that gets invoked by the webhook.
+        """
+        return pulumi.get(self, "webhook_url")
 
     @_builtins.property
     @pulumi.getter(name="rotateWebhookSecret")
@@ -8036,28 +8099,90 @@ class WebhookResponse(dict):
         """
         return pulumi.get(self, "rotate_webhook_secret")
 
-    @_builtins.property
-    @pulumi.getter(name="webhookId")
-    def webhook_id(self) -> Optional[_builtins.str]:
+
+@pulumi.output_type
+class WorkloadIdentityFederationResponse(dict):
+    """
+    Workload Identity Federation metadata.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appId":
+            suggest = "app_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkloadIdentityFederationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkloadIdentityFederationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkloadIdentityFederationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 app_id: _builtins.str,
+                 id: _builtins.str,
+                 issuer: _builtins.str,
+                 subject: _builtins.str,
+                 tenant_id: _builtins.str):
         """
-        Unique identifier for the webhook.
+        Workload Identity Federation metadata.
+
+        :param _builtins.str app_id: App id of Workload Identity Federation.
+        :param _builtins.str id: Id of Workload Identity Federation.
+        :param _builtins.str issuer: Issuer of Workload Identity Federation.
+        :param _builtins.str subject: Subject of Workload Identity Federation.
+        :param _builtins.str tenant_id: Tenant id of Workload Identity Federation.
         """
-        return pulumi.get(self, "webhook_id")
+        pulumi.set(__self__, "app_id", app_id)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "issuer", issuer)
+        pulumi.set(__self__, "subject", subject)
+        pulumi.set(__self__, "tenant_id", tenant_id)
 
     @_builtins.property
-    @pulumi.getter(name="webhookSecretUpdateTime")
-    def webhook_secret_update_time(self) -> Optional[_builtins.str]:
+    @pulumi.getter(name="appId")
+    def app_id(self) -> _builtins.str:
         """
-        Time when the webhook secret was updated.
+        App id of Workload Identity Federation.
         """
-        return pulumi.get(self, "webhook_secret_update_time")
+        return pulumi.get(self, "app_id")
 
     @_builtins.property
-    @pulumi.getter(name="webhookUrl")
-    def webhook_url(self) -> Optional[_builtins.str]:
+    @pulumi.getter
+    def id(self) -> _builtins.str:
         """
-        URL that gets invoked by the webhook.
+        Id of Workload Identity Federation.
         """
-        return pulumi.get(self, "webhook_url")
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def issuer(self) -> _builtins.str:
+        """
+        Issuer of Workload Identity Federation.
+        """
+        return pulumi.get(self, "issuer")
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> _builtins.str:
+        """
+        Subject of Workload Identity Federation.
+        """
+        return pulumi.get(self, "subject")
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> _builtins.str:
+        """
+        Tenant id of Workload Identity Federation.
+        """
+        return pulumi.get(self, "tenant_id")
 
 

@@ -138,7 +138,7 @@ class Workload(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-05-01-preview.
 
-        Other available API versions: 2024-06-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mission [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2024-06-01-preview, 2024-12-01-preview, 2025-11-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mission [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -161,7 +161,7 @@ class Workload(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-05-01-preview.
 
-        Other available API versions: 2024-06-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mission [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2024-06-01-preview, 2024-12-01-preview, 2025-11-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mission [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -210,7 +210,7 @@ class Workload(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mission/v20240601preview:Workload"), pulumi.Alias(type_="azure-native:mission/v20241201preview:Workload"), pulumi.Alias(type_="azure-native:mission/v20250501preview:Workload")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mission/v20240601preview:Workload"), pulumi.Alias(type_="azure-native:mission/v20241201preview:Workload"), pulumi.Alias(type_="azure-native:mission/v20250501preview:Workload"), pulumi.Alias(type_="azure-native:mission/v20251101preview:Workload"), pulumi.Alias(type_="azure-native:mission/v20260301preview:Workload")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Workload, __self__).__init__(
             'azure-native:mission:Workload',

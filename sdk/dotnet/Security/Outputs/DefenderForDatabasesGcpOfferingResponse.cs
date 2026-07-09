@@ -19,11 +19,11 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// <summary>
         /// The ARC autoprovisioning configuration
         /// </summary>
-        public readonly Outputs.DefenderForDatabasesGcpOfferingResponseArcAutoProvisioning? ArcAutoProvisioning;
+        public readonly Outputs.DefenderForDatabasesGcpOfferingArcAutoProvisioningResponse? ArcAutoProvisioning;
         /// <summary>
         /// The native cloud connection configuration
         /// </summary>
-        public readonly Outputs.DefenderForDatabasesGcpOfferingResponseDefenderForDatabasesArcAutoProvisioning? DefenderForDatabasesArcAutoProvisioning;
+        public readonly Outputs.DefenderForDatabasesGcpOfferingDefenderForDatabasesArcAutoProvisioningResponse? DefenderForDatabasesArcAutoProvisioning;
         /// <summary>
         /// The offering description.
         /// </summary>
@@ -36,9 +36,9 @@ namespace Pulumi.AzureNative.Security.Outputs
 
         [OutputConstructor]
         private DefenderForDatabasesGcpOfferingResponse(
-            Outputs.DefenderForDatabasesGcpOfferingResponseArcAutoProvisioning? arcAutoProvisioning,
+            Outputs.DefenderForDatabasesGcpOfferingArcAutoProvisioningResponse? arcAutoProvisioning,
 
-            Outputs.DefenderForDatabasesGcpOfferingResponseDefenderForDatabasesArcAutoProvisioning? defenderForDatabasesArcAutoProvisioning,
+            Outputs.DefenderForDatabasesGcpOfferingDefenderForDatabasesArcAutoProvisioningResponse? defenderForDatabasesArcAutoProvisioning,
 
             string description,
 

@@ -131,6 +131,8 @@ def get_akri_service(akri_service_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2026-03-01.
 
+    Other available API versions: 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param _builtins.str akri_service_name: Name of AkriService resource.
     :param _builtins.str instance_name: Name of instance.
@@ -159,6 +161,8 @@ def get_akri_service_output(akri_service_name: Optional[pulumi.Input[_builtins.s
     Get a AkriServiceResource
 
     Uses Azure REST API version 2026-03-01.
+
+    Other available API versions: 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str akri_service_name: Name of AkriService resource.

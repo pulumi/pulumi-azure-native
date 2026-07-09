@@ -21,17 +21,11 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("arguments")]
         public Input<object>? Arguments { get; set; }
 
-        [Input("defines")]
-        private InputMap<object>? _defines;
-
         /// <summary>
         /// Allows user to specify defines for Pig job request.
         /// </summary>
-        public InputMap<object> Defines
-        {
-            get => _defines ?? (_defines = new InputMap<object>());
-            set => _defines = value;
-        }
+        [Input("defines")]
+        public Input<object>? Defines { get; set; }
 
         [Input("dependsOn")]
         private InputList<Inputs.ActivityDependencyArgs>? _dependsOn;

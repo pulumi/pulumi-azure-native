@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * A virtual network appliance in a resource group.
  *
  * Uses Azure REST API version 2025-05-01.
+ *
+ * Other available API versions: 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class VirtualNetworkAppliance extends pulumi.CustomResource {
     /**
@@ -74,7 +76,7 @@ export class VirtualNetworkAppliance extends pulumi.CustomResource {
     /**
      * The reference to the subnet resource.
      */
-    declare public readonly subnet: pulumi.Output<outputs.network.SubnetResponseV3 | undefined>;
+    declare public readonly subnet: pulumi.Output<outputs.network.CommonSubnetResponse | undefined>;
     /**
      * Resource tags.
      */
@@ -102,7 +104,7 @@ export class VirtualNetworkAppliance extends pulumi.CustomResource {
             resourceInputs["id"] = args?.id;
             resourceInputs["location"] = args?.location;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
-            resourceInputs["subnet"] = args ? (args.subnet ? pulumi.output(args.subnet).apply(inputs.network.subnetArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["subnet"] = args ? (args.subnet ? pulumi.output(args.subnet).apply(inputs.network.commonSubnetArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["virtualNetworkApplianceName"] = args?.virtualNetworkApplianceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -126,7 +128,7 @@ export class VirtualNetworkAppliance extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20250501:VirtualNetworkAppliance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20250501:VirtualNetworkAppliance" }, { type: "azure-native:network/v20250701:VirtualNetworkAppliance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualNetworkAppliance.__pulumiType, name, resourceInputs, opts);
     }
@@ -149,13 +151,13 @@ export interface VirtualNetworkApplianceArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
      * The reference to the subnet resource.
      */
-    subnet?: pulumi.Input<inputs.network.SubnetArgs>;
+    subnet?: pulumi.Input<inputs.network.CommonSubnetArgs>;
     /**
      * Resource tags.
      */

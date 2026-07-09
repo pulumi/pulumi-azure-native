@@ -32,10 +32,10 @@ class PackageArgs:
 
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
         :param pulumi.Input['ContentLinkArgs'] content_link: Gets or sets the package content link.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] runtime_environment_name: The name of the Runtime Environment.
         :param pulumi.Input['TrackedResourceArgs'] all_of: The resource model definition for an Azure Resource Manager tracked top level resource which has 'tags' and a 'location'
-        :param pulumi.Input[_builtins.str] package_name: The name of Package.
+        :param pulumi.Input[_builtins.str] package_name: The Package name.
         """
         pulumi.set(__self__, "automation_account_name", automation_account_name)
         pulumi.set(__self__, "content_link", content_link)
@@ -74,7 +74,7 @@ class PackageArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of an Azure Resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -110,7 +110,7 @@ class PackageArgs:
     @pulumi.getter(name="packageName")
     def package_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of Package.
+        The Package name.
         """
         return pulumi.get(self, "package_name")
 
@@ -145,8 +145,8 @@ class Package(pulumi.CustomResource):
         :param pulumi.Input[Union['TrackedResourceArgs', 'TrackedResourceArgsDict']] all_of: The resource model definition for an Azure Resource Manager tracked top level resource which has 'tags' and a 'location'
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
         :param pulumi.Input[Union['ContentLinkArgs', 'ContentLinkArgsDict']] content_link: Gets or sets the package content link.
-        :param pulumi.Input[_builtins.str] package_name: The name of Package.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[_builtins.str] package_name: The Package name.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] runtime_environment_name: The name of the Runtime Environment.
         """
         ...

@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Security
         /// Get the Defender plans pricing configurations of the selected scope (valid scopes are resource id or a subscription id). At the resource level, supported resource types are 'VirtualMachines, VMSS and ARC Machines'.
         /// 
         /// Uses Azure REST API version 2024-01-01.
+        /// 
+        /// Other available API versions: 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetPricingResult> InvokeAsync(GetPricingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPricingResult>("azure-native:security:getPricing", args ?? new GetPricingArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Security
         /// Get the Defender plans pricing configurations of the selected scope (valid scopes are resource id or a subscription id). At the resource level, supported resource types are 'VirtualMachines, VMSS and ARC Machines'.
         /// 
         /// Uses Azure REST API version 2024-01-01.
+        /// 
+        /// Other available API versions: 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPricingResult> Invoke(GetPricingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPricingResult>("azure-native:security:getPricing", args ?? new GetPricingInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Security
         /// Get the Defender plans pricing configurations of the selected scope (valid scopes are resource id or a subscription id). At the resource level, supported resource types are 'VirtualMachines, VMSS and ARC Machines'.
         /// 
         /// Uses Azure REST API version 2024-01-01.
+        /// 
+        /// Other available API versions: 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPricingResult> Invoke(GetPricingInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPricingResult>("azure-native:security:getPricing", args ?? new GetPricingInvokeArgs(), options.WithDefaults());
@@ -46,7 +52,7 @@ namespace Pulumi.AzureNative.Security
         public string PricingName { get; set; } = null!;
 
         /// <summary>
-        /// The scope id of the pricing. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or a specific resource (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}) - Supported resources are (VirtualMachines)
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("scopeId", required: true)]
         public string ScopeId { get; set; } = null!;
@@ -66,7 +72,7 @@ namespace Pulumi.AzureNative.Security
         public Input<string> PricingName { get; set; } = null!;
 
         /// <summary>
-        /// The scope id of the pricing. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or a specific resource (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}) - Supported resources are (VirtualMachines)
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("scopeId", required: true)]
         public Input<string> ScopeId { get; set; } = null!;
@@ -106,7 +112,7 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly string FreeTrialRemainingTime;
         /// <summary>
-        /// Resource Id
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -118,7 +124,7 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly string InheritedFrom;
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -138,7 +144,11 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly string? SubPlan;
         /// <summary>
-        /// Resource type
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -172,6 +182,8 @@ namespace Pulumi.AzureNative.Security
 
             string? subPlan,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             AzureApiVersion = azureApiVersion;
@@ -188,6 +200,7 @@ namespace Pulumi.AzureNative.Security
             ReplacedBy = replacedBy;
             ResourcesCoverageStatus = resourcesCoverageStatus;
             SubPlan = subPlan;
+            SystemData = systemData;
             Type = type;
         }
     }

@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2018-03-01.
  *
- * Other available API versions: 2024-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2024-03-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class MetricAlert extends pulumi.CustomResource {
     /**
@@ -187,7 +187,7 @@ export class MetricAlert extends pulumi.CustomResource {
             resourceInputs["windowSize"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20180301:MetricAlert" }, { type: "azure-native:insights:MetricAlert" }, { type: "azure-native:monitor/v20180301:MetricAlert" }, { type: "azure-native:monitor/v20240301preview:MetricAlert" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20180301:MetricAlert" }, { type: "azure-native:insights:MetricAlert" }, { type: "azure-native:monitor/v20180301:MetricAlert" }, { type: "azure-native:monitor/v20240301preview:MetricAlert" }, { type: "azure-native:monitor/v20260101:MetricAlert" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MetricAlert.__pulumiType, name, resourceInputs, opts);
     }

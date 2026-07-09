@@ -11,8 +11,6 @@ __all__ = [
     'AllocationStrategy',
     'Architecture',
     'CachingTypes',
-    'CloudServiceSlotType',
-    'CloudServiceUpgradeMode',
     'ComponentName',
     'ConfidentialVMEncryptionType',
     'ConsistencyModeTypes',
@@ -136,29 +134,6 @@ class CachingTypes(_builtins.str, Enum):
     NONE = "None"
     READ_ONLY = "ReadOnly"
     READ_WRITE = "ReadWrite"
-
-
-@pulumi.type_token("azure-native:compute:CloudServiceSlotType")
-class CloudServiceSlotType(_builtins.str, Enum):
-    """
-    Slot type for the cloud service.
-    Possible values are <br /><br />**Production**<br /><br />**Staging**<br /><br />
-    If not specified, the default value is Production.
-    """
-    PRODUCTION = "Production"
-    STAGING = "Staging"
-
-
-@pulumi.type_token("azure-native:compute:CloudServiceUpgradeMode")
-class CloudServiceUpgradeMode(_builtins.str, Enum):
-    """
-    Update mode for the cloud service. Role instances are allocated to update domains when the service is deployed. Updates can be initiated manually in each update domain or initiated automatically in all update domains.
-    Possible Values are <br /><br />**Auto**<br /><br />**Manual** <br /><br />**Simultaneous**<br /><br />
-    If not specified, the default value is Auto. If set to Manual, PUT UpdateDomain must be called to apply the update. If set to Auto, the update is automatically applied to each update domain in sequence.
-    """
-    AUTO = "Auto"
-    MANUAL = "Manual"
-    SIMULTANEOUS = "Simultaneous"
 
 
 @pulumi.type_token("azure-native:compute:ComponentName")
@@ -930,7 +905,7 @@ class SecurityEncryptionTypes(_builtins.str, Enum):
 @pulumi.type_token("azure-native:compute:SecurityTypes")
 class SecurityTypes(_builtins.str, Enum):
     """
-    Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings. The default behavior is: UefiSettings will not be enabled unless this property is set.
+    Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings. The default behavior is: UefiSettings will not be enabled unless this property is set and is not Standard. If not specified, Standard will be returned starting api version 2025-11-01.
     """
     TRUSTED_LAUNCH = "TrustedLaunch"
     CONFIDENTIAL_VM = "ConfidentialVM"

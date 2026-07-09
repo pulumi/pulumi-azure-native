@@ -32,7 +32,7 @@ class JitNetworkAccessPolicyArgs:
         The set of arguments for constructing a JitNetworkAccessPolicy resource.
 
         :param pulumi.Input[_builtins.str] asc_location: The location where ASC stores the data of the subscription. can be retrieved from Get locations
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessPolicyVirtualMachineArgs']]] virtual_machines: Configurations for Microsoft.Compute/virtualMachines resource type.
         :param pulumi.Input[_builtins.str] jit_network_access_policy_name: Name of a Just-in-Time access configuration policy.
         :param pulumi.Input[_builtins.str] kind: Kind of the resource
@@ -63,7 +63,7 @@ class JitNetworkAccessPolicyArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the resource group within the user's subscription. The name is case insensitive.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -131,6 +131,8 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
                  virtual_machines: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JitNetworkAccessPolicyVirtualMachineArgs', 'JitNetworkAccessPolicyVirtualMachineArgsDict']]]]] = None,
                  __props__=None):
         """
+        Concrete proxy resource types can be created by aliasing this type using a specific property type.
+
         Uses Azure REST API version 2020-01-01. In version 2.x of the Azure Native provider, it used API version 2020-01-01.
 
 
@@ -139,7 +141,7 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] asc_location: The location where ASC stores the data of the subscription. can be retrieved from Get locations
         :param pulumi.Input[_builtins.str] jit_network_access_policy_name: Name of a Just-in-Time access configuration policy.
         :param pulumi.Input[_builtins.str] kind: Kind of the resource
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[Union['JitNetworkAccessPolicyVirtualMachineArgs', 'JitNetworkAccessPolicyVirtualMachineArgsDict']]]] virtual_machines: Configurations for Microsoft.Compute/virtualMachines resource type.
         """
         ...
@@ -149,6 +151,8 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
                  args: JitNetworkAccessPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Concrete proxy resource types can be created by aliasing this type using a specific property type.
+
         Uses Azure REST API version 2020-01-01. In version 2.x of the Azure Native provider, it used API version 2020-01-01.
 
 
@@ -198,6 +202,7 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
             __props__.__dict__["location"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20150601preview:JitNetworkAccessPolicy"), pulumi.Alias(type_="azure-native:security/v20200101:JitNetworkAccessPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -229,6 +234,7 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["requests"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["virtual_machines"] = None
         return JitNetworkAccessPolicy(resource_name, opts=opts, __props__=__props__)
@@ -261,7 +267,7 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -279,10 +285,18 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
         return pulumi.get(self, "requests")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

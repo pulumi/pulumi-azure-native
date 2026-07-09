@@ -167,6 +167,8 @@ def get_api_gateway_hostname_binding(gateway_name: Optional[_builtins.str] = Non
 
     Uses Azure REST API version 2025-03-01-preview.
 
+    Other available API versions: 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param _builtins.str gateway_name: The name of the API Management gateway.
     :param _builtins.str hostname_binding_name: Gateway hostname binding identifier. Must be unique in the scope of parent Gateway entity.
@@ -198,6 +200,8 @@ def get_api_gateway_hostname_binding_output(gateway_name: Optional[pulumi.Input[
     Gets an API Management gateway hostname binding resource description.
 
     Uses Azure REST API version 2025-03-01-preview.
+
+    Other available API versions: 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str gateway_name: The name of the API Management gateway.

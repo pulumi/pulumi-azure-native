@@ -358,7 +358,7 @@ def get_domain_service(domain_service_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2022-12-01.
 
-    Other available API versions: 2025-05-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native aad [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2025-05-01, 2025-06-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native aad [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str domain_service_name: The name of the domain service.
@@ -405,7 +405,7 @@ def get_domain_service_output(domain_service_name: Optional[pulumi.Input[_builti
 
     Uses Azure REST API version 2022-12-01.
 
-    Other available API versions: 2025-05-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native aad [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2025-05-01, 2025-06-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native aad [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str domain_service_name: The name of the domain service.

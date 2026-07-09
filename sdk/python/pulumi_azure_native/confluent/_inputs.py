@@ -2133,10 +2133,6 @@ class OfferDetailArgsDict(TypedDict):
     """
     Array of Private Offer Ids
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'SaaSOfferStatus']]]
-    """
-    SaaS Offer Status
-    """
     term_id: NotRequired[pulumi.Input[_builtins.str]]
     """
     Offer Plan Term Id
@@ -2152,7 +2148,6 @@ class OfferDetailArgs:
                  term_unit: pulumi.Input[_builtins.str],
                  private_offer_id: Optional[pulumi.Input[_builtins.str]] = None,
                  private_offer_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'SaaSOfferStatus']]] = None,
                  term_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Confluent Offer detail
@@ -2164,7 +2159,6 @@ class OfferDetailArgs:
         :param pulumi.Input[_builtins.str] term_unit: Offer Plan Term unit
         :param pulumi.Input[_builtins.str] private_offer_id: Private Offer Id
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] private_offer_ids: Array of Private Offer Ids
-        :param pulumi.Input[Union[_builtins.str, 'SaaSOfferStatus']] status: SaaS Offer Status
         :param pulumi.Input[_builtins.str] term_id: Offer Plan Term Id
         """
         pulumi.set(__self__, "id", id)
@@ -2176,8 +2170,6 @@ class OfferDetailArgs:
             pulumi.set(__self__, "private_offer_id", private_offer_id)
         if private_offer_ids is not None:
             pulumi.set(__self__, "private_offer_ids", private_offer_ids)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
         if term_id is not None:
             pulumi.set(__self__, "term_id", term_id)
 
@@ -2264,18 +2256,6 @@ class OfferDetailArgs:
     @private_offer_ids.setter
     def private_offer_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "private_offer_ids", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SaaSOfferStatus']]]:
-        """
-        SaaS Offer Status
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SaaSOfferStatus']]]):
-        pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="termId")

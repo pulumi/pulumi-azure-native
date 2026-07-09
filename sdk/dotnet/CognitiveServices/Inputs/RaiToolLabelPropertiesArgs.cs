@@ -22,14 +22,14 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
         public Input<Inputs.RaiToolLabelPropertiesAccountScopeArgs>? AccountScope { get; set; }
 
         [Input("projectScopes")]
-        private InputList<Inputs.RaiToolLabelPropertiesProjectScopesArgs>? _projectScopes;
+        private InputList<Inputs.RaiToolLabelPropertiesProjectScopesItemArgs>? _projectScopes;
 
         /// <summary>
         /// List of project-level tool label definitions.
         /// </summary>
-        public InputList<Inputs.RaiToolLabelPropertiesProjectScopesArgs> ProjectScopes
+        public InputList<Inputs.RaiToolLabelPropertiesProjectScopesItemArgs> ProjectScopes
         {
-            get => _projectScopes ?? (_projectScopes = new InputList<Inputs.RaiToolLabelPropertiesProjectScopesArgs>());
+            get => _projectScopes ?? (_projectScopes = new InputList<Inputs.RaiToolLabelPropertiesProjectScopesItemArgs>());
             set => _projectScopes = value;
         }
 

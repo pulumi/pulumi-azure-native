@@ -27,7 +27,7 @@ class GetSoftwareUpdateConfigurationByNameResult:
     """
     Software update configuration properties.
     """
-    def __init__(__self__, azure_api_version=None, created_by=None, creation_time=None, error=None, id=None, last_modified_by=None, last_modified_time=None, name=None, provisioning_state=None, schedule_info=None, tasks=None, type=None, update_configuration=None):
+    def __init__(__self__, azure_api_version=None, created_by=None, creation_time=None, error=None, id=None, last_modified_by=None, last_modified_time=None, name=None, provisioning_state=None, schedule_info=None, system_data=None, tasks=None, type=None, update_configuration=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -58,6 +58,9 @@ class GetSoftwareUpdateConfigurationByNameResult:
         if schedule_info and not isinstance(schedule_info, dict):
             raise TypeError("Expected argument 'schedule_info' to be a dict")
         pulumi.set(__self__, "schedule_info", schedule_info)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tasks and not isinstance(tasks, dict):
             raise TypeError("Expected argument 'tasks' to be a dict")
         pulumi.set(__self__, "tasks", tasks)
@@ -94,7 +97,7 @@ class GetSoftwareUpdateConfigurationByNameResult:
 
     @_builtins.property
     @pulumi.getter
-    def error(self) -> Optional['outputs.ErrorResponseResponse']:
+    def error(self) -> Optional['outputs.AutomationErrorResponseResponse']:
         """
         Details of provisioning error
         """
@@ -104,7 +107,7 @@ class GetSoftwareUpdateConfigurationByNameResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -128,7 +131,7 @@ class GetSoftwareUpdateConfigurationByNameResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -149,6 +152,14 @@ class GetSoftwareUpdateConfigurationByNameResult:
         return pulumi.get(self, "schedule_info")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def tasks(self) -> Optional['outputs.SoftwareUpdateConfigurationTasksResponse']:
         """
@@ -160,7 +171,7 @@ class GetSoftwareUpdateConfigurationByNameResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -189,6 +200,7 @@ class AwaitableGetSoftwareUpdateConfigurationByNameResult(GetSoftwareUpdateConfi
             name=self.name,
             provisioning_state=self.provisioning_state,
             schedule_info=self.schedule_info,
+            system_data=self.system_data,
             tasks=self.tasks,
             type=self.type,
             update_configuration=self.update_configuration)
@@ -207,7 +219,7 @@ def get_software_update_configuration_by_name(automation_account_name: Optional[
 
 
     :param _builtins.str automation_account_name: The name of the automation account.
-    :param _builtins.str resource_group_name: Name of an Azure Resource group.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str software_update_configuration_name: The name of the software update configuration to be created.
     """
     __args__ = dict()
@@ -228,6 +240,7 @@ def get_software_update_configuration_by_name(automation_account_name: Optional[
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         schedule_info=pulumi.get(__ret__, 'schedule_info'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tasks=pulumi.get(__ret__, 'tasks'),
         type=pulumi.get(__ret__, 'type'),
         update_configuration=pulumi.get(__ret__, 'update_configuration'))
@@ -244,7 +257,7 @@ def get_software_update_configuration_by_name_output(automation_account_name: Op
 
 
     :param _builtins.str automation_account_name: The name of the automation account.
-    :param _builtins.str resource_group_name: Name of an Azure Resource group.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str software_update_configuration_name: The name of the software update configuration to be created.
     """
     __args__ = dict()
@@ -264,6 +277,7 @@ def get_software_update_configuration_by_name_output(automation_account_name: Op
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         schedule_info=pulumi.get(__response__, 'schedule_info'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tasks=pulumi.get(__response__, 'tasks'),
         type=pulumi.get(__response__, 'type'),
         update_configuration=pulumi.get(__response__, 'update_configuration')))

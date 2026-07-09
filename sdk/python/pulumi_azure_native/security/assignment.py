@@ -24,7 +24,7 @@ class AssignmentArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  additional_data: Optional[pulumi.Input['AssignmentPropertiesAdditionalDataArgs']] = None,
                  assigned_component: Optional[pulumi.Input['AssignedComponentItemArgs']] = None,
-                 assigned_standard: Optional[pulumi.Input['AssignedStandardItemArgs']] = None,
+                 assigned_standard: Optional[pulumi.Input['CommonAssignedStandardItemArgs']] = None,
                  assignment_id: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -38,20 +38,20 @@ class AssignmentArgs:
         """
         The set of arguments for constructing a Assignment resource.
 
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['AssignmentPropertiesAdditionalDataArgs'] additional_data: Additional data about the assignment
         :param pulumi.Input['AssignedComponentItemArgs'] assigned_component: Component item with key as applied to this standard assignment over the given scope
-        :param pulumi.Input['AssignedStandardItemArgs'] assigned_standard: Standard item with key as applied to this standard assignment over the given scope
+        :param pulumi.Input['CommonAssignedStandardItemArgs'] assigned_standard: Standard item with key as applied to this standard assignment over the given scope
         :param pulumi.Input[_builtins.str] assignment_id: The security assignment key - unique key for the standard assignment
         :param pulumi.Input[_builtins.str] description: description of the standardAssignment
         :param pulumi.Input[_builtins.str] display_name: display name of the standardAssignment
         :param pulumi.Input[_builtins.str] effect: expected effect of this assignment (Disable/Exempt/etc)
         :param pulumi.Input[_builtins.str] expires_on: Expiration date of this assignment as a full ISO date
         :param pulumi.Input[_builtins.str] kind: Kind of the resource
-        :param pulumi.Input[_builtins.str] location: Location where the resource is stored
+        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param Any metadata: The assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
         :param pulumi.Input[_builtins.str] scope: Scope to which the standardAssignment applies - can be a subscription path or a resource group under that subscription
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A list of key value pairs that describe the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if additional_data is not None:
@@ -85,7 +85,7 @@ class AssignmentArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the resource group within the user's subscription. The name is case insensitive.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -119,14 +119,14 @@ class AssignmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="assignedStandard")
-    def assigned_standard(self) -> Optional[pulumi.Input['AssignedStandardItemArgs']]:
+    def assigned_standard(self) -> Optional[pulumi.Input['CommonAssignedStandardItemArgs']]:
         """
         Standard item with key as applied to this standard assignment over the given scope
         """
         return pulumi.get(self, "assigned_standard")
 
     @assigned_standard.setter
-    def assigned_standard(self, value: Optional[pulumi.Input['AssignedStandardItemArgs']]):
+    def assigned_standard(self, value: Optional[pulumi.Input['CommonAssignedStandardItemArgs']]):
         pulumi.set(self, "assigned_standard", value)
 
     @_builtins.property
@@ -205,7 +205,7 @@ class AssignmentArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Location where the resource is stored
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -241,7 +241,7 @@ class AssignmentArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A list of key value pairs that describe the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -258,7 +258,7 @@ class Assignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_data: Optional[pulumi.Input[Union['AssignmentPropertiesAdditionalDataArgs', 'AssignmentPropertiesAdditionalDataArgsDict']]] = None,
                  assigned_component: Optional[pulumi.Input[Union['AssignedComponentItemArgs', 'AssignedComponentItemArgsDict']]] = None,
-                 assigned_standard: Optional[pulumi.Input[Union['AssignedStandardItemArgs', 'AssignedStandardItemArgsDict']]] = None,
+                 assigned_standard: Optional[pulumi.Input[Union['CommonAssignedStandardItemArgs', 'CommonAssignedStandardItemArgsDict']]] = None,
                  assignment_id: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -281,18 +281,18 @@ class Assignment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AssignmentPropertiesAdditionalDataArgs', 'AssignmentPropertiesAdditionalDataArgsDict']] additional_data: Additional data about the assignment
         :param pulumi.Input[Union['AssignedComponentItemArgs', 'AssignedComponentItemArgsDict']] assigned_component: Component item with key as applied to this standard assignment over the given scope
-        :param pulumi.Input[Union['AssignedStandardItemArgs', 'AssignedStandardItemArgsDict']] assigned_standard: Standard item with key as applied to this standard assignment over the given scope
+        :param pulumi.Input[Union['CommonAssignedStandardItemArgs', 'CommonAssignedStandardItemArgsDict']] assigned_standard: Standard item with key as applied to this standard assignment over the given scope
         :param pulumi.Input[_builtins.str] assignment_id: The security assignment key - unique key for the standard assignment
         :param pulumi.Input[_builtins.str] description: description of the standardAssignment
         :param pulumi.Input[_builtins.str] display_name: display name of the standardAssignment
         :param pulumi.Input[_builtins.str] effect: expected effect of this assignment (Disable/Exempt/etc)
         :param pulumi.Input[_builtins.str] expires_on: Expiration date of this assignment as a full ISO date
         :param pulumi.Input[_builtins.str] kind: Kind of the resource
-        :param pulumi.Input[_builtins.str] location: Location where the resource is stored
+        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param Any metadata: The assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] scope: Scope to which the standardAssignment applies - can be a subscription path or a resource group under that subscription
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A list of key value pairs that describe the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         ...
     @overload
@@ -323,7 +323,7 @@ class Assignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_data: Optional[pulumi.Input[Union['AssignmentPropertiesAdditionalDataArgs', 'AssignmentPropertiesAdditionalDataArgsDict']]] = None,
                  assigned_component: Optional[pulumi.Input[Union['AssignedComponentItemArgs', 'AssignedComponentItemArgsDict']]] = None,
-                 assigned_standard: Optional[pulumi.Input[Union['AssignedStandardItemArgs', 'AssignedStandardItemArgsDict']]] = None,
+                 assigned_standard: Optional[pulumi.Input[Union['CommonAssignedStandardItemArgs', 'CommonAssignedStandardItemArgsDict']]] = None,
                  assignment_id: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -410,7 +410,7 @@ class Assignment(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="additionalData")
-    def additional_data(self) -> pulumi.Output[Optional['outputs.AssignmentPropertiesResponseAdditionalData']]:
+    def additional_data(self) -> pulumi.Output[Optional['outputs.AssignmentPropertiesAdditionalDataResponse']]:
         """
         Additional data about the assignment
         """
@@ -426,7 +426,7 @@ class Assignment(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="assignedStandard")
-    def assigned_standard(self) -> pulumi.Output[Optional['outputs.AssignedStandardItemResponse']]:
+    def assigned_standard(self) -> pulumi.Output[Optional['outputs.CommonAssignedStandardItemResponse']]:
         """
         Standard item with key as applied to this standard assignment over the given scope
         """
@@ -492,7 +492,7 @@ class Assignment(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Location where the resource is stored
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -508,7 +508,7 @@ class Assignment(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -532,7 +532,7 @@ class Assignment(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A list of key value pairs that describe the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -540,7 +540,7 @@ class Assignment(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

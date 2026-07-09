@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Authorization.Inputs
         /// The type of user.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNative.Authorization.UserType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Authorization.UsersOrServicePrincipalSetUserType>? Type { get; set; }
 
         public UsersOrServicePrincipalSetArgs()
         {

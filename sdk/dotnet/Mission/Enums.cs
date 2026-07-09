@@ -192,6 +192,43 @@ namespace Pulumi.AzureNative.Mission
     }
 
     /// <summary>
+    /// Designation of hub resource allocation (Pooled or Reserved)
+    /// </summary>
+    [EnumType]
+    public readonly struct Designation : IEquatable<Designation>
+    {
+        private readonly string _value;
+
+        private Designation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Designation Type Pooled
+        /// </summary>
+        public static Designation Pooled { get; } = new Designation("Pooled");
+        /// <summary>
+        /// Designation Type Reserved
+        /// </summary>
+        public static Designation Reserved { get; } = new Designation("Reserved");
+
+        public static bool operator ==(Designation left, Designation right) => left.Equals(right);
+        public static bool operator !=(Designation left, Designation right) => !left.Equals(right);
+
+        public static explicit operator string(Designation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Designation other && Equals(other);
+        public bool Equals(Designation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Destination Type.
     /// </summary>
     [EnumType]

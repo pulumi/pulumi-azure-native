@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// Get a DevicePool
         /// 
         /// Uses Azure REST API version 2026-03-01-preview.
+        /// 
+        /// Other available API versions: 2026-04-01-preview, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetDevicePoolResult> InvokeAsync(GetDevicePoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDevicePoolResult>("azure-native:azurestackhci:getDevicePool", args ?? new GetDevicePoolArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// Get a DevicePool
         /// 
         /// Uses Azure REST API version 2026-03-01-preview.
+        /// 
+        /// Other available API versions: 2026-04-01-preview, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDevicePoolResult> Invoke(GetDevicePoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDevicePoolResult>("azure-native:azurestackhci:getDevicePool", args ?? new GetDevicePoolInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// Get a DevicePool
         /// 
         /// Uses Azure REST API version 2026-03-01-preview.
+        /// 
+        /// Other available API versions: 2026-04-01-preview, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDevicePoolResult> Invoke(GetDevicePoolInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDevicePoolResult>("azure-native:azurestackhci:getDevicePool", args ?? new GetDevicePoolInvokeArgs(), options.WithDefaults());

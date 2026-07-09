@@ -27,6 +27,7 @@ __all__ = [
     'DefaultConsistencyLevel',
     'DefaultPriorityLevel',
     'DistanceFunction',
+    'FleetAnalyticsPropertiesStorageLocationType',
     'FleetspaceApiKind',
     'IndexKind',
     'IndexingMode',
@@ -47,7 +48,6 @@ __all__ = [
     'ServiceTier',
     'ServiceType',
     'SpatialType',
-    'StorageLocationType',
     'TriggerOperation',
     'TriggerType',
     'VectorDataType',
@@ -61,7 +61,13 @@ class AllocationState(_builtins.str, Enum):
     Allocation state of the cluster and data center resources. Active implies the virtual machines of the cluster are allocated, deallocated implies virtual machines and resources are deallocated.
     """
     ACTIVE = "Active"
+    """
+    Active implies the virtual machines of the cluster are allocated.
+    """
     DEALLOCATED = "Deallocated"
+    """
+    Deallocated implies virtual machines and resources are deallocated.
+    """
 
 
 @pulumi.type_token("azure-native:cosmosdb:AnalyticalStorageSchemaType")
@@ -244,6 +250,15 @@ class DistanceFunction(_builtins.str, Enum):
     EUCLIDEAN = "euclidean"
     COSINE = "cosine"
     DOTPRODUCT = "dotproduct"
+
+
+@pulumi.type_token("azure-native:cosmosdb:FleetAnalyticsPropertiesStorageLocationType")
+class FleetAnalyticsPropertiesStorageLocationType(_builtins.str, Enum):
+    """
+    The type of the fleet analytics resource.
+    """
+    STORAGE_ACCOUNT = "StorageAccount"
+    FABRIC_LAKEHOUSE = "FabricLakehouse"
 
 
 @pulumi.type_token("azure-native:cosmosdb:FleetspaceApiKind")
@@ -442,15 +457,6 @@ class SpatialType(_builtins.str, Enum):
     LINE_STRING = "LineString"
     POLYGON = "Polygon"
     MULTI_POLYGON = "MultiPolygon"
-
-
-@pulumi.type_token("azure-native:cosmosdb:StorageLocationType")
-class StorageLocationType(_builtins.str, Enum):
-    """
-    The type of the fleet analytics resource.
-    """
-    STORAGE_ACCOUNT = "StorageAccount"
-    FABRIC_LAKEHOUSE = "FabricLakehouse"
 
 
 @pulumi.type_token("azure-native:cosmosdb:TriggerOperation")

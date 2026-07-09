@@ -30,8 +30,6 @@ __all__ = [
     'AssignedAssessmentItemArgsDict',
     'AssignedComponentItemArgs',
     'AssignedComponentItemArgsDict',
-    'AssignedStandardItemArgs',
-    'AssignedStandardItemArgsDict',
     'AssignmentPropertiesAdditionalDataArgs',
     'AssignmentPropertiesAdditionalDataArgsDict',
     'AttestationEvidenceArgs',
@@ -62,6 +60,8 @@ __all__ = [
     'AzureDevOpsScopeEnvironmentDataArgsDict',
     'AzureResourceDetailsArgs',
     'AzureResourceDetailsArgsDict',
+    'CommonAssignedStandardItemArgs',
+    'CommonAssignedStandardItemArgsDict',
     'CspmMonitorAwsOfferingNativeCloudConnectionArgs',
     'CspmMonitorAwsOfferingNativeCloudConnectionArgsDict',
     'CspmMonitorAwsOfferingArgs',
@@ -80,18 +80,18 @@ __all__ = [
     'CspmMonitorGithubOfferingArgsDict',
     'CspmMonitorJFrogOfferingArgs',
     'CspmMonitorJFrogOfferingArgsDict',
-    'DefenderCspmAwsOfferingCiemDiscoveryArgs',
-    'DefenderCspmAwsOfferingCiemDiscoveryArgsDict',
-    'DefenderCspmAwsOfferingCiemOidcArgs',
-    'DefenderCspmAwsOfferingCiemOidcArgsDict',
+    'DefenderCspmAwsOfferingCiemCiemDiscoveryArgs',
+    'DefenderCspmAwsOfferingCiemCiemDiscoveryArgsDict',
+    'DefenderCspmAwsOfferingCiemCiemOidcArgs',
+    'DefenderCspmAwsOfferingCiemCiemOidcArgsDict',
     'DefenderCspmAwsOfferingCiemArgs',
     'DefenderCspmAwsOfferingCiemArgsDict',
     'DefenderCspmAwsOfferingDataSensitivityDiscoveryArgs',
     'DefenderCspmAwsOfferingDataSensitivityDiscoveryArgsDict',
     'DefenderCspmAwsOfferingDatabasesDspmArgs',
     'DefenderCspmAwsOfferingDatabasesDspmArgsDict',
-    'DefenderCspmAwsOfferingMdcContainersAgentlessDiscoveryK8sArgs',
-    'DefenderCspmAwsOfferingMdcContainersAgentlessDiscoveryK8sArgsDict',
+    'DefenderCspmAwsOfferingMdcContainersAgentlessDiscoveryK8SArgs',
+    'DefenderCspmAwsOfferingMdcContainersAgentlessDiscoveryK8SArgsDict',
     'DefenderCspmAwsOfferingMdcContainersImageAssessmentArgs',
     'DefenderCspmAwsOfferingMdcContainersImageAssessmentArgsDict',
     'DefenderCspmAwsOfferingVmScannersArgs',
@@ -104,8 +104,8 @@ __all__ = [
     'DefenderCspmGcpOfferingCiemDiscoveryArgsDict',
     'DefenderCspmGcpOfferingDataSensitivityDiscoveryArgs',
     'DefenderCspmGcpOfferingDataSensitivityDiscoveryArgsDict',
-    'DefenderCspmGcpOfferingMdcContainersAgentlessDiscoveryK8sArgs',
-    'DefenderCspmGcpOfferingMdcContainersAgentlessDiscoveryK8sArgsDict',
+    'DefenderCspmGcpOfferingMdcContainersAgentlessDiscoveryK8SArgs',
+    'DefenderCspmGcpOfferingMdcContainersAgentlessDiscoveryK8SArgsDict',
     'DefenderCspmGcpOfferingMdcContainersImageAssessmentArgs',
     'DefenderCspmGcpOfferingMdcContainersImageAssessmentArgsDict',
     'DefenderCspmGcpOfferingVmScannersArgs',
@@ -132,8 +132,8 @@ __all__ = [
     'DefenderForContainersAwsOfferingKubernetesDataCollectionArgsDict',
     'DefenderForContainersAwsOfferingKubernetesServiceArgs',
     'DefenderForContainersAwsOfferingKubernetesServiceArgsDict',
-    'DefenderForContainersAwsOfferingMdcContainersAgentlessDiscoveryK8sArgs',
-    'DefenderForContainersAwsOfferingMdcContainersAgentlessDiscoveryK8sArgsDict',
+    'DefenderForContainersAwsOfferingMdcContainersAgentlessDiscoveryK8SArgs',
+    'DefenderForContainersAwsOfferingMdcContainersAgentlessDiscoveryK8SArgsDict',
     'DefenderForContainersAwsOfferingMdcContainersImageAssessmentArgs',
     'DefenderForContainersAwsOfferingMdcContainersImageAssessmentArgsDict',
     'DefenderForContainersAwsOfferingVmScannersArgs',
@@ -144,8 +144,8 @@ __all__ = [
     'DefenderForContainersDockerHubOfferingArgsDict',
     'DefenderForContainersGcpOfferingDataPipelineNativeCloudConnectionArgs',
     'DefenderForContainersGcpOfferingDataPipelineNativeCloudConnectionArgsDict',
-    'DefenderForContainersGcpOfferingMdcContainersAgentlessDiscoveryK8sArgs',
-    'DefenderForContainersGcpOfferingMdcContainersAgentlessDiscoveryK8sArgsDict',
+    'DefenderForContainersGcpOfferingMdcContainersAgentlessDiscoveryK8SArgs',
+    'DefenderForContainersGcpOfferingMdcContainersAgentlessDiscoveryK8SArgsDict',
     'DefenderForContainersGcpOfferingMdcContainersImageAssessmentArgs',
     'DefenderForContainersGcpOfferingMdcContainersImageAssessmentArgsDict',
     'DefenderForContainersGcpOfferingNativeCloudConnectionArgs',
@@ -164,14 +164,14 @@ __all__ = [
     'DefenderForDatabasesGcpOfferingArgsDict',
     'DefenderForServersAwsOfferingArcAutoProvisioningArgs',
     'DefenderForServersAwsOfferingArcAutoProvisioningArgsDict',
-    'DefenderForServersAwsOfferingConfigurationArgs',
-    'DefenderForServersAwsOfferingConfigurationArgsDict',
     'DefenderForServersAwsOfferingDefenderForServersArgs',
     'DefenderForServersAwsOfferingDefenderForServersArgsDict',
     'DefenderForServersAwsOfferingMdeAutoProvisioningArgs',
     'DefenderForServersAwsOfferingMdeAutoProvisioningArgsDict',
     'DefenderForServersAwsOfferingSubPlanArgs',
     'DefenderForServersAwsOfferingSubPlanArgsDict',
+    'DefenderForServersAwsOfferingVaAutoProvisioningConfigurationArgs',
+    'DefenderForServersAwsOfferingVaAutoProvisioningConfigurationArgsDict',
     'DefenderForServersAwsOfferingVaAutoProvisioningArgs',
     'DefenderForServersAwsOfferingVaAutoProvisioningArgsDict',
     'DefenderForServersAwsOfferingVmScannersArgs',
@@ -180,14 +180,14 @@ __all__ = [
     'DefenderForServersAwsOfferingArgsDict',
     'DefenderForServersGcpOfferingArcAutoProvisioningArgs',
     'DefenderForServersGcpOfferingArcAutoProvisioningArgsDict',
-    'DefenderForServersGcpOfferingConfigurationArgs',
-    'DefenderForServersGcpOfferingConfigurationArgsDict',
     'DefenderForServersGcpOfferingDefenderForServersArgs',
     'DefenderForServersGcpOfferingDefenderForServersArgsDict',
     'DefenderForServersGcpOfferingMdeAutoProvisioningArgs',
     'DefenderForServersGcpOfferingMdeAutoProvisioningArgsDict',
     'DefenderForServersGcpOfferingSubPlanArgs',
     'DefenderForServersGcpOfferingSubPlanArgsDict',
+    'DefenderForServersGcpOfferingVaAutoProvisioningConfigurationArgs',
+    'DefenderForServersGcpOfferingVaAutoProvisioningConfigurationArgsDict',
     'DefenderForServersGcpOfferingVaAutoProvisioningArgs',
     'DefenderForServersGcpOfferingVaAutoProvisioningArgsDict',
     'DefenderForServersGcpOfferingVmScannersArgs',
@@ -709,40 +709,6 @@ class AssignedComponentItemArgs:
         pulumi.set(self, "key", value)
 
 
-class AssignedStandardItemArgsDict(TypedDict):
-    """
-    Describe the properties of a of a standard assignments object reference
-    """
-    id: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Full resourceId of the Microsoft.Security/standard object
-    """
-
-@pulumi.input_type
-class AssignedStandardItemArgs:
-    def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Describe the properties of a of a standard assignments object reference
-
-        :param pulumi.Input[_builtins.str] id: Full resourceId of the Microsoft.Security/standard object
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Full resourceId of the Microsoft.Security/standard object
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "id", value)
-
-
 class AssignmentPropertiesAdditionalDataArgsDict(TypedDict):
     """
     Additional data about the assignment
@@ -877,7 +843,7 @@ class AutomationActionEventHubArgsDict(TypedDict):
     """
     action_type: pulumi.Input[_builtins.str]
     """
-    The type of the action that will be triggered by the Automation
+    Enum. Indicates the action type.
     Expected value is 'EventHub'.
     """
     connection_string: NotRequired[pulumi.Input[_builtins.str]]
@@ -903,7 +869,7 @@ class AutomationActionEventHubArgs:
         """
         The target Event Hub to which event data will be exported. To learn more about Microsoft Defender for Cloud continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 
-        :param pulumi.Input[_builtins.str] action_type: The type of the action that will be triggered by the Automation
+        :param pulumi.Input[_builtins.str] action_type: Enum. Indicates the action type.
                Expected value is 'EventHub'.
         :param pulumi.Input[_builtins.str] connection_string: The target Event Hub connection string (it will not be included in any response).
         :param pulumi.Input[_builtins.str] event_hub_resource_id: The target Event Hub Azure Resource ID.
@@ -921,7 +887,7 @@ class AutomationActionEventHubArgs:
     @pulumi.getter(name="actionType")
     def action_type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of the action that will be triggered by the Automation
+        Enum. Indicates the action type.
         Expected value is 'EventHub'.
         """
         return pulumi.get(self, "action_type")
@@ -973,7 +939,7 @@ class AutomationActionLogicAppArgsDict(TypedDict):
     """
     action_type: pulumi.Input[_builtins.str]
     """
-    The type of the action that will be triggered by the Automation
+    Enum. Indicates the action type.
     Expected value is 'LogicApp'.
     """
     logic_app_resource_id: NotRequired[pulumi.Input[_builtins.str]]
@@ -994,7 +960,7 @@ class AutomationActionLogicAppArgs:
         """
         The logic app action that should be triggered. To learn more about Microsoft Defender for Cloud's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
 
-        :param pulumi.Input[_builtins.str] action_type: The type of the action that will be triggered by the Automation
+        :param pulumi.Input[_builtins.str] action_type: Enum. Indicates the action type.
                Expected value is 'LogicApp'.
         :param pulumi.Input[_builtins.str] logic_app_resource_id: The triggered Logic App Azure Resource ID. This can also reside on other subscriptions, given that you have permissions to trigger the Logic App
         :param pulumi.Input[_builtins.str] uri: The Logic App trigger URI endpoint (it will not be included in any response).
@@ -1009,7 +975,7 @@ class AutomationActionLogicAppArgs:
     @pulumi.getter(name="actionType")
     def action_type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of the action that will be triggered by the Automation
+        Enum. Indicates the action type.
         Expected value is 'LogicApp'.
         """
         return pulumi.get(self, "action_type")
@@ -1049,7 +1015,7 @@ class AutomationActionWorkspaceArgsDict(TypedDict):
     """
     action_type: pulumi.Input[_builtins.str]
     """
-    The type of the action that will be triggered by the Automation
+    Enum. Indicates the action type.
     Expected value is 'Workspace'.
     """
     workspace_resource_id: NotRequired[pulumi.Input[_builtins.str]]
@@ -1065,7 +1031,7 @@ class AutomationActionWorkspaceArgs:
         """
         The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Microsoft Defender for Cloud continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 
-        :param pulumi.Input[_builtins.str] action_type: The type of the action that will be triggered by the Automation
+        :param pulumi.Input[_builtins.str] action_type: Enum. Indicates the action type.
                Expected value is 'Workspace'.
         :param pulumi.Input[_builtins.str] workspace_resource_id: The fully qualified Log Analytics Workspace Azure Resource ID.
         """
@@ -1077,7 +1043,7 @@ class AutomationActionWorkspaceArgs:
     @pulumi.getter(name="actionType")
     def action_type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of the action that will be triggered by the Automation
+        Enum. Indicates the action type.
         Expected value is 'Workspace'.
         """
         return pulumi.get(self, "action_type")
@@ -1101,7 +1067,7 @@ class AutomationActionWorkspaceArgs:
 
 class AutomationRuleSetArgsDict(TypedDict):
     """
-    A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions. 
+    A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
     """
     rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationTriggeringRuleArgsDict']]]]
 
@@ -1110,7 +1076,7 @@ class AutomationRuleSetArgs:
     def __init__(__self__, *,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationTriggeringRuleArgs']]]] = None):
         """
-        A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions. 
+        A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
         """
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
@@ -1627,6 +1593,40 @@ class AzureResourceDetailsArgs:
         pulumi.set(self, "source", value)
 
 
+class CommonAssignedStandardItemArgsDict(TypedDict):
+    """
+    Describe the properties of a of a standard assignments object reference
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Full resourceId of the Microsoft.Security/standard object
+    """
+
+@pulumi.input_type
+class CommonAssignedStandardItemArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Describe the properties of a of a standard assignments object reference
+
+        :param pulumi.Input[_builtins.str] id: Full resourceId of the Microsoft.Security/standard object
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Full resourceId of the Microsoft.Security/standard object
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+
 class CspmMonitorAwsOfferingNativeCloudConnectionArgsDict(TypedDict):
     """
     The native cloud connection configuration
@@ -2007,7 +2007,7 @@ class CspmMonitorJFrogOfferingArgs:
         pulumi.set(self, "offering_type", value)
 
 
-class DefenderCspmAwsOfferingCiemDiscoveryArgsDict(TypedDict):
+class DefenderCspmAwsOfferingCiemCiemDiscoveryArgsDict(TypedDict):
     """
     Defender CSPM Permissions Management discovery configuration
     """
@@ -2017,7 +2017,7 @@ class DefenderCspmAwsOfferingCiemDiscoveryArgsDict(TypedDict):
     """
 
 @pulumi.input_type
-class DefenderCspmAwsOfferingCiemDiscoveryArgs:
+class DefenderCspmAwsOfferingCiemCiemDiscoveryArgs:
     def __init__(__self__, *,
                  cloud_role_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
@@ -2041,7 +2041,7 @@ class DefenderCspmAwsOfferingCiemDiscoveryArgs:
         pulumi.set(self, "cloud_role_arn", value)
 
 
-class DefenderCspmAwsOfferingCiemOidcArgsDict(TypedDict):
+class DefenderCspmAwsOfferingCiemCiemOidcArgsDict(TypedDict):
     """
     AWS Defender CSPM Permissions Management OIDC (open id connect) connection configurations
     """
@@ -2055,7 +2055,7 @@ class DefenderCspmAwsOfferingCiemOidcArgsDict(TypedDict):
     """
 
 @pulumi.input_type
-class DefenderCspmAwsOfferingCiemOidcArgs:
+class DefenderCspmAwsOfferingCiemCiemOidcArgs:
     def __init__(__self__, *,
                  azure_active_directory_app_name: Optional[pulumi.Input[_builtins.str]] = None,
                  cloud_role_arn: Optional[pulumi.Input[_builtins.str]] = None):
@@ -2099,11 +2099,11 @@ class DefenderCspmAwsOfferingCiemArgsDict(TypedDict):
     """
     Defenders CSPM Permissions Management offering configurations
     """
-    ciem_discovery: NotRequired[pulumi.Input['DefenderCspmAwsOfferingCiemDiscoveryArgsDict']]
+    ciem_discovery: NotRequired[pulumi.Input['DefenderCspmAwsOfferingCiemCiemDiscoveryArgsDict']]
     """
     Defender CSPM Permissions Management discovery configuration
     """
-    ciem_oidc: NotRequired[pulumi.Input['DefenderCspmAwsOfferingCiemOidcArgsDict']]
+    ciem_oidc: NotRequired[pulumi.Input['DefenderCspmAwsOfferingCiemCiemOidcArgsDict']]
     """
     AWS Defender CSPM Permissions Management OIDC (open id connect) connection configurations
     """
@@ -2111,13 +2111,13 @@ class DefenderCspmAwsOfferingCiemArgsDict(TypedDict):
 @pulumi.input_type
 class DefenderCspmAwsOfferingCiemArgs:
     def __init__(__self__, *,
-                 ciem_discovery: Optional[pulumi.Input['DefenderCspmAwsOfferingCiemDiscoveryArgs']] = None,
-                 ciem_oidc: Optional[pulumi.Input['DefenderCspmAwsOfferingCiemOidcArgs']] = None):
+                 ciem_discovery: Optional[pulumi.Input['DefenderCspmAwsOfferingCiemCiemDiscoveryArgs']] = None,
+                 ciem_oidc: Optional[pulumi.Input['DefenderCspmAwsOfferingCiemCiemOidcArgs']] = None):
         """
         Defenders CSPM Permissions Management offering configurations
 
-        :param pulumi.Input['DefenderCspmAwsOfferingCiemDiscoveryArgs'] ciem_discovery: Defender CSPM Permissions Management discovery configuration
-        :param pulumi.Input['DefenderCspmAwsOfferingCiemOidcArgs'] ciem_oidc: AWS Defender CSPM Permissions Management OIDC (open id connect) connection configurations
+        :param pulumi.Input['DefenderCspmAwsOfferingCiemCiemDiscoveryArgs'] ciem_discovery: Defender CSPM Permissions Management discovery configuration
+        :param pulumi.Input['DefenderCspmAwsOfferingCiemCiemOidcArgs'] ciem_oidc: AWS Defender CSPM Permissions Management OIDC (open id connect) connection configurations
         """
         if ciem_discovery is not None:
             pulumi.set(__self__, "ciem_discovery", ciem_discovery)
@@ -2126,26 +2126,26 @@ class DefenderCspmAwsOfferingCiemArgs:
 
     @_builtins.property
     @pulumi.getter(name="ciemDiscovery")
-    def ciem_discovery(self) -> Optional[pulumi.Input['DefenderCspmAwsOfferingCiemDiscoveryArgs']]:
+    def ciem_discovery(self) -> Optional[pulumi.Input['DefenderCspmAwsOfferingCiemCiemDiscoveryArgs']]:
         """
         Defender CSPM Permissions Management discovery configuration
         """
         return pulumi.get(self, "ciem_discovery")
 
     @ciem_discovery.setter
-    def ciem_discovery(self, value: Optional[pulumi.Input['DefenderCspmAwsOfferingCiemDiscoveryArgs']]):
+    def ciem_discovery(self, value: Optional[pulumi.Input['DefenderCspmAwsOfferingCiemCiemDiscoveryArgs']]):
         pulumi.set(self, "ciem_discovery", value)
 
     @_builtins.property
     @pulumi.getter(name="ciemOidc")
-    def ciem_oidc(self) -> Optional[pulumi.Input['DefenderCspmAwsOfferingCiemOidcArgs']]:
+    def ciem_oidc(self) -> Optional[pulumi.Input['DefenderCspmAwsOfferingCiemCiemOidcArgs']]:
         """
         AWS Defender CSPM Permissions Management OIDC (open id connect) connection configurations
         """
         return pulumi.get(self, "ciem_oidc")
 
     @ciem_oidc.setter
-    def ciem_oidc(self, value: Optional[pulumi.Input['DefenderCspmAwsOfferingCiemOidcArgs']]):
+    def ciem_oidc(self, value: Optional[pulumi.Input['DefenderCspmAwsOfferingCiemCiemOidcArgs']]):
         pulumi.set(self, "ciem_oidc", value)
 
 
@@ -2257,7 +2257,7 @@ class DefenderCspmAwsOfferingDatabasesDspmArgs:
         pulumi.set(self, "enabled", value)
 
 
-class DefenderCspmAwsOfferingMdcContainersAgentlessDiscoveryK8sArgsDict(TypedDict):
+class DefenderCspmAwsOfferingMdcContainersAgentlessDiscoveryK8SArgsDict(TypedDict):
     """
     The Microsoft Defender container agentless discovery K8s configuration
     """
@@ -2271,7 +2271,7 @@ class DefenderCspmAwsOfferingMdcContainersAgentlessDiscoveryK8sArgsDict(TypedDic
     """
 
 @pulumi.input_type
-class DefenderCspmAwsOfferingMdcContainersAgentlessDiscoveryK8sArgs:
+class DefenderCspmAwsOfferingMdcContainersAgentlessDiscoveryK8SArgs:
     def __init__(__self__, *,
                  cloud_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None):
@@ -2460,7 +2460,7 @@ class DefenderCspmAwsOfferingArgsDict(TypedDict):
     """
     The databases DSPM configuration
     """
-    mdc_containers_agentless_discovery_k8s: NotRequired[pulumi.Input['DefenderCspmAwsOfferingMdcContainersAgentlessDiscoveryK8sArgsDict']]
+    mdc_containers_agentless_discovery_k8_s: NotRequired[pulumi.Input['DefenderCspmAwsOfferingMdcContainersAgentlessDiscoveryK8SArgsDict']]
     """
     The Microsoft Defender container agentless discovery K8s configuration
     """
@@ -2480,7 +2480,7 @@ class DefenderCspmAwsOfferingArgs:
                  ciem: Optional[pulumi.Input['DefenderCspmAwsOfferingCiemArgs']] = None,
                  data_sensitivity_discovery: Optional[pulumi.Input['DefenderCspmAwsOfferingDataSensitivityDiscoveryArgs']] = None,
                  databases_dspm: Optional[pulumi.Input['DefenderCspmAwsOfferingDatabasesDspmArgs']] = None,
-                 mdc_containers_agentless_discovery_k8s: Optional[pulumi.Input['DefenderCspmAwsOfferingMdcContainersAgentlessDiscoveryK8sArgs']] = None,
+                 mdc_containers_agentless_discovery_k8_s: Optional[pulumi.Input['DefenderCspmAwsOfferingMdcContainersAgentlessDiscoveryK8SArgs']] = None,
                  mdc_containers_image_assessment: Optional[pulumi.Input['DefenderCspmAwsOfferingMdcContainersImageAssessmentArgs']] = None,
                  vm_scanners: Optional[pulumi.Input['DefenderCspmAwsOfferingVmScannersArgs']] = None):
         """
@@ -2491,7 +2491,7 @@ class DefenderCspmAwsOfferingArgs:
         :param pulumi.Input['DefenderCspmAwsOfferingCiemArgs'] ciem: Defenders CSPM Permissions Management offering configurations
         :param pulumi.Input['DefenderCspmAwsOfferingDataSensitivityDiscoveryArgs'] data_sensitivity_discovery: The Microsoft Defender Data Sensitivity discovery configuration
         :param pulumi.Input['DefenderCspmAwsOfferingDatabasesDspmArgs'] databases_dspm: The databases DSPM configuration
-        :param pulumi.Input['DefenderCspmAwsOfferingMdcContainersAgentlessDiscoveryK8sArgs'] mdc_containers_agentless_discovery_k8s: The Microsoft Defender container agentless discovery K8s configuration
+        :param pulumi.Input['DefenderCspmAwsOfferingMdcContainersAgentlessDiscoveryK8SArgs'] mdc_containers_agentless_discovery_k8_s: The Microsoft Defender container agentless discovery K8s configuration
         :param pulumi.Input['DefenderCspmAwsOfferingMdcContainersImageAssessmentArgs'] mdc_containers_image_assessment: The Microsoft Defender container image assessment configuration
         :param pulumi.Input['DefenderCspmAwsOfferingVmScannersArgs'] vm_scanners: The Microsoft Defender for CSPM offering VM scanning configuration
         """
@@ -2502,8 +2502,8 @@ class DefenderCspmAwsOfferingArgs:
             pulumi.set(__self__, "data_sensitivity_discovery", data_sensitivity_discovery)
         if databases_dspm is not None:
             pulumi.set(__self__, "databases_dspm", databases_dspm)
-        if mdc_containers_agentless_discovery_k8s is not None:
-            pulumi.set(__self__, "mdc_containers_agentless_discovery_k8s", mdc_containers_agentless_discovery_k8s)
+        if mdc_containers_agentless_discovery_k8_s is not None:
+            pulumi.set(__self__, "mdc_containers_agentless_discovery_k8_s", mdc_containers_agentless_discovery_k8_s)
         if mdc_containers_image_assessment is not None:
             pulumi.set(__self__, "mdc_containers_image_assessment", mdc_containers_image_assessment)
         if vm_scanners is not None:
@@ -2559,16 +2559,16 @@ class DefenderCspmAwsOfferingArgs:
         pulumi.set(self, "databases_dspm", value)
 
     @_builtins.property
-    @pulumi.getter(name="mdcContainersAgentlessDiscoveryK8s")
-    def mdc_containers_agentless_discovery_k8s(self) -> Optional[pulumi.Input['DefenderCspmAwsOfferingMdcContainersAgentlessDiscoveryK8sArgs']]:
+    @pulumi.getter(name="mdcContainersAgentlessDiscoveryK8S")
+    def mdc_containers_agentless_discovery_k8_s(self) -> Optional[pulumi.Input['DefenderCspmAwsOfferingMdcContainersAgentlessDiscoveryK8SArgs']]:
         """
         The Microsoft Defender container agentless discovery K8s configuration
         """
-        return pulumi.get(self, "mdc_containers_agentless_discovery_k8s")
+        return pulumi.get(self, "mdc_containers_agentless_discovery_k8_s")
 
-    @mdc_containers_agentless_discovery_k8s.setter
-    def mdc_containers_agentless_discovery_k8s(self, value: Optional[pulumi.Input['DefenderCspmAwsOfferingMdcContainersAgentlessDiscoveryK8sArgs']]):
-        pulumi.set(self, "mdc_containers_agentless_discovery_k8s", value)
+    @mdc_containers_agentless_discovery_k8_s.setter
+    def mdc_containers_agentless_discovery_k8_s(self, value: Optional[pulumi.Input['DefenderCspmAwsOfferingMdcContainersAgentlessDiscoveryK8SArgs']]):
+        pulumi.set(self, "mdc_containers_agentless_discovery_k8_s", value)
 
     @_builtins.property
     @pulumi.getter(name="mdcContainersImageAssessment")
@@ -2779,7 +2779,7 @@ class DefenderCspmGcpOfferingDataSensitivityDiscoveryArgs:
         pulumi.set(self, "workload_identity_provider_id", value)
 
 
-class DefenderCspmGcpOfferingMdcContainersAgentlessDiscoveryK8sArgsDict(TypedDict):
+class DefenderCspmGcpOfferingMdcContainersAgentlessDiscoveryK8SArgsDict(TypedDict):
     """
     The Microsoft Defender Container agentless discovery configuration
     """
@@ -2797,7 +2797,7 @@ class DefenderCspmGcpOfferingMdcContainersAgentlessDiscoveryK8sArgsDict(TypedDic
     """
 
 @pulumi.input_type
-class DefenderCspmGcpOfferingMdcContainersAgentlessDiscoveryK8sArgs:
+class DefenderCspmGcpOfferingMdcContainersAgentlessDiscoveryK8SArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  service_account_email_address: Optional[pulumi.Input[_builtins.str]] = None,
@@ -2998,7 +2998,7 @@ class DefenderCspmGcpOfferingArgsDict(TypedDict):
     """
     The Microsoft Defender Data Sensitivity discovery configuration
     """
-    mdc_containers_agentless_discovery_k8s: NotRequired[pulumi.Input['DefenderCspmGcpOfferingMdcContainersAgentlessDiscoveryK8sArgsDict']]
+    mdc_containers_agentless_discovery_k8_s: NotRequired[pulumi.Input['DefenderCspmGcpOfferingMdcContainersAgentlessDiscoveryK8SArgsDict']]
     """
     The Microsoft Defender Container agentless discovery configuration
     """
@@ -3017,7 +3017,7 @@ class DefenderCspmGcpOfferingArgs:
                  offering_type: pulumi.Input[_builtins.str],
                  ciem_discovery: Optional[pulumi.Input['DefenderCspmGcpOfferingCiemDiscoveryArgs']] = None,
                  data_sensitivity_discovery: Optional[pulumi.Input['DefenderCspmGcpOfferingDataSensitivityDiscoveryArgs']] = None,
-                 mdc_containers_agentless_discovery_k8s: Optional[pulumi.Input['DefenderCspmGcpOfferingMdcContainersAgentlessDiscoveryK8sArgs']] = None,
+                 mdc_containers_agentless_discovery_k8_s: Optional[pulumi.Input['DefenderCspmGcpOfferingMdcContainersAgentlessDiscoveryK8SArgs']] = None,
                  mdc_containers_image_assessment: Optional[pulumi.Input['DefenderCspmGcpOfferingMdcContainersImageAssessmentArgs']] = None,
                  vm_scanners: Optional[pulumi.Input['DefenderCspmGcpOfferingVmScannersArgs']] = None):
         """
@@ -3027,7 +3027,7 @@ class DefenderCspmGcpOfferingArgs:
                Expected value is 'DefenderCspmGcp'.
         :param pulumi.Input['DefenderCspmGcpOfferingCiemDiscoveryArgs'] ciem_discovery: GCP Defenders CSPM Permissions Management OIDC (Open ID connect) connection configurations
         :param pulumi.Input['DefenderCspmGcpOfferingDataSensitivityDiscoveryArgs'] data_sensitivity_discovery: The Microsoft Defender Data Sensitivity discovery configuration
-        :param pulumi.Input['DefenderCspmGcpOfferingMdcContainersAgentlessDiscoveryK8sArgs'] mdc_containers_agentless_discovery_k8s: The Microsoft Defender Container agentless discovery configuration
+        :param pulumi.Input['DefenderCspmGcpOfferingMdcContainersAgentlessDiscoveryK8SArgs'] mdc_containers_agentless_discovery_k8_s: The Microsoft Defender Container agentless discovery configuration
         :param pulumi.Input['DefenderCspmGcpOfferingMdcContainersImageAssessmentArgs'] mdc_containers_image_assessment: The Microsoft Defender Container image assessment configuration
         :param pulumi.Input['DefenderCspmGcpOfferingVmScannersArgs'] vm_scanners: The Microsoft Defender for CSPM VM scanning configuration
         """
@@ -3036,8 +3036,8 @@ class DefenderCspmGcpOfferingArgs:
             pulumi.set(__self__, "ciem_discovery", ciem_discovery)
         if data_sensitivity_discovery is not None:
             pulumi.set(__self__, "data_sensitivity_discovery", data_sensitivity_discovery)
-        if mdc_containers_agentless_discovery_k8s is not None:
-            pulumi.set(__self__, "mdc_containers_agentless_discovery_k8s", mdc_containers_agentless_discovery_k8s)
+        if mdc_containers_agentless_discovery_k8_s is not None:
+            pulumi.set(__self__, "mdc_containers_agentless_discovery_k8_s", mdc_containers_agentless_discovery_k8_s)
         if mdc_containers_image_assessment is not None:
             pulumi.set(__self__, "mdc_containers_image_assessment", mdc_containers_image_assessment)
         if vm_scanners is not None:
@@ -3081,16 +3081,16 @@ class DefenderCspmGcpOfferingArgs:
         pulumi.set(self, "data_sensitivity_discovery", value)
 
     @_builtins.property
-    @pulumi.getter(name="mdcContainersAgentlessDiscoveryK8s")
-    def mdc_containers_agentless_discovery_k8s(self) -> Optional[pulumi.Input['DefenderCspmGcpOfferingMdcContainersAgentlessDiscoveryK8sArgs']]:
+    @pulumi.getter(name="mdcContainersAgentlessDiscoveryK8S")
+    def mdc_containers_agentless_discovery_k8_s(self) -> Optional[pulumi.Input['DefenderCspmGcpOfferingMdcContainersAgentlessDiscoveryK8SArgs']]:
         """
         The Microsoft Defender Container agentless discovery configuration
         """
-        return pulumi.get(self, "mdc_containers_agentless_discovery_k8s")
+        return pulumi.get(self, "mdc_containers_agentless_discovery_k8_s")
 
-    @mdc_containers_agentless_discovery_k8s.setter
-    def mdc_containers_agentless_discovery_k8s(self, value: Optional[pulumi.Input['DefenderCspmGcpOfferingMdcContainersAgentlessDiscoveryK8sArgs']]):
-        pulumi.set(self, "mdc_containers_agentless_discovery_k8s", value)
+    @mdc_containers_agentless_discovery_k8_s.setter
+    def mdc_containers_agentless_discovery_k8_s(self, value: Optional[pulumi.Input['DefenderCspmGcpOfferingMdcContainersAgentlessDiscoveryK8SArgs']]):
+        pulumi.set(self, "mdc_containers_agentless_discovery_k8_s", value)
 
     @_builtins.property
     @pulumi.getter(name="mdcContainersImageAssessment")
@@ -3621,7 +3621,7 @@ class DefenderForContainersAwsOfferingKubernetesServiceArgs:
         pulumi.set(self, "cloud_role_arn", value)
 
 
-class DefenderForContainersAwsOfferingMdcContainersAgentlessDiscoveryK8sArgsDict(TypedDict):
+class DefenderForContainersAwsOfferingMdcContainersAgentlessDiscoveryK8SArgsDict(TypedDict):
     """
     The Microsoft Defender container agentless discovery K8s configuration
     """
@@ -3635,7 +3635,7 @@ class DefenderForContainersAwsOfferingMdcContainersAgentlessDiscoveryK8sArgsDict
     """
 
 @pulumi.input_type
-class DefenderForContainersAwsOfferingMdcContainersAgentlessDiscoveryK8sArgs:
+class DefenderForContainersAwsOfferingMdcContainersAgentlessDiscoveryK8SArgs:
     def __init__(__self__, *,
                  cloud_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None):
@@ -3848,7 +3848,7 @@ class DefenderForContainersAwsOfferingArgsDict(TypedDict):
     """
     The kubernetes service connection configuration
     """
-    mdc_containers_agentless_discovery_k8s: NotRequired[pulumi.Input['DefenderForContainersAwsOfferingMdcContainersAgentlessDiscoveryK8sArgsDict']]
+    mdc_containers_agentless_discovery_k8_s: NotRequired[pulumi.Input['DefenderForContainersAwsOfferingMdcContainersAgentlessDiscoveryK8SArgsDict']]
     """
     The Microsoft Defender container agentless discovery K8s configuration
     """
@@ -3874,7 +3874,7 @@ class DefenderForContainersAwsOfferingArgs:
                  kube_audit_retention_time: Optional[pulumi.Input[_builtins.float]] = None,
                  kubernetes_data_collection: Optional[pulumi.Input['DefenderForContainersAwsOfferingKubernetesDataCollectionArgs']] = None,
                  kubernetes_service: Optional[pulumi.Input['DefenderForContainersAwsOfferingKubernetesServiceArgs']] = None,
-                 mdc_containers_agentless_discovery_k8s: Optional[pulumi.Input['DefenderForContainersAwsOfferingMdcContainersAgentlessDiscoveryK8sArgs']] = None,
+                 mdc_containers_agentless_discovery_k8_s: Optional[pulumi.Input['DefenderForContainersAwsOfferingMdcContainersAgentlessDiscoveryK8SArgs']] = None,
                  mdc_containers_image_assessment: Optional[pulumi.Input['DefenderForContainersAwsOfferingMdcContainersImageAssessmentArgs']] = None,
                  vm_scanners: Optional[pulumi.Input['DefenderForContainersAwsOfferingVmScannersArgs']] = None):
         """
@@ -3891,7 +3891,7 @@ class DefenderForContainersAwsOfferingArgs:
         :param pulumi.Input[_builtins.float] kube_audit_retention_time: The retention time in days of kube audit logs set on the CloudWatch log group
         :param pulumi.Input['DefenderForContainersAwsOfferingKubernetesDataCollectionArgs'] kubernetes_data_collection: The kubernetes data collection connection configuration
         :param pulumi.Input['DefenderForContainersAwsOfferingKubernetesServiceArgs'] kubernetes_service: The kubernetes service connection configuration
-        :param pulumi.Input['DefenderForContainersAwsOfferingMdcContainersAgentlessDiscoveryK8sArgs'] mdc_containers_agentless_discovery_k8s: The Microsoft Defender container agentless discovery K8s configuration
+        :param pulumi.Input['DefenderForContainersAwsOfferingMdcContainersAgentlessDiscoveryK8SArgs'] mdc_containers_agentless_discovery_k8_s: The Microsoft Defender container agentless discovery K8s configuration
         :param pulumi.Input['DefenderForContainersAwsOfferingMdcContainersImageAssessmentArgs'] mdc_containers_image_assessment: The Microsoft Defender container image assessment configuration
         :param pulumi.Input['DefenderForContainersAwsOfferingVmScannersArgs'] vm_scanners: The Microsoft Defender for Container K8s VM host scanning configuration
         """
@@ -3914,8 +3914,8 @@ class DefenderForContainersAwsOfferingArgs:
             pulumi.set(__self__, "kubernetes_data_collection", kubernetes_data_collection)
         if kubernetes_service is not None:
             pulumi.set(__self__, "kubernetes_service", kubernetes_service)
-        if mdc_containers_agentless_discovery_k8s is not None:
-            pulumi.set(__self__, "mdc_containers_agentless_discovery_k8s", mdc_containers_agentless_discovery_k8s)
+        if mdc_containers_agentless_discovery_k8_s is not None:
+            pulumi.set(__self__, "mdc_containers_agentless_discovery_k8_s", mdc_containers_agentless_discovery_k8_s)
         if mdc_containers_image_assessment is not None:
             pulumi.set(__self__, "mdc_containers_image_assessment", mdc_containers_image_assessment)
         if vm_scanners is not None:
@@ -4043,16 +4043,16 @@ class DefenderForContainersAwsOfferingArgs:
         pulumi.set(self, "kubernetes_service", value)
 
     @_builtins.property
-    @pulumi.getter(name="mdcContainersAgentlessDiscoveryK8s")
-    def mdc_containers_agentless_discovery_k8s(self) -> Optional[pulumi.Input['DefenderForContainersAwsOfferingMdcContainersAgentlessDiscoveryK8sArgs']]:
+    @pulumi.getter(name="mdcContainersAgentlessDiscoveryK8S")
+    def mdc_containers_agentless_discovery_k8_s(self) -> Optional[pulumi.Input['DefenderForContainersAwsOfferingMdcContainersAgentlessDiscoveryK8SArgs']]:
         """
         The Microsoft Defender container agentless discovery K8s configuration
         """
-        return pulumi.get(self, "mdc_containers_agentless_discovery_k8s")
+        return pulumi.get(self, "mdc_containers_agentless_discovery_k8_s")
 
-    @mdc_containers_agentless_discovery_k8s.setter
-    def mdc_containers_agentless_discovery_k8s(self, value: Optional[pulumi.Input['DefenderForContainersAwsOfferingMdcContainersAgentlessDiscoveryK8sArgs']]):
-        pulumi.set(self, "mdc_containers_agentless_discovery_k8s", value)
+    @mdc_containers_agentless_discovery_k8_s.setter
+    def mdc_containers_agentless_discovery_k8_s(self, value: Optional[pulumi.Input['DefenderForContainersAwsOfferingMdcContainersAgentlessDiscoveryK8SArgs']]):
+        pulumi.set(self, "mdc_containers_agentless_discovery_k8_s", value)
 
     @_builtins.property
     @pulumi.getter(name="mdcContainersImageAssessment")
@@ -4169,7 +4169,7 @@ class DefenderForContainersGcpOfferingDataPipelineNativeCloudConnectionArgs:
         pulumi.set(self, "workload_identity_provider_id", value)
 
 
-class DefenderForContainersGcpOfferingMdcContainersAgentlessDiscoveryK8sArgsDict(TypedDict):
+class DefenderForContainersGcpOfferingMdcContainersAgentlessDiscoveryK8SArgsDict(TypedDict):
     """
     The Microsoft Defender Container agentless discovery configuration
     """
@@ -4187,7 +4187,7 @@ class DefenderForContainersGcpOfferingMdcContainersAgentlessDiscoveryK8sArgsDict
     """
 
 @pulumi.input_type
-class DefenderForContainersGcpOfferingMdcContainersAgentlessDiscoveryK8sArgs:
+class DefenderForContainersGcpOfferingMdcContainersAgentlessDiscoveryK8SArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  service_account_email_address: Optional[pulumi.Input[_builtins.str]] = None,
@@ -4450,7 +4450,7 @@ class DefenderForContainersGcpOfferingArgsDict(TypedDict):
     """
     Is Policy Kubernetes agent auto provisioning enabled
     """
-    mdc_containers_agentless_discovery_k8s: NotRequired[pulumi.Input['DefenderForContainersGcpOfferingMdcContainersAgentlessDiscoveryK8sArgsDict']]
+    mdc_containers_agentless_discovery_k8_s: NotRequired[pulumi.Input['DefenderForContainersGcpOfferingMdcContainersAgentlessDiscoveryK8SArgsDict']]
     """
     The Microsoft Defender Container agentless discovery configuration
     """
@@ -4475,7 +4475,7 @@ class DefenderForContainersGcpOfferingArgs:
                  enable_audit_logs_auto_provisioning: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_defender_agent_auto_provisioning: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_policy_agent_auto_provisioning: Optional[pulumi.Input[_builtins.bool]] = None,
-                 mdc_containers_agentless_discovery_k8s: Optional[pulumi.Input['DefenderForContainersGcpOfferingMdcContainersAgentlessDiscoveryK8sArgs']] = None,
+                 mdc_containers_agentless_discovery_k8_s: Optional[pulumi.Input['DefenderForContainersGcpOfferingMdcContainersAgentlessDiscoveryK8SArgs']] = None,
                  mdc_containers_image_assessment: Optional[pulumi.Input['DefenderForContainersGcpOfferingMdcContainersImageAssessmentArgs']] = None,
                  native_cloud_connection: Optional[pulumi.Input['DefenderForContainersGcpOfferingNativeCloudConnectionArgs']] = None,
                  vm_scanners: Optional[pulumi.Input['DefenderForContainersGcpOfferingVmScannersArgs']] = None):
@@ -4488,7 +4488,7 @@ class DefenderForContainersGcpOfferingArgs:
         :param pulumi.Input[_builtins.bool] enable_audit_logs_auto_provisioning: Is audit logs data collection enabled
         :param pulumi.Input[_builtins.bool] enable_defender_agent_auto_provisioning: Is Microsoft Defender for Cloud Kubernetes agent auto provisioning enabled
         :param pulumi.Input[_builtins.bool] enable_policy_agent_auto_provisioning: Is Policy Kubernetes agent auto provisioning enabled
-        :param pulumi.Input['DefenderForContainersGcpOfferingMdcContainersAgentlessDiscoveryK8sArgs'] mdc_containers_agentless_discovery_k8s: The Microsoft Defender Container agentless discovery configuration
+        :param pulumi.Input['DefenderForContainersGcpOfferingMdcContainersAgentlessDiscoveryK8SArgs'] mdc_containers_agentless_discovery_k8_s: The Microsoft Defender Container agentless discovery configuration
         :param pulumi.Input['DefenderForContainersGcpOfferingMdcContainersImageAssessmentArgs'] mdc_containers_image_assessment: The Microsoft Defender Container image assessment configuration
         :param pulumi.Input['DefenderForContainersGcpOfferingNativeCloudConnectionArgs'] native_cloud_connection: The native cloud connection configuration
         :param pulumi.Input['DefenderForContainersGcpOfferingVmScannersArgs'] vm_scanners: The Microsoft Defender for Container K8s VM host scanning configuration
@@ -4502,8 +4502,8 @@ class DefenderForContainersGcpOfferingArgs:
             pulumi.set(__self__, "enable_defender_agent_auto_provisioning", enable_defender_agent_auto_provisioning)
         if enable_policy_agent_auto_provisioning is not None:
             pulumi.set(__self__, "enable_policy_agent_auto_provisioning", enable_policy_agent_auto_provisioning)
-        if mdc_containers_agentless_discovery_k8s is not None:
-            pulumi.set(__self__, "mdc_containers_agentless_discovery_k8s", mdc_containers_agentless_discovery_k8s)
+        if mdc_containers_agentless_discovery_k8_s is not None:
+            pulumi.set(__self__, "mdc_containers_agentless_discovery_k8_s", mdc_containers_agentless_discovery_k8_s)
         if mdc_containers_image_assessment is not None:
             pulumi.set(__self__, "mdc_containers_image_assessment", mdc_containers_image_assessment)
         if native_cloud_connection is not None:
@@ -4573,16 +4573,16 @@ class DefenderForContainersGcpOfferingArgs:
         pulumi.set(self, "enable_policy_agent_auto_provisioning", value)
 
     @_builtins.property
-    @pulumi.getter(name="mdcContainersAgentlessDiscoveryK8s")
-    def mdc_containers_agentless_discovery_k8s(self) -> Optional[pulumi.Input['DefenderForContainersGcpOfferingMdcContainersAgentlessDiscoveryK8sArgs']]:
+    @pulumi.getter(name="mdcContainersAgentlessDiscoveryK8S")
+    def mdc_containers_agentless_discovery_k8_s(self) -> Optional[pulumi.Input['DefenderForContainersGcpOfferingMdcContainersAgentlessDiscoveryK8SArgs']]:
         """
         The Microsoft Defender Container agentless discovery configuration
         """
-        return pulumi.get(self, "mdc_containers_agentless_discovery_k8s")
+        return pulumi.get(self, "mdc_containers_agentless_discovery_k8_s")
 
-    @mdc_containers_agentless_discovery_k8s.setter
-    def mdc_containers_agentless_discovery_k8s(self, value: Optional[pulumi.Input['DefenderForContainersGcpOfferingMdcContainersAgentlessDiscoveryK8sArgs']]):
-        pulumi.set(self, "mdc_containers_agentless_discovery_k8s", value)
+    @mdc_containers_agentless_discovery_k8_s.setter
+    def mdc_containers_agentless_discovery_k8_s(self, value: Optional[pulumi.Input['DefenderForContainersGcpOfferingMdcContainersAgentlessDiscoveryK8SArgs']]):
+        pulumi.set(self, "mdc_containers_agentless_discovery_k8_s", value)
 
     @_builtins.property
     @pulumi.getter(name="mdcContainersImageAssessment")
@@ -4915,40 +4915,6 @@ class DefenderForServersAwsOfferingArcAutoProvisioningArgs:
         pulumi.set(self, "enabled", value)
 
 
-class DefenderForServersAwsOfferingConfigurationArgsDict(TypedDict):
-    """
-    configuration for Vulnerability Assessment autoprovisioning
-    """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'Type']]]
-    """
-    The Vulnerability Assessment solution to be provisioned. Can be either 'TVM' or 'Qualys'
-    """
-
-@pulumi.input_type
-class DefenderForServersAwsOfferingConfigurationArgs:
-    def __init__(__self__, *,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'Type']]] = None):
-        """
-        configuration for Vulnerability Assessment autoprovisioning
-
-        :param pulumi.Input[Union[_builtins.str, 'Type']] type: The Vulnerability Assessment solution to be provisioned. Can be either 'TVM' or 'Qualys'
-        """
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Type']]]:
-        """
-        The Vulnerability Assessment solution to be provisioned. Can be either 'TVM' or 'Qualys'
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Type']]]):
-        pulumi.set(self, "type", value)
-
-
 class DefenderForServersAwsOfferingDefenderForServersArgsDict(TypedDict):
     """
     The Defender for servers connection configuration
@@ -5071,11 +5037,45 @@ class DefenderForServersAwsOfferingSubPlanArgs:
         pulumi.set(self, "type", value)
 
 
+class DefenderForServersAwsOfferingVaAutoProvisioningConfigurationArgsDict(TypedDict):
+    """
+    configuration for Vulnerability Assessment autoprovisioning
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'Type']]]
+    """
+    The Vulnerability Assessment solution to be provisioned. Can be either 'TVM' or 'Qualys'
+    """
+
+@pulumi.input_type
+class DefenderForServersAwsOfferingVaAutoProvisioningConfigurationArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[Union[_builtins.str, 'Type']]] = None):
+        """
+        configuration for Vulnerability Assessment autoprovisioning
+
+        :param pulumi.Input[Union[_builtins.str, 'Type']] type: The Vulnerability Assessment solution to be provisioned. Can be either 'TVM' or 'Qualys'
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Type']]]:
+        """
+        The Vulnerability Assessment solution to be provisioned. Can be either 'TVM' or 'Qualys'
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Type']]]):
+        pulumi.set(self, "type", value)
+
+
 class DefenderForServersAwsOfferingVaAutoProvisioningArgsDict(TypedDict):
     """
     The Vulnerability Assessment autoprovisioning configuration
     """
-    configuration: NotRequired[pulumi.Input['DefenderForServersAwsOfferingConfigurationArgsDict']]
+    configuration: NotRequired[pulumi.Input['DefenderForServersAwsOfferingVaAutoProvisioningConfigurationArgsDict']]
     """
     configuration for Vulnerability Assessment autoprovisioning
     """
@@ -5087,12 +5087,12 @@ class DefenderForServersAwsOfferingVaAutoProvisioningArgsDict(TypedDict):
 @pulumi.input_type
 class DefenderForServersAwsOfferingVaAutoProvisioningArgs:
     def __init__(__self__, *,
-                 configuration: Optional[pulumi.Input['DefenderForServersAwsOfferingConfigurationArgs']] = None,
+                 configuration: Optional[pulumi.Input['DefenderForServersAwsOfferingVaAutoProvisioningConfigurationArgs']] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The Vulnerability Assessment autoprovisioning configuration
 
-        :param pulumi.Input['DefenderForServersAwsOfferingConfigurationArgs'] configuration: configuration for Vulnerability Assessment autoprovisioning
+        :param pulumi.Input['DefenderForServersAwsOfferingVaAutoProvisioningConfigurationArgs'] configuration: configuration for Vulnerability Assessment autoprovisioning
         :param pulumi.Input[_builtins.bool] enabled: Is Vulnerability Assessment auto provisioning enabled
         """
         if configuration is not None:
@@ -5102,14 +5102,14 @@ class DefenderForServersAwsOfferingVaAutoProvisioningArgs:
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['DefenderForServersAwsOfferingConfigurationArgs']]:
+    def configuration(self) -> Optional[pulumi.Input['DefenderForServersAwsOfferingVaAutoProvisioningConfigurationArgs']]:
         """
         configuration for Vulnerability Assessment autoprovisioning
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['DefenderForServersAwsOfferingConfigurationArgs']]):
+    def configuration(self, value: Optional[pulumi.Input['DefenderForServersAwsOfferingVaAutoProvisioningConfigurationArgs']]):
         pulumi.set(self, "configuration", value)
 
     @_builtins.property
@@ -5409,40 +5409,6 @@ class DefenderForServersGcpOfferingArcAutoProvisioningArgs:
         pulumi.set(self, "enabled", value)
 
 
-class DefenderForServersGcpOfferingConfigurationArgsDict(TypedDict):
-    """
-    configuration for Vulnerability Assessment autoprovisioning
-    """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'Type']]]
-    """
-    The Vulnerability Assessment solution to be provisioned. Can be either 'TVM' or 'Qualys'
-    """
-
-@pulumi.input_type
-class DefenderForServersGcpOfferingConfigurationArgs:
-    def __init__(__self__, *,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'Type']]] = None):
-        """
-        configuration for Vulnerability Assessment autoprovisioning
-
-        :param pulumi.Input[Union[_builtins.str, 'Type']] type: The Vulnerability Assessment solution to be provisioned. Can be either 'TVM' or 'Qualys'
-        """
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Type']]]:
-        """
-        The Vulnerability Assessment solution to be provisioned. Can be either 'TVM' or 'Qualys'
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Type']]]):
-        pulumi.set(self, "type", value)
-
-
 class DefenderForServersGcpOfferingDefenderForServersArgsDict(TypedDict):
     """
     The Defender for servers connection configuration
@@ -5585,11 +5551,45 @@ class DefenderForServersGcpOfferingSubPlanArgs:
         pulumi.set(self, "type", value)
 
 
+class DefenderForServersGcpOfferingVaAutoProvisioningConfigurationArgsDict(TypedDict):
+    """
+    configuration for Vulnerability Assessment autoprovisioning
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'Type']]]
+    """
+    The Vulnerability Assessment solution to be provisioned. Can be either 'TVM' or 'Qualys'
+    """
+
+@pulumi.input_type
+class DefenderForServersGcpOfferingVaAutoProvisioningConfigurationArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[Union[_builtins.str, 'Type']]] = None):
+        """
+        configuration for Vulnerability Assessment autoprovisioning
+
+        :param pulumi.Input[Union[_builtins.str, 'Type']] type: The Vulnerability Assessment solution to be provisioned. Can be either 'TVM' or 'Qualys'
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Type']]]:
+        """
+        The Vulnerability Assessment solution to be provisioned. Can be either 'TVM' or 'Qualys'
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Type']]]):
+        pulumi.set(self, "type", value)
+
+
 class DefenderForServersGcpOfferingVaAutoProvisioningArgsDict(TypedDict):
     """
     The Vulnerability Assessment autoprovisioning configuration
     """
-    configuration: NotRequired[pulumi.Input['DefenderForServersGcpOfferingConfigurationArgsDict']]
+    configuration: NotRequired[pulumi.Input['DefenderForServersGcpOfferingVaAutoProvisioningConfigurationArgsDict']]
     """
     configuration for Vulnerability Assessment autoprovisioning
     """
@@ -5601,12 +5601,12 @@ class DefenderForServersGcpOfferingVaAutoProvisioningArgsDict(TypedDict):
 @pulumi.input_type
 class DefenderForServersGcpOfferingVaAutoProvisioningArgs:
     def __init__(__self__, *,
-                 configuration: Optional[pulumi.Input['DefenderForServersGcpOfferingConfigurationArgs']] = None,
+                 configuration: Optional[pulumi.Input['DefenderForServersGcpOfferingVaAutoProvisioningConfigurationArgs']] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The Vulnerability Assessment autoprovisioning configuration
 
-        :param pulumi.Input['DefenderForServersGcpOfferingConfigurationArgs'] configuration: configuration for Vulnerability Assessment autoprovisioning
+        :param pulumi.Input['DefenderForServersGcpOfferingVaAutoProvisioningConfigurationArgs'] configuration: configuration for Vulnerability Assessment autoprovisioning
         :param pulumi.Input[_builtins.bool] enabled: Is Vulnerability Assessment auto provisioning enabled
         """
         if configuration is not None:
@@ -5616,14 +5616,14 @@ class DefenderForServersGcpOfferingVaAutoProvisioningArgs:
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['DefenderForServersGcpOfferingConfigurationArgs']]:
+    def configuration(self) -> Optional[pulumi.Input['DefenderForServersGcpOfferingVaAutoProvisioningConfigurationArgs']]:
         """
         configuration for Vulnerability Assessment autoprovisioning
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['DefenderForServersGcpOfferingConfigurationArgs']]):
+    def configuration(self, value: Optional[pulumi.Input['DefenderForServersGcpOfferingVaAutoProvisioningConfigurationArgs']]):
         pulumi.set(self, "configuration", value)
 
     @_builtins.property
@@ -6224,7 +6224,7 @@ class ExtensionArgsDict(TypedDict):
     """
     name: pulumi.Input[_builtins.str]
     """
-    The extension name. Supported values are: <br><br>**AgentlessDiscoveryForKubernetes** - Provides zero footprint, API-based discovery of Kubernetes clusters, their configurations and deployments. The collected data is used to create a contextualized security graph for Kubernetes clusters, provide risk hunting capabilities, and visualize risks and threats to  Kubernetes environments and workloads.<br>Available for CloudPosture plan and Containers plan.<br><br>**OnUploadMalwareScanning** - Limits the GB to be scanned per month for each storage account within the subscription. Once this limit reached on a given storage account, Blobs won't be scanned during current calendar month.<br>Available for StorageAccounts plan (DefenderForStorageV2 sub plans).<br><br>**SensitiveDataDiscovery** - Sensitive data discovery identifies Blob storage container with sensitive data such as credentials, credit cards, and more, to help prioritize and investigate security events.<br>Available for StorageAccounts plan (DefenderForStorageV2 sub plan) and CloudPosture plan.<br><br>**ContainerRegistriesVulnerabilityAssessments** - Provides vulnerability management for images stored in your container registries.<br>Available for CloudPosture plan and Containers plan.<br><br>**MdeDesignatedSubscription** - Direct onboarding is a seamless integration between Defender for Endpoint and Defender for Cloud that doesn’t require extra software deployment on your servers. The onboarded resources will be presented under a designated Azure Subscription you configure<br>Available for VirtualMachines plan (P1 and P2 sub plans).<br><br>**AgentlessVmScanning** - Scans your machines for installed software, vulnerabilities, malware and secret scanning without relying on agents or impacting machine performance. Learn more here https://learn.microsoft.com/en-us/azure/defender-for-cloud/concept-agentless-data-collection.<br>Available for CloudPosture plan, VirtualMachines plan (P2 sub plan) and Containers plan.<br><br>**EntraPermissionsManagement** - Permissions Management provides Cloud Infrastructure Entitlement Management (CIEM) capabilities that helps organizations to manage and control user access and entitlements in their cloud infrastructure - important attack vector for cloud environments.<br>Permissions Management analyzes all permissions and active usage, and suggests recommendations to reduce permissions to enforce the principle of least privilege. Learn more here https://learn.microsoft.com/en-us/azure/defender-for-cloud/permissions-management.<br>Available for CloudPosture plan. <br><br>**FileIntegrityMonitoring** - File integrity monitoring (FIM), examines operating system files.<br>Windows registries, Linux system files, in real time, for changes that might indicate an attack.<br>Available for VirtualMachines plan (P2 sub plan). <br><br>**ContainerSensor** - The sensor is based on IG and provides a rich threat detection suite for Kubernetes clusters, nodes, and workloads, powered by Microsoft leading threat intelligence, provides mapping to MITRE ATT&CK framework.<br>Available for Containers plan. <br><br>**AIPromptEvidence** - Exposes the prompts passed between the user and the AI model as alert evidence. This helps classify and triage the alerts with relevant user context. The prompt snippets will include only segments of the user prompt or model response that were deemed suspicious and relevant for security classifications. The prompt evidence will be available through Defender portal as part of each alert.<br>Available for AI plan. <br><br>
+    The extension name. Supported values are: <br><br>**AgentlessDiscoveryForKubernetes** - Provides zero footprint, API-based discovery of Kubernetes clusters, their configurations and deployments. The collected data is used to create a contextualized security graph for Kubernetes clusters, provide risk hunting capabilities, and visualize risks and threats to  Kubernetes environments and workloads.<br>Available for CloudPosture plan and Containers plan.<br><br>**OnUploadMalwareScanning** - Limits the GB to be scanned per month for each storage account within the subscription. Once this limit reached on a given storage account, Blobs won't be scanned during current calendar month.<br>Available for StorageAccounts plan (DefenderForStorageV2 sub plans).<br><br>**SensitiveDataDiscovery** - Sensitive data discovery identifies Blob storage container with sensitive data such as credentials, credit cards, and more, to help prioritize and investigate security events.<br>Available for StorageAccounts plan (DefenderForStorageV2 sub plan) and CloudPosture plan.<br><br>**ContainerRegistriesVulnerabilityAssessments** - Provides vulnerability management for images stored in your container registries.<br>Available for CloudPosture plan and Containers plan.<br><br>**MdeDesignatedSubscription** - Direct onboarding is a seamless integration between Defender for Endpoint and Defender for Cloud that doesn't require extra software deployment on your servers. The onboarded resources will be presented under a designated Azure Subscription you configure<br>Available for VirtualMachines plan (P1 and P2 sub plans).<br><br>**AgentlessVmScanning** - Scans your machines for installed software, vulnerabilities, malware and secret scanning without relying on agents or impacting machine performance. Learn more here https://learn.microsoft.com/en-us/azure/defender-for-cloud/concept-agentless-data-collection.<br>Available for CloudPosture plan, VirtualMachines plan (P2 sub plan) and Containers plan.<br><br>**EntraPermissionsManagement** - Permissions Management provides Cloud Infrastructure Entitlement Management (CIEM) capabilities that helps organizations to manage and control user access and entitlements in their cloud infrastructure - important attack vector for cloud environments.<br>Permissions Management analyzes all permissions and active usage, and suggests recommendations to reduce permissions to enforce the principle of least privilege. Learn more here https://learn.microsoft.com/en-us/azure/defender-for-cloud/permissions-management.<br>Available for CloudPosture plan. <br><br>**FileIntegrityMonitoring** - File integrity monitoring (FIM), examines operating system files.<br>Windows registries, Linux system files, in real time, for changes that might indicate an attack.<br>Available for VirtualMachines plan (P2 sub plan). <br><br>**ContainerSensor** - The sensor is based on IG and provides a rich threat detection suite for Kubernetes clusters, nodes, and workloads, powered by Microsoft leading threat intelligence, provides mapping to MITRE ATT&CK framework.<br>Available for Containers plan. <br><br>**AIPromptEvidence** - Exposes the prompts passed between the user and the AI model as alert evidence. This helps classify and triage the alerts with relevant user context. The prompt snippets will include only segments of the user prompt or model response that were deemed suspicious and relevant for security classifications. The prompt evidence will be available through Defender portal as part of each alert.<br>Available for AI plan. <br><br>
     """
     additional_extension_properties: NotRequired[Any]
     """
@@ -6241,7 +6241,7 @@ class ExtensionArgs:
         A plan's extension properties
 
         :param pulumi.Input[Union[_builtins.str, 'IsEnabled']] is_enabled: Indicates whether the extension is enabled.
-        :param pulumi.Input[_builtins.str] name: The extension name. Supported values are: <br><br>**AgentlessDiscoveryForKubernetes** - Provides zero footprint, API-based discovery of Kubernetes clusters, their configurations and deployments. The collected data is used to create a contextualized security graph for Kubernetes clusters, provide risk hunting capabilities, and visualize risks and threats to  Kubernetes environments and workloads.<br>Available for CloudPosture plan and Containers plan.<br><br>**OnUploadMalwareScanning** - Limits the GB to be scanned per month for each storage account within the subscription. Once this limit reached on a given storage account, Blobs won't be scanned during current calendar month.<br>Available for StorageAccounts plan (DefenderForStorageV2 sub plans).<br><br>**SensitiveDataDiscovery** - Sensitive data discovery identifies Blob storage container with sensitive data such as credentials, credit cards, and more, to help prioritize and investigate security events.<br>Available for StorageAccounts plan (DefenderForStorageV2 sub plan) and CloudPosture plan.<br><br>**ContainerRegistriesVulnerabilityAssessments** - Provides vulnerability management for images stored in your container registries.<br>Available for CloudPosture plan and Containers plan.<br><br>**MdeDesignatedSubscription** - Direct onboarding is a seamless integration between Defender for Endpoint and Defender for Cloud that doesn’t require extra software deployment on your servers. The onboarded resources will be presented under a designated Azure Subscription you configure<br>Available for VirtualMachines plan (P1 and P2 sub plans).<br><br>**AgentlessVmScanning** - Scans your machines for installed software, vulnerabilities, malware and secret scanning without relying on agents or impacting machine performance. Learn more here https://learn.microsoft.com/en-us/azure/defender-for-cloud/concept-agentless-data-collection.<br>Available for CloudPosture plan, VirtualMachines plan (P2 sub plan) and Containers plan.<br><br>**EntraPermissionsManagement** - Permissions Management provides Cloud Infrastructure Entitlement Management (CIEM) capabilities that helps organizations to manage and control user access and entitlements in their cloud infrastructure - important attack vector for cloud environments.<br>Permissions Management analyzes all permissions and active usage, and suggests recommendations to reduce permissions to enforce the principle of least privilege. Learn more here https://learn.microsoft.com/en-us/azure/defender-for-cloud/permissions-management.<br>Available for CloudPosture plan. <br><br>**FileIntegrityMonitoring** - File integrity monitoring (FIM), examines operating system files.<br>Windows registries, Linux system files, in real time, for changes that might indicate an attack.<br>Available for VirtualMachines plan (P2 sub plan). <br><br>**ContainerSensor** - The sensor is based on IG and provides a rich threat detection suite for Kubernetes clusters, nodes, and workloads, powered by Microsoft leading threat intelligence, provides mapping to MITRE ATT&CK framework.<br>Available for Containers plan. <br><br>**AIPromptEvidence** - Exposes the prompts passed between the user and the AI model as alert evidence. This helps classify and triage the alerts with relevant user context. The prompt snippets will include only segments of the user prompt or model response that were deemed suspicious and relevant for security classifications. The prompt evidence will be available through Defender portal as part of each alert.<br>Available for AI plan. <br><br>
+        :param pulumi.Input[_builtins.str] name: The extension name. Supported values are: <br><br>**AgentlessDiscoveryForKubernetes** - Provides zero footprint, API-based discovery of Kubernetes clusters, their configurations and deployments. The collected data is used to create a contextualized security graph for Kubernetes clusters, provide risk hunting capabilities, and visualize risks and threats to  Kubernetes environments and workloads.<br>Available for CloudPosture plan and Containers plan.<br><br>**OnUploadMalwareScanning** - Limits the GB to be scanned per month for each storage account within the subscription. Once this limit reached on a given storage account, Blobs won't be scanned during current calendar month.<br>Available for StorageAccounts plan (DefenderForStorageV2 sub plans).<br><br>**SensitiveDataDiscovery** - Sensitive data discovery identifies Blob storage container with sensitive data such as credentials, credit cards, and more, to help prioritize and investigate security events.<br>Available for StorageAccounts plan (DefenderForStorageV2 sub plan) and CloudPosture plan.<br><br>**ContainerRegistriesVulnerabilityAssessments** - Provides vulnerability management for images stored in your container registries.<br>Available for CloudPosture plan and Containers plan.<br><br>**MdeDesignatedSubscription** - Direct onboarding is a seamless integration between Defender for Endpoint and Defender for Cloud that doesn't require extra software deployment on your servers. The onboarded resources will be presented under a designated Azure Subscription you configure<br>Available for VirtualMachines plan (P1 and P2 sub plans).<br><br>**AgentlessVmScanning** - Scans your machines for installed software, vulnerabilities, malware and secret scanning without relying on agents or impacting machine performance. Learn more here https://learn.microsoft.com/en-us/azure/defender-for-cloud/concept-agentless-data-collection.<br>Available for CloudPosture plan, VirtualMachines plan (P2 sub plan) and Containers plan.<br><br>**EntraPermissionsManagement** - Permissions Management provides Cloud Infrastructure Entitlement Management (CIEM) capabilities that helps organizations to manage and control user access and entitlements in their cloud infrastructure - important attack vector for cloud environments.<br>Permissions Management analyzes all permissions and active usage, and suggests recommendations to reduce permissions to enforce the principle of least privilege. Learn more here https://learn.microsoft.com/en-us/azure/defender-for-cloud/permissions-management.<br>Available for CloudPosture plan. <br><br>**FileIntegrityMonitoring** - File integrity monitoring (FIM), examines operating system files.<br>Windows registries, Linux system files, in real time, for changes that might indicate an attack.<br>Available for VirtualMachines plan (P2 sub plan). <br><br>**ContainerSensor** - The sensor is based on IG and provides a rich threat detection suite for Kubernetes clusters, nodes, and workloads, powered by Microsoft leading threat intelligence, provides mapping to MITRE ATT&CK framework.<br>Available for Containers plan. <br><br>**AIPromptEvidence** - Exposes the prompts passed between the user and the AI model as alert evidence. This helps classify and triage the alerts with relevant user context. The prompt snippets will include only segments of the user prompt or model response that were deemed suspicious and relevant for security classifications. The prompt evidence will be available through Defender portal as part of each alert.<br>Available for AI plan. <br><br>
         :param Any additional_extension_properties: Property values associated with the extension.
         """
         pulumi.set(__self__, "is_enabled", is_enabled)
@@ -6265,7 +6265,7 @@ class ExtensionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        The extension name. Supported values are: <br><br>**AgentlessDiscoveryForKubernetes** - Provides zero footprint, API-based discovery of Kubernetes clusters, their configurations and deployments. The collected data is used to create a contextualized security graph for Kubernetes clusters, provide risk hunting capabilities, and visualize risks and threats to  Kubernetes environments and workloads.<br>Available for CloudPosture plan and Containers plan.<br><br>**OnUploadMalwareScanning** - Limits the GB to be scanned per month for each storage account within the subscription. Once this limit reached on a given storage account, Blobs won't be scanned during current calendar month.<br>Available for StorageAccounts plan (DefenderForStorageV2 sub plans).<br><br>**SensitiveDataDiscovery** - Sensitive data discovery identifies Blob storage container with sensitive data such as credentials, credit cards, and more, to help prioritize and investigate security events.<br>Available for StorageAccounts plan (DefenderForStorageV2 sub plan) and CloudPosture plan.<br><br>**ContainerRegistriesVulnerabilityAssessments** - Provides vulnerability management for images stored in your container registries.<br>Available for CloudPosture plan and Containers plan.<br><br>**MdeDesignatedSubscription** - Direct onboarding is a seamless integration between Defender for Endpoint and Defender for Cloud that doesn’t require extra software deployment on your servers. The onboarded resources will be presented under a designated Azure Subscription you configure<br>Available for VirtualMachines plan (P1 and P2 sub plans).<br><br>**AgentlessVmScanning** - Scans your machines for installed software, vulnerabilities, malware and secret scanning without relying on agents or impacting machine performance. Learn more here https://learn.microsoft.com/en-us/azure/defender-for-cloud/concept-agentless-data-collection.<br>Available for CloudPosture plan, VirtualMachines plan (P2 sub plan) and Containers plan.<br><br>**EntraPermissionsManagement** - Permissions Management provides Cloud Infrastructure Entitlement Management (CIEM) capabilities that helps organizations to manage and control user access and entitlements in their cloud infrastructure - important attack vector for cloud environments.<br>Permissions Management analyzes all permissions and active usage, and suggests recommendations to reduce permissions to enforce the principle of least privilege. Learn more here https://learn.microsoft.com/en-us/azure/defender-for-cloud/permissions-management.<br>Available for CloudPosture plan. <br><br>**FileIntegrityMonitoring** - File integrity monitoring (FIM), examines operating system files.<br>Windows registries, Linux system files, in real time, for changes that might indicate an attack.<br>Available for VirtualMachines plan (P2 sub plan). <br><br>**ContainerSensor** - The sensor is based on IG and provides a rich threat detection suite for Kubernetes clusters, nodes, and workloads, powered by Microsoft leading threat intelligence, provides mapping to MITRE ATT&CK framework.<br>Available for Containers plan. <br><br>**AIPromptEvidence** - Exposes the prompts passed between the user and the AI model as alert evidence. This helps classify and triage the alerts with relevant user context. The prompt snippets will include only segments of the user prompt or model response that were deemed suspicious and relevant for security classifications. The prompt evidence will be available through Defender portal as part of each alert.<br>Available for AI plan. <br><br>
+        The extension name. Supported values are: <br><br>**AgentlessDiscoveryForKubernetes** - Provides zero footprint, API-based discovery of Kubernetes clusters, their configurations and deployments. The collected data is used to create a contextualized security graph for Kubernetes clusters, provide risk hunting capabilities, and visualize risks and threats to  Kubernetes environments and workloads.<br>Available for CloudPosture plan and Containers plan.<br><br>**OnUploadMalwareScanning** - Limits the GB to be scanned per month for each storage account within the subscription. Once this limit reached on a given storage account, Blobs won't be scanned during current calendar month.<br>Available for StorageAccounts plan (DefenderForStorageV2 sub plans).<br><br>**SensitiveDataDiscovery** - Sensitive data discovery identifies Blob storage container with sensitive data such as credentials, credit cards, and more, to help prioritize and investigate security events.<br>Available for StorageAccounts plan (DefenderForStorageV2 sub plan) and CloudPosture plan.<br><br>**ContainerRegistriesVulnerabilityAssessments** - Provides vulnerability management for images stored in your container registries.<br>Available for CloudPosture plan and Containers plan.<br><br>**MdeDesignatedSubscription** - Direct onboarding is a seamless integration between Defender for Endpoint and Defender for Cloud that doesn't require extra software deployment on your servers. The onboarded resources will be presented under a designated Azure Subscription you configure<br>Available for VirtualMachines plan (P1 and P2 sub plans).<br><br>**AgentlessVmScanning** - Scans your machines for installed software, vulnerabilities, malware and secret scanning without relying on agents or impacting machine performance. Learn more here https://learn.microsoft.com/en-us/azure/defender-for-cloud/concept-agentless-data-collection.<br>Available for CloudPosture plan, VirtualMachines plan (P2 sub plan) and Containers plan.<br><br>**EntraPermissionsManagement** - Permissions Management provides Cloud Infrastructure Entitlement Management (CIEM) capabilities that helps organizations to manage and control user access and entitlements in their cloud infrastructure - important attack vector for cloud environments.<br>Permissions Management analyzes all permissions and active usage, and suggests recommendations to reduce permissions to enforce the principle of least privilege. Learn more here https://learn.microsoft.com/en-us/azure/defender-for-cloud/permissions-management.<br>Available for CloudPosture plan. <br><br>**FileIntegrityMonitoring** - File integrity monitoring (FIM), examines operating system files.<br>Windows registries, Linux system files, in real time, for changes that might indicate an attack.<br>Available for VirtualMachines plan (P2 sub plan). <br><br>**ContainerSensor** - The sensor is based on IG and provides a rich threat detection suite for Kubernetes clusters, nodes, and workloads, powered by Microsoft leading threat intelligence, provides mapping to MITRE ATT&CK framework.<br>Available for Containers plan. <br><br>**AIPromptEvidence** - Exposes the prompts passed between the user and the AI model as alert evidence. This helps classify and triage the alerts with relevant user context. The prompt snippets will include only segments of the user prompt or model response that were deemed suspicious and relevant for security classifications. The prompt evidence will be available through Defender portal as part of each alert.<br>Available for AI plan. <br><br>
         """
         return pulumi.get(self, "name")
 
@@ -8504,7 +8504,7 @@ class SecurityContactPropertiesNotificationsByRoleArgsDict(TypedDict):
     """
     roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'SecurityContactRole']]]]]
     """
-    Defines which RBAC roles will get email notifications from Microsoft Defender for Cloud. List of allowed RBAC roles: 
+    Defines which RBAC roles will get email notifications from Microsoft Defender for Cloud. List of allowed RBAC roles:
     """
     state: NotRequired[pulumi.Input[Union[_builtins.str, 'State']]]
     """
@@ -8519,7 +8519,7 @@ class SecurityContactPropertiesNotificationsByRoleArgs:
         """
         Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
 
-        :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'SecurityContactRole']]]] roles: Defines which RBAC roles will get email notifications from Microsoft Defender for Cloud. List of allowed RBAC roles: 
+        :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'SecurityContactRole']]]] roles: Defines which RBAC roles will get email notifications from Microsoft Defender for Cloud. List of allowed RBAC roles:
         :param pulumi.Input[Union[_builtins.str, 'State']] state: Defines whether to send email notifications from AMicrosoft Defender for Cloud to persons with specific RBAC roles on the subscription.
         """
         if roles is not None:
@@ -8531,7 +8531,7 @@ class SecurityContactPropertiesNotificationsByRoleArgs:
     @pulumi.getter
     def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'SecurityContactRole']]]]]:
         """
-        Defines which RBAC roles will get email notifications from Microsoft Defender for Cloud. List of allowed RBAC roles: 
+        Defines which RBAC roles will get email notifications from Microsoft Defender for Cloud. List of allowed RBAC roles:
         """
         return pulumi.get(self, "roles")
 

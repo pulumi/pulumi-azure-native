@@ -38,10 +38,16 @@ namespace Pulumi.AzureNative.Security
         public Output<ImmutableArray<Outputs.DenylistCustomAlertRuleResponse>> DenylistRules { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The list of custom alert threshold rules.
@@ -56,7 +62,7 @@ namespace Pulumi.AzureNative.Security
         public Output<ImmutableArray<Outputs.TimeWindowCustomAlertRuleResponse>> TimeWindowRules { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -142,7 +148,7 @@ namespace Pulumi.AzureNative.Security
         public Input<string>? DeviceSecurityGroupName { get; set; }
 
         /// <summary>
-        /// The identifier of the resource.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;

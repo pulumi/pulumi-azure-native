@@ -65,7 +65,7 @@ def get_adoo_auth_info(location: Optional[_builtins.str] = None,
                        redirect_url: Optional[_builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetADOOAuthInfoResult:
     """
-    Response containing ADO OAuth information
+    Gets ADOOAuth info used to authenticate users with ADO.
 
     Uses Azure REST API version 2025-03-01-preview.
 
@@ -88,7 +88,7 @@ def get_adoo_auth_info_output(location: Optional[pulumi.Input[_builtins.str]] = 
                               redirect_url: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetADOOAuthInfoResult]:
     """
-    Response containing ADO OAuth information
+    Gets ADOOAuth info used to authenticate users with ADO.
 
     Uses Azure REST API version 2025-03-01-preview.
 

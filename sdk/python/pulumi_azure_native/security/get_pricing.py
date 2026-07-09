@@ -27,7 +27,7 @@ class GetPricingResult:
     """
     Microsoft Defender for Cloud is provided in two pricing tiers: free and standard. The standard tier offers advanced security capabilities, while the free tier offers basic security features.
     """
-    def __init__(__self__, azure_api_version=None, deprecated=None, enablement_time=None, enforce=None, extensions=None, free_trial_remaining_time=None, id=None, inherited=None, inherited_from=None, name=None, pricing_tier=None, replaced_by=None, resources_coverage_status=None, sub_plan=None, type=None):
+    def __init__(__self__, azure_api_version=None, deprecated=None, enablement_time=None, enforce=None, extensions=None, free_trial_remaining_time=None, id=None, inherited=None, inherited_from=None, name=None, pricing_tier=None, replaced_by=None, resources_coverage_status=None, sub_plan=None, system_data=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -70,6 +70,9 @@ class GetPricingResult:
         if sub_plan and not isinstance(sub_plan, str):
             raise TypeError("Expected argument 'sub_plan' to be a str")
         pulumi.set(__self__, "sub_plan", sub_plan)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -126,7 +129,7 @@ class GetPricingResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -150,7 +153,7 @@ class GetPricingResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -187,10 +190,18 @@ class GetPricingResult:
         return pulumi.get(self, "sub_plan")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -215,6 +226,7 @@ class AwaitableGetPricingResult(GetPricingResult):
             replaced_by=self.replaced_by,
             resources_coverage_status=self.resources_coverage_status,
             sub_plan=self.sub_plan,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -226,9 +238,11 @@ def get_pricing(pricing_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-01-01.
 
+    Other available API versions: 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param _builtins.str pricing_name: name of the pricing configuration
-    :param _builtins.str scope_id: The scope id of the pricing. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or a specific resource (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}) - Supported resources are (VirtualMachines)
+    :param _builtins.str scope_id: The fully qualified Azure Resource manager identifier of the resource.
     """
     __args__ = dict()
     __args__['pricingName'] = pricing_name
@@ -251,6 +265,7 @@ def get_pricing(pricing_name: Optional[_builtins.str] = None,
         replaced_by=pulumi.get(__ret__, 'replaced_by'),
         resources_coverage_status=pulumi.get(__ret__, 'resources_coverage_status'),
         sub_plan=pulumi.get(__ret__, 'sub_plan'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_pricing_output(pricing_name: Optional[pulumi.Input[_builtins.str]] = None,
                        scope_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -260,9 +275,11 @@ def get_pricing_output(pricing_name: Optional[pulumi.Input[_builtins.str]] = Non
 
     Uses Azure REST API version 2024-01-01.
 
+    Other available API versions: 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param _builtins.str pricing_name: name of the pricing configuration
-    :param _builtins.str scope_id: The scope id of the pricing. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or a specific resource (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}) - Supported resources are (VirtualMachines)
+    :param _builtins.str scope_id: The fully qualified Azure Resource manager identifier of the resource.
     """
     __args__ = dict()
     __args__['pricingName'] = pricing_name
@@ -284,4 +301,5 @@ def get_pricing_output(pricing_name: Optional[pulumi.Input[_builtins.str]] = Non
         replaced_by=pulumi.get(__response__, 'replaced_by'),
         resources_coverage_status=pulumi.get(__response__, 'resources_coverage_status'),
         sub_plan=pulumi.get(__response__, 'sub_plan'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

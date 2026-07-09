@@ -307,8 +307,13 @@
     "properties.name": {}
   },
   "azure-native:network/v20250501:VpnServerConfiguration": {
-    "properties.etag": {},
+    "properties.etag": {}
+  },
+  "azure-native:network/v20250701:NetworkVirtualApplianceConnection": {
     "properties.name": {}
+  },
+  "azure-native:network/v20250701:VpnServerConfiguration": {
+    "properties.etag": {}
   },
   "azure-native:network:NetworkVirtualApplianceConnection": {
     "properties.name": {}

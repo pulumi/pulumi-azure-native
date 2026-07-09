@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Impact
         /// Get Insight resources by workloadImpactName and insightName
         /// 
         /// Uses Azure REST API version 2024-05-01-preview.
+        /// 
+        /// Other available API versions: 2025-01-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native impact [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetInsightResult> InvokeAsync(GetInsightArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInsightResult>("azure-native:impact:getInsight", args ?? new GetInsightArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Impact
         /// Get Insight resources by workloadImpactName and insightName
         /// 
         /// Uses Azure REST API version 2024-05-01-preview.
+        /// 
+        /// Other available API versions: 2025-01-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native impact [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetInsightResult> Invoke(GetInsightInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInsightResult>("azure-native:impact:getInsight", args ?? new GetInsightInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Impact
         /// Get Insight resources by workloadImpactName and insightName
         /// 
         /// Uses Azure REST API version 2024-05-01-preview.
+        /// 
+        /// Other available API versions: 2025-01-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native impact [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetInsightResult> Invoke(GetInsightInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetInsightResult>("azure-native:impact:getInsight", args ?? new GetInsightInvokeArgs(), options.WithDefaults());

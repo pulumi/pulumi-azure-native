@@ -31,7 +31,7 @@ export interface GetDatasetArgs {
      */
     factoryName: string;
     /**
-     * The resource group name.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -45,15 +45,15 @@ export interface GetDatasetResult {
      */
     readonly azureApiVersion: string;
     /**
-     * Etag identifies change in the resource.
+     * "If etag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.")
      */
     readonly etag: string;
     /**
-     * The resource identifier.
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
-     * The resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -61,7 +61,11 @@ export interface GetDatasetResult {
      */
     readonly properties: outputs.datafactory.AmazonMWSObjectDatasetResponse | outputs.datafactory.AmazonRdsForOracleTableDatasetResponse | outputs.datafactory.AmazonRdsForSqlServerTableDatasetResponse | outputs.datafactory.AmazonRedshiftTableDatasetResponse | outputs.datafactory.AmazonS3DatasetResponse | outputs.datafactory.AvroDatasetResponse | outputs.datafactory.AzureBlobDatasetResponse | outputs.datafactory.AzureBlobFSDatasetResponse | outputs.datafactory.AzureDataExplorerTableDatasetResponse | outputs.datafactory.AzureDataLakeStoreDatasetResponse | outputs.datafactory.AzureDatabricksDeltaLakeDatasetResponse | outputs.datafactory.AzureMariaDBTableDatasetResponse | outputs.datafactory.AzureMySqlTableDatasetResponse | outputs.datafactory.AzurePostgreSqlTableDatasetResponse | outputs.datafactory.AzureSearchIndexDatasetResponse | outputs.datafactory.AzureSqlDWTableDatasetResponse | outputs.datafactory.AzureSqlMITableDatasetResponse | outputs.datafactory.AzureSqlTableDatasetResponse | outputs.datafactory.AzureTableDatasetResponse | outputs.datafactory.BinaryDatasetResponse | outputs.datafactory.CassandraTableDatasetResponse | outputs.datafactory.CommonDataServiceForAppsEntityDatasetResponse | outputs.datafactory.ConcurObjectDatasetResponse | outputs.datafactory.CosmosDbMongoDbApiCollectionDatasetResponse | outputs.datafactory.CosmosDbSqlApiCollectionDatasetResponse | outputs.datafactory.CouchbaseTableDatasetResponse | outputs.datafactory.CustomDatasetResponse | outputs.datafactory.Db2TableDatasetResponse | outputs.datafactory.DelimitedTextDatasetResponse | outputs.datafactory.DocumentDbCollectionDatasetResponse | outputs.datafactory.DrillTableDatasetResponse | outputs.datafactory.DynamicsAXResourceDatasetResponse | outputs.datafactory.DynamicsCrmEntityDatasetResponse | outputs.datafactory.DynamicsEntityDatasetResponse | outputs.datafactory.EloquaObjectDatasetResponse | outputs.datafactory.ExcelDatasetResponse | outputs.datafactory.FileShareDatasetResponse | outputs.datafactory.GoogleAdWordsObjectDatasetResponse | outputs.datafactory.GoogleBigQueryObjectDatasetResponse | outputs.datafactory.GoogleBigQueryV2ObjectDatasetResponse | outputs.datafactory.GreenplumTableDatasetResponse | outputs.datafactory.HBaseObjectDatasetResponse | outputs.datafactory.HiveObjectDatasetResponse | outputs.datafactory.HttpDatasetResponse | outputs.datafactory.HubspotObjectDatasetResponse | outputs.datafactory.IcebergDatasetResponse | outputs.datafactory.ImpalaObjectDatasetResponse | outputs.datafactory.InformixTableDatasetResponse | outputs.datafactory.JiraObjectDatasetResponse | outputs.datafactory.JsonDatasetResponse | outputs.datafactory.LakeHouseTableDatasetResponse | outputs.datafactory.MagentoObjectDatasetResponse | outputs.datafactory.MariaDBTableDatasetResponse | outputs.datafactory.MarketoObjectDatasetResponse | outputs.datafactory.MicrosoftAccessTableDatasetResponse | outputs.datafactory.MongoDbAtlasCollectionDatasetResponse | outputs.datafactory.MongoDbCollectionDatasetResponse | outputs.datafactory.MongoDbV2CollectionDatasetResponse | outputs.datafactory.MySqlTableDatasetResponse | outputs.datafactory.NetezzaTableDatasetResponse | outputs.datafactory.ODataResourceDatasetResponse | outputs.datafactory.OdbcTableDatasetResponse | outputs.datafactory.Office365DatasetResponse | outputs.datafactory.OracleServiceCloudObjectDatasetResponse | outputs.datafactory.OracleTableDatasetResponse | outputs.datafactory.OrcDatasetResponse | outputs.datafactory.ParquetDatasetResponse | outputs.datafactory.PaypalObjectDatasetResponse | outputs.datafactory.PhoenixObjectDatasetResponse | outputs.datafactory.PostgreSqlTableDatasetResponse | outputs.datafactory.PostgreSqlV2TableDatasetResponse | outputs.datafactory.PrestoObjectDatasetResponse | outputs.datafactory.QuickBooksObjectDatasetResponse | outputs.datafactory.RelationalTableDatasetResponse | outputs.datafactory.ResponsysObjectDatasetResponse | outputs.datafactory.RestResourceDatasetResponse | outputs.datafactory.SalesforceMarketingCloudObjectDatasetResponse | outputs.datafactory.SalesforceObjectDatasetResponse | outputs.datafactory.SalesforceServiceCloudObjectDatasetResponse | outputs.datafactory.SalesforceServiceCloudV2ObjectDatasetResponse | outputs.datafactory.SalesforceV2ObjectDatasetResponse | outputs.datafactory.SapBwCubeDatasetResponse | outputs.datafactory.SapCloudForCustomerResourceDatasetResponse | outputs.datafactory.SapEccResourceDatasetResponse | outputs.datafactory.SapHanaTableDatasetResponse | outputs.datafactory.SapOdpResourceDatasetResponse | outputs.datafactory.SapOpenHubTableDatasetResponse | outputs.datafactory.SapTableResourceDatasetResponse | outputs.datafactory.ServiceNowObjectDatasetResponse | outputs.datafactory.ServiceNowV2ObjectDatasetResponse | outputs.datafactory.SharePointOnlineListResourceDatasetResponse | outputs.datafactory.ShopifyObjectDatasetResponse | outputs.datafactory.SnowflakeDatasetResponse | outputs.datafactory.SnowflakeV2DatasetResponse | outputs.datafactory.SparkObjectDatasetResponse | outputs.datafactory.SqlServerTableDatasetResponse | outputs.datafactory.SquareObjectDatasetResponse | outputs.datafactory.SybaseTableDatasetResponse | outputs.datafactory.TeradataTableDatasetResponse | outputs.datafactory.VerticaTableDatasetResponse | outputs.datafactory.WarehouseTableDatasetResponse | outputs.datafactory.WebTableDatasetResponse | outputs.datafactory.XeroObjectDatasetResponse | outputs.datafactory.XmlDatasetResponse | outputs.datafactory.ZohoObjectDatasetResponse;
     /**
-     * The resource type.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.datafactory.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
@@ -89,7 +93,7 @@ export interface GetDatasetOutputArgs {
      */
     factoryName: pulumi.Input<string>;
     /**
-     * The resource group name.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

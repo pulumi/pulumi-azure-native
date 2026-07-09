@@ -87,17 +87,11 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("instancePoolId")]
         public Input<object>? InstancePoolId { get; set; }
 
-        [Input("newClusterCustomTags")]
-        private InputMap<object>? _newClusterCustomTags;
-
         /// <summary>
         /// Additional tags for cluster resources. This property is ignored in instance pool configurations.
         /// </summary>
-        public InputMap<object> NewClusterCustomTags
-        {
-            get => _newClusterCustomTags ?? (_newClusterCustomTags = new InputMap<object>());
-            set => _newClusterCustomTags = value;
-        }
+        [Input("newClusterCustomTags")]
+        public Input<object>? NewClusterCustomTags { get; set; }
 
         /// <summary>
         /// The driver node type for the new job cluster. This property is ignored in instance pool configurations. Type: string (or Expression with resultType string).
@@ -135,29 +129,17 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("newClusterNumOfWorker")]
         public Input<object>? NewClusterNumOfWorker { get; set; }
 
-        [Input("newClusterSparkConf")]
-        private InputMap<object>? _newClusterSparkConf;
-
         /// <summary>
         /// A set of optional, user-specified Spark configuration key-value pairs.
         /// </summary>
-        public InputMap<object> NewClusterSparkConf
-        {
-            get => _newClusterSparkConf ?? (_newClusterSparkConf = new InputMap<object>());
-            set => _newClusterSparkConf = value;
-        }
-
-        [Input("newClusterSparkEnvVars")]
-        private InputMap<object>? _newClusterSparkEnvVars;
+        [Input("newClusterSparkConf")]
+        public Input<object>? NewClusterSparkConf { get; set; }
 
         /// <summary>
         /// A set of optional, user-specified Spark environment variables key-value pairs.
         /// </summary>
-        public InputMap<object> NewClusterSparkEnvVars
-        {
-            get => _newClusterSparkEnvVars ?? (_newClusterSparkEnvVars = new InputMap<object>());
-            set => _newClusterSparkEnvVars = value;
-        }
+        [Input("newClusterSparkEnvVars")]
+        public Input<object>? NewClusterSparkEnvVars { get; set; }
 
         /// <summary>
         /// If not using an existing interactive cluster, this specifies the Spark version of a new job cluster or instance pool nodes created for each run of this activity. Required if instancePoolId is specified. Type: string (or Expression with resultType string).

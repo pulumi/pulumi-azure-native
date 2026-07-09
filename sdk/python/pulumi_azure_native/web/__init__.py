@@ -7,6 +7,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .ai_gateway import *
 from .app_service_environment import *
 from .app_service_environment_ase_custom_dns_suffix_configuration import *
 from .app_service_environment_private_endpoint_connection import *
@@ -16,6 +17,7 @@ from .certificate import *
 from .connection import *
 from .connection_gateway import *
 from .custom_api import *
+from .get_ai_gateway import *
 from .get_app_service_environment import *
 from .get_app_service_environment_ase_custom_dns_suffix_configuration import *
 from .get_app_service_environment_private_endpoint_connection import *

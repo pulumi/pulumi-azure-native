@@ -143,7 +143,7 @@ def get_smtp_username(communication_service_name: Optional[_builtins.str] = None
 
     Uses Azure REST API version 2024-09-01-preview.
 
-    Other available API versions: 2025-05-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2025-05-01-preview, 2025-09-01, 2026-03-18. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str communication_service_name: The name of the CommunicationService resource.
@@ -175,7 +175,7 @@ def get_smtp_username_output(communication_service_name: Optional[pulumi.Input[_
 
     Uses Azure REST API version 2024-09-01-preview.
 
-    Other available API versions: 2025-05-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2025-05-01-preview, 2025-09-01, 2026-03-18. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str communication_service_name: The name of the CommunicationService resource.

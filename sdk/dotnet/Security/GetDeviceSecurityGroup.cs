@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.Security
         public string DeviceSecurityGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The identifier of the resource.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("resourceId", required: true)]
         public string ResourceId { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.Security
         public Input<string> DeviceSecurityGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The identifier of the resource.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;
@@ -100,13 +100,17 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly ImmutableArray<Outputs.DenylistCustomAlertRuleResponse> DenylistRules;
         /// <summary>
-        /// Resource Id
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The list of custom alert threshold rules.
         /// </summary>
@@ -116,7 +120,7 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly ImmutableArray<Outputs.TimeWindowCustomAlertRuleResponse> TimeWindowRules;
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -132,6 +136,8 @@ namespace Pulumi.AzureNative.Security
 
             string name,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableArray<Outputs.ThresholdCustomAlertRuleResponse> thresholdRules,
 
             ImmutableArray<Outputs.TimeWindowCustomAlertRuleResponse> timeWindowRules,
@@ -143,6 +149,7 @@ namespace Pulumi.AzureNative.Security
             DenylistRules = denylistRules;
             Id = id;
             Name = name;
+            SystemData = systemData;
             ThresholdRules = thresholdRules;
             TimeWindowRules = timeWindowRules;
             Type = type;

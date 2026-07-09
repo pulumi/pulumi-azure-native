@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// Spark configuration property.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? SparkConfig;
+        public readonly object? SparkConfig;
         /// <summary>
         /// The name of the big data pool which will be used to execute the notebook.
         /// </summary>
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             Outputs.ActivityPolicyResponse? policy,
 
-            ImmutableDictionary<string, object>? sparkConfig,
+            object? sparkConfig,
 
             Outputs.BigDataPoolParametrizationReferenceResponse? sparkPool,
 

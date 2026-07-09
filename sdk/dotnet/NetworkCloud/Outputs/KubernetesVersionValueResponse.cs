@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NetworkCloud.Outputs
 {
 
+    /// <summary>
+    /// KubernetesVersionValue describes a specific Kubernetes version that can be deployed.
+    /// </summary>
     [OutputType]
     public sealed class KubernetesVersionValueResponse
     {

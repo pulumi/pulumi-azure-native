@@ -16,18 +16,6 @@ namespace Pulumi.AzureNative.SecurityInsights.Inputs
     public sealed class RepositoryResourceInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Resources created in Azure DevOps for this source-control.
-        /// </summary>
-        [Input("azureDevOpsResourceInfo")]
-        public Input<Inputs.AzureDevOpsResourceInfoArgs>? AzureDevOpsResourceInfo { get; set; }
-
-        /// <summary>
-        /// Resources created in GitHub for this source-control.
-        /// </summary>
-        [Input("gitHubResourceInfo")]
-        public Input<Inputs.GitHubResourceInfoArgs>? GitHubResourceInfo { get; set; }
-
-        /// <summary>
         /// The webhook object created for the source-control.
         /// </summary>
         [Input("webhook")]

@@ -135,73 +135,6 @@ namespace Pulumi.AzureNative.Compute
     }
 
     /// <summary>
-    /// Slot type for the cloud service.
-    /// Possible values are &lt;br /&gt;&lt;br /&gt;**Production**&lt;br /&gt;&lt;br /&gt;**Staging**&lt;br /&gt;&lt;br /&gt;
-    /// If not specified, the default value is Production.
-    /// </summary>
-    [EnumType]
-    public readonly struct CloudServiceSlotType : IEquatable<CloudServiceSlotType>
-    {
-        private readonly string _value;
-
-        private CloudServiceSlotType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static CloudServiceSlotType Production { get; } = new CloudServiceSlotType("Production");
-        public static CloudServiceSlotType Staging { get; } = new CloudServiceSlotType("Staging");
-
-        public static bool operator ==(CloudServiceSlotType left, CloudServiceSlotType right) => left.Equals(right);
-        public static bool operator !=(CloudServiceSlotType left, CloudServiceSlotType right) => !left.Equals(right);
-
-        public static explicit operator string(CloudServiceSlotType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is CloudServiceSlotType other && Equals(other);
-        public bool Equals(CloudServiceSlotType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Update mode for the cloud service. Role instances are allocated to update domains when the service is deployed. Updates can be initiated manually in each update domain or initiated automatically in all update domains.
-    /// Possible Values are &lt;br /&gt;&lt;br /&gt;**Auto**&lt;br /&gt;&lt;br /&gt;**Manual** &lt;br /&gt;&lt;br /&gt;**Simultaneous**&lt;br /&gt;&lt;br /&gt;
-    /// If not specified, the default value is Auto. If set to Manual, PUT UpdateDomain must be called to apply the update. If set to Auto, the update is automatically applied to each update domain in sequence.
-    /// </summary>
-    [EnumType]
-    public readonly struct CloudServiceUpgradeMode : IEquatable<CloudServiceUpgradeMode>
-    {
-        private readonly string _value;
-
-        private CloudServiceUpgradeMode(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static CloudServiceUpgradeMode Auto { get; } = new CloudServiceUpgradeMode("Auto");
-        public static CloudServiceUpgradeMode Manual { get; } = new CloudServiceUpgradeMode("Manual");
-        public static CloudServiceUpgradeMode Simultaneous { get; } = new CloudServiceUpgradeMode("Simultaneous");
-
-        public static bool operator ==(CloudServiceUpgradeMode left, CloudServiceUpgradeMode right) => left.Equals(right);
-        public static bool operator !=(CloudServiceUpgradeMode left, CloudServiceUpgradeMode right) => !left.Equals(right);
-
-        public static explicit operator string(CloudServiceUpgradeMode value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is CloudServiceUpgradeMode other && Equals(other);
-        public bool Equals(CloudServiceUpgradeMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
     /// </summary>
     [EnumType]
@@ -2376,7 +2309,7 @@ namespace Pulumi.AzureNative.Compute
     }
 
     /// <summary>
-    /// Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings. The default behavior is: UefiSettings will not be enabled unless this property is set.
+    /// Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings. The default behavior is: UefiSettings will not be enabled unless this property is set and is not Standard. If not specified, Standard will be returned starting api version 2025-11-01.
     /// </summary>
     [EnumType]
     public readonly struct SecurityTypes : IEquatable<SecurityTypes>

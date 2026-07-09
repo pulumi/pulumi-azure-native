@@ -56,13 +56,19 @@ namespace Pulumi.AzureNative.Automation
         public Output<string?> LastModifiedTime { get; private set; } = null!;
 
         /// <summary>
-        /// Gets the name of the connection type.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -129,7 +135,7 @@ namespace Pulumi.AzureNative.Automation
         public Input<string> AutomationAccountName { get; set; } = null!;
 
         /// <summary>
-        /// The parameters supplied to the create or update connection type operation.
+        /// The name of connection type.
         /// </summary>
         [Input("connectionTypeName")]
         public Input<string>? ConnectionTypeName { get; set; }
@@ -159,7 +165,7 @@ namespace Pulumi.AzureNative.Automation
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Name of an Azure Resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

@@ -99,17 +99,11 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("rootPath", required: true)]
         public Input<object> RootPath { get; set; } = null!;
 
-        [Input("sparkConfig")]
-        private InputMap<object>? _sparkConfig;
-
         /// <summary>
         /// Spark configuration property.
         /// </summary>
-        public InputMap<object> SparkConfig
-        {
-            get => _sparkConfig ?? (_sparkConfig = new InputMap<object>());
-            set => _sparkConfig = value;
-        }
+        [Input("sparkConfig")]
+        public Input<object>? SparkConfig { get; set; }
 
         /// <summary>
         /// The storage linked service for uploading the entry file and dependencies, and for receiving logs.

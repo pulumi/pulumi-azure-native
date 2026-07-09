@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// User defined property bag. There is no restriction on the keys or values that can be used. The user specified custom activity has the full responsibility to consume and interpret the content defined.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ExtendedProperties;
+        public readonly object? ExtendedProperties;
         /// <summary>
         /// Folder path for resource files Type: string (or Expression with resultType string).
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string? description,
 
-            ImmutableDictionary<string, object>? extendedProperties,
+            object? extendedProperties,
 
             object? folderPath,
 

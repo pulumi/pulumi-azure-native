@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.ContainerInstance.Inputs
     public sealed class ContainerGroupProfileStubArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        ///  Container Group properties which can be set while creating or updating the NGroups.
+        /// Container Group properties which can be set while creating or updating the NGroups.
         /// </summary>
         [Input("containerGroupProperties")]
         public Input<Inputs.NGroupContainerGroupPropertiesArgs>? ContainerGroupProperties { get; set; }

@@ -19,11 +19,11 @@ namespace Pulumi.AzureNative.SecurityInsights.Outputs
         /// <summary>
         /// Resources created in Azure DevOps for this source-control.
         /// </summary>
-        public readonly Outputs.AzureDevOpsResourceInfoResponse? AzureDevOpsResourceInfo;
+        public readonly Outputs.AzureDevOpsResourceInfoResponse AzureDevOpsResourceInfo;
         /// <summary>
         /// Resources created in GitHub for this source-control.
         /// </summary>
-        public readonly Outputs.GitHubResourceInfoResponse? GitHubResourceInfo;
+        public readonly Outputs.GitHubResourceInfoResponse GitHubResourceInfo;
         /// <summary>
         /// The webhook object created for the source-control.
         /// </summary>
@@ -31,9 +31,9 @@ namespace Pulumi.AzureNative.SecurityInsights.Outputs
 
         [OutputConstructor]
         private RepositoryResourceInfoResponse(
-            Outputs.AzureDevOpsResourceInfoResponse? azureDevOpsResourceInfo,
+            Outputs.AzureDevOpsResourceInfoResponse azureDevOpsResourceInfo,
 
-            Outputs.GitHubResourceInfoResponse? gitHubResourceInfo,
+            Outputs.GitHubResourceInfoResponse gitHubResourceInfo,
 
             Outputs.WebhookResponse? webhook)
         {

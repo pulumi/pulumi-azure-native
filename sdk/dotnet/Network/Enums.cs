@@ -3000,6 +3000,43 @@ namespace Pulumi.AzureNative.Network
     }
 
     /// <summary>
+    /// Scope of interconnect group resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct InterconnectGroupScope : IEquatable<InterconnectGroupScope>
+    {
+        private readonly string _value;
+
+        private InterconnectGroupScope(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// No interconnect group scope.
+        /// </summary>
+        public static InterconnectGroupScope None { get; } = new InterconnectGroupScope("None");
+        /// <summary>
+        /// InfiniBand interconnect group scope.
+        /// </summary>
+        public static InterconnectGroupScope InfiniBand { get; } = new InterconnectGroupScope("InfiniBand");
+
+        public static bool operator ==(InterconnectGroupScope left, InterconnectGroupScope right) => left.Equals(right);
+        public static bool operator !=(InterconnectGroupScope left, InterconnectGroupScope right) => !left.Equals(right);
+
+        public static explicit operator string(InterconnectGroupScope value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InterconnectGroupScope other && Equals(other);
+        public bool Equals(InterconnectGroupScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type for the IpAllocation.
     /// </summary>
     [EnumType]
@@ -4839,6 +4876,9 @@ namespace Pulumi.AzureNative.Network
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Standard
+        /// </summary>
         public static ServiceGatewaySkuName Standard { get; } = new ServiceGatewaySkuName("Standard");
 
         public static bool operator ==(ServiceGatewaySkuName left, ServiceGatewaySkuName right) => left.Equals(right);
@@ -4869,6 +4909,9 @@ namespace Pulumi.AzureNative.Network
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Regional
+        /// </summary>
         public static ServiceGatewaySkuTier Regional { get; } = new ServiceGatewaySkuTier("Regional");
 
         public static bool operator ==(ServiceGatewaySkuTier left, ServiceGatewaySkuTier right) => left.Equals(right);
@@ -4943,6 +4986,43 @@ namespace Pulumi.AzureNative.Network
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SharingScope other && Equals(other);
         public bool Equals(SharingScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Scope of the subgroup profile.
+    /// </summary>
+    [EnumType]
+    public readonly struct SubgroupProfileScope : IEquatable<SubgroupProfileScope>
+    {
+        private readonly string _value;
+
+        private SubgroupProfileScope(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// No subgroup profile scope.
+        /// </summary>
+        public static SubgroupProfileScope None { get; } = new SubgroupProfileScope("None");
+        /// <summary>
+        /// VerticalConnect subgroup profile scope.
+        /// </summary>
+        public static SubgroupProfileScope VerticalConnect { get; } = new SubgroupProfileScope("VerticalConnect");
+
+        public static bool operator ==(SubgroupProfileScope left, SubgroupProfileScope right) => left.Equals(right);
+        public static bool operator !=(SubgroupProfileScope left, SubgroupProfileScope right) => !left.Equals(right);
+
+        public static explicit operator string(SubgroupProfileScope value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SubgroupProfileScope other && Equals(other);
+        public bool Equals(SubgroupProfileScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

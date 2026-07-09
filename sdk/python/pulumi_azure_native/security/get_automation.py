@@ -27,7 +27,7 @@ class GetAutomationResult:
     """
     The security automation resource.
     """
-    def __init__(__self__, actions=None, azure_api_version=None, description=None, etag=None, id=None, is_enabled=None, kind=None, location=None, name=None, scopes=None, sources=None, tags=None, type=None):
+    def __init__(__self__, actions=None, azure_api_version=None, description=None, etag=None, id=None, is_enabled=None, kind=None, location=None, name=None, scopes=None, sources=None, system_data=None, tags=None, type=None):
         if actions and not isinstance(actions, list):
             raise TypeError("Expected argument 'actions' to be a list")
         pulumi.set(__self__, "actions", actions)
@@ -61,6 +61,9 @@ class GetAutomationResult:
         if sources and not isinstance(sources, list):
             raise TypeError("Expected argument 'sources' to be a list")
         pulumi.set(__self__, "sources", sources)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -104,7 +107,7 @@ class GetAutomationResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -128,7 +131,7 @@ class GetAutomationResult:
     @pulumi.getter
     def location(self) -> Optional[_builtins.str]:
         """
-        Location where the resource is stored
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -136,7 +139,7 @@ class GetAutomationResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -157,10 +160,18 @@ class GetAutomationResult:
         return pulumi.get(self, "sources")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
         """
-        A list of key value pairs that describe the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -168,7 +179,7 @@ class GetAutomationResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -190,6 +201,7 @@ class AwaitableGetAutomationResult(GetAutomationResult):
             name=self.name,
             scopes=self.scopes,
             sources=self.sources,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -206,7 +218,7 @@ def get_automation(automation_name: Optional[_builtins.str] = None,
 
 
     :param _builtins.str automation_name: The security automation name.
-    :param _builtins.str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['automationName'] = automation_name
@@ -226,6 +238,7 @@ def get_automation(automation_name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         scopes=pulumi.get(__ret__, 'scopes'),
         sources=pulumi.get(__ret__, 'sources'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_automation_output(automation_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -240,7 +253,7 @@ def get_automation_output(automation_name: Optional[pulumi.Input[_builtins.str]]
 
 
     :param _builtins.str automation_name: The security automation name.
-    :param _builtins.str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['automationName'] = automation_name
@@ -259,5 +272,6 @@ def get_automation_output(automation_name: Optional[pulumi.Input[_builtins.str]]
         name=pulumi.get(__response__, 'name'),
         scopes=pulumi.get(__response__, 'scopes'),
         sources=pulumi.get(__response__, 'sources'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

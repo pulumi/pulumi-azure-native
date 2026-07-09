@@ -28,23 +28,28 @@ __all__ = [
     'ForwardingConfigurationResponse',
     'FrontendEndpointLinkResponse',
     'FrontendEndpointResponse',
-    'FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink',
+    'FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkResponse',
     'GroupByVariableResponse',
     'HeaderActionResponse',
     'HealthProbeSettingsModelResponse',
-    'KeyVaultCertificateSourceParametersResponseVault',
+    'KeyVaultCertificateSourceParametersVaultResponse',
     'LoadBalancingSettingsModelResponse',
     'ManagedRuleExclusionResponse',
     'ManagedRuleGroupOverrideResponse',
     'ManagedRuleOverrideResponse',
+    'ManagedRuleSetExceptionListResponse',
+    'ManagedRuleSetExceptionResponse',
     'ManagedRuleSetListResponse',
     'ManagedRuleSetResponse',
+    'ManagedRuleSetScopeResponse',
     'MatchConditionResponse',
     'PolicySettingsResponse',
     'RedirectConfigurationResponse',
     'RoutingRuleLinkResponse',
     'RoutingRuleResponse',
-    'RoutingRuleUpdateParametersResponseWebApplicationFirewallPolicyLink',
+    'RoutingRuleUpdateParametersWebApplicationFirewallPolicyLinkResponse',
+    'RuleGroupScopeResponse',
+    'RuleScopeResponse',
     'RulesEngineActionResponse',
     'RulesEngineMatchConditionResponse',
     'RulesEngineResponse',
@@ -537,7 +542,7 @@ class CustomHttpsConfigurationResponse(dict):
                  certificate_type: Optional[_builtins.str] = None,
                  secret_name: Optional[_builtins.str] = None,
                  secret_version: Optional[_builtins.str] = None,
-                 vault: Optional['outputs.KeyVaultCertificateSourceParametersResponseVault'] = None):
+                 vault: Optional['outputs.KeyVaultCertificateSourceParametersVaultResponse'] = None):
         """
         Https settings for a domain
 
@@ -547,7 +552,7 @@ class CustomHttpsConfigurationResponse(dict):
         :param _builtins.str certificate_type: Defines the type of the certificate used for secure connections to a frontendEndpoint
         :param _builtins.str secret_name: The name of the Key Vault secret representing the full certificate PFX
         :param _builtins.str secret_version: The version of the Key Vault secret representing the full certificate PFX
-        :param 'KeyVaultCertificateSourceParametersResponseVault' vault: The Key Vault containing the SSL certificate
+        :param 'KeyVaultCertificateSourceParametersVaultResponse' vault: The Key Vault containing the SSL certificate
         """
         pulumi.set(__self__, "certificate_source", certificate_source)
         pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
@@ -611,7 +616,7 @@ class CustomHttpsConfigurationResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def vault(self) -> Optional['outputs.KeyVaultCertificateSourceParametersResponseVault']:
+    def vault(self) -> Optional['outputs.KeyVaultCertificateSourceParametersVaultResponse']:
         """
         The Key Vault containing the SSL certificate
         """
@@ -990,7 +995,7 @@ class FrontendEndpointResponse(dict):
                  name: Optional[_builtins.str] = None,
                  session_affinity_enabled_state: Optional[_builtins.str] = None,
                  session_affinity_ttl_seconds: Optional[_builtins.int] = None,
-                 web_application_firewall_policy_link: Optional['outputs.FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink'] = None):
+                 web_application_firewall_policy_link: Optional['outputs.FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkResponse'] = None):
         """
         A frontend endpoint used for routing.
 
@@ -1004,7 +1009,7 @@ class FrontendEndpointResponse(dict):
         :param _builtins.str name: Resource name.
         :param _builtins.str session_affinity_enabled_state: Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
         :param _builtins.int session_affinity_ttl_seconds: UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
-        :param 'FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink' web_application_firewall_policy_link: Defines the Web Application Firewall policy for each host (if applicable)
+        :param 'FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkResponse' web_application_firewall_policy_link: Defines the Web Application Firewall policy for each host (if applicable)
         """
         pulumi.set(__self__, "custom_https_configuration", custom_https_configuration)
         pulumi.set(__self__, "custom_https_provisioning_state", custom_https_provisioning_state)
@@ -1106,7 +1111,7 @@ class FrontendEndpointResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="webApplicationFirewallPolicyLink")
-    def web_application_firewall_policy_link(self) -> Optional['outputs.FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink']:
+    def web_application_firewall_policy_link(self) -> Optional['outputs.FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkResponse']:
         """
         Defines the Web Application Firewall policy for each host (if applicable)
         """
@@ -1114,7 +1119,7 @@ class FrontendEndpointResponse(dict):
 
 
 @pulumi.output_type
-class FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink(dict):
+class FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkResponse(dict):
     """
     Defines the Web Application Firewall policy for each host (if applicable)
     """
@@ -1386,7 +1391,7 @@ class HealthProbeSettingsModelResponse(dict):
 
 
 @pulumi.output_type
-class KeyVaultCertificateSourceParametersResponseVault(dict):
+class KeyVaultCertificateSourceParametersVaultResponse(dict):
     """
     The Key Vault containing the SSL certificate
     """
@@ -1682,7 +1687,8 @@ class ManagedRuleOverrideResponse(dict):
                  rule_id: _builtins.str,
                  action: Optional[_builtins.str] = None,
                  enabled_state: Optional[_builtins.str] = None,
-                 exclusions: Optional[Sequence['outputs.ManagedRuleExclusionResponse']] = None):
+                 exclusions: Optional[Sequence['outputs.ManagedRuleExclusionResponse']] = None,
+                 sensitivity: Optional[_builtins.str] = None):
         """
         Defines a managed rule group override setting.
 
@@ -1690,6 +1696,7 @@ class ManagedRuleOverrideResponse(dict):
         :param _builtins.str action: Describes the override action to be applied when rule matches.
         :param _builtins.str enabled_state: Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
         :param Sequence['ManagedRuleExclusionResponse'] exclusions: Describes the exclusions that are applied to this specific rule.
+        :param _builtins.str sensitivity: Describes the override sensitivity to be applied when rule matches.
         """
         pulumi.set(__self__, "rule_id", rule_id)
         if action is not None:
@@ -1698,6 +1705,8 @@ class ManagedRuleOverrideResponse(dict):
             pulumi.set(__self__, "enabled_state", enabled_state)
         if exclusions is not None:
             pulumi.set(__self__, "exclusions", exclusions)
+        if sensitivity is not None:
+            pulumi.set(__self__, "sensitivity", sensitivity)
 
     @_builtins.property
     @pulumi.getter(name="ruleId")
@@ -1731,6 +1740,147 @@ class ManagedRuleOverrideResponse(dict):
         """
         return pulumi.get(self, "exclusions")
 
+    @_builtins.property
+    @pulumi.getter
+    def sensitivity(self) -> Optional[_builtins.str]:
+        """
+        Describes the override sensitivity to be applied when rule matches.
+        """
+        return pulumi.get(self, "sensitivity")
+
+
+@pulumi.output_type
+class ManagedRuleSetExceptionListResponse(dict):
+    """
+    Defines the list of exceptions for the managed rule sets.
+    """
+    def __init__(__self__, *,
+                 exceptions: Optional[Sequence['outputs.ManagedRuleSetExceptionResponse']] = None):
+        """
+        Defines the list of exceptions for the managed rule sets.
+
+        :param Sequence['ManagedRuleSetExceptionResponse'] exceptions: List of exceptions.
+        """
+        if exceptions is not None:
+            pulumi.set(__self__, "exceptions", exceptions)
+
+    @_builtins.property
+    @pulumi.getter
+    def exceptions(self) -> Optional[Sequence['outputs.ManagedRuleSetExceptionResponse']]:
+        """
+        List of exceptions.
+        """
+        return pulumi.get(self, "exceptions")
+
+
+@pulumi.output_type
+class ManagedRuleSetExceptionResponse(dict):
+    """
+    Excludes whole requests from managed rule evaluation according to match conditions.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValues":
+            suggest = "match_values"
+        elif key == "matchVariable":
+            suggest = "match_variable"
+        elif key == "valueMatchOperator":
+            suggest = "value_match_operator"
+        elif key == "selectorMatchOperator":
+            suggest = "selector_match_operator"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedRuleSetExceptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedRuleSetExceptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedRuleSetExceptionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_values: Sequence[_builtins.str],
+                 match_variable: _builtins.str,
+                 scopes: Sequence['outputs.ManagedRuleSetScopeResponse'],
+                 value_match_operator: _builtins.str,
+                 selector: Optional[_builtins.str] = None,
+                 selector_match_operator: Optional[_builtins.str] = None):
+        """
+        Excludes whole requests from managed rule evaluation according to match conditions.
+
+        :param Sequence[_builtins.str] match_values: List of values to be matched with.
+        :param _builtins.str match_variable: The variable to be evaluated for excluding the request.
+        :param Sequence['ManagedRuleSetScopeResponse'] scopes: Scope(s) of the exception.
+        :param _builtins.str value_match_operator: Comparison operator to apply to the value to be matched.
+        :param _builtins.str selector: When matchVariable is a collection, operator used to specify which elements
+               in the collection this exception applies to.
+               Currently supported only for RequestHeaderNames.
+        :param _builtins.str selector_match_operator: Comparison operator to apply to the selector when specifying which elements
+               in the collection this exception applies to.
+        """
+        pulumi.set(__self__, "match_values", match_values)
+        pulumi.set(__self__, "match_variable", match_variable)
+        pulumi.set(__self__, "scopes", scopes)
+        pulumi.set(__self__, "value_match_operator", value_match_operator)
+        if selector is not None:
+            pulumi.set(__self__, "selector", selector)
+        if selector_match_operator is not None:
+            pulumi.set(__self__, "selector_match_operator", selector_match_operator)
+
+    @_builtins.property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Sequence[_builtins.str]:
+        """
+        List of values to be matched with.
+        """
+        return pulumi.get(self, "match_values")
+
+    @_builtins.property
+    @pulumi.getter(name="matchVariable")
+    def match_variable(self) -> _builtins.str:
+        """
+        The variable to be evaluated for excluding the request.
+        """
+        return pulumi.get(self, "match_variable")
+
+    @_builtins.property
+    @pulumi.getter
+    def scopes(self) -> Sequence['outputs.ManagedRuleSetScopeResponse']:
+        """
+        Scope(s) of the exception.
+        """
+        return pulumi.get(self, "scopes")
+
+    @_builtins.property
+    @pulumi.getter(name="valueMatchOperator")
+    def value_match_operator(self) -> _builtins.str:
+        """
+        Comparison operator to apply to the value to be matched.
+        """
+        return pulumi.get(self, "value_match_operator")
+
+    @_builtins.property
+    @pulumi.getter
+    def selector(self) -> Optional[_builtins.str]:
+        """
+        When matchVariable is a collection, operator used to specify which elements
+        in the collection this exception applies to.
+        Currently supported only for RequestHeaderNames.
+        """
+        return pulumi.get(self, "selector")
+
+    @_builtins.property
+    @pulumi.getter(name="selectorMatchOperator")
+    def selector_match_operator(self) -> Optional[_builtins.str]:
+        """
+        Comparison operator to apply to the selector when specifying which elements
+        in the collection this exception applies to.
+        """
+        return pulumi.get(self, "selector_match_operator")
+
 
 @pulumi.output_type
 class ManagedRuleSetListResponse(dict):
@@ -1740,7 +1890,9 @@ class ManagedRuleSetListResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "managedRuleSets":
+        if key == "exceptionsList":
+            suggest = "exceptions_list"
+        elif key == "managedRuleSets":
             suggest = "managed_rule_sets"
 
         if suggest:
@@ -1755,14 +1907,26 @@ class ManagedRuleSetListResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 exceptions_list: Optional['outputs.ManagedRuleSetExceptionListResponse'] = None,
                  managed_rule_sets: Optional[Sequence['outputs.ManagedRuleSetResponse']] = None):
         """
         Defines the list of managed rule sets for the policy.
 
+        :param 'ManagedRuleSetExceptionListResponse' exceptions_list: List of exceptions applied on the managed rule sets.
         :param Sequence['ManagedRuleSetResponse'] managed_rule_sets: List of rule sets.
         """
+        if exceptions_list is not None:
+            pulumi.set(__self__, "exceptions_list", exceptions_list)
         if managed_rule_sets is not None:
             pulumi.set(__self__, "managed_rule_sets", managed_rule_sets)
+
+    @_builtins.property
+    @pulumi.getter(name="exceptionsList")
+    def exceptions_list(self) -> Optional['outputs.ManagedRuleSetExceptionListResponse']:
+        """
+        List of exceptions applied on the managed rule sets.
+        """
+        return pulumi.get(self, "exceptions_list")
 
     @_builtins.property
     @pulumi.getter(name="managedRuleSets")
@@ -1864,6 +2028,77 @@ class ManagedRuleSetResponse(dict):
         Defines the rule set action.
         """
         return pulumi.get(self, "rule_set_action")
+
+
+@pulumi.output_type
+class ManagedRuleSetScopeResponse(dict):
+    """
+    Defines the scope of the managed rules.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleSetType":
+            suggest = "rule_set_type"
+        elif key == "ruleSetVersion":
+            suggest = "rule_set_version"
+        elif key == "ruleGroupScopes":
+            suggest = "rule_group_scopes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedRuleSetScopeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedRuleSetScopeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedRuleSetScopeResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rule_set_type: _builtins.str,
+                 rule_set_version: _builtins.str,
+                 rule_group_scopes: Optional[Sequence['outputs.RuleGroupScopeResponse']] = None):
+        """
+        Defines the scope of the managed rules.
+
+        :param _builtins.str rule_set_type: Defines the rule set type.
+               Examples: DefaultRuleSet, Microsoft_DefaultRuleSet,
+               Microsoft_BotManagerRuleSet, Microsoft_HTTPDDoSRuleSet, BotProtection
+        :param _builtins.str rule_set_version: Defines the version of the rule set.
+        :param Sequence['RuleGroupScopeResponse'] rule_group_scopes: List of rule group scopes.
+        """
+        pulumi.set(__self__, "rule_set_type", rule_set_type)
+        pulumi.set(__self__, "rule_set_version", rule_set_version)
+        if rule_group_scopes is not None:
+            pulumi.set(__self__, "rule_group_scopes", rule_group_scopes)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleSetType")
+    def rule_set_type(self) -> _builtins.str:
+        """
+        Defines the rule set type.
+        Examples: DefaultRuleSet, Microsoft_DefaultRuleSet,
+        Microsoft_BotManagerRuleSet, Microsoft_HTTPDDoSRuleSet, BotProtection
+        """
+        return pulumi.get(self, "rule_set_type")
+
+    @_builtins.property
+    @pulumi.getter(name="ruleSetVersion")
+    def rule_set_version(self) -> _builtins.str:
+        """
+        Defines the version of the rule set.
+        """
+        return pulumi.get(self, "rule_set_version")
+
+    @_builtins.property
+    @pulumi.getter(name="ruleGroupScopes")
+    def rule_group_scopes(self) -> Optional[Sequence['outputs.RuleGroupScopeResponse']]:
+        """
+        List of rule group scopes.
+        """
+        return pulumi.get(self, "rule_group_scopes")
 
 
 @pulumi.output_type
@@ -1976,7 +2211,9 @@ class PolicySettingsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "customBlockResponseBody":
+        if key == "captchaExpirationInMinutes":
+            suggest = "captcha_expiration_in_minutes"
+        elif key == "customBlockResponseBody":
             suggest = "custom_block_response_body"
         elif key == "customBlockResponseStatusCode":
             suggest = "custom_block_response_status_code"
@@ -2003,6 +2240,7 @@ class PolicySettingsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 captcha_expiration_in_minutes: Optional[_builtins.int] = None,
                  custom_block_response_body: Optional[_builtins.str] = None,
                  custom_block_response_status_code: Optional[_builtins.int] = None,
                  enabled_state: Optional[_builtins.str] = None,
@@ -2015,6 +2253,7 @@ class PolicySettingsResponse(dict):
         """
         Defines top-level WebApplicationFirewallPolicy configuration settings.
 
+        :param _builtins.int captcha_expiration_in_minutes: Defines the Captcha cookie validity lifetime in minutes. This setting is only applicable to Premium_AzureFrontDoor. Value must be an integer between 5 and 1440 with the default value being 30.
         :param _builtins.str custom_block_response_body: If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
         :param _builtins.int custom_block_response_status_code: If the action type is block, customer can override the response status code.
         :param _builtins.str enabled_state: Describes if the policy is in enabled or disabled state. Defaults to Enabled if not specified.
@@ -2025,6 +2264,8 @@ class PolicySettingsResponse(dict):
         :param Sequence['WebApplicationFirewallScrubbingRulesResponse'] scrubbing_rules: List of log scrubbing rules applied to the Web Application Firewall logs.
         :param _builtins.str state: State of the log scrubbing config. Default value is Enabled.
         """
+        if captcha_expiration_in_minutes is not None:
+            pulumi.set(__self__, "captcha_expiration_in_minutes", captcha_expiration_in_minutes)
         if custom_block_response_body is not None:
             pulumi.set(__self__, "custom_block_response_body", custom_block_response_body)
         if custom_block_response_status_code is not None:
@@ -2043,6 +2284,14 @@ class PolicySettingsResponse(dict):
             pulumi.set(__self__, "scrubbing_rules", scrubbing_rules)
         if state is not None:
             pulumi.set(__self__, "state", state)
+
+    @_builtins.property
+    @pulumi.getter(name="captchaExpirationInMinutes")
+    def captcha_expiration_in_minutes(self) -> Optional[_builtins.int]:
+        """
+        Defines the Captcha cookie validity lifetime in minutes. This setting is only applicable to Premium_AzureFrontDoor. Value must be an integer between 5 and 1440 with the default value being 30.
+        """
+        return pulumi.get(self, "captcha_expiration_in_minutes")
 
     @_builtins.property
     @pulumi.getter(name="customBlockResponseBody")
@@ -2314,7 +2563,7 @@ class RoutingRuleResponse(dict):
                  patterns_to_match: Optional[Sequence[_builtins.str]] = None,
                  route_configuration: Optional[Any] = None,
                  rules_engine: Optional['outputs.SubResourceResponse'] = None,
-                 web_application_firewall_policy_link: Optional['outputs.RoutingRuleUpdateParametersResponseWebApplicationFirewallPolicyLink'] = None):
+                 web_application_firewall_policy_link: Optional['outputs.RoutingRuleUpdateParametersWebApplicationFirewallPolicyLinkResponse'] = None):
         """
         A routing rule represents a specification for traffic to treat and where to send it, along with health probe information.
 
@@ -2328,7 +2577,7 @@ class RoutingRuleResponse(dict):
         :param Sequence[_builtins.str] patterns_to_match: The route patterns of the rule.
         :param Union['ForwardingConfigurationResponse', 'RedirectConfigurationResponse'] route_configuration: A reference to the routing configuration.
         :param 'SubResourceResponse' rules_engine: A reference to a specific Rules Engine Configuration to apply to this route.
-        :param 'RoutingRuleUpdateParametersResponseWebApplicationFirewallPolicyLink' web_application_firewall_policy_link: Defines the Web Application Firewall policy for each routing rule (if applicable)
+        :param 'RoutingRuleUpdateParametersWebApplicationFirewallPolicyLinkResponse' web_application_firewall_policy_link: Defines the Web Application Firewall policy for each routing rule (if applicable)
         """
         pulumi.set(__self__, "resource_state", resource_state)
         pulumi.set(__self__, "type", type)
@@ -2433,7 +2682,7 @@ class RoutingRuleResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="webApplicationFirewallPolicyLink")
-    def web_application_firewall_policy_link(self) -> Optional['outputs.RoutingRuleUpdateParametersResponseWebApplicationFirewallPolicyLink']:
+    def web_application_firewall_policy_link(self) -> Optional['outputs.RoutingRuleUpdateParametersWebApplicationFirewallPolicyLinkResponse']:
         """
         Defines the Web Application Firewall policy for each routing rule (if applicable)
         """
@@ -2441,7 +2690,7 @@ class RoutingRuleResponse(dict):
 
 
 @pulumi.output_type
-class RoutingRuleUpdateParametersResponseWebApplicationFirewallPolicyLink(dict):
+class RoutingRuleUpdateParametersWebApplicationFirewallPolicyLinkResponse(dict):
     """
     Defines the Web Application Firewall policy for each routing rule (if applicable)
     """
@@ -2462,6 +2711,100 @@ class RoutingRuleUpdateParametersResponseWebApplicationFirewallPolicyLink(dict):
         Resource ID.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class RuleGroupScopeResponse(dict):
+    """
+    Defines the scope of the rule group.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleGroupName":
+            suggest = "rule_group_name"
+        elif key == "ruleScopes":
+            suggest = "rule_scopes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupScopeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupScopeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupScopeResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rule_group_name: _builtins.str,
+                 rule_scopes: Optional[Sequence['outputs.RuleScopeResponse']] = None):
+        """
+        Defines the scope of the rule group.
+
+        :param _builtins.str rule_group_name: Defines the rule group name.
+        :param Sequence['RuleScopeResponse'] rule_scopes: List of rule scopes.
+        """
+        pulumi.set(__self__, "rule_group_name", rule_group_name)
+        if rule_scopes is not None:
+            pulumi.set(__self__, "rule_scopes", rule_scopes)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleGroupName")
+    def rule_group_name(self) -> _builtins.str:
+        """
+        Defines the rule group name.
+        """
+        return pulumi.get(self, "rule_group_name")
+
+    @_builtins.property
+    @pulumi.getter(name="ruleScopes")
+    def rule_scopes(self) -> Optional[Sequence['outputs.RuleScopeResponse']]:
+        """
+        List of rule scopes.
+        """
+        return pulumi.get(self, "rule_scopes")
+
+
+@pulumi.output_type
+class RuleScopeResponse(dict):
+    """
+    Defines the scope of the rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleId":
+            suggest = "rule_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleScopeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleScopeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleScopeResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rule_id: _builtins.str):
+        """
+        Defines the scope of the rule.
+
+        :param _builtins.str rule_id: Defines the rule id.
+        """
+        pulumi.set(__self__, "rule_id", rule_id)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleId")
+    def rule_id(self) -> _builtins.str:
+        """
+        Defines the rule id.
+        """
+        return pulumi.get(self, "rule_id")
 
 
 @pulumi.output_type
@@ -2757,7 +3100,7 @@ class RulesEngineRuleResponse(dict):
 
         :param 'RulesEngineActionResponse' action: Actions to perform on the request and response if all of the match conditions are met.
         :param _builtins.str name: A name to refer to this specific rule.
-        :param _builtins.int priority: A priority assigned to this rule. 
+        :param _builtins.int priority: A priority assigned to this rule.
         :param Sequence['RulesEngineMatchConditionResponse'] match_conditions: A list of match conditions that must meet in order for the actions of this rule to run. Having no match conditions means the actions will always run.
         :param _builtins.str match_processing_behavior: If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
         """
@@ -2789,7 +3132,7 @@ class RulesEngineRuleResponse(dict):
     @pulumi.getter
     def priority(self) -> _builtins.int:
         """
-        A priority assigned to this rule. 
+        A priority assigned to this rule.
         """
         return pulumi.get(self, "priority")
 

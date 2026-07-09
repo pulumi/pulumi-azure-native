@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.ContainerInstance.Outputs
         /// <summary>
         /// Container Groups are named on a generic guid based naming scheme/policy. Customer can modify naming policy to add prefix to CG names during scale out operation.
         /// </summary>
-        public readonly Outputs.ElasticProfileResponseContainerGroupNamingPolicy? ContainerGroupNamingPolicy;
+        public readonly Outputs.ElasticProfileContainerGroupNamingPolicyResponse? ContainerGroupNamingPolicy;
         public readonly int? DesiredCount;
         /// <summary>
         /// Flag that indicates whether desiredCount should be maintained when customer deletes SPECIFIC container groups (CGs) from the NGroups. In this case, new CGs will be created by NGroup to compensate for the specific deleted ones.
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.ContainerInstance.Outputs
 
         [OutputConstructor]
         private ElasticProfileResponse(
-            Outputs.ElasticProfileResponseContainerGroupNamingPolicy? containerGroupNamingPolicy,
+            Outputs.ElasticProfileContainerGroupNamingPolicyResponse? containerGroupNamingPolicy,
 
             int? desiredCount,
 

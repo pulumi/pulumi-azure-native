@@ -25,7 +25,7 @@ __all__ = [
 @pulumi.output_type
 class GetVirtualNetworkRetrieveResult:
     """
-    The virtualNetworks resource definition.
+    The Virtual Network resource definition.
     """
     def __init__(__self__, azure_api_version=None, extended_location=None, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
@@ -66,14 +66,17 @@ class GetVirtualNetworkRetrieveResult:
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional['outputs.VirtualNetworksResponseExtendedLocation']:
+    def extended_location(self) -> Optional['outputs.VirtualNetworkResponseExtendedLocation']:
+        """
+        Extended location pointing to the underlying infrastructure
+        """
         return pulumi.get(self, "extended_location")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -95,9 +98,9 @@ class GetVirtualNetworkRetrieveResult:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> 'outputs.VirtualNetworksPropertiesResponse':
+    def properties(self) -> 'outputs.VirtualNetworkPropertiesResponse':
         """
-        HybridAKSNetworkSpec defines the desired state of HybridAKSNetwork
+        Properties of the virtual network resource
         """
         return pulumi.get(self, "properties")
 
@@ -105,7 +108,7 @@ class GetVirtualNetworkRetrieveResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -144,22 +147,22 @@ class AwaitableGetVirtualNetworkRetrieveResult(GetVirtualNetworkRetrieveResult):
 
 
 def get_virtual_network_retrieve(resource_group_name: Optional[_builtins.str] = None,
-                                 virtual_networks_name: Optional[_builtins.str] = None,
+                                 virtual_network_name: Optional[_builtins.str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkRetrieveResult:
     """
-    Gets the Hybrid AKS virtual network
+    Gets the specified virtual network resource
 
-    Uses Azure REST API version 2022-09-01-preview.
+    Uses Azure REST API version 2024-01-01.
 
-    Other available API versions: 2023-11-15-preview, 2024-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-11-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param _builtins.str virtual_networks_name: Parameter for the name of the virtual network
+    :param _builtins.str virtual_network_name: Parameter for the name of the virtual network
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
-    __args__['virtualNetworksName'] = virtual_networks_name
+    __args__['virtualNetworkName'] = virtual_network_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure-native:hybridcontainerservice:getVirtualNetworkRetrieve', __args__, opts=opts, typ=GetVirtualNetworkRetrieveResult).value
 
@@ -174,22 +177,22 @@ def get_virtual_network_retrieve(resource_group_name: Optional[_builtins.str] = 
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_virtual_network_retrieve_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        virtual_networks_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                        virtual_network_name: Optional[pulumi.Input[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkRetrieveResult]:
     """
-    Gets the Hybrid AKS virtual network
+    Gets the specified virtual network resource
 
-    Uses Azure REST API version 2022-09-01-preview.
+    Uses Azure REST API version 2024-01-01.
 
-    Other available API versions: 2023-11-15-preview, 2024-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-11-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param _builtins.str virtual_networks_name: Parameter for the name of the virtual network
+    :param _builtins.str virtual_network_name: Parameter for the name of the virtual network
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
-    __args__['virtualNetworksName'] = virtual_networks_name
+    __args__['virtualNetworkName'] = virtual_network_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridcontainerservice:getVirtualNetworkRetrieve', __args__, opts=opts, typ=GetVirtualNetworkRetrieveResult)
     return __ret__.apply(lambda __response__: GetVirtualNetworkRetrieveResult(

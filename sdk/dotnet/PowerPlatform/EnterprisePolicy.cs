@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.PowerPlatform
         /// The encryption settings for a configuration store.
         /// </summary>
         [Output("encryption")]
-        public Output<Outputs.PropertiesResponseEncryption?> Encryption { get; private set; } = null!;
+        public Output<Outputs.PropertiesEncryptionResponse?> Encryption { get; private set; } = null!;
 
         /// <summary>
         /// The health status of the resource.
@@ -57,7 +57,7 @@ namespace Pulumi.AzureNative.PowerPlatform
         /// Settings concerning lockbox.
         /// </summary>
         [Output("lockbox")]
-        public Output<Outputs.PropertiesResponseLockbox?> Lockbox { get; private set; } = null!;
+        public Output<Outputs.PropertiesLockboxResponse?> Lockbox { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -69,10 +69,10 @@ namespace Pulumi.AzureNative.PowerPlatform
         /// Settings concerning network injection.
         /// </summary>
         [Output("networkInjection")]
-        public Output<Outputs.PropertiesResponseNetworkInjection?> NetworkInjection { get; private set; } = null!;
+        public Output<Outputs.PropertiesNetworkInjectionResponse?> NetworkInjection { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -151,7 +151,7 @@ namespace Pulumi.AzureNative.PowerPlatform
         public Input<Inputs.PropertiesEncryptionArgs>? Encryption { get; set; }
 
         /// <summary>
-        /// Name of the EnterprisePolicy.
+        /// The EnterprisePolicy name.
         /// </summary>
         [Input("enterprisePolicyName")]
         public Input<string>? EnterprisePolicyName { get; set; }

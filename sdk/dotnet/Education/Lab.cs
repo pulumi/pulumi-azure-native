@@ -157,13 +157,13 @@ namespace Pulumi.AzureNative.Education
     public sealed class LabArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID that uniquely identifies a billing account.
+        /// The name of the billing account.
         /// </summary>
         [Input("billingAccountName", required: true)]
         public Input<string> BillingAccountName { get; set; } = null!;
 
         /// <summary>
-        /// The ID that uniquely identifies a billing profile.
+        /// The name of the billing profile.
         /// </summary>
         [Input("billingProfileName", required: true)]
         public Input<string> BillingProfileName { get; set; } = null!;
@@ -199,7 +199,7 @@ namespace Pulumi.AzureNative.Education
         public Input<string> ExpirationDate { get; set; } = null!;
 
         /// <summary>
-        /// The ID that uniquely identifies an invoice section.
+        /// The name of the invoice section.
         /// </summary>
         [Input("invoiceSectionName", required: true)]
         public Input<string> InvoiceSectionName { get; set; } = null!;

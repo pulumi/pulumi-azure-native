@@ -25,7 +25,7 @@ __all__ = [
 @pulumi.output_type
 class GetFreeServiceResult:
     """
-    The Free Services API includes operations for creating and managing free services.
+    Free Services resource definition
     """
     def __init__(__self__, azure_api_version=None, billing_account_resource_id=None, billing_profile_resource_id=None, customer_resource_id=None, end_at=None, etag=None, id=None, identity=None, kind=None, location=None, managed_by=None, name=None, plan=None, product_code=None, provisioning_state=None, sku=None, start_at=None, status=None, system_data=None, system_id=None, tags=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
@@ -139,7 +139,7 @@ class GetFreeServiceResult:
     @pulumi.getter
     def etag(self) -> _builtins.str:
         """
-        The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+        The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
         """
         return pulumi.get(self, "etag")
 

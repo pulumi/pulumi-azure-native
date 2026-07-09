@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = ['ApplicationArgs', 'Application']
@@ -20,6 +21,7 @@ __all__ = ['ApplicationArgs', 'Application']
 @pulumi.input_type
 class ApplicationArgs:
     def __init__(__self__, *,
+                 condition_sets: pulumi.Input[Sequence[Any]],
                  source_resource_type: pulumi.Input[Union[_builtins.str, 'ApplicationSourceResourceType']],
                  application_id: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
@@ -27,11 +29,13 @@ class ApplicationArgs:
         """
         The set of arguments for constructing a Application resource.
 
+        :param pulumi.Input[Sequence[Any]] condition_sets: The application conditionSets - see examples
         :param pulumi.Input[Union[_builtins.str, 'ApplicationSourceResourceType']] source_resource_type: The application source, what it affects, e.g. Assessments
         :param pulumi.Input[_builtins.str] application_id: The security Application key - unique key for the standard application
         :param pulumi.Input[_builtins.str] description: description of the application
         :param pulumi.Input[_builtins.str] display_name: display name of the application
         """
+        pulumi.set(__self__, "condition_sets", condition_sets)
         pulumi.set(__self__, "source_resource_type", source_resource_type)
         if application_id is not None:
             pulumi.set(__self__, "application_id", application_id)
@@ -39,6 +43,18 @@ class ApplicationArgs:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+
+    @_builtins.property
+    @pulumi.getter(name="conditionSets")
+    def condition_sets(self) -> pulumi.Input[Sequence[Any]]:
+        """
+        The application conditionSets - see examples
+        """
+        return pulumi.get(self, "condition_sets")
+
+    @condition_sets.setter
+    def condition_sets(self, value: pulumi.Input[Sequence[Any]]):
+        pulumi.set(self, "condition_sets", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceResourceType")
@@ -96,6 +112,7 @@ class Application(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 condition_sets: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  source_resource_type: Optional[pulumi.Input[Union[_builtins.str, 'ApplicationSourceResourceType']]] = None,
@@ -109,6 +126,7 @@ class Application(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: The security Application key - unique key for the standard application
+        :param pulumi.Input[Sequence[Any]] condition_sets: The application conditionSets - see examples
         :param pulumi.Input[_builtins.str] description: description of the application
         :param pulumi.Input[_builtins.str] display_name: display name of the application
         :param pulumi.Input[Union[_builtins.str, 'ApplicationSourceResourceType']] source_resource_type: The application source, what it affects, e.g. Assessments
@@ -141,6 +159,7 @@ class Application(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 condition_sets: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  source_resource_type: Optional[pulumi.Input[Union[_builtins.str, 'ApplicationSourceResourceType']]] = None,
@@ -154,6 +173,9 @@ class Application(pulumi.CustomResource):
             __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
             __props__.__dict__["application_id"] = application_id
+            if condition_sets is None and not opts.urn:
+                raise TypeError("Missing required property 'condition_sets'")
+            __props__.__dict__["condition_sets"] = condition_sets
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
             if source_resource_type is None and not opts.urn:
@@ -161,6 +183,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["source_resource_type"] = source_resource_type
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20220701preview:Application")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -187,10 +210,12 @@ class Application(pulumi.CustomResource):
         __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
         __props__.__dict__["azure_api_version"] = None
+        __props__.__dict__["condition_sets"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["source_resource_type"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return Application(resource_name, opts=opts, __props__=__props__)
 
@@ -201,6 +226,14 @@ class Application(pulumi.CustomResource):
         The Azure API version of the resource.
         """
         return pulumi.get(self, "azure_api_version")
+
+    @_builtins.property
+    @pulumi.getter(name="conditionSets")
+    def condition_sets(self) -> pulumi.Output[Sequence[Any]]:
+        """
+        The application conditionSets - see examples
+        """
+        return pulumi.get(self, "condition_sets")
 
     @_builtins.property
     @pulumi.getter
@@ -222,7 +255,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -235,10 +268,18 @@ class Application(pulumi.CustomResource):
         return pulumi.get(self, "source_resource_type")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

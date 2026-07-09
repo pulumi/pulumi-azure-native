@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.Security
     public sealed class GetStandardAssignmentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The identifier of the resource.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("resourceId", required: true)]
         public string ResourceId { get; set; } = null!;
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNative.Security
     public sealed class GetStandardAssignmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The identifier of the resource.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;
@@ -84,11 +84,11 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// Standard item with key as applied to this standard assignment over the given scope
         /// </summary>
-        public readonly Outputs.AssignedStandardItemResponse? AssignedStandard;
+        public readonly Outputs.CommonAssignedStandardItemResponse? AssignedStandard;
         /// <summary>
         /// Additional data about assignment that has Attest effect
         /// </summary>
-        public readonly Outputs.StandardAssignmentPropertiesResponseAttestationData? AttestationData;
+        public readonly Outputs.StandardAssignmentPropertiesAttestationDataResponse? AttestationData;
         /// <summary>
         /// The Azure API version of the resource.
         /// </summary>
@@ -112,13 +112,13 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// Additional data about assignment that has Exempt effect
         /// </summary>
-        public readonly Outputs.StandardAssignmentPropertiesResponseExemptionData? ExemptionData;
+        public readonly Outputs.StandardAssignmentPropertiesExemptionDataResponse? ExemptionData;
         /// <summary>
         /// Expiration date of this assignment as a full ISO date
         /// </summary>
         public readonly string? ExpiresOn;
         /// <summary>
-        /// Resource Id
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -126,19 +126,23 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly Outputs.StandardAssignmentMetadataResponse? Metadata;
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Resource type
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetStandardAssignmentResult(
-            Outputs.AssignedStandardItemResponse? assignedStandard,
+            Outputs.CommonAssignedStandardItemResponse? assignedStandard,
 
-            Outputs.StandardAssignmentPropertiesResponseAttestationData? attestationData,
+            Outputs.StandardAssignmentPropertiesAttestationDataResponse? attestationData,
 
             string azureApiVersion,
 
@@ -150,7 +154,7 @@ namespace Pulumi.AzureNative.Security
 
             ImmutableArray<string> excludedScopes,
 
-            Outputs.StandardAssignmentPropertiesResponseExemptionData? exemptionData,
+            Outputs.StandardAssignmentPropertiesExemptionDataResponse? exemptionData,
 
             string? expiresOn,
 
@@ -159,6 +163,8 @@ namespace Pulumi.AzureNative.Security
             Outputs.StandardAssignmentMetadataResponse? metadata,
 
             string name,
+
+            Outputs.SystemDataResponse systemData,
 
             string type)
         {
@@ -174,6 +180,7 @@ namespace Pulumi.AzureNative.Security
             Id = id;
             Metadata = metadata;
             Name = name;
+            SystemData = systemData;
             Type = type;
         }
     }

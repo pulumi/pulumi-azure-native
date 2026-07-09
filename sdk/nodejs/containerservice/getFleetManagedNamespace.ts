@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Get a FleetManagedNamespace
  *
  * Uses Azure REST API version 2025-08-01-preview.
+ *
+ * Other available API versions: 2026-02-01-preview, 2026-03-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getFleetManagedNamespace(args: GetFleetManagedNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetFleetManagedNamespaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -81,6 +83,8 @@ export interface GetFleetManagedNamespaceResult {
  * Get a FleetManagedNamespace
  *
  * Uses Azure REST API version 2025-08-01-preview.
+ *
+ * Other available API versions: 2026-02-01-preview, 2026-03-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getFleetManagedNamespaceOutput(args: GetFleetManagedNamespaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFleetManagedNamespaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

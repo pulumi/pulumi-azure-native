@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2025-05-01-preview.
  *
- * Other available API versions: 2024-06-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mission [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2024-06-01-preview, 2024-12-01-preview, 2025-11-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mission [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Community extends pulumi.CustomResource {
     /**
@@ -175,7 +175,7 @@ export class Community extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:mission/v20240601preview:Community" }, { type: "azure-native:mission/v20241201preview:Community" }, { type: "azure-native:mission/v20250501preview:Community" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:mission/v20240601preview:Community" }, { type: "azure-native:mission/v20241201preview:Community" }, { type: "azure-native:mission/v20250501preview:Community" }, { type: "azure-native:mission/v20251101preview:Community" }, { type: "azure-native:mission/v20260301preview:Community" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Community.__pulumiType, name, resourceInputs, opts);
     }

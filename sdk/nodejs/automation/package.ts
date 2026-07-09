@@ -173,11 +173,11 @@ export interface PackageArgs {
      */
     contentLink: pulumi.Input<inputs.automation.ContentLinkArgs>;
     /**
-     * The name of Package.
+     * The Package name.
      */
     packageName?: pulumi.Input<string>;
     /**
-     * Name of an Azure Resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

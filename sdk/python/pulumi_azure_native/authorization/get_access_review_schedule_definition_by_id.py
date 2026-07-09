@@ -27,7 +27,7 @@ class GetAccessReviewScheduleDefinitionByIdResult:
     """
     Access Review Schedule Definition.
     """
-    def __init__(__self__, auto_apply_decisions_enabled=None, azure_api_version=None, backup_reviewers=None, default_decision=None, default_decision_enabled=None, description_for_admins=None, description_for_reviewers=None, display_name=None, id=None, instance_duration_in_days=None, instances=None, interval=None, justification_required_on_approval=None, mail_notifications_enabled=None, name=None, principal_id=None, principal_name=None, principal_type=None, range=None, recommendation_look_back_duration=None, recommendations_enabled=None, reminder_notifications_enabled=None, reviewers=None, reviewers_type=None, scope=None, status=None, type=None, user_principal_name=None):
+    def __init__(__self__, auto_apply_decisions_enabled=None, azure_api_version=None, backup_reviewers=None, default_decision=None, default_decision_enabled=None, description_for_admins=None, description_for_reviewers=None, display_name=None, id=None, instance_duration_in_days=None, instances=None, interval=None, justification_required_on_approval=None, mail_notifications_enabled=None, name=None, principal_id=None, principal_name=None, principal_type=None, range=None, recommendation_look_back_duration=None, recommendations_enabled=None, reminder_notifications_enabled=None, reviewers=None, reviewers_type=None, scope=None, status=None, system_data=None, type=None, user_principal_name=None):
         if auto_apply_decisions_enabled and not isinstance(auto_apply_decisions_enabled, bool):
             raise TypeError("Expected argument 'auto_apply_decisions_enabled' to be a bool")
         pulumi.set(__self__, "auto_apply_decisions_enabled", auto_apply_decisions_enabled)
@@ -106,6 +106,9 @@ class GetAccessReviewScheduleDefinitionByIdResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -181,7 +184,7 @@ class GetAccessReviewScheduleDefinitionByIdResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The access review schedule definition id.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -229,7 +232,7 @@ class GetAccessReviewScheduleDefinitionByIdResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The access review schedule definition unique id.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -322,10 +325,18 @@ class GetAccessReviewScheduleDefinitionByIdResult:
         return pulumi.get(self, "status")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -370,6 +381,7 @@ class AwaitableGetAccessReviewScheduleDefinitionByIdResult(GetAccessReviewSchedu
             reviewers_type=self.reviewers_type,
             scope=self.scope,
             status=self.status,
+            system_data=self.system_data,
             type=self.type,
             user_principal_name=self.user_principal_name)
 
@@ -418,6 +430,7 @@ def get_access_review_schedule_definition_by_id(schedule_definition_id: Optional
         reviewers_type=pulumi.get(__ret__, 'reviewers_type'),
         scope=pulumi.get(__ret__, 'scope'),
         status=pulumi.get(__ret__, 'status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         user_principal_name=pulumi.get(__ret__, 'user_principal_name'))
 def get_access_review_schedule_definition_by_id_output(schedule_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -463,5 +476,6 @@ def get_access_review_schedule_definition_by_id_output(schedule_definition_id: O
         reviewers_type=pulumi.get(__response__, 'reviewers_type'),
         scope=pulumi.get(__response__, 'scope'),
         status=pulumi.get(__response__, 'status'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type'),
         user_principal_name=pulumi.get(__response__, 'user_principal_name')))

@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.Monitor
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// System data
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;

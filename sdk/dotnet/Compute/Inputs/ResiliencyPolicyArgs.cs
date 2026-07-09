@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
 {
 
     /// <summary>
-    /// Describes an resiliency policy - AutomaticZoneRebalancingPolicy, ResilientVMCreationPolicy and/or ResilientVMDeletionPolicy.
+    /// Describes an resiliency policy - AutomaticZoneRebalancingPolicy, ResilientVMCreationPolicy, ResilientVMDeletionPolicy and OperationRecoverySettings (version &gt; 2025-11-01).
     /// </summary>
     public sealed class ResiliencyPolicyArgs : global::Pulumi.ResourceArgs
     {

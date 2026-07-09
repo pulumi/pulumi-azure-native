@@ -93,7 +93,7 @@ class GetGraphQueryResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Azure resource Id
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -109,7 +109,7 @@ class GetGraphQueryResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Azure resource name. This is GUID value. The display name should be assigned within properties field.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -133,7 +133,7 @@ class GetGraphQueryResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system metadata relating to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -141,7 +141,7 @@ class GetGraphQueryResult:
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -157,7 +157,7 @@ class GetGraphQueryResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

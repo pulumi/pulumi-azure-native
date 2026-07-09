@@ -94,13 +94,13 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// <summary>
         /// The remediation failure threshold settings
         /// </summary>
-        public readonly Outputs.RemediationPropertiesResponseFailureThreshold? FailureThreshold;
+        public readonly Outputs.RemediationPropertiesFailureThresholdResponse? FailureThreshold;
         /// <summary>
         /// The filters that will be applied to determine which resources to remediate.
         /// </summary>
         public readonly Outputs.RemediationFiltersResponse? Filters;
         /// <summary>
-        /// The ID of the remediation.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// </summary>
         public readonly string LastUpdatedOn;
         /// <summary>
-        /// The name of the remediation.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -144,7 +144,7 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// The type of the remediation.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -158,7 +158,7 @@ namespace Pulumi.AzureNative.PolicyInsights
 
             Outputs.RemediationDeploymentSummaryResponse deploymentStatus,
 
-            Outputs.RemediationPropertiesResponseFailureThreshold? failureThreshold,
+            Outputs.RemediationPropertiesFailureThresholdResponse? failureThreshold,
 
             Outputs.RemediationFiltersResponse? filters,
 

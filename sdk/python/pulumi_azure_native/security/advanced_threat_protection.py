@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = ['AdvancedThreatProtectionArgs', 'AdvancedThreatProtection']
 
@@ -25,7 +26,7 @@ class AdvancedThreatProtectionArgs:
         """
         The set of arguments for constructing a AdvancedThreatProtection resource.
 
-        :param pulumi.Input[_builtins.str] resource_id: The identifier of the resource.
+        :param pulumi.Input[_builtins.str] resource_id: The fully qualified Azure Resource manager identifier of the resource.
         :param pulumi.Input[_builtins.bool] is_enabled: Indicates whether Advanced Threat Protection is enabled.
         :param pulumi.Input[_builtins.str] setting_name: Advanced Threat Protection setting name.
         """
@@ -39,7 +40,7 @@ class AdvancedThreatProtectionArgs:
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The identifier of the resource.
+        The fully qualified Azure Resource manager identifier of the resource.
         """
         return pulumi.get(self, "resource_id")
 
@@ -93,7 +94,7 @@ class AdvancedThreatProtection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] is_enabled: Indicates whether Advanced Threat Protection is enabled.
-        :param pulumi.Input[_builtins.str] resource_id: The identifier of the resource.
+        :param pulumi.Input[_builtins.str] resource_id: The fully qualified Azure Resource manager identifier of the resource.
         :param pulumi.Input[_builtins.str] setting_name: Advanced Threat Protection setting name.
         """
         ...
@@ -144,6 +145,7 @@ class AdvancedThreatProtection(pulumi.CustomResource):
             __props__.__dict__["setting_name"] = setting_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20170801preview:AdvancedThreatProtection"), pulumi.Alias(type_="azure-native:security/v20190101:AdvancedThreatProtection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -172,6 +174,7 @@ class AdvancedThreatProtection(pulumi.CustomResource):
         __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["is_enabled"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return AdvancedThreatProtection(resource_name, opts=opts, __props__=__props__)
 
@@ -195,15 +198,23 @@ class AdvancedThreatProtection(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

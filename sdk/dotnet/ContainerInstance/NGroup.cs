@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ContainerInstance
     /// 
     /// Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2024-09-01-preview.
     /// 
-    /// Other available API versions: 2024-09-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerinstance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2024-09-01-preview, 2024-11-01-preview, 2026-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerinstance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerinstance:NGroup")]
     public partial class NGroup : global::Pulumi.CustomResource
@@ -44,13 +44,13 @@ namespace Pulumi.AzureNative.ContainerInstance
         public Output<Outputs.NGroupIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// The resource location.
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -68,19 +68,19 @@ namespace Pulumi.AzureNative.ContainerInstance
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// The resource tags.
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.ContainerInstance
         public Output<Outputs.UpdateProfileResponse?> UpdateProfile { get; private set; } = null!;
 
         /// <summary>
-        /// The zones for the container group.
+        /// The availability zones.
         /// </summary>
         [Output("zones")]
         public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
@@ -125,6 +125,7 @@ namespace Pulumi.AzureNative.ContainerInstance
                     new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20240901preview:NGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20241101preview:NGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20250901:NGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20260601preview:NGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -173,7 +174,7 @@ namespace Pulumi.AzureNative.ContainerInstance
         public Input<Inputs.NGroupIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The resource location.
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -200,7 +201,7 @@ namespace Pulumi.AzureNative.ContainerInstance
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// The resource tags.
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -218,7 +219,7 @@ namespace Pulumi.AzureNative.ContainerInstance
         private InputList<string>? _zones;
 
         /// <summary>
-        /// The zones for the container group.
+        /// The availability zones.
         /// </summary>
         public InputList<string> Zones
         {

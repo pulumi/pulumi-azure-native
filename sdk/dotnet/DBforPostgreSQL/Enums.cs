@@ -78,19 +78,61 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Entry-level SSD for minimal IOPS, ideal for light development or testing workloads.
+        /// </summary>
         public static AzureManagedDiskPerformanceTier P1 { get; } = new AzureManagedDiskPerformanceTier("P1");
+        /// <summary>
+        /// Slightly higher IOPS for small-scale applications needing consistent low latency.
+        /// </summary>
         public static AzureManagedDiskPerformanceTier P2 { get; } = new AzureManagedDiskPerformanceTier("P2");
+        /// <summary>
+        /// Balanced performance for basic production workloads with moderate throughput.
+        /// </summary>
         public static AzureManagedDiskPerformanceTier P3 { get; } = new AzureManagedDiskPerformanceTier("P3");
+        /// <summary>
+        /// Enhanced IOPS for growing apps with predictable performance needs.
+        /// </summary>
         public static AzureManagedDiskPerformanceTier P4 { get; } = new AzureManagedDiskPerformanceTier("P4");
+        /// <summary>
+        /// Mid-tier SSD for steady workloads requiring reliable throughput and latency.
+        /// </summary>
         public static AzureManagedDiskPerformanceTier P6 { get; } = new AzureManagedDiskPerformanceTier("P6");
+        /// <summary>
+        /// Popular choice for general-purpose production workloads with scalable performance.
+        /// </summary>
         public static AzureManagedDiskPerformanceTier P10 { get; } = new AzureManagedDiskPerformanceTier("P10");
+        /// <summary>
+        /// High IOPS tier for demanding apps with frequent read/write operations.
+        /// </summary>
         public static AzureManagedDiskPerformanceTier P15 { get; } = new AzureManagedDiskPerformanceTier("P15");
+        /// <summary>
+        /// Entry point for high-performance Solid State Disks (SSDs), suitable for small-scale I/O-intensive workloads.
+        /// </summary>
         public static AzureManagedDiskPerformanceTier P20 { get; } = new AzureManagedDiskPerformanceTier("P20");
+        /// <summary>
+        /// Balanced tier for moderate throughput and latency-sensitive applications.
+        /// </summary>
         public static AzureManagedDiskPerformanceTier P30 { get; } = new AzureManagedDiskPerformanceTier("P30");
+        /// <summary>
+        /// Enhanced performance for growing production workloads with consistent IOPS demands.
+        /// </summary>
         public static AzureManagedDiskPerformanceTier P40 { get; } = new AzureManagedDiskPerformanceTier("P40");
+        /// <summary>
+        /// Optimized for enterprise-grade applications needing sustained high throughput.
+        /// </summary>
         public static AzureManagedDiskPerformanceTier P50 { get; } = new AzureManagedDiskPerformanceTier("P50");
+        /// <summary>
+        /// High-capacity tier for large databases and analytics workloads with elevated IOPS.
+        /// </summary>
         public static AzureManagedDiskPerformanceTier P60 { get; } = new AzureManagedDiskPerformanceTier("P60");
+        /// <summary>
+        /// Designed for mission-critical systems requiring ultra-low latency and high concurrency.
+        /// </summary>
         public static AzureManagedDiskPerformanceTier P70 { get; } = new AzureManagedDiskPerformanceTier("P70");
+        /// <summary>
+        /// Top-tier SSD for maximum IOPS and throughput, ideal for the most demanding workloads.
+        /// </summary>
         public static AzureManagedDiskPerformanceTier P80 { get; } = new AzureManagedDiskPerformanceTier("P80");
 
         public static bool operator ==(AzureManagedDiskPerformanceTier left, AzureManagedDiskPerformanceTier right) => left.Equals(right);
@@ -121,7 +163,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Cancel must be triggered for the entire migration.
+        /// </summary>
         public static Cancel True { get; } = new Cancel("True");
+        /// <summary>
+        /// Cancel must not be triggered for the entire migration.
+        /// </summary>
         public static Cancel False { get; } = new Cancel("False");
 
         public static bool operator ==(Cancel left, Cancel right) => left.Equals(right);
@@ -152,12 +200,33 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// If the operation is triggered on a non-existing server, it's equivalent to 'Create'. If the operation is triggered on an existing server, it's equivalent to 'Update'.
+        /// </summary>
         public static CreateMode Default { get; } = new CreateMode("Default");
+        /// <summary>
+        /// Operation creates a new server.
+        /// </summary>
         public static CreateMode Create { get; } = new CreateMode("Create");
+        /// <summary>
+        /// Operation updates an existing server.
+        /// </summary>
         public static CreateMode Update { get; } = new CreateMode("Update");
+        /// <summary>
+        /// Operation restores an existing backup of an existing server. This operation creates a new server, and then restores on it the backup of an existing server at a specific point in time.
+        /// </summary>
         public static CreateMode PointInTimeRestore { get; } = new CreateMode("PointInTimeRestore");
+        /// <summary>
+        /// Operation restores an existing backup of an existing server, on the paired region of the existing server. This operation creates a new server on the paired region of the existing server, and then restores on it the backup of an existing server at a specific point in time, in a different region. This operation is only supported on existing servers that were created with geographically redundant backups enabled.
+        /// </summary>
         public static CreateMode GeoRestore { get; } = new CreateMode("GeoRestore");
+        /// <summary>
+        /// Operation creates a replica of an existing server. This operation creates a new server, restores a base backup of the existing server (referred to as primary), and configures physical replication to asynchronously stream all changes which are recorded in the transaction log of the primary.
+        /// </summary>
         public static CreateMode Replica { get; } = new CreateMode("Replica");
+        /// <summary>
+        /// Operation creates a new server, initialized with the backup of a server that was recently deleted.
+        /// </summary>
         public static CreateMode ReviveDropped { get; } = new CreateMode("ReviveDropped");
 
         public static bool operator ==(CreateMode left, CreateMode right) => left.Equals(right);
@@ -247,7 +316,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Server is configured to create geographically redundant backups.
+        /// </summary>
         public static GeographicallyRedundantBackup Enabled { get; } = new GeographicallyRedundantBackup("Enabled");
+        /// <summary>
+        /// Server is not configured to create geographically redundant backups.
+        /// </summary>
         public static GeographicallyRedundantBackup Disabled { get; } = new GeographicallyRedundantBackup("Disabled");
 
         public static bool operator ==(GeographicallyRedundantBackup left, GeographicallyRedundantBackup right) => left.Equals(right);
@@ -343,7 +418,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Logical replication will be set up on the source server.
+        /// </summary>
         public static LogicalReplicationOnSourceServer True { get; } = new LogicalReplicationOnSourceServer("True");
+        /// <summary>
+        /// Logical replication will not be set up on the source server.
+        /// </summary>
         public static LogicalReplicationOnSourceServer False { get; } = new LogicalReplicationOnSourceServer("False");
 
         public static bool operator ==(LogicalReplicationOnSourceServer left, LogicalReplicationOnSourceServer right) => left.Equals(right);
@@ -374,7 +455,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Server supports Microsoft Entra authentication.
+        /// </summary>
         public static MicrosoftEntraAuth Enabled { get; } = new MicrosoftEntraAuth("Enabled");
+        /// <summary>
+        /// Server does not support Microsoft Entra authentication.
+        /// </summary>
         public static MicrosoftEntraAuth Disabled { get; } = new MicrosoftEntraAuth("Disabled");
 
         public static bool operator ==(MicrosoftEntraAuth left, MicrosoftEntraAuth right) => left.Equals(right);
@@ -405,7 +492,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Roles and permissions will be migrated.
+        /// </summary>
         public static MigrateRolesAndPermissions True { get; } = new MigrateRolesAndPermissions("True");
+        /// <summary>
+        /// Roles and permissions will not be migrated.
+        /// </summary>
         public static MigrateRolesAndPermissions False { get; } = new MigrateRolesAndPermissions("False");
 
         public static bool operator ==(MigrateRolesAndPermissions left, MigrateRolesAndPermissions right) => left.Equals(right);
@@ -436,7 +529,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Offline migration mode.
+        /// </summary>
         public static MigrationMode Offline { get; } = new MigrationMode("Offline");
+        /// <summary>
+        /// Online migration mode.
+        /// </summary>
         public static MigrationMode Online { get; } = new MigrationMode("Online");
 
         public static bool operator ==(MigrationMode left, MigrationMode right) => left.Equals(right);
@@ -467,8 +566,17 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Validate the migration without performing it.
+        /// </summary>
         public static MigrationOption Validate { get; } = new MigrationOption("Validate");
+        /// <summary>
+        /// Perform the migration.
+        /// </summary>
         public static MigrationOption Migrate { get; } = new MigrationOption("Migrate");
+        /// <summary>
+        /// Validate and perform the migration.
+        /// </summary>
         public static MigrationOption ValidateAndMigrate { get; } = new MigrationOption("ValidateAndMigrate");
 
         public static bool operator ==(MigrationOption left, MigrationOption right) => left.Equals(right);
@@ -532,7 +640,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Databases on the target server can be overwritten when already present.
+        /// </summary>
         public static OverwriteDatabasesOnTargetServer True { get; } = new OverwriteDatabasesOnTargetServer("True");
+        /// <summary>
+        /// Databases on the target server cannot be overwritten when already present. When the migration workflow detects that the database already exists on the target server, it will wait for a confirmation.
+        /// </summary>
         public static OverwriteDatabasesOnTargetServer False { get; } = new OverwriteDatabasesOnTargetServer("False");
 
         public static bool operator ==(OverwriteDatabasesOnTargetServer left, OverwriteDatabasesOnTargetServer right) => left.Equals(right);
@@ -591,7 +705,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Server supports password based authentication.
+        /// </summary>
         public static PasswordBasedAuth Enabled { get; } = new PasswordBasedAuth("Enabled");
+        /// <summary>
+        /// Server does not support password based authentication.
+        /// </summary>
         public static PasswordBasedAuth Disabled { get; } = new PasswordBasedAuth("Disabled");
 
         public static bool operator ==(PasswordBasedAuth left, PasswordBasedAuth right) => left.Equals(right);
@@ -622,8 +742,17 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// High availability is disabled for the server.
+        /// </summary>
         public static PostgreSqlFlexibleServerHighAvailabilityMode Disabled { get; } = new PostgreSqlFlexibleServerHighAvailabilityMode("Disabled");
+        /// <summary>
+        /// High availability is enabled for the server, with standby server in a different availability zone than that of the primary.
+        /// </summary>
         public static PostgreSqlFlexibleServerHighAvailabilityMode ZoneRedundant { get; } = new PostgreSqlFlexibleServerHighAvailabilityMode("ZoneRedundant");
+        /// <summary>
+        /// High availability is enabled for the server, with standby server in the same availability zone as the primary.
+        /// </summary>
         public static PostgreSqlFlexibleServerHighAvailabilityMode SameZone { get; } = new PostgreSqlFlexibleServerHighAvailabilityMode("SameZone");
 
         public static bool operator ==(PostgreSqlFlexibleServerHighAvailabilityMode left, PostgreSqlFlexibleServerHighAvailabilityMode right) => left.Equals(right);
@@ -654,13 +783,37 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// PostgreSQL 18.
+        /// </summary>
         public static PostgresMajorVersion PostgresMajorVersion_18 { get; } = new PostgresMajorVersion("18");
+        /// <summary>
+        /// PostgreSQL 17.
+        /// </summary>
         public static PostgresMajorVersion PostgresMajorVersion_17 { get; } = new PostgresMajorVersion("17");
+        /// <summary>
+        /// PostgreSQL 16.
+        /// </summary>
         public static PostgresMajorVersion PostgresMajorVersion_16 { get; } = new PostgresMajorVersion("16");
+        /// <summary>
+        /// PostgreSQL 15.
+        /// </summary>
         public static PostgresMajorVersion PostgresMajorVersion_15 { get; } = new PostgresMajorVersion("15");
+        /// <summary>
+        /// PostgreSQL 14.
+        /// </summary>
         public static PostgresMajorVersion PostgresMajorVersion_14 { get; } = new PostgresMajorVersion("14");
+        /// <summary>
+        /// PostgreSQL 13.
+        /// </summary>
         public static PostgresMajorVersion PostgresMajorVersion_13 { get; } = new PostgresMajorVersion("13");
+        /// <summary>
+        /// PostgreSQL 12.
+        /// </summary>
         public static PostgresMajorVersion PostgresMajorVersion_12 { get; } = new PostgresMajorVersion("12");
+        /// <summary>
+        /// PostgreSQL 11.
+        /// </summary>
         public static PostgresMajorVersion PostgresMajorVersion_11 { get; } = new PostgresMajorVersion("11");
 
         public static bool operator ==(PostgresMajorVersion left, PostgresMajorVersion right) => left.Equals(right);
@@ -784,7 +937,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         }
 
         /// <summary>
-        /// Read replica will become an independent server.
+        /// Read replica will become an independent server, and a completely independent entity from the replication set.
         /// </summary>
         public static ReadReplicaPromoteMode Standalone { get; } = new ReadReplicaPromoteMode("Standalone");
         /// <summary>
@@ -821,11 +974,11 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         }
 
         /// <summary>
-        /// The operation will wait for data in the read replica to be fully synchronized with its source server, before it initiates the operation.
+        /// Wait for data in the read replica to be fully synchronized with its source server before it initiates the operation.
         /// </summary>
         public static ReadReplicaPromoteOption Planned { get; } = new ReadReplicaPromoteOption("Planned");
         /// <summary>
-        /// The operation will not wait for data in the read replica to be synchronized with its source server, before it initiates the operation.
+        /// Initiate the operation immediately, without waiting for data in the read replica to be synchronized with its source server.
         /// </summary>
         public static ReadReplicaPromoteOption Forced { get; } = new ReadReplicaPromoteOption("Forced");
 
@@ -857,9 +1010,21 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// No replication role assigned; the server operates independently.
+        /// </summary>
         public static ReplicationRole None { get; } = new ReplicationRole("None");
+        /// <summary>
+        /// Acts as the source server for replication to one or more replicas.
+        /// </summary>
         public static ReplicationRole Primary { get; } = new ReplicationRole("Primary");
+        /// <summary>
+        /// Receives data asynchronously from a primary server within the same region.
+        /// </summary>
         public static ReplicationRole AsyncReplica { get; } = new ReplicationRole("AsyncReplica");
+        /// <summary>
+        /// Receives data asynchronously from a primary server in a different region for geographical redundancy.
+        /// </summary>
         public static ReplicationRole GeoAsyncReplica { get; } = new ReplicationRole("GeoAsyncReplica");
 
         public static bool operator ==(ReplicationRole left, ReplicationRole right) => left.Equals(right);
@@ -918,7 +1083,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Public network access is enabled. This allows the server to be accessed from the public internet, provided the necessary firewall rule that allows incoming traffic originating from the connecting client is in place. This is compatible with the use of private endpoints to connect to this server.
+        /// </summary>
         public static ServerPublicNetworkAccessState Enabled { get; } = new ServerPublicNetworkAccessState("Enabled");
+        /// <summary>
+        /// Public network access is disabled. This means the server cannot be accessed from the public internet, but only via private endpoints.
+        /// </summary>
         public static ServerPublicNetworkAccessState Disabled { get; } = new ServerPublicNetworkAccessState("Disabled");
 
         public static bool operator ==(ServerPublicNetworkAccessState left, ServerPublicNetworkAccessState right) => left.Equals(right);
@@ -1110,8 +1281,17 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Cost-effective tier for infrequent CPU usage, ideal for development and testing workloads with low performance requirements.
+        /// </summary>
         public static SkuTier Burstable { get; } = new SkuTier("Burstable");
+        /// <summary>
+        /// Balanced compute and memory for most workloads, offering scalable performance and I/O throughput.
+        /// </summary>
         public static SkuTier GeneralPurpose { get; } = new SkuTier("GeneralPurpose");
+        /// <summary>
+        /// High memory-to-core ratio for demanding workloads needing fast in-memory processing and high concurrency.
+        /// </summary>
         public static SkuTier MemoryOptimized { get; } = new SkuTier("MemoryOptimized");
 
         public static bool operator ==(SkuTier left, SkuTier right) => left.Equals(right);
@@ -1142,29 +1322,101 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// On-premises PostgreSQL server.
+        /// </summary>
         public static SourceType OnPremises { get; } = new SourceType("OnPremises");
+        /// <summary>
+        /// Amazon Web Services PostgreSQL server.
+        /// </summary>
         public static SourceType AWS { get; } = new SourceType("AWS");
+        /// <summary>
+        /// Google Cloud Platform PostgreSQL server.
+        /// </summary>
         public static SourceType GCP { get; } = new SourceType("GCP");
+        /// <summary>
+        /// Azure Virtual Machine PostgreSQL server.
+        /// </summary>
         public static SourceType AzureVM { get; } = new SourceType("AzureVM");
+        /// <summary>
+        /// Azure Database for PostgreSQL single server.
+        /// </summary>
         public static SourceType PostgreSQLSingleServer { get; } = new SourceType("PostgreSQLSingleServer");
+        /// <summary>
+        /// Amazon RDS for PostgreSQL.
+        /// </summary>
         public static SourceType AWS_RDS { get; } = new SourceType("AWS_RDS");
+        /// <summary>
+        /// Amazon Aurora for PostgreSQL.
+        /// </summary>
         public static SourceType AWS_AURORA { get; } = new SourceType("AWS_AURORA");
+        /// <summary>
+        /// Amazon EC2 for PostgreSQL.
+        /// </summary>
         public static SourceType AWS_EC2 { get; } = new SourceType("AWS_EC2");
+        /// <summary>
+        /// Google Cloud SQL for PostgreSQL.
+        /// </summary>
         public static SourceType GCP_CloudSQL { get; } = new SourceType("GCP_CloudSQL");
+        /// <summary>
+        /// Google Cloud AlloyDB for PostgreSQL.
+        /// </summary>
         public static SourceType GCP_AlloyDB { get; } = new SourceType("GCP_AlloyDB");
+        /// <summary>
+        /// Google Compute Engine for PostgreSQL.
+        /// </summary>
         public static SourceType GCP_Compute { get; } = new SourceType("GCP_Compute");
+        /// <summary>
+        /// EnterpriseDB PostgreSQL server.
+        /// </summary>
         public static SourceType EDB { get; } = new SourceType("EDB");
+        /// <summary>
+        /// EnterpriseDB Oracle Server.
+        /// </summary>
         public static SourceType EDB_Oracle_Server { get; } = new SourceType("EDB_Oracle_Server");
+        /// <summary>
+        /// EnterpriseDB PostgreSQL server.
+        /// </summary>
         public static SourceType EDB_PostgreSQL { get; } = new SourceType("EDB_PostgreSQL");
+        /// <summary>
+        /// Azure Database for PostgreSQL flexible server.
+        /// </summary>
         public static SourceType PostgreSQLFlexibleServer { get; } = new SourceType("PostgreSQLFlexibleServer");
+        /// <summary>
+        /// .NET Cosmos DB for PostgreSQL
+        /// </summary>
         public static SourceType PostgreSQLCosmosDB { get; } = new SourceType("PostgreSQLCosmosDB");
+        /// <summary>
+        /// Huawei RDS for PostgreSQL
+        /// </summary>
         public static SourceType Huawei_RDS { get; } = new SourceType("Huawei_RDS");
+        /// <summary>
+        /// Huawei Compute for PostgreSQL
+        /// </summary>
         public static SourceType Huawei_Compute { get; } = new SourceType("Huawei_Compute");
+        /// <summary>
+        /// Heroku PostgreSQL
+        /// </summary>
         public static SourceType Heroku_PostgreSQL { get; } = new SourceType("Heroku_PostgreSQL");
+        /// <summary>
+        /// Crunchy PostgreSQL
+        /// </summary>
         public static SourceType Crunchy_PostgreSQL { get; } = new SourceType("Crunchy_PostgreSQL");
+        /// <summary>
+        /// ApsaraDB RDS for PostgreSQL
+        /// </summary>
         public static SourceType ApsaraDB_RDS { get; } = new SourceType("ApsaraDB_RDS");
+        /// <summary>
+        /// Digital Ocean Droplets for PostgreSQL
+        /// </summary>
         public static SourceType Digital_Ocean_Droplets { get; } = new SourceType("Digital_Ocean_Droplets");
+        /// <summary>
+        /// Digital Ocean PostgreSQL
+        /// </summary>
         public static SourceType Digital_Ocean_PostgreSQL { get; } = new SourceType("Digital_Ocean_PostgreSQL");
+        /// <summary>
+        /// Supabase PostgreSQL
+        /// </summary>
         public static SourceType Supabase_PostgreSQL { get; } = new SourceType("Supabase_PostgreSQL");
 
         public static bool operator ==(SourceType left, SourceType right) => left.Equals(right);
@@ -1226,9 +1478,21 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Prefer SSL connection. If the server does not support SSL, the connection will be established without SSL.
+        /// </summary>
         public static SslMode Prefer { get; } = new SslMode("Prefer");
+        /// <summary>
+        /// Require SSL connection. If the server does not support SSL, the connection will fail.
+        /// </summary>
         public static SslMode Require { get; } = new SslMode("Require");
+        /// <summary>
+        /// Require SSL connection and verify the server certificate against the CA certificate.
+        /// </summary>
         public static SslMode VerifyCA { get; } = new SslMode("VerifyCA");
+        /// <summary>
+        /// Require SSL connection, verify the server certificate against the CA certificate, and verify that the server hostname matches the certificate.
+        /// </summary>
         public static SslMode VerifyFull { get; } = new SslMode("VerifyFull");
 
         public static bool operator ==(SslMode left, SslMode right) => left.Equals(right);
@@ -1259,7 +1523,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Data migration must start right away.
+        /// </summary>
         public static StartDataMigration True { get; } = new StartDataMigration("True");
+        /// <summary>
+        /// Data migration must not start right away.
+        /// </summary>
         public static StartDataMigration False { get; } = new StartDataMigration("False");
 
         public static bool operator ==(StartDataMigration left, StartDataMigration right) => left.Equals(right);
@@ -1290,7 +1560,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Server should automatically grow storage size when available space is nearing zero and conditions allow for automatically growing storage size.
+        /// </summary>
         public static StorageAutoGrow Enabled { get; } = new StorageAutoGrow("Enabled");
+        /// <summary>
+        /// Server should not automatically grow storage size when available space is nearing zero.
+        /// </summary>
         public static StorageAutoGrow Disabled { get; } = new StorageAutoGrow("Disabled");
 
         public static bool operator ==(StorageAutoGrow left, StorageAutoGrow right) => left.Equals(right);
@@ -1352,8 +1628,17 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Standard Solid State Disk (SSD) backed storage offering consistent performance for general purpose workloads.
+        /// </summary>
         public static StorageType Premium_LRS { get; } = new StorageType("Premium_LRS");
+        /// <summary>
+        /// Next generation Solid State Disk (SSD) storage with improved scalability and performance for demanding enterprise workloads.
+        /// </summary>
         public static StorageType PremiumV2_LRS { get; } = new StorageType("PremiumV2_LRS");
+        /// <summary>
+        /// High-end Solid State Disk (SSD) storage designed for extreme IOPS and latency-sensitive applications.
+        /// </summary>
         public static StorageType UltraSSD_LRS { get; } = new StorageType("UltraSSD_LRS");
 
         public static bool operator ==(StorageType left, StorageType right) => left.Equals(right);
@@ -1384,7 +1669,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Cutover must be triggered for the entire migration.
+        /// </summary>
         public static TriggerCutover True { get; } = new TriggerCutover("True");
+        /// <summary>
+        /// Cutover must not be triggered for the entire migration.
+        /// </summary>
         public static TriggerCutover False { get; } = new TriggerCutover("False");
 
         public static bool operator ==(TriggerCutover left, TriggerCutover right) => left.Equals(right);
@@ -1415,6 +1706,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Read-write endpoint.
+        /// </summary>
         public static VirtualEndpointType ReadWrite { get; } = new VirtualEndpointType("ReadWrite");
 
         public static bool operator ==(VirtualEndpointType left, VirtualEndpointType right) => left.Equals(right);

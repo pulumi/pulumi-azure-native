@@ -31,7 +31,7 @@ class PrivateEndpointConnectionArgs:
         The set of arguments for constructing a PrivateEndpointConnection resource.
 
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_ids: Gets the groupIds.
         :param pulumi.Input['PrivateEndpointPropertyArgs'] private_endpoint: Private endpoint which the connection belongs to.
         :param pulumi.Input[_builtins.str] private_endpoint_connection_name: The name of the private endpoint connection.
@@ -64,7 +64,7 @@ class PrivateEndpointConnectionArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of an Azure Resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -149,7 +149,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.Input[Union['PrivateEndpointPropertyArgs', 'PrivateEndpointPropertyArgsDict']] private_endpoint: Private endpoint which the connection belongs to.
         :param pulumi.Input[_builtins.str] private_endpoint_connection_name: The name of the private endpoint connection.
         :param pulumi.Input[Union['PrivateLinkServiceConnectionStatePropertyArgs', 'PrivateLinkServiceConnectionStatePropertyArgsDict']] private_link_service_connection_state: Connection State of the Private Endpoint Connection.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
     @overload

@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.DataFactory
         public string? ProfileName { get; set; }
 
         /// <summary>
-        /// The resource group name.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.DataFactory
         public Input<string>? ProfileName { get; set; }
 
         /// <summary>
-        /// The resource group name.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

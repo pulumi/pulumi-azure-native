@@ -19,11 +19,11 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// Additional copy options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalCopyOptions": { "DATE_FORMAT": "MM/DD/YYYY", "TIME_FORMAT": "'HH24:MI:SS.FF'" }
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? AdditionalCopyOptions;
+        public readonly object? AdditionalCopyOptions;
         /// <summary>
         /// Additional format options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalFormatOptions": { "OVERWRITE": "TRUE", "MAX_FILE_SIZE": "'FALSE'" }
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? AdditionalFormatOptions;
+        public readonly object? AdditionalFormatOptions;
         /// <summary>
         /// The name of the snowflake storage integration to use for the copy operation. Type: string (or Expression with resultType string).
         /// </summary>
@@ -36,9 +36,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
         [OutputConstructor]
         private SnowflakeExportCopyCommandResponse(
-            ImmutableDictionary<string, object>? additionalCopyOptions,
+            object? additionalCopyOptions,
 
-            ImmutableDictionary<string, object>? additionalFormatOptions,
+            object? additionalFormatOptions,
 
             object? storageIntegration,
 

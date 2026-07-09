@@ -81,7 +81,7 @@ class GetEnterprisePolicyResult:
 
     @_builtins.property
     @pulumi.getter
-    def encryption(self) -> Optional['outputs.PropertiesResponseEncryption']:
+    def encryption(self) -> Optional['outputs.PropertiesEncryptionResponse']:
         """
         The encryption settings for a configuration store.
         """
@@ -129,7 +129,7 @@ class GetEnterprisePolicyResult:
 
     @_builtins.property
     @pulumi.getter
-    def lockbox(self) -> Optional['outputs.PropertiesResponseLockbox']:
+    def lockbox(self) -> Optional['outputs.PropertiesLockboxResponse']:
         """
         Settings concerning lockbox.
         """
@@ -145,7 +145,7 @@ class GetEnterprisePolicyResult:
 
     @_builtins.property
     @pulumi.getter(name="networkInjection")
-    def network_injection(self) -> Optional['outputs.PropertiesResponseNetworkInjection']:
+    def network_injection(self) -> Optional['outputs.PropertiesNetworkInjectionResponse']:
         """
         Settings concerning network injection.
         """
@@ -155,7 +155,7 @@ class GetEnterprisePolicyResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

@@ -84,14 +84,14 @@ __all__ = [
     'Layer2ConfigurationArgsDict',
     'ManagedResourceGroupConfigurationArgs',
     'ManagedResourceGroupConfigurationArgsDict',
+    'ManagedServiceIdentityArgs',
+    'ManagedServiceIdentityArgsDict',
     'ManagementNetworkConfigurationPropertiesArgs',
     'ManagementNetworkConfigurationPropertiesArgsDict',
     'NeighborAddressArgs',
     'NeighborAddressArgsDict',
     'NeighborGroupDestinationArgs',
     'NeighborGroupDestinationArgsDict',
-    'NetworkMonitorPropertiesArgs',
-    'NetworkMonitorPropertiesArgsDict',
     'NetworkTapPropertiesDestinationsArgs',
     'NetworkTapPropertiesDestinationsArgsDict',
     'NetworkTapRuleActionArgs',
@@ -2989,6 +2989,59 @@ class ManagedResourceGroupConfigurationArgs:
         pulumi.set(self, "name", value)
 
 
+class ManagedServiceIdentityArgsDict(TypedDict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+    """
+
+@pulumi.input_type
+class ManagedServiceIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+
+        :param pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]:
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
+
 class ManagementNetworkConfigurationPropertiesArgsDict(TypedDict):
     """
     Configuration to be used to setup the management network.
@@ -3127,60 +3180,6 @@ class NeighborGroupDestinationArgs:
     @ipv6_addresses.setter
     def ipv6_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ipv6_addresses", value)
-
-
-class NetworkMonitorPropertiesArgsDict(TypedDict):
-    """
-    Network Monitor Properties defines the properties of the resource.
-    """
-    annotation: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Switch configuration description.
-    """
-    bmp_configuration: NotRequired[pulumi.Input['BmpConfigurationPropertiesArgsDict']]
-    """
-    BMP Configurations for the Network Fabric.
-    """
-
-@pulumi.input_type
-class NetworkMonitorPropertiesArgs:
-    def __init__(__self__, *,
-                 annotation: Optional[pulumi.Input[_builtins.str]] = None,
-                 bmp_configuration: Optional[pulumi.Input['BmpConfigurationPropertiesArgs']] = None):
-        """
-        Network Monitor Properties defines the properties of the resource.
-
-        :param pulumi.Input[_builtins.str] annotation: Switch configuration description.
-        :param pulumi.Input['BmpConfigurationPropertiesArgs'] bmp_configuration: BMP Configurations for the Network Fabric.
-        """
-        if annotation is not None:
-            pulumi.set(__self__, "annotation", annotation)
-        if bmp_configuration is not None:
-            pulumi.set(__self__, "bmp_configuration", bmp_configuration)
-
-    @_builtins.property
-    @pulumi.getter
-    def annotation(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Switch configuration description.
-        """
-        return pulumi.get(self, "annotation")
-
-    @annotation.setter
-    def annotation(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "annotation", value)
-
-    @_builtins.property
-    @pulumi.getter(name="bmpConfiguration")
-    def bmp_configuration(self) -> Optional[pulumi.Input['BmpConfigurationPropertiesArgs']]:
-        """
-        BMP Configurations for the Network Fabric.
-        """
-        return pulumi.get(self, "bmp_configuration")
-
-    @bmp_configuration.setter
-    def bmp_configuration(self, value: Optional[pulumi.Input['BmpConfigurationPropertiesArgs']]):
-        pulumi.set(self, "bmp_configuration", value)
 
 
 class NetworkTapPropertiesDestinationsArgsDict(TypedDict):

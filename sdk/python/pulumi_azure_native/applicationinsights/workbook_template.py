@@ -38,10 +38,10 @@ class WorkbookTemplateArgs:
         :param Any template_data: Valid JSON object containing workbook template payload.
         :param pulumi.Input[_builtins.str] author: Information about the author of the workbook template.
         :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateLocalizedGalleryArgs']]]]] localized: Key value pair of localized gallery. Each key is the locale code of languages supported by the Azure portal.
-        :param pulumi.Input[_builtins.str] location: Resource location
+        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.int] priority: Priority of the template. Determines which template to open when a workbook gallery is opened in viewer mode.
         :param pulumi.Input[_builtins.str] resource_name: The name of the Application Insights component resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "galleries", galleries)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -123,7 +123,7 @@ class WorkbookTemplateArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -159,7 +159,7 @@ class WorkbookTemplateArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -197,11 +197,11 @@ class WorkbookTemplate(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] author: Information about the author of the workbook template.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WorkbookTemplateGalleryArgs', 'WorkbookTemplateGalleryArgsDict']]]] galleries: Workbook galleries supported by the template.
         :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[Union['WorkbookTemplateLocalizedGalleryArgs', 'WorkbookTemplateLocalizedGalleryArgsDict']]]]]] localized: Key value pair of localized gallery. Each key is the locale code of languages supported by the Azure portal.
-        :param pulumi.Input[_builtins.str] location: Resource location
+        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.int] priority: Priority of the template. Determines which template to open when a workbook gallery is opened in viewer mode.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_name_: The name of the Application Insights component resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param Any template_data: Valid JSON object containing workbook template payload.
         """
         ...
@@ -268,6 +268,7 @@ class WorkbookTemplate(pulumi.CustomResource):
             __props__.__dict__["template_data"] = template_data
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:applicationinsights/v20191017preview:WorkbookTemplate"), pulumi.Alias(type_="azure-native:applicationinsights/v20201120:WorkbookTemplate"), pulumi.Alias(type_="azure-native:insights/v20201120:WorkbookTemplate"), pulumi.Alias(type_="azure-native:insights:WorkbookTemplate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -300,6 +301,7 @@ class WorkbookTemplate(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["priority"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["template_data"] = None
         __props__.__dict__["type"] = None
@@ -341,7 +343,7 @@ class WorkbookTemplate(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -349,7 +351,7 @@ class WorkbookTemplate(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Azure resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -362,10 +364,18 @@ class WorkbookTemplate(pulumi.CustomResource):
         return pulumi.get(self, "priority")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -381,7 +391,7 @@ class WorkbookTemplate(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

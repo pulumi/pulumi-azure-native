@@ -36,7 +36,7 @@ export interface GetAzureCliScriptArgs {
  */
 export interface GetAzureCliScriptResult {
     /**
-     * Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2' 
+     * Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2'
      */
     readonly arguments?: string;
     /**
@@ -64,7 +64,7 @@ export interface GetAzureCliScriptResult {
      */
     readonly forceUpdateTag?: string;
     /**
-     * String Id used to locate any resource on Azure.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -77,17 +77,17 @@ export interface GetAzureCliScriptResult {
      */
     readonly kind: "AzureCLI";
     /**
-     * The location of the ACI and the storage account for the deployment script.
+     * The geo-location where the resource lives
      */
     readonly location: string;
     /**
-     * Name of this resource.
+     * The name of the resource
      */
     readonly name: string;
     /**
      * List of script outputs.
      */
-    readonly outputs: {[key: string]: any};
+    readonly outputs: any;
     /**
      * Uri for the script. This is the entry point for the external script.
      */
@@ -117,7 +117,7 @@ export interface GetAzureCliScriptResult {
      */
     readonly supportingScriptUris?: string[];
     /**
-     * The system metadata related to this resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.resources.SystemDataResponse;
     /**
@@ -129,7 +129,7 @@ export interface GetAzureCliScriptResult {
      */
     readonly timeout?: string;
     /**
-     * Type of this resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }

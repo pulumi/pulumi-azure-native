@@ -14,8 +14,10 @@ from .application_gateway_private_endpoint_connection import *
 from .application_security_group import *
 from .azure_firewall import *
 from .bastion_host import *
+from .commit import *
 from .configuration_policy_group import *
 from .connection_monitor import *
+from .connection_policy import *
 from .connectivity_configuration import *
 from .custom_ip_prefix import *
 from .ddos_custom_policy import *
@@ -48,8 +50,10 @@ from .get_application_security_group import *
 from .get_azure_firewall import *
 from .get_bastion_host import *
 from .get_bastion_shareable_link import *
+from .get_commit import *
 from .get_configuration_policy_group import *
 from .get_connection_monitor import *
+from .get_connection_policy import *
 from .get_connectivity_configuration import *
 from .get_custom_ip_prefix import *
 from .get_ddos_custom_policy import *
@@ -64,6 +68,8 @@ from .get_express_route_circuit_peering import *
 from .get_express_route_connection import *
 from .get_express_route_cross_connection_peering import *
 from .get_express_route_gateway import *
+from .get_express_route_gateway_resiliency_information import *
+from .get_express_route_gateway_routes_information import *
 from .get_express_route_port import *
 from .get_express_route_port_authorization import *
 from .get_firewall_policy import *
@@ -75,6 +81,7 @@ from .get_flow_log import *
 from .get_hub_route_table import *
 from .get_hub_virtual_network_connection import *
 from .get_inbound_nat_rule import *
+from .get_interconnect_group import *
 from .get_interface_endpoint import *
 from .get_ip_allocation import *
 from .get_ip_group import *
@@ -179,6 +186,7 @@ from .get_web_application_firewall_policy import *
 from .hub_route_table import *
 from .hub_virtual_network_connection import *
 from .inbound_nat_rule import *
+from .interconnect_group import *
 from .interface_endpoint import *
 from .ip_allocation import *
 from .ip_group import *

@@ -74,11 +74,11 @@ export interface GetActionGroupResult {
      */
     readonly groupShortName: string;
     /**
-     * Azure resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Managed service identity (system assigned and/or user assigned identities)
+     * The managed service identities assigned to this resource.
      */
     readonly identity?: outputs.monitor.ManagedServiceIdentityResponse;
     /**
@@ -90,7 +90,7 @@ export interface GetActionGroupResult {
      */
     readonly itsmReceivers?: outputs.monitor.ItsmReceiverResponse[];
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     readonly location: string;
     /**
@@ -98,7 +98,7 @@ export interface GetActionGroupResult {
      */
     readonly logicAppReceivers?: outputs.monitor.LogicAppReceiverResponse[];
     /**
-     * Azure resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -106,11 +106,15 @@ export interface GetActionGroupResult {
      */
     readonly smsReceivers?: outputs.monitor.SmsReceiverResponse[];
     /**
-     * Resource tags
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.monitor.SystemDataResponse;
+    /**
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**

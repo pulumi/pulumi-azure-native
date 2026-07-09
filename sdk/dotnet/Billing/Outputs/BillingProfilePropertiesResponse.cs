@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Billing.Outputs
         /// <summary>
         /// Billing address.
         /// </summary>
-        public readonly Outputs.BillingProfilePropertiesResponseBillTo? BillTo;
+        public readonly Outputs.BillingProfilePropertiesBillToResponse? BillTo;
         /// <summary>
         /// Identifies the billing relationship represented by the billing profile. The billing relationship may be between Microsoft, the customer, and/or a third-party.
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Billing.Outputs
         /// <summary>
         /// The current payment term of the billing profile.
         /// </summary>
-        public readonly Outputs.BillingProfilePropertiesResponseCurrentPaymentTerm? CurrentPaymentTerm;
+        public readonly Outputs.BillingProfilePropertiesCurrentPaymentTermResponse? CurrentPaymentTerm;
         /// <summary>
         /// The name of the billing profile.
         /// </summary>
@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.Billing.Outputs
         /// <summary>
         /// Identifies the billing profile that is linked to another billing profile in indirect purchase motion.
         /// </summary>
-        public readonly Outputs.BillingProfilePropertiesResponseIndirectRelationshipInfo? IndirectRelationshipInfo;
+        public readonly Outputs.BillingProfilePropertiesIndirectRelationshipInfoResponse? IndirectRelationshipInfo;
         /// <summary>
         /// The day of the month when the invoice for the billing profile is generated.
         /// </summary>
@@ -75,11 +75,11 @@ namespace Pulumi.AzureNative.Billing.Outputs
         /// <summary>
         /// The default address where the products are shipped, or the services are being used. If a ship to is not specified for a product or a subscription, then this address will be used.
         /// </summary>
-        public readonly Outputs.BillingProfilePropertiesResponseShipTo? ShipTo;
+        public readonly Outputs.BillingProfilePropertiesShipToResponse? ShipTo;
         /// <summary>
         /// The address of the individual or organization that is responsible for the billing account.
         /// </summary>
-        public readonly Outputs.BillingProfilePropertiesResponseSoldTo? SoldTo;
+        public readonly Outputs.BillingProfilePropertiesSoldToResponse? SoldTo;
         /// <summary>
         /// The billing profile spending limit.
         /// </summary>
@@ -111,13 +111,13 @@ namespace Pulumi.AzureNative.Billing.Outputs
 
         [OutputConstructor]
         private BillingProfilePropertiesResponse(
-            Outputs.BillingProfilePropertiesResponseBillTo? billTo,
+            Outputs.BillingProfilePropertiesBillToResponse? billTo,
 
             string billingRelationshipType,
 
             string currency,
 
-            Outputs.BillingProfilePropertiesResponseCurrentPaymentTerm? currentPaymentTerm,
+            Outputs.BillingProfilePropertiesCurrentPaymentTermResponse? currentPaymentTerm,
 
             string? displayName,
 
@@ -125,7 +125,7 @@ namespace Pulumi.AzureNative.Billing.Outputs
 
             bool hasReadAccess,
 
-            Outputs.BillingProfilePropertiesResponseIndirectRelationshipInfo? indirectRelationshipInfo,
+            Outputs.BillingProfilePropertiesIndirectRelationshipInfoResponse? indirectRelationshipInfo,
 
             int invoiceDay,
 
@@ -139,9 +139,9 @@ namespace Pulumi.AzureNative.Billing.Outputs
 
             string provisioningState,
 
-            Outputs.BillingProfilePropertiesResponseShipTo? shipTo,
+            Outputs.BillingProfilePropertiesShipToResponse? shipTo,
 
-            Outputs.BillingProfilePropertiesResponseSoldTo? soldTo,
+            Outputs.BillingProfilePropertiesSoldToResponse? soldTo,
 
             string spendingLimit,
 

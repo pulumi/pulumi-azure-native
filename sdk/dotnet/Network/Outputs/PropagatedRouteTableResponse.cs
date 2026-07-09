@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// <summary>
         /// The list of resource ids of all the RouteTables.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponse> Ids;
+        public readonly ImmutableArray<Outputs.CommonSubResourceResponse> Ids;
         /// <summary>
         /// The list of labels.
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network.Outputs
 
         [OutputConstructor]
         private PropagatedRouteTableResponse(
-            ImmutableArray<Outputs.SubResourceResponse> ids,
+            ImmutableArray<Outputs.CommonSubResourceResponse> ids,
 
             ImmutableArray<string> labels)
         {

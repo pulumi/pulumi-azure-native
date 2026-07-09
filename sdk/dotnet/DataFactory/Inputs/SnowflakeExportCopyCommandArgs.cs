@@ -15,29 +15,17 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// </summary>
     public sealed class SnowflakeExportCopyCommandArgs : global::Pulumi.ResourceArgs
     {
-        [Input("additionalCopyOptions")]
-        private InputMap<object>? _additionalCopyOptions;
-
         /// <summary>
         /// Additional copy options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalCopyOptions": { "DATE_FORMAT": "MM/DD/YYYY", "TIME_FORMAT": "'HH24:MI:SS.FF'" }
         /// </summary>
-        public InputMap<object> AdditionalCopyOptions
-        {
-            get => _additionalCopyOptions ?? (_additionalCopyOptions = new InputMap<object>());
-            set => _additionalCopyOptions = value;
-        }
-
-        [Input("additionalFormatOptions")]
-        private InputMap<object>? _additionalFormatOptions;
+        [Input("additionalCopyOptions")]
+        public Input<object>? AdditionalCopyOptions { get; set; }
 
         /// <summary>
         /// Additional format options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalFormatOptions": { "OVERWRITE": "TRUE", "MAX_FILE_SIZE": "'FALSE'" }
         /// </summary>
-        public InputMap<object> AdditionalFormatOptions
-        {
-            get => _additionalFormatOptions ?? (_additionalFormatOptions = new InputMap<object>());
-            set => _additionalFormatOptions = value;
-        }
+        [Input("additionalFormatOptions")]
+        public Input<object>? AdditionalFormatOptions { get; set; }
 
         /// <summary>
         /// The name of the snowflake storage integration to use for the copy operation. Type: string (or Expression with resultType string).

@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2025-02-11-preview.
  *
- * Other available API versions: 2024-01-31-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native orbital [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2024-01-31-preview, 2026-04-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native orbital [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class GeoCatalog extends pulumi.CustomResource {
     /**
@@ -109,7 +109,7 @@ export class GeoCatalog extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:orbital/v20240131preview:GeoCatalog" }, { type: "azure-native:orbital/v20250211preview:GeoCatalog" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:orbital/v20240131preview:GeoCatalog" }, { type: "azure-native:orbital/v20250211preview:GeoCatalog" }, { type: "azure-native:orbital/v20260415:GeoCatalog" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GeoCatalog.__pulumiType, name, resourceInputs, opts);
     }

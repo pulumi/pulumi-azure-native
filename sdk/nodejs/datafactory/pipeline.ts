@@ -60,15 +60,15 @@ export class Pipeline extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * Etag identifies change in the resource.
+     * "If etag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.")
      */
     declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
      */
-    declare public readonly folder: pulumi.Output<outputs.datafactory.PipelineResponseFolder | undefined>;
+    declare public readonly folder: pulumi.Output<outputs.datafactory.PipelineFolderResponse | undefined>;
     /**
-     * The resource name.
+     * The name of the resource
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
@@ -82,9 +82,13 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * Dimensions emitted by Pipeline.
      */
-    declare public readonly runDimensions: pulumi.Output<{[key: string]: any} | undefined>;
+    declare public readonly runDimensions: pulumi.Output<any | undefined>;
     /**
-     * The resource type.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.datafactory.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
@@ -124,6 +128,7 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["activities"] = undefined /*out*/;
@@ -137,6 +142,7 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["parameters"] = undefined /*out*/;
             resourceInputs["policy"] = undefined /*out*/;
             resourceInputs["runDimensions"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["variables"] = undefined /*out*/;
         }
@@ -188,13 +194,13 @@ export interface PipelineArgs {
      */
     policy?: pulumi.Input<inputs.datafactory.PipelinePolicyArgs>;
     /**
-     * The resource group name.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
      * Dimensions emitted by Pipeline.
      */
-    runDimensions?: pulumi.Input<{[key: string]: any}>;
+    runDimensions?: any;
     /**
      * List of variables for pipeline.
      */

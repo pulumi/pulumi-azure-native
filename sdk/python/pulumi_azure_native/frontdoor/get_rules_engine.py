@@ -117,13 +117,13 @@ def get_rules_engine(front_door_name: Optional[_builtins.str] = None,
     """
     Gets a Rules Engine Configuration with the specified name within the specified Front Door.
 
-    Uses Azure REST API version 2021-06-01.
+    Uses Azure REST API version 2025-11-01.
 
-    Other available API versions: 2020-01-01, 2020-04-01, 2020-05-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2020-01-01, 2020-04-01, 2020-05-01, 2021-06-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str front_door_name: Name of the Front Door which is globally unique.
-    :param _builtins.str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str rules_engine_name: Name of the Rules Engine which is unique within the Front Door.
     """
     __args__ = dict()
@@ -147,13 +147,13 @@ def get_rules_engine_output(front_door_name: Optional[pulumi.Input[_builtins.str
     """
     Gets a Rules Engine Configuration with the specified name within the specified Front Door.
 
-    Uses Azure REST API version 2021-06-01.
+    Uses Azure REST API version 2025-11-01.
 
-    Other available API versions: 2020-01-01, 2020-04-01, 2020-05-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2020-01-01, 2020-04-01, 2020-05-01, 2021-06-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str front_door_name: Name of the Front Door which is globally unique.
-    :param _builtins.str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str rules_engine_name: Name of the Rules Engine which is unique within the Front Door.
     """
     __args__ = dict()

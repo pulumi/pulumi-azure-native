@@ -27,7 +27,7 @@ class GetJobScheduleResult:
     """
     Definition of the job schedule.
     """
-    def __init__(__self__, azure_api_version=None, id=None, job_schedule_id=None, name=None, parameters=None, run_on=None, runbook=None, schedule=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, job_schedule_id=None, name=None, parameters=None, run_on=None, runbook=None, schedule=None, system_data=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -52,6 +52,9 @@ class GetJobScheduleResult:
         if schedule and not isinstance(schedule, dict):
             raise TypeError("Expected argument 'schedule' to be a dict")
         pulumi.set(__self__, "schedule", schedule)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -68,7 +71,7 @@ class GetJobScheduleResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Gets the id of the resource.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -84,7 +87,7 @@ class GetJobScheduleResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Gets the name of the variable.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -121,10 +124,18 @@ class GetJobScheduleResult:
         return pulumi.get(self, "schedule")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -143,6 +154,7 @@ class AwaitableGetJobScheduleResult(GetJobScheduleResult):
             run_on=self.run_on,
             runbook=self.runbook,
             schedule=self.schedule,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -160,7 +172,7 @@ def get_job_schedule(automation_account_name: Optional[_builtins.str] = None,
 
     :param _builtins.str automation_account_name: The name of the automation account.
     :param _builtins.str job_schedule_id: The job schedule name.
-    :param _builtins.str resource_group_name: Name of an Azure Resource group.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
@@ -178,6 +190,7 @@ def get_job_schedule(automation_account_name: Optional[_builtins.str] = None,
         run_on=pulumi.get(__ret__, 'run_on'),
         runbook=pulumi.get(__ret__, 'runbook'),
         schedule=pulumi.get(__ret__, 'schedule'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_job_schedule_output(automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
                             job_schedule_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -193,7 +206,7 @@ def get_job_schedule_output(automation_account_name: Optional[pulumi.Input[_buil
 
     :param _builtins.str automation_account_name: The name of the automation account.
     :param _builtins.str job_schedule_id: The job schedule name.
-    :param _builtins.str resource_group_name: Name of an Azure Resource group.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
@@ -210,4 +223,5 @@ def get_job_schedule_output(automation_account_name: Optional[pulumi.Input[_buil
         run_on=pulumi.get(__response__, 'run_on'),
         runbook=pulumi.get(__response__, 'runbook'),
         schedule=pulumi.get(__response__, 'schedule'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

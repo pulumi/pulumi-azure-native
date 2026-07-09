@@ -123,7 +123,7 @@ class EncryptionScope(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
-        Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview, 2025-12-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-05-01, 2026-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -145,7 +145,7 @@ class EncryptionScope(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
-        Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview, 2025-12-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-05-01, 2026-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -191,7 +191,7 @@ class EncryptionScope(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cognitiveservices/v20231001preview:EncryptionScope"), pulumi.Alias(type_="azure-native:cognitiveservices/v20240401preview:EncryptionScope"), pulumi.Alias(type_="azure-native:cognitiveservices/v20240601preview:EncryptionScope"), pulumi.Alias(type_="azure-native:cognitiveservices/v20241001:EncryptionScope"), pulumi.Alias(type_="azure-native:cognitiveservices/v20250401preview:EncryptionScope"), pulumi.Alias(type_="azure-native:cognitiveservices/v20250601:EncryptionScope"), pulumi.Alias(type_="azure-native:cognitiveservices/v20250701preview:EncryptionScope"), pulumi.Alias(type_="azure-native:cognitiveservices/v20250901:EncryptionScope"), pulumi.Alias(type_="azure-native:cognitiveservices/v20251001preview:EncryptionScope")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cognitiveservices/v20231001preview:EncryptionScope"), pulumi.Alias(type_="azure-native:cognitiveservices/v20240401preview:EncryptionScope"), pulumi.Alias(type_="azure-native:cognitiveservices/v20240601preview:EncryptionScope"), pulumi.Alias(type_="azure-native:cognitiveservices/v20241001:EncryptionScope"), pulumi.Alias(type_="azure-native:cognitiveservices/v20250401preview:EncryptionScope"), pulumi.Alias(type_="azure-native:cognitiveservices/v20250601:EncryptionScope"), pulumi.Alias(type_="azure-native:cognitiveservices/v20250701preview:EncryptionScope"), pulumi.Alias(type_="azure-native:cognitiveservices/v20250901:EncryptionScope"), pulumi.Alias(type_="azure-native:cognitiveservices/v20251001preview:EncryptionScope"), pulumi.Alias(type_="azure-native:cognitiveservices/v20251201:EncryptionScope"), pulumi.Alias(type_="azure-native:cognitiveservices/v20260115preview:EncryptionScope"), pulumi.Alias(type_="azure-native:cognitiveservices/v20260301:EncryptionScope"), pulumi.Alias(type_="azure-native:cognitiveservices/v20260315preview:EncryptionScope"), pulumi.Alias(type_="azure-native:cognitiveservices/v20260501:EncryptionScope"), pulumi.Alias(type_="azure-native:cognitiveservices/v20260515preview:EncryptionScope")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EncryptionScope, __self__).__init__(
             'azure-native:cognitiveservices:EncryptionScope',

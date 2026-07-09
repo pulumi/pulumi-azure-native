@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         /// </summary>
-        public readonly Outputs.DatasetResponseFolder? Folder;
+        public readonly Outputs.DatasetFolderResponse? Folder;
         /// <summary>
         /// The zero-based index of the table in the web page. Type: integer (or Expression with resultType integer), minimum: 0.
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string? description,
 
-            Outputs.DatasetResponseFolder? folder,
+            Outputs.DatasetFolderResponse? folder,
 
             object index,
 

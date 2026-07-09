@@ -19,11 +19,11 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// <summary>
         /// The ARC autoprovisioning configuration
         /// </summary>
-        public readonly Outputs.DefenderForServersGcpOfferingResponseArcAutoProvisioning? ArcAutoProvisioning;
+        public readonly Outputs.DefenderForServersGcpOfferingArcAutoProvisioningResponse? ArcAutoProvisioning;
         /// <summary>
         /// The Defender for servers connection configuration
         /// </summary>
-        public readonly Outputs.DefenderForServersGcpOfferingResponseDefenderForServers? DefenderForServers;
+        public readonly Outputs.DefenderForServersGcpOfferingDefenderForServersResponse? DefenderForServers;
         /// <summary>
         /// The offering description.
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// <summary>
         /// The Microsoft Defender for Endpoint autoprovisioning configuration
         /// </summary>
-        public readonly Outputs.DefenderForServersGcpOfferingResponseMdeAutoProvisioning? MdeAutoProvisioning;
+        public readonly Outputs.DefenderForServersGcpOfferingMdeAutoProvisioningResponse? MdeAutoProvisioning;
         /// <summary>
         /// The type of the security offering.
         /// Expected value is 'DefenderForServersGcp'.
@@ -40,33 +40,33 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// <summary>
         /// configuration for the servers offering subPlan
         /// </summary>
-        public readonly Outputs.DefenderForServersGcpOfferingResponseSubPlan? SubPlan;
+        public readonly Outputs.DefenderForServersGcpOfferingSubPlanResponse? SubPlan;
         /// <summary>
         /// The Vulnerability Assessment autoprovisioning configuration
         /// </summary>
-        public readonly Outputs.DefenderForServersGcpOfferingResponseVaAutoProvisioning? VaAutoProvisioning;
+        public readonly Outputs.DefenderForServersGcpOfferingVaAutoProvisioningResponse? VaAutoProvisioning;
         /// <summary>
         /// The Microsoft Defender for Server VM scanning configuration
         /// </summary>
-        public readonly Outputs.DefenderForServersGcpOfferingResponseVmScanners? VmScanners;
+        public readonly Outputs.DefenderForServersGcpOfferingVmScannersResponse? VmScanners;
 
         [OutputConstructor]
         private DefenderForServersGcpOfferingResponse(
-            Outputs.DefenderForServersGcpOfferingResponseArcAutoProvisioning? arcAutoProvisioning,
+            Outputs.DefenderForServersGcpOfferingArcAutoProvisioningResponse? arcAutoProvisioning,
 
-            Outputs.DefenderForServersGcpOfferingResponseDefenderForServers? defenderForServers,
+            Outputs.DefenderForServersGcpOfferingDefenderForServersResponse? defenderForServers,
 
             string description,
 
-            Outputs.DefenderForServersGcpOfferingResponseMdeAutoProvisioning? mdeAutoProvisioning,
+            Outputs.DefenderForServersGcpOfferingMdeAutoProvisioningResponse? mdeAutoProvisioning,
 
             string offeringType,
 
-            Outputs.DefenderForServersGcpOfferingResponseSubPlan? subPlan,
+            Outputs.DefenderForServersGcpOfferingSubPlanResponse? subPlan,
 
-            Outputs.DefenderForServersGcpOfferingResponseVaAutoProvisioning? vaAutoProvisioning,
+            Outputs.DefenderForServersGcpOfferingVaAutoProvisioningResponse? vaAutoProvisioning,
 
-            Outputs.DefenderForServersGcpOfferingResponseVmScanners? vmScanners)
+            Outputs.DefenderForServersGcpOfferingVmScannersResponse? vmScanners)
         {
             ArcAutoProvisioning = arcAutoProvisioning;
             DefenderForServers = defenderForServers;

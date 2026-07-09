@@ -120,9 +120,9 @@ export const ManagedIdentityType = {
      */
     SystemAssigned: "SystemAssigned",
     /**
-     * UserAssigned
+     * Both SystemAssigned and UserAssigned identities.
      */
-    UserAssigned: "UserAssigned",
+    SystemAssignedUserAssigned: "SystemAssigned,UserAssigned",
 } as const;
 
 /**

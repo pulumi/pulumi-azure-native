@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * ServiceGateway resource.
  *
  * Uses Azure REST API version 2025-05-01.
+ *
+ * Other available API versions: 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ServiceGateway extends pulumi.CustomResource {
     /**
@@ -90,9 +92,9 @@ export class ServiceGateway extends pulumi.CustomResource {
     /**
      * Reference to an existing virtual network.
      */
-    declare public readonly virtualNetwork: pulumi.Output<outputs.network.VirtualNetworkResponse | undefined>;
+    declare public readonly virtualNetwork: pulumi.Output<outputs.network.CommonVirtualNetworkResponse | undefined>;
     /**
-     * A list of availability zones denoting the zone in which service gateway should be deployed. 
+     * A list of availability zones denoting the zone in which service gateway should be deployed.
      *
      * - The zone values must be provided as strings representing numeric identifiers like "1", "2", "3" etc.
      */
@@ -119,7 +121,7 @@ export class ServiceGateway extends pulumi.CustomResource {
             resourceInputs["serviceGatewayName"] = args?.serviceGatewayName;
             resourceInputs["sku"] = args?.sku;
             resourceInputs["tags"] = args?.tags;
-            resourceInputs["virtualNetwork"] = args ? (args.virtualNetwork ? pulumi.output(args.virtualNetwork).apply(inputs.network.virtualNetworkArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["virtualNetwork"] = args ? (args.virtualNetwork ? pulumi.output(args.virtualNetwork).apply(inputs.network.commonVirtualNetworkArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["zones"] = args?.zones;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
@@ -145,7 +147,7 @@ export class ServiceGateway extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20250501:ServiceGateway" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20250501:ServiceGateway" }, { type: "azure-native:network/v20250701:ServiceGateway" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServiceGateway.__pulumiType, name, resourceInputs, opts);
     }
@@ -186,9 +188,9 @@ export interface ServiceGatewayArgs {
     /**
      * Reference to an existing virtual network.
      */
-    virtualNetwork?: pulumi.Input<inputs.network.VirtualNetworkArgs>;
+    virtualNetwork?: pulumi.Input<inputs.network.CommonVirtualNetworkArgs>;
     /**
-     * A list of availability zones denoting the zone in which service gateway should be deployed. 
+     * A list of availability zones denoting the zone in which service gateway should be deployed.
      *
      * - The zone values must be provided as strings representing numeric identifiers like "1", "2", "3" etc.
      */

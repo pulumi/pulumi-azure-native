@@ -30,7 +30,7 @@ class HybridRunbookWorkerArgs:
 
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
         :param pulumi.Input[_builtins.str] hybrid_runbook_worker_group_name: The hybrid runbook worker group name
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] hybrid_runbook_worker_id: The hybrid runbook worker id
         :param pulumi.Input[_builtins.str] vm_resource_id: Azure Resource Manager Id for a virtual machine.
         """
@@ -70,7 +70,7 @@ class HybridRunbookWorkerArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of an Azure Resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -128,7 +128,7 @@ class HybridRunbookWorker(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
         :param pulumi.Input[_builtins.str] hybrid_runbook_worker_group_name: The hybrid runbook worker group name
         :param pulumi.Input[_builtins.str] hybrid_runbook_worker_id: The hybrid runbook worker id
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] vm_resource_id: Azure Resource Manager Id for a virtual machine.
         """
         ...

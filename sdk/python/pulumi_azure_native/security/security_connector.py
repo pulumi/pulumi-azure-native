@@ -34,15 +34,15 @@ class SecurityConnectorArgs:
         """
         The set of arguments for constructing a SecurityConnector resource.
 
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['AwsEnvironmentDataArgs', 'AzureDevOpsScopeEnvironmentDataArgs', 'DockerHubEnvironmentDataArgs', 'GcpProjectEnvironmentDataArgs', 'GithubScopeEnvironmentDataArgs', 'GitlabScopeEnvironmentDataArgs', 'JFrogEnvironmentDataArgs']] environment_data: The security connector environment data.
         :param pulumi.Input[Union[_builtins.str, 'CloudName']] environment_name: The multi cloud resource's cloud name.
         :param pulumi.Input[_builtins.str] hierarchy_identifier: The multi cloud resource identifier (account id in case of AWS connector, project number in case of GCP connector).
         :param pulumi.Input[_builtins.str] kind: Kind of the resource
-        :param pulumi.Input[_builtins.str] location: Location where the resource is stored
+        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Sequence[pulumi.Input[Union['CspmMonitorAwsOfferingArgs', 'CspmMonitorAzureDevOpsOfferingArgs', 'CspmMonitorDockerHubOfferingArgs', 'CspmMonitorGcpOfferingArgs', 'CspmMonitorGitLabOfferingArgs', 'CspmMonitorGithubOfferingArgs', 'CspmMonitorJFrogOfferingArgs', 'DefenderCspmAwsOfferingArgs', 'DefenderCspmDockerHubOfferingArgs', 'DefenderCspmGcpOfferingArgs', 'DefenderCspmJFrogOfferingArgs', 'DefenderFoDatabasesAwsOfferingArgs', 'DefenderForContainersAwsOfferingArgs', 'DefenderForContainersDockerHubOfferingArgs', 'DefenderForContainersGcpOfferingArgs', 'DefenderForContainersJFrogOfferingArgs', 'DefenderForDatabasesGcpOfferingArgs', 'DefenderForServersAwsOfferingArgs', 'DefenderForServersGcpOfferingArgs']]]] offerings: A collection of offerings for the security connector.
         :param pulumi.Input[_builtins.str] security_connector_name: The security connector name.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A list of key value pairs that describe the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if environment_data is not None:
@@ -66,7 +66,7 @@ class SecurityConnectorArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the resource group within the user's subscription. The name is case insensitive.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -126,7 +126,7 @@ class SecurityConnectorArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Location where the resource is stored
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -162,7 +162,7 @@ class SecurityConnectorArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A list of key value pairs that describe the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -201,11 +201,11 @@ class SecurityConnector(pulumi.CustomResource):
         :param pulumi.Input[Union[_builtins.str, 'CloudName']] environment_name: The multi cloud resource's cloud name.
         :param pulumi.Input[_builtins.str] hierarchy_identifier: The multi cloud resource identifier (account id in case of AWS connector, project number in case of GCP connector).
         :param pulumi.Input[_builtins.str] kind: Kind of the resource
-        :param pulumi.Input[_builtins.str] location: Location where the resource is stored
+        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Sequence[pulumi.Input[Union[Union['CspmMonitorAwsOfferingArgs', 'CspmMonitorAwsOfferingArgsDict'], Union['CspmMonitorAzureDevOpsOfferingArgs', 'CspmMonitorAzureDevOpsOfferingArgsDict'], Union['CspmMonitorDockerHubOfferingArgs', 'CspmMonitorDockerHubOfferingArgsDict'], Union['CspmMonitorGcpOfferingArgs', 'CspmMonitorGcpOfferingArgsDict'], Union['CspmMonitorGitLabOfferingArgs', 'CspmMonitorGitLabOfferingArgsDict'], Union['CspmMonitorGithubOfferingArgs', 'CspmMonitorGithubOfferingArgsDict'], Union['CspmMonitorJFrogOfferingArgs', 'CspmMonitorJFrogOfferingArgsDict'], Union['DefenderCspmAwsOfferingArgs', 'DefenderCspmAwsOfferingArgsDict'], Union['DefenderCspmDockerHubOfferingArgs', 'DefenderCspmDockerHubOfferingArgsDict'], Union['DefenderCspmGcpOfferingArgs', 'DefenderCspmGcpOfferingArgsDict'], Union['DefenderCspmJFrogOfferingArgs', 'DefenderCspmJFrogOfferingArgsDict'], Union['DefenderFoDatabasesAwsOfferingArgs', 'DefenderFoDatabasesAwsOfferingArgsDict'], Union['DefenderForContainersAwsOfferingArgs', 'DefenderForContainersAwsOfferingArgsDict'], Union['DefenderForContainersDockerHubOfferingArgs', 'DefenderForContainersDockerHubOfferingArgsDict'], Union['DefenderForContainersGcpOfferingArgs', 'DefenderForContainersGcpOfferingArgsDict'], Union['DefenderForContainersJFrogOfferingArgs', 'DefenderForContainersJFrogOfferingArgsDict'], Union['DefenderForDatabasesGcpOfferingArgs', 'DefenderForDatabasesGcpOfferingArgsDict'], Union['DefenderForServersAwsOfferingArgs', 'DefenderForServersAwsOfferingArgsDict'], Union['DefenderForServersGcpOfferingArgs', 'DefenderForServersGcpOfferingArgsDict']]]]] offerings: A collection of offerings for the security connector.
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] security_connector_name: The security connector name.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A list of key value pairs that describe the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         ...
     @overload
@@ -370,7 +370,7 @@ class SecurityConnector(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Location where the resource is stored
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -378,7 +378,7 @@ class SecurityConnector(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -402,7 +402,7 @@ class SecurityConnector(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A list of key value pairs that describe the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -410,7 +410,7 @@ class SecurityConnector(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

@@ -39,15 +39,15 @@ class GetIntegrationRuntimeObjectMetadatumResult:
     @pulumi.getter(name="nextLink")
     def next_link(self) -> Optional[_builtins.str]:
         """
-        The link to the next page of results, if any remaining results exist.
+        The link to the next page of items
         """
         return pulumi.get(self, "next_link")
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[Sequence[Any]]:
+    def value(self) -> Sequence[Any]:
         """
-        List of SSIS object metadata.
+        The SsisObjectMetadata items on this page
         """
         return pulumi.get(self, "value")
 
@@ -76,7 +76,7 @@ def get_integration_runtime_object_metadatum(factory_name: Optional[_builtins.st
     :param _builtins.str factory_name: The factory name.
     :param _builtins.str integration_runtime_name: The integration runtime name.
     :param _builtins.str metadata_path: Metadata path.
-    :param _builtins.str resource_group_name: The resource group name.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['factoryName'] = factory_name
@@ -103,7 +103,7 @@ def get_integration_runtime_object_metadatum_output(factory_name: Optional[pulum
     :param _builtins.str factory_name: The factory name.
     :param _builtins.str integration_runtime_name: The integration runtime name.
     :param _builtins.str metadata_path: Metadata path.
-    :param _builtins.str resource_group_name: The resource group name.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['factoryName'] = factory_name

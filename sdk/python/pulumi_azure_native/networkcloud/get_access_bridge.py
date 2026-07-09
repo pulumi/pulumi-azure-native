@@ -24,6 +24,9 @@ __all__ = [
 
 @pulumi.output_type
 class GetAccessBridgeResult:
+    """
+    AccessBridge represents a managed access bridge resource.
+    """
     def __init__(__self__, azure_api_version=None, detailed_status=None, detailed_status_message=None, endpoints=None, etag=None, extended_location=None, id=None, ipv4_connected_prefix=None, ipv6_connected_prefix=None, location=None, name=None, network_id=None, protocol=None, provisioning_state=None, security_rules=None, system_data=None, tags=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
@@ -116,15 +119,15 @@ class GetAccessBridgeResult:
     @pulumi.getter
     def etag(self) -> _builtins.str:
         """
-        Resource ETag.
+        "If etag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.")
         """
         return pulumi.get(self, "etag")
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> 'outputs.ExtendedLocationResponse':
+    def extended_location(self) -> 'outputs.AzureResourceManagerCommonTypesExtendedLocationResponse':
         """
-        The extended location of the cluster associated with the resource.
+        The extended location of the resource. This property is required when creating the resource.
         """
         return pulumi.get(self, "extended_location")
 
@@ -259,6 +262,8 @@ def get_access_bridge(access_bridge_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2026-01-01-preview.
 
+    Other available API versions: 2026-05-01-preview, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param _builtins.str access_bridge_name: The name of the access bridge.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -295,6 +300,8 @@ def get_access_bridge_output(access_bridge_name: Optional[pulumi.Input[_builtins
     Get the properties of the provided access bridge.
 
     Uses Azure REST API version 2026-01-01-preview.
+
+    Other available API versions: 2026-05-01-preview, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str access_bridge_name: The name of the access bridge.

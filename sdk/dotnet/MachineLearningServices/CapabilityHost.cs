@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// 
     /// Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2024-10-01-preview.
     /// 
-    /// Other available API versions: 2024-10-01-preview, 2025-01-01-preview, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2024-10-01-preview, 2025-01-01-preview, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:CapabilityHost")]
     public partial class CapabilityHost : global::Pulumi.CustomResource
@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250901:CapabilityHost" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20251001preview:CapabilityHost" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20251201:CapabilityHost" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20260115preview:CapabilityHost" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20260301:CapabilityHost" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20260315preview:CapabilityHost" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20260501:CapabilityHost" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

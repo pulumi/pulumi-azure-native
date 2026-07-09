@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.ContainerInstance.Outputs
     public sealed class ContainerGroupProfileStubResponse
     {
         /// <summary>
-        ///  Container Group properties which can be set while creating or updating the NGroups.
+        /// Container Group properties which can be set while creating or updating the NGroups.
         /// </summary>
         public readonly Outputs.NGroupContainerGroupPropertiesResponse? ContainerGroupProperties;
         /// <summary>

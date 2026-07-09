@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.DBforMySQL
     /// Server backup properties
     /// 
     /// Uses Azure REST API version 2025-06-01-preview.
+    /// 
+    /// Other available API versions: 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql:LongRunningBackup")]
     public partial class LongRunningBackup : global::Pulumi.CustomResource
@@ -94,6 +96,7 @@ namespace Pulumi.AzureNative.DBforMySQL
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20250601preview:LongRunningBackup" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20251201preview:LongRunningBackup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

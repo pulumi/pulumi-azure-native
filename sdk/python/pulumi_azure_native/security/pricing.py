@@ -32,7 +32,7 @@ class PricingArgs:
         The set of arguments for constructing a Pricing resource.
 
         :param pulumi.Input[Union[_builtins.str, 'PricingTier']] pricing_tier: Indicates whether the Defender plan is enabled on the selected scope. Microsoft Defender for Cloud is provided in two pricing tiers: free and standard. The standard tier offers advanced security capabilities, while the free tier offers basic security features.
-        :param pulumi.Input[_builtins.str] scope_id: The scope id of the pricing. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or a specific resource (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}) - Supported resources are (VirtualMachines)
+        :param pulumi.Input[_builtins.str] scope_id: The fully qualified Azure Resource manager identifier of the resource.
         :param pulumi.Input[Union[_builtins.str, 'Enforce']] enforce: If set to "False", it allows the descendants of this scope to override the pricing configuration set on this scope (allows setting inherited="False"). If set to "True", it prevents overrides and forces this pricing configuration on all the descendants of this scope. This field is only available for subscription-level pricing.
         :param pulumi.Input[Sequence[pulumi.Input['ExtensionArgs']]] extensions: Optional. List of extensions offered under a plan.
         :param pulumi.Input[_builtins.str] pricing_name: name of the pricing configuration
@@ -65,7 +65,7 @@ class PricingArgs:
     @pulumi.getter(name="scopeId")
     def scope_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The scope id of the pricing. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or a specific resource (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}) - Supported resources are (VirtualMachines)
+        The fully qualified Azure Resource manager identifier of the resource.
         """
         return pulumi.get(self, "scope_id")
 
@@ -140,6 +140,8 @@ class Pricing(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2024-01-01.
 
+        Other available API versions: 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -147,7 +149,7 @@ class Pricing(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['ExtensionArgs', 'ExtensionArgsDict']]]] extensions: Optional. List of extensions offered under a plan.
         :param pulumi.Input[_builtins.str] pricing_name: name of the pricing configuration
         :param pulumi.Input[Union[_builtins.str, 'PricingTier']] pricing_tier: Indicates whether the Defender plan is enabled on the selected scope. Microsoft Defender for Cloud is provided in two pricing tiers: free and standard. The standard tier offers advanced security capabilities, while the free tier offers basic security features.
-        :param pulumi.Input[_builtins.str] scope_id: The scope id of the pricing. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or a specific resource (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}) - Supported resources are (VirtualMachines)
+        :param pulumi.Input[_builtins.str] scope_id: The fully qualified Azure Resource manager identifier of the resource.
         :param pulumi.Input[_builtins.str] sub_plan: The sub-plan selected for a Standard pricing configuration, when more than one sub-plan is available. Each sub-plan enables a set of security features. When not specified, full plan is applied. For VirtualMachines plan, available sub plans are 'P1' & 'P2', where for resource level only 'P1' sub plan is supported.
         """
         ...
@@ -160,6 +162,8 @@ class Pricing(pulumi.CustomResource):
         Microsoft Defender for Cloud is provided in two pricing tiers: free and standard. The standard tier offers advanced security capabilities, while the free tier offers basic security features.
 
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2024-01-01.
+
+        Other available API versions: 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -211,8 +215,9 @@ class Pricing(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["replaced_by"] = None
             __props__.__dict__["resources_coverage_status"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20240101:Pricing")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20240101:Pricing"), pulumi.Alias(type_="azure-native:security/v20251001preview:Pricing")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Pricing, __self__).__init__(
             'azure-native:security:Pricing',
@@ -249,6 +254,7 @@ class Pricing(pulumi.CustomResource):
         __props__.__dict__["replaced_by"] = None
         __props__.__dict__["resources_coverage_status"] = None
         __props__.__dict__["sub_plan"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return Pricing(resource_name, opts=opts, __props__=__props__)
 
@@ -320,7 +326,7 @@ class Pricing(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -357,10 +363,18 @@ class Pricing(pulumi.CustomResource):
         return pulumi.get(self, "sub_plan")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

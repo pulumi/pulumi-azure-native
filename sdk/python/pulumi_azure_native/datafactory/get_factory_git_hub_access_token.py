@@ -68,7 +68,7 @@ def get_factory_git_hub_access_token(factory_name: Optional[_builtins.str] = Non
     :param _builtins.str git_hub_access_token_base_url: GitHub access token base URL.
     :param _builtins.str git_hub_client_id: GitHub application client ID.
     :param Union['GitHubClientSecret', 'GitHubClientSecretDict'] git_hub_client_secret: GitHub bring your own app client secret information.
-    :param _builtins.str resource_group_name: The resource group name.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['factoryName'] = factory_name
@@ -100,7 +100,7 @@ def get_factory_git_hub_access_token_output(factory_name: Optional[pulumi.Input[
     :param _builtins.str git_hub_access_token_base_url: GitHub access token base URL.
     :param _builtins.str git_hub_client_id: GitHub application client ID.
     :param Union['GitHubClientSecret', 'GitHubClientSecretDict'] git_hub_client_secret: GitHub bring your own app client secret information.
-    :param _builtins.str resource_group_name: The resource group name.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['factoryName'] = factory_name

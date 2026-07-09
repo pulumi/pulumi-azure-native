@@ -311,7 +311,7 @@ export const MinimumTlsVersion = {
 } as const;
 
 /**
- * Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
+ * Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property. Minimum TLS version 1.3 version is not supported.
  */
 export type MinimumTlsVersion = (typeof MinimumTlsVersion)[keyof typeof MinimumTlsVersion];
 
@@ -504,6 +504,87 @@ export const State = {
  * Gets the state of virtual network rule.
  */
 export type State = (typeof State)[keyof typeof State];
+
+export const StorageConnectorAuthType = {
+    /**
+     * Managed Identity auth type
+     */
+    ManagedIdentity: "ManagedIdentity",
+} as const;
+
+/**
+ * Type of the authentication properties. Controls the type of the authProperties object
+ */
+export type StorageConnectorAuthType = (typeof StorageConnectorAuthType)[keyof typeof StorageConnectorAuthType];
+
+export const StorageConnectorConnectionType = {
+    /**
+     * DataShare connection type
+     */
+    DataShare: "DataShare",
+} as const;
+
+/**
+ * Type of the connection. Controls the type of the connection object. Not mutable once the Storage Connector is created.
+ */
+export type StorageConnectorConnectionType = (typeof StorageConnectorConnectionType)[keyof typeof StorageConnectorConnectionType];
+
+export const StorageConnectorDataSourceType = {
+    /**
+     * Azure DataShare data source type.
+     */
+    Azure_DataShare: "Azure_DataShare",
+} as const;
+
+/**
+ * The type of backing data source for this Storage Connector.
+ */
+export type StorageConnectorDataSourceType = (typeof StorageConnectorDataSourceType)[keyof typeof StorageConnectorDataSourceType];
+
+export const StorageConnectorSourceType = {
+    /**
+     * Source type - DataShare
+     */
+    DataShare: "DataShare",
+} as const;
+
+/**
+ * Type of the Storage Connector. Not mutable once the Storage Connector is created."
+ */
+export type StorageConnectorSourceType = (typeof StorageConnectorSourceType)[keyof typeof StorageConnectorSourceType];
+
+export const StorageConnectorState = {
+    /**
+     * Whether the connector is active
+     */
+    Active: "Active",
+    /**
+     * Whether the connector is inactive
+     */
+    Inactive: "Inactive",
+} as const;
+
+/**
+ * State - Active or Inactive. Whether or not the Storage Connector should start as active (default: Active)
+ * (While set to false on the Storage Connector, all data plane requests using this Storage Connector fail, and this Storage Connector is not billed if it would be otherwise.
+ */
+export type StorageConnectorState = (typeof StorageConnectorState)[keyof typeof StorageConnectorState];
+
+export const StorageDataShareAccessPolicyPermission = {
+    /**
+     * No permission
+     */
+    None: "None",
+    /**
+     * Read permission
+     */
+    Read: "Read",
+} as const;
+
+/**
+ * Allowed permissions. Currently, only supported value is Read.
+ */
+export type StorageDataShareAccessPolicyPermission = (typeof StorageDataShareAccessPolicyPermission)[keyof typeof StorageDataShareAccessPolicyPermission];
 
 export const TriggerType = {
     RunOnce: "RunOnce",

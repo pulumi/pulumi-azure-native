@@ -26,17 +26,17 @@ class VirtualNetworkApplianceArgs:
                  bandwidth_in_gbps: Optional[pulumi.Input[_builtins.str]] = None,
                  id: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet: Optional[pulumi.Input['SubnetArgs']] = None,
+                 subnet: Optional[pulumi.Input['CommonSubnetArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual_network_appliance_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualNetworkAppliance resource.
 
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] bandwidth_in_gbps: Bandwidth of the VirtualNetworkAppliance resource in Gbps.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] location: Resource location.
-        :param pulumi.Input['SubnetArgs'] subnet: The reference to the subnet resource.
+        :param pulumi.Input['CommonSubnetArgs'] subnet: The reference to the subnet resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] virtual_network_appliance_name: The name of the virtual network appliance.
         """
@@ -58,7 +58,7 @@ class VirtualNetworkApplianceArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -104,14 +104,14 @@ class VirtualNetworkApplianceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def subnet(self) -> Optional[pulumi.Input['SubnetArgs']]:
+    def subnet(self) -> Optional[pulumi.Input['CommonSubnetArgs']]:
         """
         The reference to the subnet resource.
         """
         return pulumi.get(self, "subnet")
 
     @subnet.setter
-    def subnet(self, value: Optional[pulumi.Input['SubnetArgs']]):
+    def subnet(self, value: Optional[pulumi.Input['CommonSubnetArgs']]):
         pulumi.set(self, "subnet", value)
 
     @_builtins.property
@@ -149,7 +149,7 @@ class VirtualNetworkAppliance(pulumi.CustomResource):
                  id: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet: Optional[pulumi.Input[Union['SubnetArgs', 'SubnetArgsDict']]] = None,
+                 subnet: Optional[pulumi.Input[Union['CommonSubnetArgs', 'CommonSubnetArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual_network_appliance_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -158,14 +158,16 @@ class VirtualNetworkAppliance(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-05-01.
 
+        Other available API versions: 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bandwidth_in_gbps: Bandwidth of the VirtualNetworkAppliance resource in Gbps.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] location: Resource location.
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[Union['SubnetArgs', 'SubnetArgsDict']] subnet: The reference to the subnet resource.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[Union['CommonSubnetArgs', 'CommonSubnetArgsDict']] subnet: The reference to the subnet resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] virtual_network_appliance_name: The name of the virtual network appliance.
         """
@@ -179,6 +181,8 @@ class VirtualNetworkAppliance(pulumi.CustomResource):
         A virtual network appliance in a resource group.
 
         Uses Azure REST API version 2025-05-01.
+
+        Other available API versions: 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -200,7 +204,7 @@ class VirtualNetworkAppliance(pulumi.CustomResource):
                  id: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet: Optional[pulumi.Input[Union['SubnetArgs', 'SubnetArgsDict']]] = None,
+                 subnet: Optional[pulumi.Input[Union['CommonSubnetArgs', 'CommonSubnetArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual_network_appliance_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -228,7 +232,7 @@ class VirtualNetworkAppliance(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["resource_guid"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20250501:VirtualNetworkAppliance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20250501:VirtualNetworkAppliance"), pulumi.Alias(type_="azure-native:network/v20250701:VirtualNetworkAppliance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualNetworkAppliance, __self__).__init__(
             'azure-native:network:VirtualNetworkAppliance',
@@ -331,7 +335,7 @@ class VirtualNetworkAppliance(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def subnet(self) -> pulumi.Output[Optional['outputs.SubnetResponseV3']]:
+    def subnet(self) -> pulumi.Output[Optional['outputs.CommonSubnetResponse']]:
         """
         The reference to the subnet resource.
         """

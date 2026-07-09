@@ -2395,10 +2395,10 @@ class OfferDetailResponse(dict):
                  plan_id: _builtins.str,
                  plan_name: _builtins.str,
                  publisher_id: _builtins.str,
+                 status: _builtins.str,
                  term_unit: _builtins.str,
                  private_offer_id: Optional[_builtins.str] = None,
                  private_offer_ids: Optional[Sequence[_builtins.str]] = None,
-                 status: Optional[_builtins.str] = None,
                  term_id: Optional[_builtins.str] = None):
         """
         Confluent Offer detail
@@ -2407,23 +2407,22 @@ class OfferDetailResponse(dict):
         :param _builtins.str plan_id: Offer Plan Id
         :param _builtins.str plan_name: Offer Plan Name
         :param _builtins.str publisher_id: Publisher Id
+        :param _builtins.str status: SaaS Offer Status
         :param _builtins.str term_unit: Offer Plan Term unit
         :param _builtins.str private_offer_id: Private Offer Id
         :param Sequence[_builtins.str] private_offer_ids: Array of Private Offer Ids
-        :param _builtins.str status: SaaS Offer Status
         :param _builtins.str term_id: Offer Plan Term Id
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "plan_id", plan_id)
         pulumi.set(__self__, "plan_name", plan_name)
         pulumi.set(__self__, "publisher_id", publisher_id)
+        pulumi.set(__self__, "status", status)
         pulumi.set(__self__, "term_unit", term_unit)
         if private_offer_id is not None:
             pulumi.set(__self__, "private_offer_id", private_offer_id)
         if private_offer_ids is not None:
             pulumi.set(__self__, "private_offer_ids", private_offer_ids)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
         if term_id is not None:
             pulumi.set(__self__, "term_id", term_id)
 
@@ -2460,6 +2459,14 @@ class OfferDetailResponse(dict):
         return pulumi.get(self, "publisher_id")
 
     @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        SaaS Offer Status
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
     @pulumi.getter(name="termUnit")
     def term_unit(self) -> _builtins.str:
         """
@@ -2482,14 +2489,6 @@ class OfferDetailResponse(dict):
         Array of Private Offer Ids
         """
         return pulumi.get(self, "private_offer_ids")
-
-    @_builtins.property
-    @pulumi.getter
-    def status(self) -> Optional[_builtins.str]:
-        """
-        SaaS Offer Status
-        """
-        return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="termId")

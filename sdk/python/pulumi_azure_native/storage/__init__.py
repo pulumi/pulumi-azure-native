@@ -13,6 +13,8 @@ from .blob_container_immutability_policy import *
 from .blob_container_legal_hold import *
 from .blob_inventory_policy import *
 from .blob_service_properties import *
+from .connector import *
+from .data_share import *
 from .encryption_scope import *
 from .file_service_properties import *
 from .file_share import *
@@ -20,6 +22,8 @@ from .get_blob_container import *
 from .get_blob_container_immutability_policy import *
 from .get_blob_inventory_policy import *
 from .get_blob_service_properties import *
+from .get_connector import *
+from .get_data_share import *
 from .get_encryption_scope import *
 from .get_file_service_properties import *
 from .get_file_share import *

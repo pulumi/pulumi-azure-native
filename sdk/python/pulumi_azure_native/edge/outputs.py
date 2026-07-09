@@ -35,6 +35,8 @@ __all__ = [
     'ErrorDetailResponse',
     'ExecutionPropertiesResponse',
     'ExecutionStatusResponse',
+    'ExecutionV2PropertiesResponse',
+    'ExecutionV2StatusResponse',
     'HierarchyResponse',
     'InstancePropertiesResponse',
     'ReconciliationPolicyPropertiesResponse',
@@ -57,7 +59,9 @@ __all__ = [
     'TaskOptionResponse',
     'TaskSpecResponse',
     'WorkflowPropertiesResponse',
+    'WorkflowV2PropertiesResponse',
     'WorkflowVersionPropertiesResponse',
+    'WorkflowVersionV2PropertiesResponse',
 ]
 
 @pulumi.output_type
@@ -163,14 +167,14 @@ class AzureResourceManagerCommonTypesExtendedLocationResponse(dict):
 @pulumi.output_type
 class CapabilityResponse(dict):
     """
-    Capability, to match in Solution Templates and Targets
+    Capability, to match in Solution Templates & Targets
     """
     def __init__(__self__, *,
                  description: _builtins.str,
                  name: _builtins.str,
                  state: Optional[_builtins.str] = None):
         """
-        Capability, to match in Solution Templates and Targets
+        Capability, to match in Solution Templates & Targets
 
         :param _builtins.str description: Description of Capability
         :param _builtins.str name: Name of Capability
@@ -1139,6 +1143,164 @@ class ExecutionStatusResponse(dict):
                  update_time: Optional[_builtins.str] = None):
         """
         Execution Status
+
+        :param Sequence['StageStatusResponse'] stage_history: target resource statuses
+        :param _builtins.int status: Deployment status
+        :param _builtins.str status_message: status details
+        :param _builtins.str update_time: The lastModified timestamp of the Status
+        """
+        if stage_history is not None:
+            pulumi.set(__self__, "stage_history", stage_history)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if status_message is not None:
+            pulumi.set(__self__, "status_message", status_message)
+        if update_time is not None:
+            pulumi.set(__self__, "update_time", update_time)
+
+    @_builtins.property
+    @pulumi.getter(name="stageHistory")
+    def stage_history(self) -> Optional[Sequence['outputs.StageStatusResponse']]:
+        """
+        target resource statuses
+        """
+        return pulumi.get(self, "stage_history")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[_builtins.int]:
+        """
+        Deployment status
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="statusMessage")
+    def status_message(self) -> Optional[_builtins.str]:
+        """
+        status details
+        """
+        return pulumi.get(self, "status_message")
+
+    @_builtins.property
+    @pulumi.getter(name="updateTime")
+    def update_time(self) -> Optional[_builtins.str]:
+        """
+        The lastModified timestamp of the Status
+        """
+        return pulumi.get(self, "update_time")
+
+
+@pulumi.output_type
+class ExecutionV2PropertiesResponse(dict):
+    """
+    ExecutionV2 Properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "workflowVersionId":
+            suggest = "workflow_version_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExecutionV2PropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExecutionV2PropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExecutionV2PropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: _builtins.str,
+                 status: 'outputs.ExecutionV2StatusResponse',
+                 specification: Optional[Any] = None,
+                 workflow_version_id: Optional[_builtins.str] = None):
+        """
+        ExecutionV2 Properties
+
+        :param _builtins.str provisioning_state: Provisioning state of resource
+        :param 'ExecutionV2StatusResponse' status: Status of ExecutionV2
+        :param Any specification: ExecutionV2 specification
+        :param _builtins.str workflow_version_id: Workflow version of ExecutionV2
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "status", status)
+        if specification is not None:
+            pulumi.set(__self__, "specification", specification)
+        if workflow_version_id is not None:
+            pulumi.set(__self__, "workflow_version_id", workflow_version_id)
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        Provisioning state of resource
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> 'outputs.ExecutionV2StatusResponse':
+        """
+        Status of ExecutionV2
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter
+    def specification(self) -> Optional[Any]:
+        """
+        ExecutionV2 specification
+        """
+        return pulumi.get(self, "specification")
+
+    @_builtins.property
+    @pulumi.getter(name="workflowVersionId")
+    def workflow_version_id(self) -> Optional[_builtins.str]:
+        """
+        Workflow version of ExecutionV2
+        """
+        return pulumi.get(self, "workflow_version_id")
+
+
+@pulumi.output_type
+class ExecutionV2StatusResponse(dict):
+    """
+    ExecutionV2 Status
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "stageHistory":
+            suggest = "stage_history"
+        elif key == "statusMessage":
+            suggest = "status_message"
+        elif key == "updateTime":
+            suggest = "update_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExecutionV2StatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExecutionV2StatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExecutionV2StatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 stage_history: Optional[Sequence['outputs.StageStatusResponse']] = None,
+                 status: Optional[_builtins.int] = None,
+                 status_message: Optional[_builtins.str] = None,
+                 update_time: Optional[_builtins.str] = None):
+        """
+        ExecutionV2 Status
 
         :param Sequence['StageStatusResponse'] stage_history: target resource statuses
         :param _builtins.int status: Deployment status
@@ -3066,6 +3228,59 @@ class WorkflowPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class WorkflowV2PropertiesResponse(dict):
+    """
+    Workflow Properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "workflowTemplateId":
+            suggest = "workflow_template_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkflowV2PropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkflowV2PropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkflowV2PropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: _builtins.str,
+                 workflow_template_id: _builtins.str):
+        """
+        Workflow Properties
+
+        :param _builtins.str provisioning_state: Provisioning state of resource
+        :param _builtins.str workflow_template_id: Workflow template Id
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "workflow_template_id", workflow_template_id)
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        Provisioning state of resource
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="workflowTemplateId")
+    def workflow_template_id(self) -> _builtins.str:
+        """
+        Workflow template Id
+        """
+        return pulumi.get(self, "workflow_template_id")
+
+
+@pulumi.output_type
 class WorkflowVersionPropertiesResponse(dict):
     """
     Workflow Version Properties
@@ -3089,6 +3304,117 @@ class WorkflowVersionPropertiesResponse(dict):
 
     def get(self, key: str, default = None) -> Any:
         WorkflowVersionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 configuration: _builtins.str,
+                 provisioning_state: _builtins.str,
+                 review_id: _builtins.str,
+                 revision: _builtins.int,
+                 stage_spec: Sequence['outputs.StageSpecResponse'],
+                 state: _builtins.str,
+                 specification: Optional[Any] = None):
+        """
+        Workflow Version Properties
+
+        :param _builtins.str configuration: Resolved configuration values
+        :param _builtins.str provisioning_state: Provisioning state of resource
+        :param _builtins.str review_id: Review id of resolved config for this workflow version
+        :param _builtins.int revision: Revision number of resolved config for this workflow version
+        :param Sequence['StageSpecResponse'] stage_spec: A list of stage specs
+        :param _builtins.str state: State of workflow version
+        :param Any specification: Execution specification
+        """
+        pulumi.set(__self__, "configuration", configuration)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "review_id", review_id)
+        pulumi.set(__self__, "revision", revision)
+        pulumi.set(__self__, "stage_spec", stage_spec)
+        pulumi.set(__self__, "state", state)
+        if specification is not None:
+            pulumi.set(__self__, "specification", specification)
+
+    @_builtins.property
+    @pulumi.getter
+    def configuration(self) -> _builtins.str:
+        """
+        Resolved configuration values
+        """
+        return pulumi.get(self, "configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        Provisioning state of resource
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="reviewId")
+    def review_id(self) -> _builtins.str:
+        """
+        Review id of resolved config for this workflow version
+        """
+        return pulumi.get(self, "review_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def revision(self) -> _builtins.int:
+        """
+        Revision number of resolved config for this workflow version
+        """
+        return pulumi.get(self, "revision")
+
+    @_builtins.property
+    @pulumi.getter(name="stageSpec")
+    def stage_spec(self) -> Sequence['outputs.StageSpecResponse']:
+        """
+        A list of stage specs
+        """
+        return pulumi.get(self, "stage_spec")
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> _builtins.str:
+        """
+        State of workflow version
+        """
+        return pulumi.get(self, "state")
+
+    @_builtins.property
+    @pulumi.getter
+    def specification(self) -> Optional[Any]:
+        """
+        Execution specification
+        """
+        return pulumi.get(self, "specification")
+
+
+@pulumi.output_type
+class WorkflowVersionV2PropertiesResponse(dict):
+    """
+    Workflow Version Properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "reviewId":
+            suggest = "review_id"
+        elif key == "stageSpec":
+            suggest = "stage_spec"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkflowVersionV2PropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkflowVersionV2PropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkflowVersionV2PropertiesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

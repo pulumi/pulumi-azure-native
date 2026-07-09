@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.FrontDoor.Inputs
     public sealed class PolicySettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Defines the Captcha cookie validity lifetime in minutes. This setting is only applicable to Premium_AzureFrontDoor. Value must be an integer between 5 and 1440 with the default value being 30.
+        /// </summary>
+        [Input("captchaExpirationInMinutes")]
+        public Input<int>? CaptchaExpirationInMinutes { get; set; }
+
+        /// <summary>
         /// If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
         /// </summary>
         [Input("customBlockResponseBody")]

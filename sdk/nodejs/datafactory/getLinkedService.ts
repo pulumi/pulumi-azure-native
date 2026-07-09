@@ -31,7 +31,7 @@ export interface GetLinkedServiceArgs {
      */
     linkedServiceName: string;
     /**
-     * The resource group name.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -45,15 +45,15 @@ export interface GetLinkedServiceResult {
      */
     readonly azureApiVersion: string;
     /**
-     * Etag identifies change in the resource.
+     * "If etag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.")
      */
     readonly etag: string;
     /**
-     * The resource identifier.
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
-     * The resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -61,7 +61,11 @@ export interface GetLinkedServiceResult {
      */
     readonly properties: outputs.datafactory.AmazonMWSLinkedServiceResponse | outputs.datafactory.AmazonRdsForOracleLinkedServiceResponse | outputs.datafactory.AmazonRdsForSqlServerLinkedServiceResponse | outputs.datafactory.AmazonRedshiftLinkedServiceResponse | outputs.datafactory.AmazonS3CompatibleLinkedServiceResponse | outputs.datafactory.AmazonS3LinkedServiceResponse | outputs.datafactory.AppFiguresLinkedServiceResponse | outputs.datafactory.AsanaLinkedServiceResponse | outputs.datafactory.AzureBatchLinkedServiceResponse | outputs.datafactory.AzureBlobFSLinkedServiceResponse | outputs.datafactory.AzureBlobStorageLinkedServiceResponse | outputs.datafactory.AzureDataExplorerLinkedServiceResponse | outputs.datafactory.AzureDataLakeAnalyticsLinkedServiceResponse | outputs.datafactory.AzureDataLakeStoreLinkedServiceResponse | outputs.datafactory.AzureDatabricksDeltaLakeLinkedServiceResponse | outputs.datafactory.AzureDatabricksLinkedServiceResponse | outputs.datafactory.AzureFileStorageLinkedServiceResponse | outputs.datafactory.AzureFunctionLinkedServiceResponse | outputs.datafactory.AzureKeyVaultLinkedServiceResponse | outputs.datafactory.AzureMLLinkedServiceResponse | outputs.datafactory.AzureMLServiceLinkedServiceResponse | outputs.datafactory.AzureMariaDBLinkedServiceResponse | outputs.datafactory.AzureMySqlLinkedServiceResponse | outputs.datafactory.AzurePostgreSqlLinkedServiceResponse | outputs.datafactory.AzureSearchLinkedServiceResponse | outputs.datafactory.AzureSqlDWLinkedServiceResponse | outputs.datafactory.AzureSqlDatabaseLinkedServiceResponse | outputs.datafactory.AzureSqlMILinkedServiceResponse | outputs.datafactory.AzureStorageLinkedServiceResponse | outputs.datafactory.AzureSynapseArtifactsLinkedServiceResponse | outputs.datafactory.AzureTableStorageLinkedServiceResponse | outputs.datafactory.CassandraLinkedServiceResponse | outputs.datafactory.CommonDataServiceForAppsLinkedServiceResponse | outputs.datafactory.ConcurLinkedServiceResponse | outputs.datafactory.CosmosDbLinkedServiceResponse | outputs.datafactory.CosmosDbMongoDbApiLinkedServiceResponse | outputs.datafactory.CouchbaseLinkedServiceResponse | outputs.datafactory.CustomDataSourceLinkedServiceResponse | outputs.datafactory.DataworldLinkedServiceResponse | outputs.datafactory.Db2LinkedServiceResponse | outputs.datafactory.DrillLinkedServiceResponse | outputs.datafactory.DynamicsAXLinkedServiceResponse | outputs.datafactory.DynamicsCrmLinkedServiceResponse | outputs.datafactory.DynamicsLinkedServiceResponse | outputs.datafactory.EloquaLinkedServiceResponse | outputs.datafactory.FileServerLinkedServiceResponse | outputs.datafactory.FtpServerLinkedServiceResponse | outputs.datafactory.GoogleAdWordsLinkedServiceResponse | outputs.datafactory.GoogleBigQueryLinkedServiceResponse | outputs.datafactory.GoogleBigQueryV2LinkedServiceResponse | outputs.datafactory.GoogleCloudStorageLinkedServiceResponse | outputs.datafactory.GoogleSheetsLinkedServiceResponse | outputs.datafactory.GreenplumLinkedServiceResponse | outputs.datafactory.HBaseLinkedServiceResponse | outputs.datafactory.HDInsightLinkedServiceResponse | outputs.datafactory.HDInsightOnDemandLinkedServiceResponse | outputs.datafactory.HdfsLinkedServiceResponse | outputs.datafactory.HiveLinkedServiceResponse | outputs.datafactory.HttpLinkedServiceResponse | outputs.datafactory.HubspotLinkedServiceResponse | outputs.datafactory.ImpalaLinkedServiceResponse | outputs.datafactory.InformixLinkedServiceResponse | outputs.datafactory.JiraLinkedServiceResponse | outputs.datafactory.LakeHouseLinkedServiceResponse | outputs.datafactory.MagentoLinkedServiceResponse | outputs.datafactory.MariaDBLinkedServiceResponse | outputs.datafactory.MarketoLinkedServiceResponse | outputs.datafactory.MicrosoftAccessLinkedServiceResponse | outputs.datafactory.MongoDbAtlasLinkedServiceResponse | outputs.datafactory.MongoDbLinkedServiceResponse | outputs.datafactory.MongoDbV2LinkedServiceResponse | outputs.datafactory.MySqlLinkedServiceResponse | outputs.datafactory.NetezzaLinkedServiceResponse | outputs.datafactory.ODataLinkedServiceResponse | outputs.datafactory.OdbcLinkedServiceResponse | outputs.datafactory.Office365LinkedServiceResponse | outputs.datafactory.OracleCloudStorageLinkedServiceResponse | outputs.datafactory.OracleLinkedServiceResponse | outputs.datafactory.OracleServiceCloudLinkedServiceResponse | outputs.datafactory.PaypalLinkedServiceResponse | outputs.datafactory.PhoenixLinkedServiceResponse | outputs.datafactory.PostgreSqlLinkedServiceResponse | outputs.datafactory.PostgreSqlV2LinkedServiceResponse | outputs.datafactory.PrestoLinkedServiceResponse | outputs.datafactory.QuickBooksLinkedServiceResponse | outputs.datafactory.QuickbaseLinkedServiceResponse | outputs.datafactory.ResponsysLinkedServiceResponse | outputs.datafactory.RestServiceLinkedServiceResponse | outputs.datafactory.SalesforceLinkedServiceResponse | outputs.datafactory.SalesforceMarketingCloudLinkedServiceResponse | outputs.datafactory.SalesforceServiceCloudLinkedServiceResponse | outputs.datafactory.SalesforceServiceCloudV2LinkedServiceResponse | outputs.datafactory.SalesforceV2LinkedServiceResponse | outputs.datafactory.SapBWLinkedServiceResponse | outputs.datafactory.SapCloudForCustomerLinkedServiceResponse | outputs.datafactory.SapEccLinkedServiceResponse | outputs.datafactory.SapHanaLinkedServiceResponse | outputs.datafactory.SapOdpLinkedServiceResponse | outputs.datafactory.SapOpenHubLinkedServiceResponse | outputs.datafactory.SapTableLinkedServiceResponse | outputs.datafactory.ServiceNowLinkedServiceResponse | outputs.datafactory.ServiceNowV2LinkedServiceResponse | outputs.datafactory.SftpServerLinkedServiceResponse | outputs.datafactory.SharePointOnlineListLinkedServiceResponse | outputs.datafactory.ShopifyLinkedServiceResponse | outputs.datafactory.SmartsheetLinkedServiceResponse | outputs.datafactory.SnowflakeLinkedServiceResponse | outputs.datafactory.SnowflakeV2LinkedServiceResponse | outputs.datafactory.SparkLinkedServiceResponse | outputs.datafactory.SqlServerLinkedServiceResponse | outputs.datafactory.SquareLinkedServiceResponse | outputs.datafactory.SybaseLinkedServiceResponse | outputs.datafactory.TeamDeskLinkedServiceResponse | outputs.datafactory.TeradataLinkedServiceResponse | outputs.datafactory.TwilioLinkedServiceResponse | outputs.datafactory.VerticaLinkedServiceResponse | outputs.datafactory.WarehouseLinkedServiceResponse | outputs.datafactory.WebLinkedServiceResponse | outputs.datafactory.XeroLinkedServiceResponse | outputs.datafactory.ZendeskLinkedServiceResponse | outputs.datafactory.ZohoLinkedServiceResponse;
     /**
-     * The resource type.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.datafactory.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
@@ -89,7 +93,7 @@ export interface GetLinkedServiceOutputArgs {
      */
     linkedServiceName: pulumi.Input<string>;
     /**
-     * The resource group name.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

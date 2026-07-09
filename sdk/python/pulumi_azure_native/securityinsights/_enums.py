@@ -29,9 +29,6 @@ __all__ = [
     'DataConnectorDefinitionKind',
     'DataConnectorKind',
     'DataTypeState',
-    'DeploymentFetchStatus',
-    'DeploymentResult',
-    'DeploymentState',
     'EntityMappingType',
     'EntityProviders',
     'EntityTimelineKind',
@@ -71,7 +68,6 @@ __all__ = [
     'TriggersOn',
     'TriggersWhen',
     'UebaDataSources',
-    'Version',
 ]
 
 
@@ -626,9 +622,13 @@ class ConditionType(_builtins.str, Enum):
 @pulumi.type_token("azure-native:securityinsights:ContentType")
 class ContentType(_builtins.str, Enum):
     """
-    Content type.
+    The content type of a source control path.
     """
     ANALYTICS_RULE = "AnalyticsRule"
+    AUTOMATION_RULE = "AutomationRule"
+    HUNTING_QUERY = "HuntingQuery"
+    PARSER = "Parser"
+    PLAYBOOK = "Playbook"
     WORKBOOK = "Workbook"
 
 
@@ -673,37 +673,6 @@ class DataTypeState(_builtins.str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
-
-
-@pulumi.type_token("azure-native:securityinsights:DeploymentFetchStatus")
-class DeploymentFetchStatus(_builtins.str, Enum):
-    """
-    Status while fetching the last deployment.
-    """
-    SUCCESS = "Success"
-    UNAUTHORIZED = "Unauthorized"
-    NOT_FOUND = "NotFound"
-
-
-@pulumi.type_token("azure-native:securityinsights:DeploymentResult")
-class DeploymentResult(_builtins.str, Enum):
-    """
-    The outcome of the deployment.
-    """
-    SUCCESS = "Success"
-    CANCELED = "Canceled"
-    FAILED = "Failed"
-
-
-@pulumi.type_token("azure-native:securityinsights:DeploymentState")
-class DeploymentState(_builtins.str, Enum):
-    """
-    Current status of the deployment.
-    """
-    IN_PROGRESS = "In_Progress"
-    COMPLETED = "Completed"
-    QUEUED = "Queued"
-    CANCELING = "Canceling"
 
 
 @pulumi.type_token("azure-native:securityinsights:EntityMappingType")
@@ -1234,7 +1203,7 @@ class RepoType(_builtins.str, Enum):
     The repository type of the source control
     """
     GITHUB = "Github"
-    DEV_OPS = "DevOps"
+    AZURE_DEV_OPS = "AzureDevOps"
 
 
 @pulumi.type_token("azure-native:securityinsights:RepositoryAccessKind")
@@ -1398,12 +1367,3 @@ class UebaDataSources(_builtins.str, Enum):
     AZURE_ACTIVITY = "AzureActivity"
     SECURITY_EVENT = "SecurityEvent"
     SIGNIN_LOGS = "SigninLogs"
-
-
-@pulumi.type_token("azure-native:securityinsights:Version")
-class Version(_builtins.str, Enum):
-    """
-    The version number associated with the source control
-    """
-    V1 = "V1"
-    V2 = "V2"

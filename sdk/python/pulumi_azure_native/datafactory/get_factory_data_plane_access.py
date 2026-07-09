@@ -93,7 +93,7 @@ def get_factory_data_plane_access(access_resource_path: Optional[_builtins.str] 
     :param _builtins.str factory_name: The factory name.
     :param _builtins.str permissions: The string with permissions for Data Plane access. Currently only 'r' is supported which grants read only access.
     :param _builtins.str profile_name: The name of the profile. Currently only the default is supported. The default value is DefaultProfile.
-    :param _builtins.str resource_group_name: The resource group name.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str start_time: Start time for the token. If not specified the current time will be used.
     """
     __args__ = dict()
@@ -130,7 +130,7 @@ def get_factory_data_plane_access_output(access_resource_path: Optional[pulumi.I
     :param _builtins.str factory_name: The factory name.
     :param _builtins.str permissions: The string with permissions for Data Plane access. Currently only 'r' is supported which grants read only access.
     :param _builtins.str profile_name: The name of the profile. Currently only the default is supported. The default value is DefaultProfile.
-    :param _builtins.str resource_group_name: The resource group name.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str start_time: Start time for the token. If not specified the current time will be used.
     """
     __args__ = dict()

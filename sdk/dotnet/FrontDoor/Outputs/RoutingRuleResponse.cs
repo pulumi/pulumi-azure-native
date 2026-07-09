@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.FrontDoor.Outputs
         /// <summary>
         /// Defines the Web Application Firewall policy for each routing rule (if applicable)
         /// </summary>
-        public readonly Outputs.RoutingRuleUpdateParametersResponseWebApplicationFirewallPolicyLink? WebApplicationFirewallPolicyLink;
+        public readonly Outputs.RoutingRuleUpdateParametersWebApplicationFirewallPolicyLinkResponse? WebApplicationFirewallPolicyLink;
 
         [OutputConstructor]
         private RoutingRuleResponse(
@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.FrontDoor.Outputs
 
             string type,
 
-            Outputs.RoutingRuleUpdateParametersResponseWebApplicationFirewallPolicyLink? webApplicationFirewallPolicyLink)
+            Outputs.RoutingRuleUpdateParametersWebApplicationFirewallPolicyLinkResponse? webApplicationFirewallPolicyLink)
         {
             AcceptedProtocols = acceptedProtocols;
             EnabledState = enabledState;

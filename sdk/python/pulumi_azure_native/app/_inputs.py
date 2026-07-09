@@ -16,6 +16,20 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ActionConfigurationArgs',
+    'ActionConfigurationArgsDict',
+    'AgentConnectorPropertiesArgs',
+    'AgentConnectorPropertiesArgsDict',
+    'AgentIdentityArgs',
+    'AgentIdentityArgsDict',
+    'AgentPropertiesArgs',
+    'AgentPropertiesArgsDict',
+    'AgentSpaceConnectorPropertiesArgs',
+    'AgentSpaceConnectorPropertiesArgsDict',
+    'AgentSpacePoliciesArgs',
+    'AgentSpacePoliciesArgsDict',
+    'AgentSpacePropertiesArgs',
+    'AgentSpacePropertiesArgsDict',
     'AllowedAudiencesValidationArgs',
     'AllowedAudiencesValidationArgsDict',
     'AllowedPrincipalsArgs',
@@ -30,6 +44,8 @@ __all__ = [
     'AppleRegistrationArgsDict',
     'AppleArgs',
     'AppleArgsDict',
+    'ApplicationInsightsConfigurationArgs',
+    'ApplicationInsightsConfigurationArgsDict',
     'AuthPlatformArgs',
     'AuthPlatformArgsDict',
     'AzureActiveDirectoryLoginArgs',
@@ -126,6 +142,8 @@ __all__ = [
     'DataDogConfigurationArgsDict',
     'DefaultAuthorizationPolicyArgs',
     'DefaultAuthorizationPolicyArgsDict',
+    'DefaultModelArgs',
+    'DefaultModelArgsDict',
     'DestinationsConfigurationArgs',
     'DestinationsConfigurationArgsDict',
     'DiskEncryptionConfigurationAuthArgs',
@@ -152,6 +170,12 @@ __all__ = [
     'FacebookArgsDict',
     'ForwardProxyArgs',
     'ForwardProxyArgsDict',
+    'GenevaActionConfigArgs',
+    'GenevaActionConfigArgsDict',
+    'GenevaActionParameterArgs',
+    'GenevaActionParameterArgsDict',
+    'GenevaActionsPolicyArgs',
+    'GenevaActionsPolicyArgsDict',
     'GitHubArgs',
     'GitHubArgsDict',
     'GithubActionConfigurationArgs',
@@ -192,6 +216,8 @@ __all__ = [
     'IdentityProvidersArgsDict',
     'IdentitySettingsArgs',
     'IdentitySettingsArgsDict',
+    'IncidentManagementConfigurationArgs',
+    'IncidentManagementConfigurationArgsDict',
     'IngressConfigurationScaleArgs',
     'IngressConfigurationScaleArgsDict',
     'IngressConfigurationArgs',
@@ -228,10 +254,14 @@ __all__ = [
     'JobTemplateArgsDict',
     'JwtClaimChecksArgs',
     'JwtClaimChecksArgsDict',
+    'KnowledgeGraphConfigurationArgs',
+    'KnowledgeGraphConfigurationArgsDict',
     'LifecycleConfigurationArgs',
     'LifecycleConfigurationArgsDict',
     'LogAnalyticsConfigurationArgs',
     'LogAnalyticsConfigurationArgsDict',
+    'LogConfigurationArgs',
+    'LogConfigurationArgsDict',
     'LoggerSettingArgs',
     'LoggerSettingArgsDict',
     'LoginRoutesArgs',
@@ -379,6 +409,643 @@ __all__ = [
     'WorkloadProfileArgs',
     'WorkloadProfileArgsDict',
 ]
+
+class ActionConfigurationArgsDict(TypedDict):
+    """
+    Configuration for action
+    """
+    access_level: NotRequired[pulumi.Input[Union[_builtins.str, 'AgentAccessLevel']]]
+    """
+    The access level of the action
+    """
+    identity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identity used by the action
+    """
+    mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AgentMode']]]
+    """
+    The mode of the action
+    """
+
+@pulumi.input_type
+class ActionConfigurationArgs:
+    def __init__(__self__, *,
+                 access_level: Optional[pulumi.Input[Union[_builtins.str, 'AgentAccessLevel']]] = None,
+                 identity: Optional[pulumi.Input[_builtins.str]] = None,
+                 mode: Optional[pulumi.Input[Union[_builtins.str, 'AgentMode']]] = None):
+        """
+        Configuration for action
+
+        :param pulumi.Input[Union[_builtins.str, 'AgentAccessLevel']] access_level: The access level of the action
+        :param pulumi.Input[_builtins.str] identity: The identity used by the action
+        :param pulumi.Input[Union[_builtins.str, 'AgentMode']] mode: The mode of the action
+        """
+        if access_level is not None:
+            pulumi.set(__self__, "access_level", access_level)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+
+    @_builtins.property
+    @pulumi.getter(name="accessLevel")
+    def access_level(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AgentAccessLevel']]]:
+        """
+        The access level of the action
+        """
+        return pulumi.get(self, "access_level")
+
+    @access_level.setter
+    def access_level(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AgentAccessLevel']]]):
+        pulumi.set(self, "access_level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The identity used by the action
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "identity", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AgentMode']]]:
+        """
+        The mode of the action
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AgentMode']]]):
+        pulumi.set(self, "mode", value)
+
+
+class AgentConnectorPropertiesArgsDict(TypedDict):
+    """
+    Agent Connector Properties
+    """
+    data_connector_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of the data connector
+    """
+    data_source: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Data source connection string or endpoint
+    """
+    endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Endpoint of the connector
+    """
+    extended_properties: NotRequired[Any]
+    """
+    Additional properties for the data connector which can be used to store custom key-value pairs
+    """
+    identity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identity used to access the data source
+    """
+
+@pulumi.input_type
+class AgentConnectorPropertiesArgs:
+    def __init__(__self__, *,
+                 data_connector_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 data_source: Optional[pulumi.Input[_builtins.str]] = None,
+                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
+                 extended_properties: Optional[Any] = None,
+                 identity: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Agent Connector Properties
+
+        :param pulumi.Input[_builtins.str] data_connector_type: The type of the data connector
+        :param pulumi.Input[_builtins.str] data_source: Data source connection string or endpoint
+        :param pulumi.Input[_builtins.str] endpoint: Endpoint of the connector
+        :param Any extended_properties: Additional properties for the data connector which can be used to store custom key-value pairs
+        :param pulumi.Input[_builtins.str] identity: Identity used to access the data source
+        """
+        if data_connector_type is not None:
+            pulumi.set(__self__, "data_connector_type", data_connector_type)
+        if data_source is not None:
+            pulumi.set(__self__, "data_source", data_source)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+        if extended_properties is not None:
+            pulumi.set(__self__, "extended_properties", extended_properties)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+
+    @_builtins.property
+    @pulumi.getter(name="dataConnectorType")
+    def data_connector_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The type of the data connector
+        """
+        return pulumi.get(self, "data_connector_type")
+
+    @data_connector_type.setter
+    def data_connector_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "data_connector_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Data source connection string or endpoint
+        """
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "data_source", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Endpoint of the connector
+        """
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "endpoint", value)
+
+    @_builtins.property
+    @pulumi.getter(name="extendedProperties")
+    def extended_properties(self) -> Optional[Any]:
+        """
+        Additional properties for the data connector which can be used to store custom key-value pairs
+        """
+        return pulumi.get(self, "extended_properties")
+
+    @extended_properties.setter
+    def extended_properties(self, value: Optional[Any]):
+        pulumi.set(self, "extended_properties", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Identity used to access the data source
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "identity", value)
+
+
+class AgentIdentityArgsDict(TypedDict):
+    """
+    Agent identity configuration
+    """
+    initial_sponsor_group_id: pulumi.Input[_builtins.str]
+    """
+    Initial sponsor group ID (required for agent identity)
+    """
+
+@pulumi.input_type
+class AgentIdentityArgs:
+    def __init__(__self__, *,
+                 initial_sponsor_group_id: pulumi.Input[_builtins.str]):
+        """
+        Agent identity configuration
+
+        :param pulumi.Input[_builtins.str] initial_sponsor_group_id: Initial sponsor group ID (required for agent identity)
+        """
+        pulumi.set(__self__, "initial_sponsor_group_id", initial_sponsor_group_id)
+
+    @_builtins.property
+    @pulumi.getter(name="initialSponsorGroupId")
+    def initial_sponsor_group_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Initial sponsor group ID (required for agent identity)
+        """
+        return pulumi.get(self, "initial_sponsor_group_id")
+
+    @initial_sponsor_group_id.setter
+    def initial_sponsor_group_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "initial_sponsor_group_id", value)
+
+
+class AgentPropertiesArgsDict(TypedDict):
+    """
+    Properties of the Agent
+    """
+    action_configuration: NotRequired[pulumi.Input['ActionConfigurationArgsDict']]
+    """
+    Configuration for action
+    """
+    agent_identity: NotRequired[pulumi.Input['AgentIdentityArgsDict']]
+    """
+    Agent identity configuration for accessing resources
+    """
+    agent_space_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The agent space ID referenced by the agent
+    """
+    default_model: NotRequired[pulumi.Input['DefaultModelArgsDict']]
+    """
+    Default AI model configuration for the agent
+    """
+    incident_management_configuration: NotRequired[pulumi.Input['IncidentManagementConfigurationArgsDict']]
+    """
+    Incident management configurations
+    """
+    knowledge_graph_configuration: NotRequired[pulumi.Input['KnowledgeGraphConfigurationArgsDict']]
+    """
+    Knowledge graph configuration for agent
+    """
+    log_configuration: NotRequired[pulumi.Input['LogConfigurationArgsDict']]
+    """
+    Log configurations
+    """
+    upgrade_channel: NotRequired[pulumi.Input[Union[_builtins.str, 'UpgradeChannel']]]
+    """
+    The upgrade channel of the agent
+    """
+
+@pulumi.input_type
+class AgentPropertiesArgs:
+    def __init__(__self__, *,
+                 action_configuration: Optional[pulumi.Input['ActionConfigurationArgs']] = None,
+                 agent_identity: Optional[pulumi.Input['AgentIdentityArgs']] = None,
+                 agent_space_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 default_model: Optional[pulumi.Input['DefaultModelArgs']] = None,
+                 incident_management_configuration: Optional[pulumi.Input['IncidentManagementConfigurationArgs']] = None,
+                 knowledge_graph_configuration: Optional[pulumi.Input['KnowledgeGraphConfigurationArgs']] = None,
+                 log_configuration: Optional[pulumi.Input['LogConfigurationArgs']] = None,
+                 upgrade_channel: Optional[pulumi.Input[Union[_builtins.str, 'UpgradeChannel']]] = None):
+        """
+        Properties of the Agent
+
+        :param pulumi.Input['ActionConfigurationArgs'] action_configuration: Configuration for action
+        :param pulumi.Input['AgentIdentityArgs'] agent_identity: Agent identity configuration for accessing resources
+        :param pulumi.Input[_builtins.str] agent_space_id: The agent space ID referenced by the agent
+        :param pulumi.Input['DefaultModelArgs'] default_model: Default AI model configuration for the agent
+        :param pulumi.Input['IncidentManagementConfigurationArgs'] incident_management_configuration: Incident management configurations
+        :param pulumi.Input['KnowledgeGraphConfigurationArgs'] knowledge_graph_configuration: Knowledge graph configuration for agent
+        :param pulumi.Input['LogConfigurationArgs'] log_configuration: Log configurations
+        :param pulumi.Input[Union[_builtins.str, 'UpgradeChannel']] upgrade_channel: The upgrade channel of the agent
+        """
+        if action_configuration is not None:
+            pulumi.set(__self__, "action_configuration", action_configuration)
+        if agent_identity is not None:
+            pulumi.set(__self__, "agent_identity", agent_identity)
+        if agent_space_id is not None:
+            pulumi.set(__self__, "agent_space_id", agent_space_id)
+        if default_model is not None:
+            pulumi.set(__self__, "default_model", default_model)
+        if incident_management_configuration is not None:
+            pulumi.set(__self__, "incident_management_configuration", incident_management_configuration)
+        if knowledge_graph_configuration is not None:
+            pulumi.set(__self__, "knowledge_graph_configuration", knowledge_graph_configuration)
+        if log_configuration is not None:
+            pulumi.set(__self__, "log_configuration", log_configuration)
+        if upgrade_channel is not None:
+            pulumi.set(__self__, "upgrade_channel", upgrade_channel)
+
+    @_builtins.property
+    @pulumi.getter(name="actionConfiguration")
+    def action_configuration(self) -> Optional[pulumi.Input['ActionConfigurationArgs']]:
+        """
+        Configuration for action
+        """
+        return pulumi.get(self, "action_configuration")
+
+    @action_configuration.setter
+    def action_configuration(self, value: Optional[pulumi.Input['ActionConfigurationArgs']]):
+        pulumi.set(self, "action_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="agentIdentity")
+    def agent_identity(self) -> Optional[pulumi.Input['AgentIdentityArgs']]:
+        """
+        Agent identity configuration for accessing resources
+        """
+        return pulumi.get(self, "agent_identity")
+
+    @agent_identity.setter
+    def agent_identity(self, value: Optional[pulumi.Input['AgentIdentityArgs']]):
+        pulumi.set(self, "agent_identity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="agentSpaceId")
+    def agent_space_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The agent space ID referenced by the agent
+        """
+        return pulumi.get(self, "agent_space_id")
+
+    @agent_space_id.setter
+    def agent_space_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "agent_space_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultModel")
+    def default_model(self) -> Optional[pulumi.Input['DefaultModelArgs']]:
+        """
+        Default AI model configuration for the agent
+        """
+        return pulumi.get(self, "default_model")
+
+    @default_model.setter
+    def default_model(self, value: Optional[pulumi.Input['DefaultModelArgs']]):
+        pulumi.set(self, "default_model", value)
+
+    @_builtins.property
+    @pulumi.getter(name="incidentManagementConfiguration")
+    def incident_management_configuration(self) -> Optional[pulumi.Input['IncidentManagementConfigurationArgs']]:
+        """
+        Incident management configurations
+        """
+        return pulumi.get(self, "incident_management_configuration")
+
+    @incident_management_configuration.setter
+    def incident_management_configuration(self, value: Optional[pulumi.Input['IncidentManagementConfigurationArgs']]):
+        pulumi.set(self, "incident_management_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="knowledgeGraphConfiguration")
+    def knowledge_graph_configuration(self) -> Optional[pulumi.Input['KnowledgeGraphConfigurationArgs']]:
+        """
+        Knowledge graph configuration for agent
+        """
+        return pulumi.get(self, "knowledge_graph_configuration")
+
+    @knowledge_graph_configuration.setter
+    def knowledge_graph_configuration(self, value: Optional[pulumi.Input['KnowledgeGraphConfigurationArgs']]):
+        pulumi.set(self, "knowledge_graph_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logConfiguration")
+    def log_configuration(self) -> Optional[pulumi.Input['LogConfigurationArgs']]:
+        """
+        Log configurations
+        """
+        return pulumi.get(self, "log_configuration")
+
+    @log_configuration.setter
+    def log_configuration(self, value: Optional[pulumi.Input['LogConfigurationArgs']]):
+        pulumi.set(self, "log_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="upgradeChannel")
+    def upgrade_channel(self) -> Optional[pulumi.Input[Union[_builtins.str, 'UpgradeChannel']]]:
+        """
+        The upgrade channel of the agent
+        """
+        return pulumi.get(self, "upgrade_channel")
+
+    @upgrade_channel.setter
+    def upgrade_channel(self, value: Optional[pulumi.Input[Union[_builtins.str, 'UpgradeChannel']]]):
+        pulumi.set(self, "upgrade_channel", value)
+
+
+class AgentSpaceConnectorPropertiesArgsDict(TypedDict):
+    """
+    Agent Space Connector Properties
+    """
+    data_connector_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of the data connector
+    """
+    data_source: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Data source connection string or endpoint
+    """
+    endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Endpoint of the connector
+    """
+    extended_properties: NotRequired[Any]
+    """
+    Additional properties for the data connector which can be used to store custom key-value pairs
+    """
+    identity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identity used to access the data source
+    """
+
+@pulumi.input_type
+class AgentSpaceConnectorPropertiesArgs:
+    def __init__(__self__, *,
+                 data_connector_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 data_source: Optional[pulumi.Input[_builtins.str]] = None,
+                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
+                 extended_properties: Optional[Any] = None,
+                 identity: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Agent Space Connector Properties
+
+        :param pulumi.Input[_builtins.str] data_connector_type: The type of the data connector
+        :param pulumi.Input[_builtins.str] data_source: Data source connection string or endpoint
+        :param pulumi.Input[_builtins.str] endpoint: Endpoint of the connector
+        :param Any extended_properties: Additional properties for the data connector which can be used to store custom key-value pairs
+        :param pulumi.Input[_builtins.str] identity: Identity used to access the data source
+        """
+        if data_connector_type is not None:
+            pulumi.set(__self__, "data_connector_type", data_connector_type)
+        if data_source is not None:
+            pulumi.set(__self__, "data_source", data_source)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+        if extended_properties is not None:
+            pulumi.set(__self__, "extended_properties", extended_properties)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+
+    @_builtins.property
+    @pulumi.getter(name="dataConnectorType")
+    def data_connector_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The type of the data connector
+        """
+        return pulumi.get(self, "data_connector_type")
+
+    @data_connector_type.setter
+    def data_connector_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "data_connector_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Data source connection string or endpoint
+        """
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "data_source", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Endpoint of the connector
+        """
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "endpoint", value)
+
+    @_builtins.property
+    @pulumi.getter(name="extendedProperties")
+    def extended_properties(self) -> Optional[Any]:
+        """
+        Additional properties for the data connector which can be used to store custom key-value pairs
+        """
+        return pulumi.get(self, "extended_properties")
+
+    @extended_properties.setter
+    def extended_properties(self, value: Optional[Any]):
+        pulumi.set(self, "extended_properties", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Identity used to access the data source
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "identity", value)
+
+
+class AgentSpacePoliciesArgsDict(TypedDict):
+    """
+    Policy configurations for an Agent Space
+    """
+    geneva_actions_configuration: NotRequired[pulumi.Input['GenevaActionsPolicyArgsDict']]
+    """
+    Configuration for Geneva Actions policy
+    """
+
+@pulumi.input_type
+class AgentSpacePoliciesArgs:
+    def __init__(__self__, *,
+                 geneva_actions_configuration: Optional[pulumi.Input['GenevaActionsPolicyArgs']] = None):
+        """
+        Policy configurations for an Agent Space
+
+        :param pulumi.Input['GenevaActionsPolicyArgs'] geneva_actions_configuration: Configuration for Geneva Actions policy
+        """
+        if geneva_actions_configuration is not None:
+            pulumi.set(__self__, "geneva_actions_configuration", geneva_actions_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="genevaActionsConfiguration")
+    def geneva_actions_configuration(self) -> Optional[pulumi.Input['GenevaActionsPolicyArgs']]:
+        """
+        Configuration for Geneva Actions policy
+        """
+        return pulumi.get(self, "geneva_actions_configuration")
+
+    @geneva_actions_configuration.setter
+    def geneva_actions_configuration(self, value: Optional[pulumi.Input['GenevaActionsPolicyArgs']]):
+        pulumi.set(self, "geneva_actions_configuration", value)
+
+
+class AgentSpacePropertiesArgsDict(TypedDict):
+    """
+    Agent Space specific properties
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Description of the Agent Space
+    """
+    max_agent_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum number of agents allowed in the Agent Space
+    """
+    policies: NotRequired[pulumi.Input['AgentSpacePoliciesArgsDict']]
+    """
+    Policy configurations for the Agent Space
+    """
+    service_tree_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Universal unique ID (UUID) of the Service Tree associated with this Agent Space
+    """
+
+@pulumi.input_type
+class AgentSpacePropertiesArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 max_agent_count: Optional[pulumi.Input[_builtins.int]] = None,
+                 policies: Optional[pulumi.Input['AgentSpacePoliciesArgs']] = None,
+                 service_tree_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Agent Space specific properties
+
+        :param pulumi.Input[_builtins.str] description: Description of the Agent Space
+        :param pulumi.Input[_builtins.int] max_agent_count: Maximum number of agents allowed in the Agent Space
+        :param pulumi.Input['AgentSpacePoliciesArgs'] policies: Policy configurations for the Agent Space
+        :param pulumi.Input[_builtins.str] service_tree_id: Universal unique ID (UUID) of the Service Tree associated with this Agent Space
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if max_agent_count is not None:
+            pulumi.set(__self__, "max_agent_count", max_agent_count)
+        if policies is not None:
+            pulumi.set(__self__, "policies", policies)
+        if service_tree_id is not None:
+            pulumi.set(__self__, "service_tree_id", service_tree_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Description of the Agent Space
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxAgentCount")
+    def max_agent_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Maximum number of agents allowed in the Agent Space
+        """
+        return pulumi.get(self, "max_agent_count")
+
+    @max_agent_count.setter
+    def max_agent_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "max_agent_count", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def policies(self) -> Optional[pulumi.Input['AgentSpacePoliciesArgs']]:
+        """
+        Policy configurations for the Agent Space
+        """
+        return pulumi.get(self, "policies")
+
+    @policies.setter
+    def policies(self, value: Optional[pulumi.Input['AgentSpacePoliciesArgs']]):
+        pulumi.set(self, "policies", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceTreeId")
+    def service_tree_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Universal unique ID (UUID) of the Service Tree associated with this Agent Space
+        """
+        return pulumi.get(self, "service_tree_id")
+
+    @service_tree_id.setter
+    def service_tree_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "service_tree_id", value)
+
 
 class AllowedAudiencesValidationArgsDict(TypedDict):
     """
@@ -736,6 +1403,60 @@ class AppleArgs:
     @registration.setter
     def registration(self, value: Optional[pulumi.Input['AppleRegistrationArgs']]):
         pulumi.set(self, "registration", value)
+
+
+class ApplicationInsightsConfigurationArgsDict(TypedDict):
+    """
+    Application Insights Configuration
+    """
+    app_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Application ID for the Application Insights resource
+    """
+    connection_string: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The connection string for the Application Insights resource
+    """
+
+@pulumi.input_type
+class ApplicationInsightsConfigurationArgs:
+    def __init__(__self__, *,
+                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 connection_string: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Application Insights Configuration
+
+        :param pulumi.Input[_builtins.str] app_id: The Application ID for the Application Insights resource
+        :param pulumi.Input[_builtins.str] connection_string: The connection string for the Application Insights resource
+        """
+        if app_id is not None:
+            pulumi.set(__self__, "app_id", app_id)
+        if connection_string is not None:
+            pulumi.set(__self__, "connection_string", connection_string)
+
+    @_builtins.property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Application ID for the Application Insights resource
+        """
+        return pulumi.get(self, "app_id")
+
+    @app_id.setter
+    def app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "app_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The connection string for the Application Insights resource
+        """
+        return pulumi.get(self, "connection_string")
+
+    @connection_string.setter
+    def connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "connection_string", value)
 
 
 class AuthPlatformArgsDict(TypedDict):
@@ -4834,6 +5555,60 @@ class DefaultAuthorizationPolicyArgs:
         pulumi.set(self, "allowed_principals", value)
 
 
+class DefaultModelArgsDict(TypedDict):
+    """
+    Default AI model configuration
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Model name (e.g., gpt-5, claude-opus-4-5, claude-sonnet-4-5)
+    """
+    provider: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    AI provider name (e.g., MicrosoftFoundry, Anthropic)
+    """
+
+@pulumi.input_type
+class DefaultModelArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 provider: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Default AI model configuration
+
+        :param pulumi.Input[_builtins.str] name: Model name (e.g., gpt-5, claude-opus-4-5, claude-sonnet-4-5)
+        :param pulumi.Input[_builtins.str] provider: AI provider name (e.g., MicrosoftFoundry, Anthropic)
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if provider is not None:
+            pulumi.set(__self__, "provider", provider)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Model name (e.g., gpt-5, claude-opus-4-5, claude-sonnet-4-5)
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def provider(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        AI provider name (e.g., MicrosoftFoundry, Anthropic)
+        """
+        return pulumi.get(self, "provider")
+
+    @provider.setter
+    def provider(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "provider", value)
+
+
 class DestinationsConfigurationArgsDict(TypedDict):
     """
     Configuration of Open Telemetry destinations
@@ -5552,6 +6327,287 @@ class ForwardProxyArgs:
     @custom_proto_header_name.setter
     def custom_proto_header_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "custom_proto_header_name", value)
+
+
+class GenevaActionConfigArgsDict(TypedDict):
+    """
+    Configuration for a Geneva action
+    """
+    action_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the Geneva action
+    """
+    action_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['GenevaActionParameterArgsDict']]]]
+    """
+    Parameters for the Geneva action
+    """
+    approval_required: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether approval is required for this action
+    """
+    extension: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Extension associated with the action
+    """
+
+@pulumi.input_type
+class GenevaActionConfigArgs:
+    def __init__(__self__, *,
+                 action_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 action_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['GenevaActionParameterArgs']]]] = None,
+                 approval_required: Optional[pulumi.Input[_builtins.bool]] = None,
+                 extension: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Configuration for a Geneva action
+
+        :param pulumi.Input[_builtins.str] action_name: Name of the Geneva action
+        :param pulumi.Input[Sequence[pulumi.Input['GenevaActionParameterArgs']]] action_parameters: Parameters for the Geneva action
+        :param pulumi.Input[_builtins.bool] approval_required: Indicates whether approval is required for this action
+        :param pulumi.Input[_builtins.str] extension: Extension associated with the action
+        """
+        if action_name is not None:
+            pulumi.set(__self__, "action_name", action_name)
+        if action_parameters is not None:
+            pulumi.set(__self__, "action_parameters", action_parameters)
+        if approval_required is not None:
+            pulumi.set(__self__, "approval_required", approval_required)
+        if extension is not None:
+            pulumi.set(__self__, "extension", extension)
+
+    @_builtins.property
+    @pulumi.getter(name="actionName")
+    def action_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name of the Geneva action
+        """
+        return pulumi.get(self, "action_name")
+
+    @action_name.setter
+    def action_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "action_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="actionParameters")
+    def action_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GenevaActionParameterArgs']]]]:
+        """
+        Parameters for the Geneva action
+        """
+        return pulumi.get(self, "action_parameters")
+
+    @action_parameters.setter
+    def action_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GenevaActionParameterArgs']]]]):
+        pulumi.set(self, "action_parameters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="approvalRequired")
+    def approval_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Indicates whether approval is required for this action
+        """
+        return pulumi.get(self, "approval_required")
+
+    @approval_required.setter
+    def approval_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "approval_required", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def extension(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Extension associated with the action
+        """
+        return pulumi.get(self, "extension")
+
+    @extension.setter
+    def extension(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "extension", value)
+
+
+class GenevaActionParameterArgsDict(TypedDict):
+    """
+    Parameter for a Geneva action
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the parameter
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Type of the parameter
+    """
+
+@pulumi.input_type
+class GenevaActionParameterArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Parameter for a Geneva action
+
+        :param pulumi.Input[_builtins.str] name: Name of the parameter
+        :param pulumi.Input[_builtins.str] type: Type of the parameter
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name of the parameter
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Type of the parameter
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+
+class GenevaActionsPolicyArgsDict(TypedDict):
+    """
+    Geneva Actions policy configuration for Agent Space
+    """
+    extension_name: pulumi.Input[_builtins.str]
+    """
+    Name of the Geneva extension
+    """
+    acis_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ACIS (Azure Container Instance Service) endpoint URL
+    """
+    allowed_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['GenevaActionConfigArgsDict']]]]
+    """
+    Collection of allowed Geneva actions
+    """
+    authentication_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'GenevaActionAuthenticationMode']]]
+    """
+    Authentication mode for Geneva Actions
+    """
+    certificate_subject_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Subject name of the certificate used for authentication
+    """
+    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Client ID for authentication
+    """
+
+@pulumi.input_type
+class GenevaActionsPolicyArgs:
+    def __init__(__self__, *,
+                 extension_name: pulumi.Input[_builtins.str],
+                 acis_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
+                 allowed_actions: Optional[pulumi.Input[Sequence[pulumi.Input['GenevaActionConfigArgs']]]] = None,
+                 authentication_mode: Optional[pulumi.Input[Union[_builtins.str, 'GenevaActionAuthenticationMode']]] = None,
+                 certificate_subject_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Geneva Actions policy configuration for Agent Space
+
+        :param pulumi.Input[_builtins.str] extension_name: Name of the Geneva extension
+        :param pulumi.Input[_builtins.str] acis_endpoint: ACIS (Azure Container Instance Service) endpoint URL
+        :param pulumi.Input[Sequence[pulumi.Input['GenevaActionConfigArgs']]] allowed_actions: Collection of allowed Geneva actions
+        :param pulumi.Input[Union[_builtins.str, 'GenevaActionAuthenticationMode']] authentication_mode: Authentication mode for Geneva Actions
+        :param pulumi.Input[_builtins.str] certificate_subject_name: Subject name of the certificate used for authentication
+        :param pulumi.Input[_builtins.str] client_id: Client ID for authentication
+        """
+        pulumi.set(__self__, "extension_name", extension_name)
+        if acis_endpoint is not None:
+            pulumi.set(__self__, "acis_endpoint", acis_endpoint)
+        if allowed_actions is not None:
+            pulumi.set(__self__, "allowed_actions", allowed_actions)
+        if authentication_mode is not None:
+            pulumi.set(__self__, "authentication_mode", authentication_mode)
+        if certificate_subject_name is not None:
+            pulumi.set(__self__, "certificate_subject_name", certificate_subject_name)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+
+    @_builtins.property
+    @pulumi.getter(name="extensionName")
+    def extension_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the Geneva extension
+        """
+        return pulumi.get(self, "extension_name")
+
+    @extension_name.setter
+    def extension_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "extension_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="acisEndpoint")
+    def acis_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ACIS (Azure Container Instance Service) endpoint URL
+        """
+        return pulumi.get(self, "acis_endpoint")
+
+    @acis_endpoint.setter
+    def acis_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "acis_endpoint", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedActions")
+    def allowed_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GenevaActionConfigArgs']]]]:
+        """
+        Collection of allowed Geneva actions
+        """
+        return pulumi.get(self, "allowed_actions")
+
+    @allowed_actions.setter
+    def allowed_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GenevaActionConfigArgs']]]]):
+        pulumi.set(self, "allowed_actions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authenticationMode")
+    def authentication_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'GenevaActionAuthenticationMode']]]:
+        """
+        Authentication mode for Geneva Actions
+        """
+        return pulumi.get(self, "authentication_mode")
+
+    @authentication_mode.setter
+    def authentication_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'GenevaActionAuthenticationMode']]]):
+        pulumi.set(self, "authentication_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateSubjectName")
+    def certificate_subject_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Subject name of the certificate used for authentication
+        """
+        return pulumi.get(self, "certificate_subject_name")
+
+    @certificate_subject_name.setter
+    def certificate_subject_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "certificate_subject_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Client ID for authentication
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "client_id", value)
 
 
 class GitHubArgsDict(TypedDict):
@@ -7282,6 +8338,120 @@ class IdentitySettingsArgs:
         pulumi.set(self, "lifecycle", value)
 
 
+class IncidentManagementConfigurationArgsDict(TypedDict):
+    """
+    Incident Management Configurations
+    """
+    connection_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The key for the connection
+    """
+    connection_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the connection
+    """
+    connection_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL of the connection
+    """
+    obo_user: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The user for the connection
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of incident management system
+    """
+
+@pulumi.input_type
+class IncidentManagementConfigurationArgs:
+    def __init__(__self__, *,
+                 connection_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 connection_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 connection_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 obo_user: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Incident Management Configurations
+
+        :param pulumi.Input[_builtins.str] connection_key: The key for the connection
+        :param pulumi.Input[_builtins.str] connection_name: The name of the connection
+        :param pulumi.Input[_builtins.str] connection_url: The URL of the connection
+        :param pulumi.Input[_builtins.str] obo_user: The user for the connection
+        :param pulumi.Input[_builtins.str] type: The type of incident management system
+        """
+        if connection_key is not None:
+            pulumi.set(__self__, "connection_key", connection_key)
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+        if connection_url is not None:
+            pulumi.set(__self__, "connection_url", connection_url)
+        if obo_user is not None:
+            pulumi.set(__self__, "obo_user", obo_user)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionKey")
+    def connection_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The key for the connection
+        """
+        return pulumi.get(self, "connection_key")
+
+    @connection_key.setter
+    def connection_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "connection_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the connection
+        """
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "connection_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionUrl")
+    def connection_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The URL of the connection
+        """
+        return pulumi.get(self, "connection_url")
+
+    @connection_url.setter
+    def connection_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "connection_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="oboUser")
+    def obo_user(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The user for the connection
+        """
+        return pulumi.get(self, "obo_user")
+
+    @obo_user.setter
+    def obo_user(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "obo_user", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The type of incident management system
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+
 class IngressConfigurationScaleArgsDict(TypedDict):
     """
     Scaling configuration for the ingress component. Required.
@@ -9001,6 +10171,60 @@ class JwtClaimChecksArgs:
         pulumi.set(self, "allowed_groups", value)
 
 
+class KnowledgeGraphConfigurationArgsDict(TypedDict):
+    """
+    Knowledge graph configuration for agent
+    """
+    identity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identity used to access the knowledge graph
+    """
+    managed_resources: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of resources managed by agent
+    """
+
+@pulumi.input_type
+class KnowledgeGraphConfigurationArgs:
+    def __init__(__self__, *,
+                 identity: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        Knowledge graph configuration for agent
+
+        :param pulumi.Input[_builtins.str] identity: The identity used to access the knowledge graph
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] managed_resources: The list of resources managed by agent
+        """
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if managed_resources is not None:
+            pulumi.set(__self__, "managed_resources", managed_resources)
+
+    @_builtins.property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The identity used to access the knowledge graph
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "identity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="managedResources")
+    def managed_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The list of resources managed by agent
+        """
+        return pulumi.get(self, "managed_resources")
+
+    @managed_resources.setter
+    def managed_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "managed_resources", value)
+
+
 class LifecycleConfigurationArgsDict(TypedDict):
     """
     The lifecycle configuration properties of a session in the dynamic session pool
@@ -9147,6 +10371,40 @@ class LogAnalyticsConfigurationArgs:
     @shared_key.setter
     def shared_key(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "shared_key", value)
+
+
+class LogConfigurationArgsDict(TypedDict):
+    """
+    Log Configurations
+    """
+    application_insights_configuration: NotRequired[pulumi.Input['ApplicationInsightsConfigurationArgsDict']]
+    """
+    Application Insights Configuration
+    """
+
+@pulumi.input_type
+class LogConfigurationArgs:
+    def __init__(__self__, *,
+                 application_insights_configuration: Optional[pulumi.Input['ApplicationInsightsConfigurationArgs']] = None):
+        """
+        Log Configurations
+
+        :param pulumi.Input['ApplicationInsightsConfigurationArgs'] application_insights_configuration: Application Insights Configuration
+        """
+        if application_insights_configuration is not None:
+            pulumi.set(__self__, "application_insights_configuration", application_insights_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationInsightsConfiguration")
+    def application_insights_configuration(self) -> Optional[pulumi.Input['ApplicationInsightsConfigurationArgs']]:
+        """
+        Application Insights Configuration
+        """
+        return pulumi.get(self, "application_insights_configuration")
+
+    @application_insights_configuration.setter
+    def application_insights_configuration(self, value: Optional[pulumi.Input['ApplicationInsightsConfigurationArgs']]):
+        pulumi.set(self, "application_insights_configuration", value)
 
 
 class LoggerSettingArgsDict(TypedDict):

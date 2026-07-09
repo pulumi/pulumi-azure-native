@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.PowerPlatform
         /// <summary>
         /// The encryption settings for a configuration store.
         /// </summary>
-        public readonly Outputs.PropertiesResponseEncryption? Encryption;
+        public readonly Outputs.PropertiesEncryptionResponse? Encryption;
         /// <summary>
         /// The health status of the resource.
         /// </summary>
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.PowerPlatform
         /// <summary>
         /// Settings concerning lockbox.
         /// </summary>
-        public readonly Outputs.PropertiesResponseLockbox? Lockbox;
+        public readonly Outputs.PropertiesLockboxResponse? Lockbox;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -120,9 +120,9 @@ namespace Pulumi.AzureNative.PowerPlatform
         /// <summary>
         /// Settings concerning network injection.
         /// </summary>
-        public readonly Outputs.PropertiesResponseNetworkInjection? NetworkInjection;
+        public readonly Outputs.PropertiesNetworkInjectionResponse? NetworkInjection;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -142,7 +142,7 @@ namespace Pulumi.AzureNative.PowerPlatform
         private GetEnterprisePolicyResult(
             string azureApiVersion,
 
-            Outputs.PropertiesResponseEncryption? encryption,
+            Outputs.PropertiesEncryptionResponse? encryption,
 
             string? healthStatus,
 
@@ -154,11 +154,11 @@ namespace Pulumi.AzureNative.PowerPlatform
 
             string location,
 
-            Outputs.PropertiesResponseLockbox? lockbox,
+            Outputs.PropertiesLockboxResponse? lockbox,
 
             string name,
 
-            Outputs.PropertiesResponseNetworkInjection? networkInjection,
+            Outputs.PropertiesNetworkInjectionResponse? networkInjection,
 
             Outputs.SystemDataResponse systemData,
 

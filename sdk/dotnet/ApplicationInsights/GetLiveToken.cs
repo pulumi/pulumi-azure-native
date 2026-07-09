@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.ApplicationInsights
     public sealed class GetLiveTokenArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The identifier of the resource.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("resourceUri", required: true)]
         public string ResourceUri { get; set; } = null!;
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNative.ApplicationInsights
     public sealed class GetLiveTokenInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The identifier of the resource.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("resourceUri", required: true)]
         public Input<string> ResourceUri { get; set; } = null!;

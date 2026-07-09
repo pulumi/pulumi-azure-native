@@ -280,7 +280,7 @@ def get_python2_package(automation_account_name: Optional[_builtins.str] = None,
 
     :param _builtins.str automation_account_name: The name of the automation account.
     :param _builtins.str package_name: The python package name.
-    :param _builtins.str resource_group_name: Name of an Azure Resource group.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
@@ -323,7 +323,7 @@ def get_python2_package_output(automation_account_name: Optional[pulumi.Input[_b
 
     :param _builtins.str automation_account_name: The name of the automation account.
     :param _builtins.str package_name: The python package name.
-    :param _builtins.str resource_group_name: Name of an Azure Resource group.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name

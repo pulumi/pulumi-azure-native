@@ -48,13 +48,13 @@ class AzurePowerShellScriptArgs:
                Expected value is 'AzurePowerShell'.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] retention_interval: Interval for which the service retains the script resource after it reaches a terminal state. Resource will be deleted when this duration expires. Duration is based on ISO 8601 pattern (for example P1D means one day).
-        :param pulumi.Input[_builtins.str] arguments: Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2' 
+        :param pulumi.Input[_builtins.str] arguments: Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2'
         :param pulumi.Input[Union[_builtins.str, 'CleanupOptions']] cleanup_preference: The clean up preference when the script execution gets in a terminal state. Default setting is 'Always'.
         :param pulumi.Input['ContainerConfigurationArgs'] container_settings: Container settings.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]] environment_variables: The environment variables to pass over to the script.
         :param pulumi.Input[_builtins.str] force_update_tag: Gets or sets how the deployment script should be forced to execute even if the script resource has not changed. Can be current time stamp or a GUID.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Optional property. Managed identity to be used for this deployment script. Currently, only user-assigned MSI is supported.
-        :param pulumi.Input[_builtins.str] location: The location of the ACI and the storage account for the deployment script.
+        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] primary_script_uri: Uri for the script. This is the entry point for the external script.
         :param pulumi.Input[_builtins.str] script_content: Script body.
         :param pulumi.Input[_builtins.str] script_name: Name of the deployment script.
@@ -153,7 +153,7 @@ class AzurePowerShellScriptArgs:
     @pulumi.getter
     def arguments(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2' 
+        Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2'
         """
         return pulumi.get(self, "arguments")
 
@@ -225,7 +225,7 @@ class AzurePowerShellScriptArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The location of the ACI and the storage account for the deployment script.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -351,7 +351,7 @@ class AzurePowerShellScript(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arguments: Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2' 
+        :param pulumi.Input[_builtins.str] arguments: Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2'
         :param pulumi.Input[_builtins.str] az_power_shell_version: Azure PowerShell module version to be used.
         :param pulumi.Input[Union[_builtins.str, 'CleanupOptions']] cleanup_preference: The clean up preference when the script execution gets in a terminal state. Default setting is 'Always'.
         :param pulumi.Input[Union['ContainerConfigurationArgs', 'ContainerConfigurationArgsDict']] container_settings: Container settings.
@@ -360,7 +360,7 @@ class AzurePowerShellScript(pulumi.CustomResource):
         :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Optional property. Managed identity to be used for this deployment script. Currently, only user-assigned MSI is supported.
         :param pulumi.Input[_builtins.str] kind: Type of the script.
                Expected value is 'AzurePowerShell'.
-        :param pulumi.Input[_builtins.str] location: The location of the ACI and the storage account for the deployment script.
+        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] primary_script_uri: Uri for the script. This is the entry point for the external script.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] retention_interval: Interval for which the service retains the script resource after it reaches a terminal state. Resource will be deleted when this duration expires. Duration is based on ISO 8601 pattern (for example P1D means one day).
@@ -515,7 +515,7 @@ class AzurePowerShellScript(pulumi.CustomResource):
     @pulumi.getter
     def arguments(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2' 
+        Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2'
         """
         return pulumi.get(self, "arguments")
 
@@ -588,7 +588,7 @@ class AzurePowerShellScript(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[_builtins.str]:
         """
-        The location of the ACI and the storage account for the deployment script.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -596,13 +596,13 @@ class AzurePowerShellScript(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Name of this resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
-    def outputs(self) -> pulumi.Output[Mapping[str, Any]]:
+    def outputs(self) -> pulumi.Output[Any]:
         """
         List of script outputs.
         """
@@ -668,7 +668,7 @@ class AzurePowerShellScript(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system metadata related to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -692,7 +692,7 @@ class AzurePowerShellScript(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Type of this resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

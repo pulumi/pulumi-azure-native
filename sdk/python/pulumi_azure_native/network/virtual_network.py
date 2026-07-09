@@ -17,10 +17,10 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['VirtualNetworkInitArgs', 'VirtualNetwork']
+__all__ = ['VirtualNetworkArgs', 'VirtualNetwork']
 
 @pulumi.input_type
-class VirtualNetworkInitArgs:
+class VirtualNetworkArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  address_space: Optional[pulumi.Input['AddressSpaceArgs']] = None,
@@ -353,7 +353,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-        Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -383,23 +383,23 @@ class VirtualNetwork(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VirtualNetworkInitArgs,
+                 args: VirtualNetworkArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Virtual Network resource.
 
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-        Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
-        :param VirtualNetworkInitArgs args: The arguments to use to populate this resource's properties.
+        :param VirtualNetworkArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VirtualNetworkInitArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VirtualNetworkArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -433,7 +433,7 @@ class VirtualNetwork(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VirtualNetworkInitArgs.__new__(VirtualNetworkInitArgs)
+            __props__ = VirtualNetworkArgs.__new__(VirtualNetworkArgs)
 
             __props__.__dict__["address_space"] = address_space
             __props__.__dict__["bgp_communities"] = bgp_communities
@@ -466,7 +466,7 @@ class VirtualNetwork(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["resource_guid"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20150501preview:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20150615:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20160330:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20160601:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20160901:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20161201:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20170301:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20170601:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20170801:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20170901:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20171001:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20171101:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20180101:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20180201:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20180401:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20180601:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20180701:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20180801:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20181001:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20181101:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20181201:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20190201:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20190401:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20190601:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20190701:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20190801:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20190901:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20191101:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20191201:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20200301:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20200401:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20200501:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20200601:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20200701:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20200801:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20201101:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20210201:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20210301:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20210501:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20210801:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20220101:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20220501:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20220701:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20220901:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20221101:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20230201:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20230401:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20230501:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20230601:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20230901:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20231101:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20240101:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20240301:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20240501:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20240701:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20241001:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20250101:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20250301:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20250501:VirtualNetwork")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20150501preview:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20150615:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20160330:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20160601:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20160901:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20161201:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20170301:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20170601:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20170801:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20170901:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20171001:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20171101:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20180101:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20180201:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20180401:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20180601:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20180701:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20180801:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20181001:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20181101:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20181201:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20190201:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20190401:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20190601:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20190701:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20190801:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20190901:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20191101:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20191201:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20200301:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20200401:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20200501:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20200601:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20200701:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20200801:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20201101:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20210201:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20210301:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20210501:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20210801:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20220101:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20220501:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20220701:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20220901:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20221101:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20230201:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20230401:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20230501:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20230601:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20230901:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20231101:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20240101:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20240301:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20240501:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20240701:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20241001:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20250101:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20250301:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20250501:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20250701:VirtualNetwork")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualNetwork, __self__).__init__(
             'azure-native:network:VirtualNetwork',
@@ -488,7 +488,7 @@ class VirtualNetwork(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = VirtualNetworkInitArgs.__new__(VirtualNetworkInitArgs)
+        __props__ = VirtualNetworkArgs.__new__(VirtualNetworkArgs)
 
         __props__.__dict__["address_space"] = None
         __props__.__dict__["azure_api_version"] = None

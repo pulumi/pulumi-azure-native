@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.Monitor
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// System data
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>

@@ -45,31 +45,6 @@ export const CachingTypes = {
  */
 export type CachingTypes = (typeof CachingTypes)[keyof typeof CachingTypes];
 
-export const CloudServiceSlotType = {
-    Production: "Production",
-    Staging: "Staging",
-} as const;
-
-/**
- * Slot type for the cloud service.
- * Possible values are <br /><br />**Production**<br /><br />**Staging**<br /><br />
- * If not specified, the default value is Production.
- */
-export type CloudServiceSlotType = (typeof CloudServiceSlotType)[keyof typeof CloudServiceSlotType];
-
-export const CloudServiceUpgradeMode = {
-    Auto: "Auto",
-    Manual: "Manual",
-    Simultaneous: "Simultaneous",
-} as const;
-
-/**
- * Update mode for the cloud service. Role instances are allocated to update domains when the service is deployed. Updates can be initiated manually in each update domain or initiated automatically in all update domains.
- * Possible Values are <br /><br />**Auto**<br /><br />**Manual** <br /><br />**Simultaneous**<br /><br />
- * If not specified, the default value is Auto. If set to Manual, PUT UpdateDomain must be called to apply the update. If set to Auto, the update is automatically applied to each update domain in sequence.
- */
-export type CloudServiceUpgradeMode = (typeof CloudServiceUpgradeMode)[keyof typeof CloudServiceUpgradeMode];
-
 export const ComponentName = {
     Microsoft_Windows_Shell_Setup: "Microsoft-Windows-Shell-Setup",
 } as const;
@@ -906,7 +881,7 @@ export const SecurityTypes = {
 } as const;
 
 /**
- * Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings. The default behavior is: UefiSettings will not be enabled unless this property is set.
+ * Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings. The default behavior is: UefiSettings will not be enabled unless this property is set and is not Standard. If not specified, Standard will be returned starting api version 2025-11-01.
  */
 export type SecurityTypes = (typeof SecurityTypes)[keyof typeof SecurityTypes];
 

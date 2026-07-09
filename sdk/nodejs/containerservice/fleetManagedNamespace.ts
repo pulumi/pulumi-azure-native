@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * A fleet managed namespace.
  *
  * Uses Azure REST API version 2025-08-01-preview.
+ *
+ * Other available API versions: 2026-02-01-preview, 2026-03-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class FleetManagedNamespace extends pulumi.CustomResource {
     /**
@@ -111,7 +113,7 @@ export class FleetManagedNamespace extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerservice/v20250801preview:FleetManagedNamespace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerservice/v20250801preview:FleetManagedNamespace" }, { type: "azure-native:containerservice/v20260201preview:FleetManagedNamespace" }, { type: "azure-native:containerservice/v20260302preview:FleetManagedNamespace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FleetManagedNamespace.__pulumiType, name, resourceInputs, opts);
     }

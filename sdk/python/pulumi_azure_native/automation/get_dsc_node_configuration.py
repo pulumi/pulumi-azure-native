@@ -184,7 +184,7 @@ def get_dsc_node_configuration(automation_account_name: Optional[_builtins.str] 
 
     :param _builtins.str automation_account_name: The name of the automation account.
     :param _builtins.str node_configuration_name: The Dsc node configuration name.
-    :param _builtins.str resource_group_name: Name of an Azure Resource group.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
@@ -219,7 +219,7 @@ def get_dsc_node_configuration_output(automation_account_name: Optional[pulumi.I
 
     :param _builtins.str automation_account_name: The name of the automation account.
     :param _builtins.str node_configuration_name: The Dsc node configuration name.
-    :param _builtins.str resource_group_name: Name of an Azure Resource group.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name

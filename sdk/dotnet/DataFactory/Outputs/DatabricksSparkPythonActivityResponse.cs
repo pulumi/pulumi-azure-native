@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// A list of libraries to be installed on the cluster that will execute the job.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> Libraries;
+        public readonly ImmutableArray<object> Libraries;
         /// <summary>
         /// Linked service reference.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string? description,
 
-            ImmutableArray<ImmutableDictionary<string, object>> libraries,
+            ImmutableArray<object> libraries,
 
             Outputs.LinkedServiceReferenceResponse? linkedServiceName,
 

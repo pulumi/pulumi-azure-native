@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2025-04-15-preview.
  *
- * Other available API versions: 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native computeschedule [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2026-01-01-preview, 2026-03-01-preview, 2026-04-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native computeschedule [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ScheduledAction extends pulumi.CustomResource {
     /**
@@ -103,7 +103,7 @@ export class ScheduledAction extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:computeschedule/v20250415preview:ScheduledAction" }, { type: "azure-native:computeschedule/v20260101preview:ScheduledAction" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:computeschedule/v20250415preview:ScheduledAction" }, { type: "azure-native:computeschedule/v20260101preview:ScheduledAction" }, { type: "azure-native:computeschedule/v20260301preview:ScheduledAction" }, { type: "azure-native:computeschedule/v20260415preview:ScheduledAction" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ScheduledAction.__pulumiType, name, resourceInputs, opts);
     }

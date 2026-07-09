@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Agent Deployment resource
  *
  * Uses Azure REST API version 2025-10-01-preview.
+ *
+ * Other available API versions: 2025-12-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-05-01, 2026-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class AgentDeployment extends pulumi.CustomResource {
     /**
@@ -104,7 +106,7 @@ export class AgentDeployment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20251001preview:AgentDeployment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20251001preview:AgentDeployment" }, { type: "azure-native:cognitiveservices/v20251201:AgentDeployment" }, { type: "azure-native:cognitiveservices/v20260115preview:AgentDeployment" }, { type: "azure-native:cognitiveservices/v20260301:AgentDeployment" }, { type: "azure-native:cognitiveservices/v20260315preview:AgentDeployment" }, { type: "azure-native:cognitiveservices/v20260501:AgentDeployment" }, { type: "azure-native:cognitiveservices/v20260515preview:AgentDeployment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AgentDeployment.__pulumiType, name, resourceInputs, opts);
     }

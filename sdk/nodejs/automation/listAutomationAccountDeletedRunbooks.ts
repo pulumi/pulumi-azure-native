@@ -28,7 +28,7 @@ export interface ListAutomationAccountDeletedRunbooksArgs {
      */
     automationAccountName: string;
     /**
-     * Name of an Azure Resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -38,13 +38,13 @@ export interface ListAutomationAccountDeletedRunbooksArgs {
  */
 export interface ListAutomationAccountDeletedRunbooksResult {
     /**
-     * Gets or sets the next link.
+     * The link to the next page of items
      */
     readonly nextLink?: string;
     /**
-     * List of deleted runbooks in automation account.
+     * The DeletedRunbook items on this page
      */
-    readonly value?: outputs.automation.DeletedRunbookResponse[];
+    readonly value: outputs.automation.DeletedRunbookResponse[];
 }
 /**
  * Retrieve the deleted runbooks for an automation account.
@@ -67,7 +67,7 @@ export interface ListAutomationAccountDeletedRunbooksOutputArgs {
      */
     automationAccountName: pulumi.Input<string>;
     /**
-     * Name of an Azure Resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

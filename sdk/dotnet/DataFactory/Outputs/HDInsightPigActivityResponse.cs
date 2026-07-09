@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// Allows user to specify defines for Pig job request.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Defines;
+        public readonly object? Defines;
         /// <summary>
         /// Activity depends on condition.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         private HDInsightPigActivityResponse(
             object? arguments,
 
-            ImmutableDictionary<string, object>? defines,
+            object? defines,
 
             ImmutableArray<Outputs.ActivityDependencyResponse> dependsOn,
 

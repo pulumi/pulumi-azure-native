@@ -54,13 +54,13 @@ export class SecurityContact extends pulumi.CustomResource {
      */
     declare public readonly isEnabled: pulumi.Output<boolean | undefined>;
     /**
-     * Resource name
+     * The name of the resource
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
      */
-    declare public readonly notificationsByRole: pulumi.Output<outputs.security.SecurityContactPropertiesResponseNotificationsByRole | undefined>;
+    declare public readonly notificationsByRole: pulumi.Output<outputs.security.SecurityContactPropertiesNotificationsByRoleResponse | undefined>;
     /**
      * A collection of sources types which evaluate the email notification.
      */
@@ -70,7 +70,11 @@ export class SecurityContact extends pulumi.CustomResource {
      */
     declare public readonly phone: pulumi.Output<string | undefined>;
     /**
-     * Resource type
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.security.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
 
@@ -93,6 +97,7 @@ export class SecurityContact extends pulumi.CustomResource {
             resourceInputs["securityContactName"] = args?.securityContactName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -102,6 +107,7 @@ export class SecurityContact extends pulumi.CustomResource {
             resourceInputs["notificationsByRole"] = undefined /*out*/;
             resourceInputs["notificationsSources"] = undefined /*out*/;
             resourceInputs["phone"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

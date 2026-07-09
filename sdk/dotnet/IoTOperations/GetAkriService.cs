@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.IoTOperations
         /// Get a AkriServiceResource
         /// 
         /// Uses Azure REST API version 2026-03-01.
+        /// 
+        /// Other available API versions: 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetAkriServiceResult> InvokeAsync(GetAkriServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAkriServiceResult>("azure-native:iotoperations:getAkriService", args ?? new GetAkriServiceArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.IoTOperations
         /// Get a AkriServiceResource
         /// 
         /// Uses Azure REST API version 2026-03-01.
+        /// 
+        /// Other available API versions: 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAkriServiceResult> Invoke(GetAkriServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAkriServiceResult>("azure-native:iotoperations:getAkriService", args ?? new GetAkriServiceInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.IoTOperations
         /// Get a AkriServiceResource
         /// 
         /// Uses Azure REST API version 2026-03-01.
+        /// 
+        /// Other available API versions: 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAkriServiceResult> Invoke(GetAkriServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAkriServiceResult>("azure-native:iotoperations:getAkriService", args ?? new GetAkriServiceInvokeArgs(), options.WithDefaults());

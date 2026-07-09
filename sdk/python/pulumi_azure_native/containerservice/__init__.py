@@ -30,7 +30,6 @@ from .get_managed_cluster_snapshot import *
 from .get_managed_namespace import *
 from .get_mesh_membership import *
 from .get_namespace import *
-from .get_node_customization import *
 from .get_private_endpoint_connection import *
 from .get_snapshot import *
 from .get_trusted_access_role_binding import *
@@ -51,7 +50,6 @@ from .managed_cluster_snapshot import *
 from .managed_namespace import *
 from .mesh_membership import *
 from .namespace import *
-from .node_customization import *
 from .private_endpoint_connection import *
 from .snapshot import *
 from .trusted_access_role_binding import *

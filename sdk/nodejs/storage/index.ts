@@ -35,6 +35,16 @@ export type BlobServiceProperties = import("./blobServiceProperties").BlobServic
 export const BlobServiceProperties: typeof import("./blobServiceProperties").BlobServiceProperties = null as any;
 utilities.lazyLoad(exports, ["BlobServiceProperties"], () => require("./blobServiceProperties"));
 
+export { ConnectorArgs } from "./connector";
+export type Connector = import("./connector").Connector;
+export const Connector: typeof import("./connector").Connector = null as any;
+utilities.lazyLoad(exports, ["Connector"], () => require("./connector"));
+
+export { DataShareArgs } from "./dataShare";
+export type DataShare = import("./dataShare").DataShare;
+export const DataShare: typeof import("./dataShare").DataShare = null as any;
+utilities.lazyLoad(exports, ["DataShare"], () => require("./dataShare"));
+
 export { EncryptionScopeArgs } from "./encryptionScope";
 export type EncryptionScope = import("./encryptionScope").EncryptionScope;
 export const EncryptionScope: typeof import("./encryptionScope").EncryptionScope = null as any;
@@ -69,6 +79,16 @@ export { GetBlobServicePropertiesArgs, GetBlobServicePropertiesResult, GetBlobSe
 export const getBlobServiceProperties: typeof import("./getBlobServiceProperties").getBlobServiceProperties = null as any;
 export const getBlobServicePropertiesOutput: typeof import("./getBlobServiceProperties").getBlobServicePropertiesOutput = null as any;
 utilities.lazyLoad(exports, ["getBlobServiceProperties","getBlobServicePropertiesOutput"], () => require("./getBlobServiceProperties"));
+
+export { GetConnectorArgs, GetConnectorResult, GetConnectorOutputArgs } from "./getConnector";
+export const getConnector: typeof import("./getConnector").getConnector = null as any;
+export const getConnectorOutput: typeof import("./getConnector").getConnectorOutput = null as any;
+utilities.lazyLoad(exports, ["getConnector","getConnectorOutput"], () => require("./getConnector"));
+
+export { GetDataShareArgs, GetDataShareResult, GetDataShareOutputArgs } from "./getDataShare";
+export const getDataShare: typeof import("./getDataShare").getDataShare = null as any;
+export const getDataShareOutput: typeof import("./getDataShare").getDataShareOutput = null as any;
+utilities.lazyLoad(exports, ["getDataShare","getDataShareOutput"], () => require("./getDataShare"));
 
 export { GetEncryptionScopeArgs, GetEncryptionScopeResult, GetEncryptionScopeOutputArgs } from "./getEncryptionScope";
 export const getEncryptionScope: typeof import("./getEncryptionScope").getEncryptionScope = null as any;
@@ -230,6 +250,10 @@ const _module = {
                 return new BlobInventoryPolicy(name, <any>undefined, { urn })
             case "azure-native:storage:BlobServiceProperties":
                 return new BlobServiceProperties(name, <any>undefined, { urn })
+            case "azure-native:storage:Connector":
+                return new Connector(name, <any>undefined, { urn })
+            case "azure-native:storage:DataShare":
+                return new DataShare(name, <any>undefined, { urn })
             case "azure-native:storage:EncryptionScope":
                 return new EncryptionScope(name, <any>undefined, { urn })
             case "azure-native:storage:FileServiceProperties":

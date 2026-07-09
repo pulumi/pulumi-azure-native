@@ -35,7 +35,7 @@ class RoleManagementPolicyArgs:
         :param pulumi.Input[_builtins.str] description: The role management policy description.
         :param pulumi.Input[_builtins.str] display_name: The role management policy display name.
         :param pulumi.Input[_builtins.bool] is_organization_default: The role management policy is default policy.
-        :param pulumi.Input[_builtins.str] role_management_policy_name: The name (guid) of the role management policy to upsert.
+        :param pulumi.Input[_builtins.str] role_management_policy_name: The name (guid) of the role management policy to get.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RoleManagementPolicyApprovalRuleArgs', 'RoleManagementPolicyAuthenticationContextRuleArgs', 'RoleManagementPolicyEnablementRuleArgs', 'RoleManagementPolicyExpirationRuleArgs', 'RoleManagementPolicyNotificationRuleArgs', 'RoleManagementPolicyPimOnlyModeRuleArgs']]]] rules: The rule applied to the policy.
         """
         pulumi.set(__self__, "scope", scope)
@@ -102,7 +102,7 @@ class RoleManagementPolicyArgs:
     @pulumi.getter(name="roleManagementPolicyName")
     def role_management_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name (guid) of the role management policy to upsert.
+        The name (guid) of the role management policy to get.
         """
         return pulumi.get(self, "role_management_policy_name")
 
@@ -149,7 +149,7 @@ class RoleManagementPolicy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The role management policy description.
         :param pulumi.Input[_builtins.str] display_name: The role management policy display name.
         :param pulumi.Input[_builtins.bool] is_organization_default: The role management policy is default policy.
-        :param pulumi.Input[_builtins.str] role_management_policy_name: The name (guid) of the role management policy to upsert.
+        :param pulumi.Input[_builtins.str] role_management_policy_name: The name (guid) of the role management policy to get.
         :param pulumi.Input[Sequence[pulumi.Input[Union[Union['RoleManagementPolicyApprovalRuleArgs', 'RoleManagementPolicyApprovalRuleArgsDict'], Union['RoleManagementPolicyAuthenticationContextRuleArgs', 'RoleManagementPolicyAuthenticationContextRuleArgsDict'], Union['RoleManagementPolicyEnablementRuleArgs', 'RoleManagementPolicyEnablementRuleArgsDict'], Union['RoleManagementPolicyExpirationRuleArgs', 'RoleManagementPolicyExpirationRuleArgsDict'], Union['RoleManagementPolicyNotificationRuleArgs', 'RoleManagementPolicyNotificationRuleArgsDict'], Union['RoleManagementPolicyPimOnlyModeRuleArgs', 'RoleManagementPolicyPimOnlyModeRuleArgsDict']]]]] rules: The rule applied to the policy.
         :param pulumi.Input[_builtins.str] scope: The role management policy scope.
         """
@@ -211,6 +211,7 @@ class RoleManagementPolicy(pulumi.CustomResource):
             __props__.__dict__["last_modified_date_time"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["policy_properties"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:authorization/v20201001:RoleManagementPolicy"), pulumi.Alias(type_="azure-native:authorization/v20201001preview:RoleManagementPolicy"), pulumi.Alias(type_="azure-native:authorization/v20240201preview:RoleManagementPolicy"), pulumi.Alias(type_="azure-native:authorization/v20240901preview:RoleManagementPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -247,6 +248,7 @@ class RoleManagementPolicy(pulumi.CustomResource):
         __props__.__dict__["policy_properties"] = None
         __props__.__dict__["rules"] = None
         __props__.__dict__["scope"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return RoleManagementPolicy(resource_name, opts=opts, __props__=__props__)
 
@@ -292,7 +294,7 @@ class RoleManagementPolicy(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> pulumi.Output['outputs.PrincipalResponse']:
+    def last_modified_by(self) -> pulumi.Output['outputs.MicrosoftCommonPrincipalResponse']:
         """
         The name of the entity last modified it
         """
@@ -310,7 +312,7 @@ class RoleManagementPolicy(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The role management policy name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -339,10 +341,18 @@ class RoleManagementPolicy(pulumi.CustomResource):
         return pulumi.get(self, "scope")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        The role management policy type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

@@ -40,6 +40,11 @@ export type BastionHost = import("./bastionHost").BastionHost;
 export const BastionHost: typeof import("./bastionHost").BastionHost = null as any;
 utilities.lazyLoad(exports, ["BastionHost"], () => require("./bastionHost"));
 
+export { CommitArgs } from "./commit";
+export type Commit = import("./commit").Commit;
+export const Commit: typeof import("./commit").Commit = null as any;
+utilities.lazyLoad(exports, ["Commit"], () => require("./commit"));
+
 export { ConfigurationPolicyGroupArgs } from "./configurationPolicyGroup";
 export type ConfigurationPolicyGroup = import("./configurationPolicyGroup").ConfigurationPolicyGroup;
 export const ConfigurationPolicyGroup: typeof import("./configurationPolicyGroup").ConfigurationPolicyGroup = null as any;
@@ -49,6 +54,11 @@ export { ConnectionMonitorArgs } from "./connectionMonitor";
 export type ConnectionMonitor = import("./connectionMonitor").ConnectionMonitor;
 export const ConnectionMonitor: typeof import("./connectionMonitor").ConnectionMonitor = null as any;
 utilities.lazyLoad(exports, ["ConnectionMonitor"], () => require("./connectionMonitor"));
+
+export { ConnectionPolicyArgs } from "./connectionPolicy";
+export type ConnectionPolicy = import("./connectionPolicy").ConnectionPolicy;
+export const ConnectionPolicy: typeof import("./connectionPolicy").ConnectionPolicy = null as any;
+utilities.lazyLoad(exports, ["ConnectionPolicy"], () => require("./connectionPolicy"));
 
 export { ConnectivityConfigurationArgs } from "./connectivityConfiguration";
 export type ConnectivityConfiguration = import("./connectivityConfiguration").ConnectivityConfiguration;
@@ -210,6 +220,11 @@ export const getBastionShareableLink: typeof import("./getBastionShareableLink")
 export const getBastionShareableLinkOutput: typeof import("./getBastionShareableLink").getBastionShareableLinkOutput = null as any;
 utilities.lazyLoad(exports, ["getBastionShareableLink","getBastionShareableLinkOutput"], () => require("./getBastionShareableLink"));
 
+export { GetCommitArgs, GetCommitResult, GetCommitOutputArgs } from "./getCommit";
+export const getCommit: typeof import("./getCommit").getCommit = null as any;
+export const getCommitOutput: typeof import("./getCommit").getCommitOutput = null as any;
+utilities.lazyLoad(exports, ["getCommit","getCommitOutput"], () => require("./getCommit"));
+
 export { GetConfigurationPolicyGroupArgs, GetConfigurationPolicyGroupResult, GetConfigurationPolicyGroupOutputArgs } from "./getConfigurationPolicyGroup";
 export const getConfigurationPolicyGroup: typeof import("./getConfigurationPolicyGroup").getConfigurationPolicyGroup = null as any;
 export const getConfigurationPolicyGroupOutput: typeof import("./getConfigurationPolicyGroup").getConfigurationPolicyGroupOutput = null as any;
@@ -219,6 +234,11 @@ export { GetConnectionMonitorArgs, GetConnectionMonitorResult, GetConnectionMoni
 export const getConnectionMonitor: typeof import("./getConnectionMonitor").getConnectionMonitor = null as any;
 export const getConnectionMonitorOutput: typeof import("./getConnectionMonitor").getConnectionMonitorOutput = null as any;
 utilities.lazyLoad(exports, ["getConnectionMonitor","getConnectionMonitorOutput"], () => require("./getConnectionMonitor"));
+
+export { GetConnectionPolicyArgs, GetConnectionPolicyResult, GetConnectionPolicyOutputArgs } from "./getConnectionPolicy";
+export const getConnectionPolicy: typeof import("./getConnectionPolicy").getConnectionPolicy = null as any;
+export const getConnectionPolicyOutput: typeof import("./getConnectionPolicy").getConnectionPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getConnectionPolicy","getConnectionPolicyOutput"], () => require("./getConnectionPolicy"));
 
 export { GetConnectivityConfigurationArgs, GetConnectivityConfigurationResult, GetConnectivityConfigurationOutputArgs } from "./getConnectivityConfiguration";
 export const getConnectivityConfiguration: typeof import("./getConnectivityConfiguration").getConnectivityConfiguration = null as any;
@@ -290,6 +310,16 @@ export const getExpressRouteGateway: typeof import("./getExpressRouteGateway").g
 export const getExpressRouteGatewayOutput: typeof import("./getExpressRouteGateway").getExpressRouteGatewayOutput = null as any;
 utilities.lazyLoad(exports, ["getExpressRouteGateway","getExpressRouteGatewayOutput"], () => require("./getExpressRouteGateway"));
 
+export { GetExpressRouteGatewayResiliencyInformationArgs, GetExpressRouteGatewayResiliencyInformationResult, GetExpressRouteGatewayResiliencyInformationOutputArgs } from "./getExpressRouteGatewayResiliencyInformation";
+export const getExpressRouteGatewayResiliencyInformation: typeof import("./getExpressRouteGatewayResiliencyInformation").getExpressRouteGatewayResiliencyInformation = null as any;
+export const getExpressRouteGatewayResiliencyInformationOutput: typeof import("./getExpressRouteGatewayResiliencyInformation").getExpressRouteGatewayResiliencyInformationOutput = null as any;
+utilities.lazyLoad(exports, ["getExpressRouteGatewayResiliencyInformation","getExpressRouteGatewayResiliencyInformationOutput"], () => require("./getExpressRouteGatewayResiliencyInformation"));
+
+export { GetExpressRouteGatewayRoutesInformationArgs, GetExpressRouteGatewayRoutesInformationResult, GetExpressRouteGatewayRoutesInformationOutputArgs } from "./getExpressRouteGatewayRoutesInformation";
+export const getExpressRouteGatewayRoutesInformation: typeof import("./getExpressRouteGatewayRoutesInformation").getExpressRouteGatewayRoutesInformation = null as any;
+export const getExpressRouteGatewayRoutesInformationOutput: typeof import("./getExpressRouteGatewayRoutesInformation").getExpressRouteGatewayRoutesInformationOutput = null as any;
+utilities.lazyLoad(exports, ["getExpressRouteGatewayRoutesInformation","getExpressRouteGatewayRoutesInformationOutput"], () => require("./getExpressRouteGatewayRoutesInformation"));
+
 export { GetExpressRoutePortArgs, GetExpressRoutePortResult, GetExpressRoutePortOutputArgs } from "./getExpressRoutePort";
 export const getExpressRoutePort: typeof import("./getExpressRoutePort").getExpressRoutePort = null as any;
 export const getExpressRoutePortOutput: typeof import("./getExpressRoutePort").getExpressRoutePortOutput = null as any;
@@ -344,6 +374,11 @@ export { GetInboundNatRuleArgs, GetInboundNatRuleResult, GetInboundNatRuleOutput
 export const getInboundNatRule: typeof import("./getInboundNatRule").getInboundNatRule = null as any;
 export const getInboundNatRuleOutput: typeof import("./getInboundNatRule").getInboundNatRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getInboundNatRule","getInboundNatRuleOutput"], () => require("./getInboundNatRule"));
+
+export { GetInterconnectGroupArgs, GetInterconnectGroupResult, GetInterconnectGroupOutputArgs } from "./getInterconnectGroup";
+export const getInterconnectGroup: typeof import("./getInterconnectGroup").getInterconnectGroup = null as any;
+export const getInterconnectGroupOutput: typeof import("./getInterconnectGroup").getInterconnectGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getInterconnectGroup","getInterconnectGroupOutput"], () => require("./getInterconnectGroup"));
 
 export { GetInterfaceEndpointArgs, GetInterfaceEndpointResult, GetInterfaceEndpointOutputArgs } from "./getInterfaceEndpoint";
 export const getInterfaceEndpoint: typeof import("./getInterfaceEndpoint").getInterfaceEndpoint = null as any;
@@ -864,6 +899,11 @@ export { InboundNatRuleArgs } from "./inboundNatRule";
 export type InboundNatRule = import("./inboundNatRule").InboundNatRule;
 export const InboundNatRule: typeof import("./inboundNatRule").InboundNatRule = null as any;
 utilities.lazyLoad(exports, ["InboundNatRule"], () => require("./inboundNatRule"));
+
+export { InterconnectGroupArgs } from "./interconnectGroup";
+export type InterconnectGroup = import("./interconnectGroup").InterconnectGroup;
+export const InterconnectGroup: typeof import("./interconnectGroup").InterconnectGroup = null as any;
+utilities.lazyLoad(exports, ["InterconnectGroup"], () => require("./interconnectGroup"));
 
 export { InterfaceEndpointArgs } from "./interfaceEndpoint";
 export type InterfaceEndpoint = import("./interfaceEndpoint").InterfaceEndpoint;
@@ -1422,10 +1462,14 @@ const _module = {
                 return new AzureFirewall(name, <any>undefined, { urn })
             case "azure-native:network:BastionHost":
                 return new BastionHost(name, <any>undefined, { urn })
+            case "azure-native:network:Commit":
+                return new Commit(name, <any>undefined, { urn })
             case "azure-native:network:ConfigurationPolicyGroup":
                 return new ConfigurationPolicyGroup(name, <any>undefined, { urn })
             case "azure-native:network:ConnectionMonitor":
                 return new ConnectionMonitor(name, <any>undefined, { urn })
+            case "azure-native:network:ConnectionPolicy":
+                return new ConnectionPolicy(name, <any>undefined, { urn })
             case "azure-native:network:ConnectivityConfiguration":
                 return new ConnectivityConfiguration(name, <any>undefined, { urn })
             case "azure-native:network:CustomIPPrefix":
@@ -1476,6 +1520,8 @@ const _module = {
                 return new HubVirtualNetworkConnection(name, <any>undefined, { urn })
             case "azure-native:network:InboundNatRule":
                 return new InboundNatRule(name, <any>undefined, { urn })
+            case "azure-native:network:InterconnectGroup":
+                return new InterconnectGroup(name, <any>undefined, { urn })
             case "azure-native:network:InterfaceEndpoint":
                 return new InterfaceEndpoint(name, <any>undefined, { urn })
             case "azure-native:network:IpAllocation":

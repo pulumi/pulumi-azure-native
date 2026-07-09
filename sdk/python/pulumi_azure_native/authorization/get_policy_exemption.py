@@ -214,7 +214,7 @@ def get_policy_exemption(policy_exemption_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2022-07-01-preview.
 
-    Other available API versions: 2020-07-01-preview, 2024-12-01-preview, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2020-07-01-preview, 2024-12-01-preview, 2025-12-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str policy_exemption_name: The name of the policy exemption to delete.
@@ -249,7 +249,7 @@ def get_policy_exemption_output(policy_exemption_name: Optional[pulumi.Input[_bu
 
     Uses Azure REST API version 2022-07-01-preview.
 
-    Other available API versions: 2020-07-01-preview, 2024-12-01-preview, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2020-07-01-preview, 2024-12-01-preview, 2025-12-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str policy_exemption_name: The name of the policy exemption to delete.

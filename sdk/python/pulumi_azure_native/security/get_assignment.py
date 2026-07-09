@@ -85,7 +85,7 @@ class GetAssignmentResult:
 
     @_builtins.property
     @pulumi.getter(name="additionalData")
-    def additional_data(self) -> Optional['outputs.AssignmentPropertiesResponseAdditionalData']:
+    def additional_data(self) -> Optional['outputs.AssignmentPropertiesAdditionalDataResponse']:
         """
         Additional data about the assignment
         """
@@ -101,7 +101,7 @@ class GetAssignmentResult:
 
     @_builtins.property
     @pulumi.getter(name="assignedStandard")
-    def assigned_standard(self) -> Optional['outputs.AssignedStandardItemResponse']:
+    def assigned_standard(self) -> Optional['outputs.CommonAssignedStandardItemResponse']:
         """
         Standard item with key as applied to this standard assignment over the given scope
         """
@@ -159,7 +159,7 @@ class GetAssignmentResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -175,7 +175,7 @@ class GetAssignmentResult:
     @pulumi.getter
     def location(self) -> Optional[_builtins.str]:
         """
-        Location where the resource is stored
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -191,7 +191,7 @@ class GetAssignmentResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -215,7 +215,7 @@ class GetAssignmentResult:
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
         """
-        A list of key value pairs that describe the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -223,7 +223,7 @@ class GetAssignmentResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -264,7 +264,7 @@ def get_assignment(assignment_id: Optional[_builtins.str] = None,
 
 
     :param _builtins.str assignment_id: The security assignment key - unique key for the standard assignment
-    :param _builtins.str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['assignmentId'] = assignment_id
@@ -301,7 +301,7 @@ def get_assignment_output(assignment_id: Optional[pulumi.Input[_builtins.str]] =
 
 
     :param _builtins.str assignment_id: The security assignment key - unique key for the standard assignment
-    :param _builtins.str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['assignmentId'] = assignment_id

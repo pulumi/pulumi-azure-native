@@ -33,8 +33,8 @@ class ConnectionTypeArgs:
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
         :param pulumi.Input[Mapping[str, pulumi.Input['FieldDefinitionArgs']]] field_definitions: Gets or sets the field definitions of the connection type.
         :param pulumi.Input[_builtins.str] name: Gets or sets the name of the connection type.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
-        :param pulumi.Input[_builtins.str] connection_type_name: The parameters supplied to the create or update connection type operation.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] connection_type_name: The name of connection type.
         :param pulumi.Input[_builtins.bool] is_global: Gets or sets a Boolean value to indicate if the connection type is global.
         """
         pulumi.set(__self__, "automation_account_name", automation_account_name)
@@ -86,7 +86,7 @@ class ConnectionTypeArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of an Azure Resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -98,7 +98,7 @@ class ConnectionTypeArgs:
     @pulumi.getter(name="connectionTypeName")
     def connection_type_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The parameters supplied to the create or update connection type operation.
+        The name of connection type.
         """
         return pulumi.get(self, "connection_type_name")
 
@@ -143,11 +143,11 @@ class ConnectionType(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
-        :param pulumi.Input[_builtins.str] connection_type_name: The parameters supplied to the create or update connection type operation.
+        :param pulumi.Input[_builtins.str] connection_type_name: The name of connection type.
         :param pulumi.Input[Mapping[str, pulumi.Input[Union['FieldDefinitionArgs', 'FieldDefinitionArgsDict']]]] field_definitions: Gets or sets the field definitions of the connection type.
         :param pulumi.Input[_builtins.bool] is_global: Gets or sets a Boolean value to indicate if the connection type is global.
         :param pulumi.Input[_builtins.str] name: Gets or sets the name of the connection type.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
     @overload
@@ -211,6 +211,7 @@ class ConnectionType(pulumi.CustomResource):
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["description"] = None
             __props__.__dict__["last_modified_time"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation/v20151031:ConnectionType"), pulumi.Alias(type_="azure-native:automation/v20190601:ConnectionType"), pulumi.Alias(type_="azure-native:automation/v20200113preview:ConnectionType"), pulumi.Alias(type_="azure-native:automation/v20220808:ConnectionType"), pulumi.Alias(type_="azure-native:automation/v20230515preview:ConnectionType"), pulumi.Alias(type_="azure-native:automation/v20231101:ConnectionType"), pulumi.Alias(type_="azure-native:automation/v20241023:ConnectionType")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -243,6 +244,7 @@ class ConnectionType(pulumi.CustomResource):
         __props__.__dict__["is_global"] = None
         __props__.__dict__["last_modified_time"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return ConnectionType(resource_name, opts=opts, __props__=__props__)
 
@@ -298,15 +300,23 @@ class ConnectionType(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Gets the name of the connection type.
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

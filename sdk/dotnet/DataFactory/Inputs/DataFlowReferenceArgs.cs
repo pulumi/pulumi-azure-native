@@ -21,17 +21,11 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("datasetParameters")]
         public Input<object>? DatasetParameters { get; set; }
 
-        [Input("parameters")]
-        private InputMap<object>? _parameters;
-
         /// <summary>
         /// Data flow parameters
         /// </summary>
-        public InputMap<object> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputMap<object>());
-            set => _parameters = value;
-        }
+        [Input("parameters")]
+        public Input<object>? Parameters { get; set; }
 
         /// <summary>
         /// Reference data flow name.

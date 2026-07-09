@@ -30,13 +30,19 @@ namespace Pulumi.AzureNative.Security
         public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -91,13 +97,13 @@ namespace Pulumi.AzureNative.Security
     public sealed class SecurityOperatorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// name of the pricing configuration
+        /// Name of the pricing configuration.
         /// </summary>
         [Input("pricingName", required: true)]
         public Input<string> PricingName { get; set; } = null!;
 
         /// <summary>
-        /// name of the securityOperator
+        /// Name of the security operator.
         /// </summary>
         [Input("securityOperatorName")]
         public Input<string>? SecurityOperatorName { get; set; }

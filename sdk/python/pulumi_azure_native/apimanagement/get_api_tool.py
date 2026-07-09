@@ -144,6 +144,8 @@ def get_api_tool(api_id: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2025-03-01-preview.
 
+    Other available API versions: 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param _builtins.str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -176,6 +178,8 @@ def get_api_tool_output(api_id: Optional[pulumi.Input[_builtins.str]] = None,
     Gets the details of the API Tool specified by its identifier.
 
     Uses Azure REST API version 2025-03-01-preview.
+
+    Other available API versions: 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.

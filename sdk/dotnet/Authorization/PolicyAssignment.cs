@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Authorization
     /// 
     /// Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2022-06-01.
     /// 
-    /// Other available API versions: 2020-09-01, 2021-06-01, 2022-06-01, 2023-04-01, 2024-04-01, 2024-05-01, 2025-03-01, 2025-11-01, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2020-09-01, 2021-06-01, 2022-06-01, 2023-04-01, 2024-04-01, 2024-05-01, 2025-03-01, 2025-11-01, 2025-12-01-preview, 2026-01-01-preview, 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:PolicyAssignment")]
     public partial class PolicyAssignment : global::Pulumi.CustomResource
@@ -196,6 +196,8 @@ namespace Pulumi.AzureNative.Authorization
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20250301:PolicyAssignment" },
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20251101:PolicyAssignment" },
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20251201preview:PolicyAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20260101preview:PolicyAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20260601:PolicyAssignment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

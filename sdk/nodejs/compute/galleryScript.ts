@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Specifies information about the gallery Script Definition that you want to create or update.
  *
  * Uses Azure REST API version 2025-03-03.
+ *
+ * Other available API versions: 2025-12-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class GalleryScript extends pulumi.CustomResource {
     /**
@@ -105,7 +107,7 @@ export class GalleryScript extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20250303:GalleryScript" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20250303:GalleryScript" }, { type: "azure-native:compute/v20251203:GalleryScript" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GalleryScript.__pulumiType, name, resourceInputs, opts);
     }

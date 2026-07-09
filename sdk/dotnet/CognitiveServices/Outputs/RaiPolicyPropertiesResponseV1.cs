@@ -29,10 +29,6 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.CustomBlocklistConfigResponse> CustomBlocklists;
         /// <summary>
-        /// The list of custom rai topics.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.CustomTopicConfigResponse> CustomTopics;
-        /// <summary>
         /// Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2025-06-01. It is the same as 'Deferred' in previous version.
         /// </summary>
         public readonly string? Mode;
@@ -53,8 +49,6 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
 
             ImmutableArray<Outputs.CustomBlocklistConfigResponse> customBlocklists,
 
-            ImmutableArray<Outputs.CustomTopicConfigResponse> customTopics,
-
             string? mode,
 
             ImmutableArray<Outputs.SafetyProviderConfigResponse> safetyProviders,
@@ -64,7 +58,6 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
             BasePolicyName = basePolicyName;
             ContentFilters = contentFilters;
             CustomBlocklists = customBlocklists;
-            CustomTopics = customTopics;
             Mode = mode;
             SafetyProviders = safetyProviders;
             Type = type;

@@ -118,6 +118,8 @@ def get_insight(insight_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-05-01-preview.
 
+    Other available API versions: 2025-01-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native impact [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param _builtins.str insight_name: Name of the insight
     :param _builtins.str workload_impact_name: workloadImpact resource 
@@ -142,6 +144,8 @@ def get_insight_output(insight_name: Optional[pulumi.Input[_builtins.str]] = Non
     Get Insight resources by workloadImpactName and insightName
 
     Uses Azure REST API version 2024-05-01-preview.
+
+    Other available API versions: 2025-01-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native impact [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str insight_name: Name of the insight

@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// The snapshot resource definition.
     /// 
     /// Uses Azure REST API version 2026-02-01-preview.
+    /// 
+    /// Other available API versions: 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:Snapshot")]
     public partial class Snapshot : global::Pulumi.CustomResource
@@ -91,6 +93,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20260201preview:Snapshot" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20260401preview:Snapshot" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

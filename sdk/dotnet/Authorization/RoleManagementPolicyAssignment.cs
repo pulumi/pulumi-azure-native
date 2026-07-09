@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.Authorization
         public Output<ImmutableArray<object>> EffectiveRules { get; private set; } = null!;
 
         /// <summary>
-        /// The role management policy name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -62,7 +62,13 @@ namespace Pulumi.AzureNative.Authorization
         public Output<string?> Scope { get; private set; } = null!;
 
         /// <summary>
-        /// The role management policy type.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -132,7 +138,7 @@ namespace Pulumi.AzureNative.Authorization
         public Input<string>? RoleDefinitionId { get; set; }
 
         /// <summary>
-        /// The name of format {guid_guid} the role management policy assignment to upsert.
+        /// The name of format {guid_guid} the role management policy assignment to get.
         /// </summary>
         [Input("roleManagementPolicyAssignmentName")]
         public Input<string>? RoleManagementPolicyAssignmentName { get; set; }

@@ -19,6 +19,7 @@ __all__ = [
     'ClusterUpdateStrategyType',
     'ConsoleEnabled',
     'DefaultGateway',
+    'ExtendedLocationType',
     'FabricPeeringEnabled',
     'HugepagesSize',
     'HybridAksIpamEnabled',
@@ -154,6 +155,21 @@ class DefaultGateway(_builtins.str, Enum):
     """
     TRUE = "True"
     FALSE = "False"
+
+
+@pulumi.type_token("azure-native:networkcloud:ExtendedLocationType")
+class ExtendedLocationType(_builtins.str, Enum):
+    """
+    The type of the extended location.
+    """
+    EDGE_ZONE = "EdgeZone"
+    """
+    Azure Edge Zones location type
+    """
+    CUSTOM_LOCATION = "CustomLocation"
+    """
+    Azure Custom Locations type
+    """
 
 
 @pulumi.type_token("azure-native:networkcloud:FabricPeeringEnabled")

@@ -26,37 +26,7 @@ namespace Pulumi.AzureNative.BillingBenefits
         public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Fully-qualified identifier of the benefit under applicable benefit list.
-        /// </summary>
-        [Output("benefitResourceId")]
-        public Output<string> BenefitResourceId { get; private set; } = null!;
-
-        /// <summary>
-        /// The billing account resource ID
-        /// </summary>
-        [Output("billingAccountResourceId")]
-        public Output<string?> BillingAccountResourceId { get; private set; } = null!;
-
-        /// <summary>
-        /// Display name for the conditional credit
-        /// </summary>
-        [Output("displayName")]
-        public Output<string?> DisplayName { get; private set; } = null!;
-
-        /// <summary>
-        /// End date of the conditional credit (derived from last milestone)
-        /// </summary>
-        [Output("endAt")]
-        public Output<string?> EndAt { get; private set; } = null!;
-
-        /// <summary>
-        /// Type of conditional credit entity
-        /// </summary>
-        [Output("entityType")]
-        public Output<string> EntityType { get; private set; } = null!;
-
-        /// <summary>
-        /// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+        /// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
@@ -98,40 +68,16 @@ namespace Pulumi.AzureNative.BillingBenefits
         public Output<Outputs.PlanResponse?> Plan { get; private set; } = null!;
 
         /// <summary>
-        /// Product code for the conditional credit
+        /// Conditional credit properties
         /// </summary>
-        [Output("productCode")]
-        public Output<string?> ProductCode { get; private set; } = null!;
-
-        /// <summary>
-        /// The provisioning state of the resource
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Fully-qualified resource identifier of the resource. Format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/{benefitType}/{benefitName}.
-        /// </summary>
-        [Output("resourceId")]
-        public Output<string?> ResourceId { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Union<Outputs.ContributorConditionalCreditPropertiesResponse, Outputs.PrimaryConditionalCreditPropertiesResponse>> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource model definition representing SKU
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
-
-        /// <summary>
-        /// Start date of the conditional credit
-        /// </summary>
-        [Output("startAt")]
-        public Output<string?> StartAt { get; private set; } = null!;
-
-        /// <summary>
-        /// The status of the conditional credit
-        /// </summary>
-        [Output("status")]
-        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -202,34 +148,10 @@ namespace Pulumi.AzureNative.BillingBenefits
     public sealed class ConditionalCreditArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The billing account resource ID
-        /// </summary>
-        [Input("billingAccountResourceId")]
-        public Input<string>? BillingAccountResourceId { get; set; }
-
-        /// <summary>
         /// Name of the conditional credit
         /// </summary>
         [Input("conditionalCreditName")]
         public Input<string>? ConditionalCreditName { get; set; }
-
-        /// <summary>
-        /// Display name for the conditional credit
-        /// </summary>
-        [Input("displayName")]
-        public Input<string>? DisplayName { get; set; }
-
-        /// <summary>
-        /// End date of the conditional credit (derived from last milestone)
-        /// </summary>
-        [Input("endAt")]
-        public Input<string>? EndAt { get; set; }
-
-        /// <summary>
-        /// Type of conditional credit entity
-        /// </summary>
-        [Input("entityType", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.BillingBenefits.ConditionalCreditEntityType> EntityType { get; set; } = null!;
 
         /// <summary>
         /// Managed service identity (system assigned and/or user assigned identities)
@@ -262,10 +184,10 @@ namespace Pulumi.AzureNative.BillingBenefits
         public Input<Inputs.PlanArgs>? Plan { get; set; }
 
         /// <summary>
-        /// Product code for the conditional credit
+        /// Conditional credit properties
         /// </summary>
-        [Input("productCode")]
-        public Input<string>? ProductCode { get; set; }
+        [Input("properties")]
+        public InputUnion<Inputs.ContributorConditionalCreditPropertiesArgs, Inputs.PrimaryConditionalCreditPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -274,28 +196,10 @@ namespace Pulumi.AzureNative.BillingBenefits
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Fully-qualified resource identifier of the resource. Format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/{benefitType}/{benefitName}.
-        /// </summary>
-        [Input("resourceId")]
-        public Input<string>? ResourceId { get; set; }
-
-        /// <summary>
         /// The resource model definition representing SKU
         /// </summary>
         [Input("sku")]
         public Input<Inputs.SkuArgs>? Sku { get; set; }
-
-        /// <summary>
-        /// Start date of the conditional credit
-        /// </summary>
-        [Input("startAt")]
-        public Input<string>? StartAt { get; set; }
-
-        /// <summary>
-        /// The status of the conditional credit
-        /// </summary>
-        [Input("status")]
-        public InputUnion<string, Pulumi.AzureNative.BillingBenefits.ConditionalCreditStatus>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

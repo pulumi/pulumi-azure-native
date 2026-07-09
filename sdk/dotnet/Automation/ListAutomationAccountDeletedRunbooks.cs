@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.Automation
         public string AutomationAccountName { get; set; } = null!;
 
         /// <summary>
-        /// Name of an Azure Resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.Automation
         public Input<string> AutomationAccountName { get; set; } = null!;
 
         /// <summary>
-        /// Name of an Azure Resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -88,11 +88,11 @@ namespace Pulumi.AzureNative.Automation
     public sealed class ListAutomationAccountDeletedRunbooksResult
     {
         /// <summary>
-        /// Gets or sets the next link.
+        /// The link to the next page of items
         /// </summary>
         public readonly string? NextLink;
         /// <summary>
-        /// List of deleted runbooks in automation account.
+        /// The DeletedRunbook items on this page
         /// </summary>
         public readonly ImmutableArray<Outputs.DeletedRunbookResponse> Value;
 

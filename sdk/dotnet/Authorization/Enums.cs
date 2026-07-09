@@ -20,7 +20,13 @@ namespace Pulumi.AzureNative.Authorization
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// weekly
+        /// </summary>
         public static AccessReviewRecurrencePatternType Weekly { get; } = new AccessReviewRecurrencePatternType("weekly");
+        /// <summary>
+        /// absoluteMonthly
+        /// </summary>
         public static AccessReviewRecurrencePatternType AbsoluteMonthly { get; } = new AccessReviewRecurrencePatternType("absoluteMonthly");
 
         public static bool operator ==(AccessReviewRecurrencePatternType left, AccessReviewRecurrencePatternType right) => left.Equals(right);
@@ -51,8 +57,17 @@ namespace Pulumi.AzureNative.Authorization
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// endDate
+        /// </summary>
         public static AccessReviewRecurrenceRangeType EndDate { get; } = new AccessReviewRecurrenceRangeType("endDate");
+        /// <summary>
+        /// noEnd
+        /// </summary>
         public static AccessReviewRecurrenceRangeType NoEnd { get; } = new AccessReviewRecurrenceRangeType("noEnd");
+        /// <summary>
+        /// numbered
+        /// </summary>
         public static AccessReviewRecurrenceRangeType Numbered { get; } = new AccessReviewRecurrenceRangeType("numbered");
 
         public static bool operator ==(AccessReviewRecurrenceRangeType left, AccessReviewRecurrenceRangeType right) => left.Equals(right);
@@ -83,10 +98,25 @@ namespace Pulumi.AzureNative.Authorization
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Approve
+        /// </summary>
         public static AccessReviewResult Approve { get; } = new AccessReviewResult("Approve");
+        /// <summary>
+        /// Deny
+        /// </summary>
         public static AccessReviewResult Deny { get; } = new AccessReviewResult("Deny");
+        /// <summary>
+        /// NotReviewed
+        /// </summary>
         public static AccessReviewResult NotReviewed { get; } = new AccessReviewResult("NotReviewed");
+        /// <summary>
+        /// DontKnow
+        /// </summary>
         public static AccessReviewResult DontKnow { get; } = new AccessReviewResult("DontKnow");
+        /// <summary>
+        /// NotNotified
+        /// </summary>
         public static AccessReviewResult NotNotified { get; } = new AccessReviewResult("NotNotified");
 
         public static bool operator ==(AccessReviewResult left, AccessReviewResult right) => left.Equals(right);
@@ -117,9 +147,21 @@ namespace Pulumi.AzureNative.Authorization
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// SingleStage
+        /// </summary>
         public static ApprovalMode SingleStage { get; } = new ApprovalMode("SingleStage");
+        /// <summary>
+        /// Serial
+        /// </summary>
         public static ApprovalMode Serial { get; } = new ApprovalMode("Serial");
+        /// <summary>
+        /// Parallel
+        /// </summary>
         public static ApprovalMode Parallel { get; } = new ApprovalMode("Parallel");
+        /// <summary>
+        /// NoApproval
+        /// </summary>
         public static ApprovalMode NoApproval { get; } = new ApprovalMode("NoApproval");
 
         public static bool operator ==(ApprovalMode left, ApprovalMode right) => left.Equals(right);
@@ -220,8 +262,17 @@ namespace Pulumi.AzureNative.Authorization
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Approve
+        /// </summary>
         public static DefaultDecisionType Approve { get; } = new DefaultDecisionType("Approve");
+        /// <summary>
+        /// Deny
+        /// </summary>
         public static DefaultDecisionType Deny { get; } = new DefaultDecisionType("Deny");
+        /// <summary>
+        /// Recommendation
+        /// </summary>
         public static DefaultDecisionType Recommendation { get; } = new DefaultDecisionType("Recommendation");
 
         public static bool operator ==(DefaultDecisionType left, DefaultDecisionType right) => left.Equals(right);
@@ -232,6 +283,43 @@ namespace Pulumi.AzureNative.Authorization
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DefaultDecisionType other && Equals(other);
         public bool Equals(DefaultDecisionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The effect of the deny assignment. 'enforced' blocks access, 'audit' logs without blocking.
+    /// </summary>
+    [EnumType]
+    public readonly struct DenyAssignmentEffect : IEquatable<DenyAssignmentEffect>
+    {
+        private readonly string _value;
+
+        private DenyAssignmentEffect(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// enforced
+        /// </summary>
+        public static DenyAssignmentEffect Enforced { get; } = new DenyAssignmentEffect("enforced");
+        /// <summary>
+        /// audit
+        /// </summary>
+        public static DenyAssignmentEffect Audit { get; } = new DenyAssignmentEffect("audit");
+
+        public static bool operator ==(DenyAssignmentEffect left, DenyAssignmentEffect right) => left.Equals(right);
+        public static bool operator !=(DenyAssignmentEffect left, DenyAssignmentEffect right) => !left.Equals(right);
+
+        public static explicit operator string(DenyAssignmentEffect value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DenyAssignmentEffect other && Equals(other);
+        public bool Equals(DenyAssignmentEffect other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -252,8 +340,17 @@ namespace Pulumi.AzureNative.Authorization
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// MultiFactorAuthentication
+        /// </summary>
         public static EnablementRules MultiFactorAuthentication { get; } = new EnablementRules("MultiFactorAuthentication");
+        /// <summary>
+        /// Justification
+        /// </summary>
         public static EnablementRules Justification { get; } = new EnablementRules("Justification");
+        /// <summary>
+        /// Ticketing
+        /// </summary>
         public static EnablementRules Ticketing { get; } = new EnablementRules("Ticketing");
 
         public static bool operator ==(EnablementRules left, EnablementRules right) => left.Equals(right);
@@ -322,7 +419,13 @@ namespace Pulumi.AzureNative.Authorization
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// ServicePrincipalsAsTarget
+        /// </summary>
         public static ExcludedPrincipalTypes ServicePrincipalsAsTarget { get; } = new ExcludedPrincipalTypes("ServicePrincipalsAsTarget");
+        /// <summary>
+        /// ServicePrincipalsAsRequestor
+        /// </summary>
         public static ExcludedPrincipalTypes ServicePrincipalsAsRequestor { get; } = new ExcludedPrincipalTypes("ServicePrincipalsAsRequestor");
 
         public static bool operator ==(ExcludedPrincipalTypes left, ExcludedPrincipalTypes right) => left.Equals(right);
@@ -422,6 +525,9 @@ namespace Pulumi.AzureNative.Authorization
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Email
+        /// </summary>
         public static NotificationDeliveryMechanism Email { get; } = new NotificationDeliveryMechanism("Email");
 
         public static bool operator ==(NotificationDeliveryMechanism left, NotificationDeliveryMechanism right) => left.Equals(right);
@@ -452,8 +558,17 @@ namespace Pulumi.AzureNative.Authorization
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// None
+        /// </summary>
         public static NotificationLevel None { get; } = new NotificationLevel("None");
+        /// <summary>
+        /// Critical
+        /// </summary>
         public static NotificationLevel Critical { get; } = new NotificationLevel("Critical");
+        /// <summary>
+        /// All
+        /// </summary>
         public static NotificationLevel All { get; } = new NotificationLevel("All");
 
         public static bool operator ==(NotificationLevel left, NotificationLevel right) => left.Equals(right);
@@ -521,8 +636,17 @@ namespace Pulumi.AzureNative.Authorization
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Disabled
+        /// </summary>
         public static PIMOnlyMode Disabled { get; } = new PIMOnlyMode("Disabled");
+        /// <summary>
+        /// Enabled
+        /// </summary>
         public static PIMOnlyMode Enabled { get; } = new PIMOnlyMode("Enabled");
+        /// <summary>
+        /// ReportOnly
+        /// </summary>
         public static PIMOnlyMode ReportOnly { get; } = new PIMOnlyMode("ReportOnly");
 
         public static bool operator ==(PIMOnlyMode left, PIMOnlyMode right) => left.Equals(right);
@@ -622,10 +746,25 @@ namespace Pulumi.AzureNative.Authorization
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// User
+        /// </summary>
         public static PrincipalType User { get; } = new PrincipalType("User");
+        /// <summary>
+        /// Group
+        /// </summary>
         public static PrincipalType Group { get; } = new PrincipalType("Group");
+        /// <summary>
+        /// ServicePrincipal
+        /// </summary>
         public static PrincipalType ServicePrincipal { get; } = new PrincipalType("ServicePrincipal");
+        /// <summary>
+        /// ForeignGroup
+        /// </summary>
         public static PrincipalType ForeignGroup { get; } = new PrincipalType("ForeignGroup");
+        /// <summary>
+        /// Device
+        /// </summary>
         public static PrincipalType Device { get; } = new PrincipalType("Device");
 
         public static bool operator ==(PrincipalType left, PrincipalType right) => left.Equals(right);
@@ -684,8 +823,17 @@ namespace Pulumi.AzureNative.Authorization
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Requestor
+        /// </summary>
         public static RecipientType Requestor { get; } = new RecipientType("Requestor");
+        /// <summary>
+        /// Approver
+        /// </summary>
         public static RecipientType Approver { get; } = new RecipientType("Approver");
+        /// <summary>
+        /// Admin
+        /// </summary>
         public static RecipientType Admin { get; } = new RecipientType("Admin");
 
         public static bool operator ==(RecipientType left, RecipientType right) => left.Equals(right);
@@ -795,11 +943,29 @@ namespace Pulumi.AzureNative.Authorization
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// RoleManagementPolicyApprovalRule
+        /// </summary>
         public static RoleManagementPolicyRuleType RoleManagementPolicyApprovalRule { get; } = new RoleManagementPolicyRuleType("RoleManagementPolicyApprovalRule");
+        /// <summary>
+        /// RoleManagementPolicyAuthenticationContextRule
+        /// </summary>
         public static RoleManagementPolicyRuleType RoleManagementPolicyAuthenticationContextRule { get; } = new RoleManagementPolicyRuleType("RoleManagementPolicyAuthenticationContextRule");
+        /// <summary>
+        /// RoleManagementPolicyEnablementRule
+        /// </summary>
         public static RoleManagementPolicyRuleType RoleManagementPolicyEnablementRule { get; } = new RoleManagementPolicyRuleType("RoleManagementPolicyEnablementRule");
+        /// <summary>
+        /// RoleManagementPolicyExpirationRule
+        /// </summary>
         public static RoleManagementPolicyRuleType RoleManagementPolicyExpirationRule { get; } = new RoleManagementPolicyRuleType("RoleManagementPolicyExpirationRule");
+        /// <summary>
+        /// RoleManagementPolicyNotificationRule
+        /// </summary>
         public static RoleManagementPolicyRuleType RoleManagementPolicyNotificationRule { get; } = new RoleManagementPolicyRuleType("RoleManagementPolicyNotificationRule");
+        /// <summary>
+        /// RoleManagementPolicyPimOnlyModeRule
+        /// </summary>
         public static RoleManagementPolicyRuleType RoleManagementPolicyPimOnlyModeRule { get; } = new RoleManagementPolicyRuleType("RoleManagementPolicyPimOnlyModeRule");
 
         public static bool operator ==(RoleManagementPolicyRuleType left, RoleManagementPolicyRuleType right) => left.Equals(right);
@@ -907,9 +1073,14 @@ namespace Pulumi.AzureNative.Authorization
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// User
+        /// </summary>
         public static UserType User { get; } = new UserType("User");
+        /// <summary>
+        /// Group
+        /// </summary>
         public static UserType Group { get; } = new UserType("Group");
-        public static UserType ServicePrincipal { get; } = new UserType("ServicePrincipal");
 
         public static bool operator ==(UserType left, UserType right) => left.Equals(right);
         public static bool operator !=(UserType left, UserType right) => !left.Equals(right);
@@ -919,6 +1090,47 @@ namespace Pulumi.AzureNative.Authorization
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is UserType other && Equals(other);
         public bool Equals(UserType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of user.
+    /// </summary>
+    [EnumType]
+    public readonly struct UsersOrServicePrincipalSetUserType : IEquatable<UsersOrServicePrincipalSetUserType>
+    {
+        private readonly string _value;
+
+        private UsersOrServicePrincipalSetUserType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// User
+        /// </summary>
+        public static UsersOrServicePrincipalSetUserType User { get; } = new UsersOrServicePrincipalSetUserType("User");
+        /// <summary>
+        /// Group
+        /// </summary>
+        public static UsersOrServicePrincipalSetUserType Group { get; } = new UsersOrServicePrincipalSetUserType("Group");
+        /// <summary>
+        /// ServicePrincipal
+        /// </summary>
+        public static UsersOrServicePrincipalSetUserType ServicePrincipal { get; } = new UsersOrServicePrincipalSetUserType("ServicePrincipal");
+
+        public static bool operator ==(UsersOrServicePrincipalSetUserType left, UsersOrServicePrincipalSetUserType right) => left.Equals(right);
+        public static bool operator !=(UsersOrServicePrincipalSetUserType left, UsersOrServicePrincipalSetUserType right) => !left.Equals(right);
+
+        public static explicit operator string(UsersOrServicePrincipalSetUserType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UsersOrServicePrincipalSetUserType other && Equals(other);
+        public bool Equals(UsersOrServicePrincipalSetUserType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

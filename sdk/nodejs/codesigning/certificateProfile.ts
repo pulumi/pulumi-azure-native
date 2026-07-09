@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-09-30-preview. In version 2.x of the Azure Native provider, it used API version 2024-02-05-preview.
  *
- * Other available API versions: 2024-02-05-preview, 2025-10-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native codesigning [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2024-02-05-preview, 2025-10-13, 2026-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native codesigning [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class CertificateProfile extends pulumi.CustomResource {
     /**
@@ -155,7 +155,7 @@ export class CertificateProfile extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:codesigning/v20240205preview:CertificateProfile" }, { type: "azure-native:codesigning/v20240930preview:CertificateProfile" }, { type: "azure-native:codesigning/v20251013:CertificateProfile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:codesigning/v20240205preview:CertificateProfile" }, { type: "azure-native:codesigning/v20240930preview:CertificateProfile" }, { type: "azure-native:codesigning/v20251013:CertificateProfile" }, { type: "azure-native:codesigning/v20260515preview:CertificateProfile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CertificateProfile.__pulumiType, name, resourceInputs, opts);
     }

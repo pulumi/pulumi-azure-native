@@ -182,7 +182,7 @@ namespace Pulumi.AzureNative.Automation
         public Input<string> AutomationAccountName { get; set; } = null!;
 
         /// <summary>
-        /// The create or update parameters for configuration.
+        /// The configuration name.
         /// </summary>
         [Input("configurationName")]
         public Input<string>? ConfigurationName { get; set; }
@@ -230,7 +230,7 @@ namespace Pulumi.AzureNative.Automation
         }
 
         /// <summary>
-        /// Name of an Azure Resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

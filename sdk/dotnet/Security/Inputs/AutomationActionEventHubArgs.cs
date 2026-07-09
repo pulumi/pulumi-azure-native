@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Security.Inputs
     public sealed class AutomationActionEventHubArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of the action that will be triggered by the Automation
+        /// Enum. Indicates the action type.
         /// Expected value is 'EventHub'.
         /// </summary>
         [Input("actionType", required: true)]

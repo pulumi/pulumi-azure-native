@@ -24,7 +24,7 @@ class AlertsSuppressionRuleArgs:
     def __init__(__self__, *,
                  alert_type: pulumi.Input[_builtins.str],
                  reason: pulumi.Input[_builtins.str],
-                 state: pulumi.Input[Union[_builtins.str, 'RuleState']],
+                 state: pulumi.Input['RuleState'],
                  alerts_suppression_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
                  expiration_date_utc: Optional[pulumi.Input[_builtins.str]] = None,
@@ -34,7 +34,7 @@ class AlertsSuppressionRuleArgs:
 
         :param pulumi.Input[_builtins.str] alert_type: Type of the alert to automatically suppress. For all alert types, use '*'
         :param pulumi.Input[_builtins.str] reason: The reason for dismissing the alert
-        :param pulumi.Input[Union[_builtins.str, 'RuleState']] state: Possible states of the rule
+        :param pulumi.Input['RuleState'] state: Possible states of the rule
         :param pulumi.Input[_builtins.str] alerts_suppression_rule_name: The unique name of the suppression alert rule
         :param pulumi.Input[_builtins.str] comment: Any comment regarding the rule
         :param pulumi.Input[_builtins.str] expiration_date_utc: Expiration date of the rule, if value is not provided or provided as null there will no expiration at all
@@ -78,14 +78,14 @@ class AlertsSuppressionRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> pulumi.Input[Union[_builtins.str, 'RuleState']]:
+    def state(self) -> pulumi.Input['RuleState']:
         """
         Possible states of the rule
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: pulumi.Input[Union[_builtins.str, 'RuleState']]):
+    def state(self, value: pulumi.Input['RuleState']):
         pulumi.set(self, "state", value)
 
     @_builtins.property
@@ -148,7 +148,7 @@ class AlertsSuppressionRule(pulumi.CustomResource):
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
                  expiration_date_utc: Optional[pulumi.Input[_builtins.str]] = None,
                  reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'RuleState']]] = None,
+                 state: Optional[pulumi.Input['RuleState']] = None,
                  suppression_alerts_scope: Optional[pulumi.Input[Union['SuppressionAlertsScopeArgs', 'SuppressionAlertsScopeArgsDict']]] = None,
                  __props__=None):
         """
@@ -164,7 +164,7 @@ class AlertsSuppressionRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] comment: Any comment regarding the rule
         :param pulumi.Input[_builtins.str] expiration_date_utc: Expiration date of the rule, if value is not provided or provided as null there will no expiration at all
         :param pulumi.Input[_builtins.str] reason: The reason for dismissing the alert
-        :param pulumi.Input[Union[_builtins.str, 'RuleState']] state: Possible states of the rule
+        :param pulumi.Input['RuleState'] state: Possible states of the rule
         :param pulumi.Input[Union['SuppressionAlertsScopeArgs', 'SuppressionAlertsScopeArgsDict']] suppression_alerts_scope: The suppression conditions
         """
         ...
@@ -199,7 +199,7 @@ class AlertsSuppressionRule(pulumi.CustomResource):
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
                  expiration_date_utc: Optional[pulumi.Input[_builtins.str]] = None,
                  reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'RuleState']]] = None,
+                 state: Optional[pulumi.Input['RuleState']] = None,
                  suppression_alerts_scope: Optional[pulumi.Input[Union['SuppressionAlertsScopeArgs', 'SuppressionAlertsScopeArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -226,6 +226,7 @@ class AlertsSuppressionRule(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["last_modified_utc"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20190101preview:AlertsSuppressionRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -260,6 +261,7 @@ class AlertsSuppressionRule(pulumi.CustomResource):
         __props__.__dict__["reason"] = None
         __props__.__dict__["state"] = None
         __props__.__dict__["suppression_alerts_scope"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return AlertsSuppressionRule(resource_name, opts=opts, __props__=__props__)
 
@@ -307,7 +309,7 @@ class AlertsSuppressionRule(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -336,10 +338,18 @@ class AlertsSuppressionRule(pulumi.CustomResource):
         return pulumi.get(self, "suppression_alerts_scope")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

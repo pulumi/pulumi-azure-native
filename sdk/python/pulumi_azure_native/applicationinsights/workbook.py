@@ -443,7 +443,7 @@ class Workbook(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.WorkbookResourceResponseIdentity']]:
+    def identity(self) -> pulumi.Output[Optional['outputs.WorkbookResourceIdentityResponse']]:
         """
         Identity used for BYOS
         """
@@ -509,7 +509,7 @@ class Workbook(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

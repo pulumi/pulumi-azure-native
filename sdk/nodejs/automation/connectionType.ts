@@ -66,11 +66,15 @@ export class ConnectionType extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string | undefined>;
     /**
-     * Gets the name of the connection type.
+     * The name of the resource
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Resource type
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.automation.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
 
@@ -107,6 +111,7 @@ export class ConnectionType extends pulumi.CustomResource {
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -116,6 +121,7 @@ export class ConnectionType extends pulumi.CustomResource {
             resourceInputs["isGlobal"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -134,7 +140,7 @@ export interface ConnectionTypeArgs {
      */
     automationAccountName: pulumi.Input<string>;
     /**
-     * The parameters supplied to the create or update connection type operation.
+     * The name of connection type.
      */
     connectionTypeName?: pulumi.Input<string>;
     /**
@@ -150,7 +156,7 @@ export interface ConnectionTypeArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * Name of an Azure Resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

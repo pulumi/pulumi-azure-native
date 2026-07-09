@@ -154,7 +154,7 @@ def get_edge_machine(edge_machine_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2025-12-01-preview.
 
-    Other available API versions: 2026-02-15-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2026-02-15-preview, 2026-03-01-preview, 2026-04-01-preview, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str edge_machine_name: Name of Device
@@ -184,7 +184,7 @@ def get_edge_machine_output(edge_machine_name: Optional[pulumi.Input[_builtins.s
 
     Uses Azure REST API version 2025-12-01-preview.
 
-    Other available API versions: 2026-02-15-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2026-02-15-preview, 2026-03-01-preview, 2026-04-01-preview, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str edge_machine_name: Name of Device

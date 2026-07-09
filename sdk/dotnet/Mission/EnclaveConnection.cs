@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Mission
     /// 
     /// Uses Azure REST API version 2025-05-01-preview.
     /// 
-    /// Other available API versions: 2024-06-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mission [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2024-06-01-preview, 2024-12-01-preview, 2025-11-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mission [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:mission:EnclaveConnection")]
     public partial class EnclaveConnection : global::Pulumi.CustomResource
@@ -125,6 +125,8 @@ namespace Pulumi.AzureNative.Mission
                     new global::Pulumi.Alias { Type = "azure-native:mission/v20240601preview:EnclaveConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:mission/v20241201preview:EnclaveConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:mission/v20250501preview:EnclaveConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:mission/v20251101preview:EnclaveConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:mission/v20260301preview:EnclaveConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

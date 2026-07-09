@@ -15,13 +15,11 @@ from .get_fabric import *
 from .get_fabric_agent import *
 from .get_policy import *
 from .get_private_endpoint_connection import *
-from .get_private_endpoint_connection_proxy import *
 from .get_protected_item import *
 from .get_replication_extension import *
 from .get_vault import *
 from .policy import *
 from .private_endpoint_connection import *
-from .private_endpoint_connection_proxy import *
 from .protected_item import *
 from .replication_extension import *
 from .vault import *

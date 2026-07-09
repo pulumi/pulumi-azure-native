@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
     public sealed class NatGatewayPropertiesResponse
     {
         /// <summary>
-        /// List of inbound NAT rules. InboundNATRules can only be set after the NAT Gateway has been associated with a vnet
+        /// List of inbound NAT rules. InboundNATRules can only be set after the NAT Gateway has been associated with a vnet. Removed in 2026-04-01-preview; use InboundRule Child resource instead.
         /// </summary>
         public readonly ImmutableArray<Outputs.InboundNATRuleResponse> InboundNATRules;
         /// <summary>

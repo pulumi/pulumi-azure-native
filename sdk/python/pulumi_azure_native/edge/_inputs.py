@@ -34,6 +34,8 @@ __all__ = [
     'ErrorActionArgsDict',
     'ExecutionPropertiesArgs',
     'ExecutionPropertiesArgsDict',
+    'ExecutionV2PropertiesArgs',
+    'ExecutionV2PropertiesArgsDict',
     'HierarchyArgs',
     'HierarchyArgsDict',
     'InstancePropertiesArgs',
@@ -64,6 +66,8 @@ __all__ = [
     'TaskSpecArgsDict',
     'WorkflowVersionPropertiesArgs',
     'WorkflowVersionPropertiesArgsDict',
+    'WorkflowVersionV2PropertiesArgs',
+    'WorkflowVersionV2PropertiesArgsDict',
 ]
 
 class AzureResourceManagerCommonTypesExtendedLocationArgsDict(TypedDict):
@@ -120,7 +124,7 @@ class AzureResourceManagerCommonTypesExtendedLocationArgs:
 
 class CapabilityArgsDict(TypedDict):
     """
-    Capability, to match in Solution Templates and Targets
+    Capability, to match in Solution Templates & Targets
     """
     description: pulumi.Input[_builtins.str]
     """
@@ -142,7 +146,7 @@ class CapabilityArgs:
                  name: pulumi.Input[_builtins.str],
                  state: Optional[pulumi.Input[Union[_builtins.str, 'ResourceState']]] = None):
         """
-        Capability, to match in Solution Templates and Targets
+        Capability, to match in Solution Templates & Targets
 
         :param pulumi.Input[_builtins.str] description: Description of Capability
         :param pulumi.Input[_builtins.str] name: Name of Capability
@@ -482,6 +486,60 @@ class ExecutionPropertiesArgs:
     @specification.setter
     def specification(self, value: Optional[Any]):
         pulumi.set(self, "specification", value)
+
+
+class ExecutionV2PropertiesArgsDict(TypedDict):
+    """
+    ExecutionV2 Properties
+    """
+    specification: NotRequired[Any]
+    """
+    ExecutionV2 specification
+    """
+    workflow_version_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Workflow version of ExecutionV2
+    """
+
+@pulumi.input_type
+class ExecutionV2PropertiesArgs:
+    def __init__(__self__, *,
+                 specification: Optional[Any] = None,
+                 workflow_version_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        ExecutionV2 Properties
+
+        :param Any specification: ExecutionV2 specification
+        :param pulumi.Input[_builtins.str] workflow_version_id: Workflow version of ExecutionV2
+        """
+        if specification is not None:
+            pulumi.set(__self__, "specification", specification)
+        if workflow_version_id is not None:
+            pulumi.set(__self__, "workflow_version_id", workflow_version_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def specification(self) -> Optional[Any]:
+        """
+        ExecutionV2 specification
+        """
+        return pulumi.get(self, "specification")
+
+    @specification.setter
+    def specification(self, value: Optional[Any]):
+        pulumi.set(self, "specification", value)
+
+    @_builtins.property
+    @pulumi.getter(name="workflowVersionId")
+    def workflow_version_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Workflow version of ExecutionV2
+        """
+        return pulumi.get(self, "workflow_version_id")
+
+    @workflow_version_id.setter
+    def workflow_version_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "workflow_version_id", value)
 
 
 class HierarchyArgsDict(TypedDict):
@@ -1576,6 +1634,59 @@ class WorkflowVersionPropertiesArgsDict(TypedDict):
 
 @pulumi.input_type
 class WorkflowVersionPropertiesArgs:
+    def __init__(__self__, *,
+                 stage_spec: pulumi.Input[Sequence[pulumi.Input['StageSpecArgs']]],
+                 specification: Optional[Any] = None):
+        """
+        Workflow Version Properties
+
+        :param pulumi.Input[Sequence[pulumi.Input['StageSpecArgs']]] stage_spec: A list of stage specs
+        :param Any specification: Execution specification
+        """
+        pulumi.set(__self__, "stage_spec", stage_spec)
+        if specification is not None:
+            pulumi.set(__self__, "specification", specification)
+
+    @_builtins.property
+    @pulumi.getter(name="stageSpec")
+    def stage_spec(self) -> pulumi.Input[Sequence[pulumi.Input['StageSpecArgs']]]:
+        """
+        A list of stage specs
+        """
+        return pulumi.get(self, "stage_spec")
+
+    @stage_spec.setter
+    def stage_spec(self, value: pulumi.Input[Sequence[pulumi.Input['StageSpecArgs']]]):
+        pulumi.set(self, "stage_spec", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def specification(self) -> Optional[Any]:
+        """
+        Execution specification
+        """
+        return pulumi.get(self, "specification")
+
+    @specification.setter
+    def specification(self, value: Optional[Any]):
+        pulumi.set(self, "specification", value)
+
+
+class WorkflowVersionV2PropertiesArgsDict(TypedDict):
+    """
+    Workflow Version Properties
+    """
+    stage_spec: pulumi.Input[Sequence[pulumi.Input['StageSpecArgsDict']]]
+    """
+    A list of stage specs
+    """
+    specification: NotRequired[Any]
+    """
+    Execution specification
+    """
+
+@pulumi.input_type
+class WorkflowVersionV2PropertiesArgs:
     def __init__(__self__, *,
                  stage_spec: pulumi.Input[Sequence[pulumi.Input['StageSpecArgs']]],
                  specification: Optional[Any] = None):

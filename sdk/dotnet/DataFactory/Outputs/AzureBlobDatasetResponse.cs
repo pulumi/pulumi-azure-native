@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         /// </summary>
-        public readonly Outputs.DatasetResponseFolder? Folder;
+        public readonly Outputs.DatasetFolderResponse? Folder;
         /// <summary>
         /// The path of the Azure Blob storage. Type: string (or Expression with resultType string).
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? fileName,
 
-            Outputs.DatasetResponseFolder? folder,
+            Outputs.DatasetFolderResponse? folder,
 
             object? folderPath,
 

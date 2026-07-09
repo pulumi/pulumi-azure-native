@@ -24,7 +24,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetJitNetworkAccessPolicyResult:
-    def __init__(__self__, azure_api_version=None, id=None, kind=None, location=None, name=None, provisioning_state=None, requests=None, type=None, virtual_machines=None):
+    """
+    Concrete proxy resource types can be created by aliasing this type using a specific property type.
+    """
+    def __init__(__self__, azure_api_version=None, id=None, kind=None, location=None, name=None, provisioning_state=None, requests=None, system_data=None, type=None, virtual_machines=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -46,6 +49,9 @@ class GetJitNetworkAccessPolicyResult:
         if requests and not isinstance(requests, list):
             raise TypeError("Expected argument 'requests' to be a list")
         pulumi.set(__self__, "requests", requests)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -65,7 +71,7 @@ class GetJitNetworkAccessPolicyResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -89,7 +95,7 @@ class GetJitNetworkAccessPolicyResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -107,10 +113,18 @@ class GetJitNetworkAccessPolicyResult:
         return pulumi.get(self, "requests")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -136,6 +150,7 @@ class AwaitableGetJitNetworkAccessPolicyResult(GetJitNetworkAccessPolicyResult):
             name=self.name,
             provisioning_state=self.provisioning_state,
             requests=self.requests,
+            system_data=self.system_data,
             type=self.type,
             virtual_machines=self.virtual_machines)
 
@@ -152,7 +167,7 @@ def get_jit_network_access_policy(asc_location: Optional[_builtins.str] = None,
 
     :param _builtins.str asc_location: The location where ASC stores the data of the subscription. can be retrieved from Get locations
     :param _builtins.str jit_network_access_policy_name: Name of a Just-in-Time access configuration policy.
-    :param _builtins.str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['ascLocation'] = asc_location
@@ -169,6 +184,7 @@ def get_jit_network_access_policy(asc_location: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         requests=pulumi.get(__ret__, 'requests'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         virtual_machines=pulumi.get(__ret__, 'virtual_machines'))
 def get_jit_network_access_policy_output(asc_location: Optional[pulumi.Input[_builtins.str]] = None,
@@ -183,7 +199,7 @@ def get_jit_network_access_policy_output(asc_location: Optional[pulumi.Input[_bu
 
     :param _builtins.str asc_location: The location where ASC stores the data of the subscription. can be retrieved from Get locations
     :param _builtins.str jit_network_access_policy_name: Name of a Just-in-Time access configuration policy.
-    :param _builtins.str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['ascLocation'] = asc_location
@@ -199,5 +215,6 @@ def get_jit_network_access_policy_output(asc_location: Optional[pulumi.Input[_bu
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         requests=pulumi.get(__response__, 'requests'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type'),
         virtual_machines=pulumi.get(__response__, 'virtual_machines')))

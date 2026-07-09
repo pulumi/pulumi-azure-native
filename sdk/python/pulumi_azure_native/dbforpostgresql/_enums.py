@@ -74,19 +74,61 @@ class AzureManagedDiskPerformanceTier(_builtins.str, Enum):
     Storage tier of a server.
     """
     P1 = "P1"
+    """
+    Entry-level SSD for minimal IOPS, ideal for light development or testing workloads.
+    """
     P2 = "P2"
+    """
+    Slightly higher IOPS for small-scale applications needing consistent low latency.
+    """
     P3 = "P3"
+    """
+    Balanced performance for basic production workloads with moderate throughput.
+    """
     P4 = "P4"
+    """
+    Enhanced IOPS for growing apps with predictable performance needs.
+    """
     P6 = "P6"
+    """
+    Mid-tier SSD for steady workloads requiring reliable throughput and latency.
+    """
     P10 = "P10"
+    """
+    Popular choice for general-purpose production workloads with scalable performance.
+    """
     P15 = "P15"
+    """
+    High IOPS tier for demanding apps with frequent read/write operations.
+    """
     P20 = "P20"
+    """
+    Entry point for high-performance Solid State Disks (SSDs), suitable for small-scale I/O-intensive workloads.
+    """
     P30 = "P30"
+    """
+    Balanced tier for moderate throughput and latency-sensitive applications.
+    """
     P40 = "P40"
+    """
+    Enhanced performance for growing production workloads with consistent IOPS demands.
+    """
     P50 = "P50"
+    """
+    Optimized for enterprise-grade applications needing sustained high throughput.
+    """
     P60 = "P60"
+    """
+    High-capacity tier for large databases and analytics workloads with elevated IOPS.
+    """
     P70 = "P70"
+    """
+    Designed for mission-critical systems requiring ultra-low latency and high concurrency.
+    """
     P80 = "P80"
+    """
+    Top-tier SSD for maximum IOPS and throughput, ideal for the most demanding workloads.
+    """
 
 
 @pulumi.type_token("azure-native:dbforpostgresql:Cancel")
@@ -95,7 +137,13 @@ class Cancel(_builtins.str, Enum):
     Indicates if cancel must be triggered for the entire migration.
     """
     TRUE = "True"
+    """
+    Cancel must be triggered for the entire migration.
+    """
     FALSE = "False"
+    """
+    Cancel must not be triggered for the entire migration.
+    """
 
 
 @pulumi.type_token("azure-native:dbforpostgresql:CreateMode")
@@ -104,12 +152,33 @@ class CreateMode(_builtins.str, Enum):
     Creation mode of a new server.
     """
     DEFAULT = "Default"
+    """
+    If the operation is triggered on a non-existing server, it's equivalent to 'Create'. If the operation is triggered on an existing server, it's equivalent to 'Update'.
+    """
     CREATE = "Create"
+    """
+    Operation creates a new server.
+    """
     UPDATE = "Update"
+    """
+    Operation updates an existing server.
+    """
     POINT_IN_TIME_RESTORE = "PointInTimeRestore"
+    """
+    Operation restores an existing backup of an existing server. This operation creates a new server, and then restores on it the backup of an existing server at a specific point in time.
+    """
     GEO_RESTORE = "GeoRestore"
+    """
+    Operation restores an existing backup of an existing server, on the paired region of the existing server. This operation creates a new server on the paired region of the existing server, and then restores on it the backup of an existing server at a specific point in time, in a different region. This operation is only supported on existing servers that were created with geographically redundant backups enabled.
+    """
     REPLICA = "Replica"
+    """
+    Operation creates a replica of an existing server. This operation creates a new server, restores a base backup of the existing server (referred to as primary), and configures physical replication to asynchronously stream all changes which are recorded in the transaction log of the primary.
+    """
     REVIVE_DROPPED = "ReviveDropped"
+    """
+    Operation creates a new server, initialized with the backup of a server that was recently deleted.
+    """
 
 
 @pulumi.type_token("azure-native:dbforpostgresql:DataEncryptionType")
@@ -133,7 +202,13 @@ class GeographicallyRedundantBackup(_builtins.str, Enum):
     Indicates if the server is configured to create geographically redundant backups.
     """
     ENABLED = "Enabled"
+    """
+    Server is configured to create geographically redundant backups.
+    """
     DISABLED = "Disabled"
+    """
+    Server is not configured to create geographically redundant backups.
+    """
 
 
 @pulumi.type_token("azure-native:dbforpostgresql:IdentityType")
@@ -163,7 +238,13 @@ class LogicalReplicationOnSourceServer(_builtins.str, Enum):
     Indicates whether to setup logical replication on source server, if needed.
     """
     TRUE = "True"
+    """
+    Logical replication will be set up on the source server.
+    """
     FALSE = "False"
+    """
+    Logical replication will not be set up on the source server.
+    """
 
 
 @pulumi.type_token("azure-native:dbforpostgresql:MicrosoftEntraAuth")
@@ -172,7 +253,13 @@ class MicrosoftEntraAuth(_builtins.str, Enum):
     Indicates if the server supports Microsoft Entra authentication.
     """
     ENABLED = "Enabled"
+    """
+    Server supports Microsoft Entra authentication.
+    """
     DISABLED = "Disabled"
+    """
+    Server does not support Microsoft Entra authentication.
+    """
 
 
 @pulumi.type_token("azure-native:dbforpostgresql:MigrateRolesAndPermissions")
@@ -181,7 +268,13 @@ class MigrateRolesAndPermissions(_builtins.str, Enum):
     Indicates if roles and permissions must be migrated.
     """
     TRUE = "True"
+    """
+    Roles and permissions will be migrated.
+    """
     FALSE = "False"
+    """
+    Roles and permissions will not be migrated.
+    """
 
 
 @pulumi.type_token("azure-native:dbforpostgresql:MigrationMode")
@@ -190,7 +283,13 @@ class MigrationMode(_builtins.str, Enum):
     Mode used to perform the migration: Online or Offline.
     """
     OFFLINE = "Offline"
+    """
+    Offline migration mode.
+    """
     ONLINE = "Online"
+    """
+    Online migration mode.
+    """
 
 
 @pulumi.type_token("azure-native:dbforpostgresql:MigrationOption")
@@ -199,8 +298,17 @@ class MigrationOption(_builtins.str, Enum):
     Supported option for a migration.
     """
     VALIDATE = "Validate"
+    """
+    Validate the migration without performing it.
+    """
     MIGRATE = "Migrate"
+    """
+    Perform the migration.
+    """
     VALIDATE_AND_MIGRATE = "ValidateAndMigrate"
+    """
+    Validate and perform the migration.
+    """
 
 
 @pulumi.type_token("azure-native:dbforpostgresql:MinimalTlsVersionEnum")
@@ -220,7 +328,13 @@ class OverwriteDatabasesOnTargetServer(_builtins.str, Enum):
     Indicates if databases on the target server can be overwritten when already present. If set to 'False', when the migration workflow detects that the database already exists on the target server, it will wait for a confirmation.
     """
     TRUE = "True"
+    """
+    Databases on the target server can be overwritten when already present.
+    """
     FALSE = "False"
+    """
+    Databases on the target server cannot be overwritten when already present. When the migration workflow detects that the database already exists on the target server, it will wait for a confirmation.
+    """
 
 
 @pulumi.type_token("azure-native:dbforpostgresql:PasswordAuth")
@@ -235,7 +349,13 @@ class PasswordBasedAuth(_builtins.str, Enum):
     Indicates if the server supports password based authentication.
     """
     ENABLED = "Enabled"
+    """
+    Server supports password based authentication.
+    """
     DISABLED = "Disabled"
+    """
+    Server does not support password based authentication.
+    """
 
 
 @pulumi.type_token("azure-native:dbforpostgresql:PostgreSqlFlexibleServerHighAvailabilityMode")
@@ -244,8 +364,17 @@ class PostgreSqlFlexibleServerHighAvailabilityMode(_builtins.str, Enum):
     High availability mode for a server.
     """
     DISABLED = "Disabled"
+    """
+    High availability is disabled for the server.
+    """
     ZONE_REDUNDANT = "ZoneRedundant"
+    """
+    High availability is enabled for the server, with standby server in a different availability zone than that of the primary.
+    """
     SAME_ZONE = "SameZone"
+    """
+    High availability is enabled for the server, with standby server in the same availability zone as the primary.
+    """
 
 
 @pulumi.type_token("azure-native:dbforpostgresql:PostgresMajorVersion")
@@ -254,13 +383,37 @@ class PostgresMajorVersion(_builtins.str, Enum):
     Major version of PostgreSQL database engine.
     """
     POSTGRES_MAJOR_VERSION_18 = "18"
+    """
+    PostgreSQL 18.
+    """
     POSTGRES_MAJOR_VERSION_17 = "17"
+    """
+    PostgreSQL 17.
+    """
     POSTGRES_MAJOR_VERSION_16 = "16"
+    """
+    PostgreSQL 16.
+    """
     POSTGRES_MAJOR_VERSION_15 = "15"
+    """
+    PostgreSQL 15.
+    """
     POSTGRES_MAJOR_VERSION_14 = "14"
+    """
+    PostgreSQL 14.
+    """
     POSTGRES_MAJOR_VERSION_13 = "13"
+    """
+    PostgreSQL 13.
+    """
     POSTGRES_MAJOR_VERSION_12 = "12"
+    """
+    PostgreSQL 12.
+    """
     POSTGRES_MAJOR_VERSION_11 = "11"
+    """
+    PostgreSQL 11.
+    """
 
 
 @pulumi.type_token("azure-native:dbforpostgresql:PrincipalType")
@@ -296,7 +449,7 @@ class ReadReplicaPromoteMode(_builtins.str, Enum):
     """
     STANDALONE = "Standalone"
     """
-    Read replica will become an independent server.
+    Read replica will become an independent server, and a completely independent entity from the replication set.
     """
     SWITCHOVER = "Switchover"
     """
@@ -311,11 +464,11 @@ class ReadReplicaPromoteOption(_builtins.str, Enum):
     """
     PLANNED = "Planned"
     """
-    The operation will wait for data in the read replica to be fully synchronized with its source server, before it initiates the operation.
+    Wait for data in the read replica to be fully synchronized with its source server before it initiates the operation.
     """
     FORCED = "Forced"
     """
-    The operation will not wait for data in the read replica to be synchronized with its source server, before it initiates the operation.
+    Initiate the operation immediately, without waiting for data in the read replica to be synchronized with its source server.
     """
 
 
@@ -325,9 +478,21 @@ class ReplicationRole(_builtins.str, Enum):
     Role of the server in a replication set.
     """
     NONE = "None"
+    """
+    No replication role assigned; the server operates independently.
+    """
     PRIMARY = "Primary"
+    """
+    Acts as the source server for replication to one or more replicas.
+    """
     ASYNC_REPLICA = "AsyncReplica"
+    """
+    Receives data asynchronously from a primary server within the same region.
+    """
     GEO_ASYNC_REPLICA = "GeoAsyncReplica"
+    """
+    Receives data asynchronously from a primary server in a different region for geographical redundancy.
+    """
 
 
 @pulumi.type_token("azure-native:dbforpostgresql:RoleType")
@@ -342,7 +507,13 @@ class ServerPublicNetworkAccessState(_builtins.str, Enum):
     Indicates if public network access is enabled or not. This is only supported for servers that are not integrated into a virtual network which is owned and provided by customer when server is deployed.
     """
     ENABLED = "Enabled"
+    """
+    Public network access is enabled. This allows the server to be accessed from the public internet, provided the necessary firewall rule that allows incoming traffic originating from the connecting client is in place. This is compatible with the use of private endpoints to connect to this server.
+    """
     DISABLED = "Disabled"
+    """
+    Public network access is disabled. This means the server cannot be accessed from the public internet, but only via private endpoints.
+    """
 
 
 @pulumi.type_token("azure-native:dbforpostgresql:ServerSecurityAlertPolicyState")
@@ -402,8 +573,17 @@ class SkuTier(_builtins.str, Enum):
     Tier of the compute assigned to a server.
     """
     BURSTABLE = "Burstable"
+    """
+    Cost-effective tier for infrequent CPU usage, ideal for development and testing workloads with low performance requirements.
+    """
     GENERAL_PURPOSE = "GeneralPurpose"
+    """
+    Balanced compute and memory for most workloads, offering scalable performance and I/O throughput.
+    """
     MEMORY_OPTIMIZED = "MemoryOptimized"
+    """
+    High memory-to-core ratio for demanding workloads needing fast in-memory processing and high concurrency.
+    """
 
 
 @pulumi.type_token("azure-native:dbforpostgresql:SourceType")
@@ -412,29 +592,101 @@ class SourceType(_builtins.str, Enum):
     Source server type used for the migration: ApsaraDB_RDS, AWS, AWS_AURORA, AWS_EC2, AWS_RDS, AzureVM, Crunchy_PostgreSQL, Digital_Ocean_Droplets, Digital_Ocean_PostgreSQL, EDB, EDB_Oracle_Server, EDB_PostgreSQL, GCP, GCP_AlloyDB, GCP_CloudSQL, GCP_Compute, Heroku_PostgreSQL, Huawei_Compute, Huawei_RDS, OnPremises, PostgreSQLCosmosDB, PostgreSQLFlexibleServer, PostgreSQLSingleServer, or Supabase_PostgreSQL
     """
     ON_PREMISES = "OnPremises"
+    """
+    On-premises PostgreSQL server.
+    """
     AWS = "AWS"
+    """
+    Amazon Web Services PostgreSQL server.
+    """
     GCP = "GCP"
+    """
+    Google Cloud Platform PostgreSQL server.
+    """
     AZURE_VM = "AzureVM"
+    """
+    Azure Virtual Machine PostgreSQL server.
+    """
     POSTGRE_SQL_SINGLE_SERVER = "PostgreSQLSingleServer"
+    """
+    Azure Database for PostgreSQL single server.
+    """
     AW_S_RDS = "AWS_RDS"
+    """
+    Amazon RDS for PostgreSQL.
+    """
     AW_S_AURORA = "AWS_AURORA"
+    """
+    Amazon Aurora for PostgreSQL.
+    """
     AW_S_EC2 = "AWS_EC2"
+    """
+    Amazon EC2 for PostgreSQL.
+    """
     GC_P_CLOUD_SQL = "GCP_CloudSQL"
+    """
+    Google Cloud SQL for PostgreSQL.
+    """
     GC_P_ALLOY_DB = "GCP_AlloyDB"
+    """
+    Google Cloud AlloyDB for PostgreSQL.
+    """
     GC_P_COMPUTE = "GCP_Compute"
+    """
+    Google Compute Engine for PostgreSQL.
+    """
     EDB = "EDB"
+    """
+    EnterpriseDB PostgreSQL server.
+    """
     ED_B_ORACLE_SERVER = "EDB_Oracle_Server"
+    """
+    EnterpriseDB Oracle Server.
+    """
     ED_B_POSTGRE_SQL = "EDB_PostgreSQL"
+    """
+    EnterpriseDB PostgreSQL server.
+    """
     POSTGRE_SQL_FLEXIBLE_SERVER = "PostgreSQLFlexibleServer"
+    """
+    Azure Database for PostgreSQL flexible server.
+    """
     POSTGRE_SQL_COSMOS_DB = "PostgreSQLCosmosDB"
+    """
+    .NET Cosmos DB for PostgreSQL
+    """
     HUAWEI_RDS = "Huawei_RDS"
+    """
+    Huawei RDS for PostgreSQL
+    """
     HUAWEI_COMPUTE = "Huawei_Compute"
+    """
+    Huawei Compute for PostgreSQL
+    """
     HEROKU_POSTGRE_SQL = "Heroku_PostgreSQL"
+    """
+    Heroku PostgreSQL
+    """
     CRUNCHY_POSTGRE_SQL = "Crunchy_PostgreSQL"
+    """
+    Crunchy PostgreSQL
+    """
     APSARA_D_B_RDS = "ApsaraDB_RDS"
+    """
+    ApsaraDB RDS for PostgreSQL
+    """
     DIGITAL_OCEAN_DROPLETS = "Digital_Ocean_Droplets"
+    """
+    Digital Ocean Droplets for PostgreSQL
+    """
     DIGITAL_OCEAN_POSTGRE_SQL = "Digital_Ocean_PostgreSQL"
+    """
+    Digital Ocean PostgreSQL
+    """
     SUPABASE_POSTGRE_SQL = "Supabase_PostgreSQL"
+    """
+    Supabase PostgreSQL
+    """
 
 
 @pulumi.type_token("azure-native:dbforpostgresql:SslEnforcementEnum")
@@ -452,9 +704,21 @@ class SslMode(_builtins.str, Enum):
     SSL mode used by a migration. Default SSL mode for 'PostgreSQLSingleServer' is 'VerifyFull'. Default SSL mode for other source types is 'Prefer'.
     """
     PREFER = "Prefer"
+    """
+    Prefer SSL connection. If the server does not support SSL, the connection will be established without SSL.
+    """
     REQUIRE = "Require"
+    """
+    Require SSL connection. If the server does not support SSL, the connection will fail.
+    """
     VERIFY_CA = "VerifyCA"
+    """
+    Require SSL connection and verify the server certificate against the CA certificate.
+    """
     VERIFY_FULL = "VerifyFull"
+    """
+    Require SSL connection, verify the server certificate against the CA certificate, and verify that the server hostname matches the certificate.
+    """
 
 
 @pulumi.type_token("azure-native:dbforpostgresql:StartDataMigration")
@@ -463,7 +727,13 @@ class StartDataMigration(_builtins.str, Enum):
     Indicates if data migration must start right away.
     """
     TRUE = "True"
+    """
+    Data migration must start right away.
+    """
     FALSE = "False"
+    """
+    Data migration must not start right away.
+    """
 
 
 @pulumi.type_token("azure-native:dbforpostgresql:StorageAutoGrow")
@@ -472,7 +742,13 @@ class StorageAutoGrow(_builtins.str, Enum):
     Flag to enable or disable the automatic growth of storage size of a server when available space is nearing zero and conditions allow for automatically growing storage size.
     """
     ENABLED = "Enabled"
+    """
+    Server should automatically grow storage size when available space is nearing zero and conditions allow for automatically growing storage size.
+    """
     DISABLED = "Disabled"
+    """
+    Server should not automatically grow storage size when available space is nearing zero.
+    """
 
 
 @pulumi.type_token("azure-native:dbforpostgresql:StorageAutogrow")
@@ -490,8 +766,17 @@ class StorageType(_builtins.str, Enum):
     Type of storage assigned to a server. Allowed values are Premium_LRS, PremiumV2_LRS, or UltraSSD_LRS. If not specified, it defaults to Premium_LRS.
     """
     PREMIUM_LRS = "Premium_LRS"
+    """
+    Standard Solid State Disk (SSD) backed storage offering consistent performance for general purpose workloads.
+    """
     PREMIUM_V2_LRS = "PremiumV2_LRS"
+    """
+    Next generation Solid State Disk (SSD) storage with improved scalability and performance for demanding enterprise workloads.
+    """
     ULTRA_SS_D_LRS = "UltraSSD_LRS"
+    """
+    High-end Solid State Disk (SSD) storage designed for extreme IOPS and latency-sensitive applications.
+    """
 
 
 @pulumi.type_token("azure-native:dbforpostgresql:TriggerCutover")
@@ -500,7 +785,13 @@ class TriggerCutover(_builtins.str, Enum):
     Indicates if cutover must be triggered for the entire migration.
     """
     TRUE = "True"
+    """
+    Cutover must be triggered for the entire migration.
+    """
     FALSE = "False"
+    """
+    Cutover must not be triggered for the entire migration.
+    """
 
 
 @pulumi.type_token("azure-native:dbforpostgresql:VirtualEndpointType")
@@ -509,3 +800,6 @@ class VirtualEndpointType(_builtins.str, Enum):
     Type of endpoint for the virtual endpoints.
     """
     READ_WRITE = "ReadWrite"
+    """
+    Read-write endpoint.
+    """

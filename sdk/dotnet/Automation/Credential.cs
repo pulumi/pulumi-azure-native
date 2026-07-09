@@ -129,7 +129,7 @@ namespace Pulumi.AzureNative.Automation
         public Input<string> AutomationAccountName { get; set; } = null!;
 
         /// <summary>
-        /// The parameters supplied to the create or update credential operation.
+        /// The name of credential.
         /// </summary>
         [Input("credentialName")]
         public Input<string>? CredentialName { get; set; }
@@ -153,7 +153,7 @@ namespace Pulumi.AzureNative.Automation
         public Input<string> Password { get; set; } = null!;
 
         /// <summary>
-        /// Name of an Azure Resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

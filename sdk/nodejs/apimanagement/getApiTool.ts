@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Gets the details of the API Tool specified by its identifier.
  *
  * Uses Azure REST API version 2025-03-01-preview.
+ *
+ * Other available API versions: 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getApiTool(args: GetApiToolArgs, opts?: pulumi.InvokeOptions): Promise<GetApiToolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -82,6 +84,8 @@ export interface GetApiToolResult {
  * Gets the details of the API Tool specified by its identifier.
  *
  * Uses Azure REST API version 2025-03-01-preview.
+ *
+ * Other available API versions: 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getApiToolOutput(args: GetApiToolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiToolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

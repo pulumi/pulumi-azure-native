@@ -124,7 +124,7 @@ class ScheduledAction(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-04-15-preview.
 
-        Other available API versions: 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native computeschedule [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2026-01-01-preview, 2026-03-01-preview, 2026-04-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native computeschedule [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -146,7 +146,7 @@ class ScheduledAction(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-04-15-preview.
 
-        Other available API versions: 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native computeschedule [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2026-01-01-preview, 2026-03-01-preview, 2026-04-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native computeschedule [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -189,7 +189,7 @@ class ScheduledAction(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:computeschedule/v20250415preview:ScheduledAction"), pulumi.Alias(type_="azure-native:computeschedule/v20260101preview:ScheduledAction")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:computeschedule/v20250415preview:ScheduledAction"), pulumi.Alias(type_="azure-native:computeschedule/v20260101preview:ScheduledAction"), pulumi.Alias(type_="azure-native:computeschedule/v20260301preview:ScheduledAction"), pulumi.Alias(type_="azure-native:computeschedule/v20260415preview:ScheduledAction")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ScheduledAction, __self__).__init__(
             'azure-native:computeschedule:ScheduledAction',

@@ -110,6 +110,10 @@ namespace Pulumi.AzureNative.ApplicationInsights
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -124,12 +128,15 @@ namespace Pulumi.AzureNative.ApplicationInsights
 
             string name,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             AzureApiVersion = azureApiVersion;
             Id = id;
             LinkedStorageAccount = linkedStorageAccount;
             Name = name;
+            SystemData = systemData;
             Type = type;
         }
     }

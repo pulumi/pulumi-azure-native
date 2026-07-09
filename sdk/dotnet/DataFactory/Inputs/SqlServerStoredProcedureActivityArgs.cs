@@ -36,8 +36,8 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// <summary>
         /// Linked service reference.
         /// </summary>
-        [Input("linkedServiceName", required: true)]
-        public Input<Inputs.LinkedServiceReferenceArgs> LinkedServiceName { get; set; } = null!;
+        [Input("linkedServiceName")]
+        public Input<Inputs.LinkedServiceReferenceArgs>? LinkedServiceName { get; set; }
 
         /// <summary>
         /// Activity name.

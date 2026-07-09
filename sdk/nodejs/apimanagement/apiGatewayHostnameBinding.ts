@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * A single API Management gateway hostname binding resource in List or Get response.
  *
  * Uses Azure REST API version 2025-03-01-preview.
+ *
+ * Other available API versions: 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ApiGatewayHostnameBinding extends pulumi.CustomResource {
     /**
@@ -123,7 +125,7 @@ export class ApiGatewayHostnameBinding extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20250301preview:ApiGatewayHostnameBinding" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20250301preview:ApiGatewayHostnameBinding" }, { type: "azure-native:apimanagement/v20250901preview:ApiGatewayHostnameBinding" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApiGatewayHostnameBinding.__pulumiType, name, resourceInputs, opts);
     }

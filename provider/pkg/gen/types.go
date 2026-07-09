@@ -477,6 +477,11 @@ func (m *moduleGenerator) genEnumType(schema *spec.Schema, context *openapi.Refe
 				if description, ok := val["description"].(string); ok {
 					enumVal.Description = description
 				}
+				// Override the name for the values for this Enum since it contains unfortunately
+				// named values like `Input` and `Output` which collide especially for Go Codegen.
+				if strings.HasPrefix(string(m.module), "datafactory") && enumName == "ScriptActivityParameterDirection" {
+					enumVal.Name = fmt.Sprintf("Value%s", enumVal.Value)
+				}
 				if !enumExists(enumVal) {
 					enumSpec.Enum = append(enumSpec.Enum, enumVal)
 				}

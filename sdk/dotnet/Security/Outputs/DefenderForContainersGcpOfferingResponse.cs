@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// <summary>
         /// The native cloud connection configuration
         /// </summary>
-        public readonly Outputs.DefenderForContainersGcpOfferingResponseDataPipelineNativeCloudConnection? DataPipelineNativeCloudConnection;
+        public readonly Outputs.DefenderForContainersGcpOfferingDataPipelineNativeCloudConnectionResponse? DataPipelineNativeCloudConnection;
         /// <summary>
         /// The offering description.
         /// </summary>
@@ -39,15 +39,15 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// <summary>
         /// The Microsoft Defender Container agentless discovery configuration
         /// </summary>
-        public readonly Outputs.DefenderForContainersGcpOfferingResponseMdcContainersAgentlessDiscoveryK8s? MdcContainersAgentlessDiscoveryK8s;
+        public readonly Outputs.DefenderForContainersGcpOfferingMdcContainersAgentlessDiscoveryK8SResponse? MdcContainersAgentlessDiscoveryK8S;
         /// <summary>
         /// The Microsoft Defender Container image assessment configuration
         /// </summary>
-        public readonly Outputs.DefenderForContainersGcpOfferingResponseMdcContainersImageAssessment? MdcContainersImageAssessment;
+        public readonly Outputs.DefenderForContainersGcpOfferingMdcContainersImageAssessmentResponse? MdcContainersImageAssessment;
         /// <summary>
         /// The native cloud connection configuration
         /// </summary>
-        public readonly Outputs.DefenderForContainersGcpOfferingResponseNativeCloudConnection? NativeCloudConnection;
+        public readonly Outputs.DefenderForContainersGcpOfferingNativeCloudConnectionResponse? NativeCloudConnection;
         /// <summary>
         /// The type of the security offering.
         /// Expected value is 'DefenderForContainersGcp'.
@@ -56,11 +56,11 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// <summary>
         /// The Microsoft Defender for Container K8s VM host scanning configuration
         /// </summary>
-        public readonly Outputs.DefenderForContainersGcpOfferingResponseVmScanners? VmScanners;
+        public readonly Outputs.DefenderForContainersGcpOfferingVmScannersResponse? VmScanners;
 
         [OutputConstructor]
         private DefenderForContainersGcpOfferingResponse(
-            Outputs.DefenderForContainersGcpOfferingResponseDataPipelineNativeCloudConnection? dataPipelineNativeCloudConnection,
+            Outputs.DefenderForContainersGcpOfferingDataPipelineNativeCloudConnectionResponse? dataPipelineNativeCloudConnection,
 
             string description,
 
@@ -70,22 +70,22 @@ namespace Pulumi.AzureNative.Security.Outputs
 
             bool? enablePolicyAgentAutoProvisioning,
 
-            Outputs.DefenderForContainersGcpOfferingResponseMdcContainersAgentlessDiscoveryK8s? mdcContainersAgentlessDiscoveryK8s,
+            Outputs.DefenderForContainersGcpOfferingMdcContainersAgentlessDiscoveryK8SResponse? mdcContainersAgentlessDiscoveryK8S,
 
-            Outputs.DefenderForContainersGcpOfferingResponseMdcContainersImageAssessment? mdcContainersImageAssessment,
+            Outputs.DefenderForContainersGcpOfferingMdcContainersImageAssessmentResponse? mdcContainersImageAssessment,
 
-            Outputs.DefenderForContainersGcpOfferingResponseNativeCloudConnection? nativeCloudConnection,
+            Outputs.DefenderForContainersGcpOfferingNativeCloudConnectionResponse? nativeCloudConnection,
 
             string offeringType,
 
-            Outputs.DefenderForContainersGcpOfferingResponseVmScanners? vmScanners)
+            Outputs.DefenderForContainersGcpOfferingVmScannersResponse? vmScanners)
         {
             DataPipelineNativeCloudConnection = dataPipelineNativeCloudConnection;
             Description = description;
             EnableAuditLogsAutoProvisioning = enableAuditLogsAutoProvisioning;
             EnableDefenderAgentAutoProvisioning = enableDefenderAgentAutoProvisioning;
             EnablePolicyAgentAutoProvisioning = enablePolicyAgentAutoProvisioning;
-            MdcContainersAgentlessDiscoveryK8s = mdcContainersAgentlessDiscoveryK8s;
+            MdcContainersAgentlessDiscoveryK8S = mdcContainersAgentlessDiscoveryK8S;
             MdcContainersImageAssessment = mdcContainersImageAssessment;
             NativeCloudConnection = nativeCloudConnection;
             OfferingType = offeringType;

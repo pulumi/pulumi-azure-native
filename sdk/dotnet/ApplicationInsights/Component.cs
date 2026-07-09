@@ -385,6 +385,8 @@ namespace Pulumi.AzureNative.ApplicationInsights
             ApplicationType = "web";
             FlowType = "Bluefield";
             IngestionMode = "LogAnalytics";
+            PublicNetworkAccessForIngestion = "Enabled";
+            PublicNetworkAccessForQuery = "Enabled";
             RequestSource = "rest";
         }
         public static new ComponentArgs Empty => new ComponentArgs();

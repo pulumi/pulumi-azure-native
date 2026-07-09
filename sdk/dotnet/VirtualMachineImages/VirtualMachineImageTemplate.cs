@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages
     /// 
     /// Uses Azure REST API version 2024-02-01. In version 2.x of the Azure Native provider, it used API version 2022-07-01.
     /// 
-    /// Other available API versions: 2022-07-01, 2023-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native virtualmachineimages [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2022-07-01, 2023-07-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native virtualmachineimages [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:virtualmachineimages:VirtualMachineImageTemplate")]
     public partial class VirtualMachineImageTemplate : global::Pulumi.CustomResource
@@ -185,6 +185,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages
                     new global::Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20220701:VirtualMachineImageTemplate" },
                     new global::Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20230701:VirtualMachineImageTemplate" },
                     new global::Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20240201:VirtualMachineImageTemplate" },
+                    new global::Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20251001:VirtualMachineImageTemplate" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

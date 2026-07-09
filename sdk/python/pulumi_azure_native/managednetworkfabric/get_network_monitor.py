@@ -27,22 +27,37 @@ class GetNetworkMonitorResult:
     """
     The NetworkMonitor resource definition.
     """
-    def __init__(__self__, azure_api_version=None, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, administrative_state=None, annotation=None, azure_api_version=None, bmp_configuration=None, configuration_state=None, id=None, last_operation=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+        if administrative_state and not isinstance(administrative_state, str):
+            raise TypeError("Expected argument 'administrative_state' to be a str")
+        pulumi.set(__self__, "administrative_state", administrative_state)
+        if annotation and not isinstance(annotation, str):
+            raise TypeError("Expected argument 'annotation' to be a str")
+        pulumi.set(__self__, "annotation", annotation)
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
+        if bmp_configuration and not isinstance(bmp_configuration, dict):
+            raise TypeError("Expected argument 'bmp_configuration' to be a dict")
+        pulumi.set(__self__, "bmp_configuration", bmp_configuration)
+        if configuration_state and not isinstance(configuration_state, str):
+            raise TypeError("Expected argument 'configuration_state' to be a str")
+        pulumi.set(__self__, "configuration_state", configuration_state)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if last_operation and not isinstance(last_operation, dict):
+            raise TypeError("Expected argument 'last_operation' to be a dict")
+        pulumi.set(__self__, "last_operation", last_operation)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        pulumi.set(__self__, "properties", properties)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -54,6 +69,22 @@ class GetNetworkMonitorResult:
         pulumi.set(__self__, "type", type)
 
     @_builtins.property
+    @pulumi.getter(name="administrativeState")
+    def administrative_state(self) -> _builtins.str:
+        """
+        Administrative state of the resource.
+        """
+        return pulumi.get(self, "administrative_state")
+
+    @_builtins.property
+    @pulumi.getter
+    def annotation(self) -> Optional[_builtins.str]:
+        """
+        Switch configuration description.
+        """
+        return pulumi.get(self, "annotation")
+
+    @_builtins.property
     @pulumi.getter(name="azureApiVersion")
     def azure_api_version(self) -> _builtins.str:
         """
@@ -62,12 +93,36 @@ class GetNetworkMonitorResult:
         return pulumi.get(self, "azure_api_version")
 
     @_builtins.property
+    @pulumi.getter(name="bmpConfiguration")
+    def bmp_configuration(self) -> Optional['outputs.BmpConfigurationPropertiesResponse']:
+        """
+        BMP Configurations for the Network Fabric.
+        """
+        return pulumi.get(self, "bmp_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="configurationState")
+    def configuration_state(self) -> _builtins.str:
+        """
+        Configuration state of the resource.
+        """
+        return pulumi.get(self, "configuration_state")
+
+    @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
         Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="lastOperation")
+    def last_operation(self) -> 'outputs.LastOperationPropertiesResponse':
+        """
+        Details of the last operation performed on the resource
+        """
+        return pulumi.get(self, "last_operation")
 
     @_builtins.property
     @pulumi.getter
@@ -86,12 +141,12 @@ class GetNetworkMonitorResult:
         return pulumi.get(self, "name")
 
     @_builtins.property
-    @pulumi.getter
-    def properties(self) -> 'outputs.NetworkMonitorPropertiesResponse':
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
         """
-        The NetworkFabric Properties
+        Provides you the latest status of the NetworkMonitor resource
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "provisioning_state")
 
     @_builtins.property
     @pulumi.getter(name="systemData")
@@ -124,11 +179,16 @@ class AwaitableGetNetworkMonitorResult(GetNetworkMonitorResult):
         if False:
             yield self
         return GetNetworkMonitorResult(
+            administrative_state=self.administrative_state,
+            annotation=self.annotation,
             azure_api_version=self.azure_api_version,
+            bmp_configuration=self.bmp_configuration,
+            configuration_state=self.configuration_state,
             id=self.id,
+            last_operation=self.last_operation,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -142,6 +202,8 @@ def get_network_monitor(network_monitor_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-06-15-preview.
 
+    Other available API versions: 2025-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param _builtins.str network_monitor_name: Name of the Network Monitor.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -153,11 +215,16 @@ def get_network_monitor(network_monitor_name: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:managednetworkfabric:getNetworkMonitor', __args__, opts=opts, typ=GetNetworkMonitorResult).value
 
     return AwaitableGetNetworkMonitorResult(
+        administrative_state=pulumi.get(__ret__, 'administrative_state'),
+        annotation=pulumi.get(__ret__, 'annotation'),
         azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
+        bmp_configuration=pulumi.get(__ret__, 'bmp_configuration'),
+        configuration_state=pulumi.get(__ret__, 'configuration_state'),
         id=pulumi.get(__ret__, 'id'),
+        last_operation=pulumi.get(__ret__, 'last_operation'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
-        properties=pulumi.get(__ret__, 'properties'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
@@ -169,6 +236,8 @@ def get_network_monitor_output(network_monitor_name: Optional[pulumi.Input[_buil
 
     Uses Azure REST API version 2024-06-15-preview.
 
+    Other available API versions: 2025-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param _builtins.str network_monitor_name: Name of the Network Monitor.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -179,11 +248,16 @@ def get_network_monitor_output(network_monitor_name: Optional[pulumi.Input[_buil
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:managednetworkfabric:getNetworkMonitor', __args__, opts=opts, typ=GetNetworkMonitorResult)
     return __ret__.apply(lambda __response__: GetNetworkMonitorResult(
+        administrative_state=pulumi.get(__response__, 'administrative_state'),
+        annotation=pulumi.get(__response__, 'annotation'),
         azure_api_version=pulumi.get(__response__, 'azure_api_version'),
+        bmp_configuration=pulumi.get(__response__, 'bmp_configuration'),
+        configuration_state=pulumi.get(__response__, 'configuration_state'),
         id=pulumi.get(__response__, 'id'),
+        last_operation=pulumi.get(__response__, 'last_operation'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
-        properties=pulumi.get(__response__, 'properties'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

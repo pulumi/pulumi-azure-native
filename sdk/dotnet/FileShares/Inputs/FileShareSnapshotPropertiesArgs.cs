@@ -15,6 +15,12 @@ namespace Pulumi.AzureNative.FileShares.Inputs
     /// </summary>
     public sealed class FileShareSnapshotPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The initiator of the FileShareSnapshot. This is a user-defined value.
+        /// </summary>
+        [Input("initiatorId")]
+        public Input<string>? InitiatorId { get; set; }
+
         [Input("metadata")]
         private InputMap<string>? _metadata;
 

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NetworkCloud.Outputs
 {
 
+    /// <summary>
+    /// AccessBridgeEndpoint describes a single advertised service endpoint.
+    /// </summary>
     [OutputType]
     public sealed class AccessBridgeEndpointResponse
     {

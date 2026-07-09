@@ -158,7 +158,7 @@ class GetScheduledQueryRuleResult:
 
     @_builtins.property
     @pulumi.getter
-    def criteria(self) -> 'outputs.ScheduledQueryRuleCriteriaResponse':
+    def criteria(self) -> Optional['outputs.ScheduledQueryRuleCriteriaResponse']:
         """
         The rule criteria that defines the conditions of the scheduled query rule.
         """
@@ -182,7 +182,7 @@ class GetScheduledQueryRuleResult:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> _builtins.bool:
+    def enabled(self) -> Optional[_builtins.bool]:
         """
         The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
         """
@@ -192,7 +192,7 @@ class GetScheduledQueryRuleResult:
     @pulumi.getter
     def etag(self) -> _builtins.str:
         """
-        The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+        "If etag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.")
         """
         return pulumi.get(self, "etag")
 
@@ -214,7 +214,7 @@ class GetScheduledQueryRuleResult:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> Optional['outputs.MicrosoftCommonIdentityResponse']:
         """
         The identity of the resource.
         """
@@ -286,7 +286,7 @@ class GetScheduledQueryRuleResult:
 
     @_builtins.property
     @pulumi.getter
-    def scopes(self) -> Sequence[_builtins.str]:
+    def scopes(self) -> Optional[Sequence[_builtins.str]]:
         """
         The list of resource id's that this scheduled query rule is scoped to.
         """
@@ -312,7 +312,7 @@ class GetScheduledQueryRuleResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        SystemData of ScheduledQueryRule.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

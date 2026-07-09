@@ -55,6 +55,11 @@ export type Execution = import("./execution").Execution;
 export const Execution: typeof import("./execution").Execution = null as any;
 utilities.lazyLoad(exports, ["Execution"], () => require("./execution"));
 
+export { ExecutionV2Args } from "./executionV2";
+export type ExecutionV2 = import("./executionV2").ExecutionV2;
+export const ExecutionV2: typeof import("./executionV2").ExecutionV2 = null as any;
+utilities.lazyLoad(exports, ["ExecutionV2"], () => require("./executionV2"));
+
 export { GetConfigTemplateArgs, GetConfigTemplateResult, GetConfigTemplateOutputArgs } from "./getConfigTemplate";
 export const getConfigTemplate: typeof import("./getConfigTemplate").getConfigTemplate = null as any;
 export const getConfigTemplateOutput: typeof import("./getConfigTemplate").getConfigTemplateOutput = null as any;
@@ -104,6 +109,11 @@ export { GetExecutionArgs, GetExecutionResult, GetExecutionOutputArgs } from "./
 export const getExecution: typeof import("./getExecution").getExecution = null as any;
 export const getExecutionOutput: typeof import("./getExecution").getExecutionOutput = null as any;
 utilities.lazyLoad(exports, ["getExecution","getExecutionOutput"], () => require("./getExecution"));
+
+export { GetExecutionV2Args, GetExecutionV2Result, GetExecutionV2OutputArgs } from "./getExecutionV2";
+export const getExecutionV2: typeof import("./getExecutionV2").getExecutionV2 = null as any;
+export const getExecutionV2Output: typeof import("./getExecutionV2").getExecutionV2Output = null as any;
+utilities.lazyLoad(exports, ["getExecutionV2","getExecutionV2Output"], () => require("./getExecutionV2"));
 
 export { GetInstanceArgs, GetInstanceResult, GetInstanceOutputArgs } from "./getInstance";
 export const getInstance: typeof import("./getInstance").getInstance = null as any;
@@ -170,10 +180,20 @@ export const getWorkflow: typeof import("./getWorkflow").getWorkflow = null as a
 export const getWorkflowOutput: typeof import("./getWorkflow").getWorkflowOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkflow","getWorkflowOutput"], () => require("./getWorkflow"));
 
+export { GetWorkflowV2Args, GetWorkflowV2Result, GetWorkflowV2OutputArgs } from "./getWorkflowV2";
+export const getWorkflowV2: typeof import("./getWorkflowV2").getWorkflowV2 = null as any;
+export const getWorkflowV2Output: typeof import("./getWorkflowV2").getWorkflowV2Output = null as any;
+utilities.lazyLoad(exports, ["getWorkflowV2","getWorkflowV2Output"], () => require("./getWorkflowV2"));
+
 export { GetWorkflowVersionArgs, GetWorkflowVersionResult, GetWorkflowVersionOutputArgs } from "./getWorkflowVersion";
 export const getWorkflowVersion: typeof import("./getWorkflowVersion").getWorkflowVersion = null as any;
 export const getWorkflowVersionOutput: typeof import("./getWorkflowVersion").getWorkflowVersionOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkflowVersion","getWorkflowVersionOutput"], () => require("./getWorkflowVersion"));
+
+export { GetWorkflowVersionV2Args, GetWorkflowVersionV2Result, GetWorkflowVersionV2OutputArgs } from "./getWorkflowVersionV2";
+export const getWorkflowVersionV2: typeof import("./getWorkflowVersionV2").getWorkflowVersionV2 = null as any;
+export const getWorkflowVersionV2Output: typeof import("./getWorkflowVersionV2").getWorkflowVersionV2Output = null as any;
+utilities.lazyLoad(exports, ["getWorkflowVersionV2","getWorkflowVersionV2Output"], () => require("./getWorkflowVersionV2"));
 
 export { InstanceArgs } from "./instance";
 export type Instance = import("./instance").Instance;
@@ -240,10 +260,20 @@ export type Workflow = import("./workflow").Workflow;
 export const Workflow: typeof import("./workflow").Workflow = null as any;
 utilities.lazyLoad(exports, ["Workflow"], () => require("./workflow"));
 
+export { WorkflowV2Args } from "./workflowV2";
+export type WorkflowV2 = import("./workflowV2").WorkflowV2;
+export const WorkflowV2: typeof import("./workflowV2").WorkflowV2 = null as any;
+utilities.lazyLoad(exports, ["WorkflowV2"], () => require("./workflowV2"));
+
 export { WorkflowVersionArgs } from "./workflowVersion";
 export type WorkflowVersion = import("./workflowVersion").WorkflowVersion;
 export const WorkflowVersion: typeof import("./workflowVersion").WorkflowVersion = null as any;
 utilities.lazyLoad(exports, ["WorkflowVersion"], () => require("./workflowVersion"));
+
+export { WorkflowVersionV2Args } from "./workflowVersionV2";
+export type WorkflowVersionV2 = import("./workflowVersionV2").WorkflowVersionV2;
+export const WorkflowVersionV2: typeof import("./workflowVersionV2").WorkflowVersionV2 = null as any;
+utilities.lazyLoad(exports, ["WorkflowVersionV2"], () => require("./workflowVersionV2"));
 
 
 // Export enums:
@@ -273,6 +303,8 @@ const _module = {
                 return new DynamicSchemaVersion(name, <any>undefined, { urn })
             case "azure-native:edge:Execution":
                 return new Execution(name, <any>undefined, { urn })
+            case "azure-native:edge:ExecutionV2":
+                return new ExecutionV2(name, <any>undefined, { urn })
             case "azure-native:edge:Instance":
                 return new Instance(name, <any>undefined, { urn })
             case "azure-native:edge:Schema":
@@ -299,8 +331,12 @@ const _module = {
                 return new Target(name, <any>undefined, { urn })
             case "azure-native:edge:Workflow":
                 return new Workflow(name, <any>undefined, { urn })
+            case "azure-native:edge:WorkflowV2":
+                return new WorkflowV2(name, <any>undefined, { urn })
             case "azure-native:edge:WorkflowVersion":
                 return new WorkflowVersion(name, <any>undefined, { urn })
+            case "azure-native:edge:WorkflowVersionV2":
+                return new WorkflowVersionV2(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

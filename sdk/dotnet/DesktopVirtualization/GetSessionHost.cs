@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// Get a session host.
         /// 
         /// Uses Azure REST API version 2026-01-01-preview.
+        /// 
+        /// Other available API versions: 2026-03-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetSessionHostResult> InvokeAsync(GetSessionHostArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSessionHostResult>("azure-native:desktopvirtualization:getSessionHost", args ?? new GetSessionHostArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// Get a session host.
         /// 
         /// Uses Azure REST API version 2026-01-01-preview.
+        /// 
+        /// Other available API versions: 2026-03-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSessionHostResult> Invoke(GetSessionHostInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSessionHostResult>("azure-native:desktopvirtualization:getSessionHost", args ?? new GetSessionHostInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// Get a session host.
         /// 
         /// Uses Azure REST API version 2026-01-01-preview.
+        /// 
+        /// Other available API versions: 2026-03-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSessionHostResult> Invoke(GetSessionHostInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSessionHostResult>("azure-native:desktopvirtualization:getSessionHost", args ?? new GetSessionHostInvokeArgs(), options.WithDefaults());

@@ -17,13 +17,21 @@ namespace Pulumi.AzureNative.FrontDoor.Outputs
     public sealed class ManagedRuleSetListResponse
     {
         /// <summary>
+        /// List of exceptions applied on the managed rule sets.
+        /// </summary>
+        public readonly Outputs.ManagedRuleSetExceptionListResponse? ExceptionsList;
+        /// <summary>
         /// List of rule sets.
         /// </summary>
         public readonly ImmutableArray<Outputs.ManagedRuleSetResponse> ManagedRuleSets;
 
         [OutputConstructor]
-        private ManagedRuleSetListResponse(ImmutableArray<Outputs.ManagedRuleSetResponse> managedRuleSets)
+        private ManagedRuleSetListResponse(
+            Outputs.ManagedRuleSetExceptionListResponse? exceptionsList,
+
+            ImmutableArray<Outputs.ManagedRuleSetResponse> managedRuleSets)
         {
+            ExceptionsList = exceptionsList;
             ManagedRuleSets = managedRuleSets;
         }
     }

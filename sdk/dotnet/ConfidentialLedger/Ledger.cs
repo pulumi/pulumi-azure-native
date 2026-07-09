@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ConfidentialLedger
     /// 
     /// Uses Azure REST API version 2023-06-28-preview. In version 2.x of the Azure Native provider, it used API version 2022-05-13.
     /// 
-    /// Other available API versions: 2022-05-13, 2022-09-08-preview, 2023-01-26-preview, 2024-07-09-preview, 2024-09-19-preview, 2025-06-10-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confidentialledger [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2022-05-13, 2022-09-08-preview, 2023-01-26-preview, 2024-07-09-preview, 2024-09-19-preview, 2025-06-10-preview, 2026-02-23, 2026-05-22-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confidentialledger [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:confidentialledger:Ledger")]
     public partial class Ledger : global::Pulumi.CustomResource
@@ -95,6 +95,8 @@ namespace Pulumi.AzureNative.ConfidentialLedger
                     new global::Pulumi.Alias { Type = "azure-native:confidentialledger/v20240709preview:Ledger" },
                     new global::Pulumi.Alias { Type = "azure-native:confidentialledger/v20240919preview:Ledger" },
                     new global::Pulumi.Alias { Type = "azure-native:confidentialledger/v20250610preview:Ledger" },
+                    new global::Pulumi.Alias { Type = "azure-native:confidentialledger/v20260223:Ledger" },
+                    new global::Pulumi.Alias { Type = "azure-native:confidentialledger/v20260522preview:Ledger" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.Automation
         /// Details of provisioning error
         /// </summary>
         [Output("error")]
-        public Output<Outputs.ErrorResponseResponse?> Error { get; private set; } = null!;
+        public Output<Outputs.AutomationErrorResponseResponse?> Error { get; private set; } = null!;
 
         /// <summary>
         /// LastModifiedBy property, which only appears in the response.
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.Automation
         public Output<string> LastModifiedTime { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -74,13 +74,19 @@ namespace Pulumi.AzureNative.Automation
         public Output<Outputs.SUCSchedulePropertiesResponse> ScheduleInfo { get; private set; } = null!;
 
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Tasks information for the Software update configuration.
         /// </summary>
         [Output("tasks")]
         public Output<Outputs.SoftwareUpdateConfigurationTasksResponse?> Tasks { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -153,10 +159,10 @@ namespace Pulumi.AzureNative.Automation
         /// Details of provisioning error
         /// </summary>
         [Input("error")]
-        public Input<Inputs.ErrorResponseArgs>? Error { get; set; }
+        public Input<Inputs.AutomationErrorResponseArgs>? Error { get; set; }
 
         /// <summary>
-        /// Name of an Azure Resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

@@ -17,1078 +17,20 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'AADProfileResponseResponse',
-    'AddonProfilesResponse',
-    'AddonStatusResponse',
-    'AgentPoolProvisioningStatusResponseError',
-    'AgentPoolProvisioningStatusResponseProvisioningStatus',
-    'AgentPoolProvisioningStatusResponseStatus',
-    'AgentPoolResponseExtendedLocation',
-    'ArcAgentProfileResponse',
-    'ArcAgentStatusResponse',
-    'CloudProviderProfileResponse',
-    'CloudProviderProfileResponseInfraNetworkProfile',
-    'CloudProviderProfileResponseInfraStorageProfile',
-    'ControlPlaneEndpointProfileResponseControlPlaneEndpoint',
-    'ControlPlaneProfileResponse',
     'CredentialResultResponse',
-    'ExtendedLocationResponse',
-    'HttpProxyConfigResponseResponse',
-    'KubernetesPatchVersionsResponse',
-    'KubernetesVersionProfileResponseProperties',
-    'KubernetesVersionPropertiesResponse',
-    'KubernetesVersionReadinessResponse',
-    'LinuxProfilePropertiesResponse',
-    'LinuxProfilePropertiesResponsePublicKeys',
-    'LinuxProfilePropertiesResponseSsh',
     'ListCredentialResponseResponseError',
     'ListCredentialResponseResponseProperties',
-    'LoadBalancerProfileResponse',
-    'NamedAgentPoolProfileResponse',
-    'NetworkProfileResponse',
-    'ProvisionedClusterIdentityResponse',
-    'ProvisionedClustersCommonPropertiesResponseError',
-    'ProvisionedClustersCommonPropertiesResponseFeatures',
-    'ProvisionedClustersCommonPropertiesResponseFeaturesStatus',
-    'ProvisionedClustersCommonPropertiesResponseProvisioningStatus',
-    'ProvisionedClustersCommonPropertiesResponseStatus',
-    'ProvisionedClustersResponsePropertiesResponse',
-    'ProvisionedClustersResponseResponseExtendedLocation',
-    'StorageSpacesPropertiesResponse',
-    'StorageSpacesPropertiesResponseError',
-    'StorageSpacesPropertiesResponseHciStorageProfile',
-    'StorageSpacesPropertiesResponseProvisioningStatus',
-    'StorageSpacesPropertiesResponseStatus',
-    'StorageSpacesPropertiesResponseVmwareStorageProfile',
-    'StorageSpacesResponseExtendedLocation',
     'SystemDataResponse',
-    'VirtualNetworksPropertiesResponse',
-    'VirtualNetworksPropertiesResponseError',
-    'VirtualNetworksPropertiesResponseHci',
-    'VirtualNetworksPropertiesResponseInfraVnetProfile',
-    'VirtualNetworksPropertiesResponseNetworkCloud',
-    'VirtualNetworksPropertiesResponseProvisioningStatus',
-    'VirtualNetworksPropertiesResponseStatus',
-    'VirtualNetworksPropertiesResponseVipPool',
-    'VirtualNetworksPropertiesResponseVmipPool',
-    'VirtualNetworksPropertiesResponseVmware',
-    'VirtualNetworksResponseExtendedLocation',
-    'VmSkuCapabilitiesResponse',
-    'VmSkuProfileResponseProperties',
-    'VmSkuPropertiesResponse',
-    'WindowsProfileResponseResponse',
+    'VirtualNetworkPropertiesResponse',
+    'VirtualNetworkPropertiesResponseError',
+    'VirtualNetworkPropertiesResponseHci',
+    'VirtualNetworkPropertiesResponseInfraVnetProfile',
+    'VirtualNetworkPropertiesResponseOperationStatus',
+    'VirtualNetworkPropertiesResponseStatus',
+    'VirtualNetworkPropertiesResponseVipPool',
+    'VirtualNetworkPropertiesResponseVmipPool',
+    'VirtualNetworkResponseExtendedLocation',
 ]
-
-@pulumi.output_type
-class AADProfileResponseResponse(dict):
-    """
-    AAD Profile specifies attributes for Azure Active Directory integration.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "adminGroupObjectIDs":
-            suggest = "admin_group_object_ids"
-        elif key == "clientAppID":
-            suggest = "client_app_id"
-        elif key == "enableAzureRbac":
-            suggest = "enable_azure_rbac"
-        elif key == "serverAppID":
-            suggest = "server_app_id"
-        elif key == "tenantID":
-            suggest = "tenant_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AADProfileResponseResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AADProfileResponseResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AADProfileResponseResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 admin_group_object_ids: Optional[Sequence[_builtins.str]] = None,
-                 client_app_id: Optional[_builtins.str] = None,
-                 enable_azure_rbac: Optional[_builtins.bool] = None,
-                 managed: Optional[_builtins.bool] = None,
-                 server_app_id: Optional[_builtins.str] = None,
-                 tenant_id: Optional[_builtins.str] = None):
-        """
-        AAD Profile specifies attributes for Azure Active Directory integration.
-
-        :param Sequence[_builtins.str] admin_group_object_ids: The list of AAD group object IDs that will have admin role of the cluster.
-        :param _builtins.str client_app_id: The client AAD application ID.
-        :param _builtins.bool enable_azure_rbac: Whether to enable Azure RBAC for Kubernetes authorization.
-        :param _builtins.bool managed: Whether to enable managed AAD.
-        :param _builtins.str server_app_id: The server AAD application ID.
-        :param _builtins.str tenant_id: The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
-        """
-        if admin_group_object_ids is not None:
-            pulumi.set(__self__, "admin_group_object_ids", admin_group_object_ids)
-        if client_app_id is not None:
-            pulumi.set(__self__, "client_app_id", client_app_id)
-        if enable_azure_rbac is not None:
-            pulumi.set(__self__, "enable_azure_rbac", enable_azure_rbac)
-        if managed is not None:
-            pulumi.set(__self__, "managed", managed)
-        if server_app_id is not None:
-            pulumi.set(__self__, "server_app_id", server_app_id)
-        if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
-
-    @_builtins.property
-    @pulumi.getter(name="adminGroupObjectIDs")
-    def admin_group_object_ids(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        The list of AAD group object IDs that will have admin role of the cluster.
-        """
-        return pulumi.get(self, "admin_group_object_ids")
-
-    @_builtins.property
-    @pulumi.getter(name="clientAppID")
-    def client_app_id(self) -> Optional[_builtins.str]:
-        """
-        The client AAD application ID.
-        """
-        return pulumi.get(self, "client_app_id")
-
-    @_builtins.property
-    @pulumi.getter(name="enableAzureRbac")
-    def enable_azure_rbac(self) -> Optional[_builtins.bool]:
-        """
-        Whether to enable Azure RBAC for Kubernetes authorization.
-        """
-        return pulumi.get(self, "enable_azure_rbac")
-
-    @_builtins.property
-    @pulumi.getter
-    def managed(self) -> Optional[_builtins.bool]:
-        """
-        Whether to enable managed AAD.
-        """
-        return pulumi.get(self, "managed")
-
-    @_builtins.property
-    @pulumi.getter(name="serverAppID")
-    def server_app_id(self) -> Optional[_builtins.str]:
-        """
-        The server AAD application ID.
-        """
-        return pulumi.get(self, "server_app_id")
-
-    @_builtins.property
-    @pulumi.getter(name="tenantID")
-    def tenant_id(self) -> Optional[_builtins.str]:
-        """
-        The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
-        """
-        return pulumi.get(self, "tenant_id")
-
-
-@pulumi.output_type
-class AddonProfilesResponse(dict):
-    """
-    Addon configurations
-    """
-    def __init__(__self__, *,
-                 config: Optional[Mapping[str, _builtins.str]] = None,
-                 enabled: Optional[_builtins.bool] = None):
-        """
-        Addon configurations
-
-        :param Mapping[str, _builtins.str] config: Config - Key-value pairs for configuring an add-on.
-        :param _builtins.bool enabled: Enabled - Whether the add-on is enabled or not.
-        """
-        if config is not None:
-            pulumi.set(__self__, "config", config)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-
-    @_builtins.property
-    @pulumi.getter
-    def config(self) -> Optional[Mapping[str, _builtins.str]]:
-        """
-        Config - Key-value pairs for configuring an add-on.
-        """
-        return pulumi.get(self, "config")
-
-    @_builtins.property
-    @pulumi.getter
-    def enabled(self) -> Optional[_builtins.bool]:
-        """
-        Enabled - Whether the add-on is enabled or not.
-        """
-        return pulumi.get(self, "enabled")
-
-
-@pulumi.output_type
-class AddonStatusResponse(dict):
-    """
-    Status of the addon
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "errorMessage":
-            suggest = "error_message"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AddonStatusResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AddonStatusResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AddonStatusResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 error_message: Optional[_builtins.str] = None,
-                 phase: Optional[_builtins.str] = None,
-                 ready: Optional[_builtins.bool] = None):
-        """
-        Status of the addon
-
-        :param _builtins.str error_message: ErrorMessage will be set in the event that there is a terminal problem reconciling the AddOn and will contain a more verbose string suitable for logging and human consumption.
-        :param _builtins.str phase: Phase represents the current phase of cluster actuation. E.g. Pending, Running, Terminating, Failed etc.
-        """
-        if error_message is not None:
-            pulumi.set(__self__, "error_message", error_message)
-        if phase is not None:
-            pulumi.set(__self__, "phase", phase)
-        if ready is not None:
-            pulumi.set(__self__, "ready", ready)
-
-    @_builtins.property
-    @pulumi.getter(name="errorMessage")
-    def error_message(self) -> Optional[_builtins.str]:
-        """
-        ErrorMessage will be set in the event that there is a terminal problem reconciling the AddOn and will contain a more verbose string suitable for logging and human consumption.
-        """
-        return pulumi.get(self, "error_message")
-
-    @_builtins.property
-    @pulumi.getter
-    def phase(self) -> Optional[_builtins.str]:
-        """
-        Phase represents the current phase of cluster actuation. E.g. Pending, Running, Terminating, Failed etc.
-        """
-        return pulumi.get(self, "phase")
-
-    @_builtins.property
-    @pulumi.getter
-    def ready(self) -> Optional[_builtins.bool]:
-        return pulumi.get(self, "ready")
-
-
-@pulumi.output_type
-class AgentPoolProvisioningStatusResponseError(dict):
-    def __init__(__self__, *,
-                 code: Optional[_builtins.str] = None,
-                 message: Optional[_builtins.str] = None):
-        if code is not None:
-            pulumi.set(__self__, "code", code)
-        if message is not None:
-            pulumi.set(__self__, "message", message)
-
-    @_builtins.property
-    @pulumi.getter
-    def code(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "code")
-
-    @_builtins.property
-    @pulumi.getter
-    def message(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "message")
-
-
-@pulumi.output_type
-class AgentPoolProvisioningStatusResponseProvisioningStatus(dict):
-    """
-    Contains Provisioning errors
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "operationId":
-            suggest = "operation_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AgentPoolProvisioningStatusResponseProvisioningStatus. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AgentPoolProvisioningStatusResponseProvisioningStatus.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AgentPoolProvisioningStatusResponseProvisioningStatus.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 error: Optional['outputs.AgentPoolProvisioningStatusResponseError'] = None,
-                 operation_id: Optional[_builtins.str] = None,
-                 phase: Optional[_builtins.str] = None,
-                 status: Optional[_builtins.str] = None):
-        """
-        Contains Provisioning errors
-
-        :param _builtins.str phase: Phase represents the current phase of cluster actuation. E.g. Pending, Running, Terminating, Failed etc.
-        """
-        if error is not None:
-            pulumi.set(__self__, "error", error)
-        if operation_id is not None:
-            pulumi.set(__self__, "operation_id", operation_id)
-        if phase is not None:
-            pulumi.set(__self__, "phase", phase)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @_builtins.property
-    @pulumi.getter
-    def error(self) -> Optional['outputs.AgentPoolProvisioningStatusResponseError']:
-        return pulumi.get(self, "error")
-
-    @_builtins.property
-    @pulumi.getter(name="operationId")
-    def operation_id(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "operation_id")
-
-    @_builtins.property
-    @pulumi.getter
-    def phase(self) -> Optional[_builtins.str]:
-        """
-        Phase represents the current phase of cluster actuation. E.g. Pending, Running, Terminating, Failed etc.
-        """
-        return pulumi.get(self, "phase")
-
-    @_builtins.property
-    @pulumi.getter
-    def status(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "status")
-
-
-@pulumi.output_type
-class AgentPoolProvisioningStatusResponseStatus(dict):
-    """
-    HybridAKSNodePoolStatus defines the observed state of HybridAKSNodePool
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "errorMessage":
-            suggest = "error_message"
-        elif key == "provisioningStatus":
-            suggest = "provisioning_status"
-        elif key == "readyReplicas":
-            suggest = "ready_replicas"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AgentPoolProvisioningStatusResponseStatus. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AgentPoolProvisioningStatusResponseStatus.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AgentPoolProvisioningStatusResponseStatus.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 error_message: Optional[_builtins.str] = None,
-                 provisioning_status: Optional['outputs.AgentPoolProvisioningStatusResponseProvisioningStatus'] = None,
-                 ready_replicas: Optional[_builtins.int] = None,
-                 replicas: Optional[_builtins.int] = None):
-        """
-        HybridAKSNodePoolStatus defines the observed state of HybridAKSNodePool
-
-        :param _builtins.str error_message: ErrorMessage - Error messages during creation of cluster
-        :param 'AgentPoolProvisioningStatusResponseProvisioningStatus' provisioning_status: Contains Provisioning errors
-        :param _builtins.int ready_replicas: Total number of ready machines targeted by this deployment.
-        :param _builtins.int replicas: Total number of non-terminated machines targeted by this deployment
-        """
-        if error_message is not None:
-            pulumi.set(__self__, "error_message", error_message)
-        if provisioning_status is not None:
-            pulumi.set(__self__, "provisioning_status", provisioning_status)
-        if ready_replicas is not None:
-            pulumi.set(__self__, "ready_replicas", ready_replicas)
-        if replicas is not None:
-            pulumi.set(__self__, "replicas", replicas)
-
-    @_builtins.property
-    @pulumi.getter(name="errorMessage")
-    def error_message(self) -> Optional[_builtins.str]:
-        """
-        ErrorMessage - Error messages during creation of cluster
-        """
-        return pulumi.get(self, "error_message")
-
-    @_builtins.property
-    @pulumi.getter(name="provisioningStatus")
-    def provisioning_status(self) -> Optional['outputs.AgentPoolProvisioningStatusResponseProvisioningStatus']:
-        """
-        Contains Provisioning errors
-        """
-        return pulumi.get(self, "provisioning_status")
-
-    @_builtins.property
-    @pulumi.getter(name="readyReplicas")
-    def ready_replicas(self) -> Optional[_builtins.int]:
-        """
-        Total number of ready machines targeted by this deployment.
-        """
-        return pulumi.get(self, "ready_replicas")
-
-    @_builtins.property
-    @pulumi.getter
-    def replicas(self) -> Optional[_builtins.int]:
-        """
-        Total number of non-terminated machines targeted by this deployment
-        """
-        return pulumi.get(self, "replicas")
-
-
-@pulumi.output_type
-class AgentPoolResponseExtendedLocation(dict):
-    def __init__(__self__, *,
-                 name: Optional[_builtins.str] = None,
-                 type: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str name: The extended location name.
-        :param _builtins.str type: The extended location type.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[_builtins.str]:
-        """
-        The extended location name.
-        """
-        return pulumi.get(self, "name")
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> Optional[_builtins.str]:
-        """
-        The extended location type.
-        """
-        return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class ArcAgentProfileResponse(dict):
-    """
-    Defines the Arc Agent properties for the Provisioned clusters.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "agentAutoUpgrade":
-            suggest = "agent_auto_upgrade"
-        elif key == "agentVersion":
-            suggest = "agent_version"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ArcAgentProfileResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ArcAgentProfileResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ArcAgentProfileResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 agent_auto_upgrade: Optional[_builtins.str] = None,
-                 agent_version: Optional[_builtins.str] = None):
-        """
-        Defines the Arc Agent properties for the Provisioned clusters.
-
-        :param _builtins.str agent_auto_upgrade: Indicates whether the Arc agents on the provisioned clusters be upgraded automatically to the latest version. Defaults to Enabled.
-        :param _builtins.str agent_version: Version of the Arc agents to be installed on the provisioned Provisioned cluster resource
-        """
-        if agent_auto_upgrade is None:
-            agent_auto_upgrade = 'Enabled'
-        if agent_auto_upgrade is not None:
-            pulumi.set(__self__, "agent_auto_upgrade", agent_auto_upgrade)
-        if agent_version is not None:
-            pulumi.set(__self__, "agent_version", agent_version)
-
-    @_builtins.property
-    @pulumi.getter(name="agentAutoUpgrade")
-    def agent_auto_upgrade(self) -> Optional[_builtins.str]:
-        """
-        Indicates whether the Arc agents on the provisioned clusters be upgraded automatically to the latest version. Defaults to Enabled.
-        """
-        return pulumi.get(self, "agent_auto_upgrade")
-
-    @_builtins.property
-    @pulumi.getter(name="agentVersion")
-    def agent_version(self) -> Optional[_builtins.str]:
-        """
-        Version of the Arc agents to be installed on the provisioned Provisioned cluster resource
-        """
-        return pulumi.get(self, "agent_version")
-
-
-@pulumi.output_type
-class ArcAgentStatusResponse(dict):
-    """
-    Defines the observed Arc Agent status that is resourceSynced back to the ARM resource.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "agentVersion":
-            suggest = "agent_version"
-        elif key == "coreCount":
-            suggest = "core_count"
-        elif key == "deploymentState":
-            suggest = "deployment_state"
-        elif key == "errorMessage":
-            suggest = "error_message"
-        elif key == "lastConnectivityTime":
-            suggest = "last_connectivity_time"
-        elif key == "managedIdentityCertificateExpirationTime":
-            suggest = "managed_identity_certificate_expiration_time"
-        elif key == "onboardingPublicKey":
-            suggest = "onboarding_public_key"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ArcAgentStatusResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ArcAgentStatusResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ArcAgentStatusResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 agent_version: Optional[_builtins.str] = None,
-                 core_count: Optional[_builtins.float] = None,
-                 deployment_state: Optional[_builtins.str] = None,
-                 error_message: Optional[_builtins.str] = None,
-                 last_connectivity_time: Optional[_builtins.str] = None,
-                 managed_identity_certificate_expiration_time: Optional[_builtins.str] = None,
-                 onboarding_public_key: Optional[_builtins.str] = None):
-        """
-        Defines the observed Arc Agent status that is resourceSynced back to the ARM resource.
-
-        :param _builtins.str agent_version: Version of the Arc agents currently running on the Provisioned cluster resource.
-        :param _builtins.float core_count: Number of CPU cores present in the Provisioned cluster resource
-        :param _builtins.str deployment_state: Observed deployment state of the Arc Agents on the target cluster. Possible values include: 'pending', 'provisioning', 'provisioned', 'deleting', 'failed', 'upgrading'
-        :param _builtins.str error_message: Error messages while onboarding/upgrading/uninstalling the Arc agents
-        :param _builtins.str last_connectivity_time: Last connected timestamp of the Provisioned cluster resource.
-        :param _builtins.str managed_identity_certificate_expiration_time: ManagedIdentity certificate expiration time (ValidUntil).
-        :param _builtins.str onboarding_public_key: Onboarding public key for provisioning the Managed identity for the HybridAKS cluster. Will be used to create the hybridIdentityMetadata proxy resource and will not be persisted.
-        """
-        if agent_version is not None:
-            pulumi.set(__self__, "agent_version", agent_version)
-        if core_count is not None:
-            pulumi.set(__self__, "core_count", core_count)
-        if deployment_state is not None:
-            pulumi.set(__self__, "deployment_state", deployment_state)
-        if error_message is not None:
-            pulumi.set(__self__, "error_message", error_message)
-        if last_connectivity_time is not None:
-            pulumi.set(__self__, "last_connectivity_time", last_connectivity_time)
-        if managed_identity_certificate_expiration_time is not None:
-            pulumi.set(__self__, "managed_identity_certificate_expiration_time", managed_identity_certificate_expiration_time)
-        if onboarding_public_key is not None:
-            pulumi.set(__self__, "onboarding_public_key", onboarding_public_key)
-
-    @_builtins.property
-    @pulumi.getter(name="agentVersion")
-    def agent_version(self) -> Optional[_builtins.str]:
-        """
-        Version of the Arc agents currently running on the Provisioned cluster resource.
-        """
-        return pulumi.get(self, "agent_version")
-
-    @_builtins.property
-    @pulumi.getter(name="coreCount")
-    def core_count(self) -> Optional[_builtins.float]:
-        """
-        Number of CPU cores present in the Provisioned cluster resource
-        """
-        return pulumi.get(self, "core_count")
-
-    @_builtins.property
-    @pulumi.getter(name="deploymentState")
-    def deployment_state(self) -> Optional[_builtins.str]:
-        """
-        Observed deployment state of the Arc Agents on the target cluster. Possible values include: 'pending', 'provisioning', 'provisioned', 'deleting', 'failed', 'upgrading'
-        """
-        return pulumi.get(self, "deployment_state")
-
-    @_builtins.property
-    @pulumi.getter(name="errorMessage")
-    def error_message(self) -> Optional[_builtins.str]:
-        """
-        Error messages while onboarding/upgrading/uninstalling the Arc agents
-        """
-        return pulumi.get(self, "error_message")
-
-    @_builtins.property
-    @pulumi.getter(name="lastConnectivityTime")
-    def last_connectivity_time(self) -> Optional[_builtins.str]:
-        """
-        Last connected timestamp of the Provisioned cluster resource.
-        """
-        return pulumi.get(self, "last_connectivity_time")
-
-    @_builtins.property
-    @pulumi.getter(name="managedIdentityCertificateExpirationTime")
-    def managed_identity_certificate_expiration_time(self) -> Optional[_builtins.str]:
-        """
-        ManagedIdentity certificate expiration time (ValidUntil).
-        """
-        return pulumi.get(self, "managed_identity_certificate_expiration_time")
-
-    @_builtins.property
-    @pulumi.getter(name="onboardingPublicKey")
-    def onboarding_public_key(self) -> Optional[_builtins.str]:
-        """
-        Onboarding public key for provisioning the Managed identity for the HybridAKS cluster. Will be used to create the hybridIdentityMetadata proxy resource and will not be persisted.
-        """
-        return pulumi.get(self, "onboarding_public_key")
-
-
-@pulumi.output_type
-class CloudProviderProfileResponse(dict):
-    """
-    CloudProviderProfile - The underlying cloud infra provider properties.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "infraNetworkProfile":
-            suggest = "infra_network_profile"
-        elif key == "infraStorageProfile":
-            suggest = "infra_storage_profile"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CloudProviderProfileResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CloudProviderProfileResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CloudProviderProfileResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 infra_network_profile: Optional['outputs.CloudProviderProfileResponseInfraNetworkProfile'] = None,
-                 infra_storage_profile: Optional['outputs.CloudProviderProfileResponseInfraStorageProfile'] = None):
-        """
-        CloudProviderProfile - The underlying cloud infra provider properties.
-
-        :param 'CloudProviderProfileResponseInfraNetworkProfile' infra_network_profile: InfraNetworkProfile - List of infra network profiles for the provisioned cluster
-        :param 'CloudProviderProfileResponseInfraStorageProfile' infra_storage_profile: InfraStorageProfile - List of infra storage profiles for the provisioned cluster
-        """
-        if infra_network_profile is not None:
-            pulumi.set(__self__, "infra_network_profile", infra_network_profile)
-        if infra_storage_profile is not None:
-            pulumi.set(__self__, "infra_storage_profile", infra_storage_profile)
-
-    @_builtins.property
-    @pulumi.getter(name="infraNetworkProfile")
-    def infra_network_profile(self) -> Optional['outputs.CloudProviderProfileResponseInfraNetworkProfile']:
-        """
-        InfraNetworkProfile - List of infra network profiles for the provisioned cluster
-        """
-        return pulumi.get(self, "infra_network_profile")
-
-    @_builtins.property
-    @pulumi.getter(name="infraStorageProfile")
-    def infra_storage_profile(self) -> Optional['outputs.CloudProviderProfileResponseInfraStorageProfile']:
-        """
-        InfraStorageProfile - List of infra storage profiles for the provisioned cluster
-        """
-        return pulumi.get(self, "infra_storage_profile")
-
-
-@pulumi.output_type
-class CloudProviderProfileResponseInfraNetworkProfile(dict):
-    """
-    InfraNetworkProfile - List of infra network profiles for the provisioned cluster
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "vnetSubnetIds":
-            suggest = "vnet_subnet_ids"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CloudProviderProfileResponseInfraNetworkProfile. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CloudProviderProfileResponseInfraNetworkProfile.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CloudProviderProfileResponseInfraNetworkProfile.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 vnet_subnet_ids: Optional[Sequence[_builtins.str]] = None):
-        """
-        InfraNetworkProfile - List of infra network profiles for the provisioned cluster
-
-        :param Sequence[_builtins.str] vnet_subnet_ids: Array of references to azure resource corresponding to the new HybridAKSNetwork object e.g. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridContainerService/virtualNetworks/{virtualNetworkName}
-        """
-        if vnet_subnet_ids is not None:
-            pulumi.set(__self__, "vnet_subnet_ids", vnet_subnet_ids)
-
-    @_builtins.property
-    @pulumi.getter(name="vnetSubnetIds")
-    def vnet_subnet_ids(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Array of references to azure resource corresponding to the new HybridAKSNetwork object e.g. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridContainerService/virtualNetworks/{virtualNetworkName}
-        """
-        return pulumi.get(self, "vnet_subnet_ids")
-
-
-@pulumi.output_type
-class CloudProviderProfileResponseInfraStorageProfile(dict):
-    """
-    InfraStorageProfile - List of infra storage profiles for the provisioned cluster
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "storageSpaceIds":
-            suggest = "storage_space_ids"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CloudProviderProfileResponseInfraStorageProfile. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CloudProviderProfileResponseInfraStorageProfile.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CloudProviderProfileResponseInfraStorageProfile.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 storage_space_ids: Optional[Sequence[_builtins.str]] = None):
-        """
-        InfraStorageProfile - List of infra storage profiles for the provisioned cluster
-
-        :param Sequence[_builtins.str] storage_space_ids: Reference to azure resource corresponding to the new HybridAKSStorage object e.g. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridContainerService/storageSpaces/{storageSpaceName}
-        """
-        if storage_space_ids is not None:
-            pulumi.set(__self__, "storage_space_ids", storage_space_ids)
-
-    @_builtins.property
-    @pulumi.getter(name="storageSpaceIds")
-    def storage_space_ids(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Reference to azure resource corresponding to the new HybridAKSStorage object e.g. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridContainerService/storageSpaces/{storageSpaceName}
-        """
-        return pulumi.get(self, "storage_space_ids")
-
-
-@pulumi.output_type
-class ControlPlaneEndpointProfileResponseControlPlaneEndpoint(dict):
-    """
-    API server endpoint for the control plane
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "hostIP":
-            suggest = "host_ip"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ControlPlaneEndpointProfileResponseControlPlaneEndpoint. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ControlPlaneEndpointProfileResponseControlPlaneEndpoint.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ControlPlaneEndpointProfileResponseControlPlaneEndpoint.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 host_ip: Optional[_builtins.str] = None,
-                 port: Optional[_builtins.str] = None):
-        """
-        API server endpoint for the control plane
-
-        :param _builtins.str host_ip: Host IP address for API server
-        :param _builtins.str port: Port for the API server
-        """
-        if host_ip is not None:
-            pulumi.set(__self__, "host_ip", host_ip)
-        if port is not None:
-            pulumi.set(__self__, "port", port)
-
-    @_builtins.property
-    @pulumi.getter(name="hostIP")
-    def host_ip(self) -> Optional[_builtins.str]:
-        """
-        Host IP address for API server
-        """
-        return pulumi.get(self, "host_ip")
-
-    @_builtins.property
-    @pulumi.getter
-    def port(self) -> Optional[_builtins.str]:
-        """
-        Port for the API server
-        """
-        return pulumi.get(self, "port")
-
-
-@pulumi.output_type
-class ControlPlaneProfileResponse(dict):
-    """
-    ControlPlaneProfile - The control plane properties for the provisioned cluster.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "availabilityZones":
-            suggest = "availability_zones"
-        elif key == "cloudProviderProfile":
-            suggest = "cloud_provider_profile"
-        elif key == "controlPlaneEndpoint":
-            suggest = "control_plane_endpoint"
-        elif key == "linuxProfile":
-            suggest = "linux_profile"
-        elif key == "maxCount":
-            suggest = "max_count"
-        elif key == "maxPods":
-            suggest = "max_pods"
-        elif key == "minCount":
-            suggest = "min_count"
-        elif key == "nodeImageVersion":
-            suggest = "node_image_version"
-        elif key == "nodeLabels":
-            suggest = "node_labels"
-        elif key == "nodeTaints":
-            suggest = "node_taints"
-        elif key == "osType":
-            suggest = "os_type"
-        elif key == "vmSize":
-            suggest = "vm_size"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ControlPlaneProfileResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ControlPlaneProfileResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ControlPlaneProfileResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 availability_zones: Optional[Sequence[_builtins.str]] = None,
-                 cloud_provider_profile: Optional['outputs.CloudProviderProfileResponse'] = None,
-                 control_plane_endpoint: Optional['outputs.ControlPlaneEndpointProfileResponseControlPlaneEndpoint'] = None,
-                 count: Optional[_builtins.int] = None,
-                 linux_profile: Optional['outputs.LinuxProfilePropertiesResponse'] = None,
-                 max_count: Optional[_builtins.int] = None,
-                 max_pods: Optional[_builtins.int] = None,
-                 min_count: Optional[_builtins.int] = None,
-                 mode: Optional[_builtins.str] = None,
-                 name: Optional[_builtins.str] = None,
-                 node_image_version: Optional[_builtins.str] = None,
-                 node_labels: Optional[Mapping[str, _builtins.str]] = None,
-                 node_taints: Optional[Sequence[_builtins.str]] = None,
-                 os_type: Optional[_builtins.str] = None,
-                 vm_size: Optional[_builtins.str] = None):
-        """
-        ControlPlaneProfile - The control plane properties for the provisioned cluster.
-
-        :param Sequence[_builtins.str] availability_zones: AvailabilityZones - The list of Availability zones to use for nodes. Datacenter racks modelled as zones
-        :param 'CloudProviderProfileResponse' cloud_provider_profile: The underlying cloud infra provider properties.
-        :param 'ControlPlaneEndpointProfileResponseControlPlaneEndpoint' control_plane_endpoint: API server endpoint for the control plane
-        :param _builtins.int count: Count - Number of agents to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-        :param 'LinuxProfilePropertiesResponse' linux_profile: Profile for Linux VMs in the container service cluster.
-        :param _builtins.int max_count: The maximum number of nodes for auto-scaling
-        :param _builtins.int max_pods: The maximum number of pods that can run on a node.
-        :param _builtins.int min_count: The minimum number of nodes for auto-scaling
-        :param _builtins.str mode: Mode - AgentPoolMode represents mode of an agent pool. Possible values include: 'System', 'LB', 'User'. Default is 'User'
-        :param _builtins.str name: Unique name of the agent pool profile in the context of the subscription and resource group.
-        :param _builtins.str node_image_version: The version of node image
-        :param Mapping[str, _builtins.str] node_labels: NodeLabels - Agent pool node labels to be persisted across all nodes in agent pool.
-        :param Sequence[_builtins.str] node_taints: NodeTaints - Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
-        :param _builtins.str os_type: OsType - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux. Possible values include: 'Linux', 'Windows'
-        :param _builtins.str vm_size: VmSize - The size of the agent pool VMs.
-        """
-        if availability_zones is not None:
-            pulumi.set(__self__, "availability_zones", availability_zones)
-        if cloud_provider_profile is not None:
-            pulumi.set(__self__, "cloud_provider_profile", cloud_provider_profile)
-        if control_plane_endpoint is not None:
-            pulumi.set(__self__, "control_plane_endpoint", control_plane_endpoint)
-        if count is None:
-            count = 1
-        if count is not None:
-            pulumi.set(__self__, "count", count)
-        if linux_profile is not None:
-            pulumi.set(__self__, "linux_profile", linux_profile)
-        if max_count is not None:
-            pulumi.set(__self__, "max_count", max_count)
-        if max_pods is not None:
-            pulumi.set(__self__, "max_pods", max_pods)
-        if min_count is not None:
-            pulumi.set(__self__, "min_count", min_count)
-        if mode is None:
-            mode = 'User'
-        if mode is not None:
-            pulumi.set(__self__, "mode", mode)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if node_image_version is not None:
-            pulumi.set(__self__, "node_image_version", node_image_version)
-        if node_labels is not None:
-            pulumi.set(__self__, "node_labels", node_labels)
-        if node_taints is not None:
-            pulumi.set(__self__, "node_taints", node_taints)
-        if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
-        if vm_size is not None:
-            pulumi.set(__self__, "vm_size", vm_size)
-
-    @_builtins.property
-    @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        AvailabilityZones - The list of Availability zones to use for nodes. Datacenter racks modelled as zones
-        """
-        return pulumi.get(self, "availability_zones")
-
-    @_builtins.property
-    @pulumi.getter(name="cloudProviderProfile")
-    def cloud_provider_profile(self) -> Optional['outputs.CloudProviderProfileResponse']:
-        """
-        The underlying cloud infra provider properties.
-        """
-        return pulumi.get(self, "cloud_provider_profile")
-
-    @_builtins.property
-    @pulumi.getter(name="controlPlaneEndpoint")
-    def control_plane_endpoint(self) -> Optional['outputs.ControlPlaneEndpointProfileResponseControlPlaneEndpoint']:
-        """
-        API server endpoint for the control plane
-        """
-        return pulumi.get(self, "control_plane_endpoint")
-
-    @_builtins.property
-    @pulumi.getter
-    def count(self) -> Optional[_builtins.int]:
-        """
-        Count - Number of agents to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-        """
-        return pulumi.get(self, "count")
-
-    @_builtins.property
-    @pulumi.getter(name="linuxProfile")
-    def linux_profile(self) -> Optional['outputs.LinuxProfilePropertiesResponse']:
-        """
-        Profile for Linux VMs in the container service cluster.
-        """
-        return pulumi.get(self, "linux_profile")
-
-    @_builtins.property
-    @pulumi.getter(name="maxCount")
-    def max_count(self) -> Optional[_builtins.int]:
-        """
-        The maximum number of nodes for auto-scaling
-        """
-        return pulumi.get(self, "max_count")
-
-    @_builtins.property
-    @pulumi.getter(name="maxPods")
-    def max_pods(self) -> Optional[_builtins.int]:
-        """
-        The maximum number of pods that can run on a node.
-        """
-        return pulumi.get(self, "max_pods")
-
-    @_builtins.property
-    @pulumi.getter(name="minCount")
-    def min_count(self) -> Optional[_builtins.int]:
-        """
-        The minimum number of nodes for auto-scaling
-        """
-        return pulumi.get(self, "min_count")
-
-    @_builtins.property
-    @pulumi.getter
-    def mode(self) -> Optional[_builtins.str]:
-        """
-        Mode - AgentPoolMode represents mode of an agent pool. Possible values include: 'System', 'LB', 'User'. Default is 'User'
-        """
-        return pulumi.get(self, "mode")
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[_builtins.str]:
-        """
-        Unique name of the agent pool profile in the context of the subscription and resource group.
-        """
-        return pulumi.get(self, "name")
-
-    @_builtins.property
-    @pulumi.getter(name="nodeImageVersion")
-    def node_image_version(self) -> Optional[_builtins.str]:
-        """
-        The version of node image
-        """
-        return pulumi.get(self, "node_image_version")
-
-    @_builtins.property
-    @pulumi.getter(name="nodeLabels")
-    def node_labels(self) -> Optional[Mapping[str, _builtins.str]]:
-        """
-        NodeLabels - Agent pool node labels to be persisted across all nodes in agent pool.
-        """
-        return pulumi.get(self, "node_labels")
-
-    @_builtins.property
-    @pulumi.getter(name="nodeTaints")
-    def node_taints(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        NodeTaints - Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
-        """
-        return pulumi.get(self, "node_taints")
-
-    @_builtins.property
-    @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[_builtins.str]:
-        """
-        OsType - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux. Possible values include: 'Linux', 'Windows'
-        """
-        return pulumi.get(self, "os_type")
-
-    @_builtins.property
-    @pulumi.getter(name="vmSize")
-    def vm_size(self) -> Optional[_builtins.str]:
-        """
-        VmSize - The size of the agent pool VMs.
-        """
-        return pulumi.get(self, "vm_size")
-
 
 @pulumi.output_type
 class CredentialResultResponse(dict):
@@ -1122,494 +64,6 @@ class CredentialResultResponse(dict):
         Base64-encoded Kubernetes configuration file.
         """
         return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class ExtendedLocationResponse(dict):
-    """
-    Extended location pointing to the underlying infrastructure
-    """
-    def __init__(__self__, *,
-                 name: Optional[_builtins.str] = None,
-                 type: Optional[_builtins.str] = None):
-        """
-        Extended location pointing to the underlying infrastructure
-
-        :param _builtins.str name: ARM Id of the extended location.
-        :param _builtins.str type: The extended location type. Allowed value: 'CustomLocation'
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[_builtins.str]:
-        """
-        ARM Id of the extended location.
-        """
-        return pulumi.get(self, "name")
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> Optional[_builtins.str]:
-        """
-        The extended location type. Allowed value: 'CustomLocation'
-        """
-        return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class HttpProxyConfigResponseResponse(dict):
-    """
-    Configurations for provisioning the cluster with HTTP proxy servers.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "httpProxy":
-            suggest = "http_proxy"
-        elif key == "httpsProxy":
-            suggest = "https_proxy"
-        elif key == "noProxy":
-            suggest = "no_proxy"
-        elif key == "trustedCa":
-            suggest = "trusted_ca"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in HttpProxyConfigResponseResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        HttpProxyConfigResponseResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        HttpProxyConfigResponseResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 http_proxy: Optional[_builtins.str] = None,
-                 https_proxy: Optional[_builtins.str] = None,
-                 no_proxy: Optional[Sequence[_builtins.str]] = None,
-                 trusted_ca: Optional[_builtins.str] = None,
-                 username: Optional[_builtins.str] = None):
-        """
-        Configurations for provisioning the cluster with HTTP proxy servers.
-
-        :param _builtins.str http_proxy: The HTTP proxy server endpoint to use.
-        :param _builtins.str https_proxy: The HTTPS proxy server endpoint to use.
-        :param Sequence[_builtins.str] no_proxy: The endpoints that should not go through proxy.
-        :param _builtins.str trusted_ca: Alternative CA cert to use for connecting to proxy servers.
-        :param _builtins.str username: Username to use for connecting to proxy server
-        """
-        if http_proxy is not None:
-            pulumi.set(__self__, "http_proxy", http_proxy)
-        if https_proxy is not None:
-            pulumi.set(__self__, "https_proxy", https_proxy)
-        if no_proxy is not None:
-            pulumi.set(__self__, "no_proxy", no_proxy)
-        if trusted_ca is not None:
-            pulumi.set(__self__, "trusted_ca", trusted_ca)
-        if username is not None:
-            pulumi.set(__self__, "username", username)
-
-    @_builtins.property
-    @pulumi.getter(name="httpProxy")
-    def http_proxy(self) -> Optional[_builtins.str]:
-        """
-        The HTTP proxy server endpoint to use.
-        """
-        return pulumi.get(self, "http_proxy")
-
-    @_builtins.property
-    @pulumi.getter(name="httpsProxy")
-    def https_proxy(self) -> Optional[_builtins.str]:
-        """
-        The HTTPS proxy server endpoint to use.
-        """
-        return pulumi.get(self, "https_proxy")
-
-    @_builtins.property
-    @pulumi.getter(name="noProxy")
-    def no_proxy(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        The endpoints that should not go through proxy.
-        """
-        return pulumi.get(self, "no_proxy")
-
-    @_builtins.property
-    @pulumi.getter(name="trustedCa")
-    def trusted_ca(self) -> Optional[_builtins.str]:
-        """
-        Alternative CA cert to use for connecting to proxy servers.
-        """
-        return pulumi.get(self, "trusted_ca")
-
-    @_builtins.property
-    @pulumi.getter
-    def username(self) -> Optional[_builtins.str]:
-        """
-        Username to use for connecting to proxy server
-        """
-        return pulumi.get(self, "username")
-
-
-@pulumi.output_type
-class KubernetesPatchVersionsResponse(dict):
-    """
-    Kubernetes Patch Version profile
-    """
-    def __init__(__self__, *,
-                 readiness: Optional[Sequence['outputs.KubernetesVersionReadinessResponse']] = None,
-                 upgrades: Optional[Sequence[_builtins.str]] = None):
-        """
-        Kubernetes Patch Version profile
-
-        :param Sequence['KubernetesVersionReadinessResponse'] readiness: Indicates whether the kubernetes version image is ready or not
-        :param Sequence[_builtins.str] upgrades: Possible upgrade paths for given patch version
-        """
-        if readiness is not None:
-            pulumi.set(__self__, "readiness", readiness)
-        if upgrades is not None:
-            pulumi.set(__self__, "upgrades", upgrades)
-
-    @_builtins.property
-    @pulumi.getter
-    def readiness(self) -> Optional[Sequence['outputs.KubernetesVersionReadinessResponse']]:
-        """
-        Indicates whether the kubernetes version image is ready or not
-        """
-        return pulumi.get(self, "readiness")
-
-    @_builtins.property
-    @pulumi.getter
-    def upgrades(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Possible upgrade paths for given patch version
-        """
-        return pulumi.get(self, "upgrades")
-
-
-@pulumi.output_type
-class KubernetesVersionProfileResponseProperties(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "provisioningState":
-            suggest = "provisioning_state"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in KubernetesVersionProfileResponseProperties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        KubernetesVersionProfileResponseProperties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        KubernetesVersionProfileResponseProperties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 provisioning_state: _builtins.str,
-                 values: Optional[Sequence['outputs.KubernetesVersionPropertiesResponse']] = None):
-        """
-        :param _builtins.str provisioning_state: Provisioning state of the resource
-        :param Sequence['KubernetesVersionPropertiesResponse'] values: List of supported Kubernetes versions
-        """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if values is not None:
-            pulumi.set(__self__, "values", values)
-
-    @_builtins.property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> _builtins.str:
-        """
-        Provisioning state of the resource
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @_builtins.property
-    @pulumi.getter
-    def values(self) -> Optional[Sequence['outputs.KubernetesVersionPropertiesResponse']]:
-        """
-        List of supported Kubernetes versions
-        """
-        return pulumi.get(self, "values")
-
-
-@pulumi.output_type
-class KubernetesVersionPropertiesResponse(dict):
-    """
-    Kubernetes version profile for given major.minor release
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "isPreview":
-            suggest = "is_preview"
-        elif key == "patchVersions":
-            suggest = "patch_versions"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in KubernetesVersionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        KubernetesVersionPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        KubernetesVersionPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 is_preview: _builtins.bool,
-                 patch_versions: Mapping[str, 'outputs.KubernetesPatchVersionsResponse'],
-                 version: _builtins.str):
-        """
-        Kubernetes version profile for given major.minor release
-
-        :param _builtins.bool is_preview: Whether this version is in preview mode.
-        :param Mapping[str, 'KubernetesPatchVersionsResponse'] patch_versions: Patch versions of a Kubernetes release
-        :param _builtins.str version: major.minor version of Kubernetes release
-        """
-        pulumi.set(__self__, "is_preview", is_preview)
-        pulumi.set(__self__, "patch_versions", patch_versions)
-        pulumi.set(__self__, "version", version)
-
-    @_builtins.property
-    @pulumi.getter(name="isPreview")
-    def is_preview(self) -> _builtins.bool:
-        """
-        Whether this version is in preview mode.
-        """
-        return pulumi.get(self, "is_preview")
-
-    @_builtins.property
-    @pulumi.getter(name="patchVersions")
-    def patch_versions(self) -> Mapping[str, 'outputs.KubernetesPatchVersionsResponse']:
-        """
-        Patch versions of a Kubernetes release
-        """
-        return pulumi.get(self, "patch_versions")
-
-    @_builtins.property
-    @pulumi.getter
-    def version(self) -> _builtins.str:
-        """
-        major.minor version of Kubernetes release
-        """
-        return pulumi.get(self, "version")
-
-
-@pulumi.output_type
-class KubernetesVersionReadinessResponse(dict):
-    """
-    Indicates whether the kubernetes version image is ready or not
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "errorMessage":
-            suggest = "error_message"
-        elif key == "osType":
-            suggest = "os_type"
-        elif key == "osSku":
-            suggest = "os_sku"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in KubernetesVersionReadinessResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        KubernetesVersionReadinessResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        KubernetesVersionReadinessResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 error_message: _builtins.str,
-                 os_type: Optional[_builtins.str] = None,
-                 ready: _builtins.bool,
-                 os_sku: Optional[_builtins.str] = None):
-        """
-        Indicates whether the kubernetes version image is ready or not
-
-        :param _builtins.str error_message: The error message for version not being ready
-        :param _builtins.str os_type: The particular KubernetesVersion Image OS Type (Linux, Windows)
-        :param _builtins.bool ready: Whether the kubernetes version image is ready or not
-        :param _builtins.str os_sku: Specifies the OS SKU used by the agent pool. The default is CBLMariner if OSType is Linux. The default is Windows2019 when OSType is Windows.
-        """
-        pulumi.set(__self__, "error_message", error_message)
-        if os_type is None:
-            os_type = 'Linux'
-        pulumi.set(__self__, "os_type", os_type)
-        pulumi.set(__self__, "ready", ready)
-        if os_sku is not None:
-            pulumi.set(__self__, "os_sku", os_sku)
-
-    @_builtins.property
-    @pulumi.getter(name="errorMessage")
-    def error_message(self) -> _builtins.str:
-        """
-        The error message for version not being ready
-        """
-        return pulumi.get(self, "error_message")
-
-    @_builtins.property
-    @pulumi.getter(name="osType")
-    def os_type(self) -> _builtins.str:
-        """
-        The particular KubernetesVersion Image OS Type (Linux, Windows)
-        """
-        return pulumi.get(self, "os_type")
-
-    @_builtins.property
-    @pulumi.getter
-    def ready(self) -> _builtins.bool:
-        """
-        Whether the kubernetes version image is ready or not
-        """
-        return pulumi.get(self, "ready")
-
-    @_builtins.property
-    @pulumi.getter(name="osSku")
-    def os_sku(self) -> Optional[_builtins.str]:
-        """
-        Specifies the OS SKU used by the agent pool. The default is CBLMariner if OSType is Linux. The default is Windows2019 when OSType is Windows.
-        """
-        return pulumi.get(self, "os_sku")
-
-
-@pulumi.output_type
-class LinuxProfilePropertiesResponse(dict):
-    """
-    LinuxProfile - Profile for Linux VMs in the container service cluster.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "adminUsername":
-            suggest = "admin_username"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LinuxProfilePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LinuxProfilePropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LinuxProfilePropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 admin_username: Optional[_builtins.str] = None,
-                 ssh: Optional['outputs.LinuxProfilePropertiesResponseSsh'] = None):
-        """
-        LinuxProfile - Profile for Linux VMs in the container service cluster.
-
-        :param _builtins.str admin_username: AdminUsername - The administrator username to use for Linux VMs.
-        :param 'LinuxProfilePropertiesResponseSsh' ssh: SSH - SSH configuration for Linux-based VMs running on Azure.
-        """
-        if admin_username is not None:
-            pulumi.set(__self__, "admin_username", admin_username)
-        if ssh is not None:
-            pulumi.set(__self__, "ssh", ssh)
-
-    @_builtins.property
-    @pulumi.getter(name="adminUsername")
-    def admin_username(self) -> Optional[_builtins.str]:
-        """
-        AdminUsername - The administrator username to use for Linux VMs.
-        """
-        return pulumi.get(self, "admin_username")
-
-    @_builtins.property
-    @pulumi.getter
-    def ssh(self) -> Optional['outputs.LinuxProfilePropertiesResponseSsh']:
-        """
-        SSH - SSH configuration for Linux-based VMs running on Azure.
-        """
-        return pulumi.get(self, "ssh")
-
-
-@pulumi.output_type
-class LinuxProfilePropertiesResponsePublicKeys(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "keyData":
-            suggest = "key_data"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LinuxProfilePropertiesResponsePublicKeys. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LinuxProfilePropertiesResponsePublicKeys.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LinuxProfilePropertiesResponsePublicKeys.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 key_data: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str key_data: KeyData - Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
-        """
-        if key_data is not None:
-            pulumi.set(__self__, "key_data", key_data)
-
-    @_builtins.property
-    @pulumi.getter(name="keyData")
-    def key_data(self) -> Optional[_builtins.str]:
-        """
-        KeyData - Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
-        """
-        return pulumi.get(self, "key_data")
-
-
-@pulumi.output_type
-class LinuxProfilePropertiesResponseSsh(dict):
-    """
-    SSH - SSH configuration for Linux-based VMs running on Azure.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "publicKeys":
-            suggest = "public_keys"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LinuxProfilePropertiesResponseSsh. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LinuxProfilePropertiesResponseSsh.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LinuxProfilePropertiesResponseSsh.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 public_keys: Optional[Sequence['outputs.LinuxProfilePropertiesResponsePublicKeys']] = None):
-        """
-        SSH - SSH configuration for Linux-based VMs running on Azure.
-
-        :param Sequence['LinuxProfilePropertiesResponsePublicKeys'] public_keys: PublicKeys - The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
-        """
-        if public_keys is not None:
-            pulumi.set(__self__, "public_keys", public_keys)
-
-    @_builtins.property
-    @pulumi.getter(name="publicKeys")
-    def public_keys(self) -> Optional[Sequence['outputs.LinuxProfilePropertiesResponsePublicKeys']]:
-        """
-        PublicKeys - The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
-        """
-        return pulumi.get(self, "public_keys")
 
 
 @pulumi.output_type
@@ -1649,1507 +103,6 @@ class ListCredentialResponseResponseProperties(dict):
         Base64-encoded Kubernetes configuration file.
         """
         return pulumi.get(self, "kubeconfigs")
-
-
-@pulumi.output_type
-class LoadBalancerProfileResponse(dict):
-    """
-    LoadBalancerProfile - Profile of the cluster load balancer.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "availabilityZones":
-            suggest = "availability_zones"
-        elif key == "cloudProviderProfile":
-            suggest = "cloud_provider_profile"
-        elif key == "linuxProfile":
-            suggest = "linux_profile"
-        elif key == "maxCount":
-            suggest = "max_count"
-        elif key == "maxPods":
-            suggest = "max_pods"
-        elif key == "minCount":
-            suggest = "min_count"
-        elif key == "nodeImageVersion":
-            suggest = "node_image_version"
-        elif key == "nodeLabels":
-            suggest = "node_labels"
-        elif key == "nodeTaints":
-            suggest = "node_taints"
-        elif key == "osType":
-            suggest = "os_type"
-        elif key == "vmSize":
-            suggest = "vm_size"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LoadBalancerProfileResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LoadBalancerProfileResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LoadBalancerProfileResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 availability_zones: Optional[Sequence[_builtins.str]] = None,
-                 cloud_provider_profile: Optional['outputs.CloudProviderProfileResponse'] = None,
-                 count: Optional[_builtins.int] = None,
-                 linux_profile: Optional['outputs.LinuxProfilePropertiesResponse'] = None,
-                 max_count: Optional[_builtins.int] = None,
-                 max_pods: Optional[_builtins.int] = None,
-                 min_count: Optional[_builtins.int] = None,
-                 mode: Optional[_builtins.str] = None,
-                 name: Optional[_builtins.str] = None,
-                 node_image_version: Optional[_builtins.str] = None,
-                 node_labels: Optional[Mapping[str, _builtins.str]] = None,
-                 node_taints: Optional[Sequence[_builtins.str]] = None,
-                 os_type: Optional[_builtins.str] = None,
-                 vm_size: Optional[_builtins.str] = None):
-        """
-        LoadBalancerProfile - Profile of the cluster load balancer.
-
-        :param Sequence[_builtins.str] availability_zones: AvailabilityZones - The list of Availability zones to use for nodes. Datacenter racks modelled as zones
-        :param 'CloudProviderProfileResponse' cloud_provider_profile: The underlying cloud infra provider properties.
-        :param _builtins.int count: Count - Number of agents to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-        :param 'LinuxProfilePropertiesResponse' linux_profile: Profile for Linux VMs in the container service cluster.
-        :param _builtins.int max_count: The maximum number of nodes for auto-scaling
-        :param _builtins.int max_pods: The maximum number of pods that can run on a node.
-        :param _builtins.int min_count: The minimum number of nodes for auto-scaling
-        :param _builtins.str mode: Mode - AgentPoolMode represents mode of an agent pool. Possible values include: 'System', 'LB', 'User'. Default is 'User'
-        :param _builtins.str name: Unique name of the agent pool profile in the context of the subscription and resource group.
-        :param _builtins.str node_image_version: The version of node image
-        :param Mapping[str, _builtins.str] node_labels: NodeLabels - Agent pool node labels to be persisted across all nodes in agent pool.
-        :param Sequence[_builtins.str] node_taints: NodeTaints - Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
-        :param _builtins.str os_type: OsType - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux. Possible values include: 'Linux', 'Windows'
-        :param _builtins.str vm_size: VmSize - The size of the agent pool VMs.
-        """
-        if availability_zones is not None:
-            pulumi.set(__self__, "availability_zones", availability_zones)
-        if cloud_provider_profile is not None:
-            pulumi.set(__self__, "cloud_provider_profile", cloud_provider_profile)
-        if count is None:
-            count = 1
-        if count is not None:
-            pulumi.set(__self__, "count", count)
-        if linux_profile is not None:
-            pulumi.set(__self__, "linux_profile", linux_profile)
-        if max_count is not None:
-            pulumi.set(__self__, "max_count", max_count)
-        if max_pods is not None:
-            pulumi.set(__self__, "max_pods", max_pods)
-        if min_count is not None:
-            pulumi.set(__self__, "min_count", min_count)
-        if mode is None:
-            mode = 'User'
-        if mode is not None:
-            pulumi.set(__self__, "mode", mode)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if node_image_version is not None:
-            pulumi.set(__self__, "node_image_version", node_image_version)
-        if node_labels is not None:
-            pulumi.set(__self__, "node_labels", node_labels)
-        if node_taints is not None:
-            pulumi.set(__self__, "node_taints", node_taints)
-        if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
-        if vm_size is not None:
-            pulumi.set(__self__, "vm_size", vm_size)
-
-    @_builtins.property
-    @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        AvailabilityZones - The list of Availability zones to use for nodes. Datacenter racks modelled as zones
-        """
-        return pulumi.get(self, "availability_zones")
-
-    @_builtins.property
-    @pulumi.getter(name="cloudProviderProfile")
-    def cloud_provider_profile(self) -> Optional['outputs.CloudProviderProfileResponse']:
-        """
-        The underlying cloud infra provider properties.
-        """
-        return pulumi.get(self, "cloud_provider_profile")
-
-    @_builtins.property
-    @pulumi.getter
-    def count(self) -> Optional[_builtins.int]:
-        """
-        Count - Number of agents to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-        """
-        return pulumi.get(self, "count")
-
-    @_builtins.property
-    @pulumi.getter(name="linuxProfile")
-    def linux_profile(self) -> Optional['outputs.LinuxProfilePropertiesResponse']:
-        """
-        Profile for Linux VMs in the container service cluster.
-        """
-        return pulumi.get(self, "linux_profile")
-
-    @_builtins.property
-    @pulumi.getter(name="maxCount")
-    def max_count(self) -> Optional[_builtins.int]:
-        """
-        The maximum number of nodes for auto-scaling
-        """
-        return pulumi.get(self, "max_count")
-
-    @_builtins.property
-    @pulumi.getter(name="maxPods")
-    def max_pods(self) -> Optional[_builtins.int]:
-        """
-        The maximum number of pods that can run on a node.
-        """
-        return pulumi.get(self, "max_pods")
-
-    @_builtins.property
-    @pulumi.getter(name="minCount")
-    def min_count(self) -> Optional[_builtins.int]:
-        """
-        The minimum number of nodes for auto-scaling
-        """
-        return pulumi.get(self, "min_count")
-
-    @_builtins.property
-    @pulumi.getter
-    def mode(self) -> Optional[_builtins.str]:
-        """
-        Mode - AgentPoolMode represents mode of an agent pool. Possible values include: 'System', 'LB', 'User'. Default is 'User'
-        """
-        return pulumi.get(self, "mode")
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[_builtins.str]:
-        """
-        Unique name of the agent pool profile in the context of the subscription and resource group.
-        """
-        return pulumi.get(self, "name")
-
-    @_builtins.property
-    @pulumi.getter(name="nodeImageVersion")
-    def node_image_version(self) -> Optional[_builtins.str]:
-        """
-        The version of node image
-        """
-        return pulumi.get(self, "node_image_version")
-
-    @_builtins.property
-    @pulumi.getter(name="nodeLabels")
-    def node_labels(self) -> Optional[Mapping[str, _builtins.str]]:
-        """
-        NodeLabels - Agent pool node labels to be persisted across all nodes in agent pool.
-        """
-        return pulumi.get(self, "node_labels")
-
-    @_builtins.property
-    @pulumi.getter(name="nodeTaints")
-    def node_taints(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        NodeTaints - Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
-        """
-        return pulumi.get(self, "node_taints")
-
-    @_builtins.property
-    @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[_builtins.str]:
-        """
-        OsType - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux. Possible values include: 'Linux', 'Windows'
-        """
-        return pulumi.get(self, "os_type")
-
-    @_builtins.property
-    @pulumi.getter(name="vmSize")
-    def vm_size(self) -> Optional[_builtins.str]:
-        """
-        VmSize - The size of the agent pool VMs.
-        """
-        return pulumi.get(self, "vm_size")
-
-
-@pulumi.output_type
-class NamedAgentPoolProfileResponse(dict):
-    """
-    Agent pool profile along with a name parameter
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "availabilityZones":
-            suggest = "availability_zones"
-        elif key == "cloudProviderProfile":
-            suggest = "cloud_provider_profile"
-        elif key == "maxCount":
-            suggest = "max_count"
-        elif key == "maxPods":
-            suggest = "max_pods"
-        elif key == "minCount":
-            suggest = "min_count"
-        elif key == "nodeImageVersion":
-            suggest = "node_image_version"
-        elif key == "nodeLabels":
-            suggest = "node_labels"
-        elif key == "nodeTaints":
-            suggest = "node_taints"
-        elif key == "osType":
-            suggest = "os_type"
-        elif key == "vmSize":
-            suggest = "vm_size"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in NamedAgentPoolProfileResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        NamedAgentPoolProfileResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        NamedAgentPoolProfileResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 availability_zones: Optional[Sequence[_builtins.str]] = None,
-                 cloud_provider_profile: Optional['outputs.CloudProviderProfileResponse'] = None,
-                 count: Optional[_builtins.int] = None,
-                 max_count: Optional[_builtins.int] = None,
-                 max_pods: Optional[_builtins.int] = None,
-                 min_count: Optional[_builtins.int] = None,
-                 mode: Optional[_builtins.str] = None,
-                 name: Optional[_builtins.str] = None,
-                 node_image_version: Optional[_builtins.str] = None,
-                 node_labels: Optional[Mapping[str, _builtins.str]] = None,
-                 node_taints: Optional[Sequence[_builtins.str]] = None,
-                 os_type: Optional[_builtins.str] = None,
-                 vm_size: Optional[_builtins.str] = None):
-        """
-        Agent pool profile along with a name parameter
-
-        :param Sequence[_builtins.str] availability_zones: AvailabilityZones - The list of Availability zones to use for nodes. Datacenter racks modelled as zones
-        :param 'CloudProviderProfileResponse' cloud_provider_profile: The underlying cloud infra provider properties.
-        :param _builtins.int count: Count - Number of agents to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-        :param _builtins.int max_count: The maximum number of nodes for auto-scaling
-        :param _builtins.int max_pods: The maximum number of pods that can run on a node.
-        :param _builtins.int min_count: The minimum number of nodes for auto-scaling
-        :param _builtins.str mode: Mode - AgentPoolMode represents mode of an agent pool. Possible values include: 'System', 'LB', 'User'. Default is 'User'
-        :param _builtins.str name: Unique name of the agent pool profile in the context of the subscription and resource group.
-        :param _builtins.str node_image_version: The version of node image
-        :param Mapping[str, _builtins.str] node_labels: NodeLabels - Agent pool node labels to be persisted across all nodes in agent pool.
-        :param Sequence[_builtins.str] node_taints: NodeTaints - Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
-        :param _builtins.str os_type: OsType - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux. Possible values include: 'Linux', 'Windows'
-        :param _builtins.str vm_size: VmSize - The size of the agent pool VMs.
-        """
-        if availability_zones is not None:
-            pulumi.set(__self__, "availability_zones", availability_zones)
-        if cloud_provider_profile is not None:
-            pulumi.set(__self__, "cloud_provider_profile", cloud_provider_profile)
-        if count is None:
-            count = 1
-        if count is not None:
-            pulumi.set(__self__, "count", count)
-        if max_count is not None:
-            pulumi.set(__self__, "max_count", max_count)
-        if max_pods is not None:
-            pulumi.set(__self__, "max_pods", max_pods)
-        if min_count is not None:
-            pulumi.set(__self__, "min_count", min_count)
-        if mode is None:
-            mode = 'User'
-        if mode is not None:
-            pulumi.set(__self__, "mode", mode)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if node_image_version is not None:
-            pulumi.set(__self__, "node_image_version", node_image_version)
-        if node_labels is not None:
-            pulumi.set(__self__, "node_labels", node_labels)
-        if node_taints is not None:
-            pulumi.set(__self__, "node_taints", node_taints)
-        if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
-        if vm_size is not None:
-            pulumi.set(__self__, "vm_size", vm_size)
-
-    @_builtins.property
-    @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        AvailabilityZones - The list of Availability zones to use for nodes. Datacenter racks modelled as zones
-        """
-        return pulumi.get(self, "availability_zones")
-
-    @_builtins.property
-    @pulumi.getter(name="cloudProviderProfile")
-    def cloud_provider_profile(self) -> Optional['outputs.CloudProviderProfileResponse']:
-        """
-        The underlying cloud infra provider properties.
-        """
-        return pulumi.get(self, "cloud_provider_profile")
-
-    @_builtins.property
-    @pulumi.getter
-    def count(self) -> Optional[_builtins.int]:
-        """
-        Count - Number of agents to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-        """
-        return pulumi.get(self, "count")
-
-    @_builtins.property
-    @pulumi.getter(name="maxCount")
-    def max_count(self) -> Optional[_builtins.int]:
-        """
-        The maximum number of nodes for auto-scaling
-        """
-        return pulumi.get(self, "max_count")
-
-    @_builtins.property
-    @pulumi.getter(name="maxPods")
-    def max_pods(self) -> Optional[_builtins.int]:
-        """
-        The maximum number of pods that can run on a node.
-        """
-        return pulumi.get(self, "max_pods")
-
-    @_builtins.property
-    @pulumi.getter(name="minCount")
-    def min_count(self) -> Optional[_builtins.int]:
-        """
-        The minimum number of nodes for auto-scaling
-        """
-        return pulumi.get(self, "min_count")
-
-    @_builtins.property
-    @pulumi.getter
-    def mode(self) -> Optional[_builtins.str]:
-        """
-        Mode - AgentPoolMode represents mode of an agent pool. Possible values include: 'System', 'LB', 'User'. Default is 'User'
-        """
-        return pulumi.get(self, "mode")
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[_builtins.str]:
-        """
-        Unique name of the agent pool profile in the context of the subscription and resource group.
-        """
-        return pulumi.get(self, "name")
-
-    @_builtins.property
-    @pulumi.getter(name="nodeImageVersion")
-    def node_image_version(self) -> Optional[_builtins.str]:
-        """
-        The version of node image
-        """
-        return pulumi.get(self, "node_image_version")
-
-    @_builtins.property
-    @pulumi.getter(name="nodeLabels")
-    def node_labels(self) -> Optional[Mapping[str, _builtins.str]]:
-        """
-        NodeLabels - Agent pool node labels to be persisted across all nodes in agent pool.
-        """
-        return pulumi.get(self, "node_labels")
-
-    @_builtins.property
-    @pulumi.getter(name="nodeTaints")
-    def node_taints(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        NodeTaints - Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
-        """
-        return pulumi.get(self, "node_taints")
-
-    @_builtins.property
-    @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[_builtins.str]:
-        """
-        OsType - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux. Possible values include: 'Linux', 'Windows'
-        """
-        return pulumi.get(self, "os_type")
-
-    @_builtins.property
-    @pulumi.getter(name="vmSize")
-    def vm_size(self) -> Optional[_builtins.str]:
-        """
-        VmSize - The size of the agent pool VMs.
-        """
-        return pulumi.get(self, "vm_size")
-
-
-@pulumi.output_type
-class NetworkProfileResponse(dict):
-    """
-    NetworkProfile - Profile of network configuration.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "dnsServiceIP":
-            suggest = "dns_service_ip"
-        elif key == "loadBalancerProfile":
-            suggest = "load_balancer_profile"
-        elif key == "loadBalancerSku":
-            suggest = "load_balancer_sku"
-        elif key == "networkPolicy":
-            suggest = "network_policy"
-        elif key == "podCidr":
-            suggest = "pod_cidr"
-        elif key == "podCidrs":
-            suggest = "pod_cidrs"
-        elif key == "serviceCidr":
-            suggest = "service_cidr"
-        elif key == "serviceCidrs":
-            suggest = "service_cidrs"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in NetworkProfileResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        NetworkProfileResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        NetworkProfileResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 dns_service_ip: Optional[_builtins.str] = None,
-                 load_balancer_profile: Optional['outputs.LoadBalancerProfileResponse'] = None,
-                 load_balancer_sku: Optional[_builtins.str] = None,
-                 network_policy: Optional[_builtins.str] = None,
-                 pod_cidr: Optional[_builtins.str] = None,
-                 pod_cidrs: Optional[Sequence[_builtins.str]] = None,
-                 service_cidr: Optional[_builtins.str] = None,
-                 service_cidrs: Optional[Sequence[_builtins.str]] = None):
-        """
-        NetworkProfile - Profile of network configuration.
-
-        :param _builtins.str dns_service_ip: DNSServiceIP - An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
-        :param 'LoadBalancerProfileResponse' load_balancer_profile: LoadBalancerProfile - Profile of the cluster load balancer.
-        :param _builtins.str load_balancer_sku: LoadBalancerSku - The load balancer sku for the provisioned cluster. Possible values: 'unstacked-haproxy', 'stacked-kube-vip', 'stacked-metallb', 'unmanaged'. The default is 'unmanaged'.
-        :param _builtins.str network_policy: NetworkPolicy - Network policy used for building Kubernetes network. Possible values include: 'calico', 'flannel'. Default is 'calico'
-        :param _builtins.str pod_cidr: PodCidr - A CIDR notation IP range from which to assign pod IPs when kubenet is used.
-        :param Sequence[_builtins.str] pod_cidrs: The CIDR notation IP ranges from which to assign pod IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking.
-        :param _builtins.str service_cidr: ServiceCidr - A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
-        :param Sequence[_builtins.str] service_cidrs: The CIDR notation IP ranges from which to assign service cluster IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking. They must not overlap with any Subnet IP ranges.
-        """
-        if dns_service_ip is not None:
-            pulumi.set(__self__, "dns_service_ip", dns_service_ip)
-        if load_balancer_profile is not None:
-            pulumi.set(__self__, "load_balancer_profile", load_balancer_profile)
-        if load_balancer_sku is None:
-            load_balancer_sku = 'unmanaged'
-        if load_balancer_sku is not None:
-            pulumi.set(__self__, "load_balancer_sku", load_balancer_sku)
-        if network_policy is None:
-            network_policy = 'calico'
-        if network_policy is not None:
-            pulumi.set(__self__, "network_policy", network_policy)
-        if pod_cidr is not None:
-            pulumi.set(__self__, "pod_cidr", pod_cidr)
-        if pod_cidrs is not None:
-            pulumi.set(__self__, "pod_cidrs", pod_cidrs)
-        if service_cidr is not None:
-            pulumi.set(__self__, "service_cidr", service_cidr)
-        if service_cidrs is not None:
-            pulumi.set(__self__, "service_cidrs", service_cidrs)
-
-    @_builtins.property
-    @pulumi.getter(name="dnsServiceIP")
-    def dns_service_ip(self) -> Optional[_builtins.str]:
-        """
-        DNSServiceIP - An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
-        """
-        return pulumi.get(self, "dns_service_ip")
-
-    @_builtins.property
-    @pulumi.getter(name="loadBalancerProfile")
-    def load_balancer_profile(self) -> Optional['outputs.LoadBalancerProfileResponse']:
-        """
-        LoadBalancerProfile - Profile of the cluster load balancer.
-        """
-        return pulumi.get(self, "load_balancer_profile")
-
-    @_builtins.property
-    @pulumi.getter(name="loadBalancerSku")
-    def load_balancer_sku(self) -> Optional[_builtins.str]:
-        """
-        LoadBalancerSku - The load balancer sku for the provisioned cluster. Possible values: 'unstacked-haproxy', 'stacked-kube-vip', 'stacked-metallb', 'unmanaged'. The default is 'unmanaged'.
-        """
-        return pulumi.get(self, "load_balancer_sku")
-
-    @_builtins.property
-    @pulumi.getter(name="networkPolicy")
-    def network_policy(self) -> Optional[_builtins.str]:
-        """
-        NetworkPolicy - Network policy used for building Kubernetes network. Possible values include: 'calico', 'flannel'. Default is 'calico'
-        """
-        return pulumi.get(self, "network_policy")
-
-    @_builtins.property
-    @pulumi.getter(name="podCidr")
-    def pod_cidr(self) -> Optional[_builtins.str]:
-        """
-        PodCidr - A CIDR notation IP range from which to assign pod IPs when kubenet is used.
-        """
-        return pulumi.get(self, "pod_cidr")
-
-    @_builtins.property
-    @pulumi.getter(name="podCidrs")
-    def pod_cidrs(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        The CIDR notation IP ranges from which to assign pod IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking.
-        """
-        return pulumi.get(self, "pod_cidrs")
-
-    @_builtins.property
-    @pulumi.getter(name="serviceCidr")
-    def service_cidr(self) -> Optional[_builtins.str]:
-        """
-        ServiceCidr - A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
-        """
-        return pulumi.get(self, "service_cidr")
-
-    @_builtins.property
-    @pulumi.getter(name="serviceCidrs")
-    def service_cidrs(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        The CIDR notation IP ranges from which to assign service cluster IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking. They must not overlap with any Subnet IP ranges.
-        """
-        return pulumi.get(self, "service_cidrs")
-
-
-@pulumi.output_type
-class ProvisionedClusterIdentityResponse(dict):
-    """
-    Identity for the Provisioned cluster.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "principalId":
-            suggest = "principal_id"
-        elif key == "tenantId":
-            suggest = "tenant_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ProvisionedClusterIdentityResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ProvisionedClusterIdentityResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ProvisionedClusterIdentityResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 principal_id: _builtins.str,
-                 tenant_id: _builtins.str,
-                 type: _builtins.str):
-        """
-        Identity for the Provisioned cluster.
-
-        :param _builtins.str principal_id: The principal id of provisioned cluster identity. This property will only be provided for a system assigned identity.
-        :param _builtins.str tenant_id: The tenant id associated with the provisioned cluster. This property will only be provided for a system assigned identity.
-        :param _builtins.str type: The type of identity used for the provisioned cluster. The type SystemAssigned, includes a system created identity. The type None means no identity is assigned to the provisioned cluster.
-        """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
-
-    @_builtins.property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> _builtins.str:
-        """
-        The principal id of provisioned cluster identity. This property will only be provided for a system assigned identity.
-        """
-        return pulumi.get(self, "principal_id")
-
-    @_builtins.property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> _builtins.str:
-        """
-        The tenant id associated with the provisioned cluster. This property will only be provided for a system assigned identity.
-        """
-        return pulumi.get(self, "tenant_id")
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> _builtins.str:
-        """
-        The type of identity used for the provisioned cluster. The type SystemAssigned, includes a system created identity. The type None means no identity is assigned to the provisioned cluster.
-        """
-        return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class ProvisionedClustersCommonPropertiesResponseError(dict):
-    def __init__(__self__, *,
-                 code: Optional[_builtins.str] = None,
-                 message: Optional[_builtins.str] = None):
-        if code is not None:
-            pulumi.set(__self__, "code", code)
-        if message is not None:
-            pulumi.set(__self__, "message", message)
-
-    @_builtins.property
-    @pulumi.getter
-    def code(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "code")
-
-    @_builtins.property
-    @pulumi.getter
-    def message(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "message")
-
-
-@pulumi.output_type
-class ProvisionedClustersCommonPropertiesResponseFeatures(dict):
-    """
-    Additional features specs like Arc Agent Onboarding.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "arcAgentProfile":
-            suggest = "arc_agent_profile"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ProvisionedClustersCommonPropertiesResponseFeatures. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ProvisionedClustersCommonPropertiesResponseFeatures.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ProvisionedClustersCommonPropertiesResponseFeatures.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 arc_agent_profile: Optional['outputs.ArcAgentProfileResponse'] = None):
-        """
-        Additional features specs like Arc Agent Onboarding.
-
-        :param 'ArcAgentProfileResponse' arc_agent_profile: Arc agentry configuration for the provisioned cluster.
-        """
-        if arc_agent_profile is not None:
-            pulumi.set(__self__, "arc_agent_profile", arc_agent_profile)
-
-    @_builtins.property
-    @pulumi.getter(name="arcAgentProfile")
-    def arc_agent_profile(self) -> Optional['outputs.ArcAgentProfileResponse']:
-        """
-        Arc agentry configuration for the provisioned cluster.
-        """
-        return pulumi.get(self, "arc_agent_profile")
-
-
-@pulumi.output_type
-class ProvisionedClustersCommonPropertiesResponseFeaturesStatus(dict):
-    """
-    Additional features status like Arc Agent Onboarding.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "arcAgentStatus":
-            suggest = "arc_agent_status"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ProvisionedClustersCommonPropertiesResponseFeaturesStatus. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ProvisionedClustersCommonPropertiesResponseFeaturesStatus.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ProvisionedClustersCommonPropertiesResponseFeaturesStatus.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 arc_agent_status: Optional['outputs.ArcAgentStatusResponse'] = None):
-        """
-        Additional features status like Arc Agent Onboarding.
-
-        :param 'ArcAgentStatusResponse' arc_agent_status: Defines the observed Arc Agent status that is resourceSynced back to the ARM resource.
-        """
-        if arc_agent_status is not None:
-            pulumi.set(__self__, "arc_agent_status", arc_agent_status)
-
-    @_builtins.property
-    @pulumi.getter(name="arcAgentStatus")
-    def arc_agent_status(self) -> Optional['outputs.ArcAgentStatusResponse']:
-        """
-        Defines the observed Arc Agent status that is resourceSynced back to the ARM resource.
-        """
-        return pulumi.get(self, "arc_agent_status")
-
-
-@pulumi.output_type
-class ProvisionedClustersCommonPropertiesResponseProvisioningStatus(dict):
-    """
-    Contains Provisioning errors
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "operationId":
-            suggest = "operation_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ProvisionedClustersCommonPropertiesResponseProvisioningStatus. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ProvisionedClustersCommonPropertiesResponseProvisioningStatus.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ProvisionedClustersCommonPropertiesResponseProvisioningStatus.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 error: Optional['outputs.ProvisionedClustersCommonPropertiesResponseError'] = None,
-                 operation_id: Optional[_builtins.str] = None,
-                 phase: Optional[_builtins.str] = None,
-                 status: Optional[_builtins.str] = None):
-        """
-        Contains Provisioning errors
-
-        :param _builtins.str phase: Phase represents the current phase of cluster actuation. E.g. Pending, Running, Terminating, Failed etc.
-        """
-        if error is not None:
-            pulumi.set(__self__, "error", error)
-        if operation_id is not None:
-            pulumi.set(__self__, "operation_id", operation_id)
-        if phase is not None:
-            pulumi.set(__self__, "phase", phase)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @_builtins.property
-    @pulumi.getter
-    def error(self) -> Optional['outputs.ProvisionedClustersCommonPropertiesResponseError']:
-        return pulumi.get(self, "error")
-
-    @_builtins.property
-    @pulumi.getter(name="operationId")
-    def operation_id(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "operation_id")
-
-    @_builtins.property
-    @pulumi.getter
-    def phase(self) -> Optional[_builtins.str]:
-        """
-        Phase represents the current phase of cluster actuation. E.g. Pending, Running, Terminating, Failed etc.
-        """
-        return pulumi.get(self, "phase")
-
-    @_builtins.property
-    @pulumi.getter
-    def status(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "status")
-
-
-@pulumi.output_type
-class ProvisionedClustersCommonPropertiesResponseStatus(dict):
-    """
-    HybridAKSClusterStatus defines the observed state of HybridAKSCluster
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "addonStatus":
-            suggest = "addon_status"
-        elif key == "errorMessage":
-            suggest = "error_message"
-        elif key == "featuresStatus":
-            suggest = "features_status"
-        elif key == "provisioningStatus":
-            suggest = "provisioning_status"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ProvisionedClustersCommonPropertiesResponseStatus. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ProvisionedClustersCommonPropertiesResponseStatus.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ProvisionedClustersCommonPropertiesResponseStatus.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 addon_status: Optional[Mapping[str, 'outputs.AddonStatusResponse']] = None,
-                 error_message: Optional[_builtins.str] = None,
-                 features_status: Optional['outputs.ProvisionedClustersCommonPropertiesResponseFeaturesStatus'] = None,
-                 provisioning_status: Optional['outputs.ProvisionedClustersCommonPropertiesResponseProvisioningStatus'] = None):
-        """
-        HybridAKSClusterStatus defines the observed state of HybridAKSCluster
-
-        :param Mapping[str, 'AddonStatusResponse'] addon_status: AddonStatus - Status of Addons
-        :param _builtins.str error_message: ErrorMessage - Error messages during creation of cluster
-        :param 'ProvisionedClustersCommonPropertiesResponseFeaturesStatus' features_status: Additional features status like Arc Agent Onboarding.
-        :param 'ProvisionedClustersCommonPropertiesResponseProvisioningStatus' provisioning_status: Contains Provisioning errors
-        """
-        if addon_status is not None:
-            pulumi.set(__self__, "addon_status", addon_status)
-        if error_message is not None:
-            pulumi.set(__self__, "error_message", error_message)
-        if features_status is not None:
-            pulumi.set(__self__, "features_status", features_status)
-        if provisioning_status is not None:
-            pulumi.set(__self__, "provisioning_status", provisioning_status)
-
-    @_builtins.property
-    @pulumi.getter(name="addonStatus")
-    def addon_status(self) -> Optional[Mapping[str, 'outputs.AddonStatusResponse']]:
-        """
-        AddonStatus - Status of Addons
-        """
-        return pulumi.get(self, "addon_status")
-
-    @_builtins.property
-    @pulumi.getter(name="errorMessage")
-    def error_message(self) -> Optional[_builtins.str]:
-        """
-        ErrorMessage - Error messages during creation of cluster
-        """
-        return pulumi.get(self, "error_message")
-
-    @_builtins.property
-    @pulumi.getter(name="featuresStatus")
-    def features_status(self) -> Optional['outputs.ProvisionedClustersCommonPropertiesResponseFeaturesStatus']:
-        """
-        Additional features status like Arc Agent Onboarding.
-        """
-        return pulumi.get(self, "features_status")
-
-    @_builtins.property
-    @pulumi.getter(name="provisioningStatus")
-    def provisioning_status(self) -> Optional['outputs.ProvisionedClustersCommonPropertiesResponseProvisioningStatus']:
-        """
-        Contains Provisioning errors
-        """
-        return pulumi.get(self, "provisioning_status")
-
-
-@pulumi.output_type
-class ProvisionedClustersResponsePropertiesResponse(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "provisioningState":
-            suggest = "provisioning_state"
-        elif key == "aadProfile":
-            suggest = "aad_profile"
-        elif key == "addonProfiles":
-            suggest = "addon_profiles"
-        elif key == "agentPoolProfiles":
-            suggest = "agent_pool_profiles"
-        elif key == "cloudProviderProfile":
-            suggest = "cloud_provider_profile"
-        elif key == "controlPlane":
-            suggest = "control_plane"
-        elif key == "enableRbac":
-            suggest = "enable_rbac"
-        elif key == "httpProxyConfig":
-            suggest = "http_proxy_config"
-        elif key == "kubernetesVersion":
-            suggest = "kubernetes_version"
-        elif key == "linuxProfile":
-            suggest = "linux_profile"
-        elif key == "networkProfile":
-            suggest = "network_profile"
-        elif key == "nodeResourceGroup":
-            suggest = "node_resource_group"
-        elif key == "windowsProfile":
-            suggest = "windows_profile"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ProvisionedClustersResponsePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ProvisionedClustersResponsePropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ProvisionedClustersResponsePropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 provisioning_state: _builtins.str,
-                 status: 'outputs.ProvisionedClustersCommonPropertiesResponseStatus',
-                 aad_profile: Optional['outputs.AADProfileResponseResponse'] = None,
-                 addon_profiles: Optional[Mapping[str, 'outputs.AddonProfilesResponse']] = None,
-                 agent_pool_profiles: Optional[Sequence['outputs.NamedAgentPoolProfileResponse']] = None,
-                 cloud_provider_profile: Optional['outputs.CloudProviderProfileResponse'] = None,
-                 control_plane: Optional['outputs.ControlPlaneProfileResponse'] = None,
-                 enable_rbac: Optional[_builtins.bool] = None,
-                 features: Optional['outputs.ProvisionedClustersCommonPropertiesResponseFeatures'] = None,
-                 http_proxy_config: Optional['outputs.HttpProxyConfigResponseResponse'] = None,
-                 kubernetes_version: Optional[_builtins.str] = None,
-                 linux_profile: Optional['outputs.LinuxProfilePropertiesResponse'] = None,
-                 network_profile: Optional['outputs.NetworkProfileResponse'] = None,
-                 node_resource_group: Optional[_builtins.str] = None,
-                 windows_profile: Optional['outputs.WindowsProfileResponseResponse'] = None):
-        """
-        :param 'ProvisionedClustersCommonPropertiesResponseStatus' status: HybridAKSClusterStatus defines the observed state of HybridAKSCluster
-        :param 'AADProfileResponseResponse' aad_profile: AAD profile for the provisioned cluster.
-        :param Mapping[str, 'AddonProfilesResponse'] addon_profiles: AddonProfiles - Profile of managed cluster add-on.
-        :param Sequence['NamedAgentPoolProfileResponse'] agent_pool_profiles: The agent pools of the cluster.
-        :param 'CloudProviderProfileResponse' cloud_provider_profile: The underlying cloud infra provider properties.
-        :param 'ControlPlaneProfileResponse' control_plane: ControlPlane - ControlPlane Configuration
-        :param _builtins.bool enable_rbac: EnableRBAC - Whether to enable Kubernetes Role-Based Access Control.
-        :param 'ProvisionedClustersCommonPropertiesResponseFeatures' features: Additional features specs like Arc Agent Onboarding.
-        :param 'HttpProxyConfigResponseResponse' http_proxy_config: HttpProxyConfig - Configurations for provisioning the cluster with HTTP proxy servers.
-        :param _builtins.str kubernetes_version: KubernetesVersion - Version of Kubernetes specified when creating the managed cluster.
-        :param 'LinuxProfilePropertiesResponse' linux_profile: LinuxProfile - The profile for Linux VMs in the Provisioned Cluster.
-        :param 'NetworkProfileResponse' network_profile: NetworkProfile - Profile of network configuration.
-        :param _builtins.str node_resource_group: NodeResourceGroup - Name of the resource group containing agent pool nodes.
-        :param 'WindowsProfileResponseResponse' windows_profile: WindowsProfile - Profile for Windows VMs in the Provisioned Cluster.
-        """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "status", status)
-        if aad_profile is not None:
-            pulumi.set(__self__, "aad_profile", aad_profile)
-        if addon_profiles is not None:
-            pulumi.set(__self__, "addon_profiles", addon_profiles)
-        if agent_pool_profiles is not None:
-            pulumi.set(__self__, "agent_pool_profiles", agent_pool_profiles)
-        if cloud_provider_profile is not None:
-            pulumi.set(__self__, "cloud_provider_profile", cloud_provider_profile)
-        if control_plane is not None:
-            pulumi.set(__self__, "control_plane", control_plane)
-        if enable_rbac is not None:
-            pulumi.set(__self__, "enable_rbac", enable_rbac)
-        if features is not None:
-            pulumi.set(__self__, "features", features)
-        if http_proxy_config is not None:
-            pulumi.set(__self__, "http_proxy_config", http_proxy_config)
-        if kubernetes_version is not None:
-            pulumi.set(__self__, "kubernetes_version", kubernetes_version)
-        if linux_profile is not None:
-            pulumi.set(__self__, "linux_profile", linux_profile)
-        if network_profile is not None:
-            pulumi.set(__self__, "network_profile", network_profile)
-        if node_resource_group is not None:
-            pulumi.set(__self__, "node_resource_group", node_resource_group)
-        if windows_profile is not None:
-            pulumi.set(__self__, "windows_profile", windows_profile)
-
-    @_builtins.property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> _builtins.str:
-        return pulumi.get(self, "provisioning_state")
-
-    @_builtins.property
-    @pulumi.getter
-    def status(self) -> 'outputs.ProvisionedClustersCommonPropertiesResponseStatus':
-        """
-        HybridAKSClusterStatus defines the observed state of HybridAKSCluster
-        """
-        return pulumi.get(self, "status")
-
-    @_builtins.property
-    @pulumi.getter(name="aadProfile")
-    def aad_profile(self) -> Optional['outputs.AADProfileResponseResponse']:
-        """
-        AAD profile for the provisioned cluster.
-        """
-        return pulumi.get(self, "aad_profile")
-
-    @_builtins.property
-    @pulumi.getter(name="addonProfiles")
-    def addon_profiles(self) -> Optional[Mapping[str, 'outputs.AddonProfilesResponse']]:
-        """
-        AddonProfiles - Profile of managed cluster add-on.
-        """
-        return pulumi.get(self, "addon_profiles")
-
-    @_builtins.property
-    @pulumi.getter(name="agentPoolProfiles")
-    def agent_pool_profiles(self) -> Optional[Sequence['outputs.NamedAgentPoolProfileResponse']]:
-        """
-        The agent pools of the cluster.
-        """
-        return pulumi.get(self, "agent_pool_profiles")
-
-    @_builtins.property
-    @pulumi.getter(name="cloudProviderProfile")
-    def cloud_provider_profile(self) -> Optional['outputs.CloudProviderProfileResponse']:
-        """
-        The underlying cloud infra provider properties.
-        """
-        return pulumi.get(self, "cloud_provider_profile")
-
-    @_builtins.property
-    @pulumi.getter(name="controlPlane")
-    def control_plane(self) -> Optional['outputs.ControlPlaneProfileResponse']:
-        """
-        ControlPlane - ControlPlane Configuration
-        """
-        return pulumi.get(self, "control_plane")
-
-    @_builtins.property
-    @pulumi.getter(name="enableRbac")
-    def enable_rbac(self) -> Optional[_builtins.bool]:
-        """
-        EnableRBAC - Whether to enable Kubernetes Role-Based Access Control.
-        """
-        return pulumi.get(self, "enable_rbac")
-
-    @_builtins.property
-    @pulumi.getter
-    def features(self) -> Optional['outputs.ProvisionedClustersCommonPropertiesResponseFeatures']:
-        """
-        Additional features specs like Arc Agent Onboarding.
-        """
-        return pulumi.get(self, "features")
-
-    @_builtins.property
-    @pulumi.getter(name="httpProxyConfig")
-    def http_proxy_config(self) -> Optional['outputs.HttpProxyConfigResponseResponse']:
-        """
-        HttpProxyConfig - Configurations for provisioning the cluster with HTTP proxy servers.
-        """
-        return pulumi.get(self, "http_proxy_config")
-
-    @_builtins.property
-    @pulumi.getter(name="kubernetesVersion")
-    def kubernetes_version(self) -> Optional[_builtins.str]:
-        """
-        KubernetesVersion - Version of Kubernetes specified when creating the managed cluster.
-        """
-        return pulumi.get(self, "kubernetes_version")
-
-    @_builtins.property
-    @pulumi.getter(name="linuxProfile")
-    def linux_profile(self) -> Optional['outputs.LinuxProfilePropertiesResponse']:
-        """
-        LinuxProfile - The profile for Linux VMs in the Provisioned Cluster.
-        """
-        return pulumi.get(self, "linux_profile")
-
-    @_builtins.property
-    @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> Optional['outputs.NetworkProfileResponse']:
-        """
-        NetworkProfile - Profile of network configuration.
-        """
-        return pulumi.get(self, "network_profile")
-
-    @_builtins.property
-    @pulumi.getter(name="nodeResourceGroup")
-    def node_resource_group(self) -> Optional[_builtins.str]:
-        """
-        NodeResourceGroup - Name of the resource group containing agent pool nodes.
-        """
-        return pulumi.get(self, "node_resource_group")
-
-    @_builtins.property
-    @pulumi.getter(name="windowsProfile")
-    def windows_profile(self) -> Optional['outputs.WindowsProfileResponseResponse']:
-        """
-        WindowsProfile - Profile for Windows VMs in the Provisioned Cluster.
-        """
-        return pulumi.get(self, "windows_profile")
-
-
-@pulumi.output_type
-class ProvisionedClustersResponseResponseExtendedLocation(dict):
-    def __init__(__self__, *,
-                 name: Optional[_builtins.str] = None,
-                 type: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str name: The extended location name.
-        :param _builtins.str type: The extended location type.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[_builtins.str]:
-        """
-        The extended location name.
-        """
-        return pulumi.get(self, "name")
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> Optional[_builtins.str]:
-        """
-        The extended location type.
-        """
-        return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class StorageSpacesPropertiesResponse(dict):
-    """
-    HybridAKSStorageSpec defines the desired state of HybridAKSStorage
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "provisioningState":
-            suggest = "provisioning_state"
-        elif key == "hciStorageProfile":
-            suggest = "hci_storage_profile"
-        elif key == "vmwareStorageProfile":
-            suggest = "vmware_storage_profile"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StorageSpacesPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        StorageSpacesPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        StorageSpacesPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 provisioning_state: _builtins.str,
-                 hci_storage_profile: Optional['outputs.StorageSpacesPropertiesResponseHciStorageProfile'] = None,
-                 status: Optional['outputs.StorageSpacesPropertiesResponseStatus'] = None,
-                 vmware_storage_profile: Optional['outputs.StorageSpacesPropertiesResponseVmwareStorageProfile'] = None):
-        """
-        HybridAKSStorageSpec defines the desired state of HybridAKSStorage
-
-        :param 'StorageSpacesPropertiesResponseStatus' status: HybridAKSStorageStatus defines the observed state of HybridAKSStorage
-        """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if hci_storage_profile is not None:
-            pulumi.set(__self__, "hci_storage_profile", hci_storage_profile)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-        if vmware_storage_profile is not None:
-            pulumi.set(__self__, "vmware_storage_profile", vmware_storage_profile)
-
-    @_builtins.property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> _builtins.str:
-        return pulumi.get(self, "provisioning_state")
-
-    @_builtins.property
-    @pulumi.getter(name="hciStorageProfile")
-    def hci_storage_profile(self) -> Optional['outputs.StorageSpacesPropertiesResponseHciStorageProfile']:
-        return pulumi.get(self, "hci_storage_profile")
-
-    @_builtins.property
-    @pulumi.getter
-    def status(self) -> Optional['outputs.StorageSpacesPropertiesResponseStatus']:
-        """
-        HybridAKSStorageStatus defines the observed state of HybridAKSStorage
-        """
-        return pulumi.get(self, "status")
-
-    @_builtins.property
-    @pulumi.getter(name="vmwareStorageProfile")
-    def vmware_storage_profile(self) -> Optional['outputs.StorageSpacesPropertiesResponseVmwareStorageProfile']:
-        return pulumi.get(self, "vmware_storage_profile")
-
-
-@pulumi.output_type
-class StorageSpacesPropertiesResponseError(dict):
-    def __init__(__self__, *,
-                 code: Optional[_builtins.str] = None,
-                 message: Optional[_builtins.str] = None):
-        if code is not None:
-            pulumi.set(__self__, "code", code)
-        if message is not None:
-            pulumi.set(__self__, "message", message)
-
-    @_builtins.property
-    @pulumi.getter
-    def code(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "code")
-
-    @_builtins.property
-    @pulumi.getter
-    def message(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "message")
-
-
-@pulumi.output_type
-class StorageSpacesPropertiesResponseHciStorageProfile(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "mocGroup":
-            suggest = "moc_group"
-        elif key == "mocLocation":
-            suggest = "moc_location"
-        elif key == "mocStorageContainer":
-            suggest = "moc_storage_container"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StorageSpacesPropertiesResponseHciStorageProfile. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        StorageSpacesPropertiesResponseHciStorageProfile.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        StorageSpacesPropertiesResponseHciStorageProfile.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 moc_group: Optional[_builtins.str] = None,
-                 moc_location: Optional[_builtins.str] = None,
-                 moc_storage_container: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str moc_group: Resource group in MOC(Microsoft On-premises Cloud)
-        :param _builtins.str moc_location: Location in MOC(Microsoft On-premises Cloud)
-        :param _builtins.str moc_storage_container: Name of the storage container in MOC(Microsoft On-premises Cloud)
-        """
-        if moc_group is not None:
-            pulumi.set(__self__, "moc_group", moc_group)
-        if moc_location is not None:
-            pulumi.set(__self__, "moc_location", moc_location)
-        if moc_storage_container is not None:
-            pulumi.set(__self__, "moc_storage_container", moc_storage_container)
-
-    @_builtins.property
-    @pulumi.getter(name="mocGroup")
-    def moc_group(self) -> Optional[_builtins.str]:
-        """
-        Resource group in MOC(Microsoft On-premises Cloud)
-        """
-        return pulumi.get(self, "moc_group")
-
-    @_builtins.property
-    @pulumi.getter(name="mocLocation")
-    def moc_location(self) -> Optional[_builtins.str]:
-        """
-        Location in MOC(Microsoft On-premises Cloud)
-        """
-        return pulumi.get(self, "moc_location")
-
-    @_builtins.property
-    @pulumi.getter(name="mocStorageContainer")
-    def moc_storage_container(self) -> Optional[_builtins.str]:
-        """
-        Name of the storage container in MOC(Microsoft On-premises Cloud)
-        """
-        return pulumi.get(self, "moc_storage_container")
-
-
-@pulumi.output_type
-class StorageSpacesPropertiesResponseProvisioningStatus(dict):
-    """
-    Contains Provisioning errors
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "operationId":
-            suggest = "operation_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StorageSpacesPropertiesResponseProvisioningStatus. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        StorageSpacesPropertiesResponseProvisioningStatus.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        StorageSpacesPropertiesResponseProvisioningStatus.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 error: Optional['outputs.StorageSpacesPropertiesResponseError'] = None,
-                 operation_id: Optional[_builtins.str] = None,
-                 phase: Optional[_builtins.str] = None,
-                 status: Optional[_builtins.str] = None):
-        """
-        Contains Provisioning errors
-
-        :param _builtins.str phase: Phase represents the current phase of cluster actuation. E.g. Pending, Running, Terminating, Failed etc.
-        """
-        if error is not None:
-            pulumi.set(__self__, "error", error)
-        if operation_id is not None:
-            pulumi.set(__self__, "operation_id", operation_id)
-        if phase is not None:
-            pulumi.set(__self__, "phase", phase)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @_builtins.property
-    @pulumi.getter
-    def error(self) -> Optional['outputs.StorageSpacesPropertiesResponseError']:
-        return pulumi.get(self, "error")
-
-    @_builtins.property
-    @pulumi.getter(name="operationId")
-    def operation_id(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "operation_id")
-
-    @_builtins.property
-    @pulumi.getter
-    def phase(self) -> Optional[_builtins.str]:
-        """
-        Phase represents the current phase of cluster actuation. E.g. Pending, Running, Terminating, Failed etc.
-        """
-        return pulumi.get(self, "phase")
-
-    @_builtins.property
-    @pulumi.getter
-    def status(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "status")
-
-
-@pulumi.output_type
-class StorageSpacesPropertiesResponseStatus(dict):
-    """
-    HybridAKSStorageStatus defines the observed state of HybridAKSStorage
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "provisioningStatus":
-            suggest = "provisioning_status"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StorageSpacesPropertiesResponseStatus. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        StorageSpacesPropertiesResponseStatus.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        StorageSpacesPropertiesResponseStatus.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 provisioning_status: Optional['outputs.StorageSpacesPropertiesResponseProvisioningStatus'] = None):
-        """
-        HybridAKSStorageStatus defines the observed state of HybridAKSStorage
-
-        :param 'StorageSpacesPropertiesResponseProvisioningStatus' provisioning_status: Contains Provisioning errors
-        """
-        if provisioning_status is not None:
-            pulumi.set(__self__, "provisioning_status", provisioning_status)
-
-    @_builtins.property
-    @pulumi.getter(name="provisioningStatus")
-    def provisioning_status(self) -> Optional['outputs.StorageSpacesPropertiesResponseProvisioningStatus']:
-        """
-        Contains Provisioning errors
-        """
-        return pulumi.get(self, "provisioning_status")
-
-
-@pulumi.output_type
-class StorageSpacesPropertiesResponseVmwareStorageProfile(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "resourcePool":
-            suggest = "resource_pool"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StorageSpacesPropertiesResponseVmwareStorageProfile. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        StorageSpacesPropertiesResponseVmwareStorageProfile.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        StorageSpacesPropertiesResponseVmwareStorageProfile.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 datacenter: Optional[_builtins.str] = None,
-                 datastore: Optional[_builtins.str] = None,
-                 folder: Optional[_builtins.str] = None,
-                 resource_pool: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str datacenter: Name of the datacenter in VSphere
-        :param _builtins.str datastore: Name of the datastore in VSphere
-        :param _builtins.str folder: Name of the folder in VSphere
-        :param _builtins.str resource_pool: Name of the resource pool in VSphere
-        """
-        if datacenter is not None:
-            pulumi.set(__self__, "datacenter", datacenter)
-        if datastore is not None:
-            pulumi.set(__self__, "datastore", datastore)
-        if folder is not None:
-            pulumi.set(__self__, "folder", folder)
-        if resource_pool is not None:
-            pulumi.set(__self__, "resource_pool", resource_pool)
-
-    @_builtins.property
-    @pulumi.getter
-    def datacenter(self) -> Optional[_builtins.str]:
-        """
-        Name of the datacenter in VSphere
-        """
-        return pulumi.get(self, "datacenter")
-
-    @_builtins.property
-    @pulumi.getter
-    def datastore(self) -> Optional[_builtins.str]:
-        """
-        Name of the datastore in VSphere
-        """
-        return pulumi.get(self, "datastore")
-
-    @_builtins.property
-    @pulumi.getter
-    def folder(self) -> Optional[_builtins.str]:
-        """
-        Name of the folder in VSphere
-        """
-        return pulumi.get(self, "folder")
-
-    @_builtins.property
-    @pulumi.getter(name="resourcePool")
-    def resource_pool(self) -> Optional[_builtins.str]:
-        """
-        Name of the resource pool in VSphere
-        """
-        return pulumi.get(self, "resource_pool")
-
-
-@pulumi.output_type
-class StorageSpacesResponseExtendedLocation(dict):
-    def __init__(__self__, *,
-                 name: Optional[_builtins.str] = None,
-                 type: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str name: The extended location name.
-        :param _builtins.str type: The extended location type.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[_builtins.str]:
-        """
-        The extended location name.
-        """
-        return pulumi.get(self, "name")
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> Optional[_builtins.str]:
-        """
-        The extended location type.
-        """
-        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -3264,19 +217,15 @@ class SystemDataResponse(dict):
 
 
 @pulumi.output_type
-class VirtualNetworksPropertiesResponse(dict):
+class VirtualNetworkPropertiesResponse(dict):
     """
-    HybridAKSNetworkSpec defines the desired state of HybridAKSNetwork
+    Properties of the virtual network resource
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dhcpServers":
-            suggest = "dhcp_servers"
-        elif key == "provisioningState":
+        if key == "provisioningState":
             suggest = "provisioning_state"
-        elif key == "vlanID":
-            suggest = "vlan_id"
         elif key == "dnsServers":
             suggest = "dns_servers"
         elif key == "infraVnetProfile":
@@ -3285,47 +234,45 @@ class VirtualNetworksPropertiesResponse(dict):
             suggest = "ip_address_prefix"
         elif key == "vipPool":
             suggest = "vip_pool"
+        elif key == "vlanID":
+            suggest = "vlan_id"
         elif key == "vmipPool":
             suggest = "vmip_pool"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworksPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        VirtualNetworksPropertiesResponse.__key_warning(key)
+        VirtualNetworkPropertiesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        VirtualNetworksPropertiesResponse.__key_warning(key)
+        VirtualNetworkPropertiesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 dhcp_servers: Sequence[_builtins.str],
                  provisioning_state: _builtins.str,
-                 status: 'outputs.VirtualNetworksPropertiesResponseStatus',
-                 vlan_id: _builtins.str,
+                 status: 'outputs.VirtualNetworkPropertiesResponseStatus',
                  dns_servers: Optional[Sequence[_builtins.str]] = None,
                  gateway: Optional[_builtins.str] = None,
-                 infra_vnet_profile: Optional['outputs.VirtualNetworksPropertiesResponseInfraVnetProfile'] = None,
+                 infra_vnet_profile: Optional['outputs.VirtualNetworkPropertiesResponseInfraVnetProfile'] = None,
                  ip_address_prefix: Optional[_builtins.str] = None,
-                 vip_pool: Optional[Sequence['outputs.VirtualNetworksPropertiesResponseVipPool']] = None,
-                 vmip_pool: Optional[Sequence['outputs.VirtualNetworksPropertiesResponseVmipPool']] = None):
+                 vip_pool: Optional[Sequence['outputs.VirtualNetworkPropertiesResponseVipPool']] = None,
+                 vlan_id: Optional[_builtins.int] = None,
+                 vmip_pool: Optional[Sequence['outputs.VirtualNetworkPropertiesResponseVmipPool']] = None):
         """
-        HybridAKSNetworkSpec defines the desired state of HybridAKSNetwork
+        Properties of the virtual network resource
 
-        :param Sequence[_builtins.str] dhcp_servers: Address of the DHCP servers associated with the network
-        :param 'VirtualNetworksPropertiesResponseStatus' status: HybridAKSNetworkStatus defines the observed state of HybridAKSNetwork
-        :param _builtins.str vlan_id: VLAN Id used by the network
-        :param Sequence[_builtins.str] dns_servers: Address of the DNS servers associated with the network
-        :param _builtins.str gateway: Address of the Gateway associated with the network
+        :param 'VirtualNetworkPropertiesResponseStatus' status: Status of the virtual network resource
+        :param Sequence[_builtins.str] dns_servers: List of DNS server IP Addresses associated with the network
+        :param _builtins.str gateway: IP Address of the Gateway associated with the network
         :param _builtins.str ip_address_prefix: IP Address Prefix of the network
-        :param Sequence['VirtualNetworksPropertiesResponseVipPool'] vip_pool: Virtual IP Pool for Kubernetes
-        :param Sequence['VirtualNetworksPropertiesResponseVmipPool'] vmip_pool: IP Pool for Virtual Machines
+        :param Sequence['VirtualNetworkPropertiesResponseVipPool'] vip_pool: Range of IP Addresses for Kubernetes API Server and services if using HA Proxy load balancer
+        :param _builtins.int vlan_id: VLAN Id used by the network
+        :param Sequence['VirtualNetworkPropertiesResponseVmipPool'] vmip_pool: Range of IP Addresses for Kubernetes node VMs
         """
-        pulumi.set(__self__, "dhcp_servers", dhcp_servers)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "vlan_id", vlan_id)
         if dns_servers is not None:
             pulumi.set(__self__, "dns_servers", dns_servers)
         if gateway is not None:
@@ -3336,16 +283,10 @@ class VirtualNetworksPropertiesResponse(dict):
             pulumi.set(__self__, "ip_address_prefix", ip_address_prefix)
         if vip_pool is not None:
             pulumi.set(__self__, "vip_pool", vip_pool)
+        if vlan_id is not None:
+            pulumi.set(__self__, "vlan_id", vlan_id)
         if vmip_pool is not None:
             pulumi.set(__self__, "vmip_pool", vmip_pool)
-
-    @_builtins.property
-    @pulumi.getter(name="dhcpServers")
-    def dhcp_servers(self) -> Sequence[_builtins.str]:
-        """
-        Address of the DHCP servers associated with the network
-        """
-        return pulumi.get(self, "dhcp_servers")
 
     @_builtins.property
     @pulumi.getter(name="provisioningState")
@@ -3354,25 +295,17 @@ class VirtualNetworksPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> 'outputs.VirtualNetworksPropertiesResponseStatus':
+    def status(self) -> 'outputs.VirtualNetworkPropertiesResponseStatus':
         """
-        HybridAKSNetworkStatus defines the observed state of HybridAKSNetwork
+        Status of the virtual network resource
         """
         return pulumi.get(self, "status")
-
-    @_builtins.property
-    @pulumi.getter(name="vlanID")
-    def vlan_id(self) -> _builtins.str:
-        """
-        VLAN Id used by the network
-        """
-        return pulumi.get(self, "vlan_id")
 
     @_builtins.property
     @pulumi.getter(name="dnsServers")
     def dns_servers(self) -> Optional[Sequence[_builtins.str]]:
         """
-        Address of the DNS servers associated with the network
+        List of DNS server IP Addresses associated with the network
         """
         return pulumi.get(self, "dns_servers")
 
@@ -3380,13 +313,13 @@ class VirtualNetworksPropertiesResponse(dict):
     @pulumi.getter
     def gateway(self) -> Optional[_builtins.str]:
         """
-        Address of the Gateway associated with the network
+        IP Address of the Gateway associated with the network
         """
         return pulumi.get(self, "gateway")
 
     @_builtins.property
     @pulumi.getter(name="infraVnetProfile")
-    def infra_vnet_profile(self) -> Optional['outputs.VirtualNetworksPropertiesResponseInfraVnetProfile']:
+    def infra_vnet_profile(self) -> Optional['outputs.VirtualNetworkPropertiesResponseInfraVnetProfile']:
         return pulumi.get(self, "infra_vnet_profile")
 
     @_builtins.property
@@ -3399,26 +332,43 @@ class VirtualNetworksPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="vipPool")
-    def vip_pool(self) -> Optional[Sequence['outputs.VirtualNetworksPropertiesResponseVipPool']]:
+    def vip_pool(self) -> Optional[Sequence['outputs.VirtualNetworkPropertiesResponseVipPool']]:
         """
-        Virtual IP Pool for Kubernetes
+        Range of IP Addresses for Kubernetes API Server and services if using HA Proxy load balancer
         """
         return pulumi.get(self, "vip_pool")
 
     @_builtins.property
-    @pulumi.getter(name="vmipPool")
-    def vmip_pool(self) -> Optional[Sequence['outputs.VirtualNetworksPropertiesResponseVmipPool']]:
+    @pulumi.getter(name="vlanID")
+    def vlan_id(self) -> Optional[_builtins.int]:
         """
-        IP Pool for Virtual Machines
+        VLAN Id used by the network
+        """
+        return pulumi.get(self, "vlan_id")
+
+    @_builtins.property
+    @pulumi.getter(name="vmipPool")
+    def vmip_pool(self) -> Optional[Sequence['outputs.VirtualNetworkPropertiesResponseVmipPool']]:
+        """
+        Range of IP Addresses for Kubernetes node VMs
         """
         return pulumi.get(self, "vmip_pool")
 
 
 @pulumi.output_type
-class VirtualNetworksPropertiesResponseError(dict):
+class VirtualNetworkPropertiesResponseError(dict):
+    """
+    The error if any from the operation.
+    """
     def __init__(__self__, *,
                  code: Optional[_builtins.str] = None,
                  message: Optional[_builtins.str] = None):
+        """
+        The error if any from the operation.
+
+        :param _builtins.str code: The error code from the operation.
+        :param _builtins.str message: The error message from the operation.
+        """
         if code is not None:
             pulumi.set(__self__, "code", code)
         if message is not None:
@@ -3427,18 +377,24 @@ class VirtualNetworksPropertiesResponseError(dict):
     @_builtins.property
     @pulumi.getter
     def code(self) -> Optional[_builtins.str]:
+        """
+        The error code from the operation.
+        """
         return pulumi.get(self, "code")
 
     @_builtins.property
     @pulumi.getter
     def message(self) -> Optional[_builtins.str]:
+        """
+        The error message from the operation.
+        """
         return pulumi.get(self, "message")
 
 
 @pulumi.output_type
-class VirtualNetworksPropertiesResponseHci(dict):
+class VirtualNetworkPropertiesResponseHci(dict):
     """
-    Infra network profile for HCI platform
+    Infrastructure network profile for HCI platform
     """
     @staticmethod
     def __key_warning(key: str):
@@ -3451,14 +407,14 @@ class VirtualNetworksPropertiesResponseHci(dict):
             suggest = "moc_vnet_name"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworksPropertiesResponseHci. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkPropertiesResponseHci. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        VirtualNetworksPropertiesResponseHci.__key_warning(key)
+        VirtualNetworkPropertiesResponseHci.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        VirtualNetworksPropertiesResponseHci.__key_warning(key)
+        VirtualNetworkPropertiesResponseHci.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -3466,9 +422,9 @@ class VirtualNetworksPropertiesResponseHci(dict):
                  moc_location: Optional[_builtins.str] = None,
                  moc_vnet_name: Optional[_builtins.str] = None):
         """
-        Infra network profile for HCI platform
+        Infrastructure network profile for HCI platform
 
-        :param _builtins.str moc_group: Resource group in MOC(Microsoft On-premises Cloud)
+        :param _builtins.str moc_group: Group in MOC(Microsoft On-premises Cloud)
         :param _builtins.str moc_location: Location in MOC(Microsoft On-premises Cloud)
         :param _builtins.str moc_vnet_name: Virtual Network name in MOC(Microsoft On-premises Cloud)
         """
@@ -3483,7 +439,7 @@ class VirtualNetworksPropertiesResponseHci(dict):
     @pulumi.getter(name="mocGroup")
     def moc_group(self) -> Optional[_builtins.str]:
         """
-        Resource group in MOC(Microsoft On-premises Cloud)
+        Group in MOC(Microsoft On-premises Cloud)
         """
         return pulumi.get(self, "moc_group")
 
@@ -3505,110 +461,28 @@ class VirtualNetworksPropertiesResponseHci(dict):
 
 
 @pulumi.output_type
-class VirtualNetworksPropertiesResponseInfraVnetProfile(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "networkCloud":
-            suggest = "network_cloud"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworksPropertiesResponseInfraVnetProfile. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VirtualNetworksPropertiesResponseInfraVnetProfile.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VirtualNetworksPropertiesResponseInfraVnetProfile.__key_warning(key)
-        return super().get(key, default)
-
+class VirtualNetworkPropertiesResponseInfraVnetProfile(dict):
     def __init__(__self__, *,
-                 hci: Optional['outputs.VirtualNetworksPropertiesResponseHci'] = None,
-                 network_cloud: Optional['outputs.VirtualNetworksPropertiesResponseNetworkCloud'] = None,
-                 vmware: Optional['outputs.VirtualNetworksPropertiesResponseVmware'] = None):
+                 hci: Optional['outputs.VirtualNetworkPropertiesResponseHci'] = None):
         """
-        :param 'VirtualNetworksPropertiesResponseHci' hci: Infra network profile for HCI platform
-        :param 'VirtualNetworksPropertiesResponseNetworkCloud' network_cloud: Infra network profile for the NetworkCloud platform
-        :param 'VirtualNetworksPropertiesResponseVmware' vmware: Infra network profile for VMware platform
+        :param 'VirtualNetworkPropertiesResponseHci' hci: Infrastructure network profile for HCI platform
         """
         if hci is not None:
             pulumi.set(__self__, "hci", hci)
-        if network_cloud is not None:
-            pulumi.set(__self__, "network_cloud", network_cloud)
-        if vmware is not None:
-            pulumi.set(__self__, "vmware", vmware)
 
     @_builtins.property
     @pulumi.getter
-    def hci(self) -> Optional['outputs.VirtualNetworksPropertiesResponseHci']:
+    def hci(self) -> Optional['outputs.VirtualNetworkPropertiesResponseHci']:
         """
-        Infra network profile for HCI platform
+        Infrastructure network profile for HCI platform
         """
         return pulumi.get(self, "hci")
 
-    @_builtins.property
-    @pulumi.getter(name="networkCloud")
-    def network_cloud(self) -> Optional['outputs.VirtualNetworksPropertiesResponseNetworkCloud']:
-        """
-        Infra network profile for the NetworkCloud platform
-        """
-        return pulumi.get(self, "network_cloud")
-
-    @_builtins.property
-    @pulumi.getter
-    def vmware(self) -> Optional['outputs.VirtualNetworksPropertiesResponseVmware']:
-        """
-        Infra network profile for VMware platform
-        """
-        return pulumi.get(self, "vmware")
-
 
 @pulumi.output_type
-class VirtualNetworksPropertiesResponseNetworkCloud(dict):
+class VirtualNetworkPropertiesResponseOperationStatus(dict):
     """
-    Infra network profile for the NetworkCloud platform
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "networkId":
-            suggest = "network_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworksPropertiesResponseNetworkCloud. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VirtualNetworksPropertiesResponseNetworkCloud.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VirtualNetworksPropertiesResponseNetworkCloud.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 network_id: Optional[_builtins.str] = None):
-        """
-        Infra network profile for the NetworkCloud platform
-
-        :param _builtins.str network_id: The ARM ID of Network Cloud Network Resource to Associate with this VirtualNetwork
-        """
-        if network_id is not None:
-            pulumi.set(__self__, "network_id", network_id)
-
-    @_builtins.property
-    @pulumi.getter(name="networkId")
-    def network_id(self) -> Optional[_builtins.str]:
-        """
-        The ARM ID of Network Cloud Network Resource to Associate with this VirtualNetwork
-        """
-        return pulumi.get(self, "network_id")
-
-
-@pulumi.output_type
-class VirtualNetworksPropertiesResponseProvisioningStatus(dict):
-    """
-    Contains Provisioning errors
+    The detailed status of the long running operation.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -3617,102 +491,102 @@ class VirtualNetworksPropertiesResponseProvisioningStatus(dict):
             suggest = "operation_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworksPropertiesResponseProvisioningStatus. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkPropertiesResponseOperationStatus. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        VirtualNetworksPropertiesResponseProvisioningStatus.__key_warning(key)
+        VirtualNetworkPropertiesResponseOperationStatus.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        VirtualNetworksPropertiesResponseProvisioningStatus.__key_warning(key)
+        VirtualNetworkPropertiesResponseOperationStatus.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 error: Optional['outputs.VirtualNetworksPropertiesResponseError'] = None,
+                 error: Optional['outputs.VirtualNetworkPropertiesResponseError'] = None,
                  operation_id: Optional[_builtins.str] = None,
-                 phase: Optional[_builtins.str] = None,
                  status: Optional[_builtins.str] = None):
         """
-        Contains Provisioning errors
+        The detailed status of the long running operation.
 
-        :param _builtins.str phase: Phase represents the current phase of cluster actuation. E.g. Pending, Running, Terminating, Failed etc.
+        :param 'VirtualNetworkPropertiesResponseError' error: The error if any from the operation.
+        :param _builtins.str operation_id: The identifier of the operation.
+        :param _builtins.str status: The status of the operation.
         """
         if error is not None:
             pulumi.set(__self__, "error", error)
         if operation_id is not None:
             pulumi.set(__self__, "operation_id", operation_id)
-        if phase is not None:
-            pulumi.set(__self__, "phase", phase)
         if status is not None:
             pulumi.set(__self__, "status", status)
 
     @_builtins.property
     @pulumi.getter
-    def error(self) -> Optional['outputs.VirtualNetworksPropertiesResponseError']:
+    def error(self) -> Optional['outputs.VirtualNetworkPropertiesResponseError']:
+        """
+        The error if any from the operation.
+        """
         return pulumi.get(self, "error")
 
     @_builtins.property
     @pulumi.getter(name="operationId")
     def operation_id(self) -> Optional[_builtins.str]:
+        """
+        The identifier of the operation.
+        """
         return pulumi.get(self, "operation_id")
 
     @_builtins.property
     @pulumi.getter
-    def phase(self) -> Optional[_builtins.str]:
-        """
-        Phase represents the current phase of cluster actuation. E.g. Pending, Running, Terminating, Failed etc.
-        """
-        return pulumi.get(self, "phase")
-
-    @_builtins.property
-    @pulumi.getter
     def status(self) -> Optional[_builtins.str]:
+        """
+        The status of the operation.
+        """
         return pulumi.get(self, "status")
 
 
 @pulumi.output_type
-class VirtualNetworksPropertiesResponseStatus(dict):
+class VirtualNetworkPropertiesResponseStatus(dict):
     """
-    HybridAKSNetworkStatus defines the observed state of HybridAKSNetwork
+    Status of the virtual network resource
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "provisioningStatus":
-            suggest = "provisioning_status"
+        if key == "operationStatus":
+            suggest = "operation_status"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworksPropertiesResponseStatus. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkPropertiesResponseStatus. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        VirtualNetworksPropertiesResponseStatus.__key_warning(key)
+        VirtualNetworkPropertiesResponseStatus.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        VirtualNetworksPropertiesResponseStatus.__key_warning(key)
+        VirtualNetworkPropertiesResponseStatus.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 provisioning_status: Optional['outputs.VirtualNetworksPropertiesResponseProvisioningStatus'] = None):
+                 operation_status: Optional['outputs.VirtualNetworkPropertiesResponseOperationStatus'] = None):
         """
-        HybridAKSNetworkStatus defines the observed state of HybridAKSNetwork
+        Status of the virtual network resource
 
-        :param 'VirtualNetworksPropertiesResponseProvisioningStatus' provisioning_status: Contains Provisioning errors
+        :param 'VirtualNetworkPropertiesResponseOperationStatus' operation_status: The detailed status of the long running operation.
         """
-        if provisioning_status is not None:
-            pulumi.set(__self__, "provisioning_status", provisioning_status)
+        if operation_status is not None:
+            pulumi.set(__self__, "operation_status", operation_status)
 
     @_builtins.property
-    @pulumi.getter(name="provisioningStatus")
-    def provisioning_status(self) -> Optional['outputs.VirtualNetworksPropertiesResponseProvisioningStatus']:
+    @pulumi.getter(name="operationStatus")
+    def operation_status(self) -> Optional['outputs.VirtualNetworkPropertiesResponseOperationStatus']:
         """
-        Contains Provisioning errors
+        The detailed status of the long running operation.
         """
-        return pulumi.get(self, "provisioning_status")
+        return pulumi.get(self, "operation_status")
 
 
 @pulumi.output_type
-class VirtualNetworksPropertiesResponseVipPool(dict):
+class VirtualNetworkPropertiesResponseVipPool(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3722,14 +596,14 @@ class VirtualNetworksPropertiesResponseVipPool(dict):
             suggest = "start_ip"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworksPropertiesResponseVipPool. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkPropertiesResponseVipPool. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        VirtualNetworksPropertiesResponseVipPool.__key_warning(key)
+        VirtualNetworkPropertiesResponseVipPool.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        VirtualNetworksPropertiesResponseVipPool.__key_warning(key)
+        VirtualNetworkPropertiesResponseVipPool.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -3762,7 +636,7 @@ class VirtualNetworksPropertiesResponseVipPool(dict):
 
 
 @pulumi.output_type
-class VirtualNetworksPropertiesResponseVmipPool(dict):
+class VirtualNetworkPropertiesResponseVmipPool(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3772,14 +646,14 @@ class VirtualNetworksPropertiesResponseVmipPool(dict):
             suggest = "start_ip"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworksPropertiesResponseVmipPool. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkPropertiesResponseVmipPool. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        VirtualNetworksPropertiesResponseVmipPool.__key_warning(key)
+        VirtualNetworkPropertiesResponseVmipPool.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        VirtualNetworksPropertiesResponseVmipPool.__key_warning(key)
+        VirtualNetworkPropertiesResponseVmipPool.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -3812,54 +686,18 @@ class VirtualNetworksPropertiesResponseVmipPool(dict):
 
 
 @pulumi.output_type
-class VirtualNetworksPropertiesResponseVmware(dict):
+class VirtualNetworkResponseExtendedLocation(dict):
     """
-    Infra network profile for VMware platform
+    Extended location pointing to the underlying infrastructure
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "segmentName":
-            suggest = "segment_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworksPropertiesResponseVmware. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VirtualNetworksPropertiesResponseVmware.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VirtualNetworksPropertiesResponseVmware.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 segment_name: Optional[_builtins.str] = None):
-        """
-        Infra network profile for VMware platform
-
-        :param _builtins.str segment_name: Name of the network segment in VSphere
-        """
-        if segment_name is not None:
-            pulumi.set(__self__, "segment_name", segment_name)
-
-    @_builtins.property
-    @pulumi.getter(name="segmentName")
-    def segment_name(self) -> Optional[_builtins.str]:
-        """
-        Name of the network segment in VSphere
-        """
-        return pulumi.get(self, "segment_name")
-
-
-@pulumi.output_type
-class VirtualNetworksResponseExtendedLocation(dict):
     def __init__(__self__, *,
                  name: Optional[_builtins.str] = None,
                  type: Optional[_builtins.str] = None):
         """
-        :param _builtins.str name: The extended location name.
-        :param _builtins.str type: The extended location type.
+        Extended location pointing to the underlying infrastructure
+
+        :param _builtins.str name: ARM Id of the extended location.
+        :param _builtins.str type: The extended location type. Allowed value: 'CustomLocation'
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -3870,7 +708,7 @@ class VirtualNetworksResponseExtendedLocation(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        The extended location name.
+        ARM Id of the extended location.
         """
         return pulumi.get(self, "name")
 
@@ -3878,242 +716,8 @@ class VirtualNetworksResponseExtendedLocation(dict):
     @pulumi.getter
     def type(self) -> Optional[_builtins.str]:
         """
-        The extended location type.
+        The extended location type. Allowed value: 'CustomLocation'
         """
         return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class VmSkuCapabilitiesResponse(dict):
-    """
-    Describes the VM SKU capabilities like MemoryGB, vCPUs, etc.
-    """
-    def __init__(__self__, *,
-                 name: _builtins.str,
-                 value: _builtins.str):
-        """
-        Describes the VM SKU capabilities like MemoryGB, vCPUs, etc.
-
-        :param _builtins.str name: Name of the VM SKU capability
-        :param _builtins.str value: Value of the VM SKU capability
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> _builtins.str:
-        """
-        Name of the VM SKU capability
-        """
-        return pulumi.get(self, "name")
-
-    @_builtins.property
-    @pulumi.getter
-    def value(self) -> _builtins.str:
-        """
-        Value of the VM SKU capability
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class VmSkuProfileResponseProperties(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "provisioningState":
-            suggest = "provisioning_state"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VmSkuProfileResponseProperties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VmSkuProfileResponseProperties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VmSkuProfileResponseProperties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 provisioning_state: _builtins.str,
-                 values: Optional[Sequence['outputs.VmSkuPropertiesResponse']] = None):
-        """
-        :param _builtins.str provisioning_state: Provisioning state of the resource
-        :param Sequence['VmSkuPropertiesResponse'] values: List of supported VM SKUs.
-        """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if values is not None:
-            pulumi.set(__self__, "values", values)
-
-    @_builtins.property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> _builtins.str:
-        """
-        Provisioning state of the resource
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @_builtins.property
-    @pulumi.getter
-    def values(self) -> Optional[Sequence['outputs.VmSkuPropertiesResponse']]:
-        """
-        List of supported VM SKUs.
-        """
-        return pulumi.get(self, "values")
-
-
-@pulumi.output_type
-class VmSkuPropertiesResponse(dict):
-    """
-    The profile for supported VM SKUs
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "resourceType":
-            suggest = "resource_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VmSkuPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VmSkuPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VmSkuPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 capabilities: Sequence['outputs.VmSkuCapabilitiesResponse'],
-                 name: _builtins.str,
-                 resource_type: _builtins.str,
-                 size: _builtins.str,
-                 tier: _builtins.str):
-        """
-        The profile for supported VM SKUs
-
-        :param Sequence['VmSkuCapabilitiesResponse'] capabilities: The list of name-value pairs to describe VM SKU capabilities like MemoryGB, vCPUs, etc.
-        :param _builtins.str name: The name of the VM SKU
-        :param _builtins.str resource_type: The type of resource the SKU applies to.
-        :param _builtins.str size: The size of the VM SKU
-        :param _builtins.str tier: The tier of the VM SKU
-        """
-        pulumi.set(__self__, "capabilities", capabilities)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_type", resource_type)
-        pulumi.set(__self__, "size", size)
-        pulumi.set(__self__, "tier", tier)
-
-    @_builtins.property
-    @pulumi.getter
-    def capabilities(self) -> Sequence['outputs.VmSkuCapabilitiesResponse']:
-        """
-        The list of name-value pairs to describe VM SKU capabilities like MemoryGB, vCPUs, etc.
-        """
-        return pulumi.get(self, "capabilities")
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> _builtins.str:
-        """
-        The name of the VM SKU
-        """
-        return pulumi.get(self, "name")
-
-    @_builtins.property
-    @pulumi.getter(name="resourceType")
-    def resource_type(self) -> _builtins.str:
-        """
-        The type of resource the SKU applies to.
-        """
-        return pulumi.get(self, "resource_type")
-
-    @_builtins.property
-    @pulumi.getter
-    def size(self) -> _builtins.str:
-        """
-        The size of the VM SKU
-        """
-        return pulumi.get(self, "size")
-
-    @_builtins.property
-    @pulumi.getter
-    def tier(self) -> _builtins.str:
-        """
-        The tier of the VM SKU
-        """
-        return pulumi.get(self, "tier")
-
-
-@pulumi.output_type
-class WindowsProfileResponseResponse(dict):
-    """
-    Profile for Windows VMs in the container service cluster.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "adminUsername":
-            suggest = "admin_username"
-        elif key == "enableCsiProxy":
-            suggest = "enable_csi_proxy"
-        elif key == "licenseType":
-            suggest = "license_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WindowsProfileResponseResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        WindowsProfileResponseResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        WindowsProfileResponseResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 admin_username: Optional[_builtins.str] = None,
-                 enable_csi_proxy: Optional[_builtins.bool] = None,
-                 license_type: Optional[_builtins.str] = None):
-        """
-        Profile for Windows VMs in the container service cluster.
-
-        :param _builtins.str admin_username: AdminUsername - Specifies the name of the administrator account. <br><br> **restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length:** 1 character <br><br> **Max-length:** 20 characters
-        :param _builtins.bool enable_csi_proxy: EnableCSIProxy - Whether to enable CSI proxy.
-        :param _builtins.str license_type: LicenseType - The licenseType to use for Windows VMs. Windows_Server is used to enable Azure Hybrid User Benefits for Windows VMs. Possible values include: 'None', 'Windows_Server'
-        """
-        if admin_username is not None:
-            pulumi.set(__self__, "admin_username", admin_username)
-        if enable_csi_proxy is not None:
-            pulumi.set(__self__, "enable_csi_proxy", enable_csi_proxy)
-        if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
-
-    @_builtins.property
-    @pulumi.getter(name="adminUsername")
-    def admin_username(self) -> Optional[_builtins.str]:
-        """
-        AdminUsername - Specifies the name of the administrator account. <br><br> **restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length:** 1 character <br><br> **Max-length:** 20 characters
-        """
-        return pulumi.get(self, "admin_username")
-
-    @_builtins.property
-    @pulumi.getter(name="enableCsiProxy")
-    def enable_csi_proxy(self) -> Optional[_builtins.bool]:
-        """
-        EnableCSIProxy - Whether to enable CSI proxy.
-        """
-        return pulumi.get(self, "enable_csi_proxy")
-
-    @_builtins.property
-    @pulumi.getter(name="licenseType")
-    def license_type(self) -> Optional[_builtins.str]:
-        """
-        LicenseType - The licenseType to use for Windows VMs. Windows_Server is used to enable Azure Hybrid User Benefits for Windows VMs. Possible values include: 'None', 'Windows_Server'
-        """
-        return pulumi.get(self, "license_type")
 
 

@@ -154,7 +154,7 @@ def get_sandbox_custom_image(cluster_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-04-13.
 
-    Other available API versions: 2023-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-08-15, 2025-02-14. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str cluster_name: The name of the Kusto cluster.
@@ -187,7 +187,7 @@ def get_sandbox_custom_image_output(cluster_name: Optional[pulumi.Input[_builtin
 
     Uses Azure REST API version 2024-04-13.
 
-    Other available API versions: 2023-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-08-15, 2025-02-14. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str cluster_name: The name of the Kusto cluster.

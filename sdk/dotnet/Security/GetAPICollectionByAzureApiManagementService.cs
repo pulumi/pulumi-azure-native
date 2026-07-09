@@ -110,11 +110,11 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
-        /// Resource Id
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -146,7 +146,11 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly string SensitivityLabel;
         /// <summary>
-        /// Resource type
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -178,6 +182,8 @@ namespace Pulumi.AzureNative.Security
 
             string sensitivityLabel,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             AzureApiVersion = azureApiVersion;
@@ -193,6 +199,7 @@ namespace Pulumi.AzureNative.Security
             NumberOfUnauthenticatedApiEndpoints = numberOfUnauthenticatedApiEndpoints;
             ProvisioningState = provisioningState;
             SensitivityLabel = sensitivityLabel;
+            SystemData = systemData;
             Type = type;
         }
     }

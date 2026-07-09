@@ -71,7 +71,7 @@ export interface GetPrivateLinkScopedResourceResult {
      */
     readonly subscriptionLocation?: string;
     /**
-     * System data
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.monitor.SystemDataResponse;
     /**

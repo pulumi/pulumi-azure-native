@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Search
     /// 
     /// Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
     /// 
-    /// Other available API versions: 2022-09-01, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2022-09-01, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:search:Service")]
     public partial class Service : global::Pulumi.CustomResource
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.Search
         public Output<Outputs.NetworkRuleSetResponse?> NetworkRuleSet { get; private set; } = null!;
 
         /// <summary>
-        /// The number of partitions in the search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
+        /// The number of partitions in the dedicated search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
         /// </summary>
         [Output("partitionCount")]
         public Output<int?> PartitionCount { get; private set; } = null!;
@@ -122,13 +122,13 @@ namespace Pulumi.AzureNative.Search
         public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
-        /// The number of replicas in the search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
+        /// The number of replicas in the dedicated search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
         /// </summary>
         [Output("replicaCount")]
         public Output<int?> ReplicaCount { get; private set; } = null!;
 
         /// <summary>
-        /// Sets options that control the availability of semantic search. This configuration is only possible for certain Azure AI Search SKUs in certain locations.
+        /// Specifies the availability and billing plan for semantic search on the Azure AI Search service. This configuration is only available for certain pricing tiers in certain regions.
         /// </summary>
         [Output("semanticSearch")]
         public Output<string?> SemanticSearch { get; private set; } = null!;
@@ -224,6 +224,7 @@ namespace Pulumi.AzureNative.Search
                     new global::Pulumi.Alias { Type = "azure-native:search/v20240601preview:Service" },
                     new global::Pulumi.Alias { Type = "azure-native:search/v20250201preview:Service" },
                     new global::Pulumi.Alias { Type = "azure-native:search/v20250501:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native:search/v20260301preview:Service" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -314,7 +315,7 @@ namespace Pulumi.AzureNative.Search
         public Input<Inputs.NetworkRuleSetArgs>? NetworkRuleSet { get; set; }
 
         /// <summary>
-        /// The number of partitions in the search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
+        /// The number of partitions in the dedicated search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
         /// </summary>
         [Input("partitionCount")]
         public Input<int>? PartitionCount { get; set; }
@@ -326,7 +327,7 @@ namespace Pulumi.AzureNative.Search
         public InputUnion<string, Pulumi.AzureNative.Search.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
-        /// The number of replicas in the search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
+        /// The number of replicas in the dedicated search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
         /// </summary>
         [Input("replicaCount")]
         public Input<int>? ReplicaCount { get; set; }
@@ -344,7 +345,7 @@ namespace Pulumi.AzureNative.Search
         public Input<string>? SearchServiceName { get; set; }
 
         /// <summary>
-        /// Sets options that control the availability of semantic search. This configuration is only possible for certain Azure AI Search SKUs in certain locations.
+        /// Specifies the availability and billing plan for semantic search on the Azure AI Search service. This configuration is only available for certain pricing tiers in certain regions.
         /// </summary>
         [Input("semanticSearch")]
         public InputUnion<string, Pulumi.AzureNative.Search.SearchSemanticSearch>? SemanticSearch { get; set; }

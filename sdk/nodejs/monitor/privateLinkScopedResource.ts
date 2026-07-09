@@ -66,7 +66,7 @@ export class PrivateLinkScopedResource extends pulumi.CustomResource {
      */
     declare public readonly subscriptionLocation: pulumi.Output<string | undefined>;
     /**
-     * System data
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     declare public /*out*/ readonly systemData: pulumi.Output<outputs.monitor.SystemDataResponse>;
     /**

@@ -3517,7 +3517,7 @@ class ManagedResourceReferenceResponse(dict):
 @pulumi.output_type
 class ManagedServiceIdentityResponse(dict):
     """
-    Managed identity generic object.
+    Describes the managed identities for an Azure resource.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -3543,9 +3543,9 @@ class ManagedServiceIdentityResponse(dict):
                  type: Optional[_builtins.str] = None,
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
-        Managed identity generic object.
+        Describes the managed identities for an Azure resource.
 
-        :param _builtins.str tenant_id: ID of the Azure Active Directory.
+        :param _builtins.str tenant_id: The tenant id of the managed identity.
         :param _builtins.str type: Type of the managed identity.
         :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
         """
@@ -3559,7 +3559,7 @@ class ManagedServiceIdentityResponse(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> _builtins.str:
         """
-        ID of the Azure Active Directory.
+        The tenant id of the managed identity.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -4241,7 +4241,7 @@ class ScriptStatusResponse(dict):
                  expiration_time: _builtins.str,
                  start_time: _builtins.str,
                  storage_account_id: _builtins.str,
-                 error: Optional['outputs.ErrorResponseResponse'] = None):
+                 error: Optional['outputs.ErrorDetailResponse'] = None):
         """
         Generic object modeling results of script execution.
 
@@ -4250,7 +4250,7 @@ class ScriptStatusResponse(dict):
         :param _builtins.str expiration_time: Time the deployment script resource will expire.
         :param _builtins.str start_time: Start time of the script execution.
         :param _builtins.str storage_account_id: Storage account resource Id.
-        :param 'ErrorResponseResponse' error: Error that is relayed from the script execution.
+        :param 'ErrorDetailResponse' error: Error that is relayed from the script execution.
         """
         pulumi.set(__self__, "container_instance_id", container_instance_id)
         pulumi.set(__self__, "end_time", end_time)
@@ -4302,7 +4302,7 @@ class ScriptStatusResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def error(self) -> Optional['outputs.ErrorResponseResponse']:
+    def error(self) -> Optional['outputs.ErrorDetailResponse']:
         """
         Error that is relayed from the script execution.
         """

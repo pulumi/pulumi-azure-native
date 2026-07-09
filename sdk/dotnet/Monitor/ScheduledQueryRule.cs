@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.Monitor
         /// The rule criteria that defines the conditions of the scheduled query rule.
         /// </summary>
         [Output("criteria")]
-        public Output<Outputs.ScheduledQueryRuleCriteriaResponse> Criteria { get; private set; } = null!;
+        public Output<Outputs.ScheduledQueryRuleCriteriaResponse?> Criteria { get; private set; } = null!;
 
         /// <summary>
         /// The description of the scheduled query rule.
@@ -71,10 +71,10 @@ namespace Pulumi.AzureNative.Monitor
         /// The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
         /// </summary>
         [Output("enabled")]
-        public Output<bool> Enabled { get; private set; } = null!;
+        public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+        /// "If etag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.")
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.Monitor
         /// The identity of the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.MicrosoftCommonIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// True if alert rule is legacy Log Analytic rule
@@ -158,7 +158,7 @@ namespace Pulumi.AzureNative.Monitor
         public Output<bool?> SkipQueryValidation { get; private set; } = null!;
 
         /// <summary>
-        /// SystemData of ScheduledQueryRule.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -273,8 +273,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The rule criteria that defines the conditions of the scheduled query rule.
         /// </summary>
-        [Input("criteria", required: true)]
-        public Input<Inputs.ScheduledQueryRuleCriteriaArgs> Criteria { get; set; } = null!;
+        [Input("criteria")]
+        public Input<Inputs.ScheduledQueryRuleCriteriaArgs>? Criteria { get; set; }
 
         /// <summary>
         /// The description of the scheduled query rule.
@@ -291,8 +291,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
         /// </summary>
-        [Input("enabled", required: true)]
-        public Input<bool> Enabled { get; set; } = null!;
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
 
         /// <summary>
         /// How often the scheduled query rule is evaluated represented in ISO 8601 duration format. Relevant and required only for rules of the kind LogAlert.
@@ -304,7 +304,7 @@ namespace Pulumi.AzureNative.Monitor
         /// The identity of the resource.
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.IdentityArgs>? Identity { get; set; }
+        public Input<Inputs.MicrosoftCommonIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// Indicates the type of scheduled query rule. The default is LogAlert.
@@ -348,7 +348,7 @@ namespace Pulumi.AzureNative.Monitor
         [Input("ruleName")]
         public Input<string>? RuleName { get; set; }
 
-        [Input("scopes", required: true)]
+        [Input("scopes")]
         private InputList<string>? _scopes;
 
         /// <summary>

@@ -3,9 +3,21 @@
 
 
 export const BillingManagementTenantState = {
+    /**
+     * Other
+     */
     Other: "Other",
+    /**
+     * NotAllowed
+     */
     NotAllowed: "NotAllowed",
+    /**
+     * Active
+     */
     Active: "Active",
+    /**
+     * Revoked
+     */
     Revoked: "Revoked",
 } as const;
 
@@ -15,12 +27,33 @@ export const BillingManagementTenantState = {
 export type BillingManagementTenantState = (typeof BillingManagementTenantState)[keyof typeof BillingManagementTenantState];
 
 export const InvoiceSectionState = {
+    /**
+     * Other
+     */
     Other: "Other",
+    /**
+     * Active
+     */
     Active: "Active",
+    /**
+     * Deleted
+     */
     Deleted: "Deleted",
+    /**
+     * Disabled
+     */
     Disabled: "Disabled",
+    /**
+     * UnderReview
+     */
     UnderReview: "UnderReview",
+    /**
+     * Warned
+     */
     Warned: "Warned",
+    /**
+     * Restricted
+     */
     Restricted: "Restricted",
 } as const;
 
@@ -30,10 +63,25 @@ export const InvoiceSectionState = {
 export type InvoiceSectionState = (typeof InvoiceSectionState)[keyof typeof InvoiceSectionState];
 
 export const InvoiceSectionStateReasonCode = {
+    /**
+     * Other
+     */
     Other: "Other",
+    /**
+     * PastDue
+     */
     PastDue: "PastDue",
+    /**
+     * UnusualActivity
+     */
     UnusualActivity: "UnusualActivity",
+    /**
+     * SpendingLimitReached
+     */
     SpendingLimitReached: "SpendingLimitReached",
+    /**
+     * SpendingLimitExpired
+     */
     SpendingLimitExpired: "SpendingLimitExpired",
 } as const;
 
@@ -43,12 +91,33 @@ export const InvoiceSectionStateReasonCode = {
 export type InvoiceSectionStateReasonCode = (typeof InvoiceSectionStateReasonCode)[keyof typeof InvoiceSectionStateReasonCode];
 
 export const ProvisioningTenantState = {
+    /**
+     * Other
+     */
     Other: "Other",
+    /**
+     * NotRequested
+     */
     NotRequested: "NotRequested",
+    /**
+     * Active
+     */
     Active: "Active",
+    /**
+     * Pending
+     */
     Pending: "Pending",
+    /**
+     * BillingRequestExpired
+     */
     BillingRequestExpired: "BillingRequestExpired",
+    /**
+     * BillingRequestDeclined
+     */
     BillingRequestDeclined: "BillingRequestDeclined",
+    /**
+     * Revoked
+     */
     Revoked: "Revoked",
 } as const;
 

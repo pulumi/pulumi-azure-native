@@ -20,8 +20,17 @@ namespace Pulumi.AzureNative.Resources
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Always clean up the resources created by the script execution.
+        /// </summary>
         public static CleanupOptions Always { get; } = new CleanupOptions("Always");
+        /// <summary>
+        /// Clean up the resources created by the script execution only if the script execution is successful.
+        /// </summary>
         public static CleanupOptions OnSuccess { get; } = new CleanupOptions("OnSuccess");
+        /// <summary>
+        /// Clean up the resources created by the script execution only on expiration.
+        /// </summary>
         public static CleanupOptions OnExpiration { get; } = new CleanupOptions("OnExpiration");
 
         public static bool operator ==(CleanupOptions left, CleanupOptions right) => left.Equals(right);
@@ -186,6 +195,9 @@ namespace Pulumi.AzureNative.Resources
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// User assigned identity.
+        /// </summary>
         public static ManagedServiceIdentityType UserAssigned { get; } = new ManagedServiceIdentityType("UserAssigned");
 
         public static bool operator ==(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => left.Equals(right);
@@ -317,7 +329,13 @@ namespace Pulumi.AzureNative.Resources
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Azure PowerShell script.
+        /// </summary>
         public static ScriptType AzurePowerShell { get; } = new ScriptType("AzurePowerShell");
+        /// <summary>
+        /// Azure CLI script.
+        /// </summary>
         public static ScriptType AzureCLI { get; } = new ScriptType("AzureCLI");
 
         public static bool operator ==(ScriptType left, ScriptType right) => left.Equals(right);

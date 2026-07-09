@@ -26,6 +26,7 @@ __all__ = [
     'AlertRuleAllOfConditionResponse',
     'AlertRuleAnyOfOrLeafConditionResponse',
     'AlertRuleLeafConditionResponse',
+    'AmwAccountResponse',
     'ApplicationInsightsTopologyDiscoveryRulePropertiesResponse',
     'ArmRoleReceiverResponse',
     'AutomationRunbookReceiverResponse',
@@ -41,12 +42,15 @@ __all__ = [
     'AzureMonitorWorkspaceSignalGroupResponse',
     'AzureResourceManagerCommonTypesExtendedLocationResponse',
     'AzureResourceSignalGroupResponse',
+    'BaselinePropertiesResponse',
+    'BaselineResponse',
     'BatchProcessorResponse',
     'CacheConfigurationResponse',
     'ColumnDefinitionResponse',
     'ConcurrencyConfigurationResponse',
+    'ConditionFailingPeriodsResponse',
     'ConditionResponse',
-    'ConditionResponseFailingPeriods',
+    'ConditionResponseV1',
     'DataCollectionEndpointResourceResponseIdentity',
     'DataCollectionEndpointResourceResponseSystemData',
     'DataCollectionEndpointResponseConfigurationAccess',
@@ -82,11 +86,11 @@ __all__ = [
     'EventHubDestinationResponse',
     'EventHubDirectDestinationResponse',
     'EventHubReceiverResponse',
+    'ExecutionStateResponse',
     'ExporterResponse',
     'ExtensionDataSourceResponse',
     'HealthModelPropertiesResponse',
     'IconDefinitionResponse',
-    'IdentityResponse',
     'IisLogsDataSourceResponse',
     'IncidentReceiverResponse',
     'IncidentServiceConnectionResponse',
@@ -115,8 +119,11 @@ __all__ = [
     'MetricAlertSingleResourceMultipleMetricCriteriaResponse',
     'MetricCriteriaResponse',
     'MetricDimensionResponse',
+    'MetricResponse',
     'MetricSettingsResponse',
     'MetricTriggerResponse',
+    'MicrosoftCommonIdentityResponse',
+    'MicrosoftCommonUserIdentityPropertiesResponse',
     'ModelDiscoverySettingsResponse',
     'MonitoringAccountDestinationResponse',
     'NetworkingConfigurationResponse',
@@ -160,7 +167,12 @@ __all__ = [
     'ServiceResponse',
     'SignalAssignmentResponse',
     'SignalGroupResponse',
+    'SignalResponse',
+    'SignalSourceResponse',
+    'SliPropertiesResponse',
+    'SliResourceResponse',
     'SmsReceiverResponse',
+    'SpatialAggregationResponse',
     'StorageBlobDestinationResponse',
     'StorageTableDestinationResponse',
     'StreamDeclarationResponse',
@@ -169,16 +181,17 @@ __all__ = [
     'SyslogReceiverResponse',
     'SystemDataResponse',
     'TcpExporterResponse',
+    'TemporalAggregationResponse',
     'ThresholdRuleResponse',
     'TimeWindowResponse',
     'UdpReceiverResponse',
     'UserAssignedIdentityResponse',
-    'UserIdentityPropertiesResponse',
     'VoiceReceiverResponse',
     'WebhookNotificationResponse',
     'WebhookReceiverResponse',
     'WebhookReceiverResponseV1',
     'WebtestLocationAvailabilityCriteriaResponse',
+    'WindowUptimeCriteriaResponse',
     'WindowsEventLogDataSourceResponse',
     'WindowsFirewallLogsDataSourceResponse',
 ]
@@ -749,6 +762,57 @@ class AlertRuleLeafConditionResponse(dict):
 
 
 @pulumi.output_type
+class AmwAccountResponse(dict):
+    """
+    Represents an Azure Monitor Workspace (AMW) account used for emitting metrics.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AmwAccountResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AmwAccountResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AmwAccountResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity: _builtins.str,
+                 resource_id: _builtins.str):
+        """
+        Represents an Azure Monitor Workspace (AMW) account used for emitting metrics.
+
+        :param _builtins.str identity: The ARM resource ID of the managed identity with access to the source account.
+        :param _builtins.str resource_id: The ARM resource ID of the account where metrics are emitted.
+        """
+        pulumi.set(__self__, "identity", identity)
+        pulumi.set(__self__, "resource_id", resource_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def identity(self) -> _builtins.str:
+        """
+        The ARM resource ID of the managed identity with access to the source account.
+        """
+        return pulumi.get(self, "identity")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> _builtins.str:
+        """
+        The ARM resource ID of the account where metrics are emitted.
+        """
+        return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
 class ApplicationInsightsTopologyDiscoveryRulePropertiesResponse(dict):
     """
     Discovery rule properties for an Application Insights topology query
@@ -1023,7 +1087,7 @@ class AutomationRunbookReceiverResponse(dict):
         :param _builtins.bool is_global_runbook: Indicates whether this instance is global runbook.
         :param _builtins.str runbook_name: The name for this runbook.
         :param _builtins.str webhook_resource_id: The resource id for webhook linked to this runbook.
-        :param _builtins.str managed_identity: The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        :param _builtins.str managed_identity: The principal id of the managed identity. The value can be "None", "SystemAssigned"
         :param _builtins.str name: Indicates name of the webhook.
         :param _builtins.str service_uri: The URI where webhooks should be sent.
         :param _builtins.bool use_common_alert_schema: Indicates whether to use common alert schema.
@@ -1079,7 +1143,7 @@ class AutomationRunbookReceiverResponse(dict):
     @pulumi.getter(name="managedIdentity")
     def managed_identity(self) -> Optional[_builtins.str]:
         """
-        The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        The principal id of the managed identity. The value can be "None", "SystemAssigned"
         """
         return pulumi.get(self, "managed_identity")
 
@@ -1454,7 +1518,7 @@ class AzureFunctionReceiverResponse(dict):
         :param _builtins.str function_name: The function name in the function app.
         :param _builtins.str http_trigger_url: The http trigger url where http request sent to.
         :param _builtins.str name: The name of the azure function receiver. Names must be unique across all receivers within an action group.
-        :param _builtins.str managed_identity: The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        :param _builtins.str managed_identity: The principal id of the managed identity. The value can be "None", "SystemAssigned"
         :param _builtins.bool use_common_alert_schema: Indicates whether to use common alert schema.
         """
         pulumi.set(__self__, "function_app_resource_id", function_app_resource_id)
@@ -1504,7 +1568,7 @@ class AzureFunctionReceiverResponse(dict):
     @pulumi.getter(name="managedIdentity")
     def managed_identity(self) -> Optional[_builtins.str]:
         """
-        The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        The principal id of the managed identity. The value can be "None", "SystemAssigned"
         """
         return pulumi.get(self, "managed_identity")
 
@@ -1914,6 +1978,93 @@ class AzureResourceSignalGroupResponse(dict):
 
 
 @pulumi.output_type
+class BaselinePropertiesResponse(dict):
+    """
+    Defines the properties of a baseline.
+    """
+    def __init__(__self__, *,
+                 baseline: 'outputs.BaselineResponse'):
+        """
+        Defines the properties of a baseline.
+
+        :param 'BaselineResponse' baseline: Defines the baseline target, which is compared against the SLI value to determine compliance.
+        """
+        pulumi.set(__self__, "baseline", baseline)
+
+    @_builtins.property
+    @pulumi.getter
+    def baseline(self) -> 'outputs.BaselineResponse':
+        """
+        Defines the baseline target, which is compared against the SLI value to determine compliance.
+        """
+        return pulumi.get(self, "baseline")
+
+
+@pulumi.output_type
+class BaselineResponse(dict):
+    """
+    Defines the target parameters for a Slo baseline.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "evaluationCalculationType":
+            suggest = "evaluation_calculation_type"
+        elif key == "evaluationPeriodDays":
+            suggest = "evaluation_period_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BaselineResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BaselineResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BaselineResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 evaluation_calculation_type: _builtins.str,
+                 evaluation_period_days: _builtins.int,
+                 value: _builtins.float):
+        """
+        Defines the target parameters for a Slo baseline.
+
+        :param _builtins.str evaluation_calculation_type: Specifies how evaluation is calculated, either based on calendar days or a rolling window.
+        :param _builtins.int evaluation_period_days: The time frame (in days) used for SLI evaluation.
+        :param _builtins.float value: The user-defined or Azure-defined target value used for comparison against the SLI value.
+        """
+        pulumi.set(__self__, "evaluation_calculation_type", evaluation_calculation_type)
+        pulumi.set(__self__, "evaluation_period_days", evaluation_period_days)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="evaluationCalculationType")
+    def evaluation_calculation_type(self) -> _builtins.str:
+        """
+        Specifies how evaluation is calculated, either based on calendar days or a rolling window.
+        """
+        return pulumi.get(self, "evaluation_calculation_type")
+
+    @_builtins.property
+    @pulumi.getter(name="evaluationPeriodDays")
+    def evaluation_period_days(self) -> _builtins.int:
+        """
+        The time frame (in days) used for SLI evaluation.
+        """
+        return pulumi.get(self, "evaluation_period_days")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.float:
+        """
+        The user-defined or Azure-defined target value used for comparison against the SLI value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class BatchProcessorResponse(dict):
     """
     Batch processor.
@@ -2121,6 +2272,65 @@ class ConcurrencyConfigurationResponse(dict):
 
 
 @pulumi.output_type
+class ConditionFailingPeriodsResponse(dict):
+    """
+    The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "minFailingPeriodsToAlert":
+            suggest = "min_failing_periods_to_alert"
+        elif key == "numberOfEvaluationPeriods":
+            suggest = "number_of_evaluation_periods"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConditionFailingPeriodsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConditionFailingPeriodsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConditionFailingPeriodsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 min_failing_periods_to_alert: Optional[_builtins.float] = None,
+                 number_of_evaluation_periods: Optional[_builtins.float] = None):
+        """
+        The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
+
+        :param _builtins.float min_failing_periods_to_alert: The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
+        :param _builtins.float number_of_evaluation_periods: The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
+        """
+        if min_failing_periods_to_alert is None:
+            min_failing_periods_to_alert = 1
+        if min_failing_periods_to_alert is not None:
+            pulumi.set(__self__, "min_failing_periods_to_alert", min_failing_periods_to_alert)
+        if number_of_evaluation_periods is None:
+            number_of_evaluation_periods = 1
+        if number_of_evaluation_periods is not None:
+            pulumi.set(__self__, "number_of_evaluation_periods", number_of_evaluation_periods)
+
+    @_builtins.property
+    @pulumi.getter(name="minFailingPeriodsToAlert")
+    def min_failing_periods_to_alert(self) -> Optional[_builtins.float]:
+        """
+        The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
+        """
+        return pulumi.get(self, "min_failing_periods_to_alert")
+
+    @_builtins.property
+    @pulumi.getter(name="numberOfEvaluationPeriods")
+    def number_of_evaluation_periods(self) -> Optional[_builtins.float]:
+        """
+        The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
+        """
+        return pulumi.get(self, "number_of_evaluation_periods")
+
+
+@pulumi.output_type
 class ConditionResponse(dict):
     """
     A condition of the scheduled query rule.
@@ -2162,7 +2372,7 @@ class ConditionResponse(dict):
                  alert_sensitivity: Optional[_builtins.str] = None,
                  criterion_type: Optional[_builtins.str] = None,
                  dimensions: Optional[Sequence['outputs.DimensionResponse']] = None,
-                 failing_periods: Optional['outputs.ConditionResponseFailingPeriods'] = None,
+                 failing_periods: Optional['outputs.ConditionFailingPeriodsResponse'] = None,
                  ignore_data_before: Optional[_builtins.str] = None,
                  metric_measure_column: Optional[_builtins.str] = None,
                  metric_name: Optional[_builtins.str] = None,
@@ -2178,7 +2388,7 @@ class ConditionResponse(dict):
         :param _builtins.str alert_sensitivity: The extent of deviation required to trigger an alert. Allowed values are 'Low', 'Medium' and 'High'. This will affect how tight the threshold is to the metric series pattern. Relevant only for dynamic threshold rules of the kind LogAlert.
         :param _builtins.str criterion_type: Specifies the type of threshold criteria
         :param Sequence['DimensionResponse'] dimensions: List of Dimensions conditions
-        :param 'ConditionResponseFailingPeriods' failing_periods: The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
+        :param 'ConditionFailingPeriodsResponse' failing_periods: The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
         :param _builtins.str ignore_data_before: Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format). Relevant only for dynamic threshold rules of the kind LogAlert.
         :param _builtins.str metric_measure_column: The column containing the metric measure number. Relevant only for rules of the kind LogAlert.
         :param _builtins.str metric_name: The name of the metric to be sent. Relevant and required only for rules of the kind LogToMetric.
@@ -2242,7 +2452,7 @@ class ConditionResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="failingPeriods")
-    def failing_periods(self) -> Optional['outputs.ConditionResponseFailingPeriods']:
+    def failing_periods(self) -> Optional['outputs.ConditionFailingPeriodsResponse']:
         """
         The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
         """
@@ -2322,62 +2532,94 @@ class ConditionResponse(dict):
 
 
 @pulumi.output_type
-class ConditionResponseFailingPeriods(dict):
+class ConditionResponseV1(dict):
     """
-    The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
+    Represents a filtering condition.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "minFailingPeriodsToAlert":
-            suggest = "min_failing_periods_to_alert"
-        elif key == "numberOfEvaluationPeriods":
-            suggest = "number_of_evaluation_periods"
+        if key == "dimensionName":
+            suggest = "dimension_name"
+        elif key == "samplingType":
+            suggest = "sampling_type"
+        elif key == "scalarFunction":
+            suggest = "scalar_function"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ConditionResponseFailingPeriods. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ConditionResponseV1. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ConditionResponseFailingPeriods.__key_warning(key)
+        ConditionResponseV1.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ConditionResponseFailingPeriods.__key_warning(key)
+        ConditionResponseV1.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 min_failing_periods_to_alert: Optional[_builtins.float] = None,
-                 number_of_evaluation_periods: Optional[_builtins.float] = None):
+                 operator: _builtins.str,
+                 value: _builtins.str,
+                 dimension_name: Optional[_builtins.str] = None,
+                 sampling_type: Optional[_builtins.str] = None,
+                 scalar_function: Optional[_builtins.str] = None):
         """
-        The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
+        Represents a filtering condition.
 
-        :param _builtins.float min_failing_periods_to_alert: The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
-        :param _builtins.float number_of_evaluation_periods: The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
+        :param _builtins.str operator: Operator used in the filtering condition.
+        :param _builtins.str value: Value used in filtering. For most operators (eq, ne, lt, lte, gt, gte, startswith, notstartswith, contains, notcontains) this is a single value (for example "GetContosoUsers"). For the `in` and `notin` operators, multiple values must be joined by the delimiter `^^` (for example "east^^west^^north").
+        :param _builtins.str dimension_name: Dimension name used in filtering.
+        :param _builtins.str sampling_type: Defines the sampling type.
+        :param _builtins.str scalar_function: Scalar function applied for filtering.
         """
-        if min_failing_periods_to_alert is None:
-            min_failing_periods_to_alert = 1
-        if min_failing_periods_to_alert is not None:
-            pulumi.set(__self__, "min_failing_periods_to_alert", min_failing_periods_to_alert)
-        if number_of_evaluation_periods is None:
-            number_of_evaluation_periods = 1
-        if number_of_evaluation_periods is not None:
-            pulumi.set(__self__, "number_of_evaluation_periods", number_of_evaluation_periods)
-
-    @_builtins.property
-    @pulumi.getter(name="minFailingPeriodsToAlert")
-    def min_failing_periods_to_alert(self) -> Optional[_builtins.float]:
-        """
-        The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
-        """
-        return pulumi.get(self, "min_failing_periods_to_alert")
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "value", value)
+        if dimension_name is not None:
+            pulumi.set(__self__, "dimension_name", dimension_name)
+        if sampling_type is not None:
+            pulumi.set(__self__, "sampling_type", sampling_type)
+        if scalar_function is not None:
+            pulumi.set(__self__, "scalar_function", scalar_function)
 
     @_builtins.property
-    @pulumi.getter(name="numberOfEvaluationPeriods")
-    def number_of_evaluation_periods(self) -> Optional[_builtins.float]:
+    @pulumi.getter
+    def operator(self) -> _builtins.str:
         """
-        The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
+        Operator used in the filtering condition.
         """
-        return pulumi.get(self, "number_of_evaluation_periods")
+        return pulumi.get(self, "operator")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        Value used in filtering. For most operators (eq, ne, lt, lte, gt, gte, startswith, notstartswith, contains, notcontains) this is a single value (for example "GetContosoUsers"). For the `in` and `notin` operators, multiple values must be joined by the delimiter `^^` (for example "east^^west^^north").
+        """
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="dimensionName")
+    def dimension_name(self) -> Optional[_builtins.str]:
+        """
+        Dimension name used in filtering.
+        """
+        return pulumi.get(self, "dimension_name")
+
+    @_builtins.property
+    @pulumi.getter(name="samplingType")
+    def sampling_type(self) -> Optional[_builtins.str]:
+        """
+        Defines the sampling type.
+        """
+        return pulumi.get(self, "sampling_type")
+
+    @_builtins.property
+    @pulumi.getter(name="scalarFunction")
+    def scalar_function(self) -> Optional[_builtins.str]:
+        """
+        Scalar function applied for filtering.
+        """
+        return pulumi.get(self, "scalar_function")
 
 
 @pulumi.output_type
@@ -4888,7 +5130,7 @@ class EventHubReceiverResponse(dict):
         :param _builtins.str event_hub_name_space: The Event Hub namespace
         :param _builtins.str name: The name of the Event hub receiver. Names must be unique across all receivers within an action group.
         :param _builtins.str subscription_id: The Id for the subscription containing this event hub
-        :param _builtins.str managed_identity: The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        :param _builtins.str managed_identity: The principal id of the managed identity. The value can be "None", "SystemAssigned"
         :param _builtins.str tenant_id: The tenant Id for the subscription containing this event hub
         :param _builtins.bool use_common_alert_schema: Indicates whether to use common alert schema.
         """
@@ -4941,7 +5183,7 @@ class EventHubReceiverResponse(dict):
     @pulumi.getter(name="managedIdentity")
     def managed_identity(self) -> Optional[_builtins.str]:
         """
-        The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        The principal id of the managed identity. The value can be "None", "SystemAssigned"
         """
         return pulumi.get(self, "managed_identity")
 
@@ -4960,6 +5202,41 @@ class EventHubReceiverResponse(dict):
         Indicates whether to use common alert schema.
         """
         return pulumi.get(self, "use_common_alert_schema")
+
+
+@pulumi.output_type
+class ExecutionStateResponse(dict):
+    """
+    Represents the current execution state of an SLI.
+    """
+    def __init__(__self__, *,
+                 state: _builtins.str,
+                 message: Optional[_builtins.str] = None):
+        """
+        Represents the current execution state of an SLI.
+
+        :param _builtins.str state: The execution state value.
+        :param _builtins.str message: A descriptive message related to the execution state.
+        """
+        pulumi.set(__self__, "state", state)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> _builtins.str:
+        """
+        The execution state value.
+        """
+        return pulumi.get(self, "state")
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> Optional[_builtins.str]:
+        """
+        A descriptive message related to the execution state.
+        """
+        return pulumi.get(self, "message")
 
 
 @pulumi.output_type
@@ -5252,84 +5529,6 @@ class IconDefinitionResponse(dict):
         Custom data. Base64-encoded SVG data. If set, this overrides the built-in icon.
         """
         return pulumi.get(self, "custom_data")
-
-
-@pulumi.output_type
-class IdentityResponse(dict):
-    """
-    Identity for the resource.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "principalId":
-            suggest = "principal_id"
-        elif key == "tenantId":
-            suggest = "tenant_id"
-        elif key == "userAssignedIdentities":
-            suggest = "user_assigned_identities"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in IdentityResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        IdentityResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        IdentityResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 principal_id: _builtins.str,
-                 tenant_id: _builtins.str,
-                 type: _builtins.str,
-                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserIdentityPropertiesResponse']] = None):
-        """
-        Identity for the resource.
-
-        :param _builtins.str principal_id: The principal ID of resource identity.
-        :param _builtins.str tenant_id: The tenant ID of resource.
-        :param _builtins.str type: Type of managed service identity.
-        :param Mapping[str, 'UserIdentityPropertiesResponse'] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
-        if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
-
-    @_builtins.property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> _builtins.str:
-        """
-        The principal ID of resource identity.
-        """
-        return pulumi.get(self, "principal_id")
-
-    @_builtins.property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> _builtins.str:
-        """
-        The tenant ID of resource.
-        """
-        return pulumi.get(self, "tenant_id")
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> _builtins.str:
-        """
-        Type of managed service identity.
-        """
-        return pulumi.get(self, "type")
-
-    @_builtins.property
-    @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserIdentityPropertiesResponse']]:
-        """
-        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        """
-        return pulumi.get(self, "user_assigned_identities")
 
 
 @pulumi.output_type
@@ -6673,7 +6872,7 @@ class LogicAppReceiverResponse(dict):
         :param _builtins.str callback_url: The callback url where http request sent to.
         :param _builtins.str name: The name of the logic app receiver. Names must be unique across all receivers within an action group.
         :param _builtins.str resource_id: The azure resource id of the logic app receiver.
-        :param _builtins.str managed_identity: The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        :param _builtins.str managed_identity: The principal id of the managed identity. The value can be "None", "SystemAssigned"
         :param _builtins.bool use_common_alert_schema: Indicates whether to use common alert schema.
         """
         pulumi.set(__self__, "callback_url", callback_url)
@@ -6714,7 +6913,7 @@ class LogicAppReceiverResponse(dict):
     @pulumi.getter(name="managedIdentity")
     def managed_identity(self) -> Optional[_builtins.str]:
         """
-        The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        The principal id of the managed identity. The value can be "None", "SystemAssigned"
         """
         return pulumi.get(self, "managed_identity")
 
@@ -7305,6 +7504,59 @@ class MetricDimensionResponse(dict):
 
 
 @pulumi.output_type
+class MetricResponse(dict):
+    """
+    Defines a metric in the destination AMW account.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricName":
+            suggest = "metric_name"
+        elif key == "metricNamespace":
+            suggest = "metric_namespace"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MetricResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MetricResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MetricResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metric_name: _builtins.str,
+                 metric_namespace: _builtins.str):
+        """
+        Defines a metric in the destination AMW account.
+
+        :param _builtins.str metric_name: The name of the metric.
+        :param _builtins.str metric_namespace: The namespace of the metric.
+        """
+        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "metric_namespace", metric_namespace)
+
+    @_builtins.property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> _builtins.str:
+        """
+        The name of the metric.
+        """
+        return pulumi.get(self, "metric_name")
+
+    @_builtins.property
+    @pulumi.getter(name="metricNamespace")
+    def metric_namespace(self) -> _builtins.str:
+        """
+        The namespace of the metric.
+        """
+        return pulumi.get(self, "metric_namespace")
+
+
+@pulumi.output_type
 class MetricSettingsResponse(dict):
     """
     Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
@@ -7559,6 +7811,137 @@ class MetricTriggerResponse(dict):
         the location of the resource the rule monitors.
         """
         return pulumi.get(self, "metric_resource_location")
+
+
+@pulumi.output_type
+class MicrosoftCommonIdentityResponse(dict):
+    """
+    Identity for the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MicrosoftCommonIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MicrosoftCommonIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MicrosoftCommonIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: _builtins.str,
+                 tenant_id: _builtins.str,
+                 type: _builtins.str,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.MicrosoftCommonUserIdentityPropertiesResponse']] = None):
+        """
+        Identity for the resource.
+
+        :param _builtins.str principal_id: The principal ID of resource identity.
+        :param _builtins.str tenant_id: The tenant ID of resource.
+        :param _builtins.str type: Type of managed service identity.
+        :param Mapping[str, 'MicrosoftCommonUserIdentityPropertiesResponse'] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @_builtins.property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> _builtins.str:
+        """
+        The principal ID of resource identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> _builtins.str:
+        """
+        The tenant ID of resource.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Type of managed service identity.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.MicrosoftCommonUserIdentityPropertiesResponse']]:
+        """
+        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class MicrosoftCommonUserIdentityPropertiesResponse(dict):
+    """
+    Properties of the user assigned identity.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MicrosoftCommonUserIdentityPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MicrosoftCommonUserIdentityPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MicrosoftCommonUserIdentityPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: _builtins.str,
+                 principal_id: _builtins.str):
+        """
+        Properties of the user assigned identity.
+
+        :param _builtins.str client_id: The client ID of resource identity.
+        :param _builtins.str principal_id: The principal ID of resource identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> _builtins.str:
+        """
+        The client ID of resource identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> _builtins.str:
+        """
+        The principal ID of resource identity.
+        """
+        return pulumi.get(self, "principal_id")
 
 
 @pulumi.output_type
@@ -8426,6 +8809,8 @@ class PrivateEndpointConnectionResponseV1(dict):
             suggest = "private_link_service_connection_state"
         elif key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "systemData":
+            suggest = "system_data"
         elif key == "privateEndpoint":
             suggest = "private_endpoint"
 
@@ -8445,6 +8830,7 @@ class PrivateEndpointConnectionResponseV1(dict):
                  name: _builtins.str,
                  private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
                  provisioning_state: _builtins.str,
+                 system_data: 'outputs.SystemDataResponse',
                  type: _builtins.str,
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
@@ -8454,6 +8840,7 @@ class PrivateEndpointConnectionResponseV1(dict):
         :param _builtins.str name: The name of the resource
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param _builtins.str provisioning_state: The provisioning state of the private endpoint connection resource.
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
         :param _builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
         """
@@ -8461,6 +8848,7 @@ class PrivateEndpointConnectionResponseV1(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if private_endpoint is not None:
             pulumi.set(__self__, "private_endpoint", private_endpoint)
@@ -8496,6 +8884,14 @@ class PrivateEndpointConnectionResponseV1(dict):
         The provisioning state of the private endpoint connection resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @_builtins.property
     @pulumi.getter
@@ -10524,6 +10920,448 @@ class SignalGroupResponse(dict):
 
 
 @pulumi.output_type
+class SignalResponse(dict):
+    """
+    Represents a signal model used in SLI calculations.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "signalFormula":
+            suggest = "signal_formula"
+        elif key == "signalSources":
+            suggest = "signal_sources"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SignalResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SignalResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SignalResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 signal_formula: _builtins.str,
+                 signal_sources: Sequence['outputs.SignalSourceResponse']):
+        """
+        Represents a signal model used in SLI calculations.
+
+        :param _builtins.str signal_formula: Mathematical formula used to combine multiple metrics.
+        :param Sequence['SignalSourceResponse'] signal_sources: Sources of metrics used for SLIs.
+        """
+        pulumi.set(__self__, "signal_formula", signal_formula)
+        pulumi.set(__self__, "signal_sources", signal_sources)
+
+    @_builtins.property
+    @pulumi.getter(name="signalFormula")
+    def signal_formula(self) -> _builtins.str:
+        """
+        Mathematical formula used to combine multiple metrics.
+        """
+        return pulumi.get(self, "signal_formula")
+
+    @_builtins.property
+    @pulumi.getter(name="signalSources")
+    def signal_sources(self) -> Sequence['outputs.SignalSourceResponse']:
+        """
+        Sources of metrics used for SLIs.
+        """
+        return pulumi.get(self, "signal_sources")
+
+
+@pulumi.output_type
+class SignalSourceResponse(dict):
+    """
+    Represents a signal source used in SLIs.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricName":
+            suggest = "metric_name"
+        elif key == "metricNamespace":
+            suggest = "metric_namespace"
+        elif key == "signalSourceId":
+            suggest = "signal_source_id"
+        elif key == "sourceAmwAccountManagedIdentity":
+            suggest = "source_amw_account_managed_identity"
+        elif key == "sourceAmwAccountResourceId":
+            suggest = "source_amw_account_resource_id"
+        elif key == "spatialAggregation":
+            suggest = "spatial_aggregation"
+        elif key == "temporalAggregation":
+            suggest = "temporal_aggregation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SignalSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SignalSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SignalSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filters: Sequence['outputs.ConditionResponseV1'],
+                 metric_name: _builtins.str,
+                 metric_namespace: _builtins.str,
+                 signal_source_id: _builtins.str,
+                 source_amw_account_managed_identity: _builtins.str,
+                 source_amw_account_resource_id: _builtins.str,
+                 spatial_aggregation: 'outputs.SpatialAggregationResponse',
+                 temporal_aggregation: 'outputs.TemporalAggregationResponse'):
+        """
+        Represents a signal source used in SLIs.
+
+        :param Sequence['ConditionResponseV1'] filters: Filters applied to modify signal values.
+        :param _builtins.str metric_name: Name of the metric.
+        :param _builtins.str metric_namespace: Namespace of the metric.
+        :param _builtins.str signal_source_id: Unique identifier for the signal source.
+        :param _builtins.str source_amw_account_managed_identity: Managed identity for authenticating the signal source.
+        :param _builtins.str source_amw_account_resource_id: Resource ID of the source AMW account.
+        :param 'SpatialAggregationResponse' spatial_aggregation: Defines how measurements are aggregated across multiple time series.
+        :param 'TemporalAggregationResponse' temporal_aggregation: Defines how measurements are aggregated over a specific time window within the same time series.
+        """
+        pulumi.set(__self__, "filters", filters)
+        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "metric_namespace", metric_namespace)
+        pulumi.set(__self__, "signal_source_id", signal_source_id)
+        pulumi.set(__self__, "source_amw_account_managed_identity", source_amw_account_managed_identity)
+        pulumi.set(__self__, "source_amw_account_resource_id", source_amw_account_resource_id)
+        pulumi.set(__self__, "spatial_aggregation", spatial_aggregation)
+        pulumi.set(__self__, "temporal_aggregation", temporal_aggregation)
+
+    @_builtins.property
+    @pulumi.getter
+    def filters(self) -> Sequence['outputs.ConditionResponseV1']:
+        """
+        Filters applied to modify signal values.
+        """
+        return pulumi.get(self, "filters")
+
+    @_builtins.property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> _builtins.str:
+        """
+        Name of the metric.
+        """
+        return pulumi.get(self, "metric_name")
+
+    @_builtins.property
+    @pulumi.getter(name="metricNamespace")
+    def metric_namespace(self) -> _builtins.str:
+        """
+        Namespace of the metric.
+        """
+        return pulumi.get(self, "metric_namespace")
+
+    @_builtins.property
+    @pulumi.getter(name="signalSourceId")
+    def signal_source_id(self) -> _builtins.str:
+        """
+        Unique identifier for the signal source.
+        """
+        return pulumi.get(self, "signal_source_id")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceAmwAccountManagedIdentity")
+    def source_amw_account_managed_identity(self) -> _builtins.str:
+        """
+        Managed identity for authenticating the signal source.
+        """
+        return pulumi.get(self, "source_amw_account_managed_identity")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceAmwAccountResourceId")
+    def source_amw_account_resource_id(self) -> _builtins.str:
+        """
+        Resource ID of the source AMW account.
+        """
+        return pulumi.get(self, "source_amw_account_resource_id")
+
+    @_builtins.property
+    @pulumi.getter(name="spatialAggregation")
+    def spatial_aggregation(self) -> 'outputs.SpatialAggregationResponse':
+        """
+        Defines how measurements are aggregated across multiple time series.
+        """
+        return pulumi.get(self, "spatial_aggregation")
+
+    @_builtins.property
+    @pulumi.getter(name="temporalAggregation")
+    def temporal_aggregation(self) -> 'outputs.TemporalAggregationResponse':
+        """
+        Defines how measurements are aggregated over a specific time window within the same time series.
+        """
+        return pulumi.get(self, "temporal_aggregation")
+
+
+@pulumi.output_type
+class SliPropertiesResponse(dict):
+    """
+    Defines the properties of an SLI.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "goodSignals":
+            suggest = "good_signals"
+        elif key == "totalSignals":
+            suggest = "total_signals"
+        elif key == "windowUptimeCriteria":
+            suggest = "window_uptime_criteria"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SliPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SliPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SliPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 good_signals: Optional['outputs.SignalResponse'] = None,
+                 signals: Optional['outputs.SignalResponse'] = None,
+                 total_signals: Optional['outputs.SignalResponse'] = None,
+                 window_uptime_criteria: Optional['outputs.WindowUptimeCriteriaResponse'] = None):
+        """
+        Defines the properties of an SLI.
+
+        :param 'SignalResponse' good_signals: Represents good signals used in request-based SLI calculations.
+        :param 'SignalResponse' signals: Signals used for window-based SLI calculations.
+        :param 'SignalResponse' total_signals: Represents total signals used in request-based SLI calculations.
+        :param 'WindowUptimeCriteriaResponse' window_uptime_criteria: Defines the uptime criteria for window-based SLIs.
+        """
+        if good_signals is not None:
+            pulumi.set(__self__, "good_signals", good_signals)
+        if signals is not None:
+            pulumi.set(__self__, "signals", signals)
+        if total_signals is not None:
+            pulumi.set(__self__, "total_signals", total_signals)
+        if window_uptime_criteria is not None:
+            pulumi.set(__self__, "window_uptime_criteria", window_uptime_criteria)
+
+    @_builtins.property
+    @pulumi.getter(name="goodSignals")
+    def good_signals(self) -> Optional['outputs.SignalResponse']:
+        """
+        Represents good signals used in request-based SLI calculations.
+        """
+        return pulumi.get(self, "good_signals")
+
+    @_builtins.property
+    @pulumi.getter
+    def signals(self) -> Optional['outputs.SignalResponse']:
+        """
+        Signals used for window-based SLI calculations.
+        """
+        return pulumi.get(self, "signals")
+
+    @_builtins.property
+    @pulumi.getter(name="totalSignals")
+    def total_signals(self) -> Optional['outputs.SignalResponse']:
+        """
+        Represents total signals used in request-based SLI calculations.
+        """
+        return pulumi.get(self, "total_signals")
+
+    @_builtins.property
+    @pulumi.getter(name="windowUptimeCriteria")
+    def window_uptime_criteria(self) -> Optional['outputs.WindowUptimeCriteriaResponse']:
+        """
+        Defines the uptime criteria for window-based SLIs.
+        """
+        return pulumi.get(self, "window_uptime_criteria")
+
+
+@pulumi.output_type
+class SliResourceResponse(dict):
+    """
+    Defines the root level properties of an SLI resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "baselineProperties":
+            suggest = "baseline_properties"
+        elif key == "destinationAmwAccounts":
+            suggest = "destination_amw_accounts"
+        elif key == "destinationMetrics":
+            suggest = "destination_metrics"
+        elif key == "enableAlert":
+            suggest = "enable_alert"
+        elif key == "evaluationType":
+            suggest = "evaluation_type"
+        elif key == "executionState":
+            suggest = "execution_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "sliProperties":
+            suggest = "sli_properties"
+        elif key == "streamingRuleId":
+            suggest = "streaming_rule_id"
+        elif key == "streamingRuleLastUpdatedTimestamp":
+            suggest = "streaming_rule_last_updated_timestamp"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SliResourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SliResourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SliResourceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 baseline_properties: 'outputs.BaselinePropertiesResponse',
+                 category: _builtins.str,
+                 description: _builtins.str,
+                 destination_amw_accounts: Sequence['outputs.AmwAccountResponse'],
+                 destination_metrics: Sequence['outputs.MetricResponse'],
+                 enable_alert: _builtins.bool,
+                 evaluation_type: _builtins.str,
+                 execution_state: 'outputs.ExecutionStateResponse',
+                 provisioning_state: Any,
+                 sli_properties: 'outputs.SliPropertiesResponse',
+                 streaming_rule_id: _builtins.str,
+                 streaming_rule_last_updated_timestamp: _builtins.str):
+        """
+        Defines the root level properties of an SLI resource.
+
+        :param 'BaselinePropertiesResponse' baseline_properties: Defines the SLO baseline associated with the SLI.
+        :param _builtins.str category: Specifies the category of the SLI, used to classify signals such as Availability and Latency.
+        :param _builtins.str description: A user-provided description of the SLI, with a maximum length of 1000 characters.
+        :param Sequence['AmwAccountResponse'] destination_amw_accounts: Destination AMW accounts.
+        :param Sequence['MetricResponse'] destination_metrics: The destination Azure Monitor Workspace (AMW) accounts where the SLI emits metrics.
+        :param _builtins.bool enable_alert: A flag to determine whether alert is enabled.
+        :param _builtins.str evaluation_type: Determines how the SLI is evaluated—either based on request counts or time windows.
+        :param 'ExecutionStateResponse' execution_state: Indicates the current execution status of the SLI resource in ARM responses.
+        :param Any provisioning_state: Indicates the provisioning status of the last operation.
+        :param 'SliPropertiesResponse' sli_properties: Defines the SLI properties associated with the SLI.
+        :param _builtins.str streaming_rule_id: The streaming rule Id associated with the Sli resource.
+        :param _builtins.str streaming_rule_last_updated_timestamp: The streaming rule last updated timestamp associated with the Sli resource.
+        """
+        pulumi.set(__self__, "baseline_properties", baseline_properties)
+        pulumi.set(__self__, "category", category)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "destination_amw_accounts", destination_amw_accounts)
+        pulumi.set(__self__, "destination_metrics", destination_metrics)
+        pulumi.set(__self__, "enable_alert", enable_alert)
+        pulumi.set(__self__, "evaluation_type", evaluation_type)
+        pulumi.set(__self__, "execution_state", execution_state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "sli_properties", sli_properties)
+        pulumi.set(__self__, "streaming_rule_id", streaming_rule_id)
+        pulumi.set(__self__, "streaming_rule_last_updated_timestamp", streaming_rule_last_updated_timestamp)
+
+    @_builtins.property
+    @pulumi.getter(name="baselineProperties")
+    def baseline_properties(self) -> 'outputs.BaselinePropertiesResponse':
+        """
+        Defines the SLO baseline associated with the SLI.
+        """
+        return pulumi.get(self, "baseline_properties")
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> _builtins.str:
+        """
+        Specifies the category of the SLI, used to classify signals such as Availability and Latency.
+        """
+        return pulumi.get(self, "category")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        """
+        A user-provided description of the SLI, with a maximum length of 1000 characters.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="destinationAmwAccounts")
+    def destination_amw_accounts(self) -> Sequence['outputs.AmwAccountResponse']:
+        """
+        Destination AMW accounts.
+        """
+        return pulumi.get(self, "destination_amw_accounts")
+
+    @_builtins.property
+    @pulumi.getter(name="destinationMetrics")
+    def destination_metrics(self) -> Sequence['outputs.MetricResponse']:
+        """
+        The destination Azure Monitor Workspace (AMW) accounts where the SLI emits metrics.
+        """
+        return pulumi.get(self, "destination_metrics")
+
+    @_builtins.property
+    @pulumi.getter(name="enableAlert")
+    def enable_alert(self) -> _builtins.bool:
+        """
+        A flag to determine whether alert is enabled.
+        """
+        return pulumi.get(self, "enable_alert")
+
+    @_builtins.property
+    @pulumi.getter(name="evaluationType")
+    def evaluation_type(self) -> _builtins.str:
+        """
+        Determines how the SLI is evaluated—either based on request counts or time windows.
+        """
+        return pulumi.get(self, "evaluation_type")
+
+    @_builtins.property
+    @pulumi.getter(name="executionState")
+    def execution_state(self) -> 'outputs.ExecutionStateResponse':
+        """
+        Indicates the current execution status of the SLI resource in ARM responses.
+        """
+        return pulumi.get(self, "execution_state")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Any:
+        """
+        Indicates the provisioning status of the last operation.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="sliProperties")
+    def sli_properties(self) -> 'outputs.SliPropertiesResponse':
+        """
+        Defines the SLI properties associated with the SLI.
+        """
+        return pulumi.get(self, "sli_properties")
+
+    @_builtins.property
+    @pulumi.getter(name="streamingRuleId")
+    def streaming_rule_id(self) -> _builtins.str:
+        """
+        The streaming rule Id associated with the Sli resource.
+        """
+        return pulumi.get(self, "streaming_rule_id")
+
+    @_builtins.property
+    @pulumi.getter(name="streamingRuleLastUpdatedTimestamp")
+    def streaming_rule_last_updated_timestamp(self) -> _builtins.str:
+        """
+        The streaming rule last updated timestamp associated with the Sli resource.
+        """
+        return pulumi.get(self, "streaming_rule_last_updated_timestamp")
+
+
+@pulumi.output_type
 class SmsReceiverResponse(dict):
     """
     An SMS receiver.
@@ -10596,6 +11434,40 @@ class SmsReceiverResponse(dict):
         The status of the receiver.
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class SpatialAggregationResponse(dict):
+    """
+    Represents the spatial aggregation model.
+    """
+    def __init__(__self__, *,
+                 dimensions: Sequence[_builtins.str],
+                 type: _builtins.str):
+        """
+        Represents the spatial aggregation model.
+
+        :param Sequence[_builtins.str] dimensions: Dimensions considered for spatial aggregation.
+        :param _builtins.str type: Type of spatial aggregation.
+        """
+        pulumi.set(__self__, "dimensions", dimensions)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def dimensions(self) -> Sequence[_builtins.str]:
+        """
+        Dimensions considered for spatial aggregation.
+        """
+        return pulumi.get(self, "dimensions")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Type of spatial aggregation.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -11071,6 +11943,58 @@ class TcpExporterResponse(dict):
 
 
 @pulumi.output_type
+class TemporalAggregationResponse(dict):
+    """
+    Represents temporal aggregation settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "windowSizeMinutes":
+            suggest = "window_size_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemporalAggregationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemporalAggregationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemporalAggregationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: _builtins.str,
+                 window_size_minutes: Optional[_builtins.int] = None):
+        """
+        Represents temporal aggregation settings.
+
+        :param _builtins.str type: Type of temporal aggregation.
+        :param _builtins.int window_size_minutes: Time window size for aggregation, in minutes.
+        """
+        pulumi.set(__self__, "type", type)
+        if window_size_minutes is not None:
+            pulumi.set(__self__, "window_size_minutes", window_size_minutes)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Type of temporal aggregation.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="windowSizeMinutes")
+    def window_size_minutes(self) -> Optional[_builtins.int]:
+        """
+        Time window size for aggregation, in minutes.
+        """
+        return pulumi.get(self, "window_size_minutes")
+
+
+@pulumi.output_type
 class ThresholdRuleResponse(dict):
     """
     Threshold-based evaluation rule for a signal definition
@@ -11303,59 +12227,6 @@ class UserAssignedIdentityResponse(dict):
 
 
 @pulumi.output_type
-class UserIdentityPropertiesResponse(dict):
-    """
-    User assigned identity properties.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "clientId":
-            suggest = "client_id"
-        elif key == "principalId":
-            suggest = "principal_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in UserIdentityPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        UserIdentityPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        UserIdentityPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 client_id: _builtins.str,
-                 principal_id: _builtins.str):
-        """
-        User assigned identity properties.
-
-        :param _builtins.str client_id: The client id of user assigned identity.
-        :param _builtins.str principal_id: The principal id of user assigned identity.
-        """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
-
-    @_builtins.property
-    @pulumi.getter(name="clientId")
-    def client_id(self) -> _builtins.str:
-        """
-        The client id of user assigned identity.
-        """
-        return pulumi.get(self, "client_id")
-
-    @_builtins.property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> _builtins.str:
-        """
-        The principal id of user assigned identity.
-        """
-        return pulumi.get(self, "principal_id")
-
-
-@pulumi.output_type
 class VoiceReceiverResponse(dict):
     """
     A voice receiver.
@@ -11521,7 +12392,7 @@ class WebhookReceiverResponse(dict):
         :param _builtins.str name: The name of the webhook receiver. Names must be unique across all receivers within an action group.
         :param _builtins.str service_uri: The URI where webhooks should be sent.
         :param _builtins.str identifier_uri: Indicates the identifier uri for aad auth.
-        :param _builtins.str managed_identity: The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        :param _builtins.str managed_identity: The principal id of the managed identity. The value can be "None", "SystemAssigned"
         :param _builtins.str object_id: Indicates the webhook app object Id for aad auth.
         :param _builtins.str tenant_id: Indicates the tenant id for aad auth.
         :param _builtins.bool use_aad_auth: Indicates whether or not use AAD authentication.
@@ -11574,7 +12445,7 @@ class WebhookReceiverResponse(dict):
     @pulumi.getter(name="managedIdentity")
     def managed_identity(self) -> Optional[_builtins.str]:
         """
-        The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        The principal id of the managed identity. The value can be "None", "SystemAssigned"
         """
         return pulumi.get(self, "managed_identity")
 
@@ -11815,6 +12686,40 @@ class WebtestLocationAvailabilityCriteriaResponse(dict):
         The Application Insights web test Id.
         """
         return pulumi.get(self, "web_test_id")
+
+
+@pulumi.output_type
+class WindowUptimeCriteriaResponse(dict):
+    """
+    Represents criteria for determining uptime in window-based SLIs.
+    """
+    def __init__(__self__, *,
+                 comparator: _builtins.str,
+                 target: _builtins.float):
+        """
+        Represents criteria for determining uptime in window-based SLIs.
+
+        :param _builtins.str comparator: Comparison operator used for uptime evaluation.
+        :param _builtins.float target: Threshold value used to determine uptime.
+        """
+        pulumi.set(__self__, "comparator", comparator)
+        pulumi.set(__self__, "target", target)
+
+    @_builtins.property
+    @pulumi.getter
+    def comparator(self) -> _builtins.str:
+        """
+        Comparison operator used for uptime evaluation.
+        """
+        return pulumi.get(self, "comparator")
+
+    @_builtins.property
+    @pulumi.getter
+    def target(self) -> _builtins.float:
+        """
+        Threshold value used to determine uptime.
+        """
+        return pulumi.get(self, "target")
 
 
 @pulumi.output_type

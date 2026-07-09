@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.DataFactory
         public string PipelineName { get; set; } = null!;
 
         /// <summary>
-        /// The resource group name.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNative.DataFactory
         public Input<string> PipelineName { get; set; } = null!;
 
         /// <summary>
-        /// The resource group name.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -114,19 +114,19 @@ namespace Pulumi.AzureNative.DataFactory
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Etag identifies change in the resource.
+        /// "If etag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.")
         /// </summary>
         public readonly string Etag;
         /// <summary>
         /// The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
         /// </summary>
-        public readonly Outputs.PipelineResponseFolder? Folder;
+        public readonly Outputs.PipelineFolderResponse? Folder;
         /// <summary>
-        /// The resource identifier.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -140,9 +140,13 @@ namespace Pulumi.AzureNative.DataFactory
         /// <summary>
         /// Dimensions emitted by Pipeline.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? RunDimensions;
+        public readonly object? RunDimensions;
         /// <summary>
-        /// The resource type.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -164,7 +168,7 @@ namespace Pulumi.AzureNative.DataFactory
 
             string etag,
 
-            Outputs.PipelineResponseFolder? folder,
+            Outputs.PipelineFolderResponse? folder,
 
             string id,
 
@@ -174,7 +178,9 @@ namespace Pulumi.AzureNative.DataFactory
 
             Outputs.PipelinePolicyResponse? policy,
 
-            ImmutableDictionary<string, object>? runDimensions,
+            object? runDimensions,
+
+            Outputs.SystemDataResponse systemData,
 
             string type,
 
@@ -192,6 +198,7 @@ namespace Pulumi.AzureNative.DataFactory
             Parameters = parameters;
             Policy = policy;
             RunDimensions = runDimensions;
+            SystemData = systemData;
             Type = type;
             Variables = variables;
         }

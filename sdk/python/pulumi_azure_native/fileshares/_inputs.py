@@ -281,6 +281,10 @@ class FileShareSnapshotPropertiesArgsDict(TypedDict):
     """
     FileShareSnapshot properties
     """
+    initiator_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The initiator of the FileShareSnapshot. This is a user-defined value.
+    """
     metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
     """
     The metadata
@@ -289,14 +293,30 @@ class FileShareSnapshotPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class FileShareSnapshotPropertiesArgs:
     def __init__(__self__, *,
+                 initiator_id: Optional[pulumi.Input[_builtins.str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         FileShareSnapshot properties
 
+        :param pulumi.Input[_builtins.str] initiator_id: The initiator of the FileShareSnapshot. This is a user-defined value.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: The metadata
         """
+        if initiator_id is not None:
+            pulumi.set(__self__, "initiator_id", initiator_id)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
+
+    @_builtins.property
+    @pulumi.getter(name="initiatorId")
+    def initiator_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The initiator of the FileShareSnapshot. This is a user-defined value.
+        """
+        return pulumi.get(self, "initiator_id")
+
+    @initiator_id.setter
+    def initiator_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "initiator_id", value)
 
     @_builtins.property
     @pulumi.getter

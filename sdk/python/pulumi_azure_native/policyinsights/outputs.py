@@ -22,7 +22,7 @@ __all__ = [
     'RemediationDeploymentResponse',
     'RemediationDeploymentSummaryResponse',
     'RemediationFiltersResponse',
-    'RemediationPropertiesResponseFailureThreshold',
+    'RemediationPropertiesFailureThresholdResponse',
     'SystemDataResponse',
     'TypedErrorInfoResponse',
 ]
@@ -356,7 +356,7 @@ class RemediationFiltersResponse(dict):
 
 
 @pulumi.output_type
-class RemediationPropertiesResponseFailureThreshold(dict):
+class RemediationPropertiesFailureThresholdResponse(dict):
     """
     The remediation failure threshold settings
     """

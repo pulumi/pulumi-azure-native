@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         /// </summary>
-        public readonly Outputs.DatasetResponseFolder? Folder;
+        public readonly Outputs.DatasetFolderResponse? Folder;
         /// <summary>
         /// Linked service reference.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? excludeLastRequest,
 
-            Outputs.DatasetResponseFolder? folder,
+            Outputs.DatasetFolderResponse? folder,
 
             Outputs.LinkedServiceReferenceResponse linkedServiceName,
 

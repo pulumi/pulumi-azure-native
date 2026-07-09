@@ -19,11 +19,11 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
         /// <summary>
         /// Account-level tool label definition.
         /// </summary>
-        public readonly Outputs.RaiToolLabelPropertiesResponseAccountScope? AccountScope;
+        public readonly Outputs.RaiToolLabelPropertiesAccountScopeResponse? AccountScope;
         /// <summary>
         /// List of project-level tool label definitions.
         /// </summary>
-        public readonly ImmutableArray<Outputs.RaiToolLabelPropertiesResponseProjectScopes> ProjectScopes;
+        public readonly ImmutableArray<Outputs.RaiToolLabelPropertiesProjectScopesItemResponse> ProjectScopes;
         /// <summary>
         /// The unique tool connection name, e.g., 'Web_Search'.
         /// </summary>
@@ -31,9 +31,9 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
 
         [OutputConstructor]
         private RaiToolLabelPropertiesResponse(
-            Outputs.RaiToolLabelPropertiesResponseAccountScope? accountScope,
+            Outputs.RaiToolLabelPropertiesAccountScopeResponse? accountScope,
 
-            ImmutableArray<Outputs.RaiToolLabelPropertiesResponseProjectScopes> projectScopes,
+            ImmutableArray<Outputs.RaiToolLabelPropertiesProjectScopesItemResponse> projectScopes,
 
             string toolConnectionName)
         {

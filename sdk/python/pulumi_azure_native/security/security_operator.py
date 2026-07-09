@@ -25,8 +25,8 @@ class SecurityOperatorArgs:
         """
         The set of arguments for constructing a SecurityOperator resource.
 
-        :param pulumi.Input[_builtins.str] pricing_name: name of the pricing configuration
-        :param pulumi.Input[_builtins.str] security_operator_name: name of the securityOperator
+        :param pulumi.Input[_builtins.str] pricing_name: Name of the pricing configuration.
+        :param pulumi.Input[_builtins.str] security_operator_name: Name of the security operator.
         """
         pulumi.set(__self__, "pricing_name", pricing_name)
         if security_operator_name is not None:
@@ -36,7 +36,7 @@ class SecurityOperatorArgs:
     @pulumi.getter(name="pricingName")
     def pricing_name(self) -> pulumi.Input[_builtins.str]:
         """
-        name of the pricing configuration
+        Name of the pricing configuration.
         """
         return pulumi.get(self, "pricing_name")
 
@@ -48,7 +48,7 @@ class SecurityOperatorArgs:
     @pulumi.getter(name="securityOperatorName")
     def security_operator_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        name of the securityOperator
+        Name of the security operator.
         """
         return pulumi.get(self, "security_operator_name")
 
@@ -74,8 +74,8 @@ class SecurityOperator(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] pricing_name: name of the pricing configuration
-        :param pulumi.Input[_builtins.str] security_operator_name: name of the securityOperator
+        :param pulumi.Input[_builtins.str] pricing_name: Name of the pricing configuration.
+        :param pulumi.Input[_builtins.str] security_operator_name: Name of the security operator.
         """
         ...
     @overload
@@ -122,6 +122,7 @@ class SecurityOperator(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["identity"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20230101preview:SecurityOperator")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -150,6 +151,7 @@ class SecurityOperator(pulumi.CustomResource):
         __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return SecurityOperator(resource_name, opts=opts, __props__=__props__)
 
@@ -173,15 +175,23 @@ class SecurityOperator(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

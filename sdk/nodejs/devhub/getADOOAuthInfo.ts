@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Response containing ADO OAuth information
+ * Gets ADOOAuth info used to authenticate users with ADO.
  *
  * Uses Azure REST API version 2025-03-01-preview.
  *
@@ -44,7 +44,7 @@ export interface GetADOOAuthInfoResult {
     readonly token?: string;
 }
 /**
- * Response containing ADO OAuth information
+ * Gets ADOOAuth info used to authenticate users with ADO.
  *
  * Uses Azure REST API version 2025-03-01-preview.
  *

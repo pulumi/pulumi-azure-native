@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.ApiManagement
     /// A single API Management gateway hostname binding resource in List or Get response.
     /// 
     /// Uses Azure REST API version 2025-03-01-preview.
+    /// 
+    /// Other available API versions: 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:ApiGatewayHostnameBinding")]
     public partial class ApiGatewayHostnameBinding : global::Pulumi.CustomResource
@@ -97,6 +99,7 @@ namespace Pulumi.AzureNative.ApiManagement
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20250301preview:ApiGatewayHostnameBinding" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20250901preview:ApiGatewayHostnameBinding" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -62,7 +62,7 @@ namespace Pulumi.AzureNative.Search
         /// </summary>
         public static ComputeType Default { get; } = new ComputeType("Default");
         /// <summary>
-        /// Create the service with Azure Confidential Compute.
+        /// Create the dedicated service with Azure Confidential Compute.
         /// </summary>
         public static ComputeType Confidential { get; } = new ComputeType("Confidential");
 
@@ -95,11 +95,11 @@ namespace Pulumi.AzureNative.Search
         }
 
         /// <summary>
-        /// The limit on number of indexes is determined by the default limits for the SKU.
+        /// The maximum limit of indexes is determined by the SKU or pricing tier.
         /// </summary>
         public static HostingMode Default { get; } = new HostingMode("Default");
         /// <summary>
-        /// Only application for standard3 SKU, where the search service can have up to 1000 indexes.
+        /// Only applies to the Standard3 (S3) SKU, where the search services can have up to 1,000 indexes.
         /// </summary>
         public static HostingMode HighDensity { get; } = new HostingMode("HighDensity");
 
@@ -414,7 +414,7 @@ namespace Pulumi.AzureNative.Search
     }
 
     /// <summary>
-    /// Sets options that control the availability of semantic search. This configuration is only possible for certain Azure AI Search SKUs in certain locations.
+    /// Specifies the availability and billing plan for semantic search on the Azure AI Search service. This configuration is only available for certain pricing tiers in certain regions.
     /// </summary>
     [EnumType]
     public readonly struct SearchSemanticSearch : IEquatable<SearchSemanticSearch>
@@ -427,15 +427,15 @@ namespace Pulumi.AzureNative.Search
         }
 
         /// <summary>
-        /// Indicates that semantic reranker is disabled for the search service. This is the default.
+        /// Indicates that semantic reranker is disabled for the search service.
         /// </summary>
         public static SearchSemanticSearch Disabled { get; } = new SearchSemanticSearch("disabled");
         /// <summary>
-        /// Enables semantic reranker on a search service and indicates that it is to be used within the limits of the free plan. The free plan would cap the volume of semantic ranking requests and is offered at no extra charge. This is the default for newly provisioned search services.
+        /// Enables semantic reranker on a search service and indicates that it is to be used within the limits of the free plan. The free plan would cap the volume of semantic ranking requests and is offered at no extra charge. This is the default for newly provisioned search services. This is the default.
         /// </summary>
         public static SearchSemanticSearch Free { get; } = new SearchSemanticSearch("free");
         /// <summary>
-        /// Enables semantic reranker on a search service as a billable feature, with higher throughput and volume of semantically reranked queries.
+        /// Enables semantic reranker on a search service as a billable feature after the free quota is exhausted, with higher throughput and volume of semantically reranked queries.
         /// </summary>
         public static SearchSemanticSearch Standard { get; } = new SearchSemanticSearch("standard");
 
@@ -549,7 +549,7 @@ namespace Pulumi.AzureNative.Search
     }
 
     /// <summary>
-    /// The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
+    /// The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions. 'serverless': Serverless tier with auto-scaling capabilities.
     /// </summary>
     [EnumType]
     public readonly struct SkuName : IEquatable<SkuName>
@@ -619,11 +619,11 @@ namespace Pulumi.AzureNative.Search
         }
 
         /// <summary>
-        /// An upgrade is currently not available for the service.
+        /// An upgrade is currently not available for the dedicated service.
         /// </summary>
         public static UpgradeAvailable NotAvailable { get; } = new UpgradeAvailable("notAvailable");
         /// <summary>
-        /// There is an upgrade available for the service.
+        /// There is an upgrade available for the dedicated service.
         /// </summary>
         public static UpgradeAvailable Available { get; } = new UpgradeAvailable("available");
 

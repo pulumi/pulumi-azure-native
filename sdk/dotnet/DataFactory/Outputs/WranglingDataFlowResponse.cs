@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// The folder that this data flow is in. If not specified, Data flow will appear at the root level.
         /// </summary>
-        public readonly Outputs.DataFlowResponseFolder? Folder;
+        public readonly Outputs.DataFlowFolderResponse? Folder;
         /// <summary>
         /// Power query mashup script.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string? documentLocale,
 
-            Outputs.DataFlowResponseFolder? folder,
+            Outputs.DataFlowFolderResponse? folder,
 
             string? script,
 

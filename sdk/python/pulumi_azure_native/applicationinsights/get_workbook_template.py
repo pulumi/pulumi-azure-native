@@ -27,7 +27,7 @@ class GetWorkbookTemplateResult:
     """
     An Application Insights workbook template definition.
     """
-    def __init__(__self__, author=None, azure_api_version=None, galleries=None, id=None, localized=None, location=None, name=None, priority=None, tags=None, template_data=None, type=None):
+    def __init__(__self__, author=None, azure_api_version=None, galleries=None, id=None, localized=None, location=None, name=None, priority=None, system_data=None, tags=None, template_data=None, type=None):
         if author and not isinstance(author, str):
             raise TypeError("Expected argument 'author' to be a str")
         pulumi.set(__self__, "author", author)
@@ -52,6 +52,9 @@ class GetWorkbookTemplateResult:
         if priority and not isinstance(priority, int):
             raise TypeError("Expected argument 'priority' to be a int")
         pulumi.set(__self__, "priority", priority)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -90,7 +93,7 @@ class GetWorkbookTemplateResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Azure resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -106,7 +109,7 @@ class GetWorkbookTemplateResult:
     @pulumi.getter
     def location(self) -> _builtins.str:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -114,7 +117,7 @@ class GetWorkbookTemplateResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Azure resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -127,10 +130,18 @@ class GetWorkbookTemplateResult:
         return pulumi.get(self, "priority")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -146,7 +157,7 @@ class GetWorkbookTemplateResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -165,6 +176,7 @@ class AwaitableGetWorkbookTemplateResult(GetWorkbookTemplateResult):
             location=self.location,
             name=self.name,
             priority=self.priority,
+            system_data=self.system_data,
             tags=self.tags,
             template_data=self.template_data,
             type=self.type)
@@ -199,6 +211,7 @@ def get_workbook_template(resource_group_name: Optional[_builtins.str] = None,
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         priority=pulumi.get(__ret__, 'priority'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         template_data=pulumi.get(__ret__, 'template_data'),
         type=pulumi.get(__ret__, 'type'))
@@ -230,6 +243,7 @@ def get_workbook_template_output(resource_group_name: Optional[pulumi.Input[_bui
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         priority=pulumi.get(__response__, 'priority'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         template_data=pulumi.get(__response__, 'template_data'),
         type=pulumi.get(__response__, 'type')))

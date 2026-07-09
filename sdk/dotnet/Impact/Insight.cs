@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.Impact
     /// Insight resource
     /// 
     /// Uses Azure REST API version 2024-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
+    /// 
+    /// Other available API versions: 2025-01-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native impact [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:impact:Insight")]
     public partial class Insight : global::Pulumi.CustomResource
@@ -73,6 +75,8 @@ namespace Pulumi.AzureNative.Impact
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:impact/v20240501preview:Insight" },
+                    new global::Pulumi.Alias { Type = "azure-native:impact/v20250101preview:Insight" },
+                    new global::Pulumi.Alias { Type = "azure-native:impact/v20260101preview:Insight" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

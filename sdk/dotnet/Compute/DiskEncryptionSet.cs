@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Compute
     /// 
     /// Uses Azure REST API version 2024-03-02. In version 2.x of the Azure Native provider, it used API version 2022-07-02.
     /// 
-    /// Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02, 2025-01-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02, 2025-01-02, 2026-03-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:DiskEncryptionSet")]
     public partial class DiskEncryptionSet : global::Pulumi.CustomResource
@@ -150,6 +150,7 @@ namespace Pulumi.AzureNative.Compute
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20231002:DiskEncryptionSet" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20240302:DiskEncryptionSet" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20250102:DiskEncryptionSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20260302:DiskEncryptionSet" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

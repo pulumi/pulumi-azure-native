@@ -12,31 +12,31 @@ namespace Pulumi.AzureNative.HybridContainerService
     public static class GetVirtualNetworkRetrieve
     {
         /// <summary>
-        /// Gets the Hybrid AKS virtual network
+        /// Gets the specified virtual network resource
         /// 
-        /// Uses Azure REST API version 2022-09-01-preview.
+        /// Uses Azure REST API version 2024-01-01.
         /// 
-        /// Other available API versions: 2023-11-15-preview, 2024-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-11-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetVirtualNetworkRetrieveResult> InvokeAsync(GetVirtualNetworkRetrieveArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkRetrieveResult>("azure-native:hybridcontainerservice:getVirtualNetworkRetrieve", args ?? new GetVirtualNetworkRetrieveArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets the Hybrid AKS virtual network
+        /// Gets the specified virtual network resource
         /// 
-        /// Uses Azure REST API version 2022-09-01-preview.
+        /// Uses Azure REST API version 2024-01-01.
         /// 
-        /// Other available API versions: 2023-11-15-preview, 2024-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-11-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetVirtualNetworkRetrieveResult> Invoke(GetVirtualNetworkRetrieveInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkRetrieveResult>("azure-native:hybridcontainerservice:getVirtualNetworkRetrieve", args ?? new GetVirtualNetworkRetrieveInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets the Hybrid AKS virtual network
+        /// Gets the specified virtual network resource
         /// 
-        /// Uses Azure REST API version 2022-09-01-preview.
+        /// Uses Azure REST API version 2024-01-01.
         /// 
-        /// Other available API versions: 2023-11-15-preview, 2024-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-11-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetVirtualNetworkRetrieveResult> Invoke(GetVirtualNetworkRetrieveInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkRetrieveResult>("azure-native:hybridcontainerservice:getVirtualNetworkRetrieve", args ?? new GetVirtualNetworkRetrieveInvokeArgs(), options.WithDefaults());
@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.HybridContainerService
         /// <summary>
         /// Parameter for the name of the virtual network
         /// </summary>
-        [Input("virtualNetworksName", required: true)]
-        public string VirtualNetworksName { get; set; } = null!;
+        [Input("virtualNetworkName", required: true)]
+        public string VirtualNetworkName { get; set; } = null!;
 
         public GetVirtualNetworkRetrieveArgs()
         {
@@ -74,8 +74,8 @@ namespace Pulumi.AzureNative.HybridContainerService
         /// <summary>
         /// Parameter for the name of the virtual network
         /// </summary>
-        [Input("virtualNetworksName", required: true)]
-        public Input<string> VirtualNetworksName { get; set; } = null!;
+        [Input("virtualNetworkName", required: true)]
+        public Input<string> VirtualNetworkName { get; set; } = null!;
 
         public GetVirtualNetworkRetrieveInvokeArgs()
         {
@@ -91,9 +91,12 @@ namespace Pulumi.AzureNative.HybridContainerService
         /// The Azure API version of the resource.
         /// </summary>
         public readonly string AzureApiVersion;
-        public readonly Outputs.VirtualNetworksResponseExtendedLocation? ExtendedLocation;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Extended location pointing to the underlying infrastructure
+        /// </summary>
+        public readonly Outputs.VirtualNetworkResponseExtendedLocation? ExtendedLocation;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -105,11 +108,11 @@ namespace Pulumi.AzureNative.HybridContainerService
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// HybridAKSNetworkSpec defines the desired state of HybridAKSNetwork
+        /// Properties of the virtual network resource
         /// </summary>
-        public readonly Outputs.VirtualNetworksPropertiesResponse Properties;
+        public readonly Outputs.VirtualNetworkPropertiesResponse Properties;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -125,7 +128,7 @@ namespace Pulumi.AzureNative.HybridContainerService
         private GetVirtualNetworkRetrieveResult(
             string azureApiVersion,
 
-            Outputs.VirtualNetworksResponseExtendedLocation? extendedLocation,
+            Outputs.VirtualNetworkResponseExtendedLocation? extendedLocation,
 
             string id,
 
@@ -133,7 +136,7 @@ namespace Pulumi.AzureNative.HybridContainerService
 
             string name,
 
-            Outputs.VirtualNetworksPropertiesResponse properties,
+            Outputs.VirtualNetworkPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 

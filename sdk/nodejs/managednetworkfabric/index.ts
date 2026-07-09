@@ -70,6 +70,16 @@ export const getNeighborGroup: typeof import("./getNeighborGroup").getNeighborGr
 export const getNeighborGroupOutput: typeof import("./getNeighborGroup").getNeighborGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getNeighborGroup","getNeighborGroupOutput"], () => require("./getNeighborGroup"));
 
+export { GetNetworkBootstrapDeviceArgs, GetNetworkBootstrapDeviceResult, GetNetworkBootstrapDeviceOutputArgs } from "./getNetworkBootstrapDevice";
+export const getNetworkBootstrapDevice: typeof import("./getNetworkBootstrapDevice").getNetworkBootstrapDevice = null as any;
+export const getNetworkBootstrapDeviceOutput: typeof import("./getNetworkBootstrapDevice").getNetworkBootstrapDeviceOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkBootstrapDevice","getNetworkBootstrapDeviceOutput"], () => require("./getNetworkBootstrapDevice"));
+
+export { GetNetworkBootstrapInterfaceArgs, GetNetworkBootstrapInterfaceResult, GetNetworkBootstrapInterfaceOutputArgs } from "./getNetworkBootstrapInterface";
+export const getNetworkBootstrapInterface: typeof import("./getNetworkBootstrapInterface").getNetworkBootstrapInterface = null as any;
+export const getNetworkBootstrapInterfaceOutput: typeof import("./getNetworkBootstrapInterface").getNetworkBootstrapInterfaceOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkBootstrapInterface","getNetworkBootstrapInterfaceOutput"], () => require("./getNetworkBootstrapInterface"));
+
 export { GetNetworkDeviceArgs, GetNetworkDeviceResult, GetNetworkDeviceOutputArgs } from "./getNetworkDevice";
 export const getNetworkDevice: typeof import("./getNetworkDevice").getNetworkDevice = null as any;
 export const getNetworkDeviceOutput: typeof import("./getNetworkDevice").getNetworkDeviceOutput = null as any;
@@ -185,6 +195,16 @@ export type NeighborGroup = import("./neighborGroup").NeighborGroup;
 export const NeighborGroup: typeof import("./neighborGroup").NeighborGroup = null as any;
 utilities.lazyLoad(exports, ["NeighborGroup"], () => require("./neighborGroup"));
 
+export { NetworkBootstrapDeviceArgs } from "./networkBootstrapDevice";
+export type NetworkBootstrapDevice = import("./networkBootstrapDevice").NetworkBootstrapDevice;
+export const NetworkBootstrapDevice: typeof import("./networkBootstrapDevice").NetworkBootstrapDevice = null as any;
+utilities.lazyLoad(exports, ["NetworkBootstrapDevice"], () => require("./networkBootstrapDevice"));
+
+export { NetworkBootstrapInterfaceArgs } from "./networkBootstrapInterface";
+export type NetworkBootstrapInterface = import("./networkBootstrapInterface").NetworkBootstrapInterface;
+export const NetworkBootstrapInterface: typeof import("./networkBootstrapInterface").NetworkBootstrapInterface = null as any;
+utilities.lazyLoad(exports, ["NetworkBootstrapInterface"], () => require("./networkBootstrapInterface"));
+
 export { NetworkDeviceArgs } from "./networkDevice";
 export type NetworkDevice = import("./networkDevice").NetworkDevice;
 export const NetworkDevice: typeof import("./networkDevice").NetworkDevice = null as any;
@@ -270,6 +290,10 @@ const _module = {
                 return new L3IsolationDomain(name, <any>undefined, { urn })
             case "azure-native:managednetworkfabric:NeighborGroup":
                 return new NeighborGroup(name, <any>undefined, { urn })
+            case "azure-native:managednetworkfabric:NetworkBootstrapDevice":
+                return new NetworkBootstrapDevice(name, <any>undefined, { urn })
+            case "azure-native:managednetworkfabric:NetworkBootstrapInterface":
+                return new NetworkBootstrapInterface(name, <any>undefined, { urn })
             case "azure-native:managednetworkfabric:NetworkDevice":
                 return new NetworkDevice(name, <any>undefined, { urn })
             case "azure-native:managednetworkfabric:NetworkFabric":

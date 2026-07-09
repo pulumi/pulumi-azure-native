@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['KubernetesVersionArgs', 'KubernetesVersion']
@@ -21,7 +22,7 @@ __all__ = ['KubernetesVersionArgs', 'KubernetesVersion']
 @pulumi.input_type
 class KubernetesVersionArgs:
     def __init__(__self__, *,
-                 extended_location: pulumi.Input['ExtendedLocationArgs'],
+                 extended_location: pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  kubernetes_version_name: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
@@ -29,7 +30,7 @@ class KubernetesVersionArgs:
         """
         The set of arguments for constructing a KubernetesVersion resource.
 
-        :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the cluster associated with the resource.
+        :param pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs'] extended_location: The extended location of the resource. This property is required when creating the resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] kubernetes_version_name: The name of the Kubernetes version resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -46,14 +47,14 @@ class KubernetesVersionArgs:
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> pulumi.Input['ExtendedLocationArgs']:
+    def extended_location(self) -> pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs']:
         """
-        The extended location of the cluster associated with the resource.
+        The extended location of the resource. This property is required when creating the resource.
         """
         return pulumi.get(self, "extended_location")
 
     @extended_location.setter
-    def extended_location(self, value: pulumi.Input['ExtendedLocationArgs']):
+    def extended_location(self, value: pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs']):
         pulumi.set(self, "extended_location", value)
 
     @_builtins.property
@@ -111,19 +112,23 @@ class KubernetesVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['AzureResourceManagerCommonTypesExtendedLocationArgs', 'AzureResourceManagerCommonTypesExtendedLocationArgsDict']]] = None,
                  kubernetes_version_name: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
+        KubernetesVersion represents the available Kubernetes versions for a cluster.
+
         Uses Azure REST API version 2026-01-01-preview.
+
+        Other available API versions: 2026-05-01-preview, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location of the cluster associated with the resource.
+        :param pulumi.Input[Union['AzureResourceManagerCommonTypesExtendedLocationArgs', 'AzureResourceManagerCommonTypesExtendedLocationArgsDict']] extended_location: The extended location of the resource. This property is required when creating the resource.
         :param pulumi.Input[_builtins.str] kubernetes_version_name: The name of the Kubernetes version resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -136,7 +141,11 @@ class KubernetesVersion(pulumi.CustomResource):
                  args: KubernetesVersionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        KubernetesVersion represents the available Kubernetes versions for a cluster.
+
         Uses Azure REST API version 2026-01-01-preview.
+
+        Other available API versions: 2026-05-01-preview, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -154,7 +163,7 @@ class KubernetesVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['AzureResourceManagerCommonTypesExtendedLocationArgs', 'AzureResourceManagerCommonTypesExtendedLocationArgsDict']]] = None,
                  kubernetes_version_name: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -184,7 +193,7 @@ class KubernetesVersion(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["values"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20260101preview:KubernetesVersion")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20260101preview:KubernetesVersion"), pulumi.Alias(type_="azure-native:networkcloud/v20260501preview:KubernetesVersion"), pulumi.Alias(type_="azure-native:networkcloud/v20260701:KubernetesVersion")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(KubernetesVersion, __self__).__init__(
             'azure-native:networkcloud:KubernetesVersion',
@@ -232,15 +241,15 @@ class KubernetesVersion(pulumi.CustomResource):
     @pulumi.getter
     def etag(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource ETag.
+        "If etag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.")
         """
         return pulumi.get(self, "etag")
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> pulumi.Output['outputs.ExtendedLocationResponse']:
+    def extended_location(self) -> pulumi.Output['outputs.AzureResourceManagerCommonTypesExtendedLocationResponse']:
         """
-        The extended location of the cluster associated with the resource.
+        The extended location of the resource. This property is required when creating the resource.
         """
         return pulumi.get(self, "extended_location")
 

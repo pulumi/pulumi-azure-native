@@ -19,6 +19,7 @@ from ._enums import *
 __all__ = [
     'AdvancedScheduleMonthlyOccurrenceResponse',
     'AdvancedScheduleResponse',
+    'AutomationErrorResponseResponse',
     'AzureQueryPropertiesResponse',
     'ConnectionTypeAssociationPropertyResponse',
     'ContentHashResponse',
@@ -27,9 +28,8 @@ __all__ = [
     'DeletedRunbookResponse',
     'DscConfigurationAssociationPropertyResponse',
     'DscConfigurationParameterResponse',
+    'EncryptionPropertiesIdentityResponse',
     'EncryptionPropertiesResponse',
-    'EncryptionPropertiesResponseIdentity',
-    'ErrorResponseResponse',
     'FieldDefinitionResponse',
     'IdentityResponse',
     'KeyResponse',
@@ -161,6 +161,42 @@ class AdvancedScheduleResponse(dict):
         Days of the week that the job should execute on.
         """
         return pulumi.get(self, "week_days")
+
+
+@pulumi.output_type
+class AutomationErrorResponseResponse(dict):
+    """
+    Error response of an operation failure
+    """
+    def __init__(__self__, *,
+                 code: Optional[_builtins.str] = None,
+                 message: Optional[_builtins.str] = None):
+        """
+        Error response of an operation failure
+
+        :param _builtins.str code: Error code
+        :param _builtins.str message: Error message indicating why the operation failed.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+
+    @_builtins.property
+    @pulumi.getter
+    def code(self) -> Optional[_builtins.str]:
+        """
+        Error code
+        """
+        return pulumi.get(self, "code")
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> Optional[_builtins.str]:
+        """
+        Error message indicating why the operation failed.
+        """
+        return pulumi.get(self, "message")
 
 
 @pulumi.output_type
@@ -635,6 +671,47 @@ class DscConfigurationParameterResponse(dict):
 
 
 @pulumi.output_type
+class EncryptionPropertiesIdentityResponse(dict):
+    """
+    User identity used for CMK.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userAssignedIdentity":
+            suggest = "user_assigned_identity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EncryptionPropertiesIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EncryptionPropertiesIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EncryptionPropertiesIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 user_assigned_identity: Optional[Any] = None):
+        """
+        User identity used for CMK.
+
+        :param Any user_assigned_identity: The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+
+    @_builtins.property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[Any]:
+        """
+        The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identity")
+
+
+@pulumi.output_type
 class EncryptionPropertiesResponse(dict):
     """
     The encryption settings for automation account
@@ -659,13 +736,13 @@ class EncryptionPropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 identity: Optional['outputs.EncryptionPropertiesResponseIdentity'] = None,
+                 identity: Optional['outputs.EncryptionPropertiesIdentityResponse'] = None,
                  key_source: Optional[_builtins.str] = None,
                  key_vault_properties: Optional['outputs.KeyVaultPropertiesResponse'] = None):
         """
         The encryption settings for automation account
 
-        :param 'EncryptionPropertiesResponseIdentity' identity: User identity used for CMK.
+        :param 'EncryptionPropertiesIdentityResponse' identity: User identity used for CMK.
         :param _builtins.str key_source: Encryption Key Source
         :param 'KeyVaultPropertiesResponse' key_vault_properties: Key vault properties.
         """
@@ -678,7 +755,7 @@ class EncryptionPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.EncryptionPropertiesResponseIdentity']:
+    def identity(self) -> Optional['outputs.EncryptionPropertiesIdentityResponse']:
         """
         User identity used for CMK.
         """
@@ -699,83 +776,6 @@ class EncryptionPropertiesResponse(dict):
         Key vault properties.
         """
         return pulumi.get(self, "key_vault_properties")
-
-
-@pulumi.output_type
-class EncryptionPropertiesResponseIdentity(dict):
-    """
-    User identity used for CMK.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "userAssignedIdentity":
-            suggest = "user_assigned_identity"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EncryptionPropertiesResponseIdentity. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        EncryptionPropertiesResponseIdentity.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        EncryptionPropertiesResponseIdentity.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 user_assigned_identity: Optional[Any] = None):
-        """
-        User identity used for CMK.
-
-        :param Any user_assigned_identity: The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        """
-        if user_assigned_identity is not None:
-            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
-
-    @_builtins.property
-    @pulumi.getter(name="userAssignedIdentity")
-    def user_assigned_identity(self) -> Optional[Any]:
-        """
-        The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        """
-        return pulumi.get(self, "user_assigned_identity")
-
-
-@pulumi.output_type
-class ErrorResponseResponse(dict):
-    """
-    Error response of an operation failure
-    """
-    def __init__(__self__, *,
-                 code: Optional[_builtins.str] = None,
-                 message: Optional[_builtins.str] = None):
-        """
-        Error response of an operation failure
-
-        :param _builtins.str code: Error code
-        :param _builtins.str message: Error message indicating why the operation failed.
-        """
-        if code is not None:
-            pulumi.set(__self__, "code", code)
-        if message is not None:
-            pulumi.set(__self__, "message", message)
-
-    @_builtins.property
-    @pulumi.getter
-    def code(self) -> Optional[_builtins.str]:
-        """
-        Error code
-        """
-        return pulumi.get(self, "code")
-
-    @_builtins.property
-    @pulumi.getter
-    def message(self) -> Optional[_builtins.str]:
-        """
-        Error message indicating why the operation failed.
-        """
-        return pulumi.get(self, "message")
 
 
 @pulumi.output_type
@@ -1771,8 +1771,6 @@ class SUCSchedulePropertiesResponse(dict):
             pulumi.set(__self__, "frequency", frequency)
         if interval is not None:
             pulumi.set(__self__, "interval", interval)
-        if is_enabled is None:
-            is_enabled = False
         if is_enabled is not None:
             pulumi.set(__self__, "is_enabled", is_enabled)
         if last_modified_time is not None:

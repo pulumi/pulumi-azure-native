@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.FrontDoor
     /// <summary>
     /// Defines an Network Experiment Profile and lists of Experiments
     /// 
-    /// Uses Azure REST API version 2019-11-01.
+    /// Uses Azure REST API version 2025-11-01.
     /// 
-    /// Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2019-11-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:frontdoor:NetworkExperimentProfile")]
     public partial class NetworkExperimentProfile : global::Pulumi.CustomResource
@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.FrontDoor
                 {
                     new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20191101:NetworkExperimentProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20251001:NetworkExperimentProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20251101:NetworkExperimentProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20191101:NetworkExperimentProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:network:NetworkExperimentProfile" },
                 },
@@ -132,19 +133,13 @@ namespace Pulumi.AzureNative.FrontDoor
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the Profile
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
         /// The Profile identifier associated with the Tenant and Partner
         /// </summary>
         [Input("profileName")]
         public Input<string>? ProfileName { get; set; }
 
         /// <summary>
-        /// Name of the Resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

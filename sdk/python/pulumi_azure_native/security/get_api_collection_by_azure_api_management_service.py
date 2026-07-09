@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetAPICollectionByAzureApiManagementServiceResult',
@@ -26,7 +27,7 @@ class GetAPICollectionByAzureApiManagementServiceResult:
     """
     An API collection as represented by Microsoft Defender for APIs.
     """
-    def __init__(__self__, azure_api_version=None, base_url=None, discovered_via=None, display_name=None, id=None, name=None, number_of_api_endpoints=None, number_of_api_endpoints_with_sensitive_data_exposed=None, number_of_external_api_endpoints=None, number_of_inactive_api_endpoints=None, number_of_unauthenticated_api_endpoints=None, provisioning_state=None, sensitivity_label=None, type=None):
+    def __init__(__self__, azure_api_version=None, base_url=None, discovered_via=None, display_name=None, id=None, name=None, number_of_api_endpoints=None, number_of_api_endpoints_with_sensitive_data_exposed=None, number_of_external_api_endpoints=None, number_of_inactive_api_endpoints=None, number_of_unauthenticated_api_endpoints=None, provisioning_state=None, sensitivity_label=None, system_data=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -66,6 +67,9 @@ class GetAPICollectionByAzureApiManagementServiceResult:
         if sensitivity_label and not isinstance(sensitivity_label, str):
             raise TypeError("Expected argument 'sensitivity_label' to be a str")
         pulumi.set(__self__, "sensitivity_label", sensitivity_label)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -106,7 +110,7 @@ class GetAPICollectionByAzureApiManagementServiceResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -114,7 +118,7 @@ class GetAPICollectionByAzureApiManagementServiceResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -175,10 +179,18 @@ class GetAPICollectionByAzureApiManagementServiceResult:
         return pulumi.get(self, "sensitivity_label")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -202,6 +214,7 @@ class AwaitableGetAPICollectionByAzureApiManagementServiceResult(GetAPICollectio
             number_of_unauthenticated_api_endpoints=self.number_of_unauthenticated_api_endpoints,
             provisioning_state=self.provisioning_state,
             sensitivity_label=self.sensitivity_label,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -240,6 +253,7 @@ def get_api_collection_by_azure_api_management_service(api_id: Optional[_builtin
         number_of_unauthenticated_api_endpoints=pulumi.get(__ret__, 'number_of_unauthenticated_api_endpoints'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         sensitivity_label=pulumi.get(__ret__, 'sensitivity_label'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_api_collection_by_azure_api_management_service_output(api_id: Optional[pulumi.Input[_builtins.str]] = None,
                                                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -275,4 +289,5 @@ def get_api_collection_by_azure_api_management_service_output(api_id: Optional[p
         number_of_unauthenticated_api_endpoints=pulumi.get(__response__, 'number_of_unauthenticated_api_endpoints'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         sensitivity_label=pulumi.get(__response__, 'sensitivity_label'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

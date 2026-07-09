@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Cognitive Services Rai External Safety provider Schema.
  *
  * Uses Azure REST API version 2025-10-01-preview.
+ *
+ * Other available API versions: 2025-12-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-05-01, 2026-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class RaiExternalSafetyProvider extends pulumi.CustomResource {
     /**
@@ -62,7 +64,7 @@ export class RaiExternalSafetyProvider extends pulumi.CustomResource {
     /**
      * Resource tags.
      */
-    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly tags: pulumi.Output<{[key: string]: string}>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -81,11 +83,11 @@ export class RaiExternalSafetyProvider extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["properties"] = args?.properties;
             resourceInputs["safetyProviderName"] = args?.safetyProviderName;
-            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -97,7 +99,7 @@ export class RaiExternalSafetyProvider extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20251001preview:RaiExternalSafetyProvider" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20251001preview:RaiExternalSafetyProvider" }, { type: "azure-native:cognitiveservices/v20251201:RaiExternalSafetyProvider" }, { type: "azure-native:cognitiveservices/v20260115preview:RaiExternalSafetyProvider" }, { type: "azure-native:cognitiveservices/v20260301:RaiExternalSafetyProvider" }, { type: "azure-native:cognitiveservices/v20260315preview:RaiExternalSafetyProvider" }, { type: "azure-native:cognitiveservices/v20260501:RaiExternalSafetyProvider" }, { type: "azure-native:cognitiveservices/v20260515preview:RaiExternalSafetyProvider" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RaiExternalSafetyProvider.__pulumiType, name, resourceInputs, opts);
     }
@@ -115,8 +117,4 @@ export interface RaiExternalSafetyProviderArgs {
      * The name of the Rai External Safety Provider associated with the Cognitive Services Account
      */
     safetyProviderName?: pulumi.Input<string>;
-    /**
-     * Resource tags.
-     */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

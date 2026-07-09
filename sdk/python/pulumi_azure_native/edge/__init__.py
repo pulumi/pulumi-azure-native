@@ -17,6 +17,7 @@ from .dynamic_configuration_version import *
 from .dynamic_schema import *
 from .dynamic_schema_version import *
 from .execution import *
+from .execution_v2 import *
 from .get_config_template import *
 from .get_configuration import *
 from .get_configuration_reference import *
@@ -27,6 +28,7 @@ from .get_dynamic_configuration_version import *
 from .get_dynamic_schema import *
 from .get_dynamic_schema_version import *
 from .get_execution import *
+from .get_execution_v2 import *
 from .get_instance import *
 from .get_schema import *
 from .get_schema_reference import *
@@ -40,7 +42,9 @@ from .get_solution_template import *
 from .get_solution_version import *
 from .get_target import *
 from .get_workflow import *
+from .get_workflow_v2 import *
 from .get_workflow_version import *
+from .get_workflow_version_v2 import *
 from .instance import *
 from .schema import *
 from .schema_reference import *
@@ -54,6 +58,8 @@ from .solution_template import *
 from .solution_version import *
 from .target import *
 from .workflow import *
+from .workflow_v2 import *
 from .workflow_version import *
+from .workflow_version_v2 import *
 from ._inputs import *
 from . import outputs

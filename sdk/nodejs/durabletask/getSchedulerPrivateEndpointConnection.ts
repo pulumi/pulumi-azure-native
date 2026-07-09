@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Get a private endpoint connection for the durable task scheduler
  *
  * Uses Azure REST API version 2026-02-01.
+ *
+ * Other available API versions: 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native durabletask [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSchedulerPrivateEndpointConnection(args: GetSchedulerPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetSchedulerPrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -81,6 +83,8 @@ export interface GetSchedulerPrivateEndpointConnectionResult {
  * Get a private endpoint connection for the durable task scheduler
  *
  * Uses Azure REST API version 2026-02-01.
+ *
+ * Other available API versions: 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native durabletask [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSchedulerPrivateEndpointConnectionOutput(args: GetSchedulerPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSchedulerPrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

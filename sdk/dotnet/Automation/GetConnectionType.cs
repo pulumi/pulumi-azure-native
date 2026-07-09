@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.Automation
         public string ConnectionTypeName { get; set; } = null!;
 
         /// <summary>
-        /// Name of an Azure Resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.Automation
         public Input<string> ConnectionTypeName { get; set; } = null!;
 
         /// <summary>
-        /// Name of an Azure Resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.Automation
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.FieldDefinitionResponse> FieldDefinitions;
         /// <summary>
-        /// Gets the id of the resource.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -128,11 +128,15 @@ namespace Pulumi.AzureNative.Automation
         /// </summary>
         public readonly string? LastModifiedTime;
         /// <summary>
-        /// Gets the name of the connection type.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Resource type
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -154,6 +158,8 @@ namespace Pulumi.AzureNative.Automation
 
             string name,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             AzureApiVersion = azureApiVersion;
@@ -164,6 +170,7 @@ namespace Pulumi.AzureNative.Automation
             IsGlobal = isGlobal;
             LastModifiedTime = lastModifiedTime;
             Name = name;
+            SystemData = systemData;
             Type = type;
         }
     }

@@ -27,13 +27,16 @@ class GetGarnetClusterResult:
     """
     Representation of a Garnet cache cluster.
     """
-    def __init__(__self__, azure_api_version=None, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, identity=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -71,6 +74,14 @@ class GetGarnetClusterResult:
 
     @_builtins.property
     @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedCassandraManagedServiceIdentityResponse']:
+        """
+        Identity for the resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @_builtins.property
+    @pulumi.getter
     def location(self) -> _builtins.str:
         """
         The geo-location where the resource lives
@@ -87,9 +98,9 @@ class GetGarnetClusterResult:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> 'outputs.GarnetClusterResourceResponseProperties':
+    def properties(self) -> 'outputs.GarnetClusterResourcePropertiesResponse':
         """
-        Properties of a Garnet cache cluster.
+        The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
@@ -126,6 +137,7 @@ class AwaitableGetGarnetClusterResult(GetGarnetClusterResult):
         return GetGarnetClusterResult(
             azure_api_version=self.azure_api_version,
             id=self.id,
+            identity=self.identity,
             location=self.location,
             name=self.name,
             properties=self.properties,
@@ -142,8 +154,10 @@ def get_garnet_cluster(cluster_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2025-11-01-preview.
 
+    Other available API versions: 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-    :param _builtins.str cluster_name: Garnet cache cluster name.
+
+    :param _builtins.str cluster_name: The name of the GarnetClusterResource
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -155,6 +169,7 @@ def get_garnet_cluster(cluster_name: Optional[_builtins.str] = None,
     return AwaitableGetGarnetClusterResult(
         azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
@@ -169,8 +184,10 @@ def get_garnet_cluster_output(cluster_name: Optional[pulumi.Input[_builtins.str]
 
     Uses Azure REST API version 2025-11-01-preview.
 
+    Other available API versions: 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-    :param _builtins.str cluster_name: Garnet cache cluster name.
+
+    :param _builtins.str cluster_name: The name of the GarnetClusterResource
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -181,6 +198,7 @@ def get_garnet_cluster_output(cluster_name: Optional[pulumi.Input[_builtins.str]
     return __ret__.apply(lambda __response__: GetGarnetClusterResult(
         azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         properties=pulumi.get(__response__, 'properties'),

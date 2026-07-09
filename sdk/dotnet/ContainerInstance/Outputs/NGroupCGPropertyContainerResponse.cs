@@ -23,13 +23,13 @@ namespace Pulumi.AzureNative.ContainerInstance.Outputs
         /// <summary>
         /// container properties
         /// </summary>
-        public readonly Outputs.NGroupCGPropertyContainerResponseProperties? Properties;
+        public readonly Outputs.NGroupCGPropertyContainerPropertiesResponse? Properties;
 
         [OutputConstructor]
         private NGroupCGPropertyContainerResponse(
             string? name,
 
-            Outputs.NGroupCGPropertyContainerResponseProperties? properties)
+            Outputs.NGroupCGPropertyContainerPropertiesResponse? properties)
         {
             Name = name;
             Properties = properties;

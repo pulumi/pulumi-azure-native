@@ -41,7 +41,7 @@ export interface GetSecurityContactResult {
      */
     readonly emails?: string;
     /**
-     * Resource Id
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -49,13 +49,13 @@ export interface GetSecurityContactResult {
      */
     readonly isEnabled?: boolean;
     /**
-     * Resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
      * Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
      */
-    readonly notificationsByRole?: outputs.security.SecurityContactPropertiesResponseNotificationsByRole;
+    readonly notificationsByRole?: outputs.security.SecurityContactPropertiesNotificationsByRoleResponse;
     /**
      * A collection of sources types which evaluate the email notification.
      */
@@ -65,7 +65,11 @@ export interface GetSecurityContactResult {
      */
     readonly phone?: string;
     /**
-     * Resource type
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.security.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }

@@ -27,7 +27,7 @@ class GetFactoryResult:
     """
     Factory resource type.
     """
-    def __init__(__self__, azure_api_version=None, create_time=None, e_tag=None, encryption=None, global_parameters=None, id=None, identity=None, location=None, name=None, provisioning_state=None, public_network_access=None, purview_configuration=None, repo_configuration=None, tags=None, type=None, version=None):
+    def __init__(__self__, azure_api_version=None, create_time=None, e_tag=None, encryption=None, global_parameters=None, id=None, identity=None, location=None, name=None, provisioning_state=None, public_network_access=None, purview_configuration=None, repo_configuration=None, system_data=None, tags=None, type=None, version=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -67,6 +67,9 @@ class GetFactoryResult:
         if repo_configuration and not isinstance(repo_configuration, dict):
             raise TypeError("Expected argument 'repo_configuration' to be a dict")
         pulumi.set(__self__, "repo_configuration", repo_configuration)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -97,7 +100,7 @@ class GetFactoryResult:
     @pulumi.getter(name="eTag")
     def e_tag(self) -> _builtins.str:
         """
-        Etag identifies change in the resource.
+        If eTag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
         """
         return pulumi.get(self, "e_tag")
 
@@ -121,7 +124,7 @@ class GetFactoryResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The resource identifier.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -145,7 +148,7 @@ class GetFactoryResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -182,6 +185,14 @@ class GetFactoryResult:
         return pulumi.get(self, "repo_configuration")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
         """
@@ -193,7 +204,7 @@ class GetFactoryResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -225,6 +236,7 @@ class AwaitableGetFactoryResult(GetFactoryResult):
             public_network_access=self.public_network_access,
             purview_configuration=self.purview_configuration,
             repo_configuration=self.repo_configuration,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             version=self.version)
@@ -240,7 +252,7 @@ def get_factory(factory_name: Optional[_builtins.str] = None,
 
 
     :param _builtins.str factory_name: The factory name.
-    :param _builtins.str resource_group_name: The resource group name.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['factoryName'] = factory_name
@@ -262,6 +274,7 @@ def get_factory(factory_name: Optional[_builtins.str] = None,
         public_network_access=pulumi.get(__ret__, 'public_network_access'),
         purview_configuration=pulumi.get(__ret__, 'purview_configuration'),
         repo_configuration=pulumi.get(__ret__, 'repo_configuration'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
@@ -275,7 +288,7 @@ def get_factory_output(factory_name: Optional[pulumi.Input[_builtins.str]] = Non
 
 
     :param _builtins.str factory_name: The factory name.
-    :param _builtins.str resource_group_name: The resource group name.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['factoryName'] = factory_name
@@ -296,6 +309,7 @@ def get_factory_output(factory_name: Optional[pulumi.Input[_builtins.str]] = Non
         public_network_access=pulumi.get(__response__, 'public_network_access'),
         purview_configuration=pulumi.get(__response__, 'purview_configuration'),
         repo_configuration=pulumi.get(__response__, 'repo_configuration'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),
         version=pulumi.get(__response__, 'version')))

@@ -24,6 +24,9 @@ __all__ = [
 
 @pulumi.output_type
 class GetOutboundRuleResult:
+    """
+    Concrete proxy resource types can be created by aliasing this type using a specific property type.
+    """
     def __init__(__self__, azure_api_version=None, id=None, name=None, properties=None, system_data=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
@@ -70,7 +73,7 @@ class GetOutboundRuleResult:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> 'outputs.FqdnOutboundRuleResponse':
+    def properties(self) -> Any:
         """
         Outbound Rule for the managed network of a cognitive services account.
         """
@@ -113,7 +116,11 @@ def get_outbound_rule(account_name: Optional[_builtins.str] = None,
                       rule_name: Optional[_builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOutboundRuleResult:
     """
+    The GET API for retrieving a single outbound rule of the managed network associated with the cognitive services account.
+
     Uses Azure REST API version 2025-10-01-preview.
+
+    Other available API versions: 2025-12-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-05-01, 2026-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str account_name: The name of Cognitive Services account.
@@ -142,7 +149,11 @@ def get_outbound_rule_output(account_name: Optional[pulumi.Input[_builtins.str]]
                              rule_name: Optional[pulumi.Input[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOutboundRuleResult]:
     """
+    The GET API for retrieving a single outbound rule of the managed network associated with the cognitive services account.
+
     Uses Azure REST API version 2025-10-01-preview.
+
+    Other available API versions: 2025-12-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-05-01, 2026-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str account_name: The name of Cognitive Services account.

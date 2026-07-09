@@ -45,6 +45,12 @@ namespace Pulumi.AzureNative.FrontDoor.Inputs
         [Input("ruleId", required: true)]
         public Input<string> RuleId { get; set; } = null!;
 
+        /// <summary>
+        /// Describes the override sensitivity to be applied when rule matches.
+        /// </summary>
+        [Input("sensitivity")]
+        public InputUnion<string, Pulumi.AzureNative.FrontDoor.SensitivityType>? Sensitivity { get; set; }
+
         public ManagedRuleOverrideArgs()
         {
         }

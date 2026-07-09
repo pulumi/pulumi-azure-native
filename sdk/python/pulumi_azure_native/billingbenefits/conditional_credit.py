@@ -22,54 +22,33 @@ __all__ = ['ConditionalCreditArgs', 'ConditionalCredit']
 @pulumi.input_type
 class ConditionalCreditArgs:
     def __init__(__self__, *,
-                 entity_type: pulumi.Input[Union[_builtins.str, 'ConditionalCreditEntityType']],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 billing_account_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  conditional_credit_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_at: Optional[pulumi.Input[_builtins.str]] = None,
                  identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  kind: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_by: Optional[pulumi.Input[_builtins.str]] = None,
                  plan: Optional[pulumi.Input['PlanArgs']] = None,
-                 product_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['ContributorConditionalCreditPropertiesArgs', 'PrimaryConditionalCreditPropertiesArgs']]] = None,
                  sku: Optional[pulumi.Input['SkuArgs']] = None,
-                 start_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'ConditionalCreditStatus']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ConditionalCredit resource.
 
-        :param pulumi.Input[Union[_builtins.str, 'ConditionalCreditEntityType']] entity_type: Type of conditional credit entity
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] billing_account_resource_id: The billing account resource ID
         :param pulumi.Input[_builtins.str] conditional_credit_name: Name of the conditional credit
-        :param pulumi.Input[_builtins.str] display_name: Display name for the conditional credit
-        :param pulumi.Input[_builtins.str] end_at: End date of the conditional credit (derived from last milestone)
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[_builtins.str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
         :param pulumi.Input['PlanArgs'] plan: Plan for the resource.
-        :param pulumi.Input[_builtins.str] product_code: Product code for the conditional credit
-        :param pulumi.Input[_builtins.str] resource_id: Fully-qualified resource identifier of the resource. Format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/{benefitType}/{benefitName}.
+        :param pulumi.Input[Union['ContributorConditionalCreditPropertiesArgs', 'PrimaryConditionalCreditPropertiesArgs']] properties: Conditional credit properties
         :param pulumi.Input['SkuArgs'] sku: The resource model definition representing SKU
-        :param pulumi.Input[_builtins.str] start_at: Start date of the conditional credit
-        :param pulumi.Input[Union[_builtins.str, 'ConditionalCreditStatus']] status: The status of the conditional credit
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "entity_type", entity_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if billing_account_resource_id is not None:
-            pulumi.set(__self__, "billing_account_resource_id", billing_account_resource_id)
         if conditional_credit_name is not None:
             pulumi.set(__self__, "conditional_credit_name", conditional_credit_name)
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
-        if end_at is not None:
-            pulumi.set(__self__, "end_at", end_at)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if kind is not None:
@@ -80,30 +59,12 @@ class ConditionalCreditArgs:
             pulumi.set(__self__, "managed_by", managed_by)
         if plan is not None:
             pulumi.set(__self__, "plan", plan)
-        if product_code is not None:
-            pulumi.set(__self__, "product_code", product_code)
-        if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
-        if start_at is not None:
-            pulumi.set(__self__, "start_at", start_at)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="entityType")
-    def entity_type(self) -> pulumi.Input[Union[_builtins.str, 'ConditionalCreditEntityType']]:
-        """
-        Type of conditional credit entity
-        """
-        return pulumi.get(self, "entity_type")
-
-    @entity_type.setter
-    def entity_type(self, value: pulumi.Input[Union[_builtins.str, 'ConditionalCreditEntityType']]):
-        pulumi.set(self, "entity_type", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -118,18 +79,6 @@ class ConditionalCreditArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="billingAccountResourceId")
-    def billing_account_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The billing account resource ID
-        """
-        return pulumi.get(self, "billing_account_resource_id")
-
-    @billing_account_resource_id.setter
-    def billing_account_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "billing_account_resource_id", value)
-
-    @_builtins.property
     @pulumi.getter(name="conditionalCreditName")
     def conditional_credit_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -140,30 +89,6 @@ class ConditionalCreditArgs:
     @conditional_credit_name.setter
     def conditional_credit_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "conditional_credit_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Display name for the conditional credit
-        """
-        return pulumi.get(self, "display_name")
-
-    @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "display_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="endAt")
-    def end_at(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        End date of the conditional credit (derived from last milestone)
-        """
-        return pulumi.get(self, "end_at")
-
-    @end_at.setter
-    def end_at(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "end_at", value)
 
     @_builtins.property
     @pulumi.getter
@@ -226,28 +151,16 @@ class ConditionalCreditArgs:
         pulumi.set(self, "plan", value)
 
     @_builtins.property
-    @pulumi.getter(name="productCode")
-    def product_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Union['ContributorConditionalCreditPropertiesArgs', 'PrimaryConditionalCreditPropertiesArgs']]]:
         """
-        Product code for the conditional credit
+        Conditional credit properties
         """
-        return pulumi.get(self, "product_code")
+        return pulumi.get(self, "properties")
 
-    @product_code.setter
-    def product_code(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "product_code", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Fully-qualified resource identifier of the resource. Format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/{benefitType}/{benefitName}.
-        """
-        return pulumi.get(self, "resource_id")
-
-    @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "resource_id", value)
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Union['ContributorConditionalCreditPropertiesArgs', 'PrimaryConditionalCreditPropertiesArgs']]]):
+        pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter
@@ -260,30 +173,6 @@ class ConditionalCreditArgs:
     @sku.setter
     def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
         pulumi.set(self, "sku", value)
-
-    @_builtins.property
-    @pulumi.getter(name="startAt")
-    def start_at(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Start date of the conditional credit
-        """
-        return pulumi.get(self, "start_at")
-
-    @start_at.setter
-    def start_at(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "start_at", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ConditionalCreditStatus']]]:
-        """
-        The status of the conditional credit
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ConditionalCreditStatus']]]):
-        pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
@@ -304,22 +193,15 @@ class ConditionalCredit(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 billing_account_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  conditional_credit_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_type: Optional[pulumi.Input[Union[_builtins.str, 'ConditionalCreditEntityType']]] = None,
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_by: Optional[pulumi.Input[_builtins.str]] = None,
                  plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
-                 product_code: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['ContributorConditionalCreditPropertiesArgs', 'ContributorConditionalCreditPropertiesArgsDict'], Union['PrimaryConditionalCreditPropertiesArgs', 'PrimaryConditionalCreditPropertiesArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 start_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'ConditionalCreditStatus']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -332,22 +214,15 @@ class ConditionalCredit(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] billing_account_resource_id: The billing account resource ID
         :param pulumi.Input[_builtins.str] conditional_credit_name: Name of the conditional credit
-        :param pulumi.Input[_builtins.str] display_name: Display name for the conditional credit
-        :param pulumi.Input[_builtins.str] end_at: End date of the conditional credit (derived from last milestone)
-        :param pulumi.Input[Union[_builtins.str, 'ConditionalCreditEntityType']] entity_type: Type of conditional credit entity
         :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[_builtins.str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
         :param pulumi.Input[Union['PlanArgs', 'PlanArgsDict']] plan: Plan for the resource.
-        :param pulumi.Input[_builtins.str] product_code: Product code for the conditional credit
+        :param pulumi.Input[Union[Union['ContributorConditionalCreditPropertiesArgs', 'ContributorConditionalCreditPropertiesArgsDict'], Union['PrimaryConditionalCreditPropertiesArgs', 'PrimaryConditionalCreditPropertiesArgsDict']]] properties: Conditional credit properties
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] resource_id: Fully-qualified resource identifier of the resource. Format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/{benefitType}/{benefitName}.
         :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The resource model definition representing SKU
-        :param pulumi.Input[_builtins.str] start_at: Start date of the conditional credit
-        :param pulumi.Input[Union[_builtins.str, 'ConditionalCreditStatus']] status: The status of the conditional credit
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         ...
@@ -379,22 +254,15 @@ class ConditionalCredit(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 billing_account_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  conditional_credit_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_type: Optional[pulumi.Input[Union[_builtins.str, 'ConditionalCreditEntityType']]] = None,
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_by: Optional[pulumi.Input[_builtins.str]] = None,
                  plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
-                 product_code: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['ContributorConditionalCreditPropertiesArgs', 'ContributorConditionalCreditPropertiesArgsDict'], Union['PrimaryConditionalCreditPropertiesArgs', 'PrimaryConditionalCreditPropertiesArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 start_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'ConditionalCreditStatus']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -405,32 +273,21 @@ class ConditionalCredit(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConditionalCreditArgs.__new__(ConditionalCreditArgs)
 
-            __props__.__dict__["billing_account_resource_id"] = billing_account_resource_id
             __props__.__dict__["conditional_credit_name"] = conditional_credit_name
-            __props__.__dict__["display_name"] = display_name
-            __props__.__dict__["end_at"] = end_at
-            if entity_type is None and not opts.urn:
-                raise TypeError("Missing required property 'entity_type'")
-            __props__.__dict__["entity_type"] = entity_type
             __props__.__dict__["identity"] = identity
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_by"] = managed_by
             __props__.__dict__["plan"] = plan
-            __props__.__dict__["product_code"] = product_code
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["resource_id"] = resource_id
             __props__.__dict__["sku"] = sku
-            __props__.__dict__["start_at"] = start_at
-            __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None
-            __props__.__dict__["benefit_resource_id"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:billingbenefits/v20250501preview:ConditionalCredit"), pulumi.Alias(type_="azure-native:billingbenefits/v20251201preview:ConditionalCredit")])
@@ -458,11 +315,6 @@ class ConditionalCredit(pulumi.CustomResource):
         __props__ = ConditionalCreditArgs.__new__(ConditionalCreditArgs)
 
         __props__.__dict__["azure_api_version"] = None
-        __props__.__dict__["benefit_resource_id"] = None
-        __props__.__dict__["billing_account_resource_id"] = None
-        __props__.__dict__["display_name"] = None
-        __props__.__dict__["end_at"] = None
-        __props__.__dict__["entity_type"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["kind"] = None
@@ -470,12 +322,8 @@ class ConditionalCredit(pulumi.CustomResource):
         __props__.__dict__["managed_by"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["plan"] = None
-        __props__.__dict__["product_code"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["resource_id"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["sku"] = None
-        __props__.__dict__["start_at"] = None
-        __props__.__dict__["status"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -490,50 +338,10 @@ class ConditionalCredit(pulumi.CustomResource):
         return pulumi.get(self, "azure_api_version")
 
     @_builtins.property
-    @pulumi.getter(name="benefitResourceId")
-    def benefit_resource_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Fully-qualified identifier of the benefit under applicable benefit list.
-        """
-        return pulumi.get(self, "benefit_resource_id")
-
-    @_builtins.property
-    @pulumi.getter(name="billingAccountResourceId")
-    def billing_account_resource_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The billing account resource ID
-        """
-        return pulumi.get(self, "billing_account_resource_id")
-
-    @_builtins.property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Display name for the conditional credit
-        """
-        return pulumi.get(self, "display_name")
-
-    @_builtins.property
-    @pulumi.getter(name="endAt")
-    def end_at(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        End date of the conditional credit (derived from last milestone)
-        """
-        return pulumi.get(self, "end_at")
-
-    @_builtins.property
-    @pulumi.getter(name="entityType")
-    def entity_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Type of conditional credit entity
-        """
-        return pulumi.get(self, "entity_type")
-
-    @_builtins.property
     @pulumi.getter
     def etag(self) -> pulumi.Output[_builtins.str]:
         """
-        The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+        The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
         """
         return pulumi.get(self, "etag")
 
@@ -586,28 +394,12 @@ class ConditionalCredit(pulumi.CustomResource):
         return pulumi.get(self, "plan")
 
     @_builtins.property
-    @pulumi.getter(name="productCode")
-    def product_code(self) -> pulumi.Output[Optional[_builtins.str]]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output[Any]:
         """
-        Product code for the conditional credit
+        Conditional credit properties
         """
-        return pulumi.get(self, "product_code")
-
-    @_builtins.property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[_builtins.str]:
-        """
-        The provisioning state of the resource
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @_builtins.property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Fully-qualified resource identifier of the resource. Format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/{benefitType}/{benefitName}.
-        """
-        return pulumi.get(self, "resource_id")
+        return pulumi.get(self, "properties")
 
     @_builtins.property
     @pulumi.getter
@@ -616,22 +408,6 @@ class ConditionalCredit(pulumi.CustomResource):
         The resource model definition representing SKU
         """
         return pulumi.get(self, "sku")
-
-    @_builtins.property
-    @pulumi.getter(name="startAt")
-    def start_at(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Start date of the conditional credit
-        """
-        return pulumi.get(self, "start_at")
-
-    @_builtins.property
-    @pulumi.getter
-    def status(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The status of the conditional credit
-        """
-        return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="systemData")

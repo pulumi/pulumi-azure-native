@@ -30,8 +30,17 @@ class CleanupOptions(_builtins.str, Enum):
     The clean up preference when the script execution gets in a terminal state. Default setting is 'Always'.
     """
     ALWAYS = "Always"
+    """
+    Always clean up the resources created by the script execution.
+    """
     ON_SUCCESS = "OnSuccess"
+    """
+    Clean up the resources created by the script execution only if the script execution is successful.
+    """
     ON_EXPIRATION = "OnExpiration"
+    """
+    Clean up the resources created by the script execution only on expiration.
+    """
 
 
 @pulumi.type_token("azure-native:resources:DenySettingsMode")
@@ -86,6 +95,9 @@ class ManagedServiceIdentityType(_builtins.str, Enum):
     Type of the managed identity.
     """
     USER_ASSIGNED = "UserAssigned"
+    """
+    User assigned identity.
+    """
 
 
 @pulumi.type_token("azure-native:resources:OnErrorDeploymentType")
@@ -129,7 +141,13 @@ class ScriptType(_builtins.str, Enum):
     Type of the script.
     """
     AZURE_POWER_SHELL = "AzurePowerShell"
+    """
+    Azure PowerShell script.
+    """
     AZURE_CLI = "AzureCLI"
+    """
+    Azure CLI script.
+    """
 
 
 @pulumi.type_token("azure-native:resources:UnmanageActionManagementGroupMode")

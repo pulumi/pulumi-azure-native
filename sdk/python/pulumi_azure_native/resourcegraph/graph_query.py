@@ -34,7 +34,7 @@ class GraphQueryArgs:
         :param pulumi.Input[_builtins.str] description: The description of a graph query.
         :param pulumi.Input[_builtins.str] location: The location of the resource
         :param pulumi.Input[_builtins.str] resource_name: The name of the Graph Query resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "query", query)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -111,7 +111,7 @@ class GraphQueryArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -148,7 +148,7 @@ class GraphQuery(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] query: KQL query that will be graph.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_name_: The name of the Graph Query resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         ...
     @overload
@@ -284,7 +284,7 @@ class GraphQuery(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Azure resource name. This is GUID value. The display name should be assigned within properties field.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -308,7 +308,7 @@ class GraphQuery(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system metadata relating to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -316,7 +316,7 @@ class GraphQuery(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -332,7 +332,7 @@ class GraphQuery(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

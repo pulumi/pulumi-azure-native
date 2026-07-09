@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Represents a SessionHost definition.
  *
  * Uses Azure REST API version 2026-01-01-preview.
+ *
+ * Other available API versions: 2026-03-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class SessionHost extends pulumi.CustomResource {
     /**
@@ -219,7 +221,7 @@ export class SessionHost extends pulumi.CustomResource {
             resourceInputs["virtualMachineId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20260101preview:SessionHost" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20260101preview:SessionHost" }, { type: "azure-native:desktopvirtualization/v20260301preview:SessionHost" }, { type: "azure-native:desktopvirtualization/v20260401preview:SessionHost" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SessionHost.__pulumiType, name, resourceInputs, opts);
     }

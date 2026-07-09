@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly string? Emails;
         /// <summary>
-        /// Resource Id
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -92,13 +92,13 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly bool? IsEnabled;
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
         /// Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
         /// </summary>
-        public readonly Outputs.SecurityContactPropertiesResponseNotificationsByRole? NotificationsByRole;
+        public readonly Outputs.SecurityContactPropertiesNotificationsByRoleResponse? NotificationsByRole;
         /// <summary>
         /// A collection of sources types which evaluate the email notification.
         /// </summary>
@@ -108,7 +108,11 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly string? Phone;
         /// <summary>
-        /// Resource type
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -124,11 +128,13 @@ namespace Pulumi.AzureNative.Security
 
             string name,
 
-            Outputs.SecurityContactPropertiesResponseNotificationsByRole? notificationsByRole,
+            Outputs.SecurityContactPropertiesNotificationsByRoleResponse? notificationsByRole,
 
             ImmutableArray<Union<Outputs.NotificationsSourceAlertResponse, Outputs.NotificationsSourceAttackPathResponse>> notificationsSources,
 
             string? phone,
+
+            Outputs.SystemDataResponse systemData,
 
             string type)
         {
@@ -140,6 +146,7 @@ namespace Pulumi.AzureNative.Security
             NotificationsByRole = notificationsByRole;
             NotificationsSources = notificationsSources;
             Phone = phone;
+            SystemData = systemData;
             Type = type;
         }
     }

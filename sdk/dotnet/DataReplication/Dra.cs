@@ -71,6 +71,7 @@ namespace Pulumi.AzureNative.DataReplication
                 {
                     new global::Pulumi.Alias { Type = "azure-native:datareplication/v20210216preview:Dra" },
                     new global::Pulumi.Alias { Type = "azure-native:datareplication/v20240901:Dra" },
+                    new global::Pulumi.Alias { Type = "azure-native:datareplication/v20260501:Dra" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

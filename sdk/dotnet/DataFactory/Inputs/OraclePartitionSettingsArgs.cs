@@ -27,17 +27,11 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("partitionLowerBound")]
         public Input<object>? PartitionLowerBound { get; set; }
 
-        [Input("partitionNames")]
-        private InputList<object>? _partitionNames;
-
         /// <summary>
-        /// Names of the physical partitions of Oracle table. 
+        /// Names of the physical partitions of Oracle table.
         /// </summary>
-        public InputList<object> PartitionNames
-        {
-            get => _partitionNames ?? (_partitionNames = new InputList<object>());
-            set => _partitionNames = value;
-        }
+        [Input("partitionNames")]
+        public Input<object>? PartitionNames { get; set; }
 
         /// <summary>
         /// The maximum value of column specified in partitionColumnName that will be used for proceeding range partitioning. Type: string (or Expression with resultType string).

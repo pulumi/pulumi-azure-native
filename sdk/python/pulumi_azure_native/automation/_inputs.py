@@ -20,6 +20,8 @@ __all__ = [
     'AdvancedScheduleMonthlyOccurrenceArgsDict',
     'AdvancedScheduleArgs',
     'AdvancedScheduleArgsDict',
+    'AutomationErrorResponseArgs',
+    'AutomationErrorResponseArgsDict',
     'AzureQueryPropertiesArgs',
     'AzureQueryPropertiesArgsDict',
     'ConnectionTypeAssociationPropertyArgs',
@@ -38,8 +40,6 @@ __all__ = [
     'EncryptionPropertiesIdentityArgsDict',
     'EncryptionPropertiesArgs',
     'EncryptionPropertiesArgsDict',
-    'ErrorResponseArgs',
-    'ErrorResponseArgsDict',
     'FieldDefinitionArgs',
     'FieldDefinitionArgsDict',
     'IdentityArgs',
@@ -212,6 +212,60 @@ class AdvancedScheduleArgs:
     @week_days.setter
     def week_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "week_days", value)
+
+
+class AutomationErrorResponseArgsDict(TypedDict):
+    """
+    Error response of an operation failure
+    """
+    code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Error code
+    """
+    message: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Error message indicating why the operation failed.
+    """
+
+@pulumi.input_type
+class AutomationErrorResponseArgs:
+    def __init__(__self__, *,
+                 code: Optional[pulumi.Input[_builtins.str]] = None,
+                 message: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Error response of an operation failure
+
+        :param pulumi.Input[_builtins.str] code: Error code
+        :param pulumi.Input[_builtins.str] message: Error message indicating why the operation failed.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+
+    @_builtins.property
+    @pulumi.getter
+    def code(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Error code
+        """
+        return pulumi.get(self, "code")
+
+    @code.setter
+    def code(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "code", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Error message indicating why the operation failed.
+        """
+        return pulumi.get(self, "message")
+
+    @message.setter
+    def message(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "message", value)
 
 
 class AzureQueryPropertiesArgsDict(TypedDict):
@@ -776,60 +830,6 @@ class EncryptionPropertiesArgs:
     @key_vault_properties.setter
     def key_vault_properties(self, value: Optional[pulumi.Input['KeyVaultPropertiesArgs']]):
         pulumi.set(self, "key_vault_properties", value)
-
-
-class ErrorResponseArgsDict(TypedDict):
-    """
-    Error response of an operation failure
-    """
-    code: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Error code
-    """
-    message: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Error message indicating why the operation failed.
-    """
-
-@pulumi.input_type
-class ErrorResponseArgs:
-    def __init__(__self__, *,
-                 code: Optional[pulumi.Input[_builtins.str]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Error response of an operation failure
-
-        :param pulumi.Input[_builtins.str] code: Error code
-        :param pulumi.Input[_builtins.str] message: Error message indicating why the operation failed.
-        """
-        if code is not None:
-            pulumi.set(__self__, "code", code)
-        if message is not None:
-            pulumi.set(__self__, "message", message)
-
-    @_builtins.property
-    @pulumi.getter
-    def code(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Error code
-        """
-        return pulumi.get(self, "code")
-
-    @code.setter
-    def code(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "code", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def message(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Error message indicating why the operation failed.
-        """
-        return pulumi.get(self, "message")
-
-    @message.setter
-    def message(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "message", value)
 
 
 class FieldDefinitionArgsDict(TypedDict):
@@ -1664,8 +1664,6 @@ class SUCSchedulePropertiesArgs:
             pulumi.set(__self__, "frequency", frequency)
         if interval is not None:
             pulumi.set(__self__, "interval", interval)
-        if is_enabled is None:
-            is_enabled = False
         if is_enabled is not None:
             pulumi.set(__self__, "is_enabled", is_enabled)
         if last_modified_time is not None:

@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = ['RoleAssignmentArgs', 'RoleAssignment']
@@ -34,7 +35,7 @@ class RoleAssignmentArgs:
 
         :param pulumi.Input[_builtins.str] principal_id: The principal ID.
         :param pulumi.Input[_builtins.str] role_definition_id: The role definition ID.
-        :param pulumi.Input[_builtins.str] scope: The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
+        :param pulumi.Input[_builtins.str] scope: The fully qualified Azure Resource manager identifier of the resource.
         :param pulumi.Input[_builtins.str] condition: The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
         :param pulumi.Input[_builtins.str] condition_version: Version of the condition. Currently the only accepted value is '2.0'
         :param pulumi.Input[_builtins.str] delegated_managed_identity_resource_id: Id of the delegated managed identity resource
@@ -88,7 +89,7 @@ class RoleAssignmentArgs:
     @pulumi.getter
     def scope(self) -> pulumi.Input[_builtins.str]:
         """
-        The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
+        The fully qualified Azure Resource manager identifier of the resource.
         """
         return pulumi.get(self, "scope")
 
@@ -203,7 +204,7 @@ class RoleAssignment(pulumi.CustomResource):
         :param pulumi.Input[Union[_builtins.str, 'PrincipalType']] principal_type: The principal type of the assigned principal ID.
         :param pulumi.Input[_builtins.str] role_assignment_name: The name of the role assignment. It can be any valid GUID.
         :param pulumi.Input[_builtins.str] role_definition_id: The role definition ID.
-        :param pulumi.Input[_builtins.str] scope: The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
+        :param pulumi.Input[_builtins.str] scope: The fully qualified Azure Resource manager identifier of the resource.
         """
         ...
     @overload
@@ -273,6 +274,7 @@ class RoleAssignment(pulumi.CustomResource):
             __props__.__dict__["created_by"] = None
             __props__.__dict__["created_on"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_by"] = None
             __props__.__dict__["updated_on"] = None
@@ -312,6 +314,7 @@ class RoleAssignment(pulumi.CustomResource):
         __props__.__dict__["principal_type"] = None
         __props__.__dict__["role_definition_id"] = None
         __props__.__dict__["scope"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["updated_by"] = None
         __props__.__dict__["updated_on"] = None
@@ -377,7 +380,7 @@ class RoleAssignment(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The role assignment name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -414,10 +417,18 @@ class RoleAssignment(pulumi.CustomResource):
         return pulumi.get(self, "scope")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        The role assignment type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

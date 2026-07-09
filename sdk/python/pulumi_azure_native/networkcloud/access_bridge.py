@@ -22,7 +22,7 @@ __all__ = ['AccessBridgeArgs', 'AccessBridge']
 @pulumi.input_type
 class AccessBridgeArgs:
     def __init__(__self__, *,
-                 extended_location: pulumi.Input['ExtendedLocationArgs'],
+                 extended_location: pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs'],
                  network_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  access_bridge_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -34,7 +34,7 @@ class AccessBridgeArgs:
         """
         The set of arguments for constructing a AccessBridge resource.
 
-        :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the cluster associated with the resource.
+        :param pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs'] extended_location: The extended location of the resource. This property is required when creating the resource.
         :param pulumi.Input[_builtins.str] network_id: The resource ID of the internal network in a layer 3 isolation domain containing the IP subnets to use.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] access_bridge_name: The name of the access bridge.
@@ -62,14 +62,14 @@ class AccessBridgeArgs:
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> pulumi.Input['ExtendedLocationArgs']:
+    def extended_location(self) -> pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs']:
         """
-        The extended location of the cluster associated with the resource.
+        The extended location of the resource. This property is required when creating the resource.
         """
         return pulumi.get(self, "extended_location")
 
     @extended_location.setter
-    def extended_location(self, value: pulumi.Input['ExtendedLocationArgs']):
+    def extended_location(self, value: pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs']):
         pulumi.set(self, "extended_location", value)
 
     @_builtins.property
@@ -176,7 +176,7 @@ class AccessBridge(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_bridge_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['AzureResourceManagerCommonTypesExtendedLocationArgs', 'AzureResourceManagerCommonTypesExtendedLocationArgsDict']]] = None,
                  ipv4_connected_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  ipv6_connected_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
@@ -186,13 +186,17 @@ class AccessBridge(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
+        AccessBridge represents a managed access bridge resource.
+
         Uses Azure REST API version 2026-01-01-preview.
+
+        Other available API versions: 2026-05-01-preview, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_bridge_name: The name of the access bridge.
-        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location of the cluster associated with the resource.
+        :param pulumi.Input[Union['AzureResourceManagerCommonTypesExtendedLocationArgs', 'AzureResourceManagerCommonTypesExtendedLocationArgsDict']] extended_location: The extended location of the resource. This property is required when creating the resource.
         :param pulumi.Input[_builtins.str] ipv4_connected_prefix: The IPv4 subnet from which the access bridge allocates an address. This subnet must be part of the internal network specified by networkId.
         :param pulumi.Input[_builtins.str] ipv6_connected_prefix: The IPv6 subnet from which the access bridge allocates an address. This subnet must be part of the internal network specified by networkId.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -208,7 +212,11 @@ class AccessBridge(pulumi.CustomResource):
                  args: AccessBridgeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        AccessBridge represents a managed access bridge resource.
+
         Uses Azure REST API version 2026-01-01-preview.
+
+        Other available API versions: 2026-05-01-preview, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -227,7 +235,7 @@ class AccessBridge(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_bridge_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['AzureResourceManagerCommonTypesExtendedLocationArgs', 'AzureResourceManagerCommonTypesExtendedLocationArgsDict']]] = None,
                  ipv4_connected_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  ipv6_connected_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
@@ -269,7 +277,7 @@ class AccessBridge(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20260101preview:AccessBridge")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20260101preview:AccessBridge"), pulumi.Alias(type_="azure-native:networkcloud/v20260501preview:AccessBridge"), pulumi.Alias(type_="azure-native:networkcloud/v20260701:AccessBridge")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AccessBridge, __self__).__init__(
             'azure-native:networkcloud:AccessBridge',
@@ -348,15 +356,15 @@ class AccessBridge(pulumi.CustomResource):
     @pulumi.getter
     def etag(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource ETag.
+        "If etag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.")
         """
         return pulumi.get(self, "etag")
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> pulumi.Output['outputs.ExtendedLocationResponse']:
+    def extended_location(self) -> pulumi.Output['outputs.AzureResourceManagerCommonTypesExtendedLocationResponse']:
         """
-        The extended location of the cluster associated with the resource.
+        The extended location of the resource. This property is required when creating the resource.
         """
         return pulumi.get(self, "extended_location")
 

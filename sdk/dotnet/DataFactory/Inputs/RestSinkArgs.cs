@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<object>? MaxConcurrentConnections { get; set; }
 
         /// <summary>
-        /// The time to await before sending next request, in milliseconds 
+        /// The time to await before sending next request, in milliseconds
         /// </summary>
         [Input("requestInterval")]
         public Input<object>? RequestInterval { get; set; }

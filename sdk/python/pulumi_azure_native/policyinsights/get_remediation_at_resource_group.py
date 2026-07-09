@@ -117,7 +117,7 @@ class GetRemediationAtResourceGroupResult:
 
     @_builtins.property
     @pulumi.getter(name="failureThreshold")
-    def failure_threshold(self) -> Optional['outputs.RemediationPropertiesResponseFailureThreshold']:
+    def failure_threshold(self) -> Optional['outputs.RemediationPropertiesFailureThresholdResponse']:
         """
         The remediation failure threshold settings
         """
@@ -135,7 +135,7 @@ class GetRemediationAtResourceGroupResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The ID of the remediation.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -151,7 +151,7 @@ class GetRemediationAtResourceGroupResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the remediation.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -223,7 +223,7 @@ class GetRemediationAtResourceGroupResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of the remediation.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -266,7 +266,7 @@ def get_remediation_at_resource_group(remediation_name: Optional[_builtins.str] 
 
 
     :param _builtins.str remediation_name: The name of the remediation.
-    :param _builtins.str resource_group_name: Resource group name.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['remediationName'] = remediation_name
@@ -305,7 +305,7 @@ def get_remediation_at_resource_group_output(remediation_name: Optional[pulumi.I
 
 
     :param _builtins.str remediation_name: The name of the remediation.
-    :param _builtins.str resource_group_name: Resource group name.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['remediationName'] = remediation_name

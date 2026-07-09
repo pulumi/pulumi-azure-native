@@ -30,7 +30,7 @@ class DeviceSecurityGroupArgs:
         """
         The set of arguments for constructing a DeviceSecurityGroup resource.
 
-        :param pulumi.Input[_builtins.str] resource_id: The identifier of the resource.
+        :param pulumi.Input[_builtins.str] resource_id: The fully qualified Azure Resource manager identifier of the resource.
         :param pulumi.Input[Sequence[pulumi.Input['AllowlistCustomAlertRuleArgs']]] allowlist_rules: The allow-list custom alert rules.
         :param pulumi.Input[Sequence[pulumi.Input['DenylistCustomAlertRuleArgs']]] denylist_rules: The deny-list custom alert rules.
         :param pulumi.Input[_builtins.str] device_security_group_name: The name of the device security group. Note that the name of the device security group is case insensitive.
@@ -53,7 +53,7 @@ class DeviceSecurityGroupArgs:
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The identifier of the resource.
+        The fully qualified Azure Resource manager identifier of the resource.
         """
         return pulumi.get(self, "resource_id")
 
@@ -148,7 +148,7 @@ class DeviceSecurityGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['AllowlistCustomAlertRuleArgs', 'AllowlistCustomAlertRuleArgsDict']]]] allowlist_rules: The allow-list custom alert rules.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DenylistCustomAlertRuleArgs', 'DenylistCustomAlertRuleArgsDict']]]] denylist_rules: The deny-list custom alert rules.
         :param pulumi.Input[_builtins.str] device_security_group_name: The name of the device security group. Note that the name of the device security group is case insensitive.
-        :param pulumi.Input[_builtins.str] resource_id: The identifier of the resource.
+        :param pulumi.Input[_builtins.str] resource_id: The fully qualified Azure Resource manager identifier of the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ThresholdCustomAlertRuleArgs', 'ThresholdCustomAlertRuleArgsDict']]]] threshold_rules: The list of custom alert threshold rules.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TimeWindowCustomAlertRuleArgs', 'TimeWindowCustomAlertRuleArgsDict']]]] time_window_rules: The list of custom alert time-window rules.
         """
@@ -206,6 +206,7 @@ class DeviceSecurityGroup(pulumi.CustomResource):
             __props__.__dict__["time_window_rules"] = time_window_rules
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20170801preview:DeviceSecurityGroup"), pulumi.Alias(type_="azure-native:security/v20190801:DeviceSecurityGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -235,6 +236,7 @@ class DeviceSecurityGroup(pulumi.CustomResource):
         __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["denylist_rules"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["threshold_rules"] = None
         __props__.__dict__["time_window_rules"] = None
         __props__.__dict__["type"] = None
@@ -268,9 +270,17 @@ class DeviceSecurityGroup(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @_builtins.property
     @pulumi.getter(name="thresholdRules")
@@ -292,7 +302,7 @@ class DeviceSecurityGroup(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

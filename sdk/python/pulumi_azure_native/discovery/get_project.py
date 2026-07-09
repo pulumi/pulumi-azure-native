@@ -143,6 +143,8 @@ def get_project(project_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2026-02-01-preview.
 
+    Other available API versions: 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native discovery [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param _builtins.str project_name: The name of the Project
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -172,6 +174,8 @@ def get_project_output(project_name: Optional[pulumi.Input[_builtins.str]] = Non
     Get a Project
 
     Uses Azure REST API version 2026-02-01-preview.
+
+    Other available API versions: 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native discovery [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str project_name: The name of the Project
