@@ -28,11 +28,11 @@ __all__ = [
     'SystemDataResponse',
     'UserAssignedIdentityResponse',
     'WebTestGeolocationResponse',
-    'WebTestPropertiesResponseConfiguration',
-    'WebTestPropertiesResponseContentValidation',
-    'WebTestPropertiesResponseRequest',
-    'WebTestPropertiesResponseValidationRules',
-    'WorkbookResourceResponseIdentity',
+    'WebTestPropertiesConfigurationResponse',
+    'WebTestPropertiesRequestResponse',
+    'WebTestPropertiesValidationRulesContentValidationResponse',
+    'WebTestPropertiesValidationRulesResponse',
+    'WorkbookResourceIdentityResponse',
     'WorkbookTemplateGalleryResponse',
     'WorkbookTemplateLocalizedGalleryResponse',
 ]
@@ -830,7 +830,7 @@ class WebTestGeolocationResponse(dict):
 
 
 @pulumi.output_type
-class WebTestPropertiesResponseConfiguration(dict):
+class WebTestPropertiesConfigurationResponse(dict):
     """
     An XML configuration specification for a WebTest.
     """
@@ -841,14 +841,14 @@ class WebTestPropertiesResponseConfiguration(dict):
             suggest = "web_test"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebTestPropertiesResponseConfiguration. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebTestPropertiesConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebTestPropertiesResponseConfiguration.__key_warning(key)
+        WebTestPropertiesConfigurationResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebTestPropertiesResponseConfiguration.__key_warning(key)
+        WebTestPropertiesConfigurationResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -871,76 +871,7 @@ class WebTestPropertiesResponseConfiguration(dict):
 
 
 @pulumi.output_type
-class WebTestPropertiesResponseContentValidation(dict):
-    """
-    The collection of content validation properties
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "contentMatch":
-            suggest = "content_match"
-        elif key == "ignoreCase":
-            suggest = "ignore_case"
-        elif key == "passIfTextFound":
-            suggest = "pass_if_text_found"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebTestPropertiesResponseContentValidation. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        WebTestPropertiesResponseContentValidation.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        WebTestPropertiesResponseContentValidation.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 content_match: Optional[_builtins.str] = None,
-                 ignore_case: Optional[_builtins.bool] = None,
-                 pass_if_text_found: Optional[_builtins.bool] = None):
-        """
-        The collection of content validation properties
-
-        :param _builtins.str content_match: Content to look for in the return of the WebTest.  Must not be null or empty.
-        :param _builtins.bool ignore_case: When set, this value makes the ContentMatch validation case insensitive.
-        :param _builtins.bool pass_if_text_found: When true, validation will pass if there is a match for the ContentMatch string.  If false, validation will fail if there is a match
-        """
-        if content_match is not None:
-            pulumi.set(__self__, "content_match", content_match)
-        if ignore_case is not None:
-            pulumi.set(__self__, "ignore_case", ignore_case)
-        if pass_if_text_found is not None:
-            pulumi.set(__self__, "pass_if_text_found", pass_if_text_found)
-
-    @_builtins.property
-    @pulumi.getter(name="contentMatch")
-    def content_match(self) -> Optional[_builtins.str]:
-        """
-        Content to look for in the return of the WebTest.  Must not be null or empty.
-        """
-        return pulumi.get(self, "content_match")
-
-    @_builtins.property
-    @pulumi.getter(name="ignoreCase")
-    def ignore_case(self) -> Optional[_builtins.bool]:
-        """
-        When set, this value makes the ContentMatch validation case insensitive.
-        """
-        return pulumi.get(self, "ignore_case")
-
-    @_builtins.property
-    @pulumi.getter(name="passIfTextFound")
-    def pass_if_text_found(self) -> Optional[_builtins.bool]:
-        """
-        When true, validation will pass if there is a match for the ContentMatch string.  If false, validation will fail if there is a match
-        """
-        return pulumi.get(self, "pass_if_text_found")
-
-
-@pulumi.output_type
-class WebTestPropertiesResponseRequest(dict):
+class WebTestPropertiesRequestResponse(dict):
     """
     The collection of request properties
     """
@@ -959,14 +890,14 @@ class WebTestPropertiesResponseRequest(dict):
             suggest = "request_url"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebTestPropertiesResponseRequest. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebTestPropertiesRequestResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebTestPropertiesResponseRequest.__key_warning(key)
+        WebTestPropertiesRequestResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebTestPropertiesResponseRequest.__key_warning(key)
+        WebTestPropertiesRequestResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1049,7 +980,76 @@ class WebTestPropertiesResponseRequest(dict):
 
 
 @pulumi.output_type
-class WebTestPropertiesResponseValidationRules(dict):
+class WebTestPropertiesValidationRulesContentValidationResponse(dict):
+    """
+    The collection of content validation properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentMatch":
+            suggest = "content_match"
+        elif key == "ignoreCase":
+            suggest = "ignore_case"
+        elif key == "passIfTextFound":
+            suggest = "pass_if_text_found"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebTestPropertiesValidationRulesContentValidationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebTestPropertiesValidationRulesContentValidationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebTestPropertiesValidationRulesContentValidationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content_match: Optional[_builtins.str] = None,
+                 ignore_case: Optional[_builtins.bool] = None,
+                 pass_if_text_found: Optional[_builtins.bool] = None):
+        """
+        The collection of content validation properties
+
+        :param _builtins.str content_match: Content to look for in the return of the WebTest.  Must not be null or empty.
+        :param _builtins.bool ignore_case: When set, this value makes the ContentMatch validation case insensitive.
+        :param _builtins.bool pass_if_text_found: When true, validation will pass if there is a match for the ContentMatch string.  If false, validation will fail if there is a match
+        """
+        if content_match is not None:
+            pulumi.set(__self__, "content_match", content_match)
+        if ignore_case is not None:
+            pulumi.set(__self__, "ignore_case", ignore_case)
+        if pass_if_text_found is not None:
+            pulumi.set(__self__, "pass_if_text_found", pass_if_text_found)
+
+    @_builtins.property
+    @pulumi.getter(name="contentMatch")
+    def content_match(self) -> Optional[_builtins.str]:
+        """
+        Content to look for in the return of the WebTest.  Must not be null or empty.
+        """
+        return pulumi.get(self, "content_match")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreCase")
+    def ignore_case(self) -> Optional[_builtins.bool]:
+        """
+        When set, this value makes the ContentMatch validation case insensitive.
+        """
+        return pulumi.get(self, "ignore_case")
+
+    @_builtins.property
+    @pulumi.getter(name="passIfTextFound")
+    def pass_if_text_found(self) -> Optional[_builtins.bool]:
+        """
+        When true, validation will pass if there is a match for the ContentMatch string.  If false, validation will fail if there is a match
+        """
+        return pulumi.get(self, "pass_if_text_found")
+
+
+@pulumi.output_type
+class WebTestPropertiesValidationRulesResponse(dict):
     """
     The collection of validation rule properties
     """
@@ -1068,18 +1068,18 @@ class WebTestPropertiesResponseValidationRules(dict):
             suggest = "s_sl_check"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebTestPropertiesResponseValidationRules. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebTestPropertiesValidationRulesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebTestPropertiesResponseValidationRules.__key_warning(key)
+        WebTestPropertiesValidationRulesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebTestPropertiesResponseValidationRules.__key_warning(key)
+        WebTestPropertiesValidationRulesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 content_validation: Optional['outputs.WebTestPropertiesResponseContentValidation'] = None,
+                 content_validation: Optional['outputs.WebTestPropertiesValidationRulesContentValidationResponse'] = None,
                  expected_http_status_code: Optional[_builtins.int] = None,
                  ignore_http_status_code: Optional[_builtins.bool] = None,
                  s_sl_cert_remaining_lifetime_check: Optional[_builtins.int] = None,
@@ -1087,7 +1087,7 @@ class WebTestPropertiesResponseValidationRules(dict):
         """
         The collection of validation rule properties
 
-        :param 'WebTestPropertiesResponseContentValidation' content_validation: The collection of content validation properties
+        :param 'WebTestPropertiesValidationRulesContentValidationResponse' content_validation: The collection of content validation properties
         :param _builtins.int expected_http_status_code: Validate that the WebTest returns the http status code provided.
         :param _builtins.bool ignore_http_status_code: When set, validation will ignore the status code.
         :param _builtins.int s_sl_cert_remaining_lifetime_check: A number of days to check still remain before the the existing SSL cert expires.  Value must be positive and the SSLCheck must be set to true.
@@ -1106,7 +1106,7 @@ class WebTestPropertiesResponseValidationRules(dict):
 
     @_builtins.property
     @pulumi.getter(name="contentValidation")
-    def content_validation(self) -> Optional['outputs.WebTestPropertiesResponseContentValidation']:
+    def content_validation(self) -> Optional['outputs.WebTestPropertiesValidationRulesContentValidationResponse']:
         """
         The collection of content validation properties
         """
@@ -1146,7 +1146,7 @@ class WebTestPropertiesResponseValidationRules(dict):
 
 
 @pulumi.output_type
-class WorkbookResourceResponseIdentity(dict):
+class WorkbookResourceIdentityResponse(dict):
     """
     Identity used for BYOS
     """
@@ -1161,14 +1161,14 @@ class WorkbookResourceResponseIdentity(dict):
             suggest = "user_assigned_identities"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WorkbookResourceResponseIdentity. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WorkbookResourceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WorkbookResourceResponseIdentity.__key_warning(key)
+        WorkbookResourceIdentityResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WorkbookResourceResponseIdentity.__key_warning(key)
+        WorkbookResourceIdentityResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

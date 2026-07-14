@@ -33,17 +33,11 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("globalParameters")]
-        private InputMap<object>? _globalParameters;
-
         /// <summary>
         /// Key,Value pairs to be passed to the Azure ML Batch Execution Service endpoint. Keys must match the names of web service parameters defined in the published Azure ML web service. Values will be passed in the GlobalParameters property of the Azure ML batch execution request.
         /// </summary>
-        public InputMap<object> GlobalParameters
-        {
-            get => _globalParameters ?? (_globalParameters = new InputMap<object>());
-            set => _globalParameters = value;
-        }
+        [Input("globalParameters")]
+        public Input<object>? GlobalParameters { get; set; }
 
         /// <summary>
         /// Linked service reference.

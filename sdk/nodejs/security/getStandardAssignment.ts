@@ -22,7 +22,7 @@ export function getStandardAssignment(args: GetStandardAssignmentArgs, opts?: pu
 
 export interface GetStandardAssignmentArgs {
     /**
-     * The identifier of the resource.
+     * The fully qualified Azure Resource manager identifier of the resource.
      */
     resourceId: string;
     /**
@@ -38,11 +38,11 @@ export interface GetStandardAssignmentResult {
     /**
      * Standard item with key as applied to this standard assignment over the given scope
      */
-    readonly assignedStandard?: outputs.security.AssignedStandardItemResponse;
+    readonly assignedStandard?: outputs.security.CommonAssignedStandardItemResponse;
     /**
      * Additional data about assignment that has Attest effect
      */
-    readonly attestationData?: outputs.security.StandardAssignmentPropertiesResponseAttestationData;
+    readonly attestationData?: outputs.security.StandardAssignmentPropertiesAttestationDataResponse;
     /**
      * The Azure API version of the resource.
      */
@@ -66,13 +66,13 @@ export interface GetStandardAssignmentResult {
     /**
      * Additional data about assignment that has Exempt effect
      */
-    readonly exemptionData?: outputs.security.StandardAssignmentPropertiesResponseExemptionData;
+    readonly exemptionData?: outputs.security.StandardAssignmentPropertiesExemptionDataResponse;
     /**
      * Expiration date of this assignment as a full ISO date
      */
     readonly expiresOn?: string;
     /**
-     * Resource Id
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -80,11 +80,15 @@ export interface GetStandardAssignmentResult {
      */
     readonly metadata?: outputs.security.StandardAssignmentMetadataResponse;
     /**
-     * Resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
-     * Resource type
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.security.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
@@ -103,7 +107,7 @@ export function getStandardAssignmentOutput(args: GetStandardAssignmentOutputArg
 
 export interface GetStandardAssignmentOutputArgs {
     /**
-     * The identifier of the resource.
+     * The fully qualified Azure Resource manager identifier of the resource.
      */
     resourceId: pulumi.Input<string>;
     /**

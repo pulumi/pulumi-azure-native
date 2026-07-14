@@ -45,17 +45,11 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("extendedProperties")]
-        private InputMap<object>? _extendedProperties;
-
         /// <summary>
         /// User defined property bag. There is no restriction on the keys or values that can be used. The user specified custom activity has the full responsibility to consume and interpret the content defined.
         /// </summary>
-        public InputMap<object> ExtendedProperties
-        {
-            get => _extendedProperties ?? (_extendedProperties = new InputMap<object>());
-            set => _extendedProperties = value;
-        }
+        [Input("extendedProperties")]
+        public Input<object>? ExtendedProperties { get; set; }
 
         /// <summary>
         /// Folder path for resource files Type: string (or Expression with resultType string).

@@ -154,7 +154,7 @@ def get_geo_catalog(catalog_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2025-02-11-preview.
 
-    Other available API versions: 2024-01-31-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native orbital [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2024-01-31-preview, 2026-04-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native orbital [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str catalog_name: The name of the catalog
@@ -184,7 +184,7 @@ def get_geo_catalog_output(catalog_name: Optional[pulumi.Input[_builtins.str]] =
 
     Uses Azure REST API version 2025-02-11-preview.
 
-    Other available API versions: 2024-01-31-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native orbital [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2024-01-31-preview, 2026-04-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native orbital [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str catalog_name: The name of the catalog

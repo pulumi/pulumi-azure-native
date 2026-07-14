@@ -66,7 +66,7 @@ export interface GetPrivateLinkScopeResult {
      */
     readonly provisioningState: string;
     /**
-     * System data
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.monitor.SystemDataResponse;
     /**

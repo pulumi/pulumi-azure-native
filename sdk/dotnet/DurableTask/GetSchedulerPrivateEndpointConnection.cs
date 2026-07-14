@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.DurableTask
         /// Get a private endpoint connection for the durable task scheduler
         /// 
         /// Uses Azure REST API version 2026-02-01.
+        /// 
+        /// Other available API versions: 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native durabletask [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetSchedulerPrivateEndpointConnectionResult> InvokeAsync(GetSchedulerPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSchedulerPrivateEndpointConnectionResult>("azure-native:durabletask:getSchedulerPrivateEndpointConnection", args ?? new GetSchedulerPrivateEndpointConnectionArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.DurableTask
         /// Get a private endpoint connection for the durable task scheduler
         /// 
         /// Uses Azure REST API version 2026-02-01.
+        /// 
+        /// Other available API versions: 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native durabletask [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSchedulerPrivateEndpointConnectionResult> Invoke(GetSchedulerPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSchedulerPrivateEndpointConnectionResult>("azure-native:durabletask:getSchedulerPrivateEndpointConnection", args ?? new GetSchedulerPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.DurableTask
         /// Get a private endpoint connection for the durable task scheduler
         /// 
         /// Uses Azure REST API version 2026-02-01.
+        /// 
+        /// Other available API versions: 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native durabletask [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSchedulerPrivateEndpointConnectionResult> Invoke(GetSchedulerPrivateEndpointConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSchedulerPrivateEndpointConnectionResult>("azure-native:durabletask:getSchedulerPrivateEndpointConnection", args ?? new GetSchedulerPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

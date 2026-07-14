@@ -34,6 +34,8 @@ __all__ = [
     'AlertRuleAnyOfOrLeafConditionArgsDict',
     'AlertRuleLeafConditionArgs',
     'AlertRuleLeafConditionArgsDict',
+    'AmwAccountArgs',
+    'AmwAccountArgsDict',
     'ApplicationInsightsTopologyDiscoveryRulePropertiesArgs',
     'ApplicationInsightsTopologyDiscoveryRulePropertiesArgsDict',
     'ArmRoleReceiverArgs',
@@ -58,6 +60,10 @@ __all__ = [
     'AzureResourceManagerCommonTypesExtendedLocationArgsDict',
     'AzureResourceSignalGroupArgs',
     'AzureResourceSignalGroupArgsDict',
+    'BaselinePropertiesArgs',
+    'BaselinePropertiesArgsDict',
+    'BaselineArgs',
+    'BaselineArgsDict',
     'BatchProcessorArgs',
     'BatchProcessorArgsDict',
     'CacheConfigurationArgs',
@@ -68,6 +74,8 @@ __all__ = [
     'ConcurrencyConfigurationArgsDict',
     'ConditionFailingPeriodsArgs',
     'ConditionFailingPeriodsArgsDict',
+    'ConditionV1Args',
+    'ConditionV1ArgsDict',
     'ConditionArgs',
     'ConditionArgsDict',
     'DataCollectionEndpointNetworkAclsArgs',
@@ -124,8 +132,6 @@ __all__ = [
     'HealthModelPropertiesArgsDict',
     'IconDefinitionArgs',
     'IconDefinitionArgsDict',
-    'IdentityArgs',
-    'IdentityArgsDict',
     'IisLogsDataSourceArgs',
     'IisLogsDataSourceArgsDict',
     'IncidentReceiverArgs',
@@ -178,6 +184,8 @@ __all__ = [
     'MetricSettingsArgsDict',
     'MetricTriggerArgs',
     'MetricTriggerArgsDict',
+    'MicrosoftCommonIdentityArgs',
+    'MicrosoftCommonIdentityArgsDict',
     'ModelDiscoverySettingsArgs',
     'ModelDiscoverySettingsArgsDict',
     'MonitoringAccountDestinationArgs',
@@ -248,8 +256,18 @@ __all__ = [
     'SignalAssignmentArgsDict',
     'SignalGroupArgs',
     'SignalGroupArgsDict',
+    'SignalSourceArgs',
+    'SignalSourceArgsDict',
+    'SignalArgs',
+    'SignalArgsDict',
+    'SliPropertiesArgs',
+    'SliPropertiesArgsDict',
+    'SliResourceArgs',
+    'SliResourceArgsDict',
     'SmsReceiverArgs',
     'SmsReceiverArgsDict',
+    'SpatialAggregationArgs',
+    'SpatialAggregationArgsDict',
     'StorageBlobDestinationArgs',
     'StorageBlobDestinationArgsDict',
     'StorageTableDestinationArgs',
@@ -264,6 +282,8 @@ __all__ = [
     'SyslogReceiverArgsDict',
     'TcpExporterArgs',
     'TcpExporterArgsDict',
+    'TemporalAggregationArgs',
+    'TemporalAggregationArgsDict',
     'ThresholdRuleArgs',
     'ThresholdRuleArgsDict',
     'TimeWindowArgs',
@@ -278,6 +298,8 @@ __all__ = [
     'WebhookReceiverArgsDict',
     'WebtestLocationAvailabilityCriteriaArgs',
     'WebtestLocationAvailabilityCriteriaArgsDict',
+    'WindowUptimeCriteriaArgs',
+    'WindowUptimeCriteriaArgsDict',
     'WindowsEventLogDataSourceArgs',
     'WindowsEventLogDataSourceArgsDict',
     'WindowsFirewallLogsDataSourceArgs',
@@ -886,6 +908,58 @@ class AlertRuleLeafConditionArgs:
         pulumi.set(self, "field", value)
 
 
+class AmwAccountArgsDict(TypedDict):
+    """
+    Represents an Azure Monitor Workspace (AMW) account used for emitting metrics.
+    """
+    identity: pulumi.Input[_builtins.str]
+    """
+    The ARM resource ID of the managed identity with access to the source account.
+    """
+    resource_id: pulumi.Input[_builtins.str]
+    """
+    The ARM resource ID of the account where metrics are emitted.
+    """
+
+@pulumi.input_type
+class AmwAccountArgs:
+    def __init__(__self__, *,
+                 identity: pulumi.Input[_builtins.str],
+                 resource_id: pulumi.Input[_builtins.str]):
+        """
+        Represents an Azure Monitor Workspace (AMW) account used for emitting metrics.
+
+        :param pulumi.Input[_builtins.str] identity: The ARM resource ID of the managed identity with access to the source account.
+        :param pulumi.Input[_builtins.str] resource_id: The ARM resource ID of the account where metrics are emitted.
+        """
+        pulumi.set(__self__, "identity", identity)
+        pulumi.set(__self__, "resource_id", resource_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def identity(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARM resource ID of the managed identity with access to the source account.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "identity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARM resource ID of the account where metrics are emitted.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "resource_id", value)
+
+
 class ApplicationInsightsTopologyDiscoveryRulePropertiesArgsDict(TypedDict):
     """
     Discovery rule properties for an Application Insights topology query
@@ -1114,7 +1188,7 @@ class AutomationRunbookReceiverArgsDict(TypedDict):
     """
     managed_identity: NotRequired[pulumi.Input[_builtins.str]]
     """
-    The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+    The principal id of the managed identity. The value can be "None", "SystemAssigned"
     """
     name: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -1147,7 +1221,7 @@ class AutomationRunbookReceiverArgs:
         :param pulumi.Input[_builtins.bool] is_global_runbook: Indicates whether this instance is global runbook.
         :param pulumi.Input[_builtins.str] runbook_name: The name for this runbook.
         :param pulumi.Input[_builtins.str] webhook_resource_id: The resource id for webhook linked to this runbook.
-        :param pulumi.Input[_builtins.str] managed_identity: The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        :param pulumi.Input[_builtins.str] managed_identity: The principal id of the managed identity. The value can be "None", "SystemAssigned"
         :param pulumi.Input[_builtins.str] name: Indicates name of the webhook.
         :param pulumi.Input[_builtins.str] service_uri: The URI where webhooks should be sent.
         :param pulumi.Input[_builtins.bool] use_common_alert_schema: Indicates whether to use common alert schema.
@@ -1219,7 +1293,7 @@ class AutomationRunbookReceiverArgs:
     @pulumi.getter(name="managedIdentity")
     def managed_identity(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        The principal id of the managed identity. The value can be "None", "SystemAssigned"
         """
         return pulumi.get(self, "managed_identity")
 
@@ -1522,7 +1596,7 @@ class AzureFunctionReceiverArgsDict(TypedDict):
     """
     managed_identity: NotRequired[pulumi.Input[_builtins.str]]
     """
-    The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+    The principal id of the managed identity. The value can be "None", "SystemAssigned"
     """
     use_common_alert_schema: NotRequired[pulumi.Input[_builtins.bool]]
     """
@@ -1545,7 +1619,7 @@ class AzureFunctionReceiverArgs:
         :param pulumi.Input[_builtins.str] function_name: The function name in the function app.
         :param pulumi.Input[_builtins.str] http_trigger_url: The http trigger url where http request sent to.
         :param pulumi.Input[_builtins.str] name: The name of the azure function receiver. Names must be unique across all receivers within an action group.
-        :param pulumi.Input[_builtins.str] managed_identity: The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        :param pulumi.Input[_builtins.str] managed_identity: The principal id of the managed identity. The value can be "None", "SystemAssigned"
         :param pulumi.Input[_builtins.bool] use_common_alert_schema: Indicates whether to use common alert schema.
         """
         pulumi.set(__self__, "function_app_resource_id", function_app_resource_id)
@@ -1611,7 +1685,7 @@ class AzureFunctionReceiverArgs:
     @pulumi.getter(name="managedIdentity")
     def managed_identity(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        The principal id of the managed identity. The value can be "None", "SystemAssigned"
         """
         return pulumi.get(self, "managed_identity")
 
@@ -1991,6 +2065,110 @@ class AzureResourceSignalGroupArgs:
         pulumi.set(self, "signal_assignments", value)
 
 
+class BaselinePropertiesArgsDict(TypedDict):
+    """
+    Defines the properties of a baseline.
+    """
+    baseline: pulumi.Input['BaselineArgsDict']
+    """
+    Defines the baseline target, which is compared against the SLI value to determine compliance.
+    """
+
+@pulumi.input_type
+class BaselinePropertiesArgs:
+    def __init__(__self__, *,
+                 baseline: pulumi.Input['BaselineArgs']):
+        """
+        Defines the properties of a baseline.
+
+        :param pulumi.Input['BaselineArgs'] baseline: Defines the baseline target, which is compared against the SLI value to determine compliance.
+        """
+        pulumi.set(__self__, "baseline", baseline)
+
+    @_builtins.property
+    @pulumi.getter
+    def baseline(self) -> pulumi.Input['BaselineArgs']:
+        """
+        Defines the baseline target, which is compared against the SLI value to determine compliance.
+        """
+        return pulumi.get(self, "baseline")
+
+    @baseline.setter
+    def baseline(self, value: pulumi.Input['BaselineArgs']):
+        pulumi.set(self, "baseline", value)
+
+
+class BaselineArgsDict(TypedDict):
+    """
+    Defines the target parameters for a Slo baseline.
+    """
+    evaluation_calculation_type: pulumi.Input[Union[_builtins.str, 'EvaluationCalculationType']]
+    """
+    Specifies how evaluation is calculated, either based on calendar days or a rolling window.
+    """
+    evaluation_period_days: pulumi.Input[_builtins.int]
+    """
+    The time frame (in days) used for SLI evaluation.
+    """
+    value: pulumi.Input[_builtins.float]
+    """
+    The user-defined or Azure-defined target value used for comparison against the SLI value.
+    """
+
+@pulumi.input_type
+class BaselineArgs:
+    def __init__(__self__, *,
+                 evaluation_calculation_type: pulumi.Input[Union[_builtins.str, 'EvaluationCalculationType']],
+                 evaluation_period_days: pulumi.Input[_builtins.int],
+                 value: pulumi.Input[_builtins.float]):
+        """
+        Defines the target parameters for a Slo baseline.
+
+        :param pulumi.Input[Union[_builtins.str, 'EvaluationCalculationType']] evaluation_calculation_type: Specifies how evaluation is calculated, either based on calendar days or a rolling window.
+        :param pulumi.Input[_builtins.int] evaluation_period_days: The time frame (in days) used for SLI evaluation.
+        :param pulumi.Input[_builtins.float] value: The user-defined or Azure-defined target value used for comparison against the SLI value.
+        """
+        pulumi.set(__self__, "evaluation_calculation_type", evaluation_calculation_type)
+        pulumi.set(__self__, "evaluation_period_days", evaluation_period_days)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="evaluationCalculationType")
+    def evaluation_calculation_type(self) -> pulumi.Input[Union[_builtins.str, 'EvaluationCalculationType']]:
+        """
+        Specifies how evaluation is calculated, either based on calendar days or a rolling window.
+        """
+        return pulumi.get(self, "evaluation_calculation_type")
+
+    @evaluation_calculation_type.setter
+    def evaluation_calculation_type(self, value: pulumi.Input[Union[_builtins.str, 'EvaluationCalculationType']]):
+        pulumi.set(self, "evaluation_calculation_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="evaluationPeriodDays")
+    def evaluation_period_days(self) -> pulumi.Input[_builtins.int]:
+        """
+        The time frame (in days) used for SLI evaluation.
+        """
+        return pulumi.get(self, "evaluation_period_days")
+
+    @evaluation_period_days.setter
+    def evaluation_period_days(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "evaluation_period_days", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.float]:
+        """
+        The user-defined or Azure-defined target value used for comparison against the SLI value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.float]):
+        pulumi.set(self, "value", value)
+
+
 class BatchProcessorArgsDict(TypedDict):
     """
     Batch processor.
@@ -2271,6 +2449,118 @@ class ConditionFailingPeriodsArgs:
     @number_of_evaluation_periods.setter
     def number_of_evaluation_periods(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "number_of_evaluation_periods", value)
+
+
+class ConditionV1ArgsDict(TypedDict):
+    """
+    Represents a filtering condition.
+    """
+    operator: pulumi.Input[Union[_builtins.str, 'ConditionOperator']]
+    """
+    Operator used in the filtering condition.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    Value used in filtering. For most operators (eq, ne, lt, lte, gt, gte, startswith, notstartswith, contains, notcontains) this is a single value (for example "GetContosoUsers"). For the `in` and `notin` operators, multiple values must be joined by the delimiter `^^` (for example "east^^west^^north").
+    """
+    dimension_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Dimension name used in filtering.
+    """
+    sampling_type: NotRequired[pulumi.Input[Union[_builtins.str, 'SamplingType']]]
+    """
+    Defines the sampling type.
+    """
+    scalar_function: NotRequired[pulumi.Input[Union[_builtins.str, 'ScalarFunction']]]
+    """
+    Scalar function applied for filtering.
+    """
+
+@pulumi.input_type
+class ConditionV1Args:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[Union[_builtins.str, 'ConditionOperator']],
+                 value: pulumi.Input[_builtins.str],
+                 dimension_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 sampling_type: Optional[pulumi.Input[Union[_builtins.str, 'SamplingType']]] = None,
+                 scalar_function: Optional[pulumi.Input[Union[_builtins.str, 'ScalarFunction']]] = None):
+        """
+        Represents a filtering condition.
+
+        :param pulumi.Input[Union[_builtins.str, 'ConditionOperator']] operator: Operator used in the filtering condition.
+        :param pulumi.Input[_builtins.str] value: Value used in filtering. For most operators (eq, ne, lt, lte, gt, gte, startswith, notstartswith, contains, notcontains) this is a single value (for example "GetContosoUsers"). For the `in` and `notin` operators, multiple values must be joined by the delimiter `^^` (for example "east^^west^^north").
+        :param pulumi.Input[_builtins.str] dimension_name: Dimension name used in filtering.
+        :param pulumi.Input[Union[_builtins.str, 'SamplingType']] sampling_type: Defines the sampling type.
+        :param pulumi.Input[Union[_builtins.str, 'ScalarFunction']] scalar_function: Scalar function applied for filtering.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "value", value)
+        if dimension_name is not None:
+            pulumi.set(__self__, "dimension_name", dimension_name)
+        if sampling_type is not None:
+            pulumi.set(__self__, "sampling_type", sampling_type)
+        if scalar_function is not None:
+            pulumi.set(__self__, "scalar_function", scalar_function)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[Union[_builtins.str, 'ConditionOperator']]:
+        """
+        Operator used in the filtering condition.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[Union[_builtins.str, 'ConditionOperator']]):
+        pulumi.set(self, "operator", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        """
+        Value used in filtering. For most operators (eq, ne, lt, lte, gt, gte, startswith, notstartswith, contains, notcontains) this is a single value (for example "GetContosoUsers"). For the `in` and `notin` operators, multiple values must be joined by the delimiter `^^` (for example "east^^west^^north").
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dimensionName")
+    def dimension_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Dimension name used in filtering.
+        """
+        return pulumi.get(self, "dimension_name")
+
+    @dimension_name.setter
+    def dimension_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "dimension_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="samplingType")
+    def sampling_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SamplingType']]]:
+        """
+        Defines the sampling type.
+        """
+        return pulumi.get(self, "sampling_type")
+
+    @sampling_type.setter
+    def sampling_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SamplingType']]]):
+        pulumi.set(self, "sampling_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scalarFunction")
+    def scalar_function(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ScalarFunction']]]:
+        """
+        Scalar function applied for filtering.
+        """
+        return pulumi.get(self, "scalar_function")
+
+    @scalar_function.setter
+    def scalar_function(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ScalarFunction']]]):
+        pulumi.set(self, "scalar_function", value)
 
 
 class ConditionArgsDict(TypedDict):
@@ -4514,7 +4804,7 @@ class EventHubReceiverArgsDict(TypedDict):
     """
     managed_identity: NotRequired[pulumi.Input[_builtins.str]]
     """
-    The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+    The principal id of the managed identity. The value can be "None", "SystemAssigned"
     """
     tenant_id: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -4542,7 +4832,7 @@ class EventHubReceiverArgs:
         :param pulumi.Input[_builtins.str] event_hub_name_space: The Event Hub namespace
         :param pulumi.Input[_builtins.str] name: The name of the Event hub receiver. Names must be unique across all receivers within an action group.
         :param pulumi.Input[_builtins.str] subscription_id: The Id for the subscription containing this event hub
-        :param pulumi.Input[_builtins.str] managed_identity: The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        :param pulumi.Input[_builtins.str] managed_identity: The principal id of the managed identity. The value can be "None", "SystemAssigned"
         :param pulumi.Input[_builtins.str] tenant_id: The tenant Id for the subscription containing this event hub
         :param pulumi.Input[_builtins.bool] use_common_alert_schema: Indicates whether to use common alert schema.
         """
@@ -4611,7 +4901,7 @@ class EventHubReceiverArgs:
     @pulumi.getter(name="managedIdentity")
     def managed_identity(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        The principal id of the managed identity. The value can be "None", "SystemAssigned"
         """
         return pulumi.get(self, "managed_identity")
 
@@ -4942,59 +5232,6 @@ class IconDefinitionArgs:
     @custom_data.setter
     def custom_data(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "custom_data", value)
-
-
-class IdentityArgsDict(TypedDict):
-    """
-    Identity for the resource.
-    """
-    type: pulumi.Input['IdentityType']
-    """
-    Type of managed service identity.
-    """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    """
-    The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-    """
-
-@pulumi.input_type
-class IdentityArgs:
-    def __init__(__self__, *,
-                 type: pulumi.Input['IdentityType'],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        Identity for the resource.
-
-        :param pulumi.Input['IdentityType'] type: Type of managed service identity.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        """
-        pulumi.set(__self__, "type", type)
-        if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> pulumi.Input['IdentityType']:
-        """
-        Type of managed service identity.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input['IdentityType']):
-        pulumi.set(self, "type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        """
-        return pulumi.get(self, "user_assigned_identities")
-
-    @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "user_assigned_identities", value)
 
 
 class IisLogsDataSourceArgsDict(TypedDict):
@@ -6197,7 +6434,7 @@ class LogicAppReceiverArgsDict(TypedDict):
     """
     managed_identity: NotRequired[pulumi.Input[_builtins.str]]
     """
-    The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+    The principal id of the managed identity. The value can be "None", "SystemAssigned"
     """
     use_common_alert_schema: NotRequired[pulumi.Input[_builtins.bool]]
     """
@@ -6218,7 +6455,7 @@ class LogicAppReceiverArgs:
         :param pulumi.Input[_builtins.str] callback_url: The callback url where http request sent to.
         :param pulumi.Input[_builtins.str] name: The name of the logic app receiver. Names must be unique across all receivers within an action group.
         :param pulumi.Input[_builtins.str] resource_id: The azure resource id of the logic app receiver.
-        :param pulumi.Input[_builtins.str] managed_identity: The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        :param pulumi.Input[_builtins.str] managed_identity: The principal id of the managed identity. The value can be "None", "SystemAssigned"
         :param pulumi.Input[_builtins.bool] use_common_alert_schema: Indicates whether to use common alert schema.
         """
         pulumi.set(__self__, "callback_url", callback_url)
@@ -6271,7 +6508,7 @@ class LogicAppReceiverArgs:
     @pulumi.getter(name="managedIdentity")
     def managed_identity(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        The principal id of the managed identity. The value can be "None", "SystemAssigned"
         """
         return pulumi.get(self, "managed_identity")
 
@@ -7258,6 +7495,59 @@ class MetricTriggerArgs:
     @metric_resource_location.setter
     def metric_resource_location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "metric_resource_location", value)
+
+
+class MicrosoftCommonIdentityArgsDict(TypedDict):
+    """
+    Identity for the resource.
+    """
+    type: pulumi.Input['IdentityType']
+    """
+    Type of managed service identity.
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+    """
+
+@pulumi.input_type
+class MicrosoftCommonIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input['IdentityType'],
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        Identity for the resource.
+
+        :param pulumi.Input['IdentityType'] type: Type of managed service identity.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['IdentityType']:
+        """
+        Type of managed service identity.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['IdentityType']):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
 
 
 class ModelDiscoverySettingsArgsDict(TypedDict):
@@ -10049,6 +10339,465 @@ class SignalGroupArgs:
         pulumi.set(self, "dependencies", value)
 
 
+class SignalSourceArgsDict(TypedDict):
+    """
+    Represents a signal source used in SLIs.
+    """
+    filters: pulumi.Input[Sequence[pulumi.Input['ConditionV1ArgsDict']]]
+    """
+    Filters applied to modify signal values.
+    """
+    metric_name: pulumi.Input[_builtins.str]
+    """
+    Name of the metric.
+    """
+    metric_namespace: pulumi.Input[_builtins.str]
+    """
+    Namespace of the metric.
+    """
+    signal_source_id: pulumi.Input[_builtins.str]
+    """
+    Unique identifier for the signal source.
+    """
+    source_amw_account_managed_identity: pulumi.Input[_builtins.str]
+    """
+    Managed identity for authenticating the signal source.
+    """
+    source_amw_account_resource_id: pulumi.Input[_builtins.str]
+    """
+    Resource ID of the source AMW account.
+    """
+    spatial_aggregation: pulumi.Input['SpatialAggregationArgsDict']
+    """
+    Defines how measurements are aggregated across multiple time series.
+    """
+    temporal_aggregation: pulumi.Input['TemporalAggregationArgsDict']
+    """
+    Defines how measurements are aggregated over a specific time window within the same time series.
+    """
+
+@pulumi.input_type
+class SignalSourceArgs:
+    def __init__(__self__, *,
+                 filters: pulumi.Input[Sequence[pulumi.Input['ConditionV1Args']]],
+                 metric_name: pulumi.Input[_builtins.str],
+                 metric_namespace: pulumi.Input[_builtins.str],
+                 signal_source_id: pulumi.Input[_builtins.str],
+                 source_amw_account_managed_identity: pulumi.Input[_builtins.str],
+                 source_amw_account_resource_id: pulumi.Input[_builtins.str],
+                 spatial_aggregation: pulumi.Input['SpatialAggregationArgs'],
+                 temporal_aggregation: pulumi.Input['TemporalAggregationArgs']):
+        """
+        Represents a signal source used in SLIs.
+
+        :param pulumi.Input[Sequence[pulumi.Input['ConditionV1Args']]] filters: Filters applied to modify signal values.
+        :param pulumi.Input[_builtins.str] metric_name: Name of the metric.
+        :param pulumi.Input[_builtins.str] metric_namespace: Namespace of the metric.
+        :param pulumi.Input[_builtins.str] signal_source_id: Unique identifier for the signal source.
+        :param pulumi.Input[_builtins.str] source_amw_account_managed_identity: Managed identity for authenticating the signal source.
+        :param pulumi.Input[_builtins.str] source_amw_account_resource_id: Resource ID of the source AMW account.
+        :param pulumi.Input['SpatialAggregationArgs'] spatial_aggregation: Defines how measurements are aggregated across multiple time series.
+        :param pulumi.Input['TemporalAggregationArgs'] temporal_aggregation: Defines how measurements are aggregated over a specific time window within the same time series.
+        """
+        pulumi.set(__self__, "filters", filters)
+        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "metric_namespace", metric_namespace)
+        pulumi.set(__self__, "signal_source_id", signal_source_id)
+        pulumi.set(__self__, "source_amw_account_managed_identity", source_amw_account_managed_identity)
+        pulumi.set(__self__, "source_amw_account_resource_id", source_amw_account_resource_id)
+        pulumi.set(__self__, "spatial_aggregation", spatial_aggregation)
+        pulumi.set(__self__, "temporal_aggregation", temporal_aggregation)
+
+    @_builtins.property
+    @pulumi.getter
+    def filters(self) -> pulumi.Input[Sequence[pulumi.Input['ConditionV1Args']]]:
+        """
+        Filters applied to modify signal values.
+        """
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: pulumi.Input[Sequence[pulumi.Input['ConditionV1Args']]]):
+        pulumi.set(self, "filters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the metric.
+        """
+        return pulumi.get(self, "metric_name")
+
+    @metric_name.setter
+    def metric_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "metric_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="metricNamespace")
+    def metric_namespace(self) -> pulumi.Input[_builtins.str]:
+        """
+        Namespace of the metric.
+        """
+        return pulumi.get(self, "metric_namespace")
+
+    @metric_namespace.setter
+    def metric_namespace(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "metric_namespace", value)
+
+    @_builtins.property
+    @pulumi.getter(name="signalSourceId")
+    def signal_source_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Unique identifier for the signal source.
+        """
+        return pulumi.get(self, "signal_source_id")
+
+    @signal_source_id.setter
+    def signal_source_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "signal_source_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceAmwAccountManagedIdentity")
+    def source_amw_account_managed_identity(self) -> pulumi.Input[_builtins.str]:
+        """
+        Managed identity for authenticating the signal source.
+        """
+        return pulumi.get(self, "source_amw_account_managed_identity")
+
+    @source_amw_account_managed_identity.setter
+    def source_amw_account_managed_identity(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "source_amw_account_managed_identity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceAmwAccountResourceId")
+    def source_amw_account_resource_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Resource ID of the source AMW account.
+        """
+        return pulumi.get(self, "source_amw_account_resource_id")
+
+    @source_amw_account_resource_id.setter
+    def source_amw_account_resource_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "source_amw_account_resource_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="spatialAggregation")
+    def spatial_aggregation(self) -> pulumi.Input['SpatialAggregationArgs']:
+        """
+        Defines how measurements are aggregated across multiple time series.
+        """
+        return pulumi.get(self, "spatial_aggregation")
+
+    @spatial_aggregation.setter
+    def spatial_aggregation(self, value: pulumi.Input['SpatialAggregationArgs']):
+        pulumi.set(self, "spatial_aggregation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="temporalAggregation")
+    def temporal_aggregation(self) -> pulumi.Input['TemporalAggregationArgs']:
+        """
+        Defines how measurements are aggregated over a specific time window within the same time series.
+        """
+        return pulumi.get(self, "temporal_aggregation")
+
+    @temporal_aggregation.setter
+    def temporal_aggregation(self, value: pulumi.Input['TemporalAggregationArgs']):
+        pulumi.set(self, "temporal_aggregation", value)
+
+
+class SignalArgsDict(TypedDict):
+    """
+    Represents a signal model used in SLI calculations.
+    """
+    signal_formula: pulumi.Input[_builtins.str]
+    """
+    Mathematical formula used to combine multiple metrics.
+    """
+    signal_sources: pulumi.Input[Sequence[pulumi.Input['SignalSourceArgsDict']]]
+    """
+    Sources of metrics used for SLIs.
+    """
+
+@pulumi.input_type
+class SignalArgs:
+    def __init__(__self__, *,
+                 signal_formula: pulumi.Input[_builtins.str],
+                 signal_sources: pulumi.Input[Sequence[pulumi.Input['SignalSourceArgs']]]):
+        """
+        Represents a signal model used in SLI calculations.
+
+        :param pulumi.Input[_builtins.str] signal_formula: Mathematical formula used to combine multiple metrics.
+        :param pulumi.Input[Sequence[pulumi.Input['SignalSourceArgs']]] signal_sources: Sources of metrics used for SLIs.
+        """
+        pulumi.set(__self__, "signal_formula", signal_formula)
+        pulumi.set(__self__, "signal_sources", signal_sources)
+
+    @_builtins.property
+    @pulumi.getter(name="signalFormula")
+    def signal_formula(self) -> pulumi.Input[_builtins.str]:
+        """
+        Mathematical formula used to combine multiple metrics.
+        """
+        return pulumi.get(self, "signal_formula")
+
+    @signal_formula.setter
+    def signal_formula(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "signal_formula", value)
+
+    @_builtins.property
+    @pulumi.getter(name="signalSources")
+    def signal_sources(self) -> pulumi.Input[Sequence[pulumi.Input['SignalSourceArgs']]]:
+        """
+        Sources of metrics used for SLIs.
+        """
+        return pulumi.get(self, "signal_sources")
+
+    @signal_sources.setter
+    def signal_sources(self, value: pulumi.Input[Sequence[pulumi.Input['SignalSourceArgs']]]):
+        pulumi.set(self, "signal_sources", value)
+
+
+class SliPropertiesArgsDict(TypedDict):
+    """
+    Defines the properties of an SLI.
+    """
+    good_signals: NotRequired[pulumi.Input['SignalArgsDict']]
+    """
+    Represents good signals used in request-based SLI calculations.
+    """
+    signals: NotRequired[pulumi.Input['SignalArgsDict']]
+    """
+    Signals used for window-based SLI calculations.
+    """
+    total_signals: NotRequired[pulumi.Input['SignalArgsDict']]
+    """
+    Represents total signals used in request-based SLI calculations.
+    """
+    window_uptime_criteria: NotRequired[pulumi.Input['WindowUptimeCriteriaArgsDict']]
+    """
+    Defines the uptime criteria for window-based SLIs.
+    """
+
+@pulumi.input_type
+class SliPropertiesArgs:
+    def __init__(__self__, *,
+                 good_signals: Optional[pulumi.Input['SignalArgs']] = None,
+                 signals: Optional[pulumi.Input['SignalArgs']] = None,
+                 total_signals: Optional[pulumi.Input['SignalArgs']] = None,
+                 window_uptime_criteria: Optional[pulumi.Input['WindowUptimeCriteriaArgs']] = None):
+        """
+        Defines the properties of an SLI.
+
+        :param pulumi.Input['SignalArgs'] good_signals: Represents good signals used in request-based SLI calculations.
+        :param pulumi.Input['SignalArgs'] signals: Signals used for window-based SLI calculations.
+        :param pulumi.Input['SignalArgs'] total_signals: Represents total signals used in request-based SLI calculations.
+        :param pulumi.Input['WindowUptimeCriteriaArgs'] window_uptime_criteria: Defines the uptime criteria for window-based SLIs.
+        """
+        if good_signals is not None:
+            pulumi.set(__self__, "good_signals", good_signals)
+        if signals is not None:
+            pulumi.set(__self__, "signals", signals)
+        if total_signals is not None:
+            pulumi.set(__self__, "total_signals", total_signals)
+        if window_uptime_criteria is not None:
+            pulumi.set(__self__, "window_uptime_criteria", window_uptime_criteria)
+
+    @_builtins.property
+    @pulumi.getter(name="goodSignals")
+    def good_signals(self) -> Optional[pulumi.Input['SignalArgs']]:
+        """
+        Represents good signals used in request-based SLI calculations.
+        """
+        return pulumi.get(self, "good_signals")
+
+    @good_signals.setter
+    def good_signals(self, value: Optional[pulumi.Input['SignalArgs']]):
+        pulumi.set(self, "good_signals", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def signals(self) -> Optional[pulumi.Input['SignalArgs']]:
+        """
+        Signals used for window-based SLI calculations.
+        """
+        return pulumi.get(self, "signals")
+
+    @signals.setter
+    def signals(self, value: Optional[pulumi.Input['SignalArgs']]):
+        pulumi.set(self, "signals", value)
+
+    @_builtins.property
+    @pulumi.getter(name="totalSignals")
+    def total_signals(self) -> Optional[pulumi.Input['SignalArgs']]:
+        """
+        Represents total signals used in request-based SLI calculations.
+        """
+        return pulumi.get(self, "total_signals")
+
+    @total_signals.setter
+    def total_signals(self, value: Optional[pulumi.Input['SignalArgs']]):
+        pulumi.set(self, "total_signals", value)
+
+    @_builtins.property
+    @pulumi.getter(name="windowUptimeCriteria")
+    def window_uptime_criteria(self) -> Optional[pulumi.Input['WindowUptimeCriteriaArgs']]:
+        """
+        Defines the uptime criteria for window-based SLIs.
+        """
+        return pulumi.get(self, "window_uptime_criteria")
+
+    @window_uptime_criteria.setter
+    def window_uptime_criteria(self, value: Optional[pulumi.Input['WindowUptimeCriteriaArgs']]):
+        pulumi.set(self, "window_uptime_criteria", value)
+
+
+class SliResourceArgsDict(TypedDict):
+    """
+    Defines the root level properties of an SLI resource.
+    """
+    baseline_properties: pulumi.Input['BaselinePropertiesArgsDict']
+    """
+    Defines the SLO baseline associated with the SLI.
+    """
+    category: pulumi.Input[Union[_builtins.str, 'Category']]
+    """
+    Specifies the category of the SLI, used to classify signals such as Availability and Latency.
+    """
+    description: pulumi.Input[_builtins.str]
+    """
+    A user-provided description of the SLI, with a maximum length of 1000 characters.
+    """
+    destination_amw_accounts: pulumi.Input[Sequence[pulumi.Input['AmwAccountArgsDict']]]
+    """
+    Destination AMW accounts.
+    """
+    enable_alert: pulumi.Input[_builtins.bool]
+    """
+    A flag to determine whether alert is enabled.
+    """
+    evaluation_type: pulumi.Input[Union[_builtins.str, 'EvaluationType']]
+    """
+    Determines how the SLI is evaluated—either based on request counts or time windows.
+    """
+    sli_properties: pulumi.Input['SliPropertiesArgsDict']
+    """
+    Defines the SLI properties associated with the SLI.
+    """
+
+@pulumi.input_type
+class SliResourceArgs:
+    def __init__(__self__, *,
+                 baseline_properties: pulumi.Input['BaselinePropertiesArgs'],
+                 category: pulumi.Input[Union[_builtins.str, 'Category']],
+                 description: pulumi.Input[_builtins.str],
+                 destination_amw_accounts: pulumi.Input[Sequence[pulumi.Input['AmwAccountArgs']]],
+                 enable_alert: pulumi.Input[_builtins.bool],
+                 evaluation_type: pulumi.Input[Union[_builtins.str, 'EvaluationType']],
+                 sli_properties: pulumi.Input['SliPropertiesArgs']):
+        """
+        Defines the root level properties of an SLI resource.
+
+        :param pulumi.Input['BaselinePropertiesArgs'] baseline_properties: Defines the SLO baseline associated with the SLI.
+        :param pulumi.Input[Union[_builtins.str, 'Category']] category: Specifies the category of the SLI, used to classify signals such as Availability and Latency.
+        :param pulumi.Input[_builtins.str] description: A user-provided description of the SLI, with a maximum length of 1000 characters.
+        :param pulumi.Input[Sequence[pulumi.Input['AmwAccountArgs']]] destination_amw_accounts: Destination AMW accounts.
+        :param pulumi.Input[_builtins.bool] enable_alert: A flag to determine whether alert is enabled.
+        :param pulumi.Input[Union[_builtins.str, 'EvaluationType']] evaluation_type: Determines how the SLI is evaluated—either based on request counts or time windows.
+        :param pulumi.Input['SliPropertiesArgs'] sli_properties: Defines the SLI properties associated with the SLI.
+        """
+        pulumi.set(__self__, "baseline_properties", baseline_properties)
+        pulumi.set(__self__, "category", category)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "destination_amw_accounts", destination_amw_accounts)
+        pulumi.set(__self__, "enable_alert", enable_alert)
+        pulumi.set(__self__, "evaluation_type", evaluation_type)
+        pulumi.set(__self__, "sli_properties", sli_properties)
+
+    @_builtins.property
+    @pulumi.getter(name="baselineProperties")
+    def baseline_properties(self) -> pulumi.Input['BaselinePropertiesArgs']:
+        """
+        Defines the SLO baseline associated with the SLI.
+        """
+        return pulumi.get(self, "baseline_properties")
+
+    @baseline_properties.setter
+    def baseline_properties(self, value: pulumi.Input['BaselinePropertiesArgs']):
+        pulumi.set(self, "baseline_properties", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> pulumi.Input[Union[_builtins.str, 'Category']]:
+        """
+        Specifies the category of the SLI, used to classify signals such as Availability and Latency.
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: pulumi.Input[Union[_builtins.str, 'Category']]):
+        pulumi.set(self, "category", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[_builtins.str]:
+        """
+        A user-provided description of the SLI, with a maximum length of 1000 characters.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationAmwAccounts")
+    def destination_amw_accounts(self) -> pulumi.Input[Sequence[pulumi.Input['AmwAccountArgs']]]:
+        """
+        Destination AMW accounts.
+        """
+        return pulumi.get(self, "destination_amw_accounts")
+
+    @destination_amw_accounts.setter
+    def destination_amw_accounts(self, value: pulumi.Input[Sequence[pulumi.Input['AmwAccountArgs']]]):
+        pulumi.set(self, "destination_amw_accounts", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enableAlert")
+    def enable_alert(self) -> pulumi.Input[_builtins.bool]:
+        """
+        A flag to determine whether alert is enabled.
+        """
+        return pulumi.get(self, "enable_alert")
+
+    @enable_alert.setter
+    def enable_alert(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enable_alert", value)
+
+    @_builtins.property
+    @pulumi.getter(name="evaluationType")
+    def evaluation_type(self) -> pulumi.Input[Union[_builtins.str, 'EvaluationType']]:
+        """
+        Determines how the SLI is evaluated—either based on request counts or time windows.
+        """
+        return pulumi.get(self, "evaluation_type")
+
+    @evaluation_type.setter
+    def evaluation_type(self, value: pulumi.Input[Union[_builtins.str, 'EvaluationType']]):
+        pulumi.set(self, "evaluation_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sliProperties")
+    def sli_properties(self) -> pulumi.Input['SliPropertiesArgs']:
+        """
+        Defines the SLI properties associated with the SLI.
+        """
+        return pulumi.get(self, "sli_properties")
+
+    @sli_properties.setter
+    def sli_properties(self, value: pulumi.Input['SliPropertiesArgs']):
+        pulumi.set(self, "sli_properties", value)
+
+
 class SmsReceiverArgsDict(TypedDict):
     """
     An SMS receiver.
@@ -10118,6 +10867,58 @@ class SmsReceiverArgs:
     @phone_number.setter
     def phone_number(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "phone_number", value)
+
+
+class SpatialAggregationArgsDict(TypedDict):
+    """
+    Represents the spatial aggregation model.
+    """
+    dimensions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Dimensions considered for spatial aggregation.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'SpatialAggregationType']]
+    """
+    Type of spatial aggregation.
+    """
+
+@pulumi.input_type
+class SpatialAggregationArgs:
+    def __init__(__self__, *,
+                 dimensions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 type: pulumi.Input[Union[_builtins.str, 'SpatialAggregationType']]):
+        """
+        Represents the spatial aggregation model.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dimensions: Dimensions considered for spatial aggregation.
+        :param pulumi.Input[Union[_builtins.str, 'SpatialAggregationType']] type: Type of spatial aggregation.
+        """
+        pulumi.set(__self__, "dimensions", dimensions)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def dimensions(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Dimensions considered for spatial aggregation.
+        """
+        return pulumi.get(self, "dimensions")
+
+    @dimensions.setter
+    def dimensions(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "dimensions", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[_builtins.str, 'SpatialAggregationType']]:
+        """
+        Type of spatial aggregation.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[_builtins.str, 'SpatialAggregationType']]):
+        pulumi.set(self, "type", value)
 
 
 class StorageBlobDestinationArgsDict(TypedDict):
@@ -10561,6 +11362,59 @@ class TcpExporterArgs:
         pulumi.set(self, "url", value)
 
 
+class TemporalAggregationArgsDict(TypedDict):
+    """
+    Represents temporal aggregation settings.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'TemporalAggregationType']]
+    """
+    Type of temporal aggregation.
+    """
+    window_size_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Time window size for aggregation, in minutes.
+    """
+
+@pulumi.input_type
+class TemporalAggregationArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[Union[_builtins.str, 'TemporalAggregationType']],
+                 window_size_minutes: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        Represents temporal aggregation settings.
+
+        :param pulumi.Input[Union[_builtins.str, 'TemporalAggregationType']] type: Type of temporal aggregation.
+        :param pulumi.Input[_builtins.int] window_size_minutes: Time window size for aggregation, in minutes.
+        """
+        pulumi.set(__self__, "type", type)
+        if window_size_minutes is not None:
+            pulumi.set(__self__, "window_size_minutes", window_size_minutes)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[_builtins.str, 'TemporalAggregationType']]:
+        """
+        Type of temporal aggregation.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[_builtins.str, 'TemporalAggregationType']]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="windowSizeMinutes")
+    def window_size_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Time window size for aggregation, in minutes.
+        """
+        return pulumi.get(self, "window_size_minutes")
+
+    @window_size_minutes.setter
+    def window_size_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "window_size_minutes", value)
+
+
 class ThresholdRuleArgsDict(TypedDict):
     """
     Threshold-based evaluation rule for a signal definition
@@ -10925,7 +11779,7 @@ class WebhookReceiverArgsDict(TypedDict):
     """
     managed_identity: NotRequired[pulumi.Input[_builtins.str]]
     """
-    The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+    The principal id of the managed identity. The value can be "None", "SystemAssigned"
     """
     object_id: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -10961,7 +11815,7 @@ class WebhookReceiverArgs:
         :param pulumi.Input[_builtins.str] name: The name of the webhook receiver. Names must be unique across all receivers within a tenant action group.
         :param pulumi.Input[_builtins.str] service_uri: The URI where webhooks should be sent.
         :param pulumi.Input[_builtins.str] identifier_uri: Indicates the identifier uri for aad auth.
-        :param pulumi.Input[_builtins.str] managed_identity: The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        :param pulumi.Input[_builtins.str] managed_identity: The principal id of the managed identity. The value can be "None", "SystemAssigned"
         :param pulumi.Input[_builtins.str] object_id: Indicates the webhook app object Id for aad auth.
         :param pulumi.Input[_builtins.str] tenant_id: Indicates the tenant id for aad auth.
         :param pulumi.Input[_builtins.bool] use_aad_auth: Indicates whether or not use AAD authentication.
@@ -11026,7 +11880,7 @@ class WebhookReceiverArgs:
     @pulumi.getter(name="managedIdentity")
     def managed_identity(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        The principal id of the managed identity. The value can be "None", "SystemAssigned"
         """
         return pulumi.get(self, "managed_identity")
 
@@ -11174,6 +12028,58 @@ class WebtestLocationAvailabilityCriteriaArgs:
     @web_test_id.setter
     def web_test_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "web_test_id", value)
+
+
+class WindowUptimeCriteriaArgsDict(TypedDict):
+    """
+    Represents criteria for determining uptime in window-based SLIs.
+    """
+    comparator: pulumi.Input[Union[_builtins.str, 'WindowUptimeCriteriaComparator']]
+    """
+    Comparison operator used for uptime evaluation.
+    """
+    target: pulumi.Input[_builtins.float]
+    """
+    Threshold value used to determine uptime.
+    """
+
+@pulumi.input_type
+class WindowUptimeCriteriaArgs:
+    def __init__(__self__, *,
+                 comparator: pulumi.Input[Union[_builtins.str, 'WindowUptimeCriteriaComparator']],
+                 target: pulumi.Input[_builtins.float]):
+        """
+        Represents criteria for determining uptime in window-based SLIs.
+
+        :param pulumi.Input[Union[_builtins.str, 'WindowUptimeCriteriaComparator']] comparator: Comparison operator used for uptime evaluation.
+        :param pulumi.Input[_builtins.float] target: Threshold value used to determine uptime.
+        """
+        pulumi.set(__self__, "comparator", comparator)
+        pulumi.set(__self__, "target", target)
+
+    @_builtins.property
+    @pulumi.getter
+    def comparator(self) -> pulumi.Input[Union[_builtins.str, 'WindowUptimeCriteriaComparator']]:
+        """
+        Comparison operator used for uptime evaluation.
+        """
+        return pulumi.get(self, "comparator")
+
+    @comparator.setter
+    def comparator(self, value: pulumi.Input[Union[_builtins.str, 'WindowUptimeCriteriaComparator']]):
+        pulumi.set(self, "comparator", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def target(self) -> pulumi.Input[_builtins.float]:
+        """
+        Threshold value used to determine uptime.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: pulumi.Input[_builtins.float]):
+        pulumi.set(self, "target", value)
 
 
 class WindowsEventLogDataSourceArgsDict(TypedDict):

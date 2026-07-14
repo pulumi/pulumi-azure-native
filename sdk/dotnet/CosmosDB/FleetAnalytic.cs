@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.CosmosDB
     /// 
     /// Uses Azure REST API version 2025-11-01-preview.
     /// 
-    /// Other available API versions: 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2025-05-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:cosmosdb:FleetAnalytic")]
     public partial class FleetAnalytic : global::Pulumi.CustomResource
@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.CosmosDB
                 {
                     new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20250501preview:FleetAnalytic" },
                     new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20251101preview:FleetAnalytic" },
+                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20260401preview:FleetAnalytic" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -133,7 +134,7 @@ namespace Pulumi.AzureNative.CosmosDB
         /// The type of the fleet analytics resource.
         /// </summary>
         [Input("storageLocationType")]
-        public InputUnion<string, Pulumi.AzureNative.CosmosDB.StorageLocationType>? StorageLocationType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.CosmosDB.FleetAnalyticsPropertiesStorageLocationType>? StorageLocationType { get; set; }
 
         /// <summary>
         /// The unique identifier of the fleet analytics resource.

@@ -153,17 +153,11 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("scanFolder")]
         public Input<object>? ScanFolder { get; set; }
 
-        [Input("sparkConfig")]
-        private InputMap<object>? _sparkConfig;
-
         /// <summary>
         /// Spark configuration property.
         /// </summary>
-        public InputMap<object> SparkConfig
-        {
-            get => _sparkConfig ?? (_sparkConfig = new InputMap<object>());
-            set => _sparkConfig = value;
-        }
+        [Input("sparkConfig")]
+        public Input<object>? SparkConfig { get; set; }
 
         /// <summary>
         /// Synapse spark job reference.

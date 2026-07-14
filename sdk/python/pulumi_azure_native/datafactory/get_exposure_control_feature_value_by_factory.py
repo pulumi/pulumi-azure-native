@@ -75,7 +75,7 @@ def get_exposure_control_feature_value_by_factory(factory_name: Optional[_builti
     :param _builtins.str factory_name: The factory name.
     :param _builtins.str feature_name: The feature name.
     :param _builtins.str feature_type: The feature type.
-    :param _builtins.str resource_group_name: The resource group name.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['factoryName'] = factory_name
@@ -102,7 +102,7 @@ def get_exposure_control_feature_value_by_factory_output(factory_name: Optional[
     :param _builtins.str factory_name: The factory name.
     :param _builtins.str feature_name: The feature name.
     :param _builtins.str feature_type: The feature type.
-    :param _builtins.str resource_group_name: The resource group name.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['factoryName'] = factory_name

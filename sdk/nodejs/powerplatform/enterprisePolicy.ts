@@ -46,7 +46,7 @@ export class EnterprisePolicy extends pulumi.CustomResource {
     /**
      * The encryption settings for a configuration store.
      */
-    declare public readonly encryption: pulumi.Output<outputs.powerplatform.PropertiesResponseEncryption | undefined>;
+    declare public readonly encryption: pulumi.Output<outputs.powerplatform.PropertiesEncryptionResponse | undefined>;
     /**
      * The health status of the resource.
      */
@@ -66,7 +66,7 @@ export class EnterprisePolicy extends pulumi.CustomResource {
     /**
      * Settings concerning lockbox.
      */
-    declare public readonly lockbox: pulumi.Output<outputs.powerplatform.PropertiesResponseLockbox | undefined>;
+    declare public readonly lockbox: pulumi.Output<outputs.powerplatform.PropertiesLockboxResponse | undefined>;
     /**
      * The name of the resource
      */
@@ -74,9 +74,9 @@ export class EnterprisePolicy extends pulumi.CustomResource {
     /**
      * Settings concerning network injection.
      */
-    declare public readonly networkInjection: pulumi.Output<outputs.powerplatform.PropertiesResponseNetworkInjection | undefined>;
+    declare public readonly networkInjection: pulumi.Output<outputs.powerplatform.PropertiesNetworkInjectionResponse | undefined>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     declare public /*out*/ readonly systemData: pulumi.Output<outputs.powerplatform.SystemDataResponse>;
     /**
@@ -155,7 +155,7 @@ export interface EnterprisePolicyArgs {
      */
     encryption?: pulumi.Input<inputs.powerplatform.PropertiesEncryptionArgs>;
     /**
-     * Name of the EnterprisePolicy.
+     * The EnterprisePolicy name.
      */
     enterprisePolicyName?: pulumi.Input<string>;
     /**

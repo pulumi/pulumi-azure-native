@@ -19,11 +19,11 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// <summary>
         /// The ARC autoprovisioning configuration
         /// </summary>
-        public readonly Outputs.DefenderForServersAwsOfferingResponseArcAutoProvisioning? ArcAutoProvisioning;
+        public readonly Outputs.DefenderForServersAwsOfferingArcAutoProvisioningResponse? ArcAutoProvisioning;
         /// <summary>
         /// The Defender for servers connection configuration
         /// </summary>
-        public readonly Outputs.DefenderForServersAwsOfferingResponseDefenderForServers? DefenderForServers;
+        public readonly Outputs.DefenderForServersAwsOfferingDefenderForServersResponse? DefenderForServers;
         /// <summary>
         /// The offering description.
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// <summary>
         /// The Microsoft Defender for Endpoint autoprovisioning configuration
         /// </summary>
-        public readonly Outputs.DefenderForServersAwsOfferingResponseMdeAutoProvisioning? MdeAutoProvisioning;
+        public readonly Outputs.DefenderForServersAwsOfferingMdeAutoProvisioningResponse? MdeAutoProvisioning;
         /// <summary>
         /// The type of the security offering.
         /// Expected value is 'DefenderForServersAws'.
@@ -40,33 +40,33 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// <summary>
         /// configuration for the servers offering subPlan
         /// </summary>
-        public readonly Outputs.DefenderForServersAwsOfferingResponseSubPlan? SubPlan;
+        public readonly Outputs.DefenderForServersAwsOfferingSubPlanResponse? SubPlan;
         /// <summary>
         /// The Vulnerability Assessment autoprovisioning configuration
         /// </summary>
-        public readonly Outputs.DefenderForServersAwsOfferingResponseVaAutoProvisioning? VaAutoProvisioning;
+        public readonly Outputs.DefenderForServersAwsOfferingVaAutoProvisioningResponse? VaAutoProvisioning;
         /// <summary>
         /// The Microsoft Defender for Server VM scanning configuration
         /// </summary>
-        public readonly Outputs.DefenderForServersAwsOfferingResponseVmScanners? VmScanners;
+        public readonly Outputs.DefenderForServersAwsOfferingVmScannersResponse? VmScanners;
 
         [OutputConstructor]
         private DefenderForServersAwsOfferingResponse(
-            Outputs.DefenderForServersAwsOfferingResponseArcAutoProvisioning? arcAutoProvisioning,
+            Outputs.DefenderForServersAwsOfferingArcAutoProvisioningResponse? arcAutoProvisioning,
 
-            Outputs.DefenderForServersAwsOfferingResponseDefenderForServers? defenderForServers,
+            Outputs.DefenderForServersAwsOfferingDefenderForServersResponse? defenderForServers,
 
             string description,
 
-            Outputs.DefenderForServersAwsOfferingResponseMdeAutoProvisioning? mdeAutoProvisioning,
+            Outputs.DefenderForServersAwsOfferingMdeAutoProvisioningResponse? mdeAutoProvisioning,
 
             string offeringType,
 
-            Outputs.DefenderForServersAwsOfferingResponseSubPlan? subPlan,
+            Outputs.DefenderForServersAwsOfferingSubPlanResponse? subPlan,
 
-            Outputs.DefenderForServersAwsOfferingResponseVaAutoProvisioning? vaAutoProvisioning,
+            Outputs.DefenderForServersAwsOfferingVaAutoProvisioningResponse? vaAutoProvisioning,
 
-            Outputs.DefenderForServersAwsOfferingResponseVmScanners? vmScanners)
+            Outputs.DefenderForServersAwsOfferingVmScannersResponse? vmScanners)
         {
             ArcAutoProvisioning = arcAutoProvisioning;
             DefenderForServers = defenderForServers;

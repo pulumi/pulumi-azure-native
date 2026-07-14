@@ -95,6 +95,9 @@ __all__ = [
     'ImageArmReferenceResponse',
     'InboundNATRulePropertiesResponse',
     'InboundNATRuleResponse',
+    'InboundRulePropertiesResponse',
+    'InboundRuleStatusProvisioningStatusResponse',
+    'InboundRuleStatusResponse',
     'InfrastructureNetworkResponse',
     'InstanceViewStatusResponse',
     'IntentsResponse',
@@ -7071,6 +7074,241 @@ class InboundNATRuleResponse(dict):
 
 
 @pulumi.output_type
+class InboundRulePropertiesResponse(dict):
+    """
+    Inbound rule properties - extends InboundNATRuleProperties with additional status tracking
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backendIPConfiguration":
+            suggest = "backend_ip_configuration"
+        elif key == "backendPort":
+            suggest = "backend_port"
+        elif key == "frontendPort":
+            suggest = "frontend_port"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "publicIPAddress":
+            suggest = "public_ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InboundRulePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InboundRulePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InboundRulePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 backend_ip_configuration: 'outputs.IPConfigurationArmReferenceResponse',
+                 backend_port: _builtins.int,
+                 frontend_port: _builtins.int,
+                 protocol: _builtins.str,
+                 provisioning_state: _builtins.str,
+                 public_ip_address: 'outputs.PublicIPAddressArmReferenceResponse',
+                 status: 'outputs.InboundRuleStatusResponse'):
+        """
+        Inbound rule properties - extends InboundNATRuleProperties with additional status tracking
+
+        :param 'IPConfigurationArmReferenceResponse' backend_ip_configuration: IP configuration for the target backend.
+        :param _builtins.int backend_port: backend Port for the inbound rule
+        :param _builtins.int frontend_port: Frontend Port for the inbound rule
+        :param _builtins.str protocol: Protocol for the NAT rule
+        :param _builtins.str provisioning_state: Provisioning state of the inbound rule
+        :param 'PublicIPAddressArmReferenceResponse' public_ip_address: Public IP Address for this NAT rule
+        :param 'InboundRuleStatusResponse' status: The observed state of Inbound Rule
+        """
+        pulumi.set(__self__, "backend_ip_configuration", backend_ip_configuration)
+        pulumi.set(__self__, "backend_port", backend_port)
+        pulumi.set(__self__, "frontend_port", frontend_port)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "public_ip_address", public_ip_address)
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="backendIPConfiguration")
+    def backend_ip_configuration(self) -> 'outputs.IPConfigurationArmReferenceResponse':
+        """
+        IP configuration for the target backend.
+        """
+        return pulumi.get(self, "backend_ip_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="backendPort")
+    def backend_port(self) -> _builtins.int:
+        """
+        backend Port for the inbound rule
+        """
+        return pulumi.get(self, "backend_port")
+
+    @_builtins.property
+    @pulumi.getter(name="frontendPort")
+    def frontend_port(self) -> _builtins.int:
+        """
+        Frontend Port for the inbound rule
+        """
+        return pulumi.get(self, "frontend_port")
+
+    @_builtins.property
+    @pulumi.getter
+    def protocol(self) -> _builtins.str:
+        """
+        Protocol for the NAT rule
+        """
+        return pulumi.get(self, "protocol")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        Provisioning state of the inbound rule
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="publicIPAddress")
+    def public_ip_address(self) -> 'outputs.PublicIPAddressArmReferenceResponse':
+        """
+        Public IP Address for this NAT rule
+        """
+        return pulumi.get(self, "public_ip_address")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> 'outputs.InboundRuleStatusResponse':
+        """
+        The observed state of Inbound Rule
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class InboundRuleStatusProvisioningStatusResponse(dict):
+    """
+    Provisioning status of Inbound Rule
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "operationId":
+            suggest = "operation_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InboundRuleStatusProvisioningStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InboundRuleStatusProvisioningStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InboundRuleStatusProvisioningStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 status: _builtins.str,
+                 operation_id: Optional[_builtins.str] = None):
+        """
+        Provisioning status of Inbound Rule
+
+        :param _builtins.str status: The status of the operation performed on the inbound rule [Succeeded, Failed, InProgress]
+        :param _builtins.str operation_id: The ID of the operation performed on the inbound rule
+        """
+        pulumi.set(__self__, "status", status)
+        if operation_id is not None:
+            pulumi.set(__self__, "operation_id", operation_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        The status of the operation performed on the inbound rule [Succeeded, Failed, InProgress]
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="operationId")
+    def operation_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the operation performed on the inbound rule
+        """
+        return pulumi.get(self, "operation_id")
+
+
+@pulumi.output_type
+class InboundRuleStatusResponse(dict):
+    """
+    The observed state of inbound rule
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorCode":
+            suggest = "error_code"
+        elif key == "errorMessage":
+            suggest = "error_message"
+        elif key == "provisioningStatus":
+            suggest = "provisioning_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InboundRuleStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InboundRuleStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InboundRuleStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 error_code: Optional[_builtins.str] = None,
+                 error_message: Optional[_builtins.str] = None,
+                 provisioning_status: Optional['outputs.InboundRuleStatusProvisioningStatusResponse'] = None):
+        """
+        The observed state of inbound rule
+
+        :param _builtins.str error_code: InboundRule provisioning error code
+        :param _builtins.str error_message: Descriptive error message
+        :param 'InboundRuleStatusProvisioningStatusResponse' provisioning_status: InboundRule provisioning status
+        """
+        if error_code is not None:
+            pulumi.set(__self__, "error_code", error_code)
+        if error_message is not None:
+            pulumi.set(__self__, "error_message", error_message)
+        if provisioning_status is not None:
+            pulumi.set(__self__, "provisioning_status", provisioning_status)
+
+    @_builtins.property
+    @pulumi.getter(name="errorCode")
+    def error_code(self) -> Optional[_builtins.str]:
+        """
+        InboundRule provisioning error code
+        """
+        return pulumi.get(self, "error_code")
+
+    @_builtins.property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> Optional[_builtins.str]:
+        """
+        Descriptive error message
+        """
+        return pulumi.get(self, "error_message")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningStatus")
+    def provisioning_status(self) -> Optional['outputs.InboundRuleStatusProvisioningStatusResponse']:
+        """
+        InboundRule provisioning status
+        """
+        return pulumi.get(self, "provisioning_status")
+
+
+@pulumi.output_type
 class InfrastructureNetworkResponse(dict):
     """
     The InfrastructureNetwork of a AzureStackHCI Cluster.
@@ -9680,7 +9918,7 @@ class NatGatewayPropertiesResponse(dict):
         :param _builtins.str provisioning_state: Provisioning state of the public IP
         :param 'NatGatewayStatusResponse' status: The observed state of Nat Gateway
         :param Sequence['VirtualNetworkSubnetArmReferenceResponse'] subnets: List of subnets associated with the nat gateway. These can only be vnet subnets and must be from the same vnet
-        :param Sequence['InboundNATRuleResponse'] inbound_nat_rules: List of inbound NAT rules. InboundNATRules can only be set after the NAT Gateway has been associated with a vnet
+        :param Sequence['InboundNATRuleResponse'] inbound_nat_rules: List of inbound NAT rules. InboundNATRules can only be set after the NAT Gateway has been associated with a vnet. Removed in 2026-04-01-preview; use InboundRule Child resource instead.
         :param Sequence['PublicIPAddressArmReferenceResponse'] public_ip_addresses: List of public ip addresses that the gateway can use for NAT.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -9719,7 +9957,7 @@ class NatGatewayPropertiesResponse(dict):
     @pulumi.getter(name="inboundNATRules")
     def inbound_nat_rules(self) -> Optional[Sequence['outputs.InboundNATRuleResponse']]:
         """
-        List of inbound NAT rules. InboundNATRules can only be set after the NAT Gateway has been associated with a vnet
+        List of inbound NAT rules. InboundNATRules can only be set after the NAT Gateway has been associated with a vnet. Removed in 2026-04-01-preview; use InboundRule Child resource instead.
         """
         return pulumi.get(self, "inbound_nat_rules")
 

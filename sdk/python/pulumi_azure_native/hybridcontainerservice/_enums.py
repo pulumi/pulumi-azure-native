@@ -7,24 +7,8 @@ import pulumi
 from enum import Enum
 
 __all__ = [
-    'AutoUpgradeOptions',
     'ExtendedLocationTypes',
-    'LicenseType',
-    'LoadBalancerSku',
-    'Mode',
-    'NetworkPolicy',
-    'OsType',
-    'ResourceIdentityType',
 ]
-
-
-@pulumi.type_token("azure-native:hybridcontainerservice:AutoUpgradeOptions")
-class AutoUpgradeOptions(_builtins.str, Enum):
-    """
-    Indicates whether the Arc agents on the provisioned clusters be upgraded automatically to the latest version. Defaults to Enabled.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
 
 
 @pulumi.type_token("azure-native:hybridcontainerservice:ExtendedLocationTypes")
@@ -33,60 +17,3 @@ class ExtendedLocationTypes(_builtins.str, Enum):
     The extended location type. Allowed value: 'CustomLocation'
     """
     CUSTOM_LOCATION = "CustomLocation"
-
-
-@pulumi.type_token("azure-native:hybridcontainerservice:LicenseType")
-class LicenseType(_builtins.str, Enum):
-    """
-    LicenseType - The licenseType to use for Windows VMs. Windows_Server is used to enable Azure Hybrid User Benefits for Windows VMs. Possible values include: 'None', 'Windows_Server'
-    """
-    WINDOWS_SERVER = "Windows_Server"
-    NONE = "None"
-
-
-@pulumi.type_token("azure-native:hybridcontainerservice:LoadBalancerSku")
-class LoadBalancerSku(_builtins.str, Enum):
-    """
-    LoadBalancerSku - The load balancer sku for the provisioned cluster. Possible values: 'unstacked-haproxy', 'stacked-kube-vip', 'stacked-metallb', 'unmanaged'. The default is 'unmanaged'.
-    """
-    UNSTACKED_HAPROXY = "unstacked-haproxy"
-    STACKED_KUBE_VIP = "stacked-kube-vip"
-    STACKED_METALLB = "stacked-metallb"
-    UNMANAGED = "unmanaged"
-
-
-@pulumi.type_token("azure-native:hybridcontainerservice:Mode")
-class Mode(_builtins.str, Enum):
-    """
-    Mode - AgentPoolMode represents mode of an agent pool. Possible values include: 'System', 'LB', 'User'. Default is 'User'
-    """
-    SYSTEM = "System"
-    LB = "LB"
-    USER = "User"
-
-
-@pulumi.type_token("azure-native:hybridcontainerservice:NetworkPolicy")
-class NetworkPolicy(_builtins.str, Enum):
-    """
-    NetworkPolicy - Network policy used for building Kubernetes network. Possible values include: 'calico', 'flannel'. Default is 'calico'
-    """
-    CALICO = "calico"
-    FLANNEL = "flannel"
-
-
-@pulumi.type_token("azure-native:hybridcontainerservice:OsType")
-class OsType(_builtins.str, Enum):
-    """
-    OsType - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux. Possible values include: 'Linux', 'Windows'
-    """
-    LINUX = "Linux"
-    WINDOWS = "Windows"
-
-
-@pulumi.type_token("azure-native:hybridcontainerservice:ResourceIdentityType")
-class ResourceIdentityType(_builtins.str, Enum):
-    """
-    The type of identity used for the provisioned cluster. The type SystemAssigned, includes a system created identity. The type None means no identity is assigned to the provisioned cluster.
-    """
-    NONE = "None"
-    SYSTEM_ASSIGNED = "SystemAssigned"

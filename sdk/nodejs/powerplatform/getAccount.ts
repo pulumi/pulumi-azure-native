@@ -56,7 +56,7 @@ export interface GetAccountResult {
      */
     readonly name: string;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.powerplatform.SystemDataResponse;
     /**

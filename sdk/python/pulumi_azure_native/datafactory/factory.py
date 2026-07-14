@@ -35,7 +35,7 @@ class FactoryArgs:
         """
         The set of arguments for constructing a Factory resource.
 
-        :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['EncryptionConfigurationArgs'] encryption: Properties to enable Customer Managed Key for the factory.
         :param pulumi.Input[_builtins.str] factory_name: The factory name.
         :param pulumi.Input[Mapping[str, pulumi.Input['GlobalParameterSpecificationArgs']]] global_parameters: List of parameters for factory.
@@ -70,7 +70,7 @@ class FactoryArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The resource group name.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -220,7 +220,7 @@ class Factory(pulumi.CustomResource):
         :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] public_network_access: Whether or not public network access is allowed for the data factory.
         :param pulumi.Input[Union['PurviewConfigurationArgs', 'PurviewConfigurationArgsDict']] purview_configuration: Purview information of the factory.
         :param pulumi.Input[Union[Union['FactoryGitHubConfigurationArgs', 'FactoryGitHubConfigurationArgsDict'], Union['FactoryVSTSConfigurationArgs', 'FactoryVSTSConfigurationArgsDict']]] repo_configuration: Git repo information of the factory.
-        :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The resource tags.
         """
         ...
@@ -286,6 +286,7 @@ class Factory(pulumi.CustomResource):
             __props__.__dict__["e_tag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["version"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datafactory/v20170901preview:Factory"), pulumi.Alias(type_="azure-native:datafactory/v20180601:Factory")])
@@ -324,6 +325,7 @@ class Factory(pulumi.CustomResource):
         __props__.__dict__["public_network_access"] = None
         __props__.__dict__["purview_configuration"] = None
         __props__.__dict__["repo_configuration"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["version"] = None
@@ -349,7 +351,7 @@ class Factory(pulumi.CustomResource):
     @pulumi.getter(name="eTag")
     def e_tag(self) -> pulumi.Output[_builtins.str]:
         """
-        Etag identifies change in the resource.
+        If eTag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
         """
         return pulumi.get(self, "e_tag")
 
@@ -389,7 +391,7 @@ class Factory(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -426,6 +428,14 @@ class Factory(pulumi.CustomResource):
         return pulumi.get(self, "repo_configuration")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
@@ -437,7 +447,7 @@ class Factory(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        The resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

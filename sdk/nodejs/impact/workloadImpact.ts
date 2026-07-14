@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Workload Impact properties
  *
  * Uses Azure REST API version 2024-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
+ *
+ * Other available API versions: 2025-01-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native impact [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class WorkloadImpact extends pulumi.CustomResource {
     /**
@@ -85,7 +87,7 @@ export class WorkloadImpact extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:impact/v20240501preview:WorkloadImpact" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:impact/v20240501preview:WorkloadImpact" }, { type: "azure-native:impact/v20250101preview:WorkloadImpact" }, { type: "azure-native:impact/v20260101preview:WorkloadImpact" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkloadImpact.__pulumiType, name, resourceInputs, opts);
     }

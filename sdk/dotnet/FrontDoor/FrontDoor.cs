@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.FrontDoor
     /// <summary>
     /// Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
     /// 
-    /// Uses Azure REST API version 2021-06-01.
+    /// Uses Azure REST API version 2025-11-01.
     /// 
-    /// Other available API versions: 2019-04-01, 2019-05-01, 2020-01-01, 2020-04-01, 2020-05-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2018-08-01, 2019-04-01, 2019-05-01, 2020-01-01, 2020-04-01, 2020-05-01, 2021-06-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:frontdoor:FrontDoor")]
     public partial class FrontDoor : global::Pulumi.CustomResource
@@ -158,6 +158,7 @@ namespace Pulumi.AzureNative.FrontDoor
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20180801:FrontDoor" },
                     new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20190401:FrontDoor" },
                     new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20190501:FrontDoor" },
                     new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20200101:FrontDoor" },
@@ -165,6 +166,7 @@ namespace Pulumi.AzureNative.FrontDoor
                     new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20200501:FrontDoor" },
                     new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20210601:FrontDoor" },
                     new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20251001:FrontDoor" },
+                    new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20251101:FrontDoor" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210601:FrontDoor" },
                     new global::Pulumi.Alias { Type = "azure-native:network:FrontDoor" },
                 },
@@ -269,7 +271,7 @@ namespace Pulumi.AzureNative.FrontDoor
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Name of the Resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

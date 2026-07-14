@@ -32,7 +32,7 @@ class SecurityStandardArgs:
         """
         The set of arguments for constructing a SecurityStandard resource.
 
-        :param pulumi.Input[_builtins.str] scope: The scope of the security standard. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
+        :param pulumi.Input[_builtins.str] scope: The fully qualified Azure Resource manager identifier of the resource.
         :param pulumi.Input[Sequence[pulumi.Input['PartialAssessmentPropertiesArgs']]] assessments: List of assessment keys to apply to standard scope.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'StandardSupportedCloud']]]] cloud_providers: List of all standard supported clouds.
         :param pulumi.Input[_builtins.str] description: Description of the standard
@@ -58,7 +58,7 @@ class SecurityStandardArgs:
     @pulumi.getter
     def scope(self) -> pulumi.Input[_builtins.str]:
         """
-        The scope of the security standard. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
+        The fully qualified Azure Resource manager identifier of the resource.
         """
         return pulumi.get(self, "scope")
 
@@ -166,7 +166,7 @@ class SecurityStandard(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Description of the standard
         :param pulumi.Input[_builtins.str] display_name: Display name of the standard, equivalent to the standardId
         :param pulumi.Input[_builtins.str] policy_set_definition_id: The policy set definition id associated with the standard.
-        :param pulumi.Input[_builtins.str] scope: The scope of the security standard. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
+        :param pulumi.Input[_builtins.str] scope: The fully qualified Azure Resource manager identifier of the resource.
         :param pulumi.Input[_builtins.str] standard_id: The Security Standard key - unique key for the standard type
         """
         ...
@@ -225,6 +225,7 @@ class SecurityStandard(pulumi.CustomResource):
             __props__.__dict__["metadata"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["standard_type"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20240801:SecurityStandard")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -259,6 +260,7 @@ class SecurityStandard(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["policy_set_definition_id"] = None
         __props__.__dict__["standard_type"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return SecurityStandard(resource_name, opts=opts, __props__=__props__)
 
@@ -314,7 +316,7 @@ class SecurityStandard(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -335,10 +337,18 @@ class SecurityStandard(pulumi.CustomResource):
         return pulumi.get(self, "standard_type")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

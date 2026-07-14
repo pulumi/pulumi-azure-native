@@ -24,6 +24,7 @@ class GarnetClusterArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity: Optional[pulumi.Input['ManagedCassandraManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  properties: Optional[pulumi.Input['GarnetClusterResourcePropertiesArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -31,14 +32,17 @@ class GarnetClusterArgs:
         The set of arguments for constructing a GarnetCluster resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] cluster_name: Garnet cache cluster name.
+        :param pulumi.Input[_builtins.str] cluster_name: The name of the GarnetClusterResource
+        :param pulumi.Input['ManagedCassandraManagedServiceIdentityArgs'] identity: Identity for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input['GarnetClusterResourcePropertiesArgs'] properties: Properties of a Garnet cache cluster.
+        :param pulumi.Input['GarnetClusterResourcePropertiesArgs'] properties: The resource-specific properties for this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if cluster_name is not None:
             pulumi.set(__self__, "cluster_name", cluster_name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
@@ -62,13 +66,25 @@ class GarnetClusterArgs:
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Garnet cache cluster name.
+        The name of the GarnetClusterResource
         """
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
     def cluster_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "cluster_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ManagedCassandraManagedServiceIdentityArgs']]:
+        """
+        Identity for the resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ManagedCassandraManagedServiceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
@@ -86,7 +102,7 @@ class GarnetClusterArgs:
     @pulumi.getter
     def properties(self) -> Optional[pulumi.Input['GarnetClusterResourcePropertiesArgs']]:
         """
-        Properties of a Garnet cache cluster.
+        The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
@@ -114,6 +130,7 @@ class GarnetCluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedCassandraManagedServiceIdentityArgs', 'ManagedCassandraManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  properties: Optional[pulumi.Input[Union['GarnetClusterResourcePropertiesArgs', 'GarnetClusterResourcePropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -124,12 +141,15 @@ class GarnetCluster(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-11-01-preview.
 
+        Other available API versions: 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cluster_name: Garnet cache cluster name.
+        :param pulumi.Input[_builtins.str] cluster_name: The name of the GarnetClusterResource
+        :param pulumi.Input[Union['ManagedCassandraManagedServiceIdentityArgs', 'ManagedCassandraManagedServiceIdentityArgsDict']] identity: Identity for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[Union['GarnetClusterResourcePropertiesArgs', 'GarnetClusterResourcePropertiesArgsDict']] properties: Properties of a Garnet cache cluster.
+        :param pulumi.Input[Union['GarnetClusterResourcePropertiesArgs', 'GarnetClusterResourcePropertiesArgsDict']] properties: The resource-specific properties for this resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
@@ -143,6 +163,8 @@ class GarnetCluster(pulumi.CustomResource):
         Representation of a Garnet cache cluster.
 
         Uses Azure REST API version 2025-11-01-preview.
+
+        Other available API versions: 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -161,6 +183,7 @@ class GarnetCluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedCassandraManagedServiceIdentityArgs', 'ManagedCassandraManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  properties: Optional[pulumi.Input[Union['GarnetClusterResourcePropertiesArgs', 'GarnetClusterResourcePropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -175,6 +198,7 @@ class GarnetCluster(pulumi.CustomResource):
             __props__ = GarnetClusterArgs.__new__(GarnetClusterArgs)
 
             __props__.__dict__["cluster_name"] = cluster_name
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
@@ -185,7 +209,7 @@ class GarnetCluster(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cosmosdb/v20251101preview:GarnetCluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cosmosdb/v20251101preview:GarnetCluster"), pulumi.Alias(type_="azure-native:cosmosdb/v20260401preview:GarnetCluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GarnetCluster, __self__).__init__(
             'azure-native:cosmosdb:GarnetCluster',
@@ -210,6 +234,7 @@ class GarnetCluster(pulumi.CustomResource):
         __props__ = GarnetClusterArgs.__new__(GarnetClusterArgs)
 
         __props__.__dict__["azure_api_version"] = None
+        __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
@@ -225,6 +250,14 @@ class GarnetCluster(pulumi.CustomResource):
         The Azure API version of the resource.
         """
         return pulumi.get(self, "azure_api_version")
+
+    @_builtins.property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedCassandraManagedServiceIdentityResponse']]:
+        """
+        Identity for the resource.
+        """
+        return pulumi.get(self, "identity")
 
     @_builtins.property
     @pulumi.getter
@@ -244,9 +277,9 @@ class GarnetCluster(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.GarnetClusterResourceResponseProperties']:
+    def properties(self) -> pulumi.Output['outputs.GarnetClusterResourcePropertiesResponse']:
         """
-        Properties of a Garnet cache cluster.
+        The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 

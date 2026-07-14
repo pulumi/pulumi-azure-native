@@ -37,9 +37,9 @@ class ListRemediationDeploymentsAtResourceGroupResult:
 
     @_builtins.property
     @pulumi.getter(name="nextLink")
-    def next_link(self) -> _builtins.str:
+    def next_link(self) -> Optional[_builtins.str]:
         """
-        The URL to get the next set of results.
+        The link to the next page of items
         """
         return pulumi.get(self, "next_link")
 
@@ -47,7 +47,7 @@ class ListRemediationDeploymentsAtResourceGroupResult:
     @pulumi.getter
     def value(self) -> Sequence['outputs.RemediationDeploymentResponse']:
         """
-        Array of deployments for the remediation.
+        The RemediationDeployment items on this page
         """
         return pulumi.get(self, "value")
 
@@ -75,7 +75,7 @@ def list_remediation_deployments_at_resource_group(remediation_name: Optional[_b
 
 
     :param _builtins.str remediation_name: The name of the remediation.
-    :param _builtins.str resource_group_name: Resource group name.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.int top: Maximum number of records to return.
     """
     __args__ = dict()
@@ -101,7 +101,7 @@ def list_remediation_deployments_at_resource_group_output(remediation_name: Opti
 
 
     :param _builtins.str remediation_name: The name of the remediation.
-    :param _builtins.str resource_group_name: Resource group name.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.int top: Maximum number of records to return.
     """
     __args__ = dict()

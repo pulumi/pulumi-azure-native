@@ -20,7 +20,7 @@ export function getLiveToken(args: GetLiveTokenArgs, opts?: pulumi.InvokeOptions
 
 export interface GetLiveTokenArgs {
     /**
-     * The identifier of the resource.
+     * The fully qualified Azure Resource manager identifier of the resource.
      */
     resourceUri: string;
 }
@@ -50,7 +50,7 @@ export function getLiveTokenOutput(args: GetLiveTokenOutputArgs, opts?: pulumi.I
 
 export interface GetLiveTokenOutputArgs {
     /**
-     * The identifier of the resource.
+     * The fully qualified Azure Resource manager identifier of the resource.
      */
     resourceUri: pulumi.Input<string>;
 }

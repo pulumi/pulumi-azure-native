@@ -41,15 +41,15 @@ class IotSecuritySolutionArgs:
 
         :param pulumi.Input[_builtins.str] display_name: Resource display name.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] iot_hubs: IoT Hub resource IDs
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalWorkspacesPropertiesArgs']]] additional_workspaces: List of additional workspaces
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DataSource']]]] disabled_data_sources: Disabled data sources. Disabling these data sources compromises the system.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ExportData']]]] export: List of additional options for exporting to workspace data.
-        :param pulumi.Input[_builtins.str] location: The resource location.
+        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Sequence[pulumi.Input['RecommendationConfigurationPropertiesArgs']]] recommendations_configuration: List of the configuration status for each recommendation type.
         :param pulumi.Input[_builtins.str] solution_name: The name of the IoT Security solution.
         :param pulumi.Input[Union[_builtins.str, 'SecuritySolutionStatus']] status: Status of the IoT Security solution.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Union[_builtins.str, 'UnmaskedIpLoggingStatus']] unmasked_ip_logging_status: Unmasked IP address logging status
         :param pulumi.Input['UserDefinedResourcesPropertiesArgs'] user_defined_resources: Properties of the IoT Security solution's user defined resources.
         :param pulumi.Input[_builtins.str] workspace: Workspace resource ID
@@ -112,7 +112,7 @@ class IotSecuritySolutionArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the resource group within the user's subscription. The name is case insensitive.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -160,7 +160,7 @@ class IotSecuritySolutionArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The resource location.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -208,7 +208,7 @@ class IotSecuritySolutionArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -289,12 +289,12 @@ class IotSecuritySolution(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] display_name: Resource display name.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ExportData']]]] export: List of additional options for exporting to workspace data.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] iot_hubs: IoT Hub resource IDs
-        :param pulumi.Input[_builtins.str] location: The resource location.
+        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Sequence[pulumi.Input[Union['RecommendationConfigurationPropertiesArgs', 'RecommendationConfigurationPropertiesArgsDict']]]] recommendations_configuration: List of the configuration status for each recommendation type.
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] solution_name: The name of the IoT Security solution.
         :param pulumi.Input[Union[_builtins.str, 'SecuritySolutionStatus']] status: Status of the IoT Security solution.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Union[_builtins.str, 'UnmaskedIpLoggingStatus']] unmasked_ip_logging_status: Unmasked IP address logging status
         :param pulumi.Input[Union['UserDefinedResourcesPropertiesArgs', 'UserDefinedResourcesPropertiesArgsDict']] user_defined_resources: Properties of the IoT Security solution's user defined resources.
         :param pulumi.Input[_builtins.str] workspace: Workspace resource ID
@@ -483,7 +483,7 @@ class IotSecuritySolution(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The resource location.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -491,7 +491,7 @@ class IotSecuritySolution(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -523,7 +523,7 @@ class IotSecuritySolution(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -531,7 +531,7 @@ class IotSecuritySolution(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

@@ -139,6 +139,8 @@ class ChatModelDeployment(pulumi.CustomResource):
 
         Uses Azure REST API version 2026-02-01-preview.
 
+        Other available API versions: 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native discovery [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -159,6 +161,8 @@ class ChatModelDeployment(pulumi.CustomResource):
         Represents a deployment that ties a specific model family to a user defined deployment name used when invoking the chat model.
 
         Uses Azure REST API version 2026-02-01-preview.
+
+        Other available API versions: 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native discovery [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -205,7 +209,7 @@ class ChatModelDeployment(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:discovery/v20260201preview:ChatModelDeployment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:discovery/v20260201preview:ChatModelDeployment"), pulumi.Alias(type_="azure-native:discovery/v20260601:ChatModelDeployment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ChatModelDeployment, __self__).__init__(
             'azure-native:discovery:ChatModelDeployment',

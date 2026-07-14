@@ -42,6 +42,10 @@ __all__ = [
     'CorsRuleArgsDict',
     'CustomDomainArgs',
     'CustomDomainArgsDict',
+    'DataShareConnectionArgs',
+    'DataShareConnectionArgsDict',
+    'DataShareSourceArgs',
+    'DataShareSourceArgsDict',
     'DateAfterCreationArgs',
     'DateAfterCreationArgsDict',
     'DateAfterModificationArgs',
@@ -80,6 +84,8 @@ __all__ = [
     'KeyVaultPropertiesArgsDict',
     'LastAccessTimeTrackingPolicyArgs',
     'LastAccessTimeTrackingPolicyArgsDict',
+    'ManagedIdentityAuthPropertiesArgs',
+    'ManagedIdentityAuthPropertiesArgsDict',
     'ManagementPolicyActionArgs',
     'ManagementPolicyActionArgsDict',
     'ManagementPolicyBaseBlobArgs',
@@ -128,6 +134,14 @@ __all__ = [
     'SmbSettingArgsDict',
     'SshPublicKeyArgs',
     'SshPublicKeyArgsDict',
+    'StorageConnectorPropertiesArgs',
+    'StorageConnectorPropertiesArgsDict',
+    'StorageDataShareAccessPolicyArgs',
+    'StorageDataShareAccessPolicyArgsDict',
+    'StorageDataShareAssetArgs',
+    'StorageDataShareAssetArgsDict',
+    'StorageDataSharePropertiesArgs',
+    'StorageDataSharePropertiesArgsDict',
     'StorageTaskAssignmentExecutionContextArgs',
     'StorageTaskAssignmentExecutionContextArgsDict',
     'StorageTaskAssignmentPropertiesArgs',
@@ -1241,6 +1255,135 @@ class CustomDomainArgs:
     @use_sub_domain_name.setter
     def use_sub_domain_name(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "use_sub_domain_name", value)
+
+
+class DataShareConnectionArgsDict(TypedDict):
+    """
+    The connection details for Data Share source
+    """
+    data_share_uri: pulumi.Input[_builtins.str]
+    """
+    The URI of the backing DataShare. Must be in the format: azds://<region>:<DataShareName>:<DataShareIdentifier>
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The connection type for bucket connection in storage connector.
+    Expected value is 'DataShare'.
+    """
+
+@pulumi.input_type
+class DataShareConnectionArgs:
+    def __init__(__self__, *,
+                 data_share_uri: pulumi.Input[_builtins.str],
+                 type: pulumi.Input[_builtins.str]):
+        """
+        The connection details for Data Share source
+
+        :param pulumi.Input[_builtins.str] data_share_uri: The URI of the backing DataShare. Must be in the format: azds://<region>:<DataShareName>:<DataShareIdentifier>
+        :param pulumi.Input[_builtins.str] type: The connection type for bucket connection in storage connector.
+               Expected value is 'DataShare'.
+        """
+        pulumi.set(__self__, "data_share_uri", data_share_uri)
+        pulumi.set(__self__, "type", 'DataShare')
+
+    @_builtins.property
+    @pulumi.getter(name="dataShareUri")
+    def data_share_uri(self) -> pulumi.Input[_builtins.str]:
+        """
+        The URI of the backing DataShare. Must be in the format: azds://<region>:<DataShareName>:<DataShareIdentifier>
+        """
+        return pulumi.get(self, "data_share_uri")
+
+    @data_share_uri.setter
+    def data_share_uri(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "data_share_uri", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The connection type for bucket connection in storage connector.
+        Expected value is 'DataShare'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+
+class DataShareSourceArgsDict(TypedDict):
+    """
+    The properties of data share source
+    """
+    auth_properties: pulumi.Input['ManagedIdentityAuthPropertiesArgsDict']
+    """
+    Details for how to authenticate to the backing data store.
+    """
+    connection: pulumi.Input['DataShareConnectionArgsDict']
+    """
+    Details for how to connect to the backing data store.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of the backing data source for storage connector
+    Expected value is 'DataShare'.
+    """
+
+@pulumi.input_type
+class DataShareSourceArgs:
+    def __init__(__self__, *,
+                 auth_properties: pulumi.Input['ManagedIdentityAuthPropertiesArgs'],
+                 connection: pulumi.Input['DataShareConnectionArgs'],
+                 type: pulumi.Input[_builtins.str]):
+        """
+        The properties of data share source
+
+        :param pulumi.Input['ManagedIdentityAuthPropertiesArgs'] auth_properties: Details for how to authenticate to the backing data store.
+        :param pulumi.Input['DataShareConnectionArgs'] connection: Details for how to connect to the backing data store.
+        :param pulumi.Input[_builtins.str] type: The type of the backing data source for storage connector
+               Expected value is 'DataShare'.
+        """
+        pulumi.set(__self__, "auth_properties", auth_properties)
+        pulumi.set(__self__, "connection", connection)
+        pulumi.set(__self__, "type", 'DataShare')
+
+    @_builtins.property
+    @pulumi.getter(name="authProperties")
+    def auth_properties(self) -> pulumi.Input['ManagedIdentityAuthPropertiesArgs']:
+        """
+        Details for how to authenticate to the backing data store.
+        """
+        return pulumi.get(self, "auth_properties")
+
+    @auth_properties.setter
+    def auth_properties(self, value: pulumi.Input['ManagedIdentityAuthPropertiesArgs']):
+        pulumi.set(self, "auth_properties", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def connection(self) -> pulumi.Input['DataShareConnectionArgs']:
+        """
+        Details for how to connect to the backing data store.
+        """
+        return pulumi.get(self, "connection")
+
+    @connection.setter
+    def connection(self, value: pulumi.Input['DataShareConnectionArgs']):
+        pulumi.set(self, "connection", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The type of the backing data source for storage connector
+        Expected value is 'DataShare'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
 
 
 class DateAfterCreationArgsDict(TypedDict):
@@ -2444,6 +2587,62 @@ class LastAccessTimeTrackingPolicyArgs:
     @tracking_granularity_in_days.setter
     def tracking_granularity_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "tracking_granularity_in_days", value)
+
+
+class ManagedIdentityAuthPropertiesArgsDict(TypedDict):
+    """
+    The managed identity auth properties for dataShare connection.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The auth type supported for bucket connection in storage connector.
+    Expected value is 'ManagedIdentity'.
+    """
+    identity_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARM ResourceId of the managed identity that should be used to authenticate to the backing data source.
+    """
+
+@pulumi.input_type
+class ManagedIdentityAuthPropertiesArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 identity_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        The managed identity auth properties for dataShare connection.
+
+        :param pulumi.Input[_builtins.str] type: The auth type supported for bucket connection in storage connector.
+               Expected value is 'ManagedIdentity'.
+        :param pulumi.Input[_builtins.str] identity_resource_id: ARM ResourceId of the managed identity that should be used to authenticate to the backing data source.
+        """
+        pulumi.set(__self__, "type", 'ManagedIdentity')
+        if identity_resource_id is not None:
+            pulumi.set(__self__, "identity_resource_id", identity_resource_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The auth type supported for bucket connection in storage connector.
+        Expected value is 'ManagedIdentity'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="identityResourceId")
+    def identity_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ARM ResourceId of the managed identity that should be used to authenticate to the backing data source.
+        """
+        return pulumi.get(self, "identity_resource_id")
+
+    @identity_resource_id.setter
+    def identity_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "identity_resource_id", value)
 
 
 class ManagementPolicyActionArgsDict(TypedDict):
@@ -4115,6 +4314,341 @@ class SshPublicKeyArgs:
     @key.setter
     def key(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "key", value)
+
+
+class StorageConnectorPropertiesArgsDict(TypedDict):
+    """
+    The storage connector properties
+    """
+    data_source_type: pulumi.Input[Union[_builtins.str, 'StorageConnectorDataSourceType']]
+    """
+    The type of backing data source for this Storage Connector.
+    """
+    source: pulumi.Input['DataShareSourceArgsDict']
+    """
+    Information about how to communicate with and authenticate to the backing data store.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Arbitrary description of this Storage Connector. Max 250 characters.
+    """
+    state: NotRequired[pulumi.Input[Union[_builtins.str, 'StorageConnectorState']]]
+    """
+    State - Active or Inactive. Whether or not the Storage Connector should start as active (default: Active)
+    (While set to false on the Storage Connector, all data plane requests using this Storage Connector fail, and this Storage Connector is not billed if it would be otherwise.
+    """
+    test_connection: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Test connection to backing data source before creating the storage connector.
+    """
+
+@pulumi.input_type
+class StorageConnectorPropertiesArgs:
+    def __init__(__self__, *,
+                 data_source_type: pulumi.Input[Union[_builtins.str, 'StorageConnectorDataSourceType']],
+                 source: pulumi.Input['DataShareSourceArgs'],
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 state: Optional[pulumi.Input[Union[_builtins.str, 'StorageConnectorState']]] = None,
+                 test_connection: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        The storage connector properties
+
+        :param pulumi.Input[Union[_builtins.str, 'StorageConnectorDataSourceType']] data_source_type: The type of backing data source for this Storage Connector.
+        :param pulumi.Input['DataShareSourceArgs'] source: Information about how to communicate with and authenticate to the backing data store.
+        :param pulumi.Input[_builtins.str] description: Arbitrary description of this Storage Connector. Max 250 characters.
+        :param pulumi.Input[Union[_builtins.str, 'StorageConnectorState']] state: State - Active or Inactive. Whether or not the Storage Connector should start as active (default: Active)
+               (While set to false on the Storage Connector, all data plane requests using this Storage Connector fail, and this Storage Connector is not billed if it would be otherwise.
+        :param pulumi.Input[_builtins.bool] test_connection: Test connection to backing data source before creating the storage connector.
+        """
+        pulumi.set(__self__, "data_source_type", data_source_type)
+        pulumi.set(__self__, "source", source)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if state is None:
+            state = 'Active'
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if test_connection is None:
+            test_connection = False
+        if test_connection is not None:
+            pulumi.set(__self__, "test_connection", test_connection)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSourceType")
+    def data_source_type(self) -> pulumi.Input[Union[_builtins.str, 'StorageConnectorDataSourceType']]:
+        """
+        The type of backing data source for this Storage Connector.
+        """
+        return pulumi.get(self, "data_source_type")
+
+    @data_source_type.setter
+    def data_source_type(self, value: pulumi.Input[Union[_builtins.str, 'StorageConnectorDataSourceType']]):
+        pulumi.set(self, "data_source_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> pulumi.Input['DataShareSourceArgs']:
+        """
+        Information about how to communicate with and authenticate to the backing data store.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input['DataShareSourceArgs']):
+        pulumi.set(self, "source", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Arbitrary description of this Storage Connector. Max 250 characters.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'StorageConnectorState']]]:
+        """
+        State - Active or Inactive. Whether or not the Storage Connector should start as active (default: Active)
+        (While set to false on the Storage Connector, all data plane requests using this Storage Connector fail, and this Storage Connector is not billed if it would be otherwise.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'StorageConnectorState']]]):
+        pulumi.set(self, "state", value)
+
+    @_builtins.property
+    @pulumi.getter(name="testConnection")
+    def test_connection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Test connection to backing data source before creating the storage connector.
+        """
+        return pulumi.get(self, "test_connection")
+
+    @test_connection.setter
+    def test_connection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "test_connection", value)
+
+
+class StorageDataShareAccessPolicyArgsDict(TypedDict):
+    """
+    Policy that specify the permission allowed to a managed identity
+    """
+    permission: pulumi.Input[Union[_builtins.str, 'StorageDataShareAccessPolicyPermission']]
+    """
+    Allowed permissions. Currently, only supported value is Read.
+    """
+    principal_id: pulumi.Input[_builtins.str]
+    """
+    The AAD principal ID of the Managed Identity.
+    """
+    tenant_id: pulumi.Input[_builtins.str]
+    """
+    The AAD tenant ID of the Managed Identity.
+    """
+
+@pulumi.input_type
+class StorageDataShareAccessPolicyArgs:
+    def __init__(__self__, *,
+                 permission: pulumi.Input[Union[_builtins.str, 'StorageDataShareAccessPolicyPermission']],
+                 principal_id: pulumi.Input[_builtins.str],
+                 tenant_id: pulumi.Input[_builtins.str]):
+        """
+        Policy that specify the permission allowed to a managed identity
+
+        :param pulumi.Input[Union[_builtins.str, 'StorageDataShareAccessPolicyPermission']] permission: Allowed permissions. Currently, only supported value is Read.
+        :param pulumi.Input[_builtins.str] principal_id: The AAD principal ID of the Managed Identity.
+        :param pulumi.Input[_builtins.str] tenant_id: The AAD tenant ID of the Managed Identity.
+        """
+        pulumi.set(__self__, "permission", permission)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def permission(self) -> pulumi.Input[Union[_builtins.str, 'StorageDataShareAccessPolicyPermission']]:
+        """
+        Allowed permissions. Currently, only supported value is Read.
+        """
+        return pulumi.get(self, "permission")
+
+    @permission.setter
+    def permission(self, value: pulumi.Input[Union[_builtins.str, 'StorageDataShareAccessPolicyPermission']]):
+        pulumi.set(self, "permission", value)
+
+    @_builtins.property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The AAD principal ID of the Managed Identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "principal_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The AAD tenant ID of the Managed Identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "tenant_id", value)
+
+
+class StorageDataShareAssetArgsDict(TypedDict):
+    """
+    Properties of a shared resource.
+    """
+    asset_path: pulumi.Input[_builtins.str]
+    """
+    Source Path to be shared. It can be a folder or a blob.
+    The asset path should contain container name followed by path within the container, e.g. /container1/logs/external.
+    """
+    display_name: pulumi.Input[_builtins.str]
+    """
+    Consumer visible name of the original path.
+    """
+
+@pulumi.input_type
+class StorageDataShareAssetArgs:
+    def __init__(__self__, *,
+                 asset_path: pulumi.Input[_builtins.str],
+                 display_name: pulumi.Input[_builtins.str]):
+        """
+        Properties of a shared resource.
+
+        :param pulumi.Input[_builtins.str] asset_path: Source Path to be shared. It can be a folder or a blob.
+               The asset path should contain container name followed by path within the container, e.g. /container1/logs/external.
+        :param pulumi.Input[_builtins.str] display_name: Consumer visible name of the original path.
+        """
+        pulumi.set(__self__, "asset_path", asset_path)
+        pulumi.set(__self__, "display_name", display_name)
+
+    @_builtins.property
+    @pulumi.getter(name="assetPath")
+    def asset_path(self) -> pulumi.Input[_builtins.str]:
+        """
+        Source Path to be shared. It can be a folder or a blob.
+        The asset path should contain container name followed by path within the container, e.g. /container1/logs/external.
+        """
+        return pulumi.get(self, "asset_path")
+
+    @asset_path.setter
+    def asset_path(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "asset_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Consumer visible name of the original path.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "display_name", value)
+
+
+class StorageDataSharePropertiesArgsDict(TypedDict):
+    """
+    The storage datashare properties
+    """
+    access_policies: pulumi.Input[Sequence[pulumi.Input['StorageDataShareAccessPolicyArgsDict']]]
+    """
+    List of access policies that specify the permission allowed to a managed identity.
+    For Create - This property is required and cannot be null. If no access policies are provided at creation time, specify an empty array.
+    For Update - This property is optional. If set to null or not passed, the existing access policies are left unchanged.
+    If provided with a non-null value, the existing access policies are replaced with the specified list.
+    """
+    assets: pulumi.Input[Sequence[pulumi.Input['StorageDataShareAssetArgsDict']]]
+    """
+    List of assets that specify the properties of the shared resources.
+    For Create - This property is required and cannot be null. If no assets are provided at creation time, specify an empty array.
+    For Update - This property is optional. If set to null or not passed, the existing assets are left unchanged.
+    If provided with a non-null value, the existing assets are replaced with the specified list.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Arbitrary description of this Data Share. Max 250 characters.
+    """
+
+@pulumi.input_type
+class StorageDataSharePropertiesArgs:
+    def __init__(__self__, *,
+                 access_policies: pulumi.Input[Sequence[pulumi.Input['StorageDataShareAccessPolicyArgs']]],
+                 assets: pulumi.Input[Sequence[pulumi.Input['StorageDataShareAssetArgs']]],
+                 description: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        The storage datashare properties
+
+        :param pulumi.Input[Sequence[pulumi.Input['StorageDataShareAccessPolicyArgs']]] access_policies: List of access policies that specify the permission allowed to a managed identity.
+               For Create - This property is required and cannot be null. If no access policies are provided at creation time, specify an empty array.
+               For Update - This property is optional. If set to null or not passed, the existing access policies are left unchanged.
+               If provided with a non-null value, the existing access policies are replaced with the specified list.
+        :param pulumi.Input[Sequence[pulumi.Input['StorageDataShareAssetArgs']]] assets: List of assets that specify the properties of the shared resources.
+               For Create - This property is required and cannot be null. If no assets are provided at creation time, specify an empty array.
+               For Update - This property is optional. If set to null or not passed, the existing assets are left unchanged.
+               If provided with a non-null value, the existing assets are replaced with the specified list.
+        :param pulumi.Input[_builtins.str] description: Arbitrary description of this Data Share. Max 250 characters.
+        """
+        pulumi.set(__self__, "access_policies", access_policies)
+        pulumi.set(__self__, "assets", assets)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @_builtins.property
+    @pulumi.getter(name="accessPolicies")
+    def access_policies(self) -> pulumi.Input[Sequence[pulumi.Input['StorageDataShareAccessPolicyArgs']]]:
+        """
+        List of access policies that specify the permission allowed to a managed identity.
+        For Create - This property is required and cannot be null. If no access policies are provided at creation time, specify an empty array.
+        For Update - This property is optional. If set to null or not passed, the existing access policies are left unchanged.
+        If provided with a non-null value, the existing access policies are replaced with the specified list.
+        """
+        return pulumi.get(self, "access_policies")
+
+    @access_policies.setter
+    def access_policies(self, value: pulumi.Input[Sequence[pulumi.Input['StorageDataShareAccessPolicyArgs']]]):
+        pulumi.set(self, "access_policies", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def assets(self) -> pulumi.Input[Sequence[pulumi.Input['StorageDataShareAssetArgs']]]:
+        """
+        List of assets that specify the properties of the shared resources.
+        For Create - This property is required and cannot be null. If no assets are provided at creation time, specify an empty array.
+        For Update - This property is optional. If set to null or not passed, the existing assets are left unchanged.
+        If provided with a non-null value, the existing assets are replaced with the specified list.
+        """
+        return pulumi.get(self, "assets")
+
+    @assets.setter
+    def assets(self, value: pulumi.Input[Sequence[pulumi.Input['StorageDataShareAssetArgs']]]):
+        pulumi.set(self, "assets", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Arbitrary description of this Data Share. Max 250 characters.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
 
 
 class StorageTaskAssignmentExecutionContextArgsDict(TypedDict):

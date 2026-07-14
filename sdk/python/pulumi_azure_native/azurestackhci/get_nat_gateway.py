@@ -154,7 +154,7 @@ def get_nat_gateway(nat_gateway_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2025-09-01-preview.
 
-    Other available API versions: 2026-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2026-02-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str nat_gateway_name: Name of the nat gateway
@@ -184,7 +184,7 @@ def get_nat_gateway_output(nat_gateway_name: Optional[pulumi.Input[_builtins.str
 
     Uses Azure REST API version 2025-09-01-preview.
 
-    Other available API versions: 2026-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2026-02-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str nat_gateway_name: Name of the nat gateway

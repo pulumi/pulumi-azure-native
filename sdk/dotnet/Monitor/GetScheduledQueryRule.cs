@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The rule criteria that defines the conditions of the scheduled query rule.
         /// </summary>
-        public readonly Outputs.ScheduledQueryRuleCriteriaResponse Criteria;
+        public readonly Outputs.ScheduledQueryRuleCriteriaResponse? Criteria;
         /// <summary>
         /// The description of the scheduled query rule.
         /// </summary>
@@ -122,9 +122,9 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
         /// </summary>
-        public readonly bool Enabled;
+        public readonly bool? Enabled;
         /// <summary>
-        /// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+        /// "If etag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.")
         /// </summary>
         public readonly string Etag;
         /// <summary>
@@ -138,7 +138,7 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The identity of the resource.
         /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
+        public readonly Outputs.MicrosoftCommonIdentityResponse? Identity;
         /// <summary>
         /// True if alert rule is legacy Log Analytic rule
         /// </summary>
@@ -184,7 +184,7 @@ namespace Pulumi.AzureNative.Monitor
         /// </summary>
         public readonly bool? SkipQueryValidation;
         /// <summary>
-        /// SystemData of ScheduledQueryRule.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -216,13 +216,13 @@ namespace Pulumi.AzureNative.Monitor
 
             string createdWithApiVersion,
 
-            Outputs.ScheduledQueryRuleCriteriaResponse criteria,
+            Outputs.ScheduledQueryRuleCriteriaResponse? criteria,
 
             string? description,
 
             string? displayName,
 
-            bool enabled,
+            bool? enabled,
 
             string etag,
 
@@ -230,7 +230,7 @@ namespace Pulumi.AzureNative.Monitor
 
             string id,
 
-            Outputs.IdentityResponse? identity,
+            Outputs.MicrosoftCommonIdentityResponse? identity,
 
             bool isLegacyLogAnalyticsRule,
 

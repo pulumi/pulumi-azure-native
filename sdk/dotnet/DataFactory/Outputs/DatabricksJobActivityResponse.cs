@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// Job parameters to be used for each run of this job. If the job takes a parameter that is not specified, the default value from the job will be used.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? JobParameters;
+        public readonly object? JobParameters;
         /// <summary>
         /// Linked service reference.
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object jobId,
 
-            ImmutableDictionary<string, object>? jobParameters,
+            object? jobParameters,
 
             Outputs.LinkedServiceReferenceResponse? linkedServiceName,
 

@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? MaxConcurrentConnections;
         /// <summary>
-        /// The time to await before sending next request, in milliseconds 
+        /// The time to await before sending next request, in milliseconds
         /// </summary>
         public readonly object? RequestInterval;
         /// <summary>

@@ -26,6 +26,7 @@ import * as app from "./app";
 import * as appcomplianceautomation from "./appcomplianceautomation";
 import * as appconfiguration from "./appconfiguration";
 import * as applicationinsights from "./applicationinsights";
+import * as applink from "./applink";
 import * as appplatform from "./appplatform";
 import * as attestation from "./attestation";
 import * as authorization from "./authorization";
@@ -40,6 +41,7 @@ import * as azuredatatransfer from "./azuredatatransfer";
 import * as azurefleet from "./azurefleet";
 import * as azurelargeinstance from "./azurelargeinstance";
 import * as azureplaywrightservice from "./azureplaywrightservice";
+import * as azureresiliencemanagement from "./azureresiliencemanagement";
 import * as azuresphere from "./azuresphere";
 import * as azurestack from "./azurestack";
 import * as azurestackhci from "./azurestackhci";
@@ -47,11 +49,11 @@ import * as baremetalinfrastructure from "./baremetalinfrastructure";
 import * as batch from "./batch";
 import * as billing from "./billing";
 import * as billingbenefits from "./billingbenefits";
+import * as billingtrust from "./billingtrust";
 import * as blueprint from "./blueprint";
 import * as botservice from "./botservice";
 import * as cdn from "./cdn";
 import * as certificateregistration from "./certificateregistration";
-import * as changeanalysis from "./changeanalysis";
 import * as chaos from "./chaos";
 import * as cloudhealth from "./cloudhealth";
 import * as cloudngfw from "./cloudngfw";
@@ -138,6 +140,7 @@ import * as hdinsight from "./hdinsight";
 import * as healthbot from "./healthbot";
 import * as healthcareapis from "./healthcareapis";
 import * as healthdataaiservices from "./healthdataaiservices";
+import * as horizondb from "./horizondb";
 import * as hybridcloud from "./hybridcloud";
 import * as hybridcompute from "./hybridcompute";
 import * as hybridconnectivity from "./hybridconnectivity";
@@ -202,6 +205,7 @@ import * as powerbidedicated from "./powerbidedicated";
 import * as powerplatform from "./powerplatform";
 import * as privatedns from "./privatedns";
 import * as professionalservice from "./professionalservice";
+import * as programenrollment from "./programenrollment";
 import * as programmableconnectivity from "./programmableconnectivity";
 import * as providerhub from "./providerhub";
 import * as purview from "./purview";
@@ -259,7 +263,6 @@ import * as verifiedid from "./verifiedid";
 import * as videoindexer from "./videoindexer";
 import * as virtualmachineimages from "./virtualmachineimages";
 import * as vmwarecloudsimple from "./vmwarecloudsimple";
-import * as voiceservices from "./voiceservices";
 import * as web from "./web";
 import * as webpubsub from "./webpubsub";
 import * as weightsandbiases from "./weightsandbiases";
@@ -283,6 +286,7 @@ export {
     appcomplianceautomation,
     appconfiguration,
     applicationinsights,
+    applink,
     appplatform,
     attestation,
     authorization,
@@ -297,6 +301,7 @@ export {
     azurefleet,
     azurelargeinstance,
     azureplaywrightservice,
+    azureresiliencemanagement,
     azuresphere,
     azurestack,
     azurestackhci,
@@ -304,11 +309,11 @@ export {
     batch,
     billing,
     billingbenefits,
+    billingtrust,
     blueprint,
     botservice,
     cdn,
     certificateregistration,
-    changeanalysis,
     chaos,
     cloudhealth,
     cloudngfw,
@@ -395,6 +400,7 @@ export {
     healthbot,
     healthcareapis,
     healthdataaiservices,
+    horizondb,
     hybridcloud,
     hybridcompute,
     hybridconnectivity,
@@ -459,6 +465,7 @@ export {
     powerplatform,
     privatedns,
     professionalservice,
+    programenrollment,
     programmableconnectivity,
     providerhub,
     purview,
@@ -516,7 +523,6 @@ export {
     videoindexer,
     virtualmachineimages,
     vmwarecloudsimple,
-    voiceservices,
     web,
     webpubsub,
     weightsandbiases,

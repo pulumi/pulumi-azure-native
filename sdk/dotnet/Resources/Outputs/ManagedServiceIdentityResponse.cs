@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.Resources.Outputs
 {
 
     /// <summary>
-    /// Managed identity generic object.
+    /// Describes the managed identities for an Azure resource.
     /// </summary>
     [OutputType]
     public sealed class ManagedServiceIdentityResponse
     {
         /// <summary>
-        /// ID of the Azure Active Directory.
+        /// The tenant id of the managed identity.
         /// </summary>
         public readonly string TenantId;
         /// <summary>

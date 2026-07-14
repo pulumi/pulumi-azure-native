@@ -54,8 +54,6 @@ __all__ = [
     'AwsCloudTrailDataConnectorDataTypesLogsArgsDict',
     'AwsCloudTrailDataConnectorDataTypesArgs',
     'AwsCloudTrailDataConnectorDataTypesArgsDict',
-    'AzureDevOpsResourceInfoArgs',
-    'AzureDevOpsResourceInfoArgsDict',
     'BasicAuthModelArgs',
     'BasicAuthModelArgsDict',
     'BooleanConditionPropertiesArgs',
@@ -74,8 +72,6 @@ __all__ = [
     'ConnectorDefinitionsPermissionsArgsDict',
     'ConnectorDefinitionsResourceProviderArgs',
     'ConnectorDefinitionsResourceProviderArgsDict',
-    'ContentPathMapArgs',
-    'ContentPathMapArgsDict',
     'CustomPermissionDetailsArgs',
     'CustomPermissionDetailsArgsDict',
     'CustomizableConnectionsConfigArgs',
@@ -86,10 +82,6 @@ __all__ = [
     'DCRConfigurationArgsDict',
     'DataConnectorDataTypeCommonArgs',
     'DataConnectorDataTypeCommonArgsDict',
-    'DeploymentInfoArgs',
-    'DeploymentInfoArgsDict',
-    'DeploymentArgs',
-    'DeploymentArgsDict',
     'EntityMappingArgs',
     'EntityMappingArgsDict',
     'EventGroupingSettingsArgs',
@@ -104,8 +96,6 @@ __all__ = [
     'GenericBlobSbsAuthModelArgsDict',
     'GitHubAuthModelArgs',
     'GitHubAuthModelArgsDict',
-    'GitHubResourceInfoArgs',
-    'GitHubResourceInfoArgsDict',
     'GraphQueryArgs',
     'GraphQueryArgsDict',
     'GroupingConfigurationArgs',
@@ -172,6 +162,8 @@ __all__ = [
     'PropertyChangedConditionPropertiesArgsDict',
     'PropertyConditionPropertiesArgs',
     'PropertyConditionPropertiesArgsDict',
+    'RepositoryAccessArgs',
+    'RepositoryAccessArgsDict',
     'RepositoryResourceInfoArgs',
     'RepositoryResourceInfoArgsDict',
     'RepositoryArgs',
@@ -184,6 +176,8 @@ __all__ = [
     'RestApiPollerRequestPagingConfigArgsDict',
     'SecurityMLAnalyticsSettingsDataSourceArgs',
     'SecurityMLAnalyticsSettingsDataSourceArgsDict',
+    'ServicePrincipalArgs',
+    'ServicePrincipalArgsDict',
     'SessionAuthModelArgs',
     'SessionAuthModelArgsDict',
     'TIDataConnectorDataTypesIndicatorsArgs',
@@ -1333,60 +1327,6 @@ class AwsCloudTrailDataConnectorDataTypesArgs:
         pulumi.set(self, "logs", value)
 
 
-class AzureDevOpsResourceInfoArgsDict(TypedDict):
-    """
-    Resources created in Azure DevOps repository.
-    """
-    pipeline_id: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Id of the pipeline created for the source-control.
-    """
-    service_connection_id: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Id of the service-connection created for the source-control.
-    """
-
-@pulumi.input_type
-class AzureDevOpsResourceInfoArgs:
-    def __init__(__self__, *,
-                 pipeline_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_connection_id: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Resources created in Azure DevOps repository.
-
-        :param pulumi.Input[_builtins.str] pipeline_id: Id of the pipeline created for the source-control.
-        :param pulumi.Input[_builtins.str] service_connection_id: Id of the service-connection created for the source-control.
-        """
-        if pipeline_id is not None:
-            pulumi.set(__self__, "pipeline_id", pipeline_id)
-        if service_connection_id is not None:
-            pulumi.set(__self__, "service_connection_id", service_connection_id)
-
-    @_builtins.property
-    @pulumi.getter(name="pipelineId")
-    def pipeline_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Id of the pipeline created for the source-control.
-        """
-        return pulumi.get(self, "pipeline_id")
-
-    @pipeline_id.setter
-    def pipeline_id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "pipeline_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="serviceConnectionId")
-    def service_connection_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Id of the service-connection created for the source-control.
-        """
-        return pulumi.get(self, "service_connection_id")
-
-    @service_connection_id.setter
-    def service_connection_id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "service_connection_id", value)
-
-
 class BasicAuthModelArgsDict(TypedDict):
     """
     Model for API authentication with basic flow - user name + password.
@@ -2221,60 +2161,6 @@ class ConnectorDefinitionsResourceProviderArgs:
         pulumi.set(self, "scope", value)
 
 
-class ContentPathMapArgsDict(TypedDict):
-    """
-    The mapping of content type to a repo path.
-    """
-    content_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ContentType']]]
-    """
-    Content type.
-    """
-    path: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The path to the content.
-    """
-
-@pulumi.input_type
-class ContentPathMapArgs:
-    def __init__(__self__, *,
-                 content_type: Optional[pulumi.Input[Union[_builtins.str, 'ContentType']]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        The mapping of content type to a repo path.
-
-        :param pulumi.Input[Union[_builtins.str, 'ContentType']] content_type: Content type.
-        :param pulumi.Input[_builtins.str] path: The path to the content.
-        """
-        if content_type is not None:
-            pulumi.set(__self__, "content_type", content_type)
-        if path is not None:
-            pulumi.set(__self__, "path", path)
-
-    @_builtins.property
-    @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ContentType']]]:
-        """
-        Content type.
-        """
-        return pulumi.get(self, "content_type")
-
-    @content_type.setter
-    def content_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ContentType']]]):
-        pulumi.set(self, "content_type", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The path to the content.
-        """
-        return pulumi.get(self, "path")
-
-    @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "path", value)
-
-
 class CustomPermissionDetailsArgsDict(TypedDict):
     """
     The Custom permissions required for the connector.
@@ -2732,194 +2618,6 @@ class DataConnectorDataTypeCommonArgs:
         pulumi.set(self, "state", value)
 
 
-class DeploymentInfoArgsDict(TypedDict):
-    """
-    Information regarding a deployment.
-    """
-    deployment: NotRequired[pulumi.Input['DeploymentArgsDict']]
-    """
-    Deployment information.
-    """
-    deployment_fetch_status: NotRequired[pulumi.Input[Union[_builtins.str, 'DeploymentFetchStatus']]]
-    """
-    Status while fetching the last deployment.
-    """
-    message: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Additional details about the deployment that can be shown to the user.
-    """
-
-@pulumi.input_type
-class DeploymentInfoArgs:
-    def __init__(__self__, *,
-                 deployment: Optional[pulumi.Input['DeploymentArgs']] = None,
-                 deployment_fetch_status: Optional[pulumi.Input[Union[_builtins.str, 'DeploymentFetchStatus']]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Information regarding a deployment.
-
-        :param pulumi.Input['DeploymentArgs'] deployment: Deployment information.
-        :param pulumi.Input[Union[_builtins.str, 'DeploymentFetchStatus']] deployment_fetch_status: Status while fetching the last deployment.
-        :param pulumi.Input[_builtins.str] message: Additional details about the deployment that can be shown to the user.
-        """
-        if deployment is not None:
-            pulumi.set(__self__, "deployment", deployment)
-        if deployment_fetch_status is not None:
-            pulumi.set(__self__, "deployment_fetch_status", deployment_fetch_status)
-        if message is not None:
-            pulumi.set(__self__, "message", message)
-
-    @_builtins.property
-    @pulumi.getter
-    def deployment(self) -> Optional[pulumi.Input['DeploymentArgs']]:
-        """
-        Deployment information.
-        """
-        return pulumi.get(self, "deployment")
-
-    @deployment.setter
-    def deployment(self, value: Optional[pulumi.Input['DeploymentArgs']]):
-        pulumi.set(self, "deployment", value)
-
-    @_builtins.property
-    @pulumi.getter(name="deploymentFetchStatus")
-    def deployment_fetch_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DeploymentFetchStatus']]]:
-        """
-        Status while fetching the last deployment.
-        """
-        return pulumi.get(self, "deployment_fetch_status")
-
-    @deployment_fetch_status.setter
-    def deployment_fetch_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DeploymentFetchStatus']]]):
-        pulumi.set(self, "deployment_fetch_status", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def message(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Additional details about the deployment that can be shown to the user.
-        """
-        return pulumi.get(self, "message")
-
-    @message.setter
-    def message(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "message", value)
-
-
-class DeploymentArgsDict(TypedDict):
-    """
-    Description about a deployment.
-    """
-    deployment_id: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Deployment identifier.
-    """
-    deployment_logs_url: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Url to access repository action logs.
-    """
-    deployment_result: NotRequired[pulumi.Input[Union[_builtins.str, 'DeploymentResult']]]
-    """
-    The outcome of the deployment.
-    """
-    deployment_state: NotRequired[pulumi.Input[Union[_builtins.str, 'DeploymentState']]]
-    """
-    Current status of the deployment.
-    """
-    deployment_time: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The time when the deployment finished.
-    """
-
-@pulumi.input_type
-class DeploymentArgs:
-    def __init__(__self__, *,
-                 deployment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_logs_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_result: Optional[pulumi.Input[Union[_builtins.str, 'DeploymentResult']]] = None,
-                 deployment_state: Optional[pulumi.Input[Union[_builtins.str, 'DeploymentState']]] = None,
-                 deployment_time: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Description about a deployment.
-
-        :param pulumi.Input[_builtins.str] deployment_id: Deployment identifier.
-        :param pulumi.Input[_builtins.str] deployment_logs_url: Url to access repository action logs.
-        :param pulumi.Input[Union[_builtins.str, 'DeploymentResult']] deployment_result: The outcome of the deployment.
-        :param pulumi.Input[Union[_builtins.str, 'DeploymentState']] deployment_state: Current status of the deployment.
-        :param pulumi.Input[_builtins.str] deployment_time: The time when the deployment finished.
-        """
-        if deployment_id is not None:
-            pulumi.set(__self__, "deployment_id", deployment_id)
-        if deployment_logs_url is not None:
-            pulumi.set(__self__, "deployment_logs_url", deployment_logs_url)
-        if deployment_result is not None:
-            pulumi.set(__self__, "deployment_result", deployment_result)
-        if deployment_state is not None:
-            pulumi.set(__self__, "deployment_state", deployment_state)
-        if deployment_time is not None:
-            pulumi.set(__self__, "deployment_time", deployment_time)
-
-    @_builtins.property
-    @pulumi.getter(name="deploymentId")
-    def deployment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Deployment identifier.
-        """
-        return pulumi.get(self, "deployment_id")
-
-    @deployment_id.setter
-    def deployment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "deployment_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="deploymentLogsUrl")
-    def deployment_logs_url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Url to access repository action logs.
-        """
-        return pulumi.get(self, "deployment_logs_url")
-
-    @deployment_logs_url.setter
-    def deployment_logs_url(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "deployment_logs_url", value)
-
-    @_builtins.property
-    @pulumi.getter(name="deploymentResult")
-    def deployment_result(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DeploymentResult']]]:
-        """
-        The outcome of the deployment.
-        """
-        return pulumi.get(self, "deployment_result")
-
-    @deployment_result.setter
-    def deployment_result(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DeploymentResult']]]):
-        pulumi.set(self, "deployment_result", value)
-
-    @_builtins.property
-    @pulumi.getter(name="deploymentState")
-    def deployment_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DeploymentState']]]:
-        """
-        Current status of the deployment.
-        """
-        return pulumi.get(self, "deployment_state")
-
-    @deployment_state.setter
-    def deployment_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DeploymentState']]]):
-        pulumi.set(self, "deployment_state", value)
-
-    @_builtins.property
-    @pulumi.getter(name="deploymentTime")
-    def deployment_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The time when the deployment finished.
-        """
-        return pulumi.get(self, "deployment_time")
-
-    @deployment_time.setter
-    def deployment_time(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "deployment_time", value)
-
-
 class EntityMappingArgsDict(TypedDict):
     """
     Single entity mapping for the alert rule
@@ -3359,40 +3057,6 @@ class GitHubAuthModelArgs:
     @installation_id.setter
     def installation_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "installation_id", value)
-
-
-class GitHubResourceInfoArgsDict(TypedDict):
-    """
-    Resources created in GitHub repository.
-    """
-    app_installation_id: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    GitHub application installation id.
-    """
-
-@pulumi.input_type
-class GitHubResourceInfoArgs:
-    def __init__(__self__, *,
-                 app_installation_id: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Resources created in GitHub repository.
-
-        :param pulumi.Input[_builtins.str] app_installation_id: GitHub application installation id.
-        """
-        if app_installation_id is not None:
-            pulumi.set(__self__, "app_installation_id", app_installation_id)
-
-    @_builtins.property
-    @pulumi.getter(name="appInstallationId")
-    def app_installation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        GitHub application installation id.
-        """
-        return pulumi.get(self, "app_installation_id")
-
-    @app_installation_id.setter
-    def app_installation_id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "app_installation_id", value)
 
 
 class GraphQueryArgsDict(TypedDict):
@@ -6057,17 +5721,142 @@ class PropertyConditionPropertiesArgs:
         pulumi.set(self, "condition_properties", value)
 
 
+class RepositoryAccessArgsDict(TypedDict):
+    """
+    Credentials to access repository.
+    """
+    kind: pulumi.Input[Union[_builtins.str, 'RepositoryAccessKind']]
+    """
+    The kind of repository access credentials
+    """
+    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    OAuth ClientId. Required when `kind` is `OAuth`
+    """
+    code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    OAuth Code. Required when `kind` is `OAuth`
+    """
+    installation_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Application installation ID. Required when `kind` is `App`. Supported by `GitHub` only.
+    """
+    state: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    OAuth State. Required when `kind` is `OAuth`
+    """
+    token: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Personal Access Token. Required when `kind` is `PAT`
+    """
+
+@pulumi.input_type
+class RepositoryAccessArgs:
+    def __init__(__self__, *,
+                 kind: pulumi.Input[Union[_builtins.str, 'RepositoryAccessKind']],
+                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 code: Optional[pulumi.Input[_builtins.str]] = None,
+                 installation_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 state: Optional[pulumi.Input[_builtins.str]] = None,
+                 token: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Credentials to access repository.
+
+        :param pulumi.Input[Union[_builtins.str, 'RepositoryAccessKind']] kind: The kind of repository access credentials
+        :param pulumi.Input[_builtins.str] client_id: OAuth ClientId. Required when `kind` is `OAuth`
+        :param pulumi.Input[_builtins.str] code: OAuth Code. Required when `kind` is `OAuth`
+        :param pulumi.Input[_builtins.str] installation_id: Application installation ID. Required when `kind` is `App`. Supported by `GitHub` only.
+        :param pulumi.Input[_builtins.str] state: OAuth State. Required when `kind` is `OAuth`
+        :param pulumi.Input[_builtins.str] token: Personal Access Token. Required when `kind` is `PAT`
+        """
+        pulumi.set(__self__, "kind", kind)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if installation_id is not None:
+            pulumi.set(__self__, "installation_id", installation_id)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if token is not None:
+            pulumi.set(__self__, "token", token)
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[Union[_builtins.str, 'RepositoryAccessKind']]:
+        """
+        The kind of repository access credentials
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[Union[_builtins.str, 'RepositoryAccessKind']]):
+        pulumi.set(self, "kind", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        OAuth ClientId. Required when `kind` is `OAuth`
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "client_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def code(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        OAuth Code. Required when `kind` is `OAuth`
+        """
+        return pulumi.get(self, "code")
+
+    @code.setter
+    def code(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "code", value)
+
+    @_builtins.property
+    @pulumi.getter(name="installationId")
+    def installation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Application installation ID. Required when `kind` is `App`. Supported by `GitHub` only.
+        """
+        return pulumi.get(self, "installation_id")
+
+    @installation_id.setter
+    def installation_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "installation_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        OAuth State. Required when `kind` is `OAuth`
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "state", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def token(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Personal Access Token. Required when `kind` is `PAT`
+        """
+        return pulumi.get(self, "token")
+
+    @token.setter
+    def token(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "token", value)
+
+
 class RepositoryResourceInfoArgsDict(TypedDict):
     """
     Resources created in user's repository for the source-control.
-    """
-    azure_dev_ops_resource_info: NotRequired[pulumi.Input['AzureDevOpsResourceInfoArgsDict']]
-    """
-    Resources created in Azure DevOps for this source-control.
-    """
-    git_hub_resource_info: NotRequired[pulumi.Input['GitHubResourceInfoArgsDict']]
-    """
-    Resources created in GitHub for this source-control.
     """
     webhook: NotRequired[pulumi.Input['WebhookArgsDict']]
     """
@@ -6077,46 +5866,14 @@ class RepositoryResourceInfoArgsDict(TypedDict):
 @pulumi.input_type
 class RepositoryResourceInfoArgs:
     def __init__(__self__, *,
-                 azure_dev_ops_resource_info: Optional[pulumi.Input['AzureDevOpsResourceInfoArgs']] = None,
-                 git_hub_resource_info: Optional[pulumi.Input['GitHubResourceInfoArgs']] = None,
                  webhook: Optional[pulumi.Input['WebhookArgs']] = None):
         """
         Resources created in user's repository for the source-control.
 
-        :param pulumi.Input['AzureDevOpsResourceInfoArgs'] azure_dev_ops_resource_info: Resources created in Azure DevOps for this source-control.
-        :param pulumi.Input['GitHubResourceInfoArgs'] git_hub_resource_info: Resources created in GitHub for this source-control.
         :param pulumi.Input['WebhookArgs'] webhook: The webhook object created for the source-control.
         """
-        if azure_dev_ops_resource_info is not None:
-            pulumi.set(__self__, "azure_dev_ops_resource_info", azure_dev_ops_resource_info)
-        if git_hub_resource_info is not None:
-            pulumi.set(__self__, "git_hub_resource_info", git_hub_resource_info)
         if webhook is not None:
             pulumi.set(__self__, "webhook", webhook)
-
-    @_builtins.property
-    @pulumi.getter(name="azureDevOpsResourceInfo")
-    def azure_dev_ops_resource_info(self) -> Optional[pulumi.Input['AzureDevOpsResourceInfoArgs']]:
-        """
-        Resources created in Azure DevOps for this source-control.
-        """
-        return pulumi.get(self, "azure_dev_ops_resource_info")
-
-    @azure_dev_ops_resource_info.setter
-    def azure_dev_ops_resource_info(self, value: Optional[pulumi.Input['AzureDevOpsResourceInfoArgs']]):
-        pulumi.set(self, "azure_dev_ops_resource_info", value)
-
-    @_builtins.property
-    @pulumi.getter(name="gitHubResourceInfo")
-    def git_hub_resource_info(self) -> Optional[pulumi.Input['GitHubResourceInfoArgs']]:
-        """
-        Resources created in GitHub for this source-control.
-        """
-        return pulumi.get(self, "git_hub_resource_info")
-
-    @git_hub_resource_info.setter
-    def git_hub_resource_info(self, value: Optional[pulumi.Input['GitHubResourceInfoArgs']]):
-        pulumi.set(self, "git_hub_resource_info", value)
 
     @_builtins.property
     @pulumi.getter
@@ -6135,78 +5892,60 @@ class RepositoryArgsDict(TypedDict):
     """
     metadata of a repository.
     """
-    branch: NotRequired[pulumi.Input[_builtins.str]]
+    branch: pulumi.Input[_builtins.str]
     """
     Branch name of repository.
     """
-    deployment_logs_url: NotRequired[pulumi.Input[_builtins.str]]
+    url: pulumi.Input[_builtins.str]
     """
-    Url to access repository action logs.
+    Url of repository.
     """
     display_url: NotRequired[pulumi.Input[_builtins.str]]
     """
     Display url of repository.
     """
-    path_mapping: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContentPathMapArgsDict']]]]
-    """
-    Dictionary of source control content type and path mapping.
-    """
-    url: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Url of repository.
-    """
 
 @pulumi.input_type
 class RepositoryArgs:
     def __init__(__self__, *,
-                 branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_logs_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 path_mapping: Optional[pulumi.Input[Sequence[pulumi.Input['ContentPathMapArgs']]]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 branch: pulumi.Input[_builtins.str],
+                 url: pulumi.Input[_builtins.str],
+                 display_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         metadata of a repository.
 
         :param pulumi.Input[_builtins.str] branch: Branch name of repository.
-        :param pulumi.Input[_builtins.str] deployment_logs_url: Url to access repository action logs.
-        :param pulumi.Input[_builtins.str] display_url: Display url of repository.
-        :param pulumi.Input[Sequence[pulumi.Input['ContentPathMapArgs']]] path_mapping: Dictionary of source control content type and path mapping.
         :param pulumi.Input[_builtins.str] url: Url of repository.
+        :param pulumi.Input[_builtins.str] display_url: Display url of repository.
         """
-        if branch is not None:
-            pulumi.set(__self__, "branch", branch)
-        if deployment_logs_url is not None:
-            pulumi.set(__self__, "deployment_logs_url", deployment_logs_url)
+        pulumi.set(__self__, "branch", branch)
+        pulumi.set(__self__, "url", url)
         if display_url is not None:
             pulumi.set(__self__, "display_url", display_url)
-        if path_mapping is not None:
-            pulumi.set(__self__, "path_mapping", path_mapping)
-        if url is not None:
-            pulumi.set(__self__, "url", url)
 
     @_builtins.property
     @pulumi.getter
-    def branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def branch(self) -> pulumi.Input[_builtins.str]:
         """
         Branch name of repository.
         """
         return pulumi.get(self, "branch")
 
     @branch.setter
-    def branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def branch(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "branch", value)
 
     @_builtins.property
-    @pulumi.getter(name="deploymentLogsUrl")
-    def deployment_logs_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    @pulumi.getter
+    def url(self) -> pulumi.Input[_builtins.str]:
         """
-        Url to access repository action logs.
+        Url of repository.
         """
-        return pulumi.get(self, "deployment_logs_url")
+        return pulumi.get(self, "url")
 
-    @deployment_logs_url.setter
-    def deployment_logs_url(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "deployment_logs_url", value)
+    @url.setter
+    def url(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "url", value)
 
     @_builtins.property
     @pulumi.getter(name="displayUrl")
@@ -6219,30 +5958,6 @@ class RepositoryArgs:
     @display_url.setter
     def display_url(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "display_url", value)
-
-    @_builtins.property
-    @pulumi.getter(name="pathMapping")
-    def path_mapping(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContentPathMapArgs']]]]:
-        """
-        Dictionary of source control content type and path mapping.
-        """
-        return pulumi.get(self, "path_mapping")
-
-    @path_mapping.setter
-    def path_mapping(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContentPathMapArgs']]]]):
-        pulumi.set(self, "path_mapping", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Url of repository.
-        """
-        return pulumi.get(self, "url")
-
-    @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "url", value)
 
 
 class ResourceProviderRequiredPermissionsArgsDict(TypedDict):
@@ -6799,6 +6514,40 @@ class SecurityMLAnalyticsSettingsDataSourceArgs:
     @data_types.setter
     def data_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "data_types", value)
+
+
+class ServicePrincipalArgsDict(TypedDict):
+    """
+    Service principal metadata.
+    """
+    credentials_expire_on: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Expiration time of service principal credentials.
+    """
+
+@pulumi.input_type
+class ServicePrincipalArgs:
+    def __init__(__self__, *,
+                 credentials_expire_on: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Service principal metadata.
+
+        :param pulumi.Input[_builtins.str] credentials_expire_on: Expiration time of service principal credentials.
+        """
+        if credentials_expire_on is not None:
+            pulumi.set(__self__, "credentials_expire_on", credentials_expire_on)
+
+    @_builtins.property
+    @pulumi.getter(name="credentialsExpireOn")
+    def credentials_expire_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Expiration time of service principal credentials.
+        """
+        return pulumi.get(self, "credentials_expire_on")
+
+    @credentials_expire_on.setter
+    def credentials_expire_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "credentials_expire_on", value)
 
 
 class SessionAuthModelArgsDict(TypedDict):
@@ -7487,42 +7236,18 @@ class WebhookArgsDict(TypedDict):
     """
     A flag to instruct the backend service to rotate webhook secret.
     """
-    webhook_id: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Unique identifier for the webhook.
-    """
-    webhook_secret_update_time: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Time when the webhook secret was updated.
-    """
-    webhook_url: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    URL that gets invoked by the webhook.
-    """
 
 @pulumi.input_type
 class WebhookArgs:
     def __init__(__self__, *,
-                 rotate_webhook_secret: Optional[pulumi.Input[_builtins.bool]] = None,
-                 webhook_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 webhook_secret_update_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 webhook_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 rotate_webhook_secret: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Detail about the webhook object.
 
         :param pulumi.Input[_builtins.bool] rotate_webhook_secret: A flag to instruct the backend service to rotate webhook secret.
-        :param pulumi.Input[_builtins.str] webhook_id: Unique identifier for the webhook.
-        :param pulumi.Input[_builtins.str] webhook_secret_update_time: Time when the webhook secret was updated.
-        :param pulumi.Input[_builtins.str] webhook_url: URL that gets invoked by the webhook.
         """
         if rotate_webhook_secret is not None:
             pulumi.set(__self__, "rotate_webhook_secret", rotate_webhook_secret)
-        if webhook_id is not None:
-            pulumi.set(__self__, "webhook_id", webhook_id)
-        if webhook_secret_update_time is not None:
-            pulumi.set(__self__, "webhook_secret_update_time", webhook_secret_update_time)
-        if webhook_url is not None:
-            pulumi.set(__self__, "webhook_url", webhook_url)
 
     @_builtins.property
     @pulumi.getter(name="rotateWebhookSecret")
@@ -7535,41 +7260,5 @@ class WebhookArgs:
     @rotate_webhook_secret.setter
     def rotate_webhook_secret(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "rotate_webhook_secret", value)
-
-    @_builtins.property
-    @pulumi.getter(name="webhookId")
-    def webhook_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique identifier for the webhook.
-        """
-        return pulumi.get(self, "webhook_id")
-
-    @webhook_id.setter
-    def webhook_id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "webhook_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="webhookSecretUpdateTime")
-    def webhook_secret_update_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Time when the webhook secret was updated.
-        """
-        return pulumi.get(self, "webhook_secret_update_time")
-
-    @webhook_secret_update_time.setter
-    def webhook_secret_update_time(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "webhook_secret_update_time", value)
-
-    @_builtins.property
-    @pulumi.getter(name="webhookUrl")
-    def webhook_url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        URL that gets invoked by the webhook.
-        """
-        return pulumi.get(self, "webhook_url")
-
-    @webhook_url.setter
-    def webhook_url(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "webhook_url", value)
 
 

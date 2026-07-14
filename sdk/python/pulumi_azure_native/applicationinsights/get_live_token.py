@@ -59,7 +59,7 @@ def get_live_token(resource_uri: Optional[_builtins.str] = None,
     Other available API versions: 2020-06-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native applicationinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param _builtins.str resource_uri: The identifier of the resource.
+    :param _builtins.str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     """
     __args__ = dict()
     __args__['resourceUri'] = resource_uri
@@ -78,7 +78,7 @@ def get_live_token_output(resource_uri: Optional[pulumi.Input[_builtins.str]] = 
     Other available API versions: 2020-06-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native applicationinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param _builtins.str resource_uri: The identifier of the resource.
+    :param _builtins.str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     """
     __args__ = dict()
     __args__['resourceUri'] = resource_uri

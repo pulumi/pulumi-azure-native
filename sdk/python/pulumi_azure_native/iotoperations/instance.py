@@ -157,7 +157,7 @@ class Instance(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2024-07-01-preview.
 
-        Other available API versions: 2024-07-01-preview, 2024-08-15-preview, 2024-09-15-preview, 2025-04-01, 2025-07-01-preview, 2025-10-01, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2024-07-01-preview, 2024-08-15-preview, 2024-09-15-preview, 2025-04-01, 2025-07-01-preview, 2025-10-01, 2026-03-01, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -181,7 +181,7 @@ class Instance(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2024-07-01-preview.
 
-        Other available API versions: 2024-07-01-preview, 2024-08-15-preview, 2024-09-15-preview, 2025-04-01, 2025-07-01-preview, 2025-10-01, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2024-07-01-preview, 2024-08-15-preview, 2024-09-15-preview, 2025-04-01, 2025-07-01-preview, 2025-10-01, 2026-03-01, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -230,7 +230,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:iotoperations/v20240701preview:Instance"), pulumi.Alias(type_="azure-native:iotoperations/v20240815preview:Instance"), pulumi.Alias(type_="azure-native:iotoperations/v20240915preview:Instance"), pulumi.Alias(type_="azure-native:iotoperations/v20241101:Instance"), pulumi.Alias(type_="azure-native:iotoperations/v20250401:Instance"), pulumi.Alias(type_="azure-native:iotoperations/v20250701preview:Instance"), pulumi.Alias(type_="azure-native:iotoperations/v20251001:Instance"), pulumi.Alias(type_="azure-native:iotoperations/v20260301:Instance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:iotoperations/v20240701preview:Instance"), pulumi.Alias(type_="azure-native:iotoperations/v20240815preview:Instance"), pulumi.Alias(type_="azure-native:iotoperations/v20240915preview:Instance"), pulumi.Alias(type_="azure-native:iotoperations/v20241101:Instance"), pulumi.Alias(type_="azure-native:iotoperations/v20250401:Instance"), pulumi.Alias(type_="azure-native:iotoperations/v20250701preview:Instance"), pulumi.Alias(type_="azure-native:iotoperations/v20251001:Instance"), pulumi.Alias(type_="azure-native:iotoperations/v20260301:Instance"), pulumi.Alias(type_="azure-native:iotoperations/v20260701:Instance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Instance, __self__).__init__(
             'azure-native:iotoperations:Instance',

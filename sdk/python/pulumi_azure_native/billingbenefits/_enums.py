@@ -25,6 +25,7 @@ __all__ = [
     'MaccMilestoneStatus',
     'MaccStatus',
     'ManagedServiceIdentityType',
+    'MilestoneStatus',
     'PricingPolicy',
     'SkuTier',
 ]
@@ -45,9 +46,9 @@ class CommitmentGrain(_builtins.str, Enum):
     """
     The grain of the commitment.
     """
-    UNKNOWN = "Unknown"
     HOURLY = "Hourly"
     FULL_TERM = "FullTerm"
+    UNKNOWN = "Unknown"
 
 
 @pulumi.type_token("azure-native:billingbenefits:ConditionalCreditEntityType")
@@ -293,6 +294,23 @@ class ManagedServiceIdentityType(_builtins.str, Enum):
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
+
+
+@pulumi.type_token("azure-native:billingbenefits:MilestoneStatus")
+class MilestoneStatus(_builtins.str, Enum):
+    """
+    Current status of the milestone
+    """
+    UNKNOWN = "Unknown"
+    SCHEDULED = "Scheduled"
+    ACTIVE = "Active"
+    PENDING = "Pending"
+    FAILED = "Failed"
+    COMPLETED = "Completed"
+    CANCELED = "Canceled"
+    REMOVED = "Removed"
+    PENDING_SETTLEMENT = "PendingSettlement"
+    MISSED = "Missed"
 
 
 @pulumi.type_token("azure-native:billingbenefits:PricingPolicy")

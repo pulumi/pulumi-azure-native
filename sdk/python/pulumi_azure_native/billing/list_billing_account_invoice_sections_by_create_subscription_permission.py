@@ -37,9 +37,9 @@ class ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult:
 
     @_builtins.property
     @pulumi.getter(name="nextLink")
-    def next_link(self) -> _builtins.str:
+    def next_link(self) -> Optional[_builtins.str]:
         """
-        The link (url) to the next page of results.
+        The link to the next page of items
         """
         return pulumi.get(self, "next_link")
 
@@ -47,7 +47,7 @@ class ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult:
     @pulumi.getter
     def value(self) -> Sequence['outputs.InvoiceSectionWithCreateSubPermissionResponse']:
         """
-        The list of resources.
+        The InvoiceSectionWithCreateSubPermission items on this page
         """
         return pulumi.get(self, "value")
 

@@ -172,6 +172,7 @@ namespace Pulumi.AzureNative.Kusto
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20230815:ReadWriteDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20240413:ReadOnlyFollowingDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20240413:ReadWriteDatabase" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20250214:ReadOnlyFollowingDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto:ReadWriteDatabase" },
                 },
             };

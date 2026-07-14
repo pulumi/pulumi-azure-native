@@ -3,7 +3,13 @@
 
 
 export const AccessMode = {
+    /**
+     * Open
+     */
     Open: "Open",
+    /**
+     * PrivateOnly
+     */
     PrivateOnly: "PrivateOnly",
 } as const;
 
@@ -62,6 +68,22 @@ export const AuthenticationKind = {
  */
 export type AuthenticationKind = (typeof AuthenticationKind)[keyof typeof AuthenticationKind];
 
+export const Category = {
+    /**
+     * Indicates availability-related metrics.
+     */
+    Availability: "Availability",
+    /**
+     * Indicates latency-related metrics.
+     */
+    Latency: "Latency",
+} as const;
+
+/**
+ * Specifies the category of the SLI, used to classify signals such as Availability and Latency.
+ */
+export type Category = (typeof Category)[keyof typeof Category];
+
 export const ComparisonOperationType = {
     Equals: "Equals",
     NotEquals: "NotEquals",
@@ -77,21 +99,69 @@ export const ComparisonOperationType = {
 export type ComparisonOperationType = (typeof ComparisonOperationType)[keyof typeof ComparisonOperationType];
 
 export const ConditionOperator = {
-    Equals: "Equals",
-    GreaterThan: "GreaterThan",
-    GreaterThanOrEqual: "GreaterThanOrEqual",
-    LessThan: "LessThan",
-    LessThanOrEqual: "LessThanOrEqual",
-    GreaterOrLessThan: "GreaterOrLessThan",
+    /**
+     * Equal to.
+     */
+    Equal: "eq",
+    /**
+     * Not equal to.
+     */
+    NotEqual: "ne",
+    /**
+     * Less than.
+     */
+    LessThan: "lt",
+    /**
+     * Less than or equal to.
+     */
+    LessThanOrEqual: "lte",
+    /**
+     * Greater than.
+     */
+    GreaterThan: "gt",
+    /**
+     * Greater than or equal to.
+     */
+    GreaterThanOrEqual: "gte",
+    /**
+     * Matches when `value` is one of the items in the `^^`-delimited list (for example, `value` = "east^^west^^north").
+     */
+    In: "in",
+    /**
+     * Matches when `value` is none of the items in the `^^`-delimited list (for example, `value` = "east^^west^^north").
+     */
+    NotIn: "notin",
+    /**
+     * Starts with.
+     */
+    StartsWith: "startswith",
+    /**
+     * Does not start with.
+     */
+    NotStartsWith: "notstartswith",
+    /**
+     * Contains the value.
+     */
+    Contains: "contains",
+    /**
+     * Does not contain the value.
+     */
+    NotContains: "notcontains",
 } as const;
 
 /**
- * The criteria operator. Relevant and required only for rules of the kind LogAlert.
+ * Operator used in the filtering condition.
  */
 export type ConditionOperator = (typeof ConditionOperator)[keyof typeof ConditionOperator];
 
 export const CriterionType = {
+    /**
+     * StaticThresholdCriterion
+     */
     StaticThresholdCriterion: "StaticThresholdCriterion",
+    /**
+     * DynamicThresholdCriterion
+     */
     DynamicThresholdCriterion: "DynamicThresholdCriterion",
 } as const;
 
@@ -117,7 +187,13 @@ export const DependenciesAggregationType = {
 export type DependenciesAggregationType = (typeof DependenciesAggregationType)[keyof typeof DependenciesAggregationType];
 
 export const DimensionOperator = {
+    /**
+     * Include
+     */
     Include: "Include",
+    /**
+     * Exclude
+     */
     Exclude: "Exclude",
 } as const;
 
@@ -242,6 +318,38 @@ export const EntityImpact = {
  */
 export type EntityImpact = (typeof EntityImpact)[keyof typeof EntityImpact];
 
+export const EvaluationCalculationType = {
+    /**
+     * Calculates evaluation based on a fixed calendar period.
+     */
+    CalendarDays: "CalendarDays",
+    /**
+     * Calculates evaluation using a rolling time window.
+     */
+    RollingDays: "RollingDays",
+} as const;
+
+/**
+ * Specifies how evaluation is calculated, either based on calendar days or a rolling window.
+ */
+export type EvaluationCalculationType = (typeof EvaluationCalculationType)[keyof typeof EvaluationCalculationType];
+
+export const EvaluationType = {
+    /**
+     * Evaluates SLI based on time windows.
+     */
+    WindowBased: "WindowBased",
+    /**
+     * Evaluates SLI based on request counts.
+     */
+    RequestBased: "RequestBased",
+} as const;
+
+/**
+ * Determines how the SLI is evaluated—either based on request counts or time windows.
+ */
+export type EvaluationType = (typeof EvaluationType)[keyof typeof EvaluationType];
+
 export const ExporterType = {
     /**
      * Export logs to Azure Monitor Workspace.
@@ -287,8 +395,17 @@ export const ExternalNetworkingMode = {
 export type ExternalNetworkingMode = (typeof ExternalNetworkingMode)[keyof typeof ExternalNetworkingMode];
 
 export const IdentityType = {
+    /**
+     * SystemAssigned
+     */
     SystemAssigned: "SystemAssigned",
+    /**
+     * UserAssigned
+     */
     UserAssigned: "UserAssigned",
+    /**
+     * None
+     */
     None: "None",
 } as const;
 
@@ -298,6 +415,9 @@ export const IdentityType = {
 export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 
 export const IncidentManagementService = {
+    /**
+     * Icm
+     */
     Icm: "Icm",
 } as const;
 
@@ -323,8 +443,17 @@ export const JsonMapperElement = {
 export type JsonMapperElement = (typeof JsonMapperElement)[keyof typeof JsonMapperElement];
 
 export const Kind = {
+    /**
+     * LogAlert
+     */
     LogAlert: "LogAlert",
+    /**
+     * SimpleLogAlert
+     */
     SimpleLogAlert: "SimpleLogAlert",
+    /**
+     * LogToMetric
+     */
     LogToMetric: "LogToMetric",
 } as const;
 
@@ -701,6 +830,58 @@ export const RefreshInterval = {
  */
 export type RefreshInterval = (typeof RefreshInterval)[keyof typeof RefreshInterval];
 
+export const SamplingType = {
+    /**
+     * Average value.
+     */
+    Average: "Average",
+    /**
+     * Summation.
+     */
+    Sum: "Sum",
+    /**
+     * Count of occurrences.
+     */
+    Count: "Count",
+    /**
+     * Minimum value.
+     */
+    Min: "Min",
+    /**
+     * Maximum value.
+     */
+    Max: "Max",
+} as const;
+
+/**
+ * Defines the sampling type.
+ */
+export type SamplingType = (typeof SamplingType)[keyof typeof SamplingType];
+
+export const ScalarFunction = {
+    /**
+     * Maximum value.
+     */
+    Max: "max",
+    /**
+     * Minimum value.
+     */
+    Min: "min",
+    /**
+     * Average value.
+     */
+    Avg: "avg",
+    /**
+     * Summation.
+     */
+    Sum: "sum",
+} as const;
+
+/**
+ * Scalar function applied for filtering.
+ */
+export type ScalarFunction = (typeof ScalarFunction)[keyof typeof ScalarFunction];
+
 export const ScaleDirection = {
     None: "None",
     Increase: "Increase",
@@ -735,7 +916,13 @@ export const ScaleType = {
 export type ScaleType = (typeof ScaleType)[keyof typeof ScaleType];
 
 export const ScopedResourceKind = {
+    /**
+     * Resource
+     */
     Resource: "Resource",
+    /**
+     * Metrics
+     */
     Metrics: "Metrics",
 } as const;
 
@@ -782,6 +969,34 @@ export const SignalOperator = {
  * Operator how to compare the signal value with the threshold
  */
 export type SignalOperator = (typeof SignalOperator)[keyof typeof SignalOperator];
+
+export const SpatialAggregationType = {
+    /**
+     * Average value.
+     */
+    Average: "Average",
+    /**
+     * Minimum value.
+     */
+    Min: "Min",
+    /**
+     * Maximum value.
+     */
+    Max: "Max",
+    /**
+     * Summation.
+     */
+    Sum: "Sum",
+    /**
+     * Count of occurrences.
+     */
+    Count: "Count",
+} as const;
+
+/**
+ * Type of spatial aggregation.
+ */
+export type SpatialAggregationType = (typeof SpatialAggregationType)[keyof typeof SpatialAggregationType];
 
 export const Status = {
     /**
@@ -859,11 +1074,70 @@ export const SyslogProtocol = {
  */
 export type SyslogProtocol = (typeof SyslogProtocol)[keyof typeof SyslogProtocol];
 
-export const TimeAggregation = {
-    Count: "Count",
+export const TemporalAggregationType = {
+    /**
+     * Average value.
+     */
     Average: "Average",
+    /**
+     * Minimum value.
+     */
+    Min: "Min",
+    /**
+     * Maximum value.
+     */
+    Max: "Max",
+    /**
+     * Summation.
+     */
+    Sum: "Sum",
+    /**
+     * Rate over time.
+     */
+    Rate: "Rate",
+    /**
+     * Instance rate.
+     */
+    IRate: "IRate",
+    /**
+     * Delta over time.
+     */
+    Delta: "Delta",
+    /**
+     * Instance delta.
+     */
+    IDelta: "IDelta",
+    /**
+     * Increase over time.
+     */
+    Increase: "Increase",
+} as const;
+
+/**
+ * Type of temporal aggregation.
+ */
+export type TemporalAggregationType = (typeof TemporalAggregationType)[keyof typeof TemporalAggregationType];
+
+export const TimeAggregation = {
+    /**
+     * Count
+     */
+    Count: "Count",
+    /**
+     * Average
+     */
+    Average: "Average",
+    /**
+     * Minimum
+     */
     Minimum: "Minimum",
+    /**
+     * Maximum
+     */
     Maximum: "Maximum",
+    /**
+     * Total
+     */
     Total: "Total",
 } as const;
 
@@ -885,3 +1159,27 @@ export const TimeAggregationType = {
  * time aggregation type. How the data that is collected should be combined over time. The default value is Average.
  */
 export type TimeAggregationType = (typeof TimeAggregationType)[keyof typeof TimeAggregationType];
+
+export const WindowUptimeCriteriaComparator = {
+    /**
+     * Less than the target value.
+     */
+    LessThan: "lt",
+    /**
+     * Greater than the target value.
+     */
+    GreaterThan: "gt",
+    /**
+     * Less than or equal to the target value.
+     */
+    LessThanOrEqual: "lte",
+    /**
+     * Greater than or equal to the target value.
+     */
+    GreaterThanOrEqual: "gte",
+} as const;
+
+/**
+ * Comparison operator used for uptime evaluation.
+ */
+export type WindowUptimeCriteriaComparator = (typeof WindowUptimeCriteriaComparator)[keyof typeof WindowUptimeCriteriaComparator];

@@ -305,7 +305,7 @@ class WorkspaceBackend(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
 
-        Other available API versions: 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -337,7 +337,7 @@ class WorkspaceBackend(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
 
-        Other available API versions: 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -404,7 +404,7 @@ class WorkspaceBackend(pulumi.CustomResource):
             __props__.__dict__["workspace_id"] = workspace_id
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:WorkspaceBackend"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:WorkspaceBackend"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:WorkspaceBackend"), pulumi.Alias(type_="azure-native:apimanagement/v20241001preview:WorkspaceBackend"), pulumi.Alias(type_="azure-native:apimanagement/v20250301preview:WorkspaceBackend")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:WorkspaceBackend"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:WorkspaceBackend"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:WorkspaceBackend"), pulumi.Alias(type_="azure-native:apimanagement/v20241001preview:WorkspaceBackend"), pulumi.Alias(type_="azure-native:apimanagement/v20250301preview:WorkspaceBackend"), pulumi.Alias(type_="azure-native:apimanagement/v20250901preview:WorkspaceBackend")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkspaceBackend, __self__).__init__(
             'azure-native:apimanagement:WorkspaceBackend',

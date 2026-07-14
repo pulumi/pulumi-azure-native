@@ -2330,6 +2330,156 @@ export namespace apimanagement {
 
 export namespace app {
     /**
+     * Configuration for action
+     */
+    export interface ActionConfigurationArgs {
+        /**
+         * The access level of the action
+         */
+        accessLevel?: pulumi.Input<string | enums.app.AgentAccessLevel>;
+        /**
+         * The identity used by the action
+         */
+        identity?: pulumi.Input<string>;
+        /**
+         * The mode of the action
+         */
+        mode?: pulumi.Input<string | enums.app.AgentMode>;
+    }
+
+    /**
+     * Agent Connector Properties
+     */
+    export interface AgentConnectorPropertiesArgs {
+        /**
+         * The type of the data connector
+         */
+        dataConnectorType?: pulumi.Input<string>;
+        /**
+         * Data source connection string or endpoint
+         */
+        dataSource?: pulumi.Input<string>;
+        /**
+         * Endpoint of the connector
+         */
+        endpoint?: pulumi.Input<string>;
+        /**
+         * Additional properties for the data connector which can be used to store custom key-value pairs
+         */
+        extendedProperties?: any;
+        /**
+         * Identity used to access the data source
+         */
+        identity?: pulumi.Input<string>;
+    }
+
+    /**
+     * Agent identity configuration
+     */
+    export interface AgentIdentityArgs {
+        /**
+         * Initial sponsor group ID (required for agent identity)
+         */
+        initialSponsorGroupId: pulumi.Input<string>;
+    }
+
+    /**
+     * Properties of the Agent
+     */
+    export interface AgentPropertiesArgs {
+        /**
+         * Configuration for action
+         */
+        actionConfiguration?: pulumi.Input<inputs.app.ActionConfigurationArgs>;
+        /**
+         * Agent identity configuration for accessing resources
+         */
+        agentIdentity?: pulumi.Input<inputs.app.AgentIdentityArgs>;
+        /**
+         * The agent space ID referenced by the agent
+         */
+        agentSpaceId?: pulumi.Input<string>;
+        /**
+         * Default AI model configuration for the agent
+         */
+        defaultModel?: pulumi.Input<inputs.app.DefaultModelArgs>;
+        /**
+         * Incident management configurations
+         */
+        incidentManagementConfiguration?: pulumi.Input<inputs.app.IncidentManagementConfigurationArgs>;
+        /**
+         * Knowledge graph configuration for agent
+         */
+        knowledgeGraphConfiguration?: pulumi.Input<inputs.app.KnowledgeGraphConfigurationArgs>;
+        /**
+         * Log configurations
+         */
+        logConfiguration?: pulumi.Input<inputs.app.LogConfigurationArgs>;
+        /**
+         * The upgrade channel of the agent
+         */
+        upgradeChannel?: pulumi.Input<string | enums.app.UpgradeChannel>;
+    }
+
+    /**
+     * Agent Space Connector Properties
+     */
+    export interface AgentSpaceConnectorPropertiesArgs {
+        /**
+         * The type of the data connector
+         */
+        dataConnectorType?: pulumi.Input<string>;
+        /**
+         * Data source connection string or endpoint
+         */
+        dataSource?: pulumi.Input<string>;
+        /**
+         * Endpoint of the connector
+         */
+        endpoint?: pulumi.Input<string>;
+        /**
+         * Additional properties for the data connector which can be used to store custom key-value pairs
+         */
+        extendedProperties?: any;
+        /**
+         * Identity used to access the data source
+         */
+        identity?: pulumi.Input<string>;
+    }
+
+    /**
+     * Policy configurations for an Agent Space
+     */
+    export interface AgentSpacePoliciesArgs {
+        /**
+         * Configuration for Geneva Actions policy
+         */
+        genevaActionsConfiguration?: pulumi.Input<inputs.app.GenevaActionsPolicyArgs>;
+    }
+
+    /**
+     * Agent Space specific properties
+     */
+    export interface AgentSpacePropertiesArgs {
+        /**
+         * Description of the Agent Space
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Maximum number of agents allowed in the Agent Space
+         */
+        maxAgentCount?: pulumi.Input<number>;
+        /**
+         * Policy configurations for the Agent Space
+         */
+        policies?: pulumi.Input<inputs.app.AgentSpacePoliciesArgs>;
+        /**
+         * Universal unique ID (UUID) of the Service Tree associated with this Agent Space
+         */
+        serviceTreeId?: pulumi.Input<string>;
+    }
+
+    /**
      * The configuration settings of the Allowed Audiences validation flow.
      */
     export interface AllowedAudiencesValidationArgs {
@@ -2421,6 +2571,20 @@ export namespace app {
          * The app setting name that contains the client secret.
          */
         clientSecretSettingName?: pulumi.Input<string>;
+    }
+
+    /**
+     * Application Insights Configuration
+     */
+    export interface ApplicationInsightsConfigurationArgs {
+        /**
+         * The Application ID for the Application Insights resource
+         */
+        appId?: pulumi.Input<string>;
+        /**
+         * The connection string for the Application Insights resource
+         */
+        connectionString?: pulumi.Input<string>;
     }
 
     /**
@@ -3433,6 +3597,20 @@ export namespace app {
     }
 
     /**
+     * Default AI model configuration
+     */
+    export interface DefaultModelArgs {
+        /**
+         * Model name (e.g., gpt-5, claude-opus-4-5, claude-sonnet-4-5)
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * AI provider name (e.g., MicrosoftFoundry, Anthropic)
+         */
+        provider?: pulumi.Input<string>;
+    }
+
+    /**
      * Configuration of Open Telemetry destinations
      */
     export interface DestinationsConfigurationArgs {
@@ -3616,6 +3794,72 @@ export namespace app {
          * The name of the header containing the scheme of the request.
          */
         customProtoHeaderName?: pulumi.Input<string>;
+    }
+
+    /**
+     * Configuration for a Geneva action
+     */
+    export interface GenevaActionConfigArgs {
+        /**
+         * Name of the Geneva action
+         */
+        actionName?: pulumi.Input<string>;
+        /**
+         * Parameters for the Geneva action
+         */
+        actionParameters?: pulumi.Input<pulumi.Input<inputs.app.GenevaActionParameterArgs>[]>;
+        /**
+         * Indicates whether approval is required for this action
+         */
+        approvalRequired?: pulumi.Input<boolean>;
+        /**
+         * Extension associated with the action
+         */
+        extension?: pulumi.Input<string>;
+    }
+
+    /**
+     * Parameter for a Geneva action
+     */
+    export interface GenevaActionParameterArgs {
+        /**
+         * Name of the parameter
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Type of the parameter
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    /**
+     * Geneva Actions policy configuration for Agent Space
+     */
+    export interface GenevaActionsPolicyArgs {
+        /**
+         * ACIS (Azure Container Instance Service) endpoint URL
+         */
+        acisEndpoint?: pulumi.Input<string>;
+        /**
+         * Collection of allowed Geneva actions
+         */
+        allowedActions?: pulumi.Input<pulumi.Input<inputs.app.GenevaActionConfigArgs>[]>;
+        /**
+         * Authentication mode for Geneva Actions
+         */
+        authenticationMode?: pulumi.Input<string | enums.app.GenevaActionAuthenticationMode>;
+        /**
+         * Subject name of the certificate used for authentication
+         */
+        certificateSubjectName?: pulumi.Input<string>;
+        /**
+         * Client ID for authentication
+         */
+        clientId?: pulumi.Input<string>;
+        /**
+         * Name of the Geneva extension
+         */
+        extensionName: pulumi.Input<string>;
     }
 
     /**
@@ -4036,6 +4280,32 @@ export namespace app {
             ...val,
             lifecycle: (val.lifecycle) ?? "All",
         };
+    }
+
+    /**
+     * Incident Management Configurations
+     */
+    export interface IncidentManagementConfigurationArgs {
+        /**
+         * The key for the connection
+         */
+        connectionKey?: pulumi.Input<string>;
+        /**
+         * The name of the connection
+         */
+        connectionName?: pulumi.Input<string>;
+        /**
+         * The URL of the connection
+         */
+        connectionUrl?: pulumi.Input<string>;
+        /**
+         * The user for the connection
+         */
+        oboUser?: pulumi.Input<string>;
+        /**
+         * The type of incident management system
+         */
+        type?: pulumi.Input<string>;
     }
 
     /**
@@ -4480,6 +4750,20 @@ export namespace app {
     }
 
     /**
+     * Knowledge graph configuration for agent
+     */
+    export interface KnowledgeGraphConfigurationArgs {
+        /**
+         * The identity used to access the knowledge graph
+         */
+        identity?: pulumi.Input<string>;
+        /**
+         * The list of resources managed by agent
+         */
+        managedResources?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
      * The lifecycle configuration properties of a session in the dynamic session pool
      */
     export interface LifecycleConfigurationArgs {
@@ -4513,6 +4797,16 @@ export namespace app {
          * Log analytics customer key
          */
         sharedKey?: pulumi.Input<string>;
+    }
+
+    /**
+     * Log Configurations
+     */
+    export interface LogConfigurationArgs {
+        /**
+         * Application Insights Configuration
+         */
+        applicationInsightsConfiguration?: pulumi.Input<inputs.app.ApplicationInsightsConfigurationArgs>;
     }
 
     /**
@@ -6156,24 +6450,6 @@ export namespace applicationinsights {
     }
 
     /**
-     * The collection of content validation properties
-     */
-    export interface WebTestPropertiesContentValidationArgs {
-        /**
-         * Content to look for in the return of the WebTest.  Must not be null or empty.
-         */
-        contentMatch?: pulumi.Input<string>;
-        /**
-         * When set, this value makes the ContentMatch validation case insensitive.
-         */
-        ignoreCase?: pulumi.Input<boolean>;
-        /**
-         * When true, validation will pass if there is a match for the ContentMatch string.  If false, validation will fail if there is a match
-         */
-        passIfTextFound?: pulumi.Input<boolean>;
-    }
-
-    /**
      * The collection of request properties
      */
     export interface WebTestPropertiesRequestArgs {
@@ -6210,7 +6486,7 @@ export namespace applicationinsights {
         /**
          * The collection of content validation properties
          */
-        contentValidation?: pulumi.Input<inputs.applicationinsights.WebTestPropertiesContentValidationArgs>;
+        contentValidation?: pulumi.Input<inputs.applicationinsights.WebTestPropertiesValidationRulesContentValidationArgs>;
         /**
          * Validate that the WebTest returns the http status code provided.
          */
@@ -6227,6 +6503,24 @@ export namespace applicationinsights {
          * Checks to see if the SSL cert is still valid.
          */
         sSLCheck?: pulumi.Input<boolean>;
+    }
+
+    /**
+     * The collection of content validation properties
+     */
+    export interface WebTestPropertiesValidationRulesContentValidationArgs {
+        /**
+         * Content to look for in the return of the WebTest.  Must not be null or empty.
+         */
+        contentMatch?: pulumi.Input<string>;
+        /**
+         * When set, this value makes the ContentMatch validation case insensitive.
+         */
+        ignoreCase?: pulumi.Input<boolean>;
+        /**
+         * When true, validation will pass if there is a match for the ContentMatch string.  If false, validation will fail if there is a match
+         */
+        passIfTextFound?: pulumi.Input<boolean>;
     }
 
     /**
@@ -6281,6 +6575,127 @@ export namespace applicationinsights {
          * Valid JSON object containing workbook template payload.
          */
         templateData?: any;
+    }
+
+}
+
+export namespace applink {
+    /**
+     * AppLink Member properties
+     */
+    export interface AppLinkMemberPropertiesArgs {
+        /**
+         * Cluster type
+         */
+        clusterType?: pulumi.Input<string | enums.applink.ClusterType>;
+        /**
+         * Connectivity profile.
+         */
+        connectivityProfile?: pulumi.Input<inputs.applink.ConnectivityProfileArgs>;
+        /**
+         * AppLink Member Metadata
+         */
+        metadata: pulumi.Input<inputs.applink.MetadataArgs>;
+        /**
+         * Upgrade profile.
+         */
+        upgradeProfile?: pulumi.Input<inputs.applink.UpgradeProfileArgs>;
+    }
+
+    /**
+     * AppLinkMember connectivity profile.
+     */
+    export interface ConnectivityProfileArgs {
+        /**
+         * East-West gateway profile.
+         */
+        eastWestGateway?: pulumi.Input<inputs.applink.EastWestGatewayProfileArgs>;
+        /**
+         * Private connect profile.
+         */
+        privateConnect?: pulumi.Input<inputs.applink.PrivateConnectProfileArgs>;
+    }
+
+    /**
+     * AppLinkMember east-west gateway profile.
+     */
+    export interface EastWestGatewayProfileArgs {
+        /**
+         * East-West gateway visibility.
+         */
+        visibility: pulumi.Input<string | enums.applink.EastWestGatewayVisibility>;
+    }
+
+    /**
+     * AppLinkMember fully managed upgrade profile
+     */
+    export interface FullyManagedUpgradeProfileArgs {
+        /**
+         * Release channel
+         */
+        releaseChannel: pulumi.Input<string | enums.applink.UpgradeReleaseChannel>;
+    }
+
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.applink.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * AppLinkMember metadata
+     */
+    export interface MetadataArgs {
+        /**
+         * Resource ID
+         */
+        resourceId: pulumi.Input<string>;
+    }
+
+    /**
+     * AppLinkMember private connect profile.
+     */
+    export interface PrivateConnectProfileArgs {
+        /**
+         * Delegated Subnet to AppLink.
+         */
+        subnetResourceId: pulumi.Input<string>;
+    }
+
+    /**
+     * AppLinkMember self managed upgrade profile
+     */
+    export interface SelfManagedUpgradeProfileArgs {
+        /**
+         * Istio version
+         */
+        version: pulumi.Input<string>;
+    }
+
+    /**
+     * AppLinkMember upgrade profile.
+     */
+    export interface UpgradeProfileArgs {
+        /**
+         * Fully managed upgrade profile.
+         */
+        fullyManagedUpgradeProfile?: pulumi.Input<inputs.applink.FullyManagedUpgradeProfileArgs>;
+        /**
+         * Upgrade mode.
+         */
+        mode: pulumi.Input<string | enums.applink.UpgradeMode>;
+        /**
+         * Self managed upgrade profile.
+         */
+        selfManagedUpgradeProfile?: pulumi.Input<inputs.applink.SelfManagedUpgradeProfileArgs>;
     }
 
 }
@@ -8985,6 +9400,50 @@ export namespace authorization {
     }
 
     /**
+     * Deny assignment permissions.
+     */
+    export interface DenyAssignmentPermissionArgs {
+        /**
+         * Actions to which the deny assignment does not grant access.
+         */
+        actions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The conditions on the Deny assignment permission. This limits the resources it applies to.
+         */
+        condition?: pulumi.Input<string>;
+        /**
+         * Version of the condition.
+         */
+        conditionVersion?: pulumi.Input<string>;
+        /**
+         * Data actions to which the deny assignment does not grant access.
+         */
+        dataActions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Actions to exclude from that the deny assignment does not grant access.
+         */
+        notActions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Data actions to exclude from that the deny assignment does not grant access.
+         */
+        notDataActions?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * Deny assignment principal.
+     */
+    export interface DenyAssignmentPrincipalArgs {
+        /**
+         * The object ID of the principal.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * The type of the principal such as user, group, servicePrincipal, etc.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    /**
      * Identity for the resource.  Policy assignments support a maximum of one identity.  That is either a system assigned identity or a single user assigned identity.
      */
     export interface IdentityArgs {
@@ -9533,7 +9992,7 @@ export namespace authorization {
         /**
          * The type of user.
          */
-        type?: pulumi.Input<string | enums.authorization.UserType>;
+        type?: pulumi.Input<string | enums.authorization.UsersOrServicePrincipalSetUserType>;
     }
 
 }
@@ -9592,6 +10051,20 @@ export namespace automation {
          * Occurrence of the week within the month. Must be between 1 and 5
          */
         occurrence?: pulumi.Input<number>;
+    }
+
+    /**
+     * Error response of an operation failure
+     */
+    export interface AutomationErrorResponseArgs {
+        /**
+         * Error code
+         */
+        code?: pulumi.Input<string>;
+        /**
+         * Error message indicating why the operation failed.
+         */
+        message?: pulumi.Input<string>;
     }
 
     /**
@@ -9734,20 +10207,6 @@ export namespace automation {
          * The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
          */
         userAssignedIdentity?: any;
-    }
-
-    /**
-     * Error response of an operation failure
-     */
-    export interface ErrorResponseArgs {
-        /**
-         * Error code
-         */
-        code?: pulumi.Input<string>;
-        /**
-         * Error message indicating why the operation failed.
-         */
-        message?: pulumi.Input<string>;
     }
 
     /**
@@ -9985,15 +10444,6 @@ export namespace automation {
          * Gets or sets the time zone of the schedule.
          */
         timeZone?: pulumi.Input<string>;
-    }
-    /**
-     * sucschedulePropertiesArgsProvideDefaults sets the appropriate defaults for SUCSchedulePropertiesArgs
-     */
-    export function sucschedulePropertiesArgsProvideDefaults(val: SUCSchedulePropertiesArgs): SUCSchedulePropertiesArgs {
-        return {
-            ...val,
-            isEnabled: (val.isEnabled) ?? false,
-        };
     }
 
     /**
@@ -35723,6 +36173,447 @@ export namespace azurelargeinstance {
 export namespace azureplaywrightservice {
 }
 
+export namespace azureresiliencemanagement {
+    /**
+     * Drill asset properties.
+     */
+    export interface AssetPropertiesOfDrillArgs {
+        /**
+         * Region where Drill's internal resources will be created.
+         */
+        region: pulumi.Input<string>;
+        /**
+         * Resource group where Drill's internal resources will be created. If not specified, defaults to 'AzureResilienceManagementDrills'. This value is immutable after drill creation.
+         */
+        resourceGroup?: pulumi.Input<string>;
+        /**
+         * Subscription where Drill's internal resources will be created.
+         */
+        subscription: pulumi.Input<string>;
+    }
+
+    /**
+     * Definition of associated identity linked with the various resources.
+     */
+    export interface AssociatedIdentityArgs {
+        /**
+         * Identity type linked with the resource
+         */
+        type: pulumi.Input<string | enums.azureresiliencemanagement.ManagedServiceIdentityType>;
+        /**
+         * User assigned identity id linked with the resource
+         */
+        userAssignedIdentity?: pulumi.Input<string>;
+    }
+
+    /**
+     * Chaos Experiment properties.
+     */
+    export interface ChaosExperimentPropertiesOfDrillArgs {
+        /**
+         * Identity to be used by the Chaos Experiment for invoking faults on resources.
+         */
+        chaosExperimentIdentityForFaults?: pulumi.Input<inputs.azureresiliencemanagement.AssociatedIdentityArgs>;
+        /**
+         * Identity to use for Chaos Experiment operations.
+         */
+        identity?: pulumi.Input<inputs.azureresiliencemanagement.AssociatedIdentityArgs>;
+        /**
+         * Region for chaosExperiment resource.
+         */
+        region?: pulumi.Input<string>;
+        /**
+         * Subscription for chaosExperiment resource.
+         */
+        subscription?: pulumi.Input<string>;
+    }
+
+    /**
+     * Chaos Resource properties.
+     */
+    export interface ChaosResourcePropertiesOfDrillArgs {
+        /**
+         * Identity to be used by the Chaos Resource for invoking faults on resources.
+         */
+        chaosResourceIdentityForFaults: pulumi.Input<inputs.azureresiliencemanagement.AssociatedIdentityArgs>;
+        /**
+         * Identity to use for Chaos Resource operations.
+         */
+        identity: pulumi.Input<inputs.azureresiliencemanagement.AssociatedIdentityArgs>;
+    }
+
+    /**
+     * Definition of enrollment properties.
+     */
+    export interface EnrollmentPropertiesArgs {
+        /**
+         * ARM resource identifier of the service group associated with this usage plan.
+         */
+        serviceGroupId: pulumi.Input<string>;
+    }
+
+    /**
+     * Definition of goal assignment property.
+     */
+    export interface GoalAssignmentPropertiesArgs {
+        /**
+         * The type of goal assignment.
+         */
+        goalAssignmentType: pulumi.Input<string | enums.azureresiliencemanagement.GoalAssignmentType>;
+        /**
+         * Arm id of the goal template.
+         */
+        goalTemplateId: pulumi.Input<string>;
+        /**
+         * List of service level resources.
+         */
+        serviceLevelResources?: pulumi.Input<pulumi.Input<inputs.azureresiliencemanagement.ServiceLevelResourceArgs>[]>;
+    }
+
+    /**
+     * Definition of goal template property.
+     */
+    export interface GoalTemplatePropertiesArgs {
+        /**
+         * Type of Goal Template created by customer
+         */
+        goalType: pulumi.Input<string | enums.azureresiliencemanagement.GoalType>;
+        /**
+         * Regional recovery point objective specified by customer. eg, PT15M for 15 minutes
+         */
+        regionalRecoveryPointObjective?: pulumi.Input<string>;
+        /**
+         * Regional recovery time objective specified by customer. eg, PT15M for 15 minutes
+         */
+        regionalRecoveryTimeObjective?: pulumi.Input<string>;
+        /**
+         * Option specified by customer under disaster recovery section of goal template
+         */
+        requireDisasterRecovery?: pulumi.Input<string | enums.azureresiliencemanagement.RequirementSelected>;
+        /**
+         * Option specified by customer under high availability section of goal template
+         */
+        requireHighAvailability?: pulumi.Input<string | enums.azureresiliencemanagement.RequirementSelected>;
+    }
+
+    /**
+     * Health Model properties.
+     */
+    export interface HealthModelPropertiesOfDrillArgs {
+        /**
+         * Full ARM Id of the Health Model.
+         */
+        healthModelId: pulumi.Input<string>;
+        /**
+         * Identity to use for Health Model operations.
+         */
+        identity: pulumi.Input<inputs.azureresiliencemanagement.AssociatedIdentityArgs>;
+    }
+
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.azureresiliencemanagement.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * Metrics properties.
+     */
+    export interface MetricsPropertiesOfDrillArgs {
+        /**
+         * Identity to use for metrics operations.
+         */
+        identity: pulumi.Input<inputs.azureresiliencemanagement.AssociatedIdentityArgs>;
+        /**
+         * Metrics associated with this Drill. These will be tracked through the Drill Run.
+         */
+        metricsToTrack: pulumi.Input<pulumi.Input<inputs.azureresiliencemanagement.MetricsToTrackArgs>[]>;
+    }
+
+    /**
+     * Metrics object
+     */
+    export interface MetricsToTrackArgs {
+        /**
+         * Destination AMW account where the time-series data of the metric lives.
+         */
+        destinationAmwAccountUrl: pulumi.Input<string>;
+        /**
+         * Full url of the metric.
+         */
+        metricId: pulumi.Input<string>;
+        /**
+         * Name of the metric.
+         */
+        metricName: pulumi.Input<string>;
+    }
+
+    /**
+     * Drill monitoring properties.
+     */
+    export interface MonitoringPropertiesOfDrillArgs {
+        /**
+         * Identity to use for Drill monitoring operations.
+         */
+        identity?: pulumi.Input<inputs.azureresiliencemanagement.AssociatedIdentityArgs>;
+    }
+
+    /**
+     * Represents a recovery orchestration group resource in the Azure Resilience Management provider namespace.
+     */
+    export interface RecoveryGroupArgs {
+        /**
+         * The resource-specific properties for this resource.
+         */
+        properties?: pulumi.Input<inputs.azureresiliencemanagement.RecoveryGroupPropertiesArgs>;
+    }
+
+    /**
+     * Defines a custom runbook action for the recovery orchestration group.
+     */
+    export interface RecoveryGroupCustomRunbookActionArgs {
+        /**
+         * The ARM Resource ID of the resource that includes the actionable script, such as a Runbook in an Automation Account.
+         */
+        actionResourceId?: pulumi.Input<string>;
+        /**
+         * The identity associated with actionResourceId for RBAC.
+         */
+        associatedIdentity?: pulumi.Input<inputs.azureresiliencemanagement.AssociatedIdentityArgs>;
+        /**
+         * A description of the recovery orchestration group action, containing the instructions to be performed during this action.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The name of the recovery orchestration group action.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Key-value parameters for the operation.
+         */
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The maximum amount of time, in minutes, allowed for the action to complete before it times out.
+         */
+        timeoutInMinutes: pulumi.Input<number>;
+        /**
+         * Specifies the type of recovery orchestration group actions.
+         * Expected value is 'CustomRunbook'.
+         */
+        type: pulumi.Input<"CustomRunbook">;
+    }
+
+    /**
+     * Defines a manual action for the recovery orchestration group.
+     */
+    export interface RecoveryGroupManualActionArgs {
+        /**
+         * A description of the recovery orchestration group action, containing the instructions to be performed during this action.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The name of the recovery orchestration group action.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The maximum amount of time, in minutes, allowed for the action to complete before it times out.
+         */
+        timeoutInMinutes: pulumi.Input<number>;
+        /**
+         * Specifies the type of recovery orchestration group actions.
+         * Expected value is 'ManualAction'.
+         */
+        type: pulumi.Input<"ManualAction">;
+    }
+
+    /**
+     * Properties of the recovery orchestration group.
+     */
+    export interface RecoveryGroupPropertiesArgs {
+        /**
+         * A description of the recovery orchestration group.
+         */
+        description: pulumi.Input<string>;
+        /**
+         * A unique id for the recovery orchestration group, which is a GUID.
+         */
+        groupUniqueId: pulumi.Input<string>;
+        /**
+         * The order ID of the recovery orchestration group.
+         */
+        orderId: pulumi.Input<number>;
+        /**
+         * Post-actions for the recovery orchestration group.
+         */
+        postActions?: pulumi.Input<pulumi.Input<inputs.azureresiliencemanagement.RecoveryGroupCustomRunbookActionArgs | inputs.azureresiliencemanagement.RecoveryGroupManualActionArgs>[]>;
+        /**
+         * Pre-actions for the recovery orchestration group.
+         */
+        preActions?: pulumi.Input<pulumi.Input<inputs.azureresiliencemanagement.RecoveryGroupCustomRunbookActionArgs | inputs.azureresiliencemanagement.RecoveryGroupManualActionArgs>[]>;
+    }
+
+    /**
+     * Settings for the recovery orchestration groups.
+     */
+    export interface RecoveryGroupsSettingArgs {
+        /**
+         * Additional recovery orchestration group settings.
+         */
+        additionalGroups?: pulumi.Input<pulumi.Input<inputs.azureresiliencemanagement.RecoveryGroupArgs>[]>;
+        /**
+         * The default recovery orchestration group setting. Every recovery orchestration plan has a default recovery orchestration group.
+         */
+        defaultGroup: pulumi.Input<inputs.azureresiliencemanagement.RecoveryGroupArgs>;
+    }
+
+    /**
+     * Properties of the recovery orchestration plan.
+     */
+    export interface RecoveryPlanPropertiesArgs {
+        /**
+         * A description of the recovery orchestration plan.
+         */
+        planDescription: pulumi.Input<string>;
+        /**
+         * The type of the recovery orchestration plan, which can be set during creation but cannot be changed afterward.
+         */
+        planType: pulumi.Input<string | enums.azureresiliencemanagement.RecoveryPlanType>;
+        /**
+         * Settings for the recovery orchestration groups associated with the recovery orchestration plan.
+         */
+        recoveryGroupsSetting: pulumi.Input<inputs.azureresiliencemanagement.RecoveryGroupsSettingArgs>;
+    }
+
+    /**
+     * RecoveryPlan properties.
+     */
+    export interface RecoveryPlanPropertiesOfDrillArgs {
+        /**
+         * Identity to use for RecoveryPlan operations.
+         */
+        identity: pulumi.Input<inputs.azureresiliencemanagement.AssociatedIdentityArgs>;
+    }
+
+    /**
+     * Definition of Regional Drill properties.
+     */
+    export interface RegionalDrillPropertiesArgs {
+        /**
+         * Chaos Experiment properties.
+         */
+        chaosExperimentProperties?: pulumi.Input<inputs.azureresiliencemanagement.ChaosExperimentPropertiesOfDrillArgs>;
+        /**
+         * Chaos Resource properties.
+         */
+        chaosResourceProperties?: pulumi.Input<inputs.azureresiliencemanagement.ChaosResourcePropertiesOfDrillArgs>;
+        /**
+         * Properties for internal resources that are created for the Drill.
+         */
+        drillAssetProperties?: pulumi.Input<inputs.azureresiliencemanagement.AssetPropertiesOfDrillArgs>;
+        /**
+         * Enum for Drill type object hierarchy.
+         * Expected value is 'Regional'.
+         */
+        drillType: pulumi.Input<"Regional">;
+        /**
+         * HealthModel properties.
+         */
+        healthModelProperties?: pulumi.Input<inputs.azureresiliencemanagement.HealthModelPropertiesOfDrillArgs>;
+        /**
+         * Metric properties.
+         */
+        metricsProperties?: pulumi.Input<inputs.azureresiliencemanagement.MetricsPropertiesOfDrillArgs>;
+        /**
+         * Monitoring properties of the Drill.
+         */
+        monitoringProperties?: pulumi.Input<inputs.azureresiliencemanagement.MonitoringPropertiesOfDrillArgs>;
+        /**
+         * RBAC setup mode.
+         */
+        rbacSetupMode?: pulumi.Input<string | enums.azureresiliencemanagement.RBACSetupMode>;
+        /**
+         * ROPlan properties.
+         */
+        recoveryPlanProperties?: pulumi.Input<inputs.azureresiliencemanagement.RecoveryPlanPropertiesOfDrillArgs>;
+    }
+
+    /**
+     * The Service level resource model
+     */
+    export interface ServiceLevelResourceArgs {
+        /**
+         * The arm id of the service level indicator resource
+         */
+        serviceLevelIndicatorResourceId: pulumi.Input<string>;
+        /**
+         * The arm id of the service level object resource
+         */
+        serviceLevelObjectiveResourceId: pulumi.Input<string>;
+    }
+
+    /**
+     * Definition of usage plan properties.
+     */
+    export interface UsagePlanPropertiesArgs {
+        /**
+         * The type of the usage plan.
+         */
+        planType?: pulumi.Input<string | enums.azureresiliencemanagement.UsagePlanType>;
+    }
+
+    /**
+     * Definition of Zonal Drill properties.
+     */
+    export interface ZonalDrillPropertiesArgs {
+        /**
+         * Chaos Experiment properties.
+         */
+        chaosExperimentProperties?: pulumi.Input<inputs.azureresiliencemanagement.ChaosExperimentPropertiesOfDrillArgs>;
+        /**
+         * Chaos Resource properties.
+         */
+        chaosResourceProperties?: pulumi.Input<inputs.azureresiliencemanagement.ChaosResourcePropertiesOfDrillArgs>;
+        /**
+         * Properties for internal resources that are created for the Drill.
+         */
+        drillAssetProperties?: pulumi.Input<inputs.azureresiliencemanagement.AssetPropertiesOfDrillArgs>;
+        /**
+         * Enum for Drill type object hierarchy.
+         * Expected value is 'Zonal'.
+         */
+        drillType: pulumi.Input<"Zonal">;
+        /**
+         * HealthModel properties.
+         */
+        healthModelProperties?: pulumi.Input<inputs.azureresiliencemanagement.HealthModelPropertiesOfDrillArgs>;
+        /**
+         * Metric properties.
+         */
+        metricsProperties?: pulumi.Input<inputs.azureresiliencemanagement.MetricsPropertiesOfDrillArgs>;
+        /**
+         * Monitoring properties of the Drill.
+         */
+        monitoringProperties?: pulumi.Input<inputs.azureresiliencemanagement.MonitoringPropertiesOfDrillArgs>;
+        /**
+         * RBAC setup mode.
+         */
+        rbacSetupMode?: pulumi.Input<string | enums.azureresiliencemanagement.RBACSetupMode>;
+        /**
+         * ROPlan properties.
+         */
+        recoveryPlanProperties?: pulumi.Input<inputs.azureresiliencemanagement.RecoveryPlanPropertiesOfDrillArgs>;
+    }
+
+}
+
 export namespace azuresphere {
     /**
      * An image resource belonging to a catalog resource.
@@ -36625,6 +37516,32 @@ export namespace azurestackhci {
     }
 
     /**
+     * Inbound rule properties - extends InboundNATRuleProperties with additional status tracking
+     */
+    export interface InboundRulePropertiesArgs {
+        /**
+         * IP configuration for the target backend.
+         */
+        backendIPConfiguration: pulumi.Input<inputs.azurestackhci.IPConfigurationArmReferenceArgs>;
+        /**
+         * backend Port for the inbound rule
+         */
+        backendPort: pulumi.Input<number>;
+        /**
+         * Frontend Port for the inbound rule
+         */
+        frontendPort: pulumi.Input<number>;
+        /**
+         * Protocol for the NAT rule
+         */
+        protocol: pulumi.Input<string | enums.azurestackhci.InboundNATRuleProtocol>;
+        /**
+         * Public IP Address for this NAT rule
+         */
+        publicIPAddress: pulumi.Input<inputs.azurestackhci.PublicIPAddressArmReferenceArgs>;
+    }
+
+    /**
      * The InfrastructureNetwork of a AzureStackHCI Cluster.
      */
     export interface InfrastructureNetworkArgs {
@@ -36940,7 +37857,7 @@ export namespace azurestackhci {
      */
     export interface NatGatewayPropertiesArgs {
         /**
-         * List of inbound NAT rules. InboundNATRules can only be set after the NAT Gateway has been associated with a vnet
+         * List of inbound NAT rules. InboundNATRules can only be set after the NAT Gateway has been associated with a vnet. Removed in 2026-04-01-preview; use InboundRule Child resource instead.
          */
         inboundNATRules?: pulumi.Input<pulumi.Input<inputs.azurestackhci.InboundNATRuleArgs>[]>;
         /**
@@ -40301,6 +41218,28 @@ export namespace billingbenefits {
     }
 
     /**
+     * Award details for milestone completion
+     */
+    export interface AwardArgs {
+        /**
+         * Credit amount to be awarded
+         */
+        credit?: pulumi.Input<inputs.billingbenefits.CommitmentArgs>;
+        /**
+         * Duration for which the benefit is active. Will be in format P{int}M or P{int}Y. Any values representing up to 12 years are valid. Upper limit examples: P144M, P12Y.
+         */
+        duration?: pulumi.Input<string>;
+        /**
+         * End date when the credit expires
+         */
+        endAt?: pulumi.Input<string>;
+        /**
+         * Start date when the credit becomes effective
+         */
+        startAt?: pulumi.Input<string>;
+    }
+
+    /**
      * Catalog claim for a discount.
      */
     export interface CatalogClaimsItemArgs {
@@ -40324,6 +41263,36 @@ export namespace billingbenefits {
     }
 
     /**
+     * Milestone definition within a conditional credit
+     */
+    export interface ConditionalCreditMilestoneArgs {
+        /**
+         * Award details for this milestone (only present for primary conditional credits)
+         */
+        award?: pulumi.Input<inputs.billingbenefits.AwardArgs>;
+        /**
+         * End date for this milestone
+         */
+        endAt?: pulumi.Input<string>;
+        /**
+         * Unique identifier for the milestone
+         */
+        milestoneId?: pulumi.Input<string>;
+        /**
+         * Display name for the milestone
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Spend target for this milestone
+         */
+        spendTarget?: pulumi.Input<inputs.billingbenefits.PriceArgs>;
+        /**
+         * Current status of the milestone
+         */
+        status?: pulumi.Input<string | enums.billingbenefits.MilestoneStatus>;
+    }
+
+    /**
      * Condition for a discount.
      */
     export interface ConditionsItemArgs {
@@ -40333,6 +41302,57 @@ export namespace billingbenefits {
          * These items are open-ended strings.
          */
         value?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * Properties for contributor conditional credit.
+     */
+    export interface ContributorConditionalCreditPropertiesArgs {
+        /**
+         * The billing account resource ID
+         */
+        billingAccountResourceId?: pulumi.Input<string>;
+        /**
+         * Display name for the conditional credit
+         */
+        displayName?: pulumi.Input<string>;
+        /**
+         * End date of the conditional credit (derived from last milestone)
+         */
+        endAt?: pulumi.Input<string>;
+        /**
+         * Type of conditional credit entity
+         * Expected value is 'Contributor'.
+         */
+        entityType: pulumi.Input<"Contributor">;
+        /**
+         * Fully-qualified billing account resource identifier of the primary CACO. Format must be Azure Resource ID: /providers/Microsoft.Billing/billingAccounts/{acctId:orgId}.
+         */
+        primaryBillingAccountResourceId?: pulumi.Input<string>;
+        /**
+         * Resource ID of the primary conditional credit (required for contributors)
+         */
+        primaryResourceId?: pulumi.Input<string>;
+        /**
+         * Product code for the conditional credit
+         */
+        productCode?: pulumi.Input<string>;
+        /**
+         * Fully-qualified resource identifier of the resource. Format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/{benefitType}/{benefitName}.
+         */
+        resourceId?: pulumi.Input<string>;
+        /**
+         * Start date of the conditional credit
+         */
+        startAt?: pulumi.Input<string>;
+        /**
+         * The status of the conditional credit
+         */
+        status?: pulumi.Input<string | enums.billingbenefits.ConditionalCreditStatus>;
+        /**
+         * System identifier shared between primary and contributor conditional credits representing the same conditional credit program
+         */
+        systemId?: pulumi.Input<string>;
     }
 
     /**
@@ -40383,6 +41403,20 @@ export namespace billingbenefits {
          * Redemption policy of the Credit
          */
         redemption?: pulumi.Input<string | enums.billingbenefits.CreditRedemptionPolicy>;
+    }
+
+    /**
+     * The reason for the credit. Not required if not applicable.
+     */
+    export interface CreditReasonArgs {
+        /**
+         * The reason code for credit.
+         */
+        code?: pulumi.Input<string>;
+        /**
+         * The free string description of the credit.
+         */
+        description?: pulumi.Input<string>;
     }
 
     /**
@@ -40772,7 +41806,7 @@ export namespace billingbenefits {
          */
         name: pulumi.Input<string>;
         /**
-         * The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+         * The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
          */
         product: pulumi.Input<string>;
         /**
@@ -40809,6 +41843,57 @@ export namespace billingbenefits {
          * Supported values: Protected, Locked
          */
         pricingPolicy?: pulumi.Input<string | enums.billingbenefits.PricingPolicy>;
+    }
+
+    /**
+     * Properties for primary conditional credit.
+     */
+    export interface PrimaryConditionalCreditPropertiesArgs {
+        /**
+         * Whether this conditional credit allows contributor billing accounts
+         */
+        allowContributors?: pulumi.Input<string | enums.billingbenefits.EnablementMode>;
+        /**
+         * The billing account resource ID
+         */
+        billingAccountResourceId?: pulumi.Input<string>;
+        /**
+         * Display name for the conditional credit
+         */
+        displayName?: pulumi.Input<string>;
+        /**
+         * End date of the conditional credit (derived from last milestone)
+         */
+        endAt?: pulumi.Input<string>;
+        /**
+         * Type of conditional credit entity
+         * Expected value is 'Primary'.
+         */
+        entityType: pulumi.Input<"Primary">;
+        /**
+         * List of milestones for this conditional credit (must include awards)
+         */
+        milestones?: pulumi.Input<pulumi.Input<inputs.billingbenefits.ConditionalCreditMilestoneArgs>[]>;
+        /**
+         * Product code for the conditional credit
+         */
+        productCode?: pulumi.Input<string>;
+        /**
+         * Fully-qualified resource identifier of the resource. Format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/{benefitType}/{benefitName}.
+         */
+        resourceId?: pulumi.Input<string>;
+        /**
+         * Start date of the conditional credit
+         */
+        startAt?: pulumi.Input<string>;
+        /**
+         * The status of the conditional credit
+         */
+        status?: pulumi.Input<string | enums.billingbenefits.ConditionalCreditStatus>;
+        /**
+         * System identifier shared between primary and contributor conditional credits representing the same conditional credit program
+         */
+        systemId?: pulumi.Input<string>;
     }
 
     /**
@@ -40862,13 +41947,59 @@ export namespace billingbenefits {
          */
         name: pulumi.Input<string>;
         /**
-         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
          */
         size?: pulumi.Input<string>;
         /**
          * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
          */
         tier?: pulumi.Input<enums.billingbenefits.SkuTier>;
+    }
+
+}
+
+export namespace billingtrust {
+    /**
+     * The properties of an Assessment resource
+     */
+    export interface AssessmentPropertiesArgs {
+        /**
+         * The name of the assessment template whose rules will be evaluated (e.g. 'Edu'). Immutable after creation.
+         */
+        assessmentType: pulumi.Input<string | enums.billingtrust.AssessmentType>;
+        /**
+         * Optional initial values applied to the rules created with this assessment. Write-only — these values are routed to the per-kind rules and are not returned on read.
+         */
+        initialValues?: pulumi.Input<pulumi.Input<inputs.billingtrust.EduInitialValueArgs>[]>;
+    }
+
+    /**
+     * A domain entry within an education qualification rule. `domainNames` and `tenantId` are supplied on creation; `state` and `error` are returned by the service.
+     */
+    export interface DomainEntryArgs {
+        /**
+         * Domain names associated with a tenant.
+         */
+        domainNames: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Microsoft Entra tenant ID owning these domains. Defaults to the calling user's tenant when omitted.
+         */
+        tenantId?: pulumi.Input<string>;
+    }
+
+    /**
+     * Initial values for an education qualification rule. Per-domain entries (`domainNames` + `tenantId`) are used to populate the rule when the assessment is created.
+     */
+    export interface EduInitialValueArgs {
+        /**
+         * Per-domain entries to use when populating the education qualification rule. Only `domainNames` and `tenantId` are read from this payload; `state` and `error` on each entry are populated by the service.
+         */
+        domains: pulumi.Input<pulumi.Input<inputs.billingtrust.DomainEntryArgs>[]>;
+        /**
+         * The kind of rule. Additional kinds may be added in future API versions.
+         * Expected value is 'eduQualification'.
+         */
+        kind: pulumi.Input<"eduQualification">;
     }
 
 }
@@ -44849,61 +45980,6 @@ export namespace certificateregistration {
 
 }
 
-export namespace changeanalysis {
-    /**
-     * Configuration properties of an Azure Monitor workspace that receives change notifications.
-     */
-    export interface AzureMonitorWorkspacePropertiesArgs {
-        /**
-         * The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
-         */
-        includeChangeDetails?: pulumi.Input<string | enums.changeanalysis.ChangeDetailsMode>;
-        /**
-         * The Azure Monitor workspace ID - the unique identifier for the Log Analytics workspace.
-         */
-        workspaceId?: pulumi.Input<string>;
-        /**
-         * The Azure Monitor workspace ARM Resource ID. The resource ID should be in the following format: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}
-         */
-        workspaceResourceId?: pulumi.Input<string>;
-    }
-
-    /**
-     * The properties of a configuration profile.
-     */
-    export interface ConfigurationProfileResourcePropertiesArgs {
-        /**
-         * Settings of change notification configuration for a subscription.
-         */
-        notifications?: pulumi.Input<inputs.changeanalysis.NotificationSettingsArgs>;
-    }
-
-    /**
-     * Settings of change notification configuration for a subscription.
-     */
-    export interface NotificationSettingsArgs {
-        /**
-         * The state of notifications feature.
-         */
-        activationState?: pulumi.Input<string | enums.changeanalysis.NotificationsState>;
-        /**
-         * Configuration properties of an Azure Monitor workspace that receives change notifications.
-         */
-        azureMonitorWorkspaceProperties?: pulumi.Input<inputs.changeanalysis.AzureMonitorWorkspacePropertiesArgs>;
-    }
-
-    /**
-     * The identity block returned by ARM resource that supports managed identity.
-     */
-    export interface ResourceIdentityArgs {
-        /**
-         * The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
-         */
-        type?: pulumi.Input<string | enums.changeanalysis.ManagedIdentityTypes>;
-    }
-
-}
-
 export namespace chaos {
     /**
      * Model that represents a branch in the step. 9 total per experiment.
@@ -46781,24 +47857,6 @@ export namespace cognitiveservices {
     }
 
     /**
-     * Gets or sets the source to which filter applies.
-     */
-    export interface CustomTopicConfigArgs {
-        /**
-         * If blocking would occur.
-         */
-        blocking?: pulumi.Input<boolean>;
-        /**
-         * Content source to apply the Content Filters.
-         */
-        source?: pulumi.Input<string | enums.cognitiveservices.RaiPolicyContentSource>;
-        /**
-         * Name of RAI topic.
-         */
-        topicName?: pulumi.Input<string>;
-    }
-
-    /**
      * Internal use only.
      */
     export interface DeploymentCapacitySettingsArgs {
@@ -47131,6 +48189,49 @@ export namespace cognitiveservices {
     }
 
     /**
+     * Status of the Provisioning for the managed network of a cognitive services account.
+     */
+    export interface ManagedNetworkProvisionStatusArgs {
+        /**
+         * Status for the managed network of a cognitive services account.
+         */
+        status?: pulumi.Input<string | enums.cognitiveservices.ManagedNetworkStatus>;
+    }
+
+    export interface ManagedNetworkSettingsExArgs {
+        /**
+         * Firewall Sku used for FQDN Rules
+         */
+        firewallSku?: pulumi.Input<string | enums.cognitiveservices.FirewallSku>;
+        /**
+         * Isolation mode for the managed network of a cognitive services account.
+         */
+        isolationMode?: pulumi.Input<string | enums.cognitiveservices.IsolationMode>;
+        /**
+         * The Kind of the managed network. Users can switch from V1 to V2 for granular access controls, but cannot switch back to V1 once V2 is enabled.
+         */
+        managedNetworkKind?: pulumi.Input<string | enums.cognitiveservices.ManagedNetworkKind>;
+        /**
+         * Dictionary of <OutboundRule>
+         */
+        outboundRules?: pulumi.Input<{[key: string]: pulumi.Input<inputs.cognitiveservices.FqdnOutboundRuleArgs | inputs.cognitiveservices.PrivateEndpointOutboundRuleArgs | inputs.cognitiveservices.ServiceTagOutboundRuleArgs>}>;
+        /**
+         * Status of the Provisioning for the managed network of a cognitive services account.
+         */
+        status?: pulumi.Input<inputs.cognitiveservices.ManagedNetworkProvisionStatusArgs>;
+    }
+
+    /**
+     * The properties of the managed network settings of a cognitive services account.
+     */
+    export interface ManagedNetworkSettingsPropertiesArgs {
+        /**
+         * Managed Network settings for a cognitive services account.
+         */
+        managedNetwork?: pulumi.Input<inputs.cognitiveservices.ManagedNetworkSettingsExArgs>;
+    }
+
+    /**
      * The multiregion settings Cognitive Services account.
      */
     export interface MultiRegionSettingsArgs {
@@ -47321,6 +48422,47 @@ export namespace cognitiveservices {
     }
 
     /**
+     * Private Endpoint outbound rule for the managed network of a cognitive services account.
+     */
+    export interface PrivateEndpointOutboundRuleArgs {
+        /**
+         * Category of a managed network Outbound Rule of a cognitive services account.
+         */
+        category?: pulumi.Input<string | enums.cognitiveservices.RuleCategory>;
+        /**
+         * Private Endpoint destination.
+         */
+        destination?: pulumi.Input<inputs.cognitiveservices.PrivateEndpointOutboundRuleDestinationArgs>;
+        /**
+         * List of FQDNs associated with the private endpoint outbound rule.
+         */
+        fqdns?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Type of a managed network Outbound Rule of a cognitive services account.
+         */
+        status?: pulumi.Input<string | enums.cognitiveservices.RuleStatus>;
+        /**
+         * Type of a managed network Outbound Rule of a cognitive services account.
+         * Expected value is 'PrivateEndpoint'.
+         */
+        type: pulumi.Input<"PrivateEndpoint">;
+    }
+
+    /**
+     * Private Endpoint destination for an outbound rule.
+     */
+    export interface PrivateEndpointOutboundRuleDestinationArgs {
+        /**
+         * The Azure resource ID of the target private endpoint service.
+         */
+        serviceResourceId?: pulumi.Input<string>;
+        /**
+         * The subresource of the target service to connect to.
+         */
+        subresourceTarget?: pulumi.Input<string>;
+    }
+
+    /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
     export interface PrivateLinkServiceConnectionStateArgs {
@@ -47490,10 +48632,6 @@ export namespace cognitiveservices {
          */
         customBlocklists?: pulumi.Input<pulumi.Input<inputs.cognitiveservices.CustomBlocklistConfigArgs>[]>;
         /**
-         * The list of custom rai topics.
-         */
-        customTopics?: pulumi.Input<pulumi.Input<inputs.cognitiveservices.CustomTopicConfigArgs>[]>;
-        /**
          * Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2025-06-01. It is the same as 'Deferred' in previous version.
          */
         mode?: pulumi.Input<string | enums.cognitiveservices.RaiPolicyMode>;
@@ -47514,7 +48652,7 @@ export namespace cognitiveservices {
         /**
          * List of project-level tool label definitions.
          */
-        projectScopes?: pulumi.Input<pulumi.Input<inputs.cognitiveservices.RaiToolLabelPropertiesProjectScopesArgs>[]>;
+        projectScopes?: pulumi.Input<pulumi.Input<inputs.cognitiveservices.RaiToolLabelPropertiesProjectScopesItemArgs>[]>;
         /**
          * The unique tool connection name, e.g., 'Web_Search'.
          */
@@ -47531,7 +48669,7 @@ export namespace cognitiveservices {
         labelValues?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
-    export interface RaiToolLabelPropertiesProjectScopesArgs {
+    export interface RaiToolLabelPropertiesProjectScopesItemArgs {
         /**
          * Dictionary of label key-value pairs for the project scope.
          */
@@ -47699,6 +48837,55 @@ export namespace cognitiveservices {
          */
         target?: pulumi.Input<string>;
         useWorkspaceManagedIdentity?: pulumi.Input<boolean>;
+    }
+
+    /**
+     * Service Tag outbound rule for the managed network of a cognitive services account.
+     */
+    export interface ServiceTagOutboundRuleArgs {
+        /**
+         * Category of a managed network Outbound Rule of a cognitive services account.
+         */
+        category?: pulumi.Input<string | enums.cognitiveservices.RuleCategory>;
+        /**
+         * Service Tag destination.
+         */
+        destination?: pulumi.Input<inputs.cognitiveservices.ServiceTagOutboundRuleDestinationArgs>;
+        /**
+         * Type of a managed network Outbound Rule of a cognitive services account.
+         */
+        status?: pulumi.Input<string | enums.cognitiveservices.RuleStatus>;
+        /**
+         * Type of a managed network Outbound Rule of a cognitive services account.
+         * Expected value is 'ServiceTag'.
+         */
+        type: pulumi.Input<"ServiceTag">;
+    }
+
+    /**
+     * Service Tag destination for an outbound rule.
+     */
+    export interface ServiceTagOutboundRuleDestinationArgs {
+        /**
+         * The action for the service tag outbound rule.
+         */
+        action?: pulumi.Input<string | enums.cognitiveservices.RuleAction>;
+        /**
+         * Optional address prefixes. If provided, the serviceTag property will be ignored.
+         */
+        addressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Destination port ranges.
+         */
+        portRanges?: pulumi.Input<string>;
+        /**
+         * Network protocol used by the service tag rule.
+         */
+        protocol?: pulumi.Input<string>;
+        /**
+         * Name of the Azure service tag to target.
+         */
+        serviceTag?: pulumi.Input<string>;
     }
 
     /**
@@ -48204,224 +49391,6 @@ export namespace compute {
     }
 
     /**
-     * Describes a cloud service extension profile.
-     */
-    export interface CloudServiceExtensionProfileArgs {
-        /**
-         * List of extensions for the cloud service.
-         */
-        extensions?: pulumi.Input<pulumi.Input<inputs.compute.ExtensionArgs>[]>;
-    }
-
-    /**
-     * Extension Properties.
-     */
-    export interface CloudServiceExtensionPropertiesArgs {
-        /**
-         * Explicitly specify whether platform can automatically upgrade typeHandlerVersion to higher minor versions when they become available.
-         */
-        autoUpgradeMinorVersion?: pulumi.Input<boolean>;
-        /**
-         * Tag to force apply the provided public and protected settings.
-         * Changing the tag value allows for re-running the extension without changing any of the public or protected settings.
-         * If forceUpdateTag is not changed, updates to public or protected settings would still be applied by the handler.
-         * If neither forceUpdateTag nor any of public or protected settings change, extension would flow to the role instance with the same sequence-number, and
-         * it is up to handler implementation whether to re-run it or not
-         */
-        forceUpdateTag?: pulumi.Input<string>;
-        /**
-         * Protected settings for the extension which are encrypted before sent to the role instance.
-         */
-        protectedSettings?: any;
-        /**
-         * Protected settings for the extension, referenced using KeyVault which are encrypted before sent to the role instance.
-         */
-        protectedSettingsFromKeyVault?: pulumi.Input<inputs.compute.CloudServiceVaultAndSecretReferenceArgs>;
-        /**
-         * The name of the extension handler publisher.
-         */
-        publisher?: pulumi.Input<string>;
-        /**
-         * Optional list of roles to apply this extension. If property is not specified or '*' is specified, extension is applied to all roles in the cloud service.
-         */
-        rolesAppliedTo?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * Public settings for the extension. For JSON extensions, this is the JSON settings for the extension. For XML Extension (like RDP), this is the XML setting for the extension.
-         */
-        settings?: any;
-        /**
-         * Specifies the type of the extension.
-         */
-        type?: pulumi.Input<string>;
-        /**
-         * Specifies the version of the extension. Specifies the version of the extension. If this element is not specified or an asterisk (*) is used as the value, the latest version of the extension is used. If the value is specified with a major version number and an asterisk as the minor version number (X.), the latest minor version of the specified major version is selected. If a major version number and a minor version number are specified (X.Y), the specific extension version is selected. If a version is specified, an auto-upgrade is performed on the role instance.
-         */
-        typeHandlerVersion?: pulumi.Input<string>;
-    }
-
-    /**
-     * Network Profile for the cloud service.
-     */
-    export interface CloudServiceNetworkProfileArgs {
-        /**
-         * List of Load balancer configurations. Cloud service can have up to two load balancer configurations, corresponding to a Public Load Balancer and an Internal Load Balancer.
-         */
-        loadBalancerConfigurations?: pulumi.Input<pulumi.Input<inputs.compute.LoadBalancerConfigurationArgs>[]>;
-        /**
-         * Slot type for the cloud service.
-         * Possible values are <br /><br />**Production**<br /><br />**Staging**<br /><br />
-         * If not specified, the default value is Production.
-         */
-        slotType?: pulumi.Input<string | enums.compute.CloudServiceSlotType>;
-        /**
-         * The id reference of the cloud service containing the target IP with which the subject cloud service can perform a swap. This property cannot be updated once it is set. The swappable cloud service referred by this id must be present otherwise an error will be thrown.
-         */
-        swappableCloudService?: pulumi.Input<inputs.compute.SubResourceArgs>;
-    }
-
-    /**
-     * Describes the OS profile for the cloud service.
-     */
-    export interface CloudServiceOsProfileArgs {
-        /**
-         * Specifies set of certificates that should be installed onto the role instances.
-         */
-        secrets?: pulumi.Input<pulumi.Input<inputs.compute.CloudServiceVaultSecretGroupArgs>[]>;
-    }
-
-    /**
-     * Cloud service properties
-     */
-    export interface CloudServicePropertiesArgs {
-        /**
-         * (Optional) Indicates whether the role sku properties (roleProfile.roles.sku) specified in the model/template should override the role instance count and vm size specified in the .cscfg and .csdef respectively.
-         * The default value is `false`.
-         */
-        allowModelOverride?: pulumi.Input<boolean>;
-        /**
-         * Specifies the XML service configuration (.cscfg) for the cloud service.
-         */
-        configuration?: pulumi.Input<string>;
-        /**
-         * Specifies a URL that refers to the location of the service configuration in the Blob service. The service package URL  can be Shared Access Signature (SAS) URI from any storage account.
-         * This is a write-only property and is not returned in GET calls.
-         */
-        configurationUrl?: pulumi.Input<string>;
-        /**
-         * Describes a cloud service extension profile.
-         */
-        extensionProfile?: pulumi.Input<inputs.compute.CloudServiceExtensionProfileArgs>;
-        /**
-         * Network Profile for the cloud service.
-         */
-        networkProfile?: pulumi.Input<inputs.compute.CloudServiceNetworkProfileArgs>;
-        /**
-         * Describes the OS profile for the cloud service.
-         */
-        osProfile?: pulumi.Input<inputs.compute.CloudServiceOsProfileArgs>;
-        /**
-         * Specifies a URL that refers to the location of the service package in the Blob service. The service package URL can be Shared Access Signature (SAS) URI from any storage account.
-         * This is a write-only property and is not returned in GET calls.
-         */
-        packageUrl?: pulumi.Input<string>;
-        /**
-         * Describes the role profile for the cloud service.
-         */
-        roleProfile?: pulumi.Input<inputs.compute.CloudServiceRoleProfileArgs>;
-        /**
-         * (Optional) Indicates whether to start the cloud service immediately after it is created. The default value is `true`.
-         * If false, the service model is still deployed, but the code is not run immediately. Instead, the service is PoweredOff until you call Start, at which time the service will be started. A deployed service still incurs charges, even if it is poweredoff.
-         */
-        startCloudService?: pulumi.Input<boolean>;
-        /**
-         * Update mode for the cloud service. Role instances are allocated to update domains when the service is deployed. Updates can be initiated manually in each update domain or initiated automatically in all update domains.
-         * Possible Values are <br /><br />**Auto**<br /><br />**Manual** <br /><br />**Simultaneous**<br /><br />
-         * If not specified, the default value is Auto. If set to Manual, PUT UpdateDomain must be called to apply the update. If set to Auto, the update is automatically applied to each update domain in sequence.
-         */
-        upgradeMode?: pulumi.Input<string | enums.compute.CloudServiceUpgradeMode>;
-    }
-
-    /**
-     * Describes the role profile for the cloud service.
-     */
-    export interface CloudServiceRoleProfileArgs {
-        /**
-         * List of roles for the cloud service.
-         */
-        roles?: pulumi.Input<pulumi.Input<inputs.compute.CloudServiceRoleProfilePropertiesArgs>[]>;
-    }
-
-    /**
-     * Describes the role properties.
-     */
-    export interface CloudServiceRoleProfilePropertiesArgs {
-        /**
-         * Resource name.
-         */
-        name?: pulumi.Input<string>;
-        /**
-         * Describes the cloud service role sku.
-         */
-        sku?: pulumi.Input<inputs.compute.CloudServiceRoleSkuArgs>;
-    }
-
-    /**
-     * Describes the cloud service role sku.
-     */
-    export interface CloudServiceRoleSkuArgs {
-        /**
-         * Specifies the number of role instances in the cloud service.
-         */
-        capacity?: pulumi.Input<number>;
-        /**
-         * The sku name. NOTE: If the new SKU is not supported on the hardware the cloud service is currently on, you need to delete and recreate the cloud service or move back to the old sku.
-         */
-        name?: pulumi.Input<string>;
-        /**
-         * Specifies the tier of the cloud service. Possible Values are <br /><br /> **Standard** <br /><br /> **Basic**
-         */
-        tier?: pulumi.Input<string>;
-    }
-
-    /**
-     * Protected settings for the extension, referenced using KeyVault which are encrypted before sent to the role instance.
-     */
-    export interface CloudServiceVaultAndSecretReferenceArgs {
-        /**
-         * Secret URL which contains the protected settings of the extension
-         */
-        secretUrl?: pulumi.Input<string>;
-        /**
-         * The ARM Resource ID of the Key Vault
-         */
-        sourceVault?: pulumi.Input<inputs.compute.SubResourceArgs>;
-    }
-
-    /**
-     * Describes a single certificate reference in a Key Vault, and where the certificate should reside on the role instance.
-     */
-    export interface CloudServiceVaultCertificateArgs {
-        /**
-         * This is the URL of a certificate that has been uploaded to Key Vault as a secret.
-         */
-        certificateUrl?: pulumi.Input<string>;
-    }
-
-    /**
-     * Describes a set of certificates which are all in the same Key Vault.
-     */
-    export interface CloudServiceVaultSecretGroupArgs {
-        /**
-         * The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
-         */
-        sourceVault?: pulumi.Input<inputs.compute.SubResourceArgs>;
-        /**
-         * The list of key vault references in SourceVault which contain certificates.
-         */
-        vaultCertificates?: pulumi.Input<pulumi.Input<inputs.compute.CloudServiceVaultCertificateArgs>[]>;
-    }
-
-    /**
      * Information of community gallery if current gallery is shared to community
      */
     export interface CommunityGalleryInfoArgs {
@@ -48821,20 +49790,6 @@ export namespace compute {
          * The type of the extended location.
          */
         type?: pulumi.Input<string | enums.compute.ExtendedLocationTypes>;
-    }
-
-    /**
-     * Describes a cloud service Extension.
-     */
-    export interface ExtensionArgs {
-        /**
-         * The name of the extension.
-         */
-        name?: pulumi.Input<string>;
-        /**
-         * Extension Properties.
-         */
-        properties?: pulumi.Input<inputs.compute.CloudServiceExtensionPropertiesArgs>;
     }
 
     /**
@@ -49699,66 +50654,6 @@ export namespace compute {
     }
 
     /**
-     * Describes the load balancer configuration.
-     */
-    export interface LoadBalancerConfigurationArgs {
-        /**
-         * Resource Id
-         */
-        id?: pulumi.Input<string>;
-        /**
-         * The name of the Load balancer
-         */
-        name: pulumi.Input<string>;
-        /**
-         * Properties of the load balancer configuration.
-         */
-        properties: pulumi.Input<inputs.compute.LoadBalancerConfigurationPropertiesArgs>;
-    }
-
-    /**
-     * Describes the properties of the load balancer configuration.
-     */
-    export interface LoadBalancerConfigurationPropertiesArgs {
-        /**
-         * Specifies the frontend IP to be used for the load balancer. Only IPv4 frontend IP address is supported. Each load balancer configuration must have exactly one frontend IP configuration.
-         */
-        frontendIpConfigurations: pulumi.Input<pulumi.Input<inputs.compute.LoadBalancerFrontendIpConfigurationArgs>[]>;
-    }
-
-    /**
-     * Specifies the frontend IP to be used for the load balancer. Only IPv4 frontend IP address is supported. Each load balancer configuration must have exactly one frontend IP configuration.
-     */
-    export interface LoadBalancerFrontendIpConfigurationArgs {
-        /**
-         * The name of the resource that is unique within the set of frontend IP configurations used by the load balancer. This name can be used to access the resource.
-         */
-        name: pulumi.Input<string>;
-        /**
-         * Properties of load balancer frontend ip configuration.
-         */
-        properties: pulumi.Input<inputs.compute.LoadBalancerFrontendIpConfigurationPropertiesArgs>;
-    }
-
-    /**
-     * Describes a cloud service IP Configuration
-     */
-    export interface LoadBalancerFrontendIpConfigurationPropertiesArgs {
-        /**
-         * The virtual network private IP address of the IP configuration.
-         */
-        privateIPAddress?: pulumi.Input<string>;
-        /**
-         * The reference to the public ip address resource.
-         */
-        publicIPAddress?: pulumi.Input<inputs.compute.SubResourceArgs>;
-        /**
-         * The reference to the virtual network subnet resource.
-         */
-        subnet?: pulumi.Input<inputs.compute.SubResourceArgs>;
-    }
-
-    /**
      * The parameters of a managed disk.
      */
     export interface ManagedDiskParametersArgs {
@@ -50110,7 +51005,7 @@ export namespace compute {
     }
 
     /**
-     * Describes an resiliency policy - AutomaticZoneRebalancingPolicy, ResilientVMCreationPolicy and/or ResilientVMDeletionPolicy.
+     * Describes an resiliency policy - AutomaticZoneRebalancingPolicy, ResilientVMCreationPolicy, ResilientVMDeletionPolicy and OperationRecoverySettings (version > 2025-11-01).
      */
     export interface ResiliencyPolicyArgs {
         /**
@@ -50413,7 +51308,7 @@ export namespace compute {
          */
         proxyAgentSettings?: pulumi.Input<inputs.compute.ProxyAgentSettingsArgs>;
         /**
-         * Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings. The default behavior is: UefiSettings will not be enabled unless this property is set.
+         * Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings. The default behavior is: UefiSettings will not be enabled unless this property is set and is not Standard. If not specified, Standard will be returned starting api version 2025-11-01.
          */
         securityType?: pulumi.Input<string | enums.compute.SecurityTypes>;
         /**
@@ -54083,10 +54978,6 @@ export namespace confluent {
          */
         publisherId: pulumi.Input<string>;
         /**
-         * SaaS Offer Status
-         */
-        status?: pulumi.Input<string | enums.confluent.SaaSOfferStatus>;
-        /**
          * Offer Plan Term Id
          */
         termId?: pulumi.Input<string>;
@@ -55382,7 +56273,7 @@ export namespace containerinstance {
      */
     export interface ContainerGroupProfileStubArgs {
         /**
-         *  Container Group properties which can be set while creating or updating the NGroups.
+         * Container Group properties which can be set while creating or updating the NGroups.
          */
         containerGroupProperties?: pulumi.Input<inputs.containerinstance.NGroupContainerGroupPropertiesArgs>;
         /**
@@ -55550,10 +56441,10 @@ export namespace containerinstance {
      * Container Groups are named on a generic guid based naming scheme/policy. Customer can modify naming policy to add prefix to CG names during scale out operation.
      */
     export interface ElasticProfileContainerGroupNamingPolicyArgs {
-        guidNamingPolicy?: pulumi.Input<inputs.containerinstance.ElasticProfileGuidNamingPolicyArgs>;
+        guidNamingPolicy?: pulumi.Input<inputs.containerinstance.ElasticProfileContainerGroupNamingPolicyGuidNamingPolicyArgs>;
     }
 
-    export interface ElasticProfileGuidNamingPolicyArgs {
+    export interface ElasticProfileContainerGroupNamingPolicyGuidNamingPolicyArgs {
         /**
          * The prefix can be used when there are tooling limitations (e.g. on the Azure portal where CGs from multiple NGroups exist in the same RG). The prefix with the suffixed resource name must still follow Azure resource naming guidelines.
          */
@@ -55629,7 +56520,7 @@ export namespace containerinstance {
          */
         shareAccessTier?: pulumi.Input<enums.containerinstance.AzureFileShareAccessTier>;
         /**
-         *  Specifies how Container Groups can access the Azure file share i.e. all CG will share same Azure file share or going to have exclusive file share.
+         * Specifies how Container Groups can access the Azure file share i.e. all CG will share same Azure file share or going to have exclusive file share.
          */
         shareAccessType?: pulumi.Input<enums.containerinstance.AzureFileShareAccessType>;
     }
@@ -59651,49 +60542,6 @@ export namespace containerservice {
     }
 
     /**
-     * The properties of the Node Customization resource.
-     */
-    export interface NodeCustomizationPropertiesArgs {
-        /**
-         * The list of container images to cache on nodes. See https://kubernetes.io/docs/concepts/containers/images/#image-names
-         */
-        containerImages?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * The scripts to customize the node before or after image capture.
-         */
-        customizationScripts?: pulumi.Input<pulumi.Input<inputs.containerservice.NodeCustomizationScriptArgs>[]>;
-    }
-
-    /**
-     * Node customization script
-     */
-    export interface NodeCustomizationScriptArgs {
-        /**
-         * The stage at which the script is executed.
-         * Specifying `NodeImageBuildTime` will ensure changes are persisted into the node image.
-         */
-        executionPoint: pulumi.Input<string | enums.containerservice.ExecutionPoint>;
-        /**
-         * The name for the customization script. 
-         * Must be unique within the node customization resource.
-         * Can only contain lowercase alphanumeric,'-' or '.' characters.
-         */
-        name: pulumi.Input<string>;
-        /**
-         * Whether the node should reboot after successful script execution.
-         */
-        rebootAfter?: pulumi.Input<boolean>;
-        /**
-         * The script content to be executed in plain text. Do not include secrets.
-         */
-        script?: pulumi.Input<string>;
-        /**
-         * The runtime environment for the script (e.g. Bash).
-         */
-        scriptType: pulumi.Input<string | enums.containerservice.ScriptType>;
-    }
-
-    /**
      * The node image upgrade to be applied to the target nodes in update run.
      */
     export interface NodeImageSelectionArgs {
@@ -61203,15 +62051,15 @@ export namespace cosmosdb {
          */
         extensions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Number of nodes
+         * Number of nodes.
          */
         nodeCount?: pulumi.Input<number>;
         /**
-         * Virtual Machine SKU used for clusters. Default value is Standard_DS14_v2
+         * Virtual Machine SKU used for clusters. Default value is Standard_DS14_v2.
          */
         nodeSku?: pulumi.Input<string>;
         /**
-         * Number of copies of data maintained by the cluster
+         * Number of copies of data maintained by the cluster.
          */
         replicationFactor?: pulumi.Input<number>;
         /**
@@ -66521,9 +67369,9 @@ export namespace datafactory {
          */
         partitionLowerBound?: any;
         /**
-         * Names of the physical partitions of AmazonRdsForOracle table. 
+         * Names of the physical partitions of AmazonRdsForOracle table.
          */
-        partitionNames?: pulumi.Input<any[]>;
+        partitionNames?: any;
         /**
          * The maximum value of column specified in partitionColumnName that will be used for proceeding range partitioning. Type: string (or Expression with resultType string).
          */
@@ -69206,7 +70054,7 @@ export namespace datafactory {
         /**
          * Additional tags for cluster resources. This property is ignored in instance pool configurations.
          */
-        newClusterCustomTags?: pulumi.Input<{[key: string]: any}>;
+        newClusterCustomTags?: any;
         /**
          * The driver node type for the new job cluster. This property is ignored in instance pool configurations. Type: string (or Expression with resultType string).
          */
@@ -69234,11 +70082,11 @@ export namespace datafactory {
         /**
          * A set of optional, user-specified Spark configuration key-value pairs.
          */
-        newClusterSparkConf?: pulumi.Input<{[key: string]: any}>;
+        newClusterSparkConf?: any;
         /**
          * A set of optional, user-specified Spark environment variables key-value pairs.
          */
-        newClusterSparkEnvVars?: pulumi.Input<{[key: string]: any}>;
+        newClusterSparkEnvVars?: any;
         /**
          * If not using an existing interactive cluster, this specifies the Spark version of a new job cluster or instance pool nodes created for each run of this activity. Required if instancePoolId is specified. Type: string (or Expression with resultType string).
          */
@@ -69473,7 +70321,7 @@ export namespace datafactory {
         /**
          * Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
          */
-        headers?: pulumi.Input<{[key: string]: any}>;
+        headers?: any;
         /**
          * Linked service reference.
          */
@@ -69641,7 +70489,7 @@ export namespace datafactory {
         /**
          * Key,Value pairs to be passed to the Azure ML Batch Execution Service endpoint. Keys must match the names of web service parameters defined in the published Azure ML web service. Values will be passed in the GlobalParameters property of the Azure ML batch execution request.
          */
-        globalParameters?: pulumi.Input<{[key: string]: any}>;
+        globalParameters?: any;
         /**
          * Linked service reference.
          */
@@ -73359,7 +74207,7 @@ export namespace datafactory {
         /**
          * User defined property bag. There is no restriction on the keys or values that can be used. The user specified custom activity has the full responsibility to consume and interpret the content defined.
          */
-        extendedProperties?: pulumi.Input<{[key: string]: any}>;
+        extendedProperties?: any;
         /**
          * Folder path for resource files Type: string (or Expression with resultType string).
          */
@@ -73579,7 +74427,7 @@ export namespace datafactory {
         /**
          * Data flow parameters
          */
-        parameters?: pulumi.Input<{[key: string]: any}>;
+        parameters?: any;
         /**
          * Reference data flow name.
          */
@@ -73703,7 +74551,7 @@ export namespace datafactory {
         /**
          * Parameters for U-SQL job request.
          */
-        parameters?: pulumi.Input<{[key: string]: any}>;
+        parameters?: any;
         /**
          * Activity policy.
          */
@@ -73784,7 +74632,7 @@ export namespace datafactory {
         /**
          * Job parameters to be used for each run of this job. If the job takes a parameter that is not specified, the default value from the job will be used.
          */
-        jobParameters?: pulumi.Input<{[key: string]: any}>;
+        jobParameters?: any;
         /**
          * Linked service reference.
          */
@@ -73823,7 +74671,7 @@ export namespace datafactory {
         /**
          * Base parameters to be used for each run of this job.If the notebook takes a parameter that is not specified, the default value from the notebook will be used.
          */
-        baseParameters?: pulumi.Input<{[key: string]: any}>;
+        baseParameters?: any;
         /**
          * Activity depends on condition.
          */
@@ -73835,7 +74683,7 @@ export namespace datafactory {
         /**
          * A list of libraries to be installed on the cluster that will execute the job.
          */
-        libraries?: pulumi.Input<pulumi.Input<{[key: string]: any}>[]>;
+        libraries?: pulumi.Input<any[]>;
         /**
          * Linked service reference.
          */
@@ -73886,7 +74734,7 @@ export namespace datafactory {
         /**
          * A list of libraries to be installed on the cluster that will execute the job.
          */
-        libraries?: pulumi.Input<pulumi.Input<{[key: string]: any}>[]>;
+        libraries?: pulumi.Input<any[]>;
         /**
          * Linked service reference.
          */
@@ -73941,7 +74789,7 @@ export namespace datafactory {
         /**
          * A list of libraries to be installed on the cluster that will execute the job.
          */
-        libraries?: pulumi.Input<pulumi.Input<{[key: string]: any}>[]>;
+        libraries?: pulumi.Input<any[]>;
         /**
          * Linked service reference.
          */
@@ -74012,7 +74860,7 @@ export namespace datafactory {
         /**
          * Arguments for dataset.
          */
-        parameters?: pulumi.Input<{[key: string]: any}>;
+        parameters?: any;
         /**
          * Reference dataset name.
          */
@@ -74020,7 +74868,7 @@ export namespace datafactory {
         /**
          * Dataset reference type.
          */
-        type: pulumi.Input<string>;
+        type: pulumi.Input<string | enums.datafactory.DatasetReferenceType>;
     }
 
     /**
@@ -75760,7 +76608,7 @@ export namespace datafactory {
         /**
          * Pipeline parameters.
          */
-        parameters?: pulumi.Input<{[key: string]: any}>;
+        parameters?: any;
         /**
          * Pipeline reference.
          */
@@ -76022,7 +76870,7 @@ export namespace datafactory {
         /**
          * Expression type.
          */
-        type: pulumi.Input<string>;
+        type: pulumi.Input<string | enums.datafactory.ExpressionType>;
         /**
          * Expression value.
          */
@@ -76109,7 +76957,7 @@ export namespace datafactory {
         /**
          * List of user assigned identities for the factory.
          */
-        userAssignedIdentities?: pulumi.Input<{[key: string]: any}>;
+        userAssignedIdentities?: any;
     }
 
     /**
@@ -77858,7 +78706,7 @@ export namespace datafactory {
         /**
          * Allows user to specify defines for Hive job request.
          */
-        defines?: pulumi.Input<{[key: string]: any}>;
+        defines?: any;
         /**
          * Activity depends on condition.
          */
@@ -77919,7 +78767,7 @@ export namespace datafactory {
         /**
          * User specified arguments under hivevar namespace.
          */
-        variables?: pulumi.Input<{[key: string]: any}>;
+        variables?: any;
     }
 
     /**
@@ -78008,7 +78856,7 @@ export namespace datafactory {
         /**
          * Allows user to specify defines for the MapReduce job request.
          */
-        defines?: pulumi.Input<{[key: string]: any}>;
+        defines?: any;
         /**
          * Activity depends on condition.
          */
@@ -78246,7 +79094,7 @@ export namespace datafactory {
         /**
          * Allows user to specify defines for Pig job request.
          */
-        defines?: pulumi.Input<{[key: string]: any}>;
+        defines?: any;
         /**
          * Activity depends on condition.
          */
@@ -78357,7 +79205,7 @@ export namespace datafactory {
         /**
          * Spark configuration property.
          */
-        sparkConfig?: pulumi.Input<{[key: string]: any}>;
+        sparkConfig?: any;
         /**
          * The storage linked service for uploading the entry file and dependencies, and for receiving logs.
          */
@@ -78396,7 +79244,7 @@ export namespace datafactory {
         /**
          * Allows user to specify defines for streaming job request.
          */
-        defines?: pulumi.Input<{[key: string]: any}>;
+        defines?: any;
         /**
          * Activity depends on condition.
          */
@@ -79394,7 +80242,7 @@ export namespace datafactory {
         /**
          * The transport protocol to use in the Thrift layer (for V2 only). Default value is Binary.
          */
-        thriftTransportProtocol?: pulumi.Input<string | enums.datafactory.ImpalaThriftTransportProtocol>;
+        thriftTransportProtocol?: pulumi.Input<enums.datafactory.ImpalaThriftTransportProtocol>;
         /**
          * The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
          */
@@ -79761,14 +80609,14 @@ export namespace datafactory {
         /**
          * Custom properties are used to tune the data flow runtime performance.
          */
-        customProperties?: pulumi.Input<pulumi.Input<inputs.datafactory.IntegrationRuntimeDataFlowPropertiesCustomPropertiesArgs>[]>;
+        customProperties?: pulumi.Input<pulumi.Input<inputs.datafactory.IntegrationRuntimeDataFlowPropertiesCustomPropertiesItemArgs>[]>;
         /**
          * Time to live (in minutes) setting of the cluster which will execute data flow job.
          */
         timeToLive?: pulumi.Input<number>;
     }
 
-    export interface IntegrationRuntimeDataFlowPropertiesCustomPropertiesArgs {
+    export interface IntegrationRuntimeDataFlowPropertiesCustomPropertiesItemArgs {
         /**
          * Name of custom property.
          */
@@ -79804,7 +80652,7 @@ export namespace datafactory {
         /**
          * Arguments for integration runtime.
          */
-        parameters?: pulumi.Input<{[key: string]: any}>;
+        parameters?: any;
         /**
          * Reference integration runtime name.
          */
@@ -79812,7 +80660,7 @@ export namespace datafactory {
         /**
          * Type of integration runtime.
          */
-        type: pulumi.Input<string>;
+        type: pulumi.Input<string | enums.datafactory.IntegrationRuntimeReferenceType>;
     }
 
     /**
@@ -80594,7 +81442,7 @@ export namespace datafactory {
         /**
          * Arguments for LinkedService.
          */
-        parameters?: pulumi.Input<{[key: string]: any}>;
+        parameters?: any;
         /**
          * Reference LinkedService name.
          */
@@ -83327,9 +84175,9 @@ export namespace datafactory {
          */
         partitionLowerBound?: any;
         /**
-         * Names of the physical partitions of Oracle table. 
+         * Names of the physical partitions of Oracle table.
          */
-        partitionNames?: pulumi.Input<any[]>;
+        partitionNames?: any;
         /**
          * The maximum value of column specified in partitionColumnName that will be used for proceeding range partitioning. Type: string (or Expression with resultType string).
          */
@@ -84360,7 +85208,7 @@ export namespace datafactory {
         /**
          * Pipeline reference type.
          */
-        type: pulumi.Input<string>;
+        type: pulumi.Input<string | enums.datafactory.PipelineReferenceType>;
     }
 
     /**
@@ -85547,7 +86395,7 @@ export namespace datafactory {
         /**
          * The additional HTTP headers in the request to the RESTful API.
          */
-        additionalHeaders?: pulumi.Input<{[key: string]: any}>;
+        additionalHeaders?: any;
         /**
          * List of tags that can be used for describing the Dataset.
          */
@@ -85567,7 +86415,7 @@ export namespace datafactory {
         /**
          * The pagination rules to compose next page requests.
          */
-        paginationRules?: pulumi.Input<{[key: string]: any}>;
+        paginationRules?: any;
         /**
          * Parameters for dataset.
          */
@@ -85739,7 +86587,7 @@ export namespace datafactory {
          */
         maxConcurrentConnections?: any;
         /**
-         * The time to await before sending next request, in milliseconds 
+         * The time to await before sending next request, in milliseconds
          */
         requestInterval?: any;
         /**
@@ -85802,7 +86650,7 @@ export namespace datafactory {
          */
         requestBody?: any;
         /**
-         * The time to await before sending next page request. 
+         * The time to await before sending next page request.
          */
         requestInterval?: any;
         /**
@@ -87429,7 +88277,7 @@ export namespace datafactory {
          */
         packetSize?: any;
         /**
-         * The partition mechanism that will be used for SAP HANA read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "SapHanaDynamicRange". 
+         * The partition mechanism that will be used for SAP HANA read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "SapHanaDynamicRange".
          */
         partitionOption?: any;
         /**
@@ -88205,7 +89053,7 @@ export namespace datafactory {
         /**
          * Linked service reference.
          */
-        linkedServiceName: pulumi.Input<inputs.datafactory.LinkedServiceReferenceArgs>;
+        linkedServiceName?: pulumi.Input<inputs.datafactory.LinkedServiceReferenceArgs>;
         /**
          * Log settings of script activity.
          */
@@ -88849,7 +89697,7 @@ export namespace datafactory {
     }
 
     /**
-     * A linked service for an SSH File Transfer Protocol (SFTP) server. 
+     * A linked service for an SSH File Transfer Protocol (SFTP) server.
      */
     export interface SftpServerLinkedServiceArgs {
         /**
@@ -89339,11 +90187,11 @@ export namespace datafactory {
         /**
          * Additional copy options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalCopyOptions": { "DATE_FORMAT": "MM/DD/YYYY", "TIME_FORMAT": "'HH24:MI:SS.FF'" }
          */
-        additionalCopyOptions?: pulumi.Input<{[key: string]: any}>;
+        additionalCopyOptions?: any;
         /**
          * Additional format options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalFormatOptions": { "OVERWRITE": "TRUE", "MAX_FILE_SIZE": "'FALSE'" }
          */
-        additionalFormatOptions?: pulumi.Input<{[key: string]: any}>;
+        additionalFormatOptions?: any;
         /**
          * The name of the snowflake storage integration to use for the copy operation. Type: string (or Expression with resultType string).
          */
@@ -89362,11 +90210,11 @@ export namespace datafactory {
         /**
          * Additional copy options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalCopyOptions": { "DATE_FORMAT": "MM/DD/YYYY", "TIME_FORMAT": "'HH24:MI:SS.FF'" }
          */
-        additionalCopyOptions?: pulumi.Input<{[key: string]: any}>;
+        additionalCopyOptions?: any;
         /**
          * Additional format options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalFormatOptions": { "FORCE": "TRUE", "LOAD_UNCERTAIN_FILES": "'FALSE'" }
          */
-        additionalFormatOptions?: pulumi.Input<{[key: string]: any}>;
+        additionalFormatOptions?: any;
         /**
          * The name of the snowflake storage integration to use for the copy operation. Type: string (or Expression with resultType string).
          */
@@ -90521,7 +91369,7 @@ export namespace datafactory {
         /**
          * Linked service reference.
          */
-        linkedServiceName: pulumi.Input<inputs.datafactory.LinkedServiceReferenceArgs>;
+        linkedServiceName?: pulumi.Input<inputs.datafactory.LinkedServiceReferenceArgs>;
         /**
          * Activity name.
          */
@@ -91180,7 +92028,7 @@ export namespace datafactory {
         /**
          * Spark configuration property.
          */
-        sparkConfig?: pulumi.Input<{[key: string]: any}>;
+        sparkConfig?: any;
         /**
          * The name of the big data pool which will be used to execute the notebook.
          */
@@ -91297,7 +92145,7 @@ export namespace datafactory {
         /**
          * Spark configuration property.
          */
-        sparkConfig?: pulumi.Input<{[key: string]: any}>;
+        sparkConfig?: any;
         /**
          * Synapse spark job reference.
          */
@@ -91807,7 +92655,7 @@ export namespace datafactory {
         /**
          * Pipeline parameters.
          */
-        parameters?: pulumi.Input<{[key: string]: any}>;
+        parameters?: any;
         /**
          * Pipeline reference.
          */
@@ -92526,7 +93374,7 @@ export namespace datafactory {
         /**
          * Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
          */
-        headers?: pulumi.Input<{[key: string]: any}>;
+        headers?: any;
         /**
          * Timeout for the HTTP request to get a response. Format is in TimeSpan (hh:mm:ss). This value is the timeout to get a response, not the activity timeout. The default value is 00:01:00 (1 minute). The range is from 1 to 10 minutes
          */
@@ -92696,7 +93544,7 @@ export namespace datafactory {
         /**
          * Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
          */
-        headers?: pulumi.Input<{[key: string]: any}>;
+        headers?: any;
         /**
          * Rest API method for target endpoint.
          */
@@ -96755,29 +97603,25 @@ export namespace dataprotection {
      */
     export interface BackupScheduleArgs {
         /**
-         * Repeating time interval which supports the ISO 8601 format and unsupported or partially supported formats.
+         * Repeating time intervals that define the backup schedule.
          *
-         * Supported ISO 8601 Time Formats
+         * Each value must follow the format: `R/YYYY-MM-DDThh:mm:ss[.fff][Z|(+/-)hh:mm]/Duration`
          *
-         * The following time formats were verified to be successfully parsed and supported:
-         * - T14:30:45.123 → Thh:mm:ss.sss (with milliseconds)
-         * - T14:30:45 → Thh:mm:ss (standard time format)
-         * - T14:30 → Thh:mm (hour and minute only)
+         * Only the exact formats listed below are supported. Other ISO 8601 variations are not accepted.
          *
-         * All of the above may include time zone indicators like 'Z', '+05:30', '-08:00'.
+         * Supported time formats:
+         * - `Thh:mm:ss.fff` (with milliseconds)
+         * - `Thh:mm:ss` (with seconds)
+         * - `Thh:mm` (hours and minutes only)
          *
-         * Examples of supported timestamps:
-         * - 2023-10-15T14:30:45Z
-         * - 2023-10-15T14:30:45.123+05:30
-         * - 2023-10-15T14:30Z
+         * A timezone indicator (`Z`, `+hh:mm`, or `-hh:mm`) may be appended to any of the above.
          *
-         * Unsupported or partially supported formats:
-         * - T143045.123 or T143045 (no colons)
-         * - T14.500 (decimal hours)
-         * - T14 (hour only)
-         * - T14:30.500 (minute fractions)
-         * - T24:00:00 (invalid)
-         * - T23:59:60 (leap second)
+         * Unsupported formats include compact notation such as `T1430`, `T143045`, or `T14.5`.
+         *
+         * Examples:
+         * - `R/2023-10-15T14:30:00Z/P1W`
+         * - `R/2023-10-15T14:30:45.123+05:30/P1D`
+         * - `R/2023-10-15T14:30Z/P1D`
          */
         repeatingTimeIntervals: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -97468,32 +98312,6 @@ export namespace datareplication {
     }
 
     /**
-     * Private endpoint connection details at member level.
-     */
-    export interface ConnectionDetailsArgs {
-        /**
-         * Gets or sets group id.
-         */
-        groupId?: pulumi.Input<string>;
-        /**
-         * Gets or sets id.
-         */
-        id?: pulumi.Input<string>;
-        /**
-         * Gets or sets link identifier.
-         */
-        linkIdentifier?: pulumi.Input<string>;
-        /**
-         * Gets or sets member name.
-         */
-        memberName?: pulumi.Input<string>;
-        /**
-         * Gets or sets private IP address.
-         */
-        privateIpAddress?: pulumi.Input<string>;
-    }
-
-    /**
      * Dra model properties.
      */
     export interface DraModelPropertiesArgs {
@@ -97553,36 +98371,6 @@ export namespace datareplication {
          * Fabric model custom properties.
          */
         customProperties: pulumi.Input<inputs.datareplication.AzStackHCIFabricModelCustomPropertiesArgs | inputs.datareplication.HyperVMigrateFabricModelCustomPropertiesArgs | inputs.datareplication.VMwareMigrateFabricModelCustomPropertiesArgs>;
-    }
-
-    /**
-     * Represents of a connection's group information.
-     */
-    export interface GroupConnectivityInformationArgs {
-        /**
-         * Gets or sets customer visible FQDNs.
-         */
-        customerVisibleFqdns?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * Gets or sets group id.
-         */
-        groupId?: pulumi.Input<string>;
-        /**
-         * Gets or sets Internal Fqdn.
-         */
-        internalFqdn?: pulumi.Input<string>;
-        /**
-         * Gets or sets member name.
-         */
-        memberName?: pulumi.Input<string>;
-        /**
-         * Gets or sets the private link service arm region.
-         */
-        privateLinkServiceArmRegion?: pulumi.Input<string>;
-        /**
-         * Gets or sets the redirect map id.
-         */
-        redirectMapId?: pulumi.Input<string>;
     }
 
     /**
@@ -97842,16 +98630,6 @@ export namespace datareplication {
     }
 
     /**
-     * Represents private endpoint connection proxy request.
-     */
-    export interface PrivateEndpointConnectionProxyPropertiesArgs {
-        /**
-         * Represent remote private endpoint information for the private endpoint connection proxy.
-         */
-        remotePrivateEndpoint?: pulumi.Input<inputs.datareplication.RemotePrivateEndpointArgs>;
-    }
-
-    /**
      * Represents Private endpoint connection response properties.
      */
     export interface PrivateEndpointConnectionResponsePropertiesArgs {
@@ -97863,24 +98641,6 @@ export namespace datareplication {
          * Represents Private link service connection state.
          */
         privateLinkServiceConnectionState?: pulumi.Input<inputs.datareplication.PrivateLinkServiceConnectionStateArgs>;
-    }
-
-    /**
-     * Represents of an NRP private link service connection.
-     */
-    export interface PrivateLinkServiceConnectionArgs {
-        /**
-         * Gets or sets group ids.
-         */
-        groupIds?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * Gets or sets private link service connection name.
-         */
-        name?: pulumi.Input<string>;
-        /**
-         * Gets or sets the request message for the private link service connection.
-         */
-        requestMessage?: pulumi.Input<string>;
     }
 
     /**
@@ -97899,28 +98659,6 @@ export namespace datareplication {
          * Gets or sets the status.
          */
         status?: pulumi.Input<string | enums.datareplication.PrivateEndpointConnectionStatus>;
-    }
-
-    /**
-     * Represents NRP private link service proxy.
-     */
-    export interface PrivateLinkServiceProxyArgs {
-        /**
-         * Gets or sets group connectivity information.
-         */
-        groupConnectivityInformation?: pulumi.Input<pulumi.Input<inputs.datareplication.GroupConnectivityInformationArgs>[]>;
-        /**
-         * Gets or sets private link service proxy id.
-         */
-        id?: pulumi.Input<string>;
-        /**
-         * Represent remote private endpoint connection.
-         */
-        remotePrivateEndpointConnection?: pulumi.Input<inputs.datareplication.RemotePrivateEndpointConnectionArgs>;
-        /**
-         * Represents Private link service connection state.
-         */
-        remotePrivateLinkServiceConnectionState?: pulumi.Input<inputs.datareplication.PrivateLinkServiceConnectionStateArgs>;
     }
 
     /**
@@ -97957,42 +98695,6 @@ export namespace datareplication {
          * Gets or sets the replication extension name.
          */
         replicationExtensionName: pulumi.Input<string>;
-    }
-
-    /**
-     * Represent remote private endpoint information for the private endpoint connection proxy.
-     */
-    export interface RemotePrivateEndpointArgs {
-        /**
-         * Gets or sets the list of Connection Details. This is the connection details for private endpoint.
-         */
-        connectionDetails?: pulumi.Input<pulumi.Input<inputs.datareplication.ConnectionDetailsArgs>[]>;
-        /**
-         * Gets or sets private link service proxy id.
-         */
-        id: pulumi.Input<string>;
-        /**
-         * Gets or sets the list of Manual Private Link Service Connections and gets populated for Manual approval flow.
-         */
-        manualPrivateLinkServiceConnections?: pulumi.Input<pulumi.Input<inputs.datareplication.PrivateLinkServiceConnectionArgs>[]>;
-        /**
-         * Gets or sets the list of Private Link Service Connections and gets populated for Auto approval flow.
-         */
-        privateLinkServiceConnections?: pulumi.Input<pulumi.Input<inputs.datareplication.PrivateLinkServiceConnectionArgs>[]>;
-        /**
-         * Gets or sets the list of private link service proxies.
-         */
-        privateLinkServiceProxies?: pulumi.Input<pulumi.Input<inputs.datareplication.PrivateLinkServiceProxyArgs>[]>;
-    }
-
-    /**
-     * Represent remote private endpoint connection.
-     */
-    export interface RemotePrivateEndpointConnectionArgs {
-        /**
-         * Gets or sets the remote private endpoint connection id.
-         */
-        id?: pulumi.Input<string>;
     }
 
     /**
@@ -104245,7 +104947,7 @@ export namespace edge {
     }
 
     /**
-     * Capability, to match in Solution Templates and Targets
+     * Capability, to match in Solution Templates & Targets
      */
     export interface CapabilityArgs {
         /**
@@ -104351,6 +105053,20 @@ export namespace edge {
          * Workflow version of execution
          */
         workflowVersionId: pulumi.Input<string>;
+    }
+
+    /**
+     * ExecutionV2 Properties
+     */
+    export interface ExecutionV2PropertiesArgs {
+        /**
+         * ExecutionV2 specification
+         */
+        specification?: any;
+        /**
+         * Workflow version of ExecutionV2
+         */
+        workflowVersionId?: pulumi.Input<string>;
     }
 
     /**
@@ -104640,6 +105356,20 @@ export namespace edge {
      * Workflow Version Properties
      */
     export interface WorkflowVersionPropertiesArgs {
+        /**
+         * Execution specification
+         */
+        specification?: any;
+        /**
+         * A list of stage specs
+         */
+        stageSpec: pulumi.Input<pulumi.Input<inputs.edge.StageSpecArgs>[]>;
+    }
+
+    /**
+     * Workflow Version Properties
+     */
+    export interface WorkflowVersionV2PropertiesArgs {
         /**
          * Execution specification
          */
@@ -107833,6 +108563,10 @@ export namespace fileshares {
      */
     export interface FileShareSnapshotPropertiesArgs {
         /**
+         * The initiator of the FileShareSnapshot. This is a user-defined value.
+         */
+        initiatorId?: pulumi.Input<string>;
+        /**
          * The metadata
          */
         metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -108359,6 +109093,10 @@ export namespace frontdoor {
          * Identifier for the managed rule.
          */
         ruleId: pulumi.Input<string>;
+        /**
+         * Describes the override sensitivity to be applied when rule matches.
+         */
+        sensitivity?: pulumi.Input<string | enums.frontdoor.SensitivityType>;
     }
 
     /**
@@ -108388,13 +109126,80 @@ export namespace frontdoor {
     }
 
     /**
+     * Excludes whole requests from managed rule evaluation according to match conditions.
+     */
+    export interface ManagedRuleSetExceptionArgs {
+        /**
+         * List of values to be matched with.
+         */
+        matchValues: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The variable to be evaluated for excluding the request.
+         */
+        matchVariable: pulumi.Input<string | enums.frontdoor.ExceptionMatchVariable>;
+        /**
+         * Scope(s) of the exception.
+         */
+        scopes: pulumi.Input<pulumi.Input<inputs.frontdoor.ManagedRuleSetScopeArgs>[]>;
+        /**
+         * When matchVariable is a collection, operator used to specify which elements
+         * in the collection this exception applies to.
+         * Currently supported only for RequestHeaderNames.
+         */
+        selector?: pulumi.Input<string>;
+        /**
+         * Comparison operator to apply to the selector when specifying which elements
+         * in the collection this exception applies to.
+         */
+        selectorMatchOperator?: pulumi.Input<string | enums.frontdoor.ExceptionSelectorMatchOperator>;
+        /**
+         * Comparison operator to apply to the value to be matched.
+         */
+        valueMatchOperator: pulumi.Input<string | enums.frontdoor.ExceptionValueMatchOperator>;
+    }
+
+    /**
+     * Defines the list of exceptions for the managed rule sets.
+     */
+    export interface ManagedRuleSetExceptionListArgs {
+        /**
+         * List of exceptions.
+         */
+        exceptions?: pulumi.Input<pulumi.Input<inputs.frontdoor.ManagedRuleSetExceptionArgs>[]>;
+    }
+
+    /**
      * Defines the list of managed rule sets for the policy.
      */
     export interface ManagedRuleSetListArgs {
         /**
+         * List of exceptions applied on the managed rule sets.
+         */
+        exceptionsList?: pulumi.Input<inputs.frontdoor.ManagedRuleSetExceptionListArgs>;
+        /**
          * List of rule sets.
          */
         managedRuleSets?: pulumi.Input<pulumi.Input<inputs.frontdoor.ManagedRuleSetArgs>[]>;
+    }
+
+    /**
+     * Defines the scope of the managed rules.
+     */
+    export interface ManagedRuleSetScopeArgs {
+        /**
+         * List of rule group scopes.
+         */
+        ruleGroupScopes?: pulumi.Input<pulumi.Input<inputs.frontdoor.RuleGroupScopeArgs>[]>;
+        /**
+         * Defines the rule set type.
+         * Examples: DefaultRuleSet, Microsoft_DefaultRuleSet,
+         * Microsoft_BotManagerRuleSet, Microsoft_HTTPDDoSRuleSet, BotProtection
+         */
+        ruleSetType: pulumi.Input<string>;
+        /**
+         * Defines the version of the rule set.
+         */
+        ruleSetVersion: pulumi.Input<string>;
     }
 
     /**
@@ -108431,6 +109236,10 @@ export namespace frontdoor {
      * Defines top-level WebApplicationFirewallPolicy configuration settings.
      */
     export interface PolicySettingsArgs {
+        /**
+         * Defines the Captcha cookie validity lifetime in minutes. This setting is only applicable to Premium_AzureFrontDoor. Value must be an integer between 5 and 1440 with the default value being 30.
+         */
+        captchaExpirationInMinutes?: pulumi.Input<number>;
         /**
          * If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
          */
@@ -108557,6 +109366,30 @@ export namespace frontdoor {
     }
 
     /**
+     * Defines the scope of the rule group.
+     */
+    export interface RuleGroupScopeArgs {
+        /**
+         * Defines the rule group name.
+         */
+        ruleGroupName: pulumi.Input<string>;
+        /**
+         * List of rule scopes.
+         */
+        ruleScopes?: pulumi.Input<pulumi.Input<inputs.frontdoor.RuleScopeArgs>[]>;
+    }
+
+    /**
+     * Defines the scope of the rule.
+     */
+    export interface RuleScopeArgs {
+        /**
+         * Defines the rule id.
+         */
+        ruleId: pulumi.Input<string>;
+    }
+
+    /**
      * One or more actions that will execute, modifying the request and/or response.
      */
     export interface RulesEngineActionArgs {
@@ -108625,7 +109458,7 @@ export namespace frontdoor {
          */
         name: pulumi.Input<string>;
         /**
-         * A priority assigned to this rule. 
+         * A priority assigned to this rule.
          */
         priority: pulumi.Input<number>;
     }
@@ -110326,6 +111159,145 @@ export namespace healthdataaiservices {
 
 }
 
+export namespace horizondb {
+    /**
+     * Connection information for HorizonDB parameter group.
+     */
+    export interface HorizonDbClusterParameterGroupConnectionPropertiesArgs {
+        /**
+         * Indicates whether the parameters should be applied immediately.
+         */
+        applyImmediately?: pulumi.Input<boolean>;
+        /**
+         * The resource ID of the connected parameter group.
+         */
+        id?: pulumi.Input<string>;
+    }
+
+    /**
+     * Properties of a HorizonDB cluster.
+     */
+    export interface HorizonDbClusterPropertiesArgs {
+        /**
+         * The administrator login name.
+         */
+        administratorLogin: pulumi.Input<string>;
+        /**
+         * The administrator login password.
+         */
+        administratorLoginPassword?: pulumi.Input<string>;
+        /**
+         * The mode to create a new HorizonDB cluster.
+         */
+        createMode?: pulumi.Input<string | enums.horizondb.CreateModeCluster>;
+        /**
+         * Defines connection to a parameter group.
+         */
+        parameterGroup?: pulumi.Input<inputs.horizondb.HorizonDbClusterParameterGroupConnectionPropertiesArgs>;
+        /**
+         * Restore point creation time specifying the time to restore from.
+         */
+        pointInTimeUTC?: pulumi.Input<string>;
+        /**
+         * The pool name for restore or replica operations.
+         */
+        poolName?: pulumi.Input<string>;
+        /**
+         * The processor type for the HorizonDB cluster.
+         */
+        processorType?: pulumi.Input<string>;
+        /**
+         * Number of replicas.
+         */
+        replicaCount?: pulumi.Input<number>;
+        /**
+         * The source cluster resource ID for restore or replica creation.
+         */
+        sourceClusterResourceId?: pulumi.Input<string>;
+        /**
+         * Number of vCores.
+         */
+        vCores?: pulumi.Input<number>;
+        /**
+         * The version of the HorizonDB cluster.
+         */
+        version?: pulumi.Input<string>;
+        /**
+         * Defines how replicas are placed across availability zones.
+         */
+        zonePlacementPolicy?: pulumi.Input<string | enums.horizondb.ZonePlacementPolicy>;
+    }
+
+    /**
+     * Properties of a HorizonDB firewall rule.
+     */
+    export interface HorizonDbFirewallRulePropertiesArgs {
+        /**
+         * The description of the HorizonDB firewall rule.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The end IP address of the firewall rule (IPv4).
+         */
+        endIpAddress: pulumi.Input<string>;
+        /**
+         * The start IP address of the firewall rule (IPv4).
+         */
+        startIpAddress: pulumi.Input<string>;
+    }
+
+    /**
+     * Properties of a HorizonDB parameter group.
+     */
+    export interface HorizonDbParameterGroupPropertiesArgs {
+        /**
+         * Indicates whether the parameters should be applied immediately.
+         */
+        applyImmediately?: pulumi.Input<boolean>;
+        /**
+         * Description of the parameter group.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Parameters in the parameter group.
+         */
+        parameters?: pulumi.Input<pulumi.Input<inputs.horizondb.ParameterPropertiesArgs>[]>;
+        /**
+         * PostgreSQL version for the parameter group.
+         */
+        pgVersion?: pulumi.Input<number>;
+    }
+
+    /**
+     * Properties of a HorizonDB replica.
+     */
+    export interface HorizonDbReplicaPropertiesArgs {
+        /**
+         * The availability zone of the replica.
+         */
+        availabilityZone?: pulumi.Input<string>;
+        /**
+         * Role of the replica.
+         */
+        role?: pulumi.Input<string | enums.horizondb.ReplicaRole>;
+    }
+
+    /**
+     * Properties of a HorizonDB parameters.
+     */
+    export interface ParameterPropertiesArgs {
+        /**
+         * The name of the parameter.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The value of the configuration.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+}
+
 export namespace hybridcloud {
     /**
      * Resource reference properties.
@@ -110811,255 +111783,9 @@ export namespace hybridconnectivity {
 
 export namespace hybridcontainerservice {
     /**
-     * AAD Profile specifies attributes for Azure Active Directory integration.
-     */
-    export interface AADProfileArgs {
-        /**
-         * The list of AAD group object IDs that will have admin role of the cluster.
-         */
-        adminGroupObjectIDs?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * The client AAD application ID.
-         */
-        clientAppID?: pulumi.Input<string>;
-        /**
-         * Whether to enable Azure RBAC for Kubernetes authorization.
-         */
-        enableAzureRbac?: pulumi.Input<boolean>;
-        /**
-         * Whether to enable managed AAD.
-         */
-        managed?: pulumi.Input<boolean>;
-        /**
-         * The server AAD application ID.
-         */
-        serverAppID?: pulumi.Input<string>;
-        /**
-         * The server AAD application secret.
-         */
-        serverAppSecret?: pulumi.Input<string>;
-        /**
-         * The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
-         */
-        tenantID?: pulumi.Input<string>;
-    }
-
-    /**
-     * Addon configurations
-     */
-    export interface AddonProfilesArgs {
-        /**
-         * Config - Key-value pairs for configuring an add-on.
-         */
-        config?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-        /**
-         * Enabled - Whether the add-on is enabled or not.
-         */
-        enabled?: pulumi.Input<boolean>;
-    }
-
-    export interface AgentPoolExtendedLocationArgs {
-        /**
-         * The extended location name.
-         */
-        name?: pulumi.Input<string>;
-        /**
-         * The extended location type.
-         */
-        type?: pulumi.Input<string>;
-    }
-
-    export interface AgentPoolProvisioningStatusErrorArgs {
-        code?: pulumi.Input<string>;
-        message?: pulumi.Input<string>;
-    }
-
-    /**
-     * Contains Provisioning errors
-     */
-    export interface AgentPoolProvisioningStatusProvisioningStatusArgs {
-        error?: pulumi.Input<inputs.hybridcontainerservice.AgentPoolProvisioningStatusErrorArgs>;
-        operationId?: pulumi.Input<string>;
-        /**
-         * Phase represents the current phase of cluster actuation. E.g. Pending, Running, Terminating, Failed etc.
-         */
-        phase?: pulumi.Input<string>;
-        status?: pulumi.Input<string>;
-    }
-
-    /**
-     * HybridAKSNodePoolStatus defines the observed state of HybridAKSNodePool
-     */
-    export interface AgentPoolProvisioningStatusStatusArgs {
-        /**
-         * ErrorMessage - Error messages during creation of cluster
-         */
-        errorMessage?: pulumi.Input<string>;
-        /**
-         * Contains Provisioning errors
-         */
-        provisioningStatus?: pulumi.Input<inputs.hybridcontainerservice.AgentPoolProvisioningStatusProvisioningStatusArgs>;
-        /**
-         * Total number of ready machines targeted by this deployment.
-         */
-        readyReplicas?: pulumi.Input<number>;
-        /**
-         * Total number of non-terminated machines targeted by this deployment
-         */
-        replicas?: pulumi.Input<number>;
-    }
-
-    /**
-     * Defines the Arc Agent properties for the Provisioned clusters.
-     */
-    export interface ArcAgentProfileArgs {
-        /**
-         * Indicates whether the Arc agents on the provisioned clusters be upgraded automatically to the latest version. Defaults to Enabled.
-         */
-        agentAutoUpgrade?: pulumi.Input<string | enums.hybridcontainerservice.AutoUpgradeOptions>;
-        /**
-         * Version of the Arc agents to be installed on the provisioned Provisioned cluster resource
-         */
-        agentVersion?: pulumi.Input<string>;
-    }
-    /**
-     * arcAgentProfileArgsProvideDefaults sets the appropriate defaults for ArcAgentProfileArgs
-     */
-    export function arcAgentProfileArgsProvideDefaults(val: ArcAgentProfileArgs): ArcAgentProfileArgs {
-        return {
-            ...val,
-            agentAutoUpgrade: (val.agentAutoUpgrade) ?? "Enabled",
-        };
-    }
-
-    /**
-     * CloudProviderProfile - The underlying cloud infra provider properties.
-     */
-    export interface CloudProviderProfileArgs {
-        /**
-         * InfraNetworkProfile - List of infra network profiles for the provisioned cluster
-         */
-        infraNetworkProfile?: pulumi.Input<inputs.hybridcontainerservice.CloudProviderProfileInfraNetworkProfileArgs>;
-        /**
-         * InfraStorageProfile - List of infra storage profiles for the provisioned cluster
-         */
-        infraStorageProfile?: pulumi.Input<inputs.hybridcontainerservice.CloudProviderProfileInfraStorageProfileArgs>;
-    }
-
-    /**
-     * InfraNetworkProfile - List of infra network profiles for the provisioned cluster
-     */
-    export interface CloudProviderProfileInfraNetworkProfileArgs {
-        /**
-         * Array of references to azure resource corresponding to the new HybridAKSNetwork object e.g. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridContainerService/virtualNetworks/{virtualNetworkName}
-         */
-        vnetSubnetIds?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    /**
-     * InfraStorageProfile - List of infra storage profiles for the provisioned cluster
-     */
-    export interface CloudProviderProfileInfraStorageProfileArgs {
-        /**
-         * Reference to azure resource corresponding to the new HybridAKSStorage object e.g. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridContainerService/storageSpaces/{storageSpaceName}
-         */
-        storageSpaceIds?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    /**
-     * API server endpoint for the control plane
-     */
-    export interface ControlPlaneEndpointProfileControlPlaneEndpointArgs {
-        /**
-         * Host IP address for API server
-         */
-        hostIP?: pulumi.Input<string>;
-        /**
-         * Port for the API server
-         */
-        port?: pulumi.Input<string>;
-    }
-
-    /**
-     * ControlPlaneProfile - The control plane properties for the provisioned cluster.
-     */
-    export interface ControlPlaneProfileArgs {
-        /**
-         * AvailabilityZones - The list of Availability zones to use for nodes. Datacenter racks modelled as zones
-         */
-        availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * The underlying cloud infra provider properties.
-         */
-        cloudProviderProfile?: pulumi.Input<inputs.hybridcontainerservice.CloudProviderProfileArgs>;
-        /**
-         * API server endpoint for the control plane
-         */
-        controlPlaneEndpoint?: pulumi.Input<inputs.hybridcontainerservice.ControlPlaneEndpointProfileControlPlaneEndpointArgs>;
-        /**
-         * Count - Number of agents to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-         */
-        count?: pulumi.Input<number>;
-        /**
-         * Profile for Linux VMs in the container service cluster.
-         */
-        linuxProfile?: pulumi.Input<inputs.hybridcontainerservice.LinuxProfilePropertiesArgs>;
-        /**
-         * The maximum number of nodes for auto-scaling
-         */
-        maxCount?: pulumi.Input<number>;
-        /**
-         * The maximum number of pods that can run on a node.
-         */
-        maxPods?: pulumi.Input<number>;
-        /**
-         * The minimum number of nodes for auto-scaling
-         */
-        minCount?: pulumi.Input<number>;
-        /**
-         * Mode - AgentPoolMode represents mode of an agent pool. Possible values include: 'System', 'LB', 'User'. Default is 'User'
-         */
-        mode?: pulumi.Input<string | enums.hybridcontainerservice.Mode>;
-        /**
-         * Unique name of the agent pool profile in the context of the subscription and resource group.
-         */
-        name?: pulumi.Input<string>;
-        /**
-         * The version of node image
-         */
-        nodeImageVersion?: pulumi.Input<string>;
-        /**
-         * NodeLabels - Agent pool node labels to be persisted across all nodes in agent pool.
-         */
-        nodeLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-        /**
-         * NodeTaints - Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
-         */
-        nodeTaints?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * OsType - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux. Possible values include: 'Linux', 'Windows'
-         */
-        osType?: pulumi.Input<string | enums.hybridcontainerservice.OsType>;
-        /**
-         * VmSize - The size of the agent pool VMs.
-         */
-        vmSize?: pulumi.Input<string>;
-    }
-    /**
-     * controlPlaneProfileArgsProvideDefaults sets the appropriate defaults for ControlPlaneProfileArgs
-     */
-    export function controlPlaneProfileArgsProvideDefaults(val: ControlPlaneProfileArgs): ControlPlaneProfileArgs {
-        return {
-            ...val,
-            count: (val.count) ?? 1,
-            mode: (val.mode) ?? "User",
-        };
-    }
-
-    /**
      * Extended location pointing to the underlying infrastructure
      */
-    export interface ExtendedLocationArgs {
+    export interface VirtualNetworkExtendedLocationArgs {
         /**
          * ARM Id of the extended location.
          */
@@ -111071,493 +111797,42 @@ export namespace hybridcontainerservice {
     }
 
     /**
-     * Configurations for provisioning the cluster with HTTP proxy servers.
+     * Properties of the virtual network resource
      */
-    export interface HttpProxyConfigArgs {
+    export interface VirtualNetworkPropertiesArgs {
         /**
-         * The HTTP proxy server endpoint to use.
-         */
-        httpProxy?: pulumi.Input<string>;
-        /**
-         * The HTTPS proxy server endpoint to use.
-         */
-        httpsProxy?: pulumi.Input<string>;
-        /**
-         * The endpoints that should not go through proxy.
-         */
-        noProxy?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * Password to use for connecting to proxy server
-         */
-        password?: pulumi.Input<string>;
-        /**
-         * Alternative CA cert to use for connecting to proxy servers.
-         */
-        trustedCa?: pulumi.Input<string>;
-        /**
-         * Username to use for connecting to proxy server
-         */
-        username?: pulumi.Input<string>;
-    }
-
-    /**
-     * LinuxProfile - Profile for Linux VMs in the container service cluster.
-     */
-    export interface LinuxProfilePropertiesArgs {
-        /**
-         * AdminUsername - The administrator username to use for Linux VMs.
-         */
-        adminUsername?: pulumi.Input<string>;
-        /**
-         * SSH - SSH configuration for Linux-based VMs running on Azure.
-         */
-        ssh?: pulumi.Input<inputs.hybridcontainerservice.LinuxProfilePropertiesSshArgs>;
-    }
-
-    export interface LinuxProfilePropertiesPublicKeysArgs {
-        /**
-         * KeyData - Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
-         */
-        keyData?: pulumi.Input<string>;
-    }
-
-    /**
-     * SSH - SSH configuration for Linux-based VMs running on Azure.
-     */
-    export interface LinuxProfilePropertiesSshArgs {
-        /**
-         * PublicKeys - The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
-         */
-        publicKeys?: pulumi.Input<pulumi.Input<inputs.hybridcontainerservice.LinuxProfilePropertiesPublicKeysArgs>[]>;
-    }
-
-    /**
-     * LoadBalancerProfile - Profile of the cluster load balancer.
-     */
-    export interface LoadBalancerProfileArgs {
-        /**
-         * AvailabilityZones - The list of Availability zones to use for nodes. Datacenter racks modelled as zones
-         */
-        availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * The underlying cloud infra provider properties.
-         */
-        cloudProviderProfile?: pulumi.Input<inputs.hybridcontainerservice.CloudProviderProfileArgs>;
-        /**
-         * Count - Number of agents to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-         */
-        count?: pulumi.Input<number>;
-        /**
-         * Profile for Linux VMs in the container service cluster.
-         */
-        linuxProfile?: pulumi.Input<inputs.hybridcontainerservice.LinuxProfilePropertiesArgs>;
-        /**
-         * The maximum number of nodes for auto-scaling
-         */
-        maxCount?: pulumi.Input<number>;
-        /**
-         * The maximum number of pods that can run on a node.
-         */
-        maxPods?: pulumi.Input<number>;
-        /**
-         * The minimum number of nodes for auto-scaling
-         */
-        minCount?: pulumi.Input<number>;
-        /**
-         * Mode - AgentPoolMode represents mode of an agent pool. Possible values include: 'System', 'LB', 'User'. Default is 'User'
-         */
-        mode?: pulumi.Input<string | enums.hybridcontainerservice.Mode>;
-        /**
-         * Unique name of the agent pool profile in the context of the subscription and resource group.
-         */
-        name?: pulumi.Input<string>;
-        /**
-         * The version of node image
-         */
-        nodeImageVersion?: pulumi.Input<string>;
-        /**
-         * NodeLabels - Agent pool node labels to be persisted across all nodes in agent pool.
-         */
-        nodeLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-        /**
-         * NodeTaints - Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
-         */
-        nodeTaints?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * OsType - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux. Possible values include: 'Linux', 'Windows'
-         */
-        osType?: pulumi.Input<string | enums.hybridcontainerservice.OsType>;
-        /**
-         * VmSize - The size of the agent pool VMs.
-         */
-        vmSize?: pulumi.Input<string>;
-    }
-    /**
-     * loadBalancerProfileArgsProvideDefaults sets the appropriate defaults for LoadBalancerProfileArgs
-     */
-    export function loadBalancerProfileArgsProvideDefaults(val: LoadBalancerProfileArgs): LoadBalancerProfileArgs {
-        return {
-            ...val,
-            count: (val.count) ?? 1,
-            mode: (val.mode) ?? "User",
-        };
-    }
-
-    /**
-     * Agent pool profile along with a name parameter
-     */
-    export interface NamedAgentPoolProfileArgs {
-        /**
-         * AvailabilityZones - The list of Availability zones to use for nodes. Datacenter racks modelled as zones
-         */
-        availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * The underlying cloud infra provider properties.
-         */
-        cloudProviderProfile?: pulumi.Input<inputs.hybridcontainerservice.CloudProviderProfileArgs>;
-        /**
-         * Count - Number of agents to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-         */
-        count?: pulumi.Input<number>;
-        /**
-         * The maximum number of nodes for auto-scaling
-         */
-        maxCount?: pulumi.Input<number>;
-        /**
-         * The maximum number of pods that can run on a node.
-         */
-        maxPods?: pulumi.Input<number>;
-        /**
-         * The minimum number of nodes for auto-scaling
-         */
-        minCount?: pulumi.Input<number>;
-        /**
-         * Mode - AgentPoolMode represents mode of an agent pool. Possible values include: 'System', 'LB', 'User'. Default is 'User'
-         */
-        mode?: pulumi.Input<string | enums.hybridcontainerservice.Mode>;
-        /**
-         * Unique name of the agent pool profile in the context of the subscription and resource group.
-         */
-        name?: pulumi.Input<string>;
-        /**
-         * The version of node image
-         */
-        nodeImageVersion?: pulumi.Input<string>;
-        /**
-         * NodeLabels - Agent pool node labels to be persisted across all nodes in agent pool.
-         */
-        nodeLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-        /**
-         * NodeTaints - Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
-         */
-        nodeTaints?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * OsType - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux. Possible values include: 'Linux', 'Windows'
-         */
-        osType?: pulumi.Input<string | enums.hybridcontainerservice.OsType>;
-        /**
-         * VmSize - The size of the agent pool VMs.
-         */
-        vmSize?: pulumi.Input<string>;
-    }
-    /**
-     * namedAgentPoolProfileArgsProvideDefaults sets the appropriate defaults for NamedAgentPoolProfileArgs
-     */
-    export function namedAgentPoolProfileArgsProvideDefaults(val: NamedAgentPoolProfileArgs): NamedAgentPoolProfileArgs {
-        return {
-            ...val,
-            count: (val.count) ?? 1,
-            mode: (val.mode) ?? "User",
-        };
-    }
-
-    /**
-     * NetworkProfile - Profile of network configuration.
-     */
-    export interface NetworkProfileArgs {
-        /**
-         * DNSServiceIP - An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
-         */
-        dnsServiceIP?: pulumi.Input<string>;
-        /**
-         * LoadBalancerProfile - Profile of the cluster load balancer.
-         */
-        loadBalancerProfile?: pulumi.Input<inputs.hybridcontainerservice.LoadBalancerProfileArgs>;
-        /**
-         * LoadBalancerSku - The load balancer sku for the provisioned cluster. Possible values: 'unstacked-haproxy', 'stacked-kube-vip', 'stacked-metallb', 'unmanaged'. The default is 'unmanaged'.
-         */
-        loadBalancerSku?: pulumi.Input<string | enums.hybridcontainerservice.LoadBalancerSku>;
-        /**
-         * NetworkPolicy - Network policy used for building Kubernetes network. Possible values include: 'calico', 'flannel'. Default is 'calico'
-         */
-        networkPolicy?: pulumi.Input<string | enums.hybridcontainerservice.NetworkPolicy>;
-        /**
-         * PodCidr - A CIDR notation IP range from which to assign pod IPs when kubenet is used.
-         */
-        podCidr?: pulumi.Input<string>;
-        /**
-         * The CIDR notation IP ranges from which to assign pod IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking.
-         */
-        podCidrs?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * ServiceCidr - A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
-         */
-        serviceCidr?: pulumi.Input<string>;
-        /**
-         * The CIDR notation IP ranges from which to assign service cluster IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking. They must not overlap with any Subnet IP ranges.
-         */
-        serviceCidrs?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-    /**
-     * networkProfileArgsProvideDefaults sets the appropriate defaults for NetworkProfileArgs
-     */
-    export function networkProfileArgsProvideDefaults(val: NetworkProfileArgs): NetworkProfileArgs {
-        return {
-            ...val,
-            loadBalancerProfile: (val.loadBalancerProfile ? pulumi.output(val.loadBalancerProfile).apply(inputs.hybridcontainerservice.loadBalancerProfileArgsProvideDefaults) : undefined),
-            loadBalancerSku: (val.loadBalancerSku) ?? "unmanaged",
-            networkPolicy: (val.networkPolicy) ?? "calico",
-        };
-    }
-
-    /**
-     * Identity for the Provisioned cluster.
-     */
-    export interface ProvisionedClusterIdentityArgs {
-        /**
-         * The type of identity used for the provisioned cluster. The type SystemAssigned, includes a system created identity. The type None means no identity is assigned to the provisioned cluster.
-         */
-        type: pulumi.Input<enums.hybridcontainerservice.ResourceIdentityType>;
-    }
-
-    /**
-     * All properties of the provisioned cluster
-     */
-    export interface ProvisionedClustersAllPropertiesArgs {
-        /**
-         * AAD profile for the provisioned cluster.
-         */
-        aadProfile?: pulumi.Input<inputs.hybridcontainerservice.AADProfileArgs>;
-        /**
-         * AddonProfiles - Profile of managed cluster add-on.
-         */
-        addonProfiles?: pulumi.Input<{[key: string]: pulumi.Input<inputs.hybridcontainerservice.AddonProfilesArgs>}>;
-        /**
-         * The agent pools of the cluster.
-         */
-        agentPoolProfiles?: pulumi.Input<pulumi.Input<inputs.hybridcontainerservice.NamedAgentPoolProfileArgs>[]>;
-        /**
-         * The underlying cloud infra provider properties.
-         */
-        cloudProviderProfile?: pulumi.Input<inputs.hybridcontainerservice.CloudProviderProfileArgs>;
-        /**
-         * ControlPlane - ControlPlane Configuration
-         */
-        controlPlane?: pulumi.Input<inputs.hybridcontainerservice.ControlPlaneProfileArgs>;
-        /**
-         * EnableRBAC - Whether to enable Kubernetes Role-Based Access Control.
-         */
-        enableRbac?: pulumi.Input<boolean>;
-        /**
-         * Additional features specs like Arc Agent Onboarding.
-         */
-        features?: pulumi.Input<inputs.hybridcontainerservice.ProvisionedClustersCommonPropertiesFeaturesArgs>;
-        /**
-         * HttpProxyConfig - Configurations for provisioning the cluster with HTTP proxy servers.
-         */
-        httpProxyConfig?: pulumi.Input<inputs.hybridcontainerservice.HttpProxyConfigArgs>;
-        /**
-         * KubernetesVersion - Version of Kubernetes specified when creating the managed cluster.
-         */
-        kubernetesVersion?: pulumi.Input<string>;
-        /**
-         * LinuxProfile - The profile for Linux VMs in the Provisioned Cluster.
-         */
-        linuxProfile?: pulumi.Input<inputs.hybridcontainerservice.LinuxProfilePropertiesArgs>;
-        /**
-         * NetworkProfile - Profile of network configuration.
-         */
-        networkProfile?: pulumi.Input<inputs.hybridcontainerservice.NetworkProfileArgs>;
-        /**
-         * NodeResourceGroup - Name of the resource group containing agent pool nodes.
-         */
-        nodeResourceGroup?: pulumi.Input<string>;
-        /**
-         * WindowsProfile - Profile for Windows VMs in the Provisioned Cluster.
-         */
-        windowsProfile?: pulumi.Input<inputs.hybridcontainerservice.WindowsProfileArgs>;
-    }
-    /**
-     * provisionedClustersAllPropertiesArgsProvideDefaults sets the appropriate defaults for ProvisionedClustersAllPropertiesArgs
-     */
-    export function provisionedClustersAllPropertiesArgsProvideDefaults(val: ProvisionedClustersAllPropertiesArgs): ProvisionedClustersAllPropertiesArgs {
-        return {
-            ...val,
-            controlPlane: (val.controlPlane ? pulumi.output(val.controlPlane).apply(inputs.hybridcontainerservice.controlPlaneProfileArgsProvideDefaults) : undefined),
-            features: (val.features ? pulumi.output(val.features).apply(inputs.hybridcontainerservice.provisionedClustersCommonPropertiesFeaturesArgsProvideDefaults) : undefined),
-            networkProfile: (val.networkProfile ? pulumi.output(val.networkProfile).apply(inputs.hybridcontainerservice.networkProfileArgsProvideDefaults) : undefined),
-        };
-    }
-
-    /**
-     * Additional features specs like Arc Agent Onboarding.
-     */
-    export interface ProvisionedClustersCommonPropertiesFeaturesArgs {
-        /**
-         * Arc agentry configuration for the provisioned cluster.
-         */
-        arcAgentProfile?: pulumi.Input<inputs.hybridcontainerservice.ArcAgentProfileArgs>;
-    }
-    /**
-     * provisionedClustersCommonPropertiesFeaturesArgsProvideDefaults sets the appropriate defaults for ProvisionedClustersCommonPropertiesFeaturesArgs
-     */
-    export function provisionedClustersCommonPropertiesFeaturesArgsProvideDefaults(val: ProvisionedClustersCommonPropertiesFeaturesArgs): ProvisionedClustersCommonPropertiesFeaturesArgs {
-        return {
-            ...val,
-            arcAgentProfile: (val.arcAgentProfile ? pulumi.output(val.arcAgentProfile).apply(inputs.hybridcontainerservice.arcAgentProfileArgsProvideDefaults) : undefined),
-        };
-    }
-
-    export interface ProvisionedClustersExtendedLocationArgs {
-        /**
-         * The extended location name.
-         */
-        name?: pulumi.Input<string>;
-        /**
-         * The extended location type.
-         */
-        type?: pulumi.Input<string>;
-    }
-
-    export interface StorageSpacesExtendedLocationArgs {
-        /**
-         * The extended location name.
-         */
-        name?: pulumi.Input<string>;
-        /**
-         * The extended location type.
-         */
-        type?: pulumi.Input<string>;
-    }
-
-    /**
-     * HybridAKSStorageSpec defines the desired state of HybridAKSStorage
-     */
-    export interface StorageSpacesPropertiesArgs {
-        hciStorageProfile?: pulumi.Input<inputs.hybridcontainerservice.StorageSpacesPropertiesHciStorageProfileArgs>;
-        /**
-         * HybridAKSStorageStatus defines the observed state of HybridAKSStorage
-         */
-        status?: pulumi.Input<inputs.hybridcontainerservice.StorageSpacesPropertiesStatusArgs>;
-        vmwareStorageProfile?: pulumi.Input<inputs.hybridcontainerservice.StorageSpacesPropertiesVmwareStorageProfileArgs>;
-    }
-
-    export interface StorageSpacesPropertiesErrorArgs {
-        code?: pulumi.Input<string>;
-        message?: pulumi.Input<string>;
-    }
-
-    export interface StorageSpacesPropertiesHciStorageProfileArgs {
-        /**
-         * Resource group in MOC(Microsoft On-premises Cloud)
-         */
-        mocGroup?: pulumi.Input<string>;
-        /**
-         * Location in MOC(Microsoft On-premises Cloud)
-         */
-        mocLocation?: pulumi.Input<string>;
-        /**
-         * Name of the storage container in MOC(Microsoft On-premises Cloud)
-         */
-        mocStorageContainer?: pulumi.Input<string>;
-    }
-
-    /**
-     * Contains Provisioning errors
-     */
-    export interface StorageSpacesPropertiesProvisioningStatusArgs {
-        error?: pulumi.Input<inputs.hybridcontainerservice.StorageSpacesPropertiesErrorArgs>;
-        operationId?: pulumi.Input<string>;
-        /**
-         * Phase represents the current phase of cluster actuation. E.g. Pending, Running, Terminating, Failed etc.
-         */
-        phase?: pulumi.Input<string>;
-        status?: pulumi.Input<string>;
-    }
-
-    /**
-     * HybridAKSStorageStatus defines the observed state of HybridAKSStorage
-     */
-    export interface StorageSpacesPropertiesStatusArgs {
-        /**
-         * Contains Provisioning errors
-         */
-        provisioningStatus?: pulumi.Input<inputs.hybridcontainerservice.StorageSpacesPropertiesProvisioningStatusArgs>;
-    }
-
-    export interface StorageSpacesPropertiesVmwareStorageProfileArgs {
-        /**
-         * Name of the datacenter in VSphere
-         */
-        datacenter?: pulumi.Input<string>;
-        /**
-         * Name of the datastore in VSphere
-         */
-        datastore?: pulumi.Input<string>;
-        /**
-         * Name of the folder in VSphere
-         */
-        folder?: pulumi.Input<string>;
-        /**
-         * Name of the resource pool in VSphere
-         */
-        resourcePool?: pulumi.Input<string>;
-    }
-
-    export interface VirtualNetworksExtendedLocationArgs {
-        /**
-         * The extended location name.
-         */
-        name?: pulumi.Input<string>;
-        /**
-         * The extended location type.
-         */
-        type?: pulumi.Input<string>;
-    }
-
-    /**
-     * HybridAKSNetworkSpec defines the desired state of HybridAKSNetwork
-     */
-    export interface VirtualNetworksPropertiesArgs {
-        /**
-         * Address of the DNS servers associated with the network
+         * List of DNS server IP Addresses associated with the network
          */
         dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Address of the Gateway associated with the network
+         * IP Address of the Gateway associated with the network
          */
         gateway?: pulumi.Input<string>;
-        infraVnetProfile?: pulumi.Input<inputs.hybridcontainerservice.VirtualNetworksPropertiesInfraVnetProfileArgs>;
+        infraVnetProfile?: pulumi.Input<inputs.hybridcontainerservice.VirtualNetworkPropertiesInfraVnetProfileArgs>;
         /**
          * IP Address Prefix of the network
          */
         ipAddressPrefix?: pulumi.Input<string>;
         /**
-         * Virtual IP Pool for Kubernetes
+         * Range of IP Addresses for Kubernetes API Server and services if using HA Proxy load balancer
          */
-        vipPool?: pulumi.Input<pulumi.Input<inputs.hybridcontainerservice.VirtualNetworksPropertiesVipPoolArgs>[]>;
+        vipPool?: pulumi.Input<pulumi.Input<inputs.hybridcontainerservice.VirtualNetworkPropertiesVipPoolArgs>[]>;
         /**
-         * IP Pool for Virtual Machines
+         * VLAN Id used by the network
          */
-        vmipPool?: pulumi.Input<pulumi.Input<inputs.hybridcontainerservice.VirtualNetworksPropertiesVmipPoolArgs>[]>;
+        vlanID?: pulumi.Input<number>;
+        /**
+         * Range of IP Addresses for Kubernetes node VMs
+         */
+        vmipPool?: pulumi.Input<pulumi.Input<inputs.hybridcontainerservice.VirtualNetworkPropertiesVmipPoolArgs>[]>;
     }
 
     /**
-     * Infra network profile for HCI platform
+     * Infrastructure network profile for HCI platform
      */
-    export interface VirtualNetworksPropertiesHciArgs {
+    export interface VirtualNetworkPropertiesHciArgs {
         /**
-         * Resource group in MOC(Microsoft On-premises Cloud)
+         * Group in MOC(Microsoft On-premises Cloud)
          */
         mocGroup?: pulumi.Input<string>;
         /**
@@ -111570,32 +111845,14 @@ export namespace hybridcontainerservice {
         mocVnetName?: pulumi.Input<string>;
     }
 
-    export interface VirtualNetworksPropertiesInfraVnetProfileArgs {
+    export interface VirtualNetworkPropertiesInfraVnetProfileArgs {
         /**
-         * Infra network profile for HCI platform
+         * Infrastructure network profile for HCI platform
          */
-        hci?: pulumi.Input<inputs.hybridcontainerservice.VirtualNetworksPropertiesHciArgs>;
-        /**
-         * Infra network profile for the NetworkCloud platform
-         */
-        networkCloud?: pulumi.Input<inputs.hybridcontainerservice.VirtualNetworksPropertiesNetworkCloudArgs>;
-        /**
-         * Infra network profile for VMware platform
-         */
-        vmware?: pulumi.Input<inputs.hybridcontainerservice.VirtualNetworksPropertiesVmwareArgs>;
+        hci?: pulumi.Input<inputs.hybridcontainerservice.VirtualNetworkPropertiesHciArgs>;
     }
 
-    /**
-     * Infra network profile for the NetworkCloud platform
-     */
-    export interface VirtualNetworksPropertiesNetworkCloudArgs {
-        /**
-         * The ARM ID of Network Cloud Network Resource to Associate with this VirtualNetwork
-         */
-        networkId?: pulumi.Input<string>;
-    }
-
-    export interface VirtualNetworksPropertiesVipPoolArgs {
+    export interface VirtualNetworkPropertiesVipPoolArgs {
         /**
          * Ending IP address for the IP Pool
          */
@@ -111606,7 +111863,7 @@ export namespace hybridcontainerservice {
         startIP?: pulumi.Input<string>;
     }
 
-    export interface VirtualNetworksPropertiesVmipPoolArgs {
+    export interface VirtualNetworkPropertiesVmipPoolArgs {
         /**
          * Ending IP address for the IP Pool
          */
@@ -111615,38 +111872,6 @@ export namespace hybridcontainerservice {
          * Starting IP address for the IP Pool
          */
         startIP?: pulumi.Input<string>;
-    }
-
-    /**
-     * Infra network profile for VMware platform
-     */
-    export interface VirtualNetworksPropertiesVmwareArgs {
-        /**
-         * Name of the network segment in VSphere
-         */
-        segmentName?: pulumi.Input<string>;
-    }
-
-    /**
-     * WindowsProfile - Profile for Windows VMs in the container service cluster.
-     */
-    export interface WindowsProfileArgs {
-        /**
-         * AdminPassword - Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
-         */
-        adminPassword?: pulumi.Input<string>;
-        /**
-         * AdminUsername - Specifies the name of the administrator account. <br><br> **restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length:** 1 character <br><br> **Max-length:** 20 characters
-         */
-        adminUsername?: pulumi.Input<string>;
-        /**
-         * EnableCSIProxy - Whether to enable CSI proxy.
-         */
-        enableCsiProxy?: pulumi.Input<boolean>;
-        /**
-         * LicenseType - The licenseType to use for Windows VMs. Windows_Server is used to enable Azure Hybrid User Benefits for Windows VMs. Possible values include: 'None', 'Windows_Server'
-         */
-        licenseType?: pulumi.Input<string | enums.hybridcontainerservice.LicenseType>;
     }
 
 }
@@ -133812,6 +134037,20 @@ export namespace managednetworkfabric {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityArgs {
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: pulumi.Input<string | enums.managednetworkfabric.ManagedServiceIdentityType>;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
      * Configuration to be used to setup the management network.
      */
     export interface ManagementNetworkConfigurationPropertiesArgs {
@@ -133857,29 +134096,6 @@ export namespace managednetworkfabric {
          * Array of IPv6 Addresses.
          */
         ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    /**
-     * Network Monitor Properties defines the properties of the resource.
-     */
-    export interface NetworkMonitorPropertiesArgs {
-        /**
-         * Switch configuration description.
-         */
-        annotation?: pulumi.Input<string>;
-        /**
-         * BMP Configurations for the Network Fabric.
-         */
-        bmpConfiguration?: pulumi.Input<inputs.managednetworkfabric.BmpConfigurationPropertiesArgs>;
-    }
-    /**
-     * networkMonitorPropertiesArgsProvideDefaults sets the appropriate defaults for NetworkMonitorPropertiesArgs
-     */
-    export function networkMonitorPropertiesArgsProvideDefaults(val: NetworkMonitorPropertiesArgs): NetworkMonitorPropertiesArgs {
-        return {
-            ...val,
-            bmpConfiguration: (val.bmpConfiguration ? pulumi.output(val.bmpConfiguration).apply(inputs.managednetworkfabric.bmpConfigurationPropertiesArgsProvideDefaults) : undefined),
-        };
     }
 
     /**
@@ -139225,6 +139441,20 @@ export namespace monitor {
     }
 
     /**
+     * Represents an Azure Monitor Workspace (AMW) account used for emitting metrics.
+     */
+    export interface AmwAccountArgs {
+        /**
+         * The ARM resource ID of the managed identity with access to the source account.
+         */
+        identity: pulumi.Input<string>;
+        /**
+         * The ARM resource ID of the account where metrics are emitted.
+         */
+        resourceId: pulumi.Input<string>;
+    }
+
+    /**
      * Discovery rule properties for an Application Insights topology query
      */
     export interface ApplicationInsightsTopologyDiscoveryRulePropertiesArgs {
@@ -139295,7 +139525,7 @@ export namespace monitor {
          */
         isGlobalRunbook: pulumi.Input<boolean>;
         /**
-         * The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+         * The principal id of the managed identity. The value can be "None", "SystemAssigned"
          */
         managedIdentity?: pulumi.Input<string>;
         /**
@@ -139413,7 +139643,7 @@ export namespace monitor {
          */
         httpTriggerUrl: pulumi.Input<string>;
         /**
-         * The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+         * The principal id of the managed identity. The value can be "None", "SystemAssigned"
          */
         managedIdentity?: pulumi.Input<string>;
         /**
@@ -139532,6 +139762,34 @@ export namespace monitor {
          * Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
          */
         signalAssignments?: pulumi.Input<pulumi.Input<inputs.monitor.SignalAssignmentArgs>[]>;
+    }
+
+    /**
+     * Defines the target parameters for a Slo baseline.
+     */
+    export interface BaselineArgs {
+        /**
+         * Specifies how evaluation is calculated, either based on calendar days or a rolling window.
+         */
+        evaluationCalculationType: pulumi.Input<string | enums.monitor.EvaluationCalculationType>;
+        /**
+         * The time frame (in days) used for SLI evaluation.
+         */
+        evaluationPeriodDays: pulumi.Input<number>;
+        /**
+         * The user-defined or Azure-defined target value used for comparison against the SLI value.
+         */
+        value: pulumi.Input<number>;
+    }
+
+    /**
+     * Defines the properties of a baseline.
+     */
+    export interface BaselinePropertiesArgs {
+        /**
+         * Defines the baseline target, which is compared against the SLI value to determine compliance.
+         */
+        baseline: pulumi.Input<inputs.monitor.BaselineArgs>;
     }
 
     /**
@@ -139699,6 +139957,32 @@ export namespace monitor {
             minFailingPeriodsToAlert: (val.minFailingPeriodsToAlert) ?? 1,
             numberOfEvaluationPeriods: (val.numberOfEvaluationPeriods) ?? 1,
         };
+    }
+
+    /**
+     * Represents a filtering condition.
+     */
+    export interface ConditionV1Args {
+        /**
+         * Dimension name used in filtering.
+         */
+        dimensionName?: pulumi.Input<string>;
+        /**
+         * Operator used in the filtering condition.
+         */
+        operator: pulumi.Input<string | enums.monitor.ConditionOperator>;
+        /**
+         * Defines the sampling type.
+         */
+        samplingType?: pulumi.Input<string | enums.monitor.SamplingType>;
+        /**
+         * Scalar function applied for filtering.
+         */
+        scalarFunction?: pulumi.Input<string | enums.monitor.ScalarFunction>;
+        /**
+         * Value used in filtering. For most operators (eq, ne, lt, lte, gt, gte, startswith, notstartswith, contains, notcontains) this is a single value (for example "GetContosoUsers"). For the `in` and `notin` operators, multiple values must be joined by the delimiter `^^` (for example "east^^west^^north").
+         */
+        value: pulumi.Input<string>;
     }
 
     /**
@@ -140213,7 +140497,7 @@ export namespace monitor {
          */
         eventHubNameSpace: pulumi.Input<string>;
         /**
-         * The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+         * The principal id of the managed identity. The value can be "None", "SystemAssigned"
          */
         managedIdentity?: pulumi.Input<string>;
         /**
@@ -140325,20 +140609,6 @@ export namespace monitor {
          * Name of the built-in icon, or 'Custom' to use customData
          */
         iconName: pulumi.Input<string>;
-    }
-
-    /**
-     * Identity for the resource.
-     */
-    export interface IdentityArgs {
-        /**
-         * Type of managed service identity.
-         */
-        type: pulumi.Input<enums.monitor.IdentityType>;
-        /**
-         * The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-         */
-        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     /**
@@ -140668,7 +140938,7 @@ export namespace monitor {
          */
         callbackUrl: pulumi.Input<string>;
         /**
-         * The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+         * The principal id of the managed identity. The value can be "None", "SystemAssigned"
          */
         managedIdentity?: pulumi.Input<string>;
         /**
@@ -140924,6 +141194,20 @@ export namespace monitor {
          * the range of time in which instance data is collected. This value must be greater than the delay in metric collection, which can vary from resource-to-resource. Must be between 12 hours and 5 minutes.
          */
         timeWindow: pulumi.Input<string>;
+    }
+
+    /**
+     * Identity for the resource.
+     */
+    export interface MicrosoftCommonIdentityArgs {
+        /**
+         * Type of managed service identity.
+         */
+        type: pulumi.Input<enums.monitor.IdentityType>;
+        /**
+         * The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+         */
+        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     /**
@@ -141637,6 +141921,20 @@ export namespace monitor {
     }
 
     /**
+     * Represents a signal model used in SLI calculations.
+     */
+    export interface SignalArgs {
+        /**
+         * Mathematical formula used to combine multiple metrics.
+         */
+        signalFormula: pulumi.Input<string>;
+        /**
+         * Sources of metrics used for SLIs.
+         */
+        signalSources: pulumi.Input<pulumi.Input<inputs.monitor.SignalSourceArgs>[]>;
+    }
+
+    /**
      * Group of signal definition assignments
      */
     export interface SignalAssignmentArgs {
@@ -141678,6 +141976,100 @@ export namespace monitor {
     }
 
     /**
+     * Represents a signal source used in SLIs.
+     */
+    export interface SignalSourceArgs {
+        /**
+         * Filters applied to modify signal values.
+         */
+        filters: pulumi.Input<pulumi.Input<inputs.monitor.ConditionV1Args>[]>;
+        /**
+         * Name of the metric.
+         */
+        metricName: pulumi.Input<string>;
+        /**
+         * Namespace of the metric.
+         */
+        metricNamespace: pulumi.Input<string>;
+        /**
+         * Unique identifier for the signal source.
+         */
+        signalSourceId: pulumi.Input<string>;
+        /**
+         * Managed identity for authenticating the signal source.
+         */
+        sourceAmwAccountManagedIdentity: pulumi.Input<string>;
+        /**
+         * Resource ID of the source AMW account.
+         */
+        sourceAmwAccountResourceId: pulumi.Input<string>;
+        /**
+         * Defines how measurements are aggregated across multiple time series.
+         */
+        spatialAggregation: pulumi.Input<inputs.monitor.SpatialAggregationArgs>;
+        /**
+         * Defines how measurements are aggregated over a specific time window within the same time series.
+         */
+        temporalAggregation: pulumi.Input<inputs.monitor.TemporalAggregationArgs>;
+    }
+
+    /**
+     * Defines the properties of an SLI.
+     */
+    export interface SliPropertiesArgs {
+        /**
+         * Represents good signals used in request-based SLI calculations.
+         */
+        goodSignals?: pulumi.Input<inputs.monitor.SignalArgs>;
+        /**
+         * Signals used for window-based SLI calculations.
+         */
+        signals?: pulumi.Input<inputs.monitor.SignalArgs>;
+        /**
+         * Represents total signals used in request-based SLI calculations.
+         */
+        totalSignals?: pulumi.Input<inputs.monitor.SignalArgs>;
+        /**
+         * Defines the uptime criteria for window-based SLIs.
+         */
+        windowUptimeCriteria?: pulumi.Input<inputs.monitor.WindowUptimeCriteriaArgs>;
+    }
+
+    /**
+     * Defines the root level properties of an SLI resource.
+     */
+    export interface SliResourceArgs {
+        /**
+         * Defines the SLO baseline associated with the SLI.
+         */
+        baselineProperties: pulumi.Input<inputs.monitor.BaselinePropertiesArgs>;
+        /**
+         * Specifies the category of the SLI, used to classify signals such as Availability and Latency.
+         */
+        category: pulumi.Input<string | enums.monitor.Category>;
+        /**
+         * A user-provided description of the SLI, with a maximum length of 1000 characters.
+         */
+        description: pulumi.Input<string>;
+        /**
+         * Destination AMW accounts.
+         */
+        destinationAmwAccounts: pulumi.Input<pulumi.Input<inputs.monitor.AmwAccountArgs>[]>;
+        /**
+         * A flag to determine whether alert is enabled.
+         */
+        enableAlert: pulumi.Input<boolean>;
+        /**
+         * Determines how the SLI is evaluated—either based on request counts or time windows.
+         */
+        evaluationType: pulumi.Input<string | enums.monitor.EvaluationType>;
+        /**
+         * Defines the SLI properties associated with the SLI.
+         */
+        sliProperties: pulumi.Input<inputs.monitor.SliPropertiesArgs>;
+    }
+
+    /**
      * An SMS receiver.
      */
     export interface SmsReceiverArgs {
@@ -141693,6 +142085,20 @@ export namespace monitor {
          * The phone number of the SMS receiver.
          */
         phoneNumber: pulumi.Input<string>;
+    }
+
+    /**
+     * Represents the spatial aggregation model.
+     */
+    export interface SpatialAggregationArgs {
+        /**
+         * Dimensions considered for spatial aggregation.
+         */
+        dimensions: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Type of spatial aggregation.
+         */
+        type: pulumi.Input<string | enums.monitor.SpatialAggregationType>;
     }
 
     export interface StorageBlobDestinationArgs {
@@ -141814,6 +142220,20 @@ export namespace monitor {
     }
 
     /**
+     * Represents temporal aggregation settings.
+     */
+    export interface TemporalAggregationArgs {
+        /**
+         * Type of temporal aggregation.
+         */
+        type: pulumi.Input<string | enums.monitor.TemporalAggregationType>;
+        /**
+         * Time window size for aggregation, in minutes.
+         */
+        windowSizeMinutes?: pulumi.Input<number>;
+    }
+
+    /**
      * Threshold-based evaluation rule for a signal definition
      */
     export interface ThresholdRuleArgs {
@@ -141919,7 +142339,7 @@ export namespace monitor {
          */
         identifierUri?: pulumi.Input<string>;
         /**
-         * The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+         * The principal id of the managed identity. The value can be "None", "SystemAssigned"
          */
         managedIdentity?: pulumi.Input<string>;
         /**
@@ -141979,6 +142399,20 @@ export namespace monitor {
          * The Application Insights web test Id.
          */
         webTestId: pulumi.Input<string>;
+    }
+
+    /**
+     * Represents criteria for determining uptime in window-based SLIs.
+     */
+    export interface WindowUptimeCriteriaArgs {
+        /**
+         * Comparison operator used for uptime evaluation.
+         */
+        comparator: pulumi.Input<string | enums.monitor.WindowUptimeCriteriaComparator>;
+        /**
+         * Threshold value used to determine uptime.
+         */
+        target: pulumi.Input<number>;
     }
 
     /**
@@ -145202,6 +145636,652 @@ export namespace network {
     }
 
     /**
+     * Properties of commit
+     */
+    export interface CommitPropertiesArgs {
+        /**
+         * Commit Type.
+         */
+        commitType: pulumi.Input<string | enums.network.ConfigurationType>;
+        /**
+         * List of configuration IDs.
+         */
+        configurationIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A description of the commit.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * A value that, when changed, forces the commit to be re-evaluated and redeployed.
+         */
+        forceUpdateTag?: pulumi.Input<string>;
+        /**
+         * List of target locations.
+         */
+        targetLocations: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.
+     */
+    export interface CommonAddressSpaceArgs {
+        /**
+         * A list of address blocks reserved for this virtual network in CIDR notation.
+         */
+        addressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of IPAM Pools allocating IP address prefixes.
+         */
+        ipamPoolPrefixAllocations?: pulumi.Input<pulumi.Input<inputs.network.CommonIpamPoolPrefixAllocationArgs>[]>;
+    }
+
+    /**
+     * IP configuration of an application gateway. Currently 1 public and 1 private IP configuration is allowed.
+     */
+    export interface CommonApplicationGatewayIPConfigurationArgs {
+        /**
+         * Resource ID.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * Name of the IP configuration that is unique within an Application Gateway.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Reference to the subnet resource. A subnet from where application gateway gets its private address.
+         */
+        subnet?: pulumi.Input<inputs.network.CommonSubResourceArgs>;
+    }
+
+    /**
+     * An application security group in a resource group.
+     */
+    export interface CommonApplicationSecurityGroupArgs {
+        /**
+         * Resource ID.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * Resource location.
+         */
+        location?: pulumi.Input<string>;
+        /**
+         * Resource tags.
+         */
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    /**
+     * Details the service to which the subnet is delegated.
+     */
+    export interface CommonDelegationArgs {
+        /**
+         * Resource ID.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * The name of the resource that is unique within a subnet. This name can be used to access the resource.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The name of the service to whom the subnet should be delegated (e.g. Microsoft.Sql/servers).
+         */
+        serviceName?: pulumi.Input<string>;
+        /**
+         * Resource type.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    /**
+     * DhcpOptions contains an array of DNS servers available to VMs deployed in the virtual network. Standard DHCP option for a subnet overrides VNET DHCP options.
+     */
+    export interface CommonDhcpOptionsArgs {
+        /**
+         * The list of DNS servers IP addresses.
+         */
+        dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * ExtendedLocation complex type.
+     */
+    export interface CommonExtendedLocationArgs {
+        /**
+         * The name of the extended location.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The type of the extended location.
+         */
+        type?: pulumi.Input<string | enums.network.ExtendedLocationTypes>;
+    }
+
+    /**
+     * IpamPool prefix allocation reference.
+     */
+    export interface CommonIpamPoolPrefixAllocationArgs {
+        /**
+         * Resource id of the associated Azure IpamPool resource.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * Number of IP addresses to allocate.
+         */
+        numberOfIpAddresses?: pulumi.Input<string>;
+    }
+
+    /**
+     * NetworkSecurityGroup resource.
+     */
+    export interface CommonNetworkSecurityGroupArgs {
+        /**
+         * When enabled, flows created from Network Security Group connections will be re-evaluated when rules are updates. Initial enablement will trigger re-evaluation.
+         */
+        flushConnection?: pulumi.Input<boolean>;
+        /**
+         * Resource ID.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * Resource location.
+         */
+        location?: pulumi.Input<string>;
+        /**
+         * A collection of security rules of the network security group.
+         */
+        securityRules?: pulumi.Input<pulumi.Input<inputs.network.CommonSecurityRuleArgs>[]>;
+        /**
+         * Resource tags.
+         */
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    /**
+     * Route resource.
+     */
+    export interface CommonRouteArgs {
+        /**
+         * The destination CIDR to which the route applies.
+         */
+        addressPrefix?: pulumi.Input<string>;
+        /**
+         * Resource ID.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * Name of the resource.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
+         */
+        nextHopIpAddress?: pulumi.Input<string>;
+        /**
+         * The type of Azure hop the packet should be sent to.
+         */
+        nextHopType: pulumi.Input<string | enums.network.RouteNextHopType>;
+    }
+
+    /**
+     * Route table resource.
+     */
+    export interface CommonRouteTableArgs {
+        /**
+         * Whether to disable the routes learned by BGP on that route table. True means disable.
+         */
+        disableBgpRoutePropagation?: pulumi.Input<boolean>;
+        /**
+         * Resource ID.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * Resource location.
+         */
+        location?: pulumi.Input<string>;
+        /**
+         * Collection of routes contained within a route table.
+         */
+        routes?: pulumi.Input<pulumi.Input<inputs.network.CommonRouteArgs>[]>;
+        /**
+         * Resource tags.
+         */
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    /**
+     * Network security rule.
+     */
+    export interface CommonSecurityRuleArgs {
+        /**
+         * The network traffic is allowed or denied.
+         */
+        access: pulumi.Input<string | enums.network.SecurityRuleAccess>;
+        /**
+         * A description for this rule. Restricted to 140 chars.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
+         */
+        destinationAddressPrefix?: pulumi.Input<string>;
+        /**
+         * The destination address prefixes. CIDR or destination IP ranges.
+         */
+        destinationAddressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The application security group specified as destination.
+         */
+        destinationApplicationSecurityGroups?: pulumi.Input<pulumi.Input<inputs.network.CommonApplicationSecurityGroupArgs>[]>;
+        /**
+         * The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+         */
+        destinationPortRange?: pulumi.Input<string>;
+        /**
+         * The destination port ranges.
+         */
+        destinationPortRanges?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
+         */
+        direction: pulumi.Input<string | enums.network.SecurityRuleDirection>;
+        /**
+         * Resource ID.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * Name of the resource.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * Network protocol this rule applies to.
+         */
+        protocol: pulumi.Input<string | enums.network.SecurityRuleProtocol>;
+        /**
+         * The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
+         */
+        sourceAddressPrefix?: pulumi.Input<string>;
+        /**
+         * The CIDR or source IP ranges.
+         */
+        sourceAddressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The application security group specified as source.
+         */
+        sourceApplicationSecurityGroups?: pulumi.Input<pulumi.Input<inputs.network.CommonApplicationSecurityGroupArgs>[]>;
+        /**
+         * The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+         */
+        sourcePortRange?: pulumi.Input<string>;
+        /**
+         * The source port ranges.
+         */
+        sourcePortRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * Service End point policy resource.
+     */
+    export interface CommonServiceEndpointPolicyArgs {
+        /**
+         * A collection of contextual service endpoint policy.
+         */
+        contextualServiceEndpointPolicies?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Resource ID.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * Resource location.
+         */
+        location?: pulumi.Input<string>;
+        /**
+         * The alias indicating if the policy belongs to a service
+         */
+        serviceAlias?: pulumi.Input<string>;
+        /**
+         * A collection of service endpoint policy definitions of the service endpoint policy.
+         */
+        serviceEndpointPolicyDefinitions?: pulumi.Input<pulumi.Input<inputs.network.CommonServiceEndpointPolicyDefinitionArgs>[]>;
+        /**
+         * Resource tags.
+         */
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    /**
+     * Service Endpoint policy definitions.
+     */
+    export interface CommonServiceEndpointPolicyDefinitionArgs {
+        /**
+         * A description for this rule. Restricted to 140 chars.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Resource ID.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * Name of the resource.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Service endpoint name.
+         */
+        service?: pulumi.Input<string>;
+        /**
+         * A list of service resources.
+         */
+        serviceResources?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * The service endpoint properties.
+     */
+    export interface CommonServiceEndpointPropertiesFormatArgs {
+        /**
+         * A list of locations.
+         */
+        locations?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * SubResource as network identifier.
+         */
+        networkIdentifier?: pulumi.Input<inputs.network.CommonSubResourceArgs>;
+        /**
+         * The type of the endpoint service.
+         */
+        service?: pulumi.Input<string>;
+    }
+
+    /**
+     * Reference to another subresource.
+     */
+    export interface CommonSubResourceArgs {
+        /**
+         * Resource ID.
+         */
+        id?: pulumi.Input<string>;
+    }
+
+    /**
+     * Subnet in a virtual network resource.
+     */
+    export interface CommonSubnetArgs {
+        /**
+         * The address prefix for the subnet.
+         */
+        addressPrefix?: pulumi.Input<string>;
+        /**
+         * List of address prefixes for the subnet.
+         */
+        addressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Application gateway IP configurations of virtual network resource.
+         */
+        applicationGatewayIPConfigurations?: pulumi.Input<pulumi.Input<inputs.network.CommonApplicationGatewayIPConfigurationArgs>[]>;
+        /**
+         * Set this property to false to disable default outbound connectivity for all VMs in the subnet.
+         */
+        defaultOutboundAccess?: pulumi.Input<boolean>;
+        /**
+         * An array of references to the delegations on the subnet.
+         */
+        delegations?: pulumi.Input<pulumi.Input<inputs.network.CommonDelegationArgs>[]>;
+        /**
+         * Resource ID.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * Array of IpAllocation which reference this subnet.
+         */
+        ipAllocations?: pulumi.Input<pulumi.Input<inputs.network.CommonSubResourceArgs>[]>;
+        /**
+         * A list of IPAM Pools for allocating IP address prefixes.
+         */
+        ipamPoolPrefixAllocations?: pulumi.Input<pulumi.Input<inputs.network.CommonIpamPoolPrefixAllocationArgs>[]>;
+        /**
+         * Name of the resource.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Nat gateway associated with this subnet.
+         */
+        natGateway?: pulumi.Input<inputs.network.CommonSubResourceArgs>;
+        /**
+         * The reference to the NetworkSecurityGroup resource.
+         */
+        networkSecurityGroup?: pulumi.Input<inputs.network.CommonNetworkSecurityGroupArgs>;
+        /**
+         * Enable or Disable apply network policies on private end point in the subnet.
+         */
+        privateEndpointNetworkPolicies?: pulumi.Input<string | enums.network.VirtualNetworkPrivateEndpointNetworkPolicies>;
+        /**
+         * Enable or Disable apply network policies on private link service in the subnet.
+         */
+        privateLinkServiceNetworkPolicies?: pulumi.Input<string | enums.network.VirtualNetworkPrivateLinkServiceNetworkPolicies>;
+        /**
+         * The reference to the RouteTable resource.
+         */
+        routeTable?: pulumi.Input<inputs.network.CommonRouteTableArgs>;
+        /**
+         * An array of service endpoint policies.
+         */
+        serviceEndpointPolicies?: pulumi.Input<pulumi.Input<inputs.network.CommonServiceEndpointPolicyArgs>[]>;
+        /**
+         * An array of service endpoints.
+         */
+        serviceEndpoints?: pulumi.Input<pulumi.Input<inputs.network.CommonServiceEndpointPropertiesFormatArgs>[]>;
+        /**
+         * Reference to an existing service gateway.
+         */
+        serviceGateway?: pulumi.Input<inputs.network.CommonSubResourceArgs>;
+        /**
+         * Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.
+         */
+        sharingScope?: pulumi.Input<string | enums.network.SharingScope>;
+    }
+    /**
+     * commonSubnetArgsProvideDefaults sets the appropriate defaults for CommonSubnetArgs
+     */
+    export function commonSubnetArgsProvideDefaults(val: CommonSubnetArgs): CommonSubnetArgs {
+        return {
+            ...val,
+            privateEndpointNetworkPolicies: (val.privateEndpointNetworkPolicies) ?? "Disabled",
+            privateLinkServiceNetworkPolicies: (val.privateLinkServiceNetworkPolicies) ?? "Enabled",
+        };
+    }
+
+    /**
+     * Virtual Network resource.
+     */
+    export interface CommonVirtualNetworkArgs {
+        /**
+         * The AddressSpace that contains an array of IP address ranges that can be used by subnets.
+         */
+        addressSpace?: pulumi.Input<inputs.network.CommonAddressSpaceArgs>;
+        /**
+         * Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
+         */
+        bgpCommunities?: pulumi.Input<inputs.network.CommonVirtualNetworkBgpCommunitiesArgs>;
+        /**
+         * The DDoS protection plan associated with the virtual network.
+         */
+        ddosProtectionPlan?: pulumi.Input<inputs.network.CommonSubResourceArgs>;
+        /**
+         * The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
+         */
+        dhcpOptions?: pulumi.Input<inputs.network.CommonDhcpOptionsArgs>;
+        /**
+         * Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
+         */
+        enableDdosProtection?: pulumi.Input<boolean>;
+        /**
+         * Indicates if VM protection is enabled for all the subnets in the virtual network.
+         */
+        enableVmProtection?: pulumi.Input<boolean>;
+        /**
+         * Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
+         */
+        encryption?: pulumi.Input<inputs.network.CommonVirtualNetworkEncryptionArgs>;
+        /**
+         * The extended location of the virtual network.
+         */
+        extendedLocation?: pulumi.Input<inputs.network.CommonExtendedLocationArgs>;
+        /**
+         * The FlowTimeout value (in minutes) for the Virtual Network
+         */
+        flowTimeoutInMinutes?: pulumi.Input<number>;
+        /**
+         * Resource ID.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * Array of IpAllocation which reference this VNET.
+         */
+        ipAllocations?: pulumi.Input<pulumi.Input<inputs.network.CommonSubResourceArgs>[]>;
+        /**
+         * Resource location.
+         */
+        location?: pulumi.Input<string>;
+        /**
+         * Private Endpoint VNet Policies.
+         */
+        privateEndpointVNetPolicies?: pulumi.Input<string | enums.network.PrivateEndpointVNetPolicies>;
+        /**
+         * A list of subnets in a Virtual Network.
+         */
+        subnets?: pulumi.Input<pulumi.Input<inputs.network.CommonSubnetArgs>[]>;
+        /**
+         * Resource tags.
+         */
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * A list of peerings in a Virtual Network.
+         */
+        virtualNetworkPeerings?: pulumi.Input<pulumi.Input<inputs.network.CommonVirtualNetworkPeeringArgs>[]>;
+    }
+    /**
+     * commonVirtualNetworkArgsProvideDefaults sets the appropriate defaults for CommonVirtualNetworkArgs
+     */
+    export function commonVirtualNetworkArgsProvideDefaults(val: CommonVirtualNetworkArgs): CommonVirtualNetworkArgs {
+        return {
+            ...val,
+            enableDdosProtection: (val.enableDdosProtection) ?? false,
+            enableVmProtection: (val.enableVmProtection) ?? false,
+        };
+    }
+
+    /**
+     * Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
+     */
+    export interface CommonVirtualNetworkBgpCommunitiesArgs {
+        /**
+         * The BGP community associated with the virtual network.
+         */
+        virtualNetworkCommunity: pulumi.Input<string>;
+    }
+
+    /**
+     * Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
+     */
+    export interface CommonVirtualNetworkEncryptionArgs {
+        /**
+         * Indicates if encryption is enabled on the virtual network.
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * If the encrypted VNet allows VM that does not support encryption. This field is for future support, AllowUnencrypted is the only supported value at general availability.
+         */
+        enforcement?: pulumi.Input<string | enums.network.VirtualNetworkEncryptionEnforcement>;
+    }
+
+    /**
+     * Peerings in a virtual network resource.
+     */
+    export interface CommonVirtualNetworkPeeringArgs {
+        /**
+         * Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
+         */
+        allowForwardedTraffic?: pulumi.Input<boolean>;
+        /**
+         * If gateway links can be used in remote virtual networking to link to this virtual network.
+         */
+        allowGatewayTransit?: pulumi.Input<boolean>;
+        /**
+         * Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
+         */
+        allowVirtualNetworkAccess?: pulumi.Input<boolean>;
+        /**
+         * If we need to verify the provisioning state of the remote gateway.
+         */
+        doNotVerifyRemoteGateways?: pulumi.Input<boolean>;
+        /**
+         * Whether only Ipv6 address space is peered for subnet peering.
+         */
+        enableOnlyIPv6Peering?: pulumi.Input<boolean>;
+        /**
+         * Resource ID.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * The local address space of the local virtual network that is peered.
+         */
+        localAddressSpace?: pulumi.Input<inputs.network.CommonAddressSpaceArgs>;
+        /**
+         * List of local subnet names that are subnet peered with remote virtual network.
+         */
+        localSubnetNames?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The current local address space of the local virtual network that is peered.
+         */
+        localVirtualNetworkAddressSpace?: pulumi.Input<inputs.network.CommonAddressSpaceArgs>;
+        /**
+         * Name of the resource.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Whether complete virtual network address space is peered.
+         */
+        peerCompleteVnets?: pulumi.Input<boolean>;
+        /**
+         * The status of the virtual network peering.
+         */
+        peeringState?: pulumi.Input<string | enums.network.VirtualNetworkPeeringState>;
+        /**
+         * The peering sync status of the virtual network peering.
+         */
+        peeringSyncLevel?: pulumi.Input<string | enums.network.VirtualNetworkPeeringLevel>;
+        /**
+         * The reference to the address space peered with the remote virtual network.
+         */
+        remoteAddressSpace?: pulumi.Input<inputs.network.CommonAddressSpaceArgs>;
+        /**
+         * The reference to the remote virtual network's Bgp Communities.
+         */
+        remoteBgpCommunities?: pulumi.Input<inputs.network.CommonVirtualNetworkBgpCommunitiesArgs>;
+        /**
+         * List of remote subnet names from remote virtual network that are subnet peered.
+         */
+        remoteSubnetNames?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
+         */
+        remoteVirtualNetwork?: pulumi.Input<inputs.network.CommonSubResourceArgs>;
+        /**
+         * The reference to the current address space of the remote virtual network.
+         */
+        remoteVirtualNetworkAddressSpace?: pulumi.Input<inputs.network.CommonAddressSpaceArgs>;
+        /**
+         * If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
+         */
+        useRemoteGateways?: pulumi.Input<boolean>;
+    }
+
+    /**
      * Describes the destination of connection monitor.
      */
     export interface ConnectionMonitorDestinationArgs {
@@ -145495,6 +146575,20 @@ export namespace network {
          * Log analytics workspace resource ID.
          */
         workspaceResourceId?: pulumi.Input<string>;
+    }
+
+    /**
+     * Properties of the ConnectionPolicy resource.
+     */
+    export interface ConnectionPolicyPropertiesArgs {
+        /**
+         * Enable internet security.
+         */
+        enableInternetSecurity?: pulumi.Input<boolean>;
+        /**
+         * The Routing Configuration indicating the associated and propagated route tables on this connection.
+         */
+        routingConfiguration?: pulumi.Input<inputs.network.RoutingConfigurationArgs>;
     }
 
     /**
@@ -146052,7 +147146,7 @@ export namespace network {
         /**
          * The Routing Configuration indicating the associated and propagated route tables on this connection.
          */
-        routingConfiguration?: pulumi.Input<inputs.network.RoutingConfigurationArgs>;
+        routingConfiguration?: pulumi.Input<inputs.network.RoutingConfigurationV2Args>;
         /**
          * The routing weight associated to the connection.
          */
@@ -147968,7 +149062,7 @@ export namespace network {
         /**
          * The Routing Configuration indicating the associated and propagated route tables on this connection.
          */
-        routingConfiguration?: pulumi.Input<inputs.network.RoutingConfigurationArgs>;
+        routingConfiguration?: pulumi.Input<inputs.network.RoutingConfigurationV5Args>;
         /**
          * The reference to the address space resource which represents Address space for P2S VpnClient.
          */
@@ -148551,6 +149645,90 @@ export namespace network {
         /**
          * The list of resource ids of all the RouteTables.
          */
+        ids?: pulumi.Input<pulumi.Input<inputs.network.CommonSubResourceArgs>[]>;
+        /**
+         * The list of labels.
+         */
+        labels?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * The list of RouteTables to advertise the routes to.
+     */
+    export interface PropagatedRouteTableV1Args {
+        /**
+         * The list of resource ids of all the RouteTables.
+         */
+        ids?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[]>;
+        /**
+         * The list of labels.
+         */
+        labels?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * The list of RouteTables to advertise the routes to.
+     */
+    export interface PropagatedRouteTableV2Args {
+        /**
+         * The list of resource ids of all the RouteTables.
+         */
+        ids?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[]>;
+        /**
+         * The list of labels.
+         */
+        labels?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * The list of RouteTables to advertise the routes to.
+     */
+    export interface PropagatedRouteTableV3Args {
+        /**
+         * The list of resource ids of all the RouteTables.
+         */
+        ids?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[]>;
+        /**
+         * The list of labels.
+         */
+        labels?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * The list of RouteTables to advertise the routes to.
+     */
+    export interface PropagatedRouteTableV5Args {
+        /**
+         * The list of resource ids of all the RouteTables.
+         */
+        ids?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[]>;
+        /**
+         * The list of labels.
+         */
+        labels?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * The list of RouteTables to advertise the routes to.
+     */
+    export interface PropagatedRouteTableV6Args {
+        /**
+         * The list of resource ids of all the RouteTables.
+         */
+        ids?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[]>;
+        /**
+         * The list of labels.
+         */
+        labels?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * The list of RouteTables to advertise the routes to.
+     */
+    export interface PropagatedRouteTableV7Args {
+        /**
+         * The list of resource ids of all the RouteTables.
+         */
         ids?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[]>;
         /**
          * The list of labels.
@@ -148981,7 +150159,7 @@ export namespace network {
         /**
          * The reference to the subnet resource.
          */
-        subnet?: pulumi.Input<inputs.network.SubnetArgs>;
+        subnet?: pulumi.Input<inputs.network.CommonSubnetArgs>;
     }
     /**
      * routeTargetAddressPropertiesFormatArgsProvideDefaults sets the appropriate defaults for RouteTargetAddressPropertiesFormatArgs
@@ -148989,7 +150167,7 @@ export namespace network {
     export function routeTargetAddressPropertiesFormatArgsProvideDefaults(val: RouteTargetAddressPropertiesFormatArgs): RouteTargetAddressPropertiesFormatArgs {
         return {
             ...val,
-            subnet: (val.subnet ? pulumi.output(val.subnet).apply(inputs.network.subnetArgsProvideDefaults) : undefined),
+            subnet: (val.subnet ? pulumi.output(val.subnet).apply(inputs.network.commonSubnetArgsProvideDefaults) : undefined),
         };
     }
 
@@ -148997,6 +150175,32 @@ export namespace network {
      * Routing Configuration indicating the associated and propagated route tables for this connection.
      */
     export interface RoutingConfigurationArgs {
+        /**
+         * The resource id RouteTable associated with this RoutingConfiguration.
+         */
+        associatedRouteTable?: pulumi.Input<inputs.network.CommonSubResourceArgs>;
+        /**
+         * The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
+         */
+        inboundRouteMap?: pulumi.Input<inputs.network.CommonSubResourceArgs>;
+        /**
+         * The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
+         */
+        outboundRouteMap?: pulumi.Input<inputs.network.CommonSubResourceArgs>;
+        /**
+         * The list of RouteTables to advertise the routes to.
+         */
+        propagatedRouteTables?: pulumi.Input<inputs.network.PropagatedRouteTableArgs>;
+        /**
+         * List of routes that control routing from VirtualHub into a virtual network connection.
+         */
+        vnetRoutes?: pulumi.Input<inputs.network.VnetRouteArgs>;
+    }
+
+    /**
+     * Routing Configuration indicating the associated and propagated route tables for this connection.
+     */
+    export interface RoutingConfigurationV1Args {
         /**
          * The resource id RouteTable associated with this RoutingConfiguration.
          */
@@ -149012,7 +150216,137 @@ export namespace network {
         /**
          * The list of RouteTables to advertise the routes to.
          */
-        propagatedRouteTables?: pulumi.Input<inputs.network.PropagatedRouteTableArgs>;
+        propagatedRouteTables?: pulumi.Input<inputs.network.PropagatedRouteTableV1Args>;
+        /**
+         * List of routes that control routing from VirtualHub into a virtual network connection.
+         */
+        vnetRoutes?: pulumi.Input<inputs.network.VnetRouteArgs>;
+    }
+
+    /**
+     * Routing Configuration indicating the associated and propagated route tables for this connection.
+     */
+    export interface RoutingConfigurationV2Args {
+        /**
+         * The resource id RouteTable associated with this RoutingConfiguration.
+         */
+        associatedRouteTable?: pulumi.Input<inputs.network.SubResourceArgs>;
+        /**
+         * The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
+         */
+        inboundRouteMap?: pulumi.Input<inputs.network.SubResourceArgs>;
+        /**
+         * The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
+         */
+        outboundRouteMap?: pulumi.Input<inputs.network.SubResourceArgs>;
+        /**
+         * The list of RouteTables to advertise the routes to.
+         */
+        propagatedRouteTables?: pulumi.Input<inputs.network.PropagatedRouteTableV2Args>;
+        /**
+         * List of routes that control routing from VirtualHub into a virtual network connection.
+         */
+        vnetRoutes?: pulumi.Input<inputs.network.VnetRouteArgs>;
+    }
+
+    /**
+     * Routing Configuration indicating the associated and propagated route tables for this connection.
+     */
+    export interface RoutingConfigurationV3Args {
+        /**
+         * The resource id RouteTable associated with this RoutingConfiguration.
+         */
+        associatedRouteTable?: pulumi.Input<inputs.network.SubResourceArgs>;
+        /**
+         * The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
+         */
+        inboundRouteMap?: pulumi.Input<inputs.network.SubResourceArgs>;
+        /**
+         * The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
+         */
+        outboundRouteMap?: pulumi.Input<inputs.network.SubResourceArgs>;
+        /**
+         * The list of RouteTables to advertise the routes to.
+         */
+        propagatedRouteTables?: pulumi.Input<inputs.network.PropagatedRouteTableV3Args>;
+        /**
+         * List of routes that control routing from VirtualHub into a virtual network connection.
+         */
+        vnetRoutes?: pulumi.Input<inputs.network.VnetRouteArgs>;
+    }
+
+    /**
+     * Routing Configuration indicating the associated and propagated route tables for this connection.
+     */
+    export interface RoutingConfigurationV5Args {
+        /**
+         * The resource id RouteTable associated with this RoutingConfiguration.
+         */
+        associatedRouteTable?: pulumi.Input<inputs.network.SubResourceArgs>;
+        /**
+         * The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
+         */
+        inboundRouteMap?: pulumi.Input<inputs.network.SubResourceArgs>;
+        /**
+         * The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
+         */
+        outboundRouteMap?: pulumi.Input<inputs.network.SubResourceArgs>;
+        /**
+         * The list of RouteTables to advertise the routes to.
+         */
+        propagatedRouteTables?: pulumi.Input<inputs.network.PropagatedRouteTableV5Args>;
+        /**
+         * List of routes that control routing from VirtualHub into a virtual network connection.
+         */
+        vnetRoutes?: pulumi.Input<inputs.network.VnetRouteArgs>;
+    }
+
+    /**
+     * Routing Configuration indicating the associated and propagated route tables for this connection.
+     */
+    export interface RoutingConfigurationV6Args {
+        /**
+         * The resource id RouteTable associated with this RoutingConfiguration.
+         */
+        associatedRouteTable?: pulumi.Input<inputs.network.SubResourceArgs>;
+        /**
+         * The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
+         */
+        inboundRouteMap?: pulumi.Input<inputs.network.SubResourceArgs>;
+        /**
+         * The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
+         */
+        outboundRouteMap?: pulumi.Input<inputs.network.SubResourceArgs>;
+        /**
+         * The list of RouteTables to advertise the routes to.
+         */
+        propagatedRouteTables?: pulumi.Input<inputs.network.PropagatedRouteTableV6Args>;
+        /**
+         * List of routes that control routing from VirtualHub into a virtual network connection.
+         */
+        vnetRoutes?: pulumi.Input<inputs.network.VnetRouteArgs>;
+    }
+
+    /**
+     * Routing Configuration indicating the associated and propagated route tables for this connection.
+     */
+    export interface RoutingConfigurationV7Args {
+        /**
+         * The resource id RouteTable associated with this RoutingConfiguration.
+         */
+        associatedRouteTable?: pulumi.Input<inputs.network.SubResourceArgs>;
+        /**
+         * The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
+         */
+        inboundRouteMap?: pulumi.Input<inputs.network.SubResourceArgs>;
+        /**
+         * The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
+         */
+        outboundRouteMap?: pulumi.Input<inputs.network.SubResourceArgs>;
+        /**
+         * The list of RouteTables to advertise the routes to.
+         */
+        propagatedRouteTables?: pulumi.Input<inputs.network.PropagatedRouteTableV7Args>;
         /**
          * List of routes that control routing from VirtualHub into a virtual network connection.
          */
@@ -149344,6 +150678,10 @@ export namespace network {
      */
     export interface StaticRoutesConfigArgs {
         /**
+         * Boolean indicating whether static routes on this connection are automatically propagate to route tables which this connection propagates to.
+         */
+        propagateStaticRoutes?: pulumi.Input<boolean>;
+        /**
          * Parameter determining whether NVA in spoke vnet is bypassed for traffic with destination in spoke.
          */
         vnetLocalRouteOverrideCriteria?: pulumi.Input<string | enums.network.VnetLocalRouteOverrideCriteria>;
@@ -149373,6 +150711,24 @@ export namespace network {
          * Example of a relative ID: $self/frontEndConfigurations/my-frontend.
          */
         id?: pulumi.Input<string>;
+    }
+
+    /**
+     * Subgroup profile of the interconnect group resource.
+     */
+    export interface SubgroupProfileArgs {
+        /**
+         * Scope of the subgroup profile.
+         */
+        scope?: pulumi.Input<string | enums.network.SubgroupProfileScope>;
+        /**
+         * Size of the subgroup profile.
+         */
+        size?: pulumi.Input<number>;
+        /**
+         * VM size of the subgroup profile.
+         */
+        vmSize: pulumi.Input<string>;
     }
 
     /**
@@ -149459,10 +150815,6 @@ export namespace network {
          * An array of service endpoints.
          */
         serviceEndpoints?: pulumi.Input<pulumi.Input<inputs.network.ServiceEndpointPropertiesFormatArgs>[]>;
-        /**
-         * Reference to an existing service gateway.
-         */
-        serviceGateway?: pulumi.Input<inputs.network.SubResourceArgs>;
         /**
          * Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.
          */
@@ -149736,86 +151088,6 @@ export namespace network {
          * NextHops ip address.
          */
         nextHops?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    /**
-     * Virtual Network resource.
-     */
-    export interface VirtualNetworkArgs {
-        /**
-         * The AddressSpace that contains an array of IP address ranges that can be used by subnets.
-         */
-        addressSpace?: pulumi.Input<inputs.network.AddressSpaceArgs>;
-        /**
-         * Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
-         */
-        bgpCommunities?: pulumi.Input<inputs.network.VirtualNetworkBgpCommunitiesArgs>;
-        /**
-         * The DDoS protection plan associated with the virtual network.
-         */
-        ddosProtectionPlan?: pulumi.Input<inputs.network.SubResourceArgs>;
-        /**
-         * The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
-         */
-        dhcpOptions?: pulumi.Input<inputs.network.DhcpOptionsArgs>;
-        /**
-         * Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
-         */
-        enableDdosProtection?: pulumi.Input<boolean>;
-        /**
-         * Indicates if VM protection is enabled for all the subnets in the virtual network.
-         */
-        enableVmProtection?: pulumi.Input<boolean>;
-        /**
-         * Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
-         */
-        encryption?: pulumi.Input<inputs.network.VirtualNetworkEncryptionArgs>;
-        /**
-         * The extended location of the virtual network.
-         */
-        extendedLocation?: pulumi.Input<inputs.network.ExtendedLocationArgs>;
-        /**
-         * The FlowTimeout value (in minutes) for the Virtual Network
-         */
-        flowTimeoutInMinutes?: pulumi.Input<number>;
-        /**
-         * Resource ID.
-         */
-        id?: pulumi.Input<string>;
-        /**
-         * Array of IpAllocation which reference this VNET.
-         */
-        ipAllocations?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[]>;
-        /**
-         * Resource location.
-         */
-        location?: pulumi.Input<string>;
-        /**
-         * Private Endpoint VNet Policies.
-         */
-        privateEndpointVNetPolicies?: pulumi.Input<string | enums.network.PrivateEndpointVNetPolicies>;
-        /**
-         * A list of subnets in a Virtual Network.
-         */
-        subnets?: pulumi.Input<pulumi.Input<inputs.network.SubnetArgs>[]>;
-        /**
-         * Resource tags.
-         */
-        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-        /**
-         * A list of peerings in a Virtual Network.
-         */
-        virtualNetworkPeerings?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkPeeringArgs>[]>;
-    }
-    /**
-     * virtualNetworkArgsProvideDefaults sets the appropriate defaults for VirtualNetworkArgs
-     */
-    export function virtualNetworkArgsProvideDefaults(val: VirtualNetworkArgs): VirtualNetworkArgs {
-        return {
-            ...val,
-            enableDdosProtection: (val.enableDdosProtection) ?? false,
-            enableVmProtection: (val.enableVmProtection) ?? false,
-        };
     }
 
     /**
@@ -150408,7 +151680,7 @@ export namespace network {
         /**
          * The Routing Configuration indicating the associated and propagated route tables on this connection.
          */
-        routingConfiguration?: pulumi.Input<inputs.network.RoutingConfigurationArgs>;
+        routingConfiguration?: pulumi.Input<inputs.network.RoutingConfigurationV7Args>;
         /**
          * Routing weight for vpn connection.
          */
@@ -150851,6 +152123,9 @@ export namespace networkcloud {
         adminGroupObjectIds: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    /**
+     * AccessBridgeSecurityRule captures an individual access rule enforced by the bridge.
+     */
     export interface AccessBridgeSecurityRuleArgs {
         /**
          * The user provided value describing this rule.
@@ -150955,6 +152230,20 @@ export namespace networkcloud {
          * The list of Trunked Networks and related configuration for attachment.
          */
         trunkedNetworks?: pulumi.Input<pulumi.Input<inputs.networkcloud.TrunkedNetworkAttachmentConfigurationArgs>[]>;
+    }
+
+    /**
+     * The complex type of the extended location.
+     */
+    export interface AzureResourceManagerCommonTypesExtendedLocationArgs {
+        /**
+         * The name of the extended location.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The type of the extended location.
+         */
+        type: pulumi.Input<string | enums.networkcloud.ExtendedLocationType>;
     }
 
     export interface BareMetalMachineConfigurationDataArgs {
@@ -154092,6 +155381,33 @@ export namespace professionalservice {
          * The unit term eg P1M,P1Y,P2Y,P3Y meaning month,1year,2year,3year respectively
          */
         termUnit?: pulumi.Input<string>;
+    }
+
+}
+
+export namespace programenrollment {
+    /**
+     * A group of edu domains scoped to an Entra tenant.
+     */
+    export interface DomainGroupArgs {
+        /**
+         * The edu domain names in this group.
+         */
+        domainNames: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Entra tenant ID that owns these domains. Defaults to the caller's tenant if omitted.
+         */
+        tenantId?: pulumi.Input<string>;
+    }
+
+    /**
+     * Details of the Program EduEnrollment.
+     */
+    export interface EduEnrollmentPropertiesArgs {
+        /**
+         * The domain groups associated with this enrollment.
+         */
+        domains: pulumi.Input<pulumi.Input<inputs.programenrollment.DomainGroupArgs>[]>;
     }
 
 }
@@ -163666,7 +164982,7 @@ export namespace resources {
     }
 
     /**
-     * Managed identity generic object.
+     * Describes the managed identities for an Azure resource.
      */
     export interface ManagedServiceIdentityArgs {
         /**
@@ -164982,7 +166298,7 @@ export namespace search {
      */
     export interface SkuArgs {
         /**
-         * The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
+         * The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions. 'serverless': Serverless tier with auto-scaling capabilities.
          */
         name?: pulumi.Input<string | enums.search.SkuName>;
     }
@@ -165139,16 +166455,6 @@ export namespace security {
     }
 
     /**
-     * Describe the properties of a of a standard assignments object reference
-     */
-    export interface AssignedStandardItemArgs {
-        /**
-         * Full resourceId of the Microsoft.Security/standard object
-         */
-        id?: pulumi.Input<string>;
-    }
-
-    /**
      * Additional data about the assignment
      */
     export interface AssignmentPropertiesAdditionalDataArgs {
@@ -165189,7 +166495,7 @@ export namespace security {
      */
     export interface AutomationActionEventHubArgs {
         /**
-         * The type of the action that will be triggered by the Automation
+         * Enum. Indicates the action type.
          * Expected value is 'EventHub'.
          */
         actionType: pulumi.Input<"EventHub">;
@@ -165212,7 +166518,7 @@ export namespace security {
      */
     export interface AutomationActionLogicAppArgs {
         /**
-         * The type of the action that will be triggered by the Automation
+         * Enum. Indicates the action type.
          * Expected value is 'LogicApp'.
          */
         actionType: pulumi.Input<"LogicApp">;
@@ -165231,7 +166537,7 @@ export namespace security {
      */
     export interface AutomationActionWorkspaceArgs {
         /**
-         * The type of the action that will be triggered by the Automation
+         * Enum. Indicates the action type.
          * Expected value is 'Workspace'.
          */
         actionType: pulumi.Input<"Workspace">;
@@ -165242,7 +166548,7 @@ export namespace security {
     }
 
     /**
-     * A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions. 
+     * A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
      */
     export interface AutomationRuleSetArgs {
         rules?: pulumi.Input<pulumi.Input<inputs.security.AutomationTriggeringRuleArgs>[]>;
@@ -165378,6 +166684,16 @@ export namespace security {
     }
 
     /**
+     * Describe the properties of a of a standard assignments object reference
+     */
+    export interface CommonAssignedStandardItemArgs {
+        /**
+         * Full resourceId of the Microsoft.Security/standard object
+         */
+        id?: pulumi.Input<string>;
+    }
+
+    /**
      * The CSPM monitoring for AWS offering
      */
     export interface CspmMonitorAwsOfferingArgs {
@@ -165505,7 +166821,7 @@ export namespace security {
         /**
          * The Microsoft Defender container agentless discovery K8s configuration
          */
-        mdcContainersAgentlessDiscoveryK8s?: pulumi.Input<inputs.security.DefenderCspmAwsOfferingMdcContainersAgentlessDiscoveryK8sArgs>;
+        mdcContainersAgentlessDiscoveryK8S?: pulumi.Input<inputs.security.DefenderCspmAwsOfferingMdcContainersAgentlessDiscoveryK8SArgs>;
         /**
          * The Microsoft Defender container image assessment configuration
          */
@@ -165528,17 +166844,17 @@ export namespace security {
         /**
          * Defender CSPM Permissions Management discovery configuration
          */
-        ciemDiscovery?: pulumi.Input<inputs.security.DefenderCspmAwsOfferingCiemDiscoveryArgs>;
+        ciemDiscovery?: pulumi.Input<inputs.security.DefenderCspmAwsOfferingCiemCiemDiscoveryArgs>;
         /**
          * AWS Defender CSPM Permissions Management OIDC (open id connect) connection configurations
          */
-        ciemOidc?: pulumi.Input<inputs.security.DefenderCspmAwsOfferingCiemOidcArgs>;
+        ciemOidc?: pulumi.Input<inputs.security.DefenderCspmAwsOfferingCiemCiemOidcArgs>;
     }
 
     /**
      * Defender CSPM Permissions Management discovery configuration
      */
-    export interface DefenderCspmAwsOfferingCiemDiscoveryArgs {
+    export interface DefenderCspmAwsOfferingCiemCiemDiscoveryArgs {
         /**
          * The cloud role ARN in AWS for Permissions Management discovery
          */
@@ -165548,7 +166864,7 @@ export namespace security {
     /**
      * AWS Defender CSPM Permissions Management OIDC (open id connect) connection configurations
      */
-    export interface DefenderCspmAwsOfferingCiemOidcArgs {
+    export interface DefenderCspmAwsOfferingCiemCiemOidcArgs {
         /**
          * the azure active directory app name used of authenticating against AWS
          */
@@ -165590,7 +166906,7 @@ export namespace security {
     /**
      * The Microsoft Defender container agentless discovery K8s configuration
      */
-    export interface DefenderCspmAwsOfferingMdcContainersAgentlessDiscoveryK8sArgs {
+    export interface DefenderCspmAwsOfferingMdcContainersAgentlessDiscoveryK8SArgs {
         /**
          * The cloud role ARN in AWS for this feature
          */
@@ -165659,7 +166975,7 @@ export namespace security {
         /**
          * The Microsoft Defender Container agentless discovery configuration
          */
-        mdcContainersAgentlessDiscoveryK8s?: pulumi.Input<inputs.security.DefenderCspmGcpOfferingMdcContainersAgentlessDiscoveryK8sArgs>;
+        mdcContainersAgentlessDiscoveryK8S?: pulumi.Input<inputs.security.DefenderCspmGcpOfferingMdcContainersAgentlessDiscoveryK8SArgs>;
         /**
          * The Microsoft Defender Container image assessment configuration
          */
@@ -165714,7 +167030,7 @@ export namespace security {
     /**
      * The Microsoft Defender Container agentless discovery configuration
      */
-    export interface DefenderCspmGcpOfferingMdcContainersAgentlessDiscoveryK8sArgs {
+    export interface DefenderCspmGcpOfferingMdcContainersAgentlessDiscoveryK8SArgs {
         /**
          * Is Microsoft Defender container agentless discovery enabled
          */
@@ -165898,7 +167214,7 @@ export namespace security {
         /**
          * The Microsoft Defender container agentless discovery K8s configuration
          */
-        mdcContainersAgentlessDiscoveryK8s?: pulumi.Input<inputs.security.DefenderForContainersAwsOfferingMdcContainersAgentlessDiscoveryK8sArgs>;
+        mdcContainersAgentlessDiscoveryK8S?: pulumi.Input<inputs.security.DefenderForContainersAwsOfferingMdcContainersAgentlessDiscoveryK8SArgs>;
         /**
          * The Microsoft Defender container image assessment configuration
          */
@@ -165957,7 +167273,7 @@ export namespace security {
     /**
      * The Microsoft Defender container agentless discovery K8s configuration
      */
-    export interface DefenderForContainersAwsOfferingMdcContainersAgentlessDiscoveryK8sArgs {
+    export interface DefenderForContainersAwsOfferingMdcContainersAgentlessDiscoveryK8SArgs {
         /**
          * The cloud role ARN in AWS for this feature
          */
@@ -166034,7 +167350,7 @@ export namespace security {
         /**
          * The Microsoft Defender Container agentless discovery configuration
          */
-        mdcContainersAgentlessDiscoveryK8s?: pulumi.Input<inputs.security.DefenderForContainersGcpOfferingMdcContainersAgentlessDiscoveryK8sArgs>;
+        mdcContainersAgentlessDiscoveryK8S?: pulumi.Input<inputs.security.DefenderForContainersGcpOfferingMdcContainersAgentlessDiscoveryK8SArgs>;
         /**
          * The Microsoft Defender Container image assessment configuration
          */
@@ -166071,7 +167387,7 @@ export namespace security {
     /**
      * The Microsoft Defender Container agentless discovery configuration
      */
-    export interface DefenderForContainersGcpOfferingMdcContainersAgentlessDiscoveryK8sArgs {
+    export interface DefenderForContainersGcpOfferingMdcContainersAgentlessDiscoveryK8SArgs {
         /**
          * Is Microsoft Defender container agentless discovery enabled
          */
@@ -166244,16 +167560,6 @@ export namespace security {
     }
 
     /**
-     * configuration for Vulnerability Assessment autoprovisioning
-     */
-    export interface DefenderForServersAwsOfferingConfigurationArgs {
-        /**
-         * The Vulnerability Assessment solution to be provisioned. Can be either 'TVM' or 'Qualys'
-         */
-        type?: pulumi.Input<string | enums.security.Type>;
-    }
-
-    /**
      * The Defender for servers connection configuration
      */
     export interface DefenderForServersAwsOfferingDefenderForServersArgs {
@@ -166294,11 +167600,21 @@ export namespace security {
         /**
          * configuration for Vulnerability Assessment autoprovisioning
          */
-        configuration?: pulumi.Input<inputs.security.DefenderForServersAwsOfferingConfigurationArgs>;
+        configuration?: pulumi.Input<inputs.security.DefenderForServersAwsOfferingVaAutoProvisioningConfigurationArgs>;
         /**
          * Is Vulnerability Assessment auto provisioning enabled
          */
         enabled?: pulumi.Input<boolean>;
+    }
+
+    /**
+     * configuration for Vulnerability Assessment autoprovisioning
+     */
+    export interface DefenderForServersAwsOfferingVaAutoProvisioningConfigurationArgs {
+        /**
+         * The Vulnerability Assessment solution to be provisioned. Can be either 'TVM' or 'Qualys'
+         */
+        type?: pulumi.Input<string | enums.security.Type>;
     }
 
     /**
@@ -166369,16 +167685,6 @@ export namespace security {
     }
 
     /**
-     * configuration for Vulnerability Assessment autoprovisioning
-     */
-    export interface DefenderForServersGcpOfferingConfigurationArgs {
-        /**
-         * The Vulnerability Assessment solution to be provisioned. Can be either 'TVM' or 'Qualys'
-         */
-        type?: pulumi.Input<string | enums.security.Type>;
-    }
-
-    /**
      * The Defender for servers connection configuration
      */
     export interface DefenderForServersGcpOfferingDefenderForServersArgs {
@@ -166423,11 +167729,21 @@ export namespace security {
         /**
          * configuration for Vulnerability Assessment autoprovisioning
          */
-        configuration?: pulumi.Input<inputs.security.DefenderForServersGcpOfferingConfigurationArgs>;
+        configuration?: pulumi.Input<inputs.security.DefenderForServersGcpOfferingVaAutoProvisioningConfigurationArgs>;
         /**
          * Is Vulnerability Assessment auto provisioning enabled
          */
         enabled?: pulumi.Input<boolean>;
+    }
+
+    /**
+     * configuration for Vulnerability Assessment autoprovisioning
+     */
+    export interface DefenderForServersGcpOfferingVaAutoProvisioningConfigurationArgs {
+        /**
+         * The Vulnerability Assessment solution to be provisioned. Can be either 'TVM' or 'Qualys'
+         */
+        type?: pulumi.Input<string | enums.security.Type>;
     }
 
     /**
@@ -166548,7 +167864,7 @@ export namespace security {
          */
         isEnabled: pulumi.Input<string | enums.security.IsEnabled>;
         /**
-         * The extension name. Supported values are: <br><br>**AgentlessDiscoveryForKubernetes** - Provides zero footprint, API-based discovery of Kubernetes clusters, their configurations and deployments. The collected data is used to create a contextualized security graph for Kubernetes clusters, provide risk hunting capabilities, and visualize risks and threats to  Kubernetes environments and workloads.<br>Available for CloudPosture plan and Containers plan.<br><br>**OnUploadMalwareScanning** - Limits the GB to be scanned per month for each storage account within the subscription. Once this limit reached on a given storage account, Blobs won't be scanned during current calendar month.<br>Available for StorageAccounts plan (DefenderForStorageV2 sub plans).<br><br>**SensitiveDataDiscovery** - Sensitive data discovery identifies Blob storage container with sensitive data such as credentials, credit cards, and more, to help prioritize and investigate security events.<br>Available for StorageAccounts plan (DefenderForStorageV2 sub plan) and CloudPosture plan.<br><br>**ContainerRegistriesVulnerabilityAssessments** - Provides vulnerability management for images stored in your container registries.<br>Available for CloudPosture plan and Containers plan.<br><br>**MdeDesignatedSubscription** - Direct onboarding is a seamless integration between Defender for Endpoint and Defender for Cloud that doesn’t require extra software deployment on your servers. The onboarded resources will be presented under a designated Azure Subscription you configure<br>Available for VirtualMachines plan (P1 and P2 sub plans).<br><br>**AgentlessVmScanning** - Scans your machines for installed software, vulnerabilities, malware and secret scanning without relying on agents or impacting machine performance. Learn more here https://learn.microsoft.com/en-us/azure/defender-for-cloud/concept-agentless-data-collection.<br>Available for CloudPosture plan, VirtualMachines plan (P2 sub plan) and Containers plan.<br><br>**EntraPermissionsManagement** - Permissions Management provides Cloud Infrastructure Entitlement Management (CIEM) capabilities that helps organizations to manage and control user access and entitlements in their cloud infrastructure - important attack vector for cloud environments.<br>Permissions Management analyzes all permissions and active usage, and suggests recommendations to reduce permissions to enforce the principle of least privilege. Learn more here https://learn.microsoft.com/en-us/azure/defender-for-cloud/permissions-management.<br>Available for CloudPosture plan. <br><br>**FileIntegrityMonitoring** - File integrity monitoring (FIM), examines operating system files.<br>Windows registries, Linux system files, in real time, for changes that might indicate an attack.<br>Available for VirtualMachines plan (P2 sub plan). <br><br>**ContainerSensor** - The sensor is based on IG and provides a rich threat detection suite for Kubernetes clusters, nodes, and workloads, powered by Microsoft leading threat intelligence, provides mapping to MITRE ATT&CK framework.<br>Available for Containers plan. <br><br>**AIPromptEvidence** - Exposes the prompts passed between the user and the AI model as alert evidence. This helps classify and triage the alerts with relevant user context. The prompt snippets will include only segments of the user prompt or model response that were deemed suspicious and relevant for security classifications. The prompt evidence will be available through Defender portal as part of each alert.<br>Available for AI plan. <br><br>
+         * The extension name. Supported values are: <br><br>**AgentlessDiscoveryForKubernetes** - Provides zero footprint, API-based discovery of Kubernetes clusters, their configurations and deployments. The collected data is used to create a contextualized security graph for Kubernetes clusters, provide risk hunting capabilities, and visualize risks and threats to  Kubernetes environments and workloads.<br>Available for CloudPosture plan and Containers plan.<br><br>**OnUploadMalwareScanning** - Limits the GB to be scanned per month for each storage account within the subscription. Once this limit reached on a given storage account, Blobs won't be scanned during current calendar month.<br>Available for StorageAccounts plan (DefenderForStorageV2 sub plans).<br><br>**SensitiveDataDiscovery** - Sensitive data discovery identifies Blob storage container with sensitive data such as credentials, credit cards, and more, to help prioritize and investigate security events.<br>Available for StorageAccounts plan (DefenderForStorageV2 sub plan) and CloudPosture plan.<br><br>**ContainerRegistriesVulnerabilityAssessments** - Provides vulnerability management for images stored in your container registries.<br>Available for CloudPosture plan and Containers plan.<br><br>**MdeDesignatedSubscription** - Direct onboarding is a seamless integration between Defender for Endpoint and Defender for Cloud that doesn't require extra software deployment on your servers. The onboarded resources will be presented under a designated Azure Subscription you configure<br>Available for VirtualMachines plan (P1 and P2 sub plans).<br><br>**AgentlessVmScanning** - Scans your machines for installed software, vulnerabilities, malware and secret scanning without relying on agents or impacting machine performance. Learn more here https://learn.microsoft.com/en-us/azure/defender-for-cloud/concept-agentless-data-collection.<br>Available for CloudPosture plan, VirtualMachines plan (P2 sub plan) and Containers plan.<br><br>**EntraPermissionsManagement** - Permissions Management provides Cloud Infrastructure Entitlement Management (CIEM) capabilities that helps organizations to manage and control user access and entitlements in their cloud infrastructure - important attack vector for cloud environments.<br>Permissions Management analyzes all permissions and active usage, and suggests recommendations to reduce permissions to enforce the principle of least privilege. Learn more here https://learn.microsoft.com/en-us/azure/defender-for-cloud/permissions-management.<br>Available for CloudPosture plan. <br><br>**FileIntegrityMonitoring** - File integrity monitoring (FIM), examines operating system files.<br>Windows registries, Linux system files, in real time, for changes that might indicate an attack.<br>Available for VirtualMachines plan (P2 sub plan). <br><br>**ContainerSensor** - The sensor is based on IG and provides a rich threat detection suite for Kubernetes clusters, nodes, and workloads, powered by Microsoft leading threat intelligence, provides mapping to MITRE ATT&CK framework.<br>Available for Containers plan. <br><br>**AIPromptEvidence** - Exposes the prompts passed between the user and the AI model as alert evidence. This helps classify and triage the alerts with relevant user context. The prompt snippets will include only segments of the user prompt or model response that were deemed suspicious and relevant for security classifications. The prompt evidence will be available through Defender portal as part of each alert.<br>Available for AI plan. <br><br>
          */
         name: pulumi.Input<string>;
     }
@@ -167097,7 +168413,7 @@ export namespace security {
      */
     export interface SecurityContactPropertiesNotificationsByRoleArgs {
         /**
-         * Defines which RBAC roles will get email notifications from Microsoft Defender for Cloud. List of allowed RBAC roles: 
+         * Defines which RBAC roles will get email notifications from Microsoft Defender for Cloud. List of allowed RBAC roles:
          */
         roles?: pulumi.Input<pulumi.Input<string | enums.security.SecurityContactRole>[]>;
         /**
@@ -167659,20 +168975,6 @@ export namespace securityinsights {
     }
 
     /**
-     * Resources created in Azure DevOps repository.
-     */
-    export interface AzureDevOpsResourceInfoArgs {
-        /**
-         * Id of the pipeline created for the source-control.
-         */
-        pipelineId?: pulumi.Input<string>;
-        /**
-         * Id of the service-connection created for the source-control.
-         */
-        serviceConnectionId?: pulumi.Input<string>;
-    }
-
-    /**
      * Model for API authentication with basic flow - user name + password.
      */
     export interface BasicAuthModelArgs {
@@ -167884,20 +169186,6 @@ export namespace securityinsights {
     }
 
     /**
-     * The mapping of content type to a repo path.
-     */
-    export interface ContentPathMapArgs {
-        /**
-         * Content type.
-         */
-        contentType?: pulumi.Input<string | enums.securityinsights.ContentType>;
-        /**
-         * The path to the content.
-         */
-        path?: pulumi.Input<string>;
-    }
-
-    /**
      * The Custom permissions required for the connector.
      */
     export interface CustomPermissionDetailsArgs {
@@ -168006,50 +169294,6 @@ export namespace securityinsights {
          * Describe whether this data type connection is enabled or not.
          */
         state: pulumi.Input<string | enums.securityinsights.DataTypeState>;
-    }
-
-    /**
-     * Description about a deployment.
-     */
-    export interface DeploymentArgs {
-        /**
-         * Deployment identifier.
-         */
-        deploymentId?: pulumi.Input<string>;
-        /**
-         * Url to access repository action logs.
-         */
-        deploymentLogsUrl?: pulumi.Input<string>;
-        /**
-         * The outcome of the deployment.
-         */
-        deploymentResult?: pulumi.Input<string | enums.securityinsights.DeploymentResult>;
-        /**
-         * Current status of the deployment.
-         */
-        deploymentState?: pulumi.Input<string | enums.securityinsights.DeploymentState>;
-        /**
-         * The time when the deployment finished.
-         */
-        deploymentTime?: pulumi.Input<string>;
-    }
-
-    /**
-     * Information regarding a deployment.
-     */
-    export interface DeploymentInfoArgs {
-        /**
-         * Deployment information.
-         */
-        deployment?: pulumi.Input<inputs.securityinsights.DeploymentArgs>;
-        /**
-         * Status while fetching the last deployment.
-         */
-        deploymentFetchStatus?: pulumi.Input<string | enums.securityinsights.DeploymentFetchStatus>;
-        /**
-         * Additional details about the deployment that can be shown to the user.
-         */
-        message?: pulumi.Input<string>;
     }
 
     /**
@@ -168163,16 +169407,6 @@ export namespace securityinsights {
          * Expected value is 'GitHub'.
          */
         type: pulumi.Input<"GitHub">;
-    }
-
-    /**
-     * Resources created in GitHub repository.
-     */
-    export interface GitHubResourceInfoArgs {
-        /**
-         * GitHub application installation id.
-         */
-        appInstallationId?: pulumi.Input<string>;
     }
 
     /**
@@ -168842,37 +170076,51 @@ export namespace securityinsights {
         /**
          * Branch name of repository.
          */
-        branch?: pulumi.Input<string>;
-        /**
-         * Url to access repository action logs.
-         */
-        deploymentLogsUrl?: pulumi.Input<string>;
+        branch: pulumi.Input<string>;
         /**
          * Display url of repository.
          */
         displayUrl?: pulumi.Input<string>;
         /**
-         * Dictionary of source control content type and path mapping.
-         */
-        pathMapping?: pulumi.Input<pulumi.Input<inputs.securityinsights.ContentPathMapArgs>[]>;
-        /**
          * Url of repository.
          */
-        url?: pulumi.Input<string>;
+        url: pulumi.Input<string>;
+    }
+
+    /**
+     * Credentials to access repository.
+     */
+    export interface RepositoryAccessArgs {
+        /**
+         * OAuth ClientId. Required when `kind` is `OAuth`
+         */
+        clientId?: pulumi.Input<string>;
+        /**
+         * OAuth Code. Required when `kind` is `OAuth`
+         */
+        code?: pulumi.Input<string>;
+        /**
+         * Application installation ID. Required when `kind` is `App`. Supported by `GitHub` only.
+         */
+        installationId?: pulumi.Input<string>;
+        /**
+         * The kind of repository access credentials
+         */
+        kind: pulumi.Input<string | enums.securityinsights.RepositoryAccessKind>;
+        /**
+         * OAuth State. Required when `kind` is `OAuth`
+         */
+        state?: pulumi.Input<string>;
+        /**
+         * Personal Access Token. Required when `kind` is `PAT`
+         */
+        token?: pulumi.Input<string>;
     }
 
     /**
      * Resources created in user's repository for the source-control.
      */
     export interface RepositoryResourceInfoArgs {
-        /**
-         * Resources created in Azure DevOps for this source-control.
-         */
-        azureDevOpsResourceInfo?: pulumi.Input<inputs.securityinsights.AzureDevOpsResourceInfoArgs>;
-        /**
-         * Resources created in GitHub for this source-control.
-         */
-        gitHubResourceInfo?: pulumi.Input<inputs.securityinsights.GitHubResourceInfoArgs>;
         /**
          * The webhook object created for the source-control.
          */
@@ -169002,6 +170250,16 @@ export namespace securityinsights {
          * The data types used by the security ml analytics settings
          */
         dataTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * Service principal metadata.
+     */
+    export interface ServicePrincipalArgs {
+        /**
+         * Expiration time of service principal credentials.
+         */
+        credentialsExpireOn?: pulumi.Input<string>;
     }
 
     /**
@@ -169181,18 +170439,6 @@ export namespace securityinsights {
          * A flag to instruct the backend service to rotate webhook secret.
          */
         rotateWebhookSecret?: pulumi.Input<boolean>;
-        /**
-         * Unique identifier for the webhook.
-         */
-        webhookId?: pulumi.Input<string>;
-        /**
-         * Time when the webhook secret was updated.
-         */
-        webhookSecretUpdateTime?: pulumi.Input<string>;
-        /**
-         * URL that gets invoked by the webhook.
-         */
-        webhookUrl?: pulumi.Input<string>;
     }
 
 }
@@ -174478,6 +175724,40 @@ export namespace storage {
     }
 
     /**
+     * The connection details for Data Share source
+     */
+    export interface DataShareConnectionArgs {
+        /**
+         * The URI of the backing DataShare. Must be in the format: azds://<region>:<DataShareName>:<DataShareIdentifier>
+         */
+        dataShareUri: pulumi.Input<string>;
+        /**
+         * The connection type for bucket connection in storage connector.
+         * Expected value is 'DataShare'.
+         */
+        type: pulumi.Input<"DataShare">;
+    }
+
+    /**
+     * The properties of data share source
+     */
+    export interface DataShareSourceArgs {
+        /**
+         * Details for how to authenticate to the backing data store.
+         */
+        authProperties: pulumi.Input<inputs.storage.ManagedIdentityAuthPropertiesArgs>;
+        /**
+         * Details for how to connect to the backing data store.
+         */
+        connection: pulumi.Input<inputs.storage.DataShareConnectionArgs>;
+        /**
+         * The type of the backing data source for storage connector
+         * Expected value is 'DataShare'.
+         */
+        type: pulumi.Input<"DataShare">;
+    }
+
+    /**
      * Object to define snapshot and version action conditions.
      */
     export interface DateAfterCreationArgs {
@@ -174795,6 +176075,21 @@ export namespace storage {
          * The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1
          */
         trackingGranularityInDays?: pulumi.Input<number>;
+    }
+
+    /**
+     * The managed identity auth properties for dataShare connection.
+     */
+    export interface ManagedIdentityAuthPropertiesArgs {
+        /**
+         * ARM ResourceId of the managed identity that should be used to authenticate to the backing data source.
+         */
+        identityResourceId?: pulumi.Input<string>;
+        /**
+         * The auth type supported for bucket connection in storage connector.
+         * Expected value is 'ManagedIdentity'.
+         */
+        type: pulumi.Input<"ManagedIdentity">;
     }
 
     /**
@@ -175221,6 +176516,100 @@ export namespace storage {
          * Ssh public key base64 encoded. The format should be: '<keyType> <keyData>', e.g. ssh-rsa AAAABBBB
          */
         key?: pulumi.Input<string>;
+    }
+
+    /**
+     * The storage connector properties
+     */
+    export interface StorageConnectorPropertiesArgs {
+        /**
+         * The type of backing data source for this Storage Connector.
+         */
+        dataSourceType: pulumi.Input<string | enums.storage.StorageConnectorDataSourceType>;
+        /**
+         * Arbitrary description of this Storage Connector. Max 250 characters.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Information about how to communicate with and authenticate to the backing data store.
+         */
+        source: pulumi.Input<inputs.storage.DataShareSourceArgs>;
+        /**
+         * State - Active or Inactive. Whether or not the Storage Connector should start as active (default: Active)
+         * (While set to false on the Storage Connector, all data plane requests using this Storage Connector fail, and this Storage Connector is not billed if it would be otherwise.
+         */
+        state?: pulumi.Input<string | enums.storage.StorageConnectorState>;
+        /**
+         * Test connection to backing data source before creating the storage connector.
+         */
+        testConnection?: pulumi.Input<boolean>;
+    }
+    /**
+     * storageConnectorPropertiesArgsProvideDefaults sets the appropriate defaults for StorageConnectorPropertiesArgs
+     */
+    export function storageConnectorPropertiesArgsProvideDefaults(val: StorageConnectorPropertiesArgs): StorageConnectorPropertiesArgs {
+        return {
+            ...val,
+            state: (val.state) ?? "Active",
+            testConnection: (val.testConnection) ?? false,
+        };
+    }
+
+    /**
+     * Policy that specify the permission allowed to a managed identity
+     */
+    export interface StorageDataShareAccessPolicyArgs {
+        /**
+         * Allowed permissions. Currently, only supported value is Read.
+         */
+        permission: pulumi.Input<string | enums.storage.StorageDataShareAccessPolicyPermission>;
+        /**
+         * The AAD principal ID of the Managed Identity.
+         */
+        principalId: pulumi.Input<string>;
+        /**
+         * The AAD tenant ID of the Managed Identity.
+         */
+        tenantId: pulumi.Input<string>;
+    }
+
+    /**
+     * Properties of a shared resource.
+     */
+    export interface StorageDataShareAssetArgs {
+        /**
+         * Source Path to be shared. It can be a folder or a blob.
+         * The asset path should contain container name followed by path within the container, e.g. /container1/logs/external.
+         */
+        assetPath: pulumi.Input<string>;
+        /**
+         * Consumer visible name of the original path.
+         */
+        displayName: pulumi.Input<string>;
+    }
+
+    /**
+     * The storage datashare properties
+     */
+    export interface StorageDataSharePropertiesArgs {
+        /**
+         * List of access policies that specify the permission allowed to a managed identity.
+         * For Create - This property is required and cannot be null. If no access policies are provided at creation time, specify an empty array.
+         * For Update - This property is optional. If set to null or not passed, the existing access policies are left unchanged.
+         * If provided with a non-null value, the existing access policies are replaced with the specified list.
+         */
+        accessPolicies: pulumi.Input<pulumi.Input<inputs.storage.StorageDataShareAccessPolicyArgs>[]>;
+        /**
+         * List of assets that specify the properties of the shared resources.
+         * For Create - This property is required and cannot be null. If no assets are provided at creation time, specify an empty array.
+         * For Update - This property is optional. If set to null or not passed, the existing assets are left unchanged.
+         * If provided with a non-null value, the existing assets are replaced with the specified list.
+         */
+        assets: pulumi.Input<pulumi.Input<inputs.storage.StorageDataShareAssetArgs>[]>;
+        /**
+         * Arbitrary description of this Data Share. Max 250 characters.
+         */
+        description?: pulumi.Input<string>;
     }
 
     /**
@@ -180101,148 +181490,6 @@ export namespace vmwarecloudsimple {
          * NIC id
          */
         virtualNicId?: pulumi.Input<string>;
-    }
-
-}
-
-export namespace voiceservices {
-    /**
-     * Configuration of the API Bridge.
-     */
-    export interface ApiBridgePropertiesArgs {
-        /**
-         * The allowed source IP addresses or CIDR ranges for accessing the API Bridge
-         */
-        allowedAddressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * The activation state of the API Bridge for this Communications Gateway
-         */
-        configureApiBridge?: pulumi.Input<string | enums.voiceservices.ApiBridgeActivationState>;
-    }
-    /**
-     * apiBridgePropertiesArgsProvideDefaults sets the appropriate defaults for ApiBridgePropertiesArgs
-     */
-    export function apiBridgePropertiesArgsProvideDefaults(val: ApiBridgePropertiesArgs): ApiBridgePropertiesArgs {
-        return {
-            ...val,
-            configureApiBridge: (val.configureApiBridge) ?? "disabled",
-        };
-    }
-
-    /**
-     * Details of a Custom SIP Header.
-     */
-    export interface CustomSipHeaderArgs {
-        /**
-         * The name of the Custom SIP Header
-         */
-        name?: pulumi.Input<string>;
-    }
-
-    /**
-     * Properties of Custom SIP Headers.
-     */
-    export interface CustomSipHeadersPropertiesArgs {
-        /**
-         * The Custom SIP Headers to apply to the calls which traverse the Communications Gateway
-         */
-        headers?: pulumi.Input<pulumi.Input<inputs.voiceservices.CustomSipHeaderArgs>[]>;
-    }
-
-    /**
-     * Details of a DNS Domain delegated to the Communications Gateway.
-     */
-    export interface DnsDelegationPropertiesArgs {
-        /**
-         * Domain name to delegate
-         */
-        domain?: pulumi.Input<string>;
-    }
-
-    /**
-     * Details of DNS Domains delegated to the Communications Gateway.
-     */
-    export interface DnsDelegationsPropertiesArgs {
-        /**
-         * DNS Domains to delegate for the creation of DNS Zones by the Azure Communications Gateway
-         */
-        delegations?: pulumi.Input<pulumi.Input<inputs.voiceservices.DnsDelegationPropertiesArgs>[]>;
-    }
-
-    /**
-     * Managed service identity (system assigned and/or user assigned identities)
-     */
-    export interface ManagedServiceIdentityArgs {
-        /**
-         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-         */
-        type: pulumi.Input<string | enums.voiceservices.ManagedServiceIdentityType>;
-        /**
-         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-         */
-        userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    /**
-     * The configuration used in this region as primary, and other regions as backup.
-     */
-    export interface PrimaryRegionPropertiesArgs {
-        /**
-         * The allowed source IP addresses or CIDR ranges for media
-         */
-        allowedMediaSourceAddressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * The allowed source IP addresses or CIDR ranges for signaling
-         */
-        allowedSignalingSourceAddressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * IP address to use to contact the ESRP from this region
-         */
-        esrpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * IP address to use to contact the operator network from this region
-         */
-        operatorAddresses: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    /**
-     * The service region configuration needed for Teams Callings.
-     */
-    export interface ServiceRegionPropertiesArgs {
-        /**
-         * The name of the region in which the resources needed for Teams Calling will be deployed.
-         */
-        name: pulumi.Input<string>;
-        /**
-         * The configuration used in this region as primary, and other regions as backup.
-         */
-        primaryRegionProperties: pulumi.Input<inputs.voiceservices.PrimaryRegionPropertiesArgs>;
-    }
-
-    /**
-     * The resource model definition representing SKU
-     */
-    export interface SkuArgs {
-        /**
-         * If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-         */
-        capacity?: pulumi.Input<number>;
-        /**
-         * If the service has different generations of hardware, for the same SKU, then that can be captured here.
-         */
-        family?: pulumi.Input<string>;
-        /**
-         * The name of the SKU. Ex - P3. It is typically a letter+number code
-         */
-        name: pulumi.Input<string>;
-        /**
-         * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
-         */
-        size?: pulumi.Input<string>;
-        /**
-         * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-         */
-        tier?: pulumi.Input<enums.voiceservices.SkuTier>;
     }
 
 }

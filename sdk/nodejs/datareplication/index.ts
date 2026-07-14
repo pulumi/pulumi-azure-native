@@ -45,11 +45,6 @@ export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointCo
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
 
-export { GetPrivateEndpointConnectionProxyArgs, GetPrivateEndpointConnectionProxyResult, GetPrivateEndpointConnectionProxyOutputArgs } from "./getPrivateEndpointConnectionProxy";
-export const getPrivateEndpointConnectionProxy: typeof import("./getPrivateEndpointConnectionProxy").getPrivateEndpointConnectionProxy = null as any;
-export const getPrivateEndpointConnectionProxyOutput: typeof import("./getPrivateEndpointConnectionProxy").getPrivateEndpointConnectionProxyOutput = null as any;
-utilities.lazyLoad(exports, ["getPrivateEndpointConnectionProxy","getPrivateEndpointConnectionProxyOutput"], () => require("./getPrivateEndpointConnectionProxy"));
-
 export { GetProtectedItemArgs, GetProtectedItemResult, GetProtectedItemOutputArgs } from "./getProtectedItem";
 export const getProtectedItem: typeof import("./getProtectedItem").getProtectedItem = null as any;
 export const getProtectedItemOutput: typeof import("./getProtectedItem").getProtectedItemOutput = null as any;
@@ -74,11 +69,6 @@ export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
 export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
 utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
-
-export { PrivateEndpointConnectionProxyArgs } from "./privateEndpointConnectionProxy";
-export type PrivateEndpointConnectionProxy = import("./privateEndpointConnectionProxy").PrivateEndpointConnectionProxy;
-export const PrivateEndpointConnectionProxy: typeof import("./privateEndpointConnectionProxy").PrivateEndpointConnectionProxy = null as any;
-utilities.lazyLoad(exports, ["PrivateEndpointConnectionProxy"], () => require("./privateEndpointConnectionProxy"));
 
 export { ProtectedItemArgs } from "./protectedItem";
 export type ProtectedItem = import("./protectedItem").ProtectedItem;
@@ -113,8 +103,6 @@ const _module = {
                 return new Policy(name, <any>undefined, { urn })
             case "azure-native:datareplication:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-native:datareplication:PrivateEndpointConnectionProxy":
-                return new PrivateEndpointConnectionProxy(name, <any>undefined, { urn })
             case "azure-native:datareplication:ProtectedItem":
                 return new ProtectedItem(name, <any>undefined, { urn })
             case "azure-native:datareplication:ReplicationExtension":

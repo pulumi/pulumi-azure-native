@@ -100,17 +100,17 @@ namespace Pulumi.AzureNative.PolicyInsights
     public sealed class ListRemediationDeploymentsAtResourceResult
     {
         /// <summary>
-        /// The URL to get the next set of results.
+        /// The link to the next page of items
         /// </summary>
-        public readonly string NextLink;
+        public readonly string? NextLink;
         /// <summary>
-        /// Array of deployments for the remediation.
+        /// The RemediationDeployment items on this page
         /// </summary>
         public readonly ImmutableArray<Outputs.RemediationDeploymentResponse> Value;
 
         [OutputConstructor]
         private ListRemediationDeploymentsAtResourceResult(
-            string nextLink,
+            string? nextLink,
 
             ImmutableArray<Outputs.RemediationDeploymentResponse> value)
         {

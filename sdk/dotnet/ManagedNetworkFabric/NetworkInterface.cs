@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     /// 
     /// Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-02-01-preview.
     /// 
-    /// Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview, 2025-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric:NetworkInterface")]
     public partial class NetworkInterface : global::Pulumi.CustomResource
@@ -120,6 +120,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
                     new global::Pulumi.Alias { Type = "azure-native:managednetworkfabric/v20230615:NetworkInterface" },
                     new global::Pulumi.Alias { Type = "azure-native:managednetworkfabric/v20240215preview:NetworkInterface" },
                     new global::Pulumi.Alias { Type = "azure-native:managednetworkfabric/v20240615preview:NetworkInterface" },
+                    new global::Pulumi.Alias { Type = "azure-native:managednetworkfabric/v20250715:NetworkInterface" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

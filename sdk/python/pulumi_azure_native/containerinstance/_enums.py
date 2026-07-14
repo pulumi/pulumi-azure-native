@@ -32,18 +32,36 @@ class AzureFileShareAccessTier(_builtins.str, Enum):
     Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium. Learn more at: https://learn.microsoft.com/en-us/rest/api/storagerp/file-shares/create?tabs=HTTP#shareaccesstier
     """
     COOL = "Cool"
+    """
+    Cool
+    """
     HOT = "Hot"
+    """
+    Hot
+    """
     PREMIUM = "Premium"
+    """
+    Premium
+    """
     TRANSACTION_OPTIMIZED = "TransactionOptimized"
+    """
+    TransactionOptimized
+    """
 
 
 @pulumi.type_token("azure-native:containerinstance:AzureFileShareAccessType")
 class AzureFileShareAccessType(_builtins.str, Enum):
     """
-     Specifies how Container Groups can access the Azure file share i.e. all CG will share same Azure file share or going to have exclusive file share.
+    Specifies how Container Groups can access the Azure file share i.e. all CG will share same Azure file share or going to have exclusive file share.
     """
     SHARED = "Shared"
+    """
+    Shared
+    """
     EXCLUSIVE = "Exclusive"
+    """
+    Exclusive
+    """
 
 
 @pulumi.type_token("azure-native:containerinstance:ContainerGroupIpAddressType")
@@ -139,7 +157,13 @@ class LogAnalyticsLogType(_builtins.str, Enum):
 @pulumi.type_token("azure-native:containerinstance:NGroupUpdateMode")
 class NGroupUpdateMode(_builtins.str, Enum):
     MANUAL = "Manual"
+    """
+    Manual
+    """
     ROLLING = "Rolling"
+    """
+    Rolling
+    """
 
 
 @pulumi.type_token("azure-native:containerinstance:OperatingSystemTypes")
@@ -166,9 +190,21 @@ class ResourceIdentityType(_builtins.str, Enum):
     The type of identity used for the NGroup. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the NGroup.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
+    """
+    SystemAssigned
+    """
     USER_ASSIGNED = "UserAssigned"
+    """
+    UserAssigned
+    """
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
+    """
+    SystemAssigned, UserAssigned
+    """
     NONE = "None"
+    """
+    None
+    """
 
 
 @pulumi.type_token("azure-native:containerinstance:Scheme")

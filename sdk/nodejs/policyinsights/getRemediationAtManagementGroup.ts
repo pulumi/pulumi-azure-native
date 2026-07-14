@@ -61,13 +61,13 @@ export interface GetRemediationAtManagementGroupResult {
     /**
      * The remediation failure threshold settings
      */
-    readonly failureThreshold?: outputs.policyinsights.RemediationPropertiesResponseFailureThreshold;
+    readonly failureThreshold?: outputs.policyinsights.RemediationPropertiesFailureThresholdResponse;
     /**
      * The filters that will be applied to determine which resources to remediate.
      */
     readonly filters?: outputs.policyinsights.RemediationFiltersResponse;
     /**
-     * The ID of the remediation.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -75,7 +75,7 @@ export interface GetRemediationAtManagementGroupResult {
      */
     readonly lastUpdatedOn: string;
     /**
-     * The name of the remediation.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -111,7 +111,7 @@ export interface GetRemediationAtManagementGroupResult {
      */
     readonly systemData: outputs.policyinsights.SystemDataResponse;
     /**
-     * The type of the remediation.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }

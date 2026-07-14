@@ -33,7 +33,7 @@ class PolicyArgs:
         """
         The set of arguments for constructing a Policy resource.
 
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['CustomRuleListArgs'] custom_rules: Describes custom rules inside the policy.
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input['ManagedRuleSetListArgs'] managed_rules: Describes managed rules inside the policy.
@@ -62,7 +62,7 @@ class PolicyArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the Resource group within the Azure subscription.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -173,9 +173,9 @@ class Policy(pulumi.CustomResource):
         """
         Defines web application firewall policy.
 
-        Uses Azure REST API version 2024-02-01.
+        Uses Azure REST API version 2025-11-01.
 
-        Other available API versions: 2019-03-01, 2019-10-01, 2020-04-01, 2020-11-01, 2021-06-01, 2022-05-01, 2025-03-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2018-08-01, 2019-03-01, 2019-10-01, 2020-04-01, 2020-11-01, 2021-06-01, 2022-05-01, 2024-02-01, 2025-03-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -185,7 +185,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[Union['ManagedRuleSetListArgs', 'ManagedRuleSetListArgsDict']] managed_rules: Describes managed rules inside the policy.
         :param pulumi.Input[_builtins.str] policy_name: The name of the Web Application Firewall Policy.
         :param pulumi.Input[Union['PolicySettingsArgs', 'PolicySettingsArgsDict']] policy_settings: Describes settings for the policy.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The pricing tier of web application firewall policy. Defaults to Classic_AzureFrontDoor if not specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
@@ -198,9 +198,9 @@ class Policy(pulumi.CustomResource):
         """
         Defines web application firewall policy.
 
-        Uses Azure REST API version 2024-02-01.
+        Uses Azure REST API version 2025-11-01.
 
-        Other available API versions: 2019-03-01, 2019-10-01, 2020-04-01, 2020-11-01, 2021-06-01, 2022-05-01, 2025-03-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2018-08-01, 2019-03-01, 2019-10-01, 2020-04-01, 2020-11-01, 2021-06-01, 2022-05-01, 2024-02-01, 2025-03-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -254,7 +254,7 @@ class Policy(pulumi.CustomResource):
             __props__.__dict__["routing_rule_links"] = None
             __props__.__dict__["security_policy_links"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:frontdoor/v20190301:Policy"), pulumi.Alias(type_="azure-native:frontdoor/v20191001:Policy"), pulumi.Alias(type_="azure-native:frontdoor/v20200401:Policy"), pulumi.Alias(type_="azure-native:frontdoor/v20201101:Policy"), pulumi.Alias(type_="azure-native:frontdoor/v20210601:Policy"), pulumi.Alias(type_="azure-native:frontdoor/v20220501:Policy"), pulumi.Alias(type_="azure-native:frontdoor/v20240201:Policy"), pulumi.Alias(type_="azure-native:frontdoor/v20250301:Policy"), pulumi.Alias(type_="azure-native:frontdoor/v20251001:Policy"), pulumi.Alias(type_="azure-native:network/v20210601:Policy"), pulumi.Alias(type_="azure-native:network/v20220501:Policy"), pulumi.Alias(type_="azure-native:network/v20240201:Policy"), pulumi.Alias(type_="azure-native:network:Policy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:frontdoor/v20180801:Policy"), pulumi.Alias(type_="azure-native:frontdoor/v20190301:Policy"), pulumi.Alias(type_="azure-native:frontdoor/v20191001:Policy"), pulumi.Alias(type_="azure-native:frontdoor/v20200401:Policy"), pulumi.Alias(type_="azure-native:frontdoor/v20201101:Policy"), pulumi.Alias(type_="azure-native:frontdoor/v20210601:Policy"), pulumi.Alias(type_="azure-native:frontdoor/v20220501:Policy"), pulumi.Alias(type_="azure-native:frontdoor/v20240201:Policy"), pulumi.Alias(type_="azure-native:frontdoor/v20250301:Policy"), pulumi.Alias(type_="azure-native:frontdoor/v20251001:Policy"), pulumi.Alias(type_="azure-native:frontdoor/v20251101:Policy"), pulumi.Alias(type_="azure-native:network/v20210601:Policy"), pulumi.Alias(type_="azure-native:network/v20220501:Policy"), pulumi.Alias(type_="azure-native:network/v20240201:Policy"), pulumi.Alias(type_="azure-native:network:Policy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Policy, __self__).__init__(
             'azure-native:frontdoor:Policy',
@@ -370,6 +370,9 @@ class Policy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="resourceState")
     def resource_state(self) -> pulumi.Output[_builtins.str]:
+        """
+        Resource status of the policy.
+        """
         return pulumi.get(self, "resource_state")
 
     @_builtins.property

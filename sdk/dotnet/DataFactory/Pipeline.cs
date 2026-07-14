@@ -48,7 +48,7 @@ namespace Pulumi.AzureNative.DataFactory
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Etag identifies change in the resource.
+        /// "If etag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.")
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
@@ -57,10 +57,10 @@ namespace Pulumi.AzureNative.DataFactory
         /// The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
         /// </summary>
         [Output("folder")]
-        public Output<Outputs.PipelineResponseFolder?> Folder { get; private set; } = null!;
+        public Output<Outputs.PipelineFolderResponse?> Folder { get; private set; } = null!;
 
         /// <summary>
-        /// The resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -81,10 +81,16 @@ namespace Pulumi.AzureNative.DataFactory
         /// Dimensions emitted by Pipeline.
         /// </summary>
         [Output("runDimensions")]
-        public Output<ImmutableDictionary<string, object>?> RunDimensions { get; private set; } = null!;
+        public Output<object?> RunDimensions { get; private set; } = null!;
 
         /// <summary>
-        /// The resource type.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -218,22 +224,16 @@ namespace Pulumi.AzureNative.DataFactory
         public Input<Inputs.PipelinePolicyArgs>? Policy { get; set; }
 
         /// <summary>
-        /// The resource group name.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        [Input("runDimensions")]
-        private InputMap<object>? _runDimensions;
-
         /// <summary>
         /// Dimensions emitted by Pipeline.
         /// </summary>
-        public InputMap<object> RunDimensions
-        {
-            get => _runDimensions ?? (_runDimensions = new InputMap<object>());
-            set => _runDimensions = value;
-        }
+        [Input("runDimensions")]
+        public Input<object>? RunDimensions { get; set; }
 
         [Input("variables")]
         private InputMap<Inputs.VariableSpecificationArgs>? _variables;

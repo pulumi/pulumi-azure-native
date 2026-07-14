@@ -24,7 +24,7 @@ class FleetAnalyticArgs:
                  fleet_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  fleet_analytics_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_location_type: Optional[pulumi.Input[Union[_builtins.str, 'StorageLocationType']]] = None,
+                 storage_location_type: Optional[pulumi.Input[Union[_builtins.str, 'FleetAnalyticsPropertiesStorageLocationType']]] = None,
                  storage_location_uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FleetAnalytic resource.
@@ -32,7 +32,7 @@ class FleetAnalyticArgs:
         :param pulumi.Input[_builtins.str] fleet_name: Cosmos DB fleet name. Needs to be unique under a subscription.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] fleet_analytics_name: Cosmos DB fleetAnalytics name.
-        :param pulumi.Input[Union[_builtins.str, 'StorageLocationType']] storage_location_type: The type of the fleet analytics resource.
+        :param pulumi.Input[Union[_builtins.str, 'FleetAnalyticsPropertiesStorageLocationType']] storage_location_type: The type of the fleet analytics resource.
         :param pulumi.Input[_builtins.str] storage_location_uri: The unique identifier of the fleet analytics resource.
         """
         pulumi.set(__self__, "fleet_name", fleet_name)
@@ -82,14 +82,14 @@ class FleetAnalyticArgs:
 
     @_builtins.property
     @pulumi.getter(name="storageLocationType")
-    def storage_location_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'StorageLocationType']]]:
+    def storage_location_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'FleetAnalyticsPropertiesStorageLocationType']]]:
         """
         The type of the fleet analytics resource.
         """
         return pulumi.get(self, "storage_location_type")
 
     @storage_location_type.setter
-    def storage_location_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'StorageLocationType']]]):
+    def storage_location_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'FleetAnalyticsPropertiesStorageLocationType']]]):
         pulumi.set(self, "storage_location_type", value)
 
     @_builtins.property
@@ -114,7 +114,7 @@ class FleetAnalytic(pulumi.CustomResource):
                  fleet_analytics_name: Optional[pulumi.Input[_builtins.str]] = None,
                  fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_location_type: Optional[pulumi.Input[Union[_builtins.str, 'StorageLocationType']]] = None,
+                 storage_location_type: Optional[pulumi.Input[Union[_builtins.str, 'FleetAnalyticsPropertiesStorageLocationType']]] = None,
                  storage_location_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
@@ -122,7 +122,7 @@ class FleetAnalytic(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-11-01-preview.
 
-        Other available API versions: 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2025-05-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -130,7 +130,7 @@ class FleetAnalytic(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] fleet_analytics_name: Cosmos DB fleetAnalytics name.
         :param pulumi.Input[_builtins.str] fleet_name: Cosmos DB fleet name. Needs to be unique under a subscription.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union[_builtins.str, 'StorageLocationType']] storage_location_type: The type of the fleet analytics resource.
+        :param pulumi.Input[Union[_builtins.str, 'FleetAnalyticsPropertiesStorageLocationType']] storage_location_type: The type of the fleet analytics resource.
         :param pulumi.Input[_builtins.str] storage_location_uri: The unique identifier of the fleet analytics resource.
         """
         ...
@@ -144,7 +144,7 @@ class FleetAnalytic(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-11-01-preview.
 
-        Other available API versions: 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2025-05-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -165,7 +165,7 @@ class FleetAnalytic(pulumi.CustomResource):
                  fleet_analytics_name: Optional[pulumi.Input[_builtins.str]] = None,
                  fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_location_type: Optional[pulumi.Input[Union[_builtins.str, 'StorageLocationType']]] = None,
+                 storage_location_type: Optional[pulumi.Input[Union[_builtins.str, 'FleetAnalyticsPropertiesStorageLocationType']]] = None,
                  storage_location_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -190,7 +190,7 @@ class FleetAnalytic(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cosmosdb/v20250501preview:FleetAnalytic"), pulumi.Alias(type_="azure-native:cosmosdb/v20251101preview:FleetAnalytic")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cosmosdb/v20250501preview:FleetAnalytic"), pulumi.Alias(type_="azure-native:cosmosdb/v20251101preview:FleetAnalytic"), pulumi.Alias(type_="azure-native:cosmosdb/v20260401preview:FleetAnalytic")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FleetAnalytic, __self__).__init__(
             'azure-native:cosmosdb:FleetAnalytic',

@@ -223,7 +223,7 @@ class GalleryImageVersion(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-03-03. In version 2.x of the Azure Native provider, it used API version 2022-03-03.
 
-        Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03, 2025-03-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03, 2025-03-03, 2025-12-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -251,7 +251,7 @@ class GalleryImageVersion(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-03-03. In version 2.x of the Azure Native provider, it used API version 2022-03-03.
 
-        Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03, 2025-03-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03, 2025-03-03, 2025-12-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -315,7 +315,7 @@ class GalleryImageVersion(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["validations_profile"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20180601:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20190301:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20190701:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20191201:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20200930:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20210701:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20211001:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20220103:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20220303:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20220803:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20230703:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20240303:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20250303:GalleryImageVersion")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20180601:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20190301:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20190701:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20191201:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20200930:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20210701:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20211001:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20220103:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20220303:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20220803:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20230703:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20240303:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20250303:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20251203:GalleryImageVersion")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GalleryImageVersion, __self__).__init__(
             'azure-native:compute:GalleryImageVersion',

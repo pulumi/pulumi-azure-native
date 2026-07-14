@@ -21,10 +21,25 @@ class EnterprisePolicyKind(_builtins.str, Enum):
     The kind (type) of Enterprise Policy.
     """
     LOCKBOX = "Lockbox"
+    """
+    Lockbox
+    """
     PRIVATE_ENDPOINT = "PrivateEndpoint"
+    """
+    PrivateEndpoint
+    """
     ENCRYPTION = "Encryption"
+    """
+    Encryption
+    """
     NETWORK_INJECTION = "NetworkInjection"
+    """
+    NetworkInjection
+    """
     IDENTITY = "Identity"
+    """
+    Identity
+    """
 
 
 @pulumi.type_token("azure-native:powerplatform:HealthStatus")
@@ -33,9 +48,21 @@ class HealthStatus(_builtins.str, Enum):
     The health status of the resource.
     """
     UNDETERMINED = "Undetermined"
+    """
+    Undetermined
+    """
     HEALTHY = "Healthy"
+    """
+    Healthy
+    """
     WARNING = "Warning"
+    """
+    Warning
+    """
     UNHEALTHY = "Unhealthy"
+    """
+    Unhealthy
+    """
 
 
 @pulumi.type_token("azure-native:powerplatform:PrivateEndpointServiceConnectionStatus")
@@ -54,7 +81,13 @@ class ResourceIdentityType(_builtins.str, Enum):
     The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
+    """
+    SystemAssigned
+    """
     NONE = "None"
+    """
+    None
+    """
 
 
 @pulumi.type_token("azure-native:powerplatform:State")
@@ -63,5 +96,14 @@ class State(_builtins.str, Enum):
     lockbox configuration
     """
     ENABLED = "Enabled"
+    """
+    Enabled
+    """
     DISABLED = "Disabled"
+    """
+    Disabled
+    """
     NOT_CONFIGURED = "NotConfigured"
+    """
+    NotConfigured
+    """

@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.Automation
         public Output<string?> JobScheduleId { get; private set; } = null!;
 
         /// <summary>
-        /// Gets the name of the variable.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -62,7 +62,13 @@ namespace Pulumi.AzureNative.Automation
         public Output<Outputs.ScheduleAssociationPropertyResponse?> Schedule { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -147,7 +153,7 @@ namespace Pulumi.AzureNative.Automation
         }
 
         /// <summary>
-        /// Name of an Azure Resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

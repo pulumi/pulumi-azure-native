@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<object>? PacketSize { get; set; }
 
         /// <summary>
-        /// The partition mechanism that will be used for SAP HANA read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "SapHanaDynamicRange". 
+        /// The partition mechanism that will be used for SAP HANA read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "SapHanaDynamicRange".
         /// </summary>
         [Input("partitionOption")]
         public Input<object>? PartitionOption { get; set; }

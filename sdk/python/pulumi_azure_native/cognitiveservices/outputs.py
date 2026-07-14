@@ -49,7 +49,6 @@ __all__ = [
     'CustomBlocklistConfigResponse',
     'CustomKeysConnectionPropertiesResponse',
     'CustomKeysResponse',
-    'CustomTopicConfigResponse',
     'DeploymentCapacitySettingsResponse',
     'DeploymentModelResponse',
     'DeploymentPropertiesResponse',
@@ -63,6 +62,9 @@ __all__ = [
     'KeyVaultPropertiesResponse',
     'ManagedAgentDeploymentResponse',
     'ManagedIdentityAuthTypeConnectionPropertiesResponse',
+    'ManagedNetworkProvisionStatusResponse',
+    'ManagedNetworkSettingsExResponse',
+    'ManagedNetworkSettingsPropertiesResponse',
     'MultiRegionSettingsResponse',
     'NetworkInjectionResponse',
     'NetworkRuleSetResponse',
@@ -72,6 +74,8 @@ __all__ = [
     'PATAuthTypeConnectionPropertiesResponse',
     'PrivateEndpointConnectionPropertiesResponse',
     'PrivateEndpointConnectionResponse',
+    'PrivateEndpointOutboundRuleDestinationResponse',
+    'PrivateEndpointOutboundRuleResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'ProjectCapabilityHostResponse',
@@ -85,9 +89,9 @@ __all__ = [
     'RaiPolicyContentFilterResponseV1',
     'RaiPolicyPropertiesResponse',
     'RaiPolicyPropertiesResponseV1',
+    'RaiToolLabelPropertiesAccountScopeResponse',
+    'RaiToolLabelPropertiesProjectScopesItemResponse',
     'RaiToolLabelPropertiesResponse',
-    'RaiToolLabelPropertiesResponseAccountScope',
-    'RaiToolLabelPropertiesResponseProjectScopes',
     'RaiTopicPropertiesResponse',
     'RegionSettingResponse',
     'RequestMatchPatternResponse',
@@ -95,6 +99,8 @@ __all__ = [
     'SASAuthTypeConnectionPropertiesResponse',
     'SafetyProviderConfigResponse',
     'ServicePrincipalAuthTypeConnectionPropertiesResponse',
+    'ServiceTagOutboundRuleDestinationResponse',
+    'ServiceTagOutboundRuleResponse',
     'SkuCapabilityResponse',
     'SkuChangeInfoResponse',
     'SkuResponse',
@@ -3252,71 +3258,6 @@ class CustomKeysResponse(dict):
 
 
 @pulumi.output_type
-class CustomTopicConfigResponse(dict):
-    """
-    Gets or sets the source to which filter applies.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "topicName":
-            suggest = "topic_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CustomTopicConfigResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CustomTopicConfigResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CustomTopicConfigResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 blocking: Optional[_builtins.bool] = None,
-                 source: Optional[_builtins.str] = None,
-                 topic_name: Optional[_builtins.str] = None):
-        """
-        Gets or sets the source to which filter applies.
-
-        :param _builtins.bool blocking: If blocking would occur.
-        :param _builtins.str source: Content source to apply the Content Filters.
-        :param _builtins.str topic_name: Name of RAI topic.
-        """
-        if blocking is not None:
-            pulumi.set(__self__, "blocking", blocking)
-        if source is not None:
-            pulumi.set(__self__, "source", source)
-        if topic_name is not None:
-            pulumi.set(__self__, "topic_name", topic_name)
-
-    @_builtins.property
-    @pulumi.getter
-    def blocking(self) -> Optional[_builtins.bool]:
-        """
-        If blocking would occur.
-        """
-        return pulumi.get(self, "blocking")
-
-    @_builtins.property
-    @pulumi.getter
-    def source(self) -> Optional[_builtins.str]:
-        """
-        Content source to apply the Content Filters.
-        """
-        return pulumi.get(self, "source")
-
-    @_builtins.property
-    @pulumi.getter(name="topicName")
-    def topic_name(self) -> Optional[_builtins.str]:
-        """
-        Name of RAI topic.
-        """
-        return pulumi.get(self, "topic_name")
-
-
-@pulumi.output_type
 class DeploymentCapacitySettingsResponse(dict):
     """
     Internal use only.
@@ -4655,6 +4596,218 @@ class ManagedIdentityAuthTypeConnectionPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class ManagedNetworkProvisionStatusResponse(dict):
+    """
+    Status of the Provisioning for the managed network of a cognitive services account.
+    """
+    def __init__(__self__, *,
+                 status: Optional[_builtins.str] = None):
+        """
+        Status of the Provisioning for the managed network of a cognitive services account.
+
+        :param _builtins.str status: Status for the managed network of a cognitive services account.
+        """
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[_builtins.str]:
+        """
+        Status for the managed network of a cognitive services account.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class ManagedNetworkSettingsExResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "changeableIsolationModes":
+            suggest = "changeable_isolation_modes"
+        elif key == "firewallPublicIpAddress":
+            suggest = "firewall_public_ip_address"
+        elif key == "networkId":
+            suggest = "network_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "firewallSku":
+            suggest = "firewall_sku"
+        elif key == "isolationMode":
+            suggest = "isolation_mode"
+        elif key == "managedNetworkKind":
+            suggest = "managed_network_kind"
+        elif key == "outboundRules":
+            suggest = "outbound_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedNetworkSettingsExResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedNetworkSettingsExResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedNetworkSettingsExResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 changeable_isolation_modes: Sequence[_builtins.str],
+                 firewall_public_ip_address: _builtins.str,
+                 network_id: _builtins.str,
+                 provisioning_state: _builtins.str,
+                 firewall_sku: Optional[_builtins.str] = None,
+                 isolation_mode: Optional[_builtins.str] = None,
+                 managed_network_kind: Optional[_builtins.str] = None,
+                 outbound_rules: Optional[Mapping[str, Any]] = None,
+                 status: Optional['outputs.ManagedNetworkProvisionStatusResponse'] = None):
+        """
+        :param _builtins.str firewall_public_ip_address: Public IP address assigned to the Azure Firewall.
+        :param _builtins.str provisioning_state: The provisioning state of the managed network settings.
+        :param _builtins.str firewall_sku: Firewall Sku used for FQDN Rules
+        :param _builtins.str isolation_mode: Isolation mode for the managed network of a cognitive services account.
+        :param _builtins.str managed_network_kind: The Kind of the managed network. Users can switch from V1 to V2 for granular access controls, but cannot switch back to V1 once V2 is enabled.
+        :param Mapping[str, Union['FqdnOutboundRuleResponse', 'PrivateEndpointOutboundRuleResponse', 'ServiceTagOutboundRuleResponse']] outbound_rules: Dictionary of <OutboundRule>
+        :param 'ManagedNetworkProvisionStatusResponse' status: Status of the Provisioning for the managed network of a cognitive services account.
+        """
+        pulumi.set(__self__, "changeable_isolation_modes", changeable_isolation_modes)
+        pulumi.set(__self__, "firewall_public_ip_address", firewall_public_ip_address)
+        pulumi.set(__self__, "network_id", network_id)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if firewall_sku is not None:
+            pulumi.set(__self__, "firewall_sku", firewall_sku)
+        if isolation_mode is not None:
+            pulumi.set(__self__, "isolation_mode", isolation_mode)
+        if managed_network_kind is not None:
+            pulumi.set(__self__, "managed_network_kind", managed_network_kind)
+        if outbound_rules is not None:
+            pulumi.set(__self__, "outbound_rules", outbound_rules)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="changeableIsolationModes")
+    def changeable_isolation_modes(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "changeable_isolation_modes")
+
+    @_builtins.property
+    @pulumi.getter(name="firewallPublicIpAddress")
+    def firewall_public_ip_address(self) -> _builtins.str:
+        """
+        Public IP address assigned to the Azure Firewall.
+        """
+        return pulumi.get(self, "firewall_public_ip_address")
+
+    @_builtins.property
+    @pulumi.getter(name="networkId")
+    def network_id(self) -> _builtins.str:
+        return pulumi.get(self, "network_id")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        The provisioning state of the managed network settings.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="firewallSku")
+    def firewall_sku(self) -> Optional[_builtins.str]:
+        """
+        Firewall Sku used for FQDN Rules
+        """
+        return pulumi.get(self, "firewall_sku")
+
+    @_builtins.property
+    @pulumi.getter(name="isolationMode")
+    def isolation_mode(self) -> Optional[_builtins.str]:
+        """
+        Isolation mode for the managed network of a cognitive services account.
+        """
+        return pulumi.get(self, "isolation_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="managedNetworkKind")
+    def managed_network_kind(self) -> Optional[_builtins.str]:
+        """
+        The Kind of the managed network. Users can switch from V1 to V2 for granular access controls, but cannot switch back to V1 once V2 is enabled.
+        """
+        return pulumi.get(self, "managed_network_kind")
+
+    @_builtins.property
+    @pulumi.getter(name="outboundRules")
+    def outbound_rules(self) -> Optional[Mapping[str, Any]]:
+        """
+        Dictionary of <OutboundRule>
+        """
+        return pulumi.get(self, "outbound_rules")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional['outputs.ManagedNetworkProvisionStatusResponse']:
+        """
+        Status of the Provisioning for the managed network of a cognitive services account.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class ManagedNetworkSettingsPropertiesResponse(dict):
+    """
+    The properties of the managed network settings of a cognitive services account.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "managedNetwork":
+            suggest = "managed_network"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedNetworkSettingsPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedNetworkSettingsPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedNetworkSettingsPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: _builtins.str,
+                 managed_network: Optional['outputs.ManagedNetworkSettingsExResponse'] = None):
+        """
+        The properties of the managed network settings of a cognitive services account.
+
+        :param _builtins.str provisioning_state: The current deployment state of the managed network resource. The provisioningState is to indicate states for resource provisioning.
+        :param 'ManagedNetworkSettingsExResponse' managed_network: Managed Network settings for a cognitive services account.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if managed_network is not None:
+            pulumi.set(__self__, "managed_network", managed_network)
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        The current deployment state of the managed network resource. The provisioningState is to indicate states for resource provisioning.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="managedNetwork")
+    def managed_network(self) -> Optional['outputs.ManagedNetworkSettingsExResponse']:
+        """
+        Managed Network settings for a cognitive services account.
+        """
+        return pulumi.get(self, "managed_network")
+
+
+@pulumi.output_type
 class MultiRegionSettingsResponse(dict):
     """
     The multiregion settings Cognitive Services account.
@@ -5607,6 +5760,171 @@ class PrivateEndpointConnectionResponse(dict):
 
 
 @pulumi.output_type
+class PrivateEndpointOutboundRuleDestinationResponse(dict):
+    """
+    Private Endpoint destination for an outbound rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceResourceId":
+            suggest = "service_resource_id"
+        elif key == "subresourceTarget":
+            suggest = "subresource_target"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointOutboundRuleDestinationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointOutboundRuleDestinationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointOutboundRuleDestinationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 service_resource_id: Optional[_builtins.str] = None,
+                 subresource_target: Optional[_builtins.str] = None):
+        """
+        Private Endpoint destination for an outbound rule.
+
+        :param _builtins.str service_resource_id: The Azure resource ID of the target private endpoint service.
+        :param _builtins.str subresource_target: The subresource of the target service to connect to.
+        """
+        if service_resource_id is not None:
+            pulumi.set(__self__, "service_resource_id", service_resource_id)
+        if subresource_target is not None:
+            pulumi.set(__self__, "subresource_target", subresource_target)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceResourceId")
+    def service_resource_id(self) -> Optional[_builtins.str]:
+        """
+        The Azure resource ID of the target private endpoint service.
+        """
+        return pulumi.get(self, "service_resource_id")
+
+    @_builtins.property
+    @pulumi.getter(name="subresourceTarget")
+    def subresource_target(self) -> Optional[_builtins.str]:
+        """
+        The subresource of the target service to connect to.
+        """
+        return pulumi.get(self, "subresource_target")
+
+
+@pulumi.output_type
+class PrivateEndpointOutboundRuleResponse(dict):
+    """
+    Private Endpoint outbound rule for the managed network of a cognitive services account.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorInformation":
+            suggest = "error_information"
+        elif key == "parentRuleNames":
+            suggest = "parent_rule_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointOutboundRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointOutboundRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointOutboundRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 error_information: _builtins.str,
+                 parent_rule_names: Sequence[_builtins.str],
+                 type: _builtins.str,
+                 category: Optional[_builtins.str] = None,
+                 destination: Optional['outputs.PrivateEndpointOutboundRuleDestinationResponse'] = None,
+                 fqdns: Optional[Sequence[_builtins.str]] = None,
+                 status: Optional[_builtins.str] = None):
+        """
+        Private Endpoint outbound rule for the managed network of a cognitive services account.
+
+        :param _builtins.str error_information: Error information about an outbound rule of a cognitive services account if RuleStatus is failed.
+        :param _builtins.str type: Type of a managed network Outbound Rule of a cognitive services account.
+               Expected value is 'PrivateEndpoint'.
+        :param _builtins.str category: Category of a managed network Outbound Rule of a cognitive services account.
+        :param 'PrivateEndpointOutboundRuleDestinationResponse' destination: Private Endpoint destination.
+        :param Sequence[_builtins.str] fqdns: List of FQDNs associated with the private endpoint outbound rule.
+        :param _builtins.str status: Type of a managed network Outbound Rule of a cognitive services account.
+        """
+        pulumi.set(__self__, "error_information", error_information)
+        pulumi.set(__self__, "parent_rule_names", parent_rule_names)
+        pulumi.set(__self__, "type", 'PrivateEndpoint')
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if fqdns is not None:
+            pulumi.set(__self__, "fqdns", fqdns)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="errorInformation")
+    def error_information(self) -> _builtins.str:
+        """
+        Error information about an outbound rule of a cognitive services account if RuleStatus is failed.
+        """
+        return pulumi.get(self, "error_information")
+
+    @_builtins.property
+    @pulumi.getter(name="parentRuleNames")
+    def parent_rule_names(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "parent_rule_names")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Type of a managed network Outbound Rule of a cognitive services account.
+        Expected value is 'PrivateEndpoint'.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> Optional[_builtins.str]:
+        """
+        Category of a managed network Outbound Rule of a cognitive services account.
+        """
+        return pulumi.get(self, "category")
+
+    @_builtins.property
+    @pulumi.getter
+    def destination(self) -> Optional['outputs.PrivateEndpointOutboundRuleDestinationResponse']:
+        """
+        Private Endpoint destination.
+        """
+        return pulumi.get(self, "destination")
+
+    @_builtins.property
+    @pulumi.getter
+    def fqdns(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of FQDNs associated with the private endpoint outbound rule.
+        """
+        return pulumi.get(self, "fqdns")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[_builtins.str]:
+        """
+        Type of a managed network Outbound Rule of a cognitive services account.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
 class PrivateEndpointResponse(dict):
     """
     The Private Endpoint resource.
@@ -6496,8 +6814,6 @@ class RaiPolicyPropertiesResponseV1(dict):
             suggest = "content_filters"
         elif key == "customBlocklists":
             suggest = "custom_blocklists"
-        elif key == "customTopics":
-            suggest = "custom_topics"
         elif key == "safetyProviders":
             suggest = "safety_providers"
 
@@ -6517,7 +6833,6 @@ class RaiPolicyPropertiesResponseV1(dict):
                  base_policy_name: Optional[_builtins.str] = None,
                  content_filters: Optional[Sequence['outputs.RaiPolicyContentFilterResponseV1']] = None,
                  custom_blocklists: Optional[Sequence['outputs.CustomBlocklistConfigResponse']] = None,
-                 custom_topics: Optional[Sequence['outputs.CustomTopicConfigResponse']] = None,
                  mode: Optional[_builtins.str] = None,
                  safety_providers: Optional[Sequence['outputs.SafetyProviderConfigResponse']] = None):
         """
@@ -6527,7 +6842,6 @@ class RaiPolicyPropertiesResponseV1(dict):
         :param _builtins.str base_policy_name: Name of Rai policy.
         :param Sequence['RaiPolicyContentFilterResponseV1'] content_filters: The list of Content Filters.
         :param Sequence['CustomBlocklistConfigResponse'] custom_blocklists: The list of custom Blocklist.
-        :param Sequence['CustomTopicConfigResponse'] custom_topics: The list of custom rai topics.
         :param _builtins.str mode: Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2025-06-01. It is the same as 'Deferred' in previous version.
         :param Sequence['SafetyProviderConfigResponse'] safety_providers: The list of Safety Providers.
         """
@@ -6538,8 +6852,6 @@ class RaiPolicyPropertiesResponseV1(dict):
             pulumi.set(__self__, "content_filters", content_filters)
         if custom_blocklists is not None:
             pulumi.set(__self__, "custom_blocklists", custom_blocklists)
-        if custom_topics is not None:
-            pulumi.set(__self__, "custom_topics", custom_topics)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
         if safety_providers is not None:
@@ -6578,14 +6890,6 @@ class RaiPolicyPropertiesResponseV1(dict):
         return pulumi.get(self, "custom_blocklists")
 
     @_builtins.property
-    @pulumi.getter(name="customTopics")
-    def custom_topics(self) -> Optional[Sequence['outputs.CustomTopicConfigResponse']]:
-        """
-        The list of custom rai topics.
-        """
-        return pulumi.get(self, "custom_topics")
-
-    @_builtins.property
     @pulumi.getter
     def mode(self) -> Optional[_builtins.str]:
         """
@@ -6600,6 +6904,93 @@ class RaiPolicyPropertiesResponseV1(dict):
         The list of Safety Providers.
         """
         return pulumi.get(self, "safety_providers")
+
+
+@pulumi.output_type
+class RaiToolLabelPropertiesAccountScopeResponse(dict):
+    """
+    Account-level tool label definition.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "labelValues":
+            suggest = "label_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RaiToolLabelPropertiesAccountScopeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RaiToolLabelPropertiesAccountScopeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RaiToolLabelPropertiesAccountScopeResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 label_values: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        Account-level tool label definition.
+
+        :param Mapping[str, _builtins.str] label_values: Dictionary of label key-value pairs for the account scope.
+        """
+        if label_values is not None:
+            pulumi.set(__self__, "label_values", label_values)
+
+    @_builtins.property
+    @pulumi.getter(name="labelValues")
+    def label_values(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Dictionary of label key-value pairs for the account scope.
+        """
+        return pulumi.get(self, "label_values")
+
+
+@pulumi.output_type
+class RaiToolLabelPropertiesProjectScopesItemResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "labelValues":
+            suggest = "label_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RaiToolLabelPropertiesProjectScopesItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RaiToolLabelPropertiesProjectScopesItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RaiToolLabelPropertiesProjectScopesItemResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 label_values: Mapping[str, _builtins.str],
+                 project: _builtins.str):
+        """
+        :param Mapping[str, _builtins.str] label_values: Dictionary of label key-value pairs for the project scope.
+        :param _builtins.str project: Project name to which this scope applies.
+        """
+        pulumi.set(__self__, "label_values", label_values)
+        pulumi.set(__self__, "project", project)
+
+    @_builtins.property
+    @pulumi.getter(name="labelValues")
+    def label_values(self) -> Mapping[str, _builtins.str]:
+        """
+        Dictionary of label key-value pairs for the project scope.
+        """
+        return pulumi.get(self, "label_values")
+
+    @_builtins.property
+    @pulumi.getter
+    def project(self) -> _builtins.str:
+        """
+        Project name to which this scope applies.
+        """
+        return pulumi.get(self, "project")
 
 
 @pulumi.output_type
@@ -6630,14 +7021,14 @@ class RaiToolLabelPropertiesResponse(dict):
 
     def __init__(__self__, *,
                  tool_connection_name: _builtins.str,
-                 account_scope: Optional['outputs.RaiToolLabelPropertiesResponseAccountScope'] = None,
-                 project_scopes: Optional[Sequence['outputs.RaiToolLabelPropertiesResponseProjectScopes']] = None):
+                 account_scope: Optional['outputs.RaiToolLabelPropertiesAccountScopeResponse'] = None,
+                 project_scopes: Optional[Sequence['outputs.RaiToolLabelPropertiesProjectScopesItemResponse']] = None):
         """
         RAI Tool Label properties.
 
         :param _builtins.str tool_connection_name: The unique tool connection name, e.g., 'Web_Search'.
-        :param 'RaiToolLabelPropertiesResponseAccountScope' account_scope: Account-level tool label definition.
-        :param Sequence['RaiToolLabelPropertiesResponseProjectScopes'] project_scopes: List of project-level tool label definitions.
+        :param 'RaiToolLabelPropertiesAccountScopeResponse' account_scope: Account-level tool label definition.
+        :param Sequence['RaiToolLabelPropertiesProjectScopesItemResponse'] project_scopes: List of project-level tool label definitions.
         """
         pulumi.set(__self__, "tool_connection_name", tool_connection_name)
         if account_scope is not None:
@@ -6655,7 +7046,7 @@ class RaiToolLabelPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="accountScope")
-    def account_scope(self) -> Optional['outputs.RaiToolLabelPropertiesResponseAccountScope']:
+    def account_scope(self) -> Optional['outputs.RaiToolLabelPropertiesAccountScopeResponse']:
         """
         Account-level tool label definition.
         """
@@ -6663,98 +7054,11 @@ class RaiToolLabelPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="projectScopes")
-    def project_scopes(self) -> Optional[Sequence['outputs.RaiToolLabelPropertiesResponseProjectScopes']]:
+    def project_scopes(self) -> Optional[Sequence['outputs.RaiToolLabelPropertiesProjectScopesItemResponse']]:
         """
         List of project-level tool label definitions.
         """
         return pulumi.get(self, "project_scopes")
-
-
-@pulumi.output_type
-class RaiToolLabelPropertiesResponseAccountScope(dict):
-    """
-    Account-level tool label definition.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "labelValues":
-            suggest = "label_values"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RaiToolLabelPropertiesResponseAccountScope. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RaiToolLabelPropertiesResponseAccountScope.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RaiToolLabelPropertiesResponseAccountScope.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 label_values: Optional[Mapping[str, _builtins.str]] = None):
-        """
-        Account-level tool label definition.
-
-        :param Mapping[str, _builtins.str] label_values: Dictionary of label key-value pairs for the account scope.
-        """
-        if label_values is not None:
-            pulumi.set(__self__, "label_values", label_values)
-
-    @_builtins.property
-    @pulumi.getter(name="labelValues")
-    def label_values(self) -> Optional[Mapping[str, _builtins.str]]:
-        """
-        Dictionary of label key-value pairs for the account scope.
-        """
-        return pulumi.get(self, "label_values")
-
-
-@pulumi.output_type
-class RaiToolLabelPropertiesResponseProjectScopes(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "labelValues":
-            suggest = "label_values"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RaiToolLabelPropertiesResponseProjectScopes. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RaiToolLabelPropertiesResponseProjectScopes.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RaiToolLabelPropertiesResponseProjectScopes.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 label_values: Mapping[str, _builtins.str],
-                 project: _builtins.str):
-        """
-        :param Mapping[str, _builtins.str] label_values: Dictionary of label key-value pairs for the project scope.
-        :param _builtins.str project: Project name to which this scope applies.
-        """
-        pulumi.set(__self__, "label_values", label_values)
-        pulumi.set(__self__, "project", project)
-
-    @_builtins.property
-    @pulumi.getter(name="labelValues")
-    def label_values(self) -> Mapping[str, _builtins.str]:
-        """
-        Dictionary of label key-value pairs for the project scope.
-        """
-        return pulumi.get(self, "label_values")
-
-    @_builtins.property
-    @pulumi.getter
-    def project(self) -> _builtins.str:
-        """
-        Project name to which this scope applies.
-        """
-        return pulumi.get(self, "project")
 
 
 @pulumi.output_type
@@ -7411,6 +7715,197 @@ class ServicePrincipalAuthTypeConnectionPropertiesResponse(dict):
     @pulumi.getter(name="useWorkspaceManagedIdentity")
     def use_workspace_managed_identity(self) -> Optional[_builtins.bool]:
         return pulumi.get(self, "use_workspace_managed_identity")
+
+
+@pulumi.output_type
+class ServiceTagOutboundRuleDestinationResponse(dict):
+    """
+    Service Tag destination for an outbound rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addressPrefixes":
+            suggest = "address_prefixes"
+        elif key == "portRanges":
+            suggest = "port_ranges"
+        elif key == "serviceTag":
+            suggest = "service_tag"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceTagOutboundRuleDestinationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceTagOutboundRuleDestinationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceTagOutboundRuleDestinationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: Optional[_builtins.str] = None,
+                 address_prefixes: Optional[Sequence[_builtins.str]] = None,
+                 port_ranges: Optional[_builtins.str] = None,
+                 protocol: Optional[_builtins.str] = None,
+                 service_tag: Optional[_builtins.str] = None):
+        """
+        Service Tag destination for an outbound rule.
+
+        :param _builtins.str action: The action for the service tag outbound rule.
+        :param Sequence[_builtins.str] address_prefixes: Optional address prefixes. If provided, the serviceTag property will be ignored.
+        :param _builtins.str port_ranges: Destination port ranges.
+        :param _builtins.str protocol: Network protocol used by the service tag rule.
+        :param _builtins.str service_tag: Name of the Azure service tag to target.
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if address_prefixes is not None:
+            pulumi.set(__self__, "address_prefixes", address_prefixes)
+        if port_ranges is not None:
+            pulumi.set(__self__, "port_ranges", port_ranges)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> Optional[_builtins.str]:
+        """
+        The action for the service tag outbound rule.
+        """
+        return pulumi.get(self, "action")
+
+    @_builtins.property
+    @pulumi.getter(name="addressPrefixes")
+    def address_prefixes(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Optional address prefixes. If provided, the serviceTag property will be ignored.
+        """
+        return pulumi.get(self, "address_prefixes")
+
+    @_builtins.property
+    @pulumi.getter(name="portRanges")
+    def port_ranges(self) -> Optional[_builtins.str]:
+        """
+        Destination port ranges.
+        """
+        return pulumi.get(self, "port_ranges")
+
+    @_builtins.property
+    @pulumi.getter
+    def protocol(self) -> Optional[_builtins.str]:
+        """
+        Network protocol used by the service tag rule.
+        """
+        return pulumi.get(self, "protocol")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[_builtins.str]:
+        """
+        Name of the Azure service tag to target.
+        """
+        return pulumi.get(self, "service_tag")
+
+
+@pulumi.output_type
+class ServiceTagOutboundRuleResponse(dict):
+    """
+    Service Tag outbound rule for the managed network of a cognitive services account.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorInformation":
+            suggest = "error_information"
+        elif key == "parentRuleNames":
+            suggest = "parent_rule_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceTagOutboundRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceTagOutboundRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceTagOutboundRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 error_information: _builtins.str,
+                 parent_rule_names: Sequence[_builtins.str],
+                 type: _builtins.str,
+                 category: Optional[_builtins.str] = None,
+                 destination: Optional['outputs.ServiceTagOutboundRuleDestinationResponse'] = None,
+                 status: Optional[_builtins.str] = None):
+        """
+        Service Tag outbound rule for the managed network of a cognitive services account.
+
+        :param _builtins.str error_information: Error information about an outbound rule of a cognitive services account if RuleStatus is failed.
+        :param _builtins.str type: Type of a managed network Outbound Rule of a cognitive services account.
+               Expected value is 'ServiceTag'.
+        :param _builtins.str category: Category of a managed network Outbound Rule of a cognitive services account.
+        :param 'ServiceTagOutboundRuleDestinationResponse' destination: Service Tag destination.
+        :param _builtins.str status: Type of a managed network Outbound Rule of a cognitive services account.
+        """
+        pulumi.set(__self__, "error_information", error_information)
+        pulumi.set(__self__, "parent_rule_names", parent_rule_names)
+        pulumi.set(__self__, "type", 'ServiceTag')
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="errorInformation")
+    def error_information(self) -> _builtins.str:
+        """
+        Error information about an outbound rule of a cognitive services account if RuleStatus is failed.
+        """
+        return pulumi.get(self, "error_information")
+
+    @_builtins.property
+    @pulumi.getter(name="parentRuleNames")
+    def parent_rule_names(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "parent_rule_names")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Type of a managed network Outbound Rule of a cognitive services account.
+        Expected value is 'ServiceTag'.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> Optional[_builtins.str]:
+        """
+        Category of a managed network Outbound Rule of a cognitive services account.
+        """
+        return pulumi.get(self, "category")
+
+    @_builtins.property
+    @pulumi.getter
+    def destination(self) -> Optional['outputs.ServiceTagOutboundRuleDestinationResponse']:
+        """
+        Service Tag destination.
+        """
+        return pulumi.get(self, "destination")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[_builtins.str]:
+        """
+        Type of a managed network Outbound Rule of a cognitive services account.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type

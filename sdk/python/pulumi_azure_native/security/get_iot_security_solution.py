@@ -135,7 +135,7 @@ class GetIotSecuritySolutionResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -151,7 +151,7 @@ class GetIotSecuritySolutionResult:
     @pulumi.getter
     def location(self) -> Optional[_builtins.str]:
         """
-        The resource location.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -159,7 +159,7 @@ class GetIotSecuritySolutionResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -191,7 +191,7 @@ class GetIotSecuritySolutionResult:
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -199,7 +199,7 @@ class GetIotSecuritySolutionResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -265,7 +265,7 @@ def get_iot_security_solution(resource_group_name: Optional[_builtins.str] = Non
     Other available API versions: 2017-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param _builtins.str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str solution_name: The name of the IoT Security solution.
     """
     __args__ = dict()
@@ -304,7 +304,7 @@ def get_iot_security_solution_output(resource_group_name: Optional[pulumi.Input[
     Other available API versions: 2017-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param _builtins.str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str solution_name: The name of the IoT Security solution.
     """
     __args__ = dict()

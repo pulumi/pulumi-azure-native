@@ -50,7 +50,7 @@ export interface GetGraphQueryResult {
      */
     readonly etag?: string;
     /**
-     * Azure resource Id
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -58,7 +58,7 @@ export interface GetGraphQueryResult {
      */
     readonly location?: string;
     /**
-     * Azure resource name. This is GUID value. The display name should be assigned within properties field.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -70,11 +70,11 @@ export interface GetGraphQueryResult {
      */
     readonly resultKind: string;
     /**
-     * The system metadata relating to this resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.resourcegraph.SystemDataResponse;
     /**
-     * Resource tags
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
@@ -82,7 +82,7 @@ export interface GetGraphQueryResult {
      */
     readonly timeModified: string;
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }

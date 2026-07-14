@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Widget
     /// 
     /// Uses Azure REST API version 2021-11-01.
     /// 
-    /// Other available API versions: 2021-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native widget [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native widget [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:widget:Employee")]
     public partial class Employee : global::Pulumi.CustomResource
@@ -86,8 +86,8 @@ namespace Pulumi.AzureNative.Widget
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:widget/v20211001preview:Employee" },
                     new global::Pulumi.Alias { Type = "azure-native:widget/v20211101:Employee" },
+                    new global::Pulumi.Alias { Type = "azure-native:widget/v20241001preview:Employee" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

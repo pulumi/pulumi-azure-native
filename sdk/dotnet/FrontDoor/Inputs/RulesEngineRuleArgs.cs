@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.FrontDoor.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// A priority assigned to this rule. 
+        /// A priority assigned to this rule.
         /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;

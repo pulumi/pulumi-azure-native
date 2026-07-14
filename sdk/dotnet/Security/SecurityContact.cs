@@ -38,7 +38,7 @@ namespace Pulumi.AzureNative.Security
         public Output<bool?> IsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.Security
         /// Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
         /// </summary>
         [Output("notificationsByRole")]
-        public Output<Outputs.SecurityContactPropertiesResponseNotificationsByRole?> NotificationsByRole { get; private set; } = null!;
+        public Output<Outputs.SecurityContactPropertiesNotificationsByRoleResponse?> NotificationsByRole { get; private set; } = null!;
 
         /// <summary>
         /// A collection of sources types which evaluate the email notification.
@@ -62,7 +62,13 @@ namespace Pulumi.AzureNative.Security
         public Output<string?> Phone { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;

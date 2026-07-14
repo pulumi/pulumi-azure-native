@@ -155,6 +155,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20250101:DefaultUserRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20250301:DefaultUserRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20250501:DefaultUserRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20250701:DefaultUserRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network:SecurityUserRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network:UserRule" },
                 },

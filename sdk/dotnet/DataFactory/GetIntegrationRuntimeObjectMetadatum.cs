@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.DataFactory
         public string? MetadataPath { get; set; }
 
         /// <summary>
-        /// The resource group name.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNative.DataFactory
         public Input<string>? MetadataPath { get; set; }
 
         /// <summary>
-        /// The resource group name.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -106,11 +106,11 @@ namespace Pulumi.AzureNative.DataFactory
     public sealed class GetIntegrationRuntimeObjectMetadatumResult
     {
         /// <summary>
-        /// The link to the next page of results, if any remaining results exist.
+        /// The link to the next page of items
         /// </summary>
         public readonly string? NextLink;
         /// <summary>
-        /// List of SSIS object metadata.
+        /// The SsisObjectMetadata items on this page
         /// </summary>
         public readonly ImmutableArray<object> Value;
 

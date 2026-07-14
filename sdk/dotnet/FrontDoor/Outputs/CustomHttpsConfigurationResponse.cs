@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.FrontDoor.Outputs
         /// <summary>
         /// The Key Vault containing the SSL certificate
         /// </summary>
-        public readonly Outputs.KeyVaultCertificateSourceParametersResponseVault? Vault;
+        public readonly Outputs.KeyVaultCertificateSourceParametersVaultResponse? Vault;
 
         [OutputConstructor]
         private CustomHttpsConfigurationResponse(
@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.FrontDoor.Outputs
 
             string? secretVersion,
 
-            Outputs.KeyVaultCertificateSourceParametersResponseVault? vault)
+            Outputs.KeyVaultCertificateSourceParametersVaultResponse? vault)
         {
             CertificateSource = certificateSource;
             CertificateType = certificateType;

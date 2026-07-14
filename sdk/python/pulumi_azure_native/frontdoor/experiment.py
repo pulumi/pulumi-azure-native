@@ -35,7 +35,7 @@ class ExperimentArgs:
         The set of arguments for constructing a Experiment resource.
 
         :param pulumi.Input[_builtins.str] profile_name: The Profile identifier associated with the Tenant and Partner
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] description: The description of the details or intents of the Experiment
         :param pulumi.Input[Union[_builtins.str, 'State']] enabled_state: The state of the Experiment
         :param pulumi.Input['EndpointArgs'] endpoint_a: The endpoint A of an experiment
@@ -77,7 +77,7 @@ class ExperimentArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the Resource group within the Azure subscription.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -189,9 +189,9 @@ class Experiment(pulumi.CustomResource):
         """
         Defines the properties of an Experiment
 
-        Uses Azure REST API version 2019-11-01.
+        Uses Azure REST API version 2025-11-01.
 
-        Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2019-11-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -203,7 +203,7 @@ class Experiment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] experiment_name: The Experiment identifier associated with the Experiment
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input[_builtins.str] profile_name: The Profile identifier associated with the Tenant and Partner
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         ...
@@ -215,9 +215,9 @@ class Experiment(pulumi.CustomResource):
         """
         Defines the properties of an Experiment
 
-        Uses Azure REST API version 2019-11-01.
+        Uses Azure REST API version 2025-11-01.
 
-        Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2019-11-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -272,7 +272,7 @@ class Experiment(pulumi.CustomResource):
             __props__.__dict__["script_file_uri"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:frontdoor/v20191101:Experiment"), pulumi.Alias(type_="azure-native:frontdoor/v20251001:Experiment"), pulumi.Alias(type_="azure-native:network/v20191101:Experiment"), pulumi.Alias(type_="azure-native:network:Experiment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:frontdoor/v20191101:Experiment"), pulumi.Alias(type_="azure-native:frontdoor/v20251001:Experiment"), pulumi.Alias(type_="azure-native:frontdoor/v20251101:Experiment"), pulumi.Alias(type_="azure-native:network/v20191101:Experiment"), pulumi.Alias(type_="azure-native:network:Experiment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Experiment, __self__).__init__(
             'azure-native:frontdoor:Experiment',

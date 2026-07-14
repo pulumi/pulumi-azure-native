@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// <summary>
         /// List of all p2s connection configurations of the gateway.
         /// </summary>
-        public readonly ImmutableArray<Outputs.P2SConnectionConfigurationResponse> P2SConnectionConfigurations;
+        public readonly ImmutableArray<Outputs.P2SConnectionConfigurationResponseV1> P2SConnectionConfigurations;
         /// <summary>
         /// The provisioning state of the P2S VPN gateway resource.
         /// </summary>
@@ -87,7 +87,7 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string name,
 
-            ImmutableArray<Outputs.P2SConnectionConfigurationResponse> p2SConnectionConfigurations,
+            ImmutableArray<Outputs.P2SConnectionConfigurationResponseV1> p2SConnectionConfigurations,
 
             string provisioningState,
 

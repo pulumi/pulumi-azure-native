@@ -36,7 +36,7 @@ export interface GetManagedPrivateEndpointArgs {
      */
     managedVirtualNetworkName: string;
     /**
-     * The resource group name.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -50,15 +50,15 @@ export interface GetManagedPrivateEndpointResult {
      */
     readonly azureApiVersion: string;
     /**
-     * Etag identifies change in the resource.
+     * "If etag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.")
      */
     readonly etag: string;
     /**
-     * The resource identifier.
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
-     * The resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -66,7 +66,11 @@ export interface GetManagedPrivateEndpointResult {
      */
     readonly properties: outputs.datafactory.ManagedPrivateEndpointResponse;
     /**
-     * The resource type.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.datafactory.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
@@ -99,7 +103,7 @@ export interface GetManagedPrivateEndpointOutputArgs {
      */
     managedVirtualNetworkName: pulumi.Input<string>;
     /**
-     * The resource group name.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

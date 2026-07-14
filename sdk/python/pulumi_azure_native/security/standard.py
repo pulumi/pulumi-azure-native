@@ -35,16 +35,16 @@ class StandardArgs:
         """
         The set of arguments for constructing a Standard resource.
 
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] category: category of the standard provided
         :param pulumi.Input[Sequence[pulumi.Input['StandardComponentPropertiesArgs']]] components: List of component objects containing component unique keys (such as assessment keys) to apply to standard scope.  Currently only supports assessment keys.
         :param pulumi.Input[_builtins.str] description: description of the standard
         :param pulumi.Input[_builtins.str] display_name: display name of the standard, equivalent to the standardId
         :param pulumi.Input[_builtins.str] kind: Kind of the resource
-        :param pulumi.Input[_builtins.str] location: Location where the resource is stored
+        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] standard_id: The Security Standard key - unique key for the standard type
         :param pulumi.Input[Sequence[pulumi.Input['StandardSupportedClouds']]] supported_clouds: List of all standard supported clouds.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A list of key value pairs that describe the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if category is not None:
@@ -70,7 +70,7 @@ class StandardArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the resource group within the user's subscription. The name is case insensitive.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -142,7 +142,7 @@ class StandardArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Location where the resource is stored
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -178,7 +178,7 @@ class StandardArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A list of key value pairs that describe the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -217,11 +217,11 @@ class Standard(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: description of the standard
         :param pulumi.Input[_builtins.str] display_name: display name of the standard, equivalent to the standardId
         :param pulumi.Input[_builtins.str] kind: Kind of the resource
-        :param pulumi.Input[_builtins.str] location: Location where the resource is stored
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] standard_id: The Security Standard key - unique key for the standard type
         :param pulumi.Input[Sequence[pulumi.Input['StandardSupportedClouds']]] supported_clouds: List of all standard supported clouds.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A list of key value pairs that describe the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         ...
     @overload
@@ -387,7 +387,7 @@ class Standard(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Location where the resource is stored
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -395,7 +395,7 @@ class Standard(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -427,7 +427,7 @@ class Standard(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A list of key value pairs that describe the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -435,7 +435,7 @@ class Standard(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

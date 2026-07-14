@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Network.Inputs
     public sealed class StaticRoutesConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Boolean indicating whether static routes on this connection are automatically propagate to route tables which this connection propagates to.
+        /// </summary>
+        [Input("propagateStaticRoutes")]
+        public Input<bool>? PropagateStaticRoutes { get; set; }
+
+        /// <summary>
         /// Parameter determining whether NVA in spoke vnet is bypassed for traffic with destination in spoke.
         /// </summary>
         [Input("vnetLocalRouteOverrideCriteria")]

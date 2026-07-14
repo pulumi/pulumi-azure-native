@@ -128,7 +128,7 @@ namespace Pulumi.AzureNative.Monitor
         /// </summary>
         public readonly string? SubscriptionLocation;
         /// <summary>
-        /// System data
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>

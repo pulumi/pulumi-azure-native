@@ -39,12 +39,12 @@ class NGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ContainerGroupProfileStubArgs']]] container_group_profiles: The Container Group Profiles that could be used in the NGroups resource.
         :param pulumi.Input['ElasticProfileArgs'] elastic_profile: The elastic profile.
         :param pulumi.Input['NGroupIdentityArgs'] identity: The identity of the NGroup, if configured.
-        :param pulumi.Input[_builtins.str] location: The resource location.
+        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] ngroups_name: The NGroups name.
         :param pulumi.Input['PlacementProfileArgs'] placement_profile: Provides options w.r.t allocation and management w.r.t certain placement policies. These utilize capabilities provided by the underlying Azure infrastructure. They are typically used for high availability scenarios. E.g., distributing CGs across fault domains.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input['UpdateProfileArgs'] update_profile: Used by the customer to specify the way to update the Container Groups in NGroup.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: The zones for the container group.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: The availability zones.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if container_group_profiles is not None:
@@ -118,7 +118,7 @@ class NGroupArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The resource location.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -154,7 +154,7 @@ class NGroupArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        The resource tags.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -178,7 +178,7 @@ class NGroupArgs:
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The zones for the container group.
+        The availability zones.
         """
         return pulumi.get(self, "zones")
 
@@ -209,7 +209,7 @@ class NGroup(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2024-09-01-preview.
 
-        Other available API versions: 2024-09-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerinstance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2024-09-01-preview, 2024-11-01-preview, 2026-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerinstance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -217,13 +217,13 @@ class NGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerGroupProfileStubArgs', 'ContainerGroupProfileStubArgsDict']]]] container_group_profiles: The Container Group Profiles that could be used in the NGroups resource.
         :param pulumi.Input[Union['ElasticProfileArgs', 'ElasticProfileArgsDict']] elastic_profile: The elastic profile.
         :param pulumi.Input[Union['NGroupIdentityArgs', 'NGroupIdentityArgsDict']] identity: The identity of the NGroup, if configured.
-        :param pulumi.Input[_builtins.str] location: The resource location.
+        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] ngroups_name: The NGroups name.
         :param pulumi.Input[Union['PlacementProfileArgs', 'PlacementProfileArgsDict']] placement_profile: Provides options w.r.t allocation and management w.r.t certain placement policies. These utilize capabilities provided by the underlying Azure infrastructure. They are typically used for high availability scenarios. E.g., distributing CGs across fault domains.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Union['UpdateProfileArgs', 'UpdateProfileArgsDict']] update_profile: Used by the customer to specify the way to update the Container Groups in NGroup.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: The zones for the container group.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: The availability zones.
         """
         ...
     @overload
@@ -236,7 +236,7 @@ class NGroup(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2024-09-01-preview.
 
-        Other available API versions: 2024-09-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerinstance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2024-09-01-preview, 2024-11-01-preview, 2026-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerinstance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -290,7 +290,7 @@ class NGroup(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerinstance/v20240901preview:NGroup"), pulumi.Alias(type_="azure-native:containerinstance/v20241101preview:NGroup"), pulumi.Alias(type_="azure-native:containerinstance/v20250901:NGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerinstance/v20240901preview:NGroup"), pulumi.Alias(type_="azure-native:containerinstance/v20241101preview:NGroup"), pulumi.Alias(type_="azure-native:containerinstance/v20250901:NGroup"), pulumi.Alias(type_="azure-native:containerinstance/v20260601preview:NGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NGroup, __self__).__init__(
             'azure-native:containerinstance:NGroup',
@@ -365,7 +365,7 @@ class NGroup(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The resource location.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -373,7 +373,7 @@ class NGroup(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -397,7 +397,7 @@ class NGroup(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -405,7 +405,7 @@ class NGroup(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        The resource tags.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -413,7 +413,7 @@ class NGroup(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        The resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -429,7 +429,7 @@ class NGroup(pulumi.CustomResource):
     @pulumi.getter
     def zones(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        The zones for the container group.
+        The availability zones.
         """
         return pulumi.get(self, "zones")
 

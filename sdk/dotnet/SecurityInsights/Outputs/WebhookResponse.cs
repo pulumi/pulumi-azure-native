@@ -23,25 +23,25 @@ namespace Pulumi.AzureNative.SecurityInsights.Outputs
         /// <summary>
         /// Unique identifier for the webhook.
         /// </summary>
-        public readonly string? WebhookId;
+        public readonly string WebhookId;
         /// <summary>
         /// Time when the webhook secret was updated.
         /// </summary>
-        public readonly string? WebhookSecretUpdateTime;
+        public readonly string WebhookSecretUpdateTime;
         /// <summary>
         /// URL that gets invoked by the webhook.
         /// </summary>
-        public readonly string? WebhookUrl;
+        public readonly string WebhookUrl;
 
         [OutputConstructor]
         private WebhookResponse(
             bool? rotateWebhookSecret,
 
-            string? webhookId,
+            string webhookId,
 
-            string? webhookSecretUpdateTime,
+            string webhookSecretUpdateTime,
 
-            string? webhookUrl)
+            string webhookUrl)
         {
             RotateWebhookSecret = rotateWebhookSecret;
             WebhookId = webhookId;

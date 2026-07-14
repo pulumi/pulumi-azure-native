@@ -140,7 +140,7 @@ class InternetGatewayRule(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-06-15.
 
-        Other available API versions: 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2024-02-15-preview, 2024-06-15-preview, 2025-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -163,7 +163,7 @@ class InternetGatewayRule(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-06-15.
 
-        Other available API versions: 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2024-02-15-preview, 2024-06-15-preview, 2025-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -212,7 +212,7 @@ class InternetGatewayRule(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:managednetworkfabric/v20230615:InternetGatewayRule"), pulumi.Alias(type_="azure-native:managednetworkfabric/v20240215preview:InternetGatewayRule"), pulumi.Alias(type_="azure-native:managednetworkfabric/v20240615preview:InternetGatewayRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:managednetworkfabric/v20230615:InternetGatewayRule"), pulumi.Alias(type_="azure-native:managednetworkfabric/v20240215preview:InternetGatewayRule"), pulumi.Alias(type_="azure-native:managednetworkfabric/v20240615preview:InternetGatewayRule"), pulumi.Alias(type_="azure-native:managednetworkfabric/v20250715:InternetGatewayRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(InternetGatewayRule, __self__).__init__(
             'azure-native:managednetworkfabric:InternetGatewayRule',

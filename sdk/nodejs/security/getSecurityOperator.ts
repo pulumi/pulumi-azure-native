@@ -22,11 +22,11 @@ export function getSecurityOperator(args: GetSecurityOperatorArgs, opts?: pulumi
 
 export interface GetSecurityOperatorArgs {
     /**
-     * name of the pricing configuration
+     * Name of the pricing configuration.
      */
     pricingName: string;
     /**
-     * name of the securityOperator
+     * Name of the security operator.
      */
     securityOperatorName: string;
 }
@@ -40,7 +40,7 @@ export interface GetSecurityOperatorResult {
      */
     readonly azureApiVersion: string;
     /**
-     * Resource Id
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -48,11 +48,15 @@ export interface GetSecurityOperatorResult {
      */
     readonly identity?: outputs.security.IdentityResponse;
     /**
-     * Resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
-     * Resource type
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.security.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
@@ -71,11 +75,11 @@ export function getSecurityOperatorOutput(args: GetSecurityOperatorOutputArgs, o
 
 export interface GetSecurityOperatorOutputArgs {
     /**
-     * name of the pricing configuration
+     * Name of the pricing configuration.
      */
     pricingName: pulumi.Input<string>;
     /**
-     * name of the securityOperator
+     * Name of the security operator.
      */
     securityOperatorName: pulumi.Input<string>;
 }

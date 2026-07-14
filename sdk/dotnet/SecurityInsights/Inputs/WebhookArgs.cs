@@ -21,24 +21,6 @@ namespace Pulumi.AzureNative.SecurityInsights.Inputs
         [Input("rotateWebhookSecret")]
         public Input<bool>? RotateWebhookSecret { get; set; }
 
-        /// <summary>
-        /// Unique identifier for the webhook.
-        /// </summary>
-        [Input("webhookId")]
-        public Input<string>? WebhookId { get; set; }
-
-        /// <summary>
-        /// Time when the webhook secret was updated.
-        /// </summary>
-        [Input("webhookSecretUpdateTime")]
-        public Input<string>? WebhookSecretUpdateTime { get; set; }
-
-        /// <summary>
-        /// URL that gets invoked by the webhook.
-        /// </summary>
-        [Input("webhookUrl")]
-        public Input<string>? WebhookUrl { get; set; }
-
         public WebhookArgs()
         {
         }

@@ -119,6 +119,8 @@ def get_bookshelf_private_endpoint_connection(bookshelf_name: Optional[_builtins
 
     Uses Azure REST API version 2026-02-01-preview.
 
+    Other available API versions: 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native discovery [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param _builtins.str bookshelf_name: The name of the Bookshelf
     :param _builtins.str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource.
@@ -146,6 +148,8 @@ def get_bookshelf_private_endpoint_connection_output(bookshelf_name: Optional[pu
     Gets the specified private endpoint connection associated with the bookshelf.
 
     Uses Azure REST API version 2026-02-01-preview.
+
+    Other available API versions: 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native discovery [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str bookshelf_name: The name of the Bookshelf

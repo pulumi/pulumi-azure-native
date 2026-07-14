@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NetworkCloud.Outputs
 {
 
+    /// <summary>
+    /// AccessBridgeSecurityRule captures an individual access rule enforced by the bridge.
+    /// </summary>
     [OutputType]
     public sealed class AccessBridgeSecurityRuleResponse
     {

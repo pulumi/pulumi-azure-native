@@ -29,7 +29,7 @@ class ServiceGatewayArgs:
                  service_gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
                  sku: Optional[pulumi.Input['ServiceGatewaySkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network: Optional[pulumi.Input['VirtualNetworkArgs']] = None,
+                 virtual_network: Optional[pulumi.Input['CommonVirtualNetworkArgs']] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServiceGateway resource.
@@ -41,8 +41,8 @@ class ServiceGatewayArgs:
         :param pulumi.Input[_builtins.str] service_gateway_name: The name of the service gateway.
         :param pulumi.Input['ServiceGatewaySkuArgs'] sku: The service gateway SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
-        :param pulumi.Input['VirtualNetworkArgs'] virtual_network: Reference to an existing virtual network.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: A list of availability zones denoting the zone in which service gateway should be deployed. 
+        :param pulumi.Input['CommonVirtualNetworkArgs'] virtual_network: Reference to an existing virtual network.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: A list of availability zones denoting the zone in which service gateway should be deployed.
                
                - The zone values must be provided as strings representing numeric identifiers like "1", "2", "3" etc.
         """
@@ -150,21 +150,21 @@ class ServiceGatewayArgs:
 
     @_builtins.property
     @pulumi.getter(name="virtualNetwork")
-    def virtual_network(self) -> Optional[pulumi.Input['VirtualNetworkArgs']]:
+    def virtual_network(self) -> Optional[pulumi.Input['CommonVirtualNetworkArgs']]:
         """
         Reference to an existing virtual network.
         """
         return pulumi.get(self, "virtual_network")
 
     @virtual_network.setter
-    def virtual_network(self, value: Optional[pulumi.Input['VirtualNetworkArgs']]):
+    def virtual_network(self, value: Optional[pulumi.Input['CommonVirtualNetworkArgs']]):
         pulumi.set(self, "virtual_network", value)
 
     @_builtins.property
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of availability zones denoting the zone in which service gateway should be deployed. 
+        A list of availability zones denoting the zone in which service gateway should be deployed.
 
         - The zone values must be provided as strings representing numeric identifiers like "1", "2", "3" etc.
         """
@@ -188,13 +188,15 @@ class ServiceGateway(pulumi.CustomResource):
                  service_gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
                  sku: Optional[pulumi.Input[Union['ServiceGatewaySkuArgs', 'ServiceGatewaySkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network: Optional[pulumi.Input[Union['VirtualNetworkArgs', 'VirtualNetworkArgsDict']]] = None,
+                 virtual_network: Optional[pulumi.Input[Union['CommonVirtualNetworkArgs', 'CommonVirtualNetworkArgsDict']]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         ServiceGateway resource.
 
         Uses Azure REST API version 2025-05-01.
+
+        Other available API versions: 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -206,8 +208,8 @@ class ServiceGateway(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] service_gateway_name: The name of the service gateway.
         :param pulumi.Input[Union['ServiceGatewaySkuArgs', 'ServiceGatewaySkuArgsDict']] sku: The service gateway SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
-        :param pulumi.Input[Union['VirtualNetworkArgs', 'VirtualNetworkArgsDict']] virtual_network: Reference to an existing virtual network.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: A list of availability zones denoting the zone in which service gateway should be deployed. 
+        :param pulumi.Input[Union['CommonVirtualNetworkArgs', 'CommonVirtualNetworkArgsDict']] virtual_network: Reference to an existing virtual network.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: A list of availability zones denoting the zone in which service gateway should be deployed.
                
                - The zone values must be provided as strings representing numeric identifiers like "1", "2", "3" etc.
         """
@@ -221,6 +223,8 @@ class ServiceGateway(pulumi.CustomResource):
         ServiceGateway resource.
 
         Uses Azure REST API version 2025-05-01.
+
+        Other available API versions: 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -245,7 +249,7 @@ class ServiceGateway(pulumi.CustomResource):
                  service_gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
                  sku: Optional[pulumi.Input[Union['ServiceGatewaySkuArgs', 'ServiceGatewaySkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network: Optional[pulumi.Input[Union['VirtualNetworkArgs', 'VirtualNetworkArgsDict']]] = None,
+                 virtual_network: Optional[pulumi.Input[Union['CommonVirtualNetworkArgs', 'CommonVirtualNetworkArgsDict']]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -274,7 +278,7 @@ class ServiceGateway(pulumi.CustomResource):
             __props__.__dict__["resource_guid"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20250501:ServiceGateway")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20250501:ServiceGateway"), pulumi.Alias(type_="azure-native:network/v20250701:ServiceGateway")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServiceGateway, __self__).__init__(
             'azure-native:network:ServiceGateway',
@@ -412,7 +416,7 @@ class ServiceGateway(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="virtualNetwork")
-    def virtual_network(self) -> pulumi.Output[Optional['outputs.VirtualNetworkResponse']]:
+    def virtual_network(self) -> pulumi.Output[Optional['outputs.CommonVirtualNetworkResponse']]:
         """
         Reference to an existing virtual network.
         """
@@ -422,7 +426,7 @@ class ServiceGateway(pulumi.CustomResource):
     @pulumi.getter
     def zones(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        A list of availability zones denoting the zone in which service gateway should be deployed. 
+        A list of availability zones denoting the zone in which service gateway should be deployed.
 
         - The zone values must be provided as strings representing numeric identifiers like "1", "2", "3" etc.
         """

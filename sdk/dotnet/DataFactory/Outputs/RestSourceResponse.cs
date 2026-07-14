@@ -45,7 +45,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? RequestBody;
         /// <summary>
-        /// The time to await before sending next page request. 
+        /// The time to await before sending next page request.
         /// </summary>
         public readonly object? RequestInterval;
         /// <summary>

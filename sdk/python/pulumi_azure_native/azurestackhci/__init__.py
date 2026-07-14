@@ -29,6 +29,7 @@ from .get_guest_agent import *
 from .get_hci_edge_device import *
 from .get_hci_edge_device_job import *
 from .get_hybrid_identity_metadatum import *
+from .get_inbound_rule import *
 from .get_load_balancer import *
 from .get_logical_network import *
 from .get_machine_extension import *
@@ -53,6 +54,7 @@ from .guest_agent import *
 from .hci_edge_device import *
 from .hci_edge_device_job import *
 from .hybrid_identity_metadatum import *
+from .inbound_rule import *
 from .load_balancer import *
 from .logical_network import *
 from .machine_extension import *

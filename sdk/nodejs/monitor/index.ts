@@ -170,6 +170,11 @@ export const getSignalDefinition: typeof import("./getSignalDefinition").getSign
 export const getSignalDefinitionOutput: typeof import("./getSignalDefinition").getSignalDefinitionOutput = null as any;
 utilities.lazyLoad(exports, ["getSignalDefinition","getSignalDefinitionOutput"], () => require("./getSignalDefinition"));
 
+export { GetSliArgs, GetSliResult, GetSliOutputArgs } from "./getSli";
+export const getSli: typeof import("./getSli").getSli = null as any;
+export const getSliOutput: typeof import("./getSli").getSliOutput = null as any;
+utilities.lazyLoad(exports, ["getSli","getSliOutput"], () => require("./getSli"));
+
 export { GetSubscriptionDiagnosticSettingArgs, GetSubscriptionDiagnosticSettingResult, GetSubscriptionDiagnosticSettingOutputArgs } from "./getSubscriptionDiagnosticSetting";
 export const getSubscriptionDiagnosticSetting: typeof import("./getSubscriptionDiagnosticSetting").getSubscriptionDiagnosticSetting = null as any;
 export const getSubscriptionDiagnosticSettingOutput: typeof import("./getSubscriptionDiagnosticSetting").getSubscriptionDiagnosticSettingOutput = null as any;
@@ -250,6 +255,11 @@ export type SignalDefinition = import("./signalDefinition").SignalDefinition;
 export const SignalDefinition: typeof import("./signalDefinition").SignalDefinition = null as any;
 utilities.lazyLoad(exports, ["SignalDefinition"], () => require("./signalDefinition"));
 
+export { SliArgs } from "./sli";
+export type Sli = import("./sli").Sli;
+export const Sli: typeof import("./sli").Sli = null as any;
+utilities.lazyLoad(exports, ["Sli"], () => require("./sli"));
+
 export { SubscriptionDiagnosticSettingArgs } from "./subscriptionDiagnosticSetting";
 export type SubscriptionDiagnosticSetting = import("./subscriptionDiagnosticSetting").SubscriptionDiagnosticSetting;
 export const SubscriptionDiagnosticSetting: typeof import("./subscriptionDiagnosticSetting").SubscriptionDiagnosticSetting = null as any;
@@ -312,6 +322,8 @@ const _module = {
                 return new ScheduledQueryRule(name, <any>undefined, { urn })
             case "azure-native:monitor:SignalDefinition":
                 return new SignalDefinition(name, <any>undefined, { urn })
+            case "azure-native:monitor:Sli":
+                return new Sli(name, <any>undefined, { urn })
             case "azure-native:monitor:SubscriptionDiagnosticSetting":
                 return new SubscriptionDiagnosticSetting(name, <any>undefined, { urn })
             case "azure-native:monitor:TenantActionGroup":

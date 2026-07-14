@@ -10,6 +10,7 @@ from ._enums import *
 from .connector import *
 from .get_connector import *
 from .get_insight import *
+from .get_upload_service_upload_token import *
 from .get_workload_impact import *
 from .insight import *
 from .workload_impact import *

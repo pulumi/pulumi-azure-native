@@ -63,7 +63,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// Additional tags for cluster resources. This property is ignored in instance pool configurations.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? NewClusterCustomTags;
+        public readonly object? NewClusterCustomTags;
         /// <summary>
         /// The driver node type for the new job cluster. This property is ignored in instance pool configurations. Type: string (or Expression with resultType string).
         /// </summary>
@@ -91,11 +91,11 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// A set of optional, user-specified Spark configuration key-value pairs.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? NewClusterSparkConf;
+        public readonly object? NewClusterSparkConf;
         /// <summary>
         /// A set of optional, user-specified Spark environment variables key-value pairs.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? NewClusterSparkEnvVars;
+        public readonly object? NewClusterSparkEnvVars;
         /// <summary>
         /// If not using an existing interactive cluster, this specifies the Spark version of a new job cluster or instance pool nodes created for each run of this activity. Required if instancePoolId is specified. Type: string (or Expression with resultType string).
         /// </summary>
@@ -146,7 +146,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? instancePoolId,
 
-            ImmutableDictionary<string, object>? newClusterCustomTags,
+            object? newClusterCustomTags,
 
             object? newClusterDriverNodeType,
 
@@ -160,9 +160,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? newClusterNumOfWorker,
 
-            ImmutableDictionary<string, object>? newClusterSparkConf,
+            object? newClusterSparkConf,
 
-            ImmutableDictionary<string, object>? newClusterSparkEnvVars,
+            object? newClusterSparkEnvVars,
 
             object? newClusterVersion,
 

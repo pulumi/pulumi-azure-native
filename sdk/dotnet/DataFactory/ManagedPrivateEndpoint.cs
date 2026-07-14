@@ -24,13 +24,13 @@ namespace Pulumi.AzureNative.DataFactory
         public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Etag identifies change in the resource.
+        /// "If etag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.")
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// The resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -42,7 +42,13 @@ namespace Pulumi.AzureNative.DataFactory
         public Output<Outputs.ManagedPrivateEndpointResponse> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// The resource type.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -121,7 +127,7 @@ namespace Pulumi.AzureNative.DataFactory
         public Input<Inputs.ManagedPrivateEndpointArgs> Properties { get; set; } = null!;
 
         /// <summary>
-        /// The resource group name.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

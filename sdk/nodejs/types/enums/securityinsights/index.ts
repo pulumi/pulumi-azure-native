@@ -569,11 +569,15 @@ export type ConditionType = (typeof ConditionType)[keyof typeof ConditionType];
 
 export const ContentType = {
     AnalyticsRule: "AnalyticsRule",
+    AutomationRule: "AutomationRule",
+    HuntingQuery: "HuntingQuery",
+    Parser: "Parser",
+    Playbook: "Playbook",
     Workbook: "Workbook",
 } as const;
 
 /**
- * Content type.
+ * The content type of a source control path.
  */
 export type ContentType = (typeof ContentType)[keyof typeof ContentType];
 
@@ -623,40 +627,6 @@ export const DataTypeState = {
  * Describe whether this data type connection is enabled or not.
  */
 export type DataTypeState = (typeof DataTypeState)[keyof typeof DataTypeState];
-
-export const DeploymentFetchStatus = {
-    Success: "Success",
-    Unauthorized: "Unauthorized",
-    NotFound: "NotFound",
-} as const;
-
-/**
- * Status while fetching the last deployment.
- */
-export type DeploymentFetchStatus = (typeof DeploymentFetchStatus)[keyof typeof DeploymentFetchStatus];
-
-export const DeploymentResult = {
-    Success: "Success",
-    Canceled: "Canceled",
-    Failed: "Failed",
-} as const;
-
-/**
- * The outcome of the deployment.
- */
-export type DeploymentResult = (typeof DeploymentResult)[keyof typeof DeploymentResult];
-
-export const DeploymentState = {
-    In_Progress: "In_Progress",
-    Completed: "Completed",
-    Queued: "Queued",
-    Canceling: "Canceling",
-} as const;
-
-/**
- * Current status of the deployment.
- */
-export type DeploymentState = (typeof DeploymentState)[keyof typeof DeploymentState];
 
 export const EntityMappingType = {
     /**
@@ -1206,7 +1176,7 @@ export type ProviderPermissionsScope = (typeof ProviderPermissionsScope)[keyof t
 
 export const RepoType = {
     Github: "Github",
-    DevOps: "DevOps",
+    AzureDevOps: "AzureDevOps",
 } as const;
 
 /**
@@ -1390,13 +1360,3 @@ export const UebaDataSources = {
  * The data source that enriched by ueba.
  */
 export type UebaDataSources = (typeof UebaDataSources)[keyof typeof UebaDataSources];
-
-export const Version = {
-    V1: "V1",
-    V2: "V2",
-} as const;
-
-/**
- * The version number associated with the source control
- */
-export type Version = (typeof Version)[keyof typeof Version];

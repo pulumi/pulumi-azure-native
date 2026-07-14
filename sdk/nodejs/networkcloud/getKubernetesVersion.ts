@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Retrieve the Kubernetes version resource that describes the available Kubernetes versions for deployment.
  *
  * Uses Azure REST API version 2026-01-01-preview.
+ *
+ * Other available API versions: 2026-05-01-preview, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getKubernetesVersion(args: GetKubernetesVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetKubernetesVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -31,19 +33,22 @@ export interface GetKubernetesVersionArgs {
     resourceGroupName: string;
 }
 
+/**
+ * KubernetesVersion represents the available Kubernetes versions for a cluster.
+ */
 export interface GetKubernetesVersionResult {
     /**
      * The Azure API version of the resource.
      */
     readonly azureApiVersion: string;
     /**
-     * Resource ETag.
+     * "If etag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.")
      */
     readonly etag: string;
     /**
-     * The extended location of the cluster associated with the resource.
+     * The extended location of the resource. This property is required when creating the resource.
      */
-    readonly extendedLocation: outputs.networkcloud.ExtendedLocationResponse;
+    readonly extendedLocation: outputs.networkcloud.AzureResourceManagerCommonTypesExtendedLocationResponse;
     /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
@@ -81,6 +86,8 @@ export interface GetKubernetesVersionResult {
  * Retrieve the Kubernetes version resource that describes the available Kubernetes versions for deployment.
  *
  * Uses Azure REST API version 2026-01-01-preview.
+ *
+ * Other available API versions: 2026-05-01-preview, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getKubernetesVersionOutput(args: GetKubernetesVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKubernetesVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

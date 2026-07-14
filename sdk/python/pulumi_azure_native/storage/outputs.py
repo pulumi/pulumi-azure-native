@@ -33,6 +33,8 @@ __all__ = [
     'CorsRuleResponse',
     'CorsRulesResponse',
     'CustomDomainResponse',
+    'DataShareConnectionResponse',
+    'DataShareSourceResponse',
     'DateAfterCreationResponse',
     'DateAfterModificationResponse',
     'DeleteRetentionPolicyResponse',
@@ -57,6 +59,7 @@ __all__ = [
     'KeyVaultPropertiesResponse',
     'LastAccessTimeTrackingPolicyResponse',
     'LegalHoldPropertiesResponse',
+    'ManagedIdentityAuthPropertiesResponse',
     'ManagementPolicyActionResponse',
     'ManagementPolicyBaseBlobResponse',
     'ManagementPolicyDefinitionResponse',
@@ -88,6 +91,10 @@ __all__ = [
     'StorageAccountKeyResponse',
     'StorageAccountMicrosoftEndpointsResponse',
     'StorageAccountSkuConversionStatusResponse',
+    'StorageConnectorPropertiesResponse',
+    'StorageDataShareAccessPolicyResponse',
+    'StorageDataShareAssetResponse',
+    'StorageDataSharePropertiesResponse',
     'StorageTaskAssignmentExecutionContextResponse',
     'StorageTaskAssignmentPropertiesResponse',
     'StorageTaskAssignmentReportResponse',
@@ -1219,6 +1226,123 @@ class CustomDomainResponse(dict):
         Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
         """
         return pulumi.get(self, "use_sub_domain_name")
+
+
+@pulumi.output_type
+class DataShareConnectionResponse(dict):
+    """
+    The connection details for Data Share source
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataShareUri":
+            suggest = "data_share_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataShareConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataShareConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataShareConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_share_uri: _builtins.str,
+                 type: _builtins.str):
+        """
+        The connection details for Data Share source
+
+        :param _builtins.str data_share_uri: The URI of the backing DataShare. Must be in the format: azds://<region>:<DataShareName>:<DataShareIdentifier>
+        :param _builtins.str type: The connection type for bucket connection in storage connector.
+               Expected value is 'DataShare'.
+        """
+        pulumi.set(__self__, "data_share_uri", data_share_uri)
+        pulumi.set(__self__, "type", 'DataShare')
+
+    @_builtins.property
+    @pulumi.getter(name="dataShareUri")
+    def data_share_uri(self) -> _builtins.str:
+        """
+        The URI of the backing DataShare. Must be in the format: azds://<region>:<DataShareName>:<DataShareIdentifier>
+        """
+        return pulumi.get(self, "data_share_uri")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The connection type for bucket connection in storage connector.
+        Expected value is 'DataShare'.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class DataShareSourceResponse(dict):
+    """
+    The properties of data share source
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authProperties":
+            suggest = "auth_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataShareSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataShareSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataShareSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_properties: 'outputs.ManagedIdentityAuthPropertiesResponse',
+                 connection: 'outputs.DataShareConnectionResponse',
+                 type: _builtins.str):
+        """
+        The properties of data share source
+
+        :param 'ManagedIdentityAuthPropertiesResponse' auth_properties: Details for how to authenticate to the backing data store.
+        :param 'DataShareConnectionResponse' connection: Details for how to connect to the backing data store.
+        :param _builtins.str type: The type of the backing data source for storage connector
+               Expected value is 'DataShare'.
+        """
+        pulumi.set(__self__, "auth_properties", auth_properties)
+        pulumi.set(__self__, "connection", connection)
+        pulumi.set(__self__, "type", 'DataShare')
+
+    @_builtins.property
+    @pulumi.getter(name="authProperties")
+    def auth_properties(self) -> 'outputs.ManagedIdentityAuthPropertiesResponse':
+        """
+        Details for how to authenticate to the backing data store.
+        """
+        return pulumi.get(self, "auth_properties")
+
+    @_builtins.property
+    @pulumi.getter
+    def connection(self) -> 'outputs.DataShareConnectionResponse':
+        """
+        Details for how to connect to the backing data store.
+        """
+        return pulumi.get(self, "connection")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The type of the backing data source for storage connector
+        Expected value is 'DataShare'.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -2855,6 +2979,60 @@ class LegalHoldPropertiesResponse(dict):
         The list of LegalHold tags of a blob container.
         """
         return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class ManagedIdentityAuthPropertiesResponse(dict):
+    """
+    The managed identity auth properties for dataShare connection.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityResourceId":
+            suggest = "identity_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedIdentityAuthPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedIdentityAuthPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedIdentityAuthPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: _builtins.str,
+                 identity_resource_id: Optional[_builtins.str] = None):
+        """
+        The managed identity auth properties for dataShare connection.
+
+        :param _builtins.str type: The auth type supported for bucket connection in storage connector.
+               Expected value is 'ManagedIdentity'.
+        :param _builtins.str identity_resource_id: ARM ResourceId of the managed identity that should be used to authenticate to the backing data source.
+        """
+        pulumi.set(__self__, "type", 'ManagedIdentity')
+        if identity_resource_id is not None:
+            pulumi.set(__self__, "identity_resource_id", identity_resource_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The auth type supported for bucket connection in storage connector.
+        Expected value is 'ManagedIdentity'.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="identityResourceId")
+    def identity_resource_id(self) -> Optional[_builtins.str]:
+        """
+        ARM ResourceId of the managed identity that should be used to authenticate to the backing data source.
+        """
+        return pulumi.get(self, "identity_resource_id")
 
 
 @pulumi.output_type
@@ -4734,6 +4912,361 @@ class StorageAccountSkuConversionStatusResponse(dict):
         This property represents the target sku name to which the account sku is being converted asynchronously.
         """
         return pulumi.get(self, "target_sku_name")
+
+
+@pulumi.output_type
+class StorageConnectorPropertiesResponse(dict):
+    """
+    The storage connector properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "creationTime":
+            suggest = "creation_time"
+        elif key == "dataSourceType":
+            suggest = "data_source_type"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "uniqueId":
+            suggest = "unique_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageConnectorPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageConnectorPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageConnectorPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 creation_time: _builtins.str,
+                 data_source_type: _builtins.str,
+                 provisioning_state: _builtins.str,
+                 source: 'outputs.DataShareSourceResponse',
+                 unique_id: _builtins.str,
+                 description: Optional[_builtins.str] = None,
+                 state: Optional[_builtins.str] = None):
+        """
+        The storage connector properties
+
+        :param _builtins.str creation_time: System-generated creation time of the Storage Connector in ISO 8601 date-time format (YYYY-MM-DDTHH:mm:ssZ).
+               Not a valid input parameter during creating.
+        :param _builtins.str data_source_type: The type of backing data source for this Storage Connector.
+        :param _builtins.str provisioning_state: Represents the provisioning state of the storage connector.
+        :param 'DataShareSourceResponse' source: Information about how to communicate with and authenticate to the backing data store.
+        :param _builtins.str unique_id: System-generated GUID identifier for the Storage Connector. Not a valid input parameter when creating.
+        :param _builtins.str description: Arbitrary description of this Storage Connector. Max 250 characters.
+        :param _builtins.str state: State - Active or Inactive. Whether or not the Storage Connector should start as active (default: Active)
+               (While set to false on the Storage Connector, all data plane requests using this Storage Connector fail, and this Storage Connector is not billed if it would be otherwise.
+        """
+        pulumi.set(__self__, "creation_time", creation_time)
+        pulumi.set(__self__, "data_source_type", data_source_type)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "unique_id", unique_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if state is None:
+            state = 'Active'
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @_builtins.property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> _builtins.str:
+        """
+        System-generated creation time of the Storage Connector in ISO 8601 date-time format (YYYY-MM-DDTHH:mm:ssZ).
+        Not a valid input parameter during creating.
+        """
+        return pulumi.get(self, "creation_time")
+
+    @_builtins.property
+    @pulumi.getter(name="dataSourceType")
+    def data_source_type(self) -> _builtins.str:
+        """
+        The type of backing data source for this Storage Connector.
+        """
+        return pulumi.get(self, "data_source_type")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        Represents the provisioning state of the storage connector.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> 'outputs.DataShareSourceResponse':
+        """
+        Information about how to communicate with and authenticate to the backing data store.
+        """
+        return pulumi.get(self, "source")
+
+    @_builtins.property
+    @pulumi.getter(name="uniqueId")
+    def unique_id(self) -> _builtins.str:
+        """
+        System-generated GUID identifier for the Storage Connector. Not a valid input parameter when creating.
+        """
+        return pulumi.get(self, "unique_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        Arbitrary description of this Storage Connector. Max 250 characters.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> Optional[_builtins.str]:
+        """
+        State - Active or Inactive. Whether or not the Storage Connector should start as active (default: Active)
+        (While set to false on the Storage Connector, all data plane requests using this Storage Connector fail, and this Storage Connector is not billed if it would be otherwise.
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class StorageDataShareAccessPolicyResponse(dict):
+    """
+    Policy that specify the permission allowed to a managed identity
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageDataShareAccessPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageDataShareAccessPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageDataShareAccessPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 permission: _builtins.str,
+                 principal_id: _builtins.str,
+                 tenant_id: _builtins.str):
+        """
+        Policy that specify the permission allowed to a managed identity
+
+        :param _builtins.str permission: Allowed permissions. Currently, only supported value is Read.
+        :param _builtins.str principal_id: The AAD principal ID of the Managed Identity.
+        :param _builtins.str tenant_id: The AAD tenant ID of the Managed Identity.
+        """
+        pulumi.set(__self__, "permission", permission)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def permission(self) -> _builtins.str:
+        """
+        Allowed permissions. Currently, only supported value is Read.
+        """
+        return pulumi.get(self, "permission")
+
+    @_builtins.property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> _builtins.str:
+        """
+        The AAD principal ID of the Managed Identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> _builtins.str:
+        """
+        The AAD tenant ID of the Managed Identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class StorageDataShareAssetResponse(dict):
+    """
+    Properties of a shared resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assetPath":
+            suggest = "asset_path"
+        elif key == "displayName":
+            suggest = "display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageDataShareAssetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageDataShareAssetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageDataShareAssetResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 asset_path: _builtins.str,
+                 display_name: _builtins.str):
+        """
+        Properties of a shared resource.
+
+        :param _builtins.str asset_path: Source Path to be shared. It can be a folder or a blob.
+               The asset path should contain container name followed by path within the container, e.g. /container1/logs/external.
+        :param _builtins.str display_name: Consumer visible name of the original path.
+        """
+        pulumi.set(__self__, "asset_path", asset_path)
+        pulumi.set(__self__, "display_name", display_name)
+
+    @_builtins.property
+    @pulumi.getter(name="assetPath")
+    def asset_path(self) -> _builtins.str:
+        """
+        Source Path to be shared. It can be a folder or a blob.
+        The asset path should contain container name followed by path within the container, e.g. /container1/logs/external.
+        """
+        return pulumi.get(self, "asset_path")
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> _builtins.str:
+        """
+        Consumer visible name of the original path.
+        """
+        return pulumi.get(self, "display_name")
+
+
+@pulumi.output_type
+class StorageDataSharePropertiesResponse(dict):
+    """
+    The storage datashare properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessPolicies":
+            suggest = "access_policies"
+        elif key == "dataShareIdentifier":
+            suggest = "data_share_identifier"
+        elif key == "dataShareUri":
+            suggest = "data_share_uri"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageDataSharePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageDataSharePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageDataSharePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_policies: Sequence['outputs.StorageDataShareAccessPolicyResponse'],
+                 assets: Sequence['outputs.StorageDataShareAssetResponse'],
+                 data_share_identifier: _builtins.str,
+                 data_share_uri: _builtins.str,
+                 provisioning_state: _builtins.str,
+                 description: Optional[_builtins.str] = None):
+        """
+        The storage datashare properties
+
+        :param Sequence['StorageDataShareAccessPolicyResponse'] access_policies: List of access policies that specify the permission allowed to a managed identity.
+               For Create - This property is required and cannot be null. If no access policies are provided at creation time, specify an empty array.
+               For Update - This property is optional. If set to null or not passed, the existing access policies are left unchanged.
+               If provided with a non-null value, the existing access policies are replaced with the specified list.
+        :param Sequence['StorageDataShareAssetResponse'] assets: List of assets that specify the properties of the shared resources.
+               For Create - This property is required and cannot be null. If no assets are provided at creation time, specify an empty array.
+               For Update - This property is optional. If set to null or not passed, the existing assets are left unchanged.
+               If provided with a non-null value, the existing assets are replaced with the specified list.
+        :param _builtins.str data_share_identifier: System-generated GUID identifier for the Storage DataShare. Not a valid input parameter when creating.
+        :param _builtins.str data_share_uri: The DataShare URI to be shared with the consumer.
+               URI Format - 'azds://<location>:<dataShareName>:<dataShareIdentifier>'.
+        :param _builtins.str provisioning_state: Represents the provisioning state of the storage datashare.
+        :param _builtins.str description: Arbitrary description of this Data Share. Max 250 characters.
+        """
+        pulumi.set(__self__, "access_policies", access_policies)
+        pulumi.set(__self__, "assets", assets)
+        pulumi.set(__self__, "data_share_identifier", data_share_identifier)
+        pulumi.set(__self__, "data_share_uri", data_share_uri)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @_builtins.property
+    @pulumi.getter(name="accessPolicies")
+    def access_policies(self) -> Sequence['outputs.StorageDataShareAccessPolicyResponse']:
+        """
+        List of access policies that specify the permission allowed to a managed identity.
+        For Create - This property is required and cannot be null. If no access policies are provided at creation time, specify an empty array.
+        For Update - This property is optional. If set to null or not passed, the existing access policies are left unchanged.
+        If provided with a non-null value, the existing access policies are replaced with the specified list.
+        """
+        return pulumi.get(self, "access_policies")
+
+    @_builtins.property
+    @pulumi.getter
+    def assets(self) -> Sequence['outputs.StorageDataShareAssetResponse']:
+        """
+        List of assets that specify the properties of the shared resources.
+        For Create - This property is required and cannot be null. If no assets are provided at creation time, specify an empty array.
+        For Update - This property is optional. If set to null or not passed, the existing assets are left unchanged.
+        If provided with a non-null value, the existing assets are replaced with the specified list.
+        """
+        return pulumi.get(self, "assets")
+
+    @_builtins.property
+    @pulumi.getter(name="dataShareIdentifier")
+    def data_share_identifier(self) -> _builtins.str:
+        """
+        System-generated GUID identifier for the Storage DataShare. Not a valid input parameter when creating.
+        """
+        return pulumi.get(self, "data_share_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="dataShareUri")
+    def data_share_uri(self) -> _builtins.str:
+        """
+        The DataShare URI to be shared with the consumer.
+        URI Format - 'azds://<location>:<dataShareName>:<dataShareIdentifier>'.
+        """
+        return pulumi.get(self, "data_share_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        Represents the provisioning state of the storage datashare.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        Arbitrary description of this Data Share. Max 250 characters.
+        """
+        return pulumi.get(self, "description")
 
 
 @pulumi.output_type

@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     /// Represents a SessionHost definition.
     /// 
     /// Uses Azure REST API version 2026-01-01-preview.
+    /// 
+    /// Other available API versions: 2026-03-01-preview, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization:SessionHost")]
     public partial class SessionHost : global::Pulumi.CustomResource
@@ -199,6 +201,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20260101preview:SessionHost" },
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20260301preview:SessionHost" },
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20260401preview:SessionHost" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

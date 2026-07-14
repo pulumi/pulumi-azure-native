@@ -91,6 +91,8 @@ class SubscriptionRaiPolicy(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-10-01-preview.
 
+        Other available API versions: 2025-12-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-05-01, 2026-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -108,6 +110,8 @@ class SubscriptionRaiPolicy(pulumi.CustomResource):
         Cognitive Services RaiPolicy.
 
         Uses Azure REST API version 2025-10-01-preview.
+
+        Other available API versions: 2025-12-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-05-01, 2026-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -145,7 +149,7 @@ class SubscriptionRaiPolicy(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cognitiveservices/v20251001preview:SubscriptionRaiPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cognitiveservices/v20251001preview:SubscriptionRaiPolicy"), pulumi.Alias(type_="azure-native:cognitiveservices/v20251201:SubscriptionRaiPolicy"), pulumi.Alias(type_="azure-native:cognitiveservices/v20260115preview:SubscriptionRaiPolicy"), pulumi.Alias(type_="azure-native:cognitiveservices/v20260301:SubscriptionRaiPolicy"), pulumi.Alias(type_="azure-native:cognitiveservices/v20260315preview:SubscriptionRaiPolicy"), pulumi.Alias(type_="azure-native:cognitiveservices/v20260501:SubscriptionRaiPolicy"), pulumi.Alias(type_="azure-native:cognitiveservices/v20260515preview:SubscriptionRaiPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SubscriptionRaiPolicy, __self__).__init__(
             'azure-native:cognitiveservices:SubscriptionRaiPolicy',

@@ -62,7 +62,7 @@ export class RoleDefinition extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * The role definition name.
+     * The name of the resource
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
@@ -78,7 +78,11 @@ export class RoleDefinition extends pulumi.CustomResource {
      */
     declare public readonly roleType: pulumi.Output<string | undefined>;
     /**
-     * The role definition type.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.authorization.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
@@ -115,6 +119,7 @@ export class RoleDefinition extends pulumi.CustomResource {
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["updatedBy"] = undefined /*out*/;
             resourceInputs["updatedOn"] = undefined /*out*/;
@@ -128,6 +133,7 @@ export class RoleDefinition extends pulumi.CustomResource {
             resourceInputs["permissions"] = undefined /*out*/;
             resourceInputs["roleName"] = undefined /*out*/;
             resourceInputs["roleType"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["updatedBy"] = undefined /*out*/;
             resourceInputs["updatedOn"] = undefined /*out*/;
@@ -168,7 +174,7 @@ export interface RoleDefinitionArgs {
      */
     roleType?: pulumi.Input<string>;
     /**
-     * The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
+     * The fully qualified Azure Resource manager identifier of the resource.
      */
     scope: pulumi.Input<string>;
 }

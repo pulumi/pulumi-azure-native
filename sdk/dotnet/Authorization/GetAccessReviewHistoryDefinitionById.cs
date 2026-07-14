@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
-        /// The access review history definition id.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         public readonly int? Interval;
         /// <summary>
-        /// The access review history definition unique id.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -140,7 +140,11 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// The resource type.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -182,6 +186,8 @@ namespace Pulumi.AzureNative.Authorization
 
             string status,
 
+            Outputs.SystemDataResponse systemData,
+
             string type,
 
             string userPrincipalName)
@@ -202,6 +208,7 @@ namespace Pulumi.AzureNative.Authorization
             ReviewHistoryPeriodStartDateTime = reviewHistoryPeriodStartDateTime;
             Scopes = scopes;
             Status = status;
+            SystemData = systemData;
             Type = type;
             UserPrincipalName = userPrincipalName;
         }

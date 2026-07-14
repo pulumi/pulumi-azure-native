@@ -51,7 +51,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// <summary>
         /// The Routing Configuration indicating the associated and propagated route tables on this connection.
         /// </summary>
-        public readonly Outputs.RoutingConfigurationResponse? RoutingConfiguration;
+        public readonly Outputs.RoutingConfigurationResponseV2? RoutingConfiguration;
         /// <summary>
         /// The routing weight associated to the connection.
         /// </summary>
@@ -75,7 +75,7 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string provisioningState,
 
-            Outputs.RoutingConfigurationResponse? routingConfiguration,
+            Outputs.RoutingConfigurationResponseV2? routingConfiguration,
 
             int? routingWeight)
         {

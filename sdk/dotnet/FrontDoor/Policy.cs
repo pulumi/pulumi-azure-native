@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.FrontDoor
     /// <summary>
     /// Defines web application firewall policy.
     /// 
-    /// Uses Azure REST API version 2024-02-01.
+    /// Uses Azure REST API version 2025-11-01.
     /// 
-    /// Other available API versions: 2019-03-01, 2019-10-01, 2020-04-01, 2020-11-01, 2021-06-01, 2022-05-01, 2025-03-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2018-08-01, 2019-03-01, 2019-10-01, 2020-04-01, 2020-11-01, 2021-06-01, 2022-05-01, 2024-02-01, 2025-03-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:frontdoor:Policy")]
     public partial class Policy : global::Pulumi.CustomResource
@@ -73,6 +73,9 @@ namespace Pulumi.AzureNative.FrontDoor
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
 
+        /// <summary>
+        /// Resource status of the policy.
+        /// </summary>
         [Output("resourceState")]
         public Output<string> ResourceState { get; private set; } = null!;
 
@@ -131,6 +134,7 @@ namespace Pulumi.AzureNative.FrontDoor
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20180801:Policy" },
                     new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20190301:Policy" },
                     new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20191001:Policy" },
                     new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20200401:Policy" },
@@ -140,6 +144,7 @@ namespace Pulumi.AzureNative.FrontDoor
                     new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20240201:Policy" },
                     new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20250301:Policy" },
                     new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20251001:Policy" },
+                    new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20251101:Policy" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210601:Policy" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:Policy" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240201:Policy" },
@@ -198,7 +203,7 @@ namespace Pulumi.AzureNative.FrontDoor
         public Input<Inputs.PolicySettingsArgs>? PolicySettings { get; set; }
 
         /// <summary>
-        /// Name of the Resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

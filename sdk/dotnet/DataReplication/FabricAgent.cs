@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.DataReplication
     /// Fabric agent model.
     /// 
     /// Uses Azure REST API version 2024-09-01.
+    /// 
+    /// Other available API versions: 2026-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datareplication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:datareplication:FabricAgent")]
     public partial class FabricAgent : global::Pulumi.CustomResource
@@ -75,6 +77,7 @@ namespace Pulumi.AzureNative.DataReplication
                     new global::Pulumi.Alias { Type = "azure-native:datareplication/v20210216preview:Dra" },
                     new global::Pulumi.Alias { Type = "azure-native:datareplication/v20210216preview:FabricAgent" },
                     new global::Pulumi.Alias { Type = "azure-native:datareplication/v20240901:FabricAgent" },
+                    new global::Pulumi.Alias { Type = "azure-native:datareplication/v20260501:FabricAgent" },
                     new global::Pulumi.Alias { Type = "azure-native:datareplication:Dra" },
                 },
             };

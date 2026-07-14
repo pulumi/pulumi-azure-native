@@ -35,16 +35,16 @@ class AutomationArgs:
         """
         The set of arguments for constructing a Automation resource.
 
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationActionEventHubArgs', 'AutomationActionLogicAppArgs', 'AutomationActionWorkspaceArgs']]]] actions: A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
         :param pulumi.Input[_builtins.str] automation_name: The security automation name.
         :param pulumi.Input[_builtins.str] description: The security automation description.
         :param pulumi.Input[_builtins.bool] is_enabled: Indicates whether the security automation is enabled.
         :param pulumi.Input[_builtins.str] kind: Kind of the resource
-        :param pulumi.Input[_builtins.str] location: Location where the resource is stored
+        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Sequence[pulumi.Input['AutomationScopeArgs']]] scopes: A collection of scopes on which the security automations logic is applied. Supported scopes are the subscription itself or a resource group under that subscription. The automation will only apply on defined scopes.
         :param pulumi.Input[Sequence[pulumi.Input['AutomationSourceArgs']]] sources: A collection of the source event types which evaluate the security automation set of rules.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A list of key value pairs that describe the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if actions is not None:
@@ -70,7 +70,7 @@ class AutomationArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the resource group within the user's subscription. The name is case insensitive.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -142,7 +142,7 @@ class AutomationArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Location where the resource is stored
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -178,7 +178,7 @@ class AutomationArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A list of key value pairs that describe the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -219,11 +219,11 @@ class Automation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The security automation description.
         :param pulumi.Input[_builtins.bool] is_enabled: Indicates whether the security automation is enabled.
         :param pulumi.Input[_builtins.str] kind: Kind of the resource
-        :param pulumi.Input[_builtins.str] location: Location where the resource is stored
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationScopeArgs', 'AutomationScopeArgsDict']]]] scopes: A collection of scopes on which the security automations logic is applied. Supported scopes are the subscription itself or a resource group under that subscription. The automation will only apply on defined scopes.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationSourceArgs', 'AutomationSourceArgsDict']]]] sources: A collection of the source event types which evaluate the security automation set of rules.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A list of key value pairs that describe the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         ...
     @overload
@@ -288,6 +288,7 @@ class Automation(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20190101preview:Automation"), pulumi.Alias(type_="azure-native:security/v20231201preview:Automation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -323,6 +324,7 @@ class Automation(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["scopes"] = None
         __props__.__dict__["sources"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Automation(resource_name, opts=opts, __props__=__props__)
@@ -379,7 +381,7 @@ class Automation(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Location where the resource is stored
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -387,7 +389,7 @@ class Automation(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -408,10 +410,18 @@ class Automation(pulumi.CustomResource):
         return pulumi.get(self, "sources")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A list of key value pairs that describe the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -419,7 +429,7 @@ class Automation(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

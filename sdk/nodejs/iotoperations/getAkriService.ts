@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Get a AkriServiceResource
  *
  * Uses Azure REST API version 2026-03-01.
+ *
+ * Other available API versions: 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getAkriService(args: GetAkriServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetAkriServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -73,6 +75,8 @@ export interface GetAkriServiceResult {
  * Get a AkriServiceResource
  *
  * Uses Azure REST API version 2026-03-01.
+ *
+ * Other available API versions: 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getAkriServiceOutput(args: GetAkriServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAkriServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

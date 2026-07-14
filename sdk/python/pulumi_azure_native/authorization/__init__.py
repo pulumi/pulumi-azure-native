@@ -9,10 +9,12 @@ import typing
 from ._enums import *
 from .access_review_history_definition_by_id import *
 from .access_review_schedule_definition_by_id import *
+from .deny_assignment import *
 from .get_access_review_history_definition_by_id import *
 from .get_access_review_schedule_definition_by_id import *
 from .get_client_config import *
 from .get_client_token import *
+from .get_deny_assignment import *
 from .get_management_lock_at_resource_group_level import *
 from .get_management_lock_at_resource_level import *
 from .get_management_lock_at_subscription_level import *

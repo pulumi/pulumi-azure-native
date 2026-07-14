@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-11-01-preview.
  *
- * Other available API versions: 2022-11-01-preview, 2023-04-01, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maintenance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-11-01-preview, 2023-04-01, 2023-09-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maintenance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ConfigurationAssignmentParent extends pulumi.CustomResource {
     /**
@@ -129,7 +129,7 @@ export class ConfigurationAssignmentParent extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:maintenance/v20210401preview:ConfigurationAssignmentParent" }, { type: "azure-native:maintenance/v20210901preview:ConfigurationAssignmentParent" }, { type: "azure-native:maintenance/v20220701preview:ConfigurationAssignmentParent" }, { type: "azure-native:maintenance/v20221101preview:ConfigurationAssignmentParent" }, { type: "azure-native:maintenance/v20230401:ConfigurationAssignmentParent" }, { type: "azure-native:maintenance/v20230901preview:ConfigurationAssignmentParent" }, { type: "azure-native:maintenance/v20231001preview:ConfigurationAssignmentParent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:maintenance/v20210401preview:ConfigurationAssignmentParent" }, { type: "azure-native:maintenance/v20210901preview:ConfigurationAssignmentParent" }, { type: "azure-native:maintenance/v20220701preview:ConfigurationAssignmentParent" }, { type: "azure-native:maintenance/v20221101preview:ConfigurationAssignmentParent" }, { type: "azure-native:maintenance/v20230401:ConfigurationAssignmentParent" }, { type: "azure-native:maintenance/v20230901preview:ConfigurationAssignmentParent" }, { type: "azure-native:maintenance/v20231001preview:ConfigurationAssignmentParent" }, { type: "azure-native:maintenance/v20251001preview:ConfigurationAssignmentParent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConfigurationAssignmentParent.__pulumiType, name, resourceInputs, opts);
     }

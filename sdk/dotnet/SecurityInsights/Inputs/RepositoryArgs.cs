@@ -18,14 +18,8 @@ namespace Pulumi.AzureNative.SecurityInsights.Inputs
         /// <summary>
         /// Branch name of repository.
         /// </summary>
-        [Input("branch")]
-        public Input<string>? Branch { get; set; }
-
-        /// <summary>
-        /// Url to access repository action logs.
-        /// </summary>
-        [Input("deploymentLogsUrl")]
-        public Input<string>? DeploymentLogsUrl { get; set; }
+        [Input("branch", required: true)]
+        public Input<string> Branch { get; set; } = null!;
 
         /// <summary>
         /// Display url of repository.
@@ -33,23 +27,11 @@ namespace Pulumi.AzureNative.SecurityInsights.Inputs
         [Input("displayUrl")]
         public Input<string>? DisplayUrl { get; set; }
 
-        [Input("pathMapping")]
-        private InputList<Inputs.ContentPathMapArgs>? _pathMapping;
-
-        /// <summary>
-        /// Dictionary of source control content type and path mapping.
-        /// </summary>
-        public InputList<Inputs.ContentPathMapArgs> PathMapping
-        {
-            get => _pathMapping ?? (_pathMapping = new InputList<Inputs.ContentPathMapArgs>());
-            set => _pathMapping = value;
-        }
-
         /// <summary>
         /// Url of repository.
         /// </summary>
-        [Input("url")]
-        public Input<string>? Url { get; set; }
+        [Input("url", required: true)]
+        public Input<string> Url { get; set; } = null!;
 
         public RepositoryArgs()
         {

@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Discovery
         /// Get a StorageContainer
         /// 
         /// Uses Azure REST API version 2026-02-01-preview.
+        /// 
+        /// Other available API versions: 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native discovery [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetStorageContainerResult> InvokeAsync(GetStorageContainerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageContainerResult>("azure-native:discovery:getStorageContainer", args ?? new GetStorageContainerArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Discovery
         /// Get a StorageContainer
         /// 
         /// Uses Azure REST API version 2026-02-01-preview.
+        /// 
+        /// Other available API versions: 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native discovery [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetStorageContainerResult> Invoke(GetStorageContainerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageContainerResult>("azure-native:discovery:getStorageContainer", args ?? new GetStorageContainerInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Discovery
         /// Get a StorageContainer
         /// 
         /// Uses Azure REST API version 2026-02-01-preview.
+        /// 
+        /// Other available API versions: 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native discovery [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetStorageContainerResult> Invoke(GetStorageContainerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageContainerResult>("azure-native:discovery:getStorageContainer", args ?? new GetStorageContainerInvokeArgs(), options.WithDefaults());

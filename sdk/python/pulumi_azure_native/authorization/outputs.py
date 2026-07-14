@@ -24,6 +24,8 @@ __all__ = [
     'AccessReviewScopeResponse',
     'ApprovalSettingsResponse',
     'ApprovalStageResponse',
+    'DenyAssignmentPermissionResponse',
+    'DenyAssignmentPrincipalResponse',
     'ExpandedPropertiesResponse',
     'ExpandedPropertiesResponsePrincipal',
     'ExpandedPropertiesResponseRoleDefinition',
@@ -32,6 +34,7 @@ __all__ = [
     'IdentityResponseUserAssignedIdentities',
     'ManagedByTenantResponse',
     'ManagementLockOwnerResponse',
+    'MicrosoftCommonPrincipalResponse',
     'NonComplianceMessageResponse',
     'OverrideResponse',
     'PIMOnlyModeSettingsResponse',
@@ -39,19 +42,18 @@ __all__ = [
     'ParameterDefinitionsValueResponseMetadata',
     'ParameterValuesValueResponse',
     'PermissionResponse',
+    'PolicyAssignmentPropertiesPolicyResponse',
     'PolicyAssignmentPropertiesResponse',
-    'PolicyAssignmentPropertiesResponsePolicy',
-    'PolicyAssignmentPropertiesResponseRoleDefinition',
-    'PolicyAssignmentPropertiesResponseScope',
+    'PolicyAssignmentPropertiesRoleDefinitionResponse',
+    'PolicyAssignmentPropertiesScopeResponse',
     'PolicyDefinitionGroupResponse',
     'PolicyDefinitionReferenceResponse',
     'PolicyDefinitionVersionResponse',
     'PolicyPropertiesResponse',
-    'PolicyPropertiesResponseScope',
+    'PolicyPropertiesScopeResponse',
     'PolicySetDefinitionVersionResponse',
     'PolicyVariableColumnResponse',
     'PolicyVariableValueColumnValueResponse',
-    'PrincipalResponse',
     'PrivateLinkAssociationPropertiesExpandedResponse',
     'ResourceManagementPrivateLinkEndpointConnectionsResponse',
     'ResourceSelectorResponse',
@@ -249,6 +251,8 @@ class AccessReviewInstanceResponse(dict):
         suggest = None
         if key == "reviewersType":
             suggest = "reviewers_type"
+        elif key == "systemData":
+            suggest = "system_data"
         elif key == "backupReviewers":
             suggest = "backup_reviewers"
         elif key == "endDateTime":
@@ -272,6 +276,7 @@ class AccessReviewInstanceResponse(dict):
                  name: _builtins.str,
                  reviewers_type: _builtins.str,
                  status: _builtins.str,
+                 system_data: 'outputs.SystemDataResponse',
                  type: _builtins.str,
                  backup_reviewers: Optional[Sequence['outputs.AccessReviewReviewerResponse']] = None,
                  end_date_time: Optional[_builtins.str] = None,
@@ -280,11 +285,12 @@ class AccessReviewInstanceResponse(dict):
         """
         Access Review Instance.
 
-        :param _builtins.str id: The access review instance id.
-        :param _builtins.str name: The access review instance name.
+        :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        :param _builtins.str name: The name of the resource
         :param _builtins.str reviewers_type: This field specifies the type of reviewers for a review. Usually for a review, reviewers are explicitly assigned. However, in some cases, the reviewers may not be assigned and instead be chosen dynamically. For example managers review or self review.
         :param _builtins.str status: This read-only field specifies the status of an access review instance.
-        :param _builtins.str type: The resource type.
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param _builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param Sequence['AccessReviewReviewerResponse'] backup_reviewers: This is the collection of backup reviewers.
         :param _builtins.str end_date_time: The DateTime when the review instance is scheduled to end.
         :param Sequence['AccessReviewReviewerResponse'] reviewers: This is the collection of reviewers.
@@ -294,6 +300,7 @@ class AccessReviewInstanceResponse(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "reviewers_type", reviewers_type)
         pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if backup_reviewers is not None:
             pulumi.set(__self__, "backup_reviewers", backup_reviewers)
@@ -308,7 +315,7 @@ class AccessReviewInstanceResponse(dict):
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The access review instance id.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -316,7 +323,7 @@ class AccessReviewInstanceResponse(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The access review instance name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -337,10 +344,18 @@ class AccessReviewInstanceResponse(dict):
         return pulumi.get(self, "status")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -884,6 +899,149 @@ class ApprovalStageResponse(dict):
 
 
 @pulumi.output_type
+class DenyAssignmentPermissionResponse(dict):
+    """
+    Deny assignment permissions.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "conditionVersion":
+            suggest = "condition_version"
+        elif key == "dataActions":
+            suggest = "data_actions"
+        elif key == "notActions":
+            suggest = "not_actions"
+        elif key == "notDataActions":
+            suggest = "not_data_actions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DenyAssignmentPermissionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DenyAssignmentPermissionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DenyAssignmentPermissionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 actions: Optional[Sequence[_builtins.str]] = None,
+                 condition: Optional[_builtins.str] = None,
+                 condition_version: Optional[_builtins.str] = None,
+                 data_actions: Optional[Sequence[_builtins.str]] = None,
+                 not_actions: Optional[Sequence[_builtins.str]] = None,
+                 not_data_actions: Optional[Sequence[_builtins.str]] = None):
+        """
+        Deny assignment permissions.
+
+        :param Sequence[_builtins.str] actions: Actions to which the deny assignment does not grant access.
+        :param _builtins.str condition: The conditions on the Deny assignment permission. This limits the resources it applies to.
+        :param _builtins.str condition_version: Version of the condition.
+        :param Sequence[_builtins.str] data_actions: Data actions to which the deny assignment does not grant access.
+        :param Sequence[_builtins.str] not_actions: Actions to exclude from that the deny assignment does not grant access.
+        :param Sequence[_builtins.str] not_data_actions: Data actions to exclude from that the deny assignment does not grant access.
+        """
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if condition_version is not None:
+            pulumi.set(__self__, "condition_version", condition_version)
+        if data_actions is not None:
+            pulumi.set(__self__, "data_actions", data_actions)
+        if not_actions is not None:
+            pulumi.set(__self__, "not_actions", not_actions)
+        if not_data_actions is not None:
+            pulumi.set(__self__, "not_data_actions", not_data_actions)
+
+    @_builtins.property
+    @pulumi.getter
+    def actions(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Actions to which the deny assignment does not grant access.
+        """
+        return pulumi.get(self, "actions")
+
+    @_builtins.property
+    @pulumi.getter
+    def condition(self) -> Optional[_builtins.str]:
+        """
+        The conditions on the Deny assignment permission. This limits the resources it applies to.
+        """
+        return pulumi.get(self, "condition")
+
+    @_builtins.property
+    @pulumi.getter(name="conditionVersion")
+    def condition_version(self) -> Optional[_builtins.str]:
+        """
+        Version of the condition.
+        """
+        return pulumi.get(self, "condition_version")
+
+    @_builtins.property
+    @pulumi.getter(name="dataActions")
+    def data_actions(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Data actions to which the deny assignment does not grant access.
+        """
+        return pulumi.get(self, "data_actions")
+
+    @_builtins.property
+    @pulumi.getter(name="notActions")
+    def not_actions(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Actions to exclude from that the deny assignment does not grant access.
+        """
+        return pulumi.get(self, "not_actions")
+
+    @_builtins.property
+    @pulumi.getter(name="notDataActions")
+    def not_data_actions(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Data actions to exclude from that the deny assignment does not grant access.
+        """
+        return pulumi.get(self, "not_data_actions")
+
+
+@pulumi.output_type
+class DenyAssignmentPrincipalResponse(dict):
+    """
+    Deny assignment principal.
+    """
+    def __init__(__self__, *,
+                 id: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None):
+        """
+        Deny assignment principal.
+
+        :param _builtins.str id: The object ID of the principal.
+        :param _builtins.str type: The type of the principal such as user, group, servicePrincipal, etc.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        """
+        The object ID of the principal.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        The type of the principal such as user, group, servicePrincipal, etc.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class ExpandedPropertiesResponse(dict):
     """
     Expanded info of resource, role and principal
@@ -1345,6 +1503,83 @@ class ManagementLockOwnerResponse(dict):
         The application ID of the lock owner.
         """
         return pulumi.get(self, "application_id")
+
+
+@pulumi.output_type
+class MicrosoftCommonPrincipalResponse(dict):
+    """
+    The name of the entity last modified it
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayName":
+            suggest = "display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MicrosoftCommonPrincipalResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MicrosoftCommonPrincipalResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MicrosoftCommonPrincipalResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 display_name: Optional[_builtins.str] = None,
+                 email: Optional[_builtins.str] = None,
+                 id: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None):
+        """
+        The name of the entity last modified it
+
+        :param _builtins.str display_name: The name of the principal made changes
+        :param _builtins.str email: Email of principal
+        :param _builtins.str id: The id of the principal made changes
+        :param _builtins.str type: Type of principal such as user , group etc
+        """
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the principal made changes
+        """
+        return pulumi.get(self, "display_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def email(self) -> Optional[_builtins.str]:
+        """
+        Email of principal
+        """
+        return pulumi.get(self, "email")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        """
+        The id of the principal made changes
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        Type of principal such as user , group etc
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -1814,72 +2049,7 @@ class PermissionResponse(dict):
 
 
 @pulumi.output_type
-class PolicyAssignmentPropertiesResponse(dict):
-    """
-    Expanded info of resource scope, role definition and policy
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "roleDefinition":
-            suggest = "role_definition"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PolicyAssignmentPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PolicyAssignmentPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PolicyAssignmentPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 policy: Optional['outputs.PolicyAssignmentPropertiesResponsePolicy'] = None,
-                 role_definition: Optional['outputs.PolicyAssignmentPropertiesResponseRoleDefinition'] = None,
-                 scope: Optional['outputs.PolicyAssignmentPropertiesResponseScope'] = None):
-        """
-        Expanded info of resource scope, role definition and policy
-
-        :param 'PolicyAssignmentPropertiesResponsePolicy' policy: Details of the policy
-        :param 'PolicyAssignmentPropertiesResponseRoleDefinition' role_definition: Details of role definition
-        :param 'PolicyAssignmentPropertiesResponseScope' scope: Details of the resource scope
-        """
-        if policy is not None:
-            pulumi.set(__self__, "policy", policy)
-        if role_definition is not None:
-            pulumi.set(__self__, "role_definition", role_definition)
-        if scope is not None:
-            pulumi.set(__self__, "scope", scope)
-
-    @_builtins.property
-    @pulumi.getter
-    def policy(self) -> Optional['outputs.PolicyAssignmentPropertiesResponsePolicy']:
-        """
-        Details of the policy
-        """
-        return pulumi.get(self, "policy")
-
-    @_builtins.property
-    @pulumi.getter(name="roleDefinition")
-    def role_definition(self) -> Optional['outputs.PolicyAssignmentPropertiesResponseRoleDefinition']:
-        """
-        Details of role definition
-        """
-        return pulumi.get(self, "role_definition")
-
-    @_builtins.property
-    @pulumi.getter
-    def scope(self) -> Optional['outputs.PolicyAssignmentPropertiesResponseScope']:
-        """
-        Details of the resource scope
-        """
-        return pulumi.get(self, "scope")
-
-
-@pulumi.output_type
-class PolicyAssignmentPropertiesResponsePolicy(dict):
+class PolicyAssignmentPropertiesPolicyResponse(dict):
     """
     Details of the policy
     """
@@ -1892,24 +2062,24 @@ class PolicyAssignmentPropertiesResponsePolicy(dict):
             suggest = "last_modified_date_time"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PolicyAssignmentPropertiesResponsePolicy. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in PolicyAssignmentPropertiesPolicyResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        PolicyAssignmentPropertiesResponsePolicy.__key_warning(key)
+        PolicyAssignmentPropertiesPolicyResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        PolicyAssignmentPropertiesResponsePolicy.__key_warning(key)
+        PolicyAssignmentPropertiesPolicyResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 last_modified_by: 'outputs.PrincipalResponse',
+                 last_modified_by: 'outputs.MicrosoftCommonPrincipalResponse',
                  id: Optional[_builtins.str] = None,
                  last_modified_date_time: Optional[_builtins.str] = None):
         """
         Details of the policy
 
-        :param 'PrincipalResponse' last_modified_by: The name of the entity last modified it
+        :param 'MicrosoftCommonPrincipalResponse' last_modified_by: The name of the entity last modified it
         :param _builtins.str id: Id of the policy
         :param _builtins.str last_modified_date_time: The last modified date time.
         """
@@ -1921,7 +2091,7 @@ class PolicyAssignmentPropertiesResponsePolicy(dict):
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> 'outputs.PrincipalResponse':
+    def last_modified_by(self) -> 'outputs.MicrosoftCommonPrincipalResponse':
         """
         The name of the entity last modified it
         """
@@ -1945,7 +2115,72 @@ class PolicyAssignmentPropertiesResponsePolicy(dict):
 
 
 @pulumi.output_type
-class PolicyAssignmentPropertiesResponseRoleDefinition(dict):
+class PolicyAssignmentPropertiesResponse(dict):
+    """
+    Expanded info of resource scope, role definition and policy
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleDefinition":
+            suggest = "role_definition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyAssignmentPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyAssignmentPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyAssignmentPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 policy: Optional['outputs.PolicyAssignmentPropertiesPolicyResponse'] = None,
+                 role_definition: Optional['outputs.PolicyAssignmentPropertiesRoleDefinitionResponse'] = None,
+                 scope: Optional['outputs.PolicyAssignmentPropertiesScopeResponse'] = None):
+        """
+        Expanded info of resource scope, role definition and policy
+
+        :param 'PolicyAssignmentPropertiesPolicyResponse' policy: Details of the policy
+        :param 'PolicyAssignmentPropertiesRoleDefinitionResponse' role_definition: Details of role definition
+        :param 'PolicyAssignmentPropertiesScopeResponse' scope: Details of the resource scope
+        """
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+        if role_definition is not None:
+            pulumi.set(__self__, "role_definition", role_definition)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+
+    @_builtins.property
+    @pulumi.getter
+    def policy(self) -> Optional['outputs.PolicyAssignmentPropertiesPolicyResponse']:
+        """
+        Details of the policy
+        """
+        return pulumi.get(self, "policy")
+
+    @_builtins.property
+    @pulumi.getter(name="roleDefinition")
+    def role_definition(self) -> Optional['outputs.PolicyAssignmentPropertiesRoleDefinitionResponse']:
+        """
+        Details of role definition
+        """
+        return pulumi.get(self, "role_definition")
+
+    @_builtins.property
+    @pulumi.getter
+    def scope(self) -> Optional['outputs.PolicyAssignmentPropertiesScopeResponse']:
+        """
+        Details of the resource scope
+        """
+        return pulumi.get(self, "scope")
+
+
+@pulumi.output_type
+class PolicyAssignmentPropertiesRoleDefinitionResponse(dict):
     """
     Details of role definition
     """
@@ -1956,14 +2191,14 @@ class PolicyAssignmentPropertiesResponseRoleDefinition(dict):
             suggest = "display_name"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PolicyAssignmentPropertiesResponseRoleDefinition. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in PolicyAssignmentPropertiesRoleDefinitionResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        PolicyAssignmentPropertiesResponseRoleDefinition.__key_warning(key)
+        PolicyAssignmentPropertiesRoleDefinitionResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        PolicyAssignmentPropertiesResponseRoleDefinition.__key_warning(key)
+        PolicyAssignmentPropertiesRoleDefinitionResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -2010,7 +2245,7 @@ class PolicyAssignmentPropertiesResponseRoleDefinition(dict):
 
 
 @pulumi.output_type
-class PolicyAssignmentPropertiesResponseScope(dict):
+class PolicyAssignmentPropertiesScopeResponse(dict):
     """
     Details of the resource scope
     """
@@ -2021,14 +2256,14 @@ class PolicyAssignmentPropertiesResponseScope(dict):
             suggest = "display_name"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PolicyAssignmentPropertiesResponseScope. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in PolicyAssignmentPropertiesScopeResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        PolicyAssignmentPropertiesResponseScope.__key_warning(key)
+        PolicyAssignmentPropertiesScopeResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        PolicyAssignmentPropertiesResponseScope.__key_warning(key)
+        PolicyAssignmentPropertiesScopeResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -2444,17 +2679,17 @@ class PolicyPropertiesResponse(dict):
     Expanded info of resource scope
     """
     def __init__(__self__, *,
-                 scope: 'outputs.PolicyPropertiesResponseScope'):
+                 scope: 'outputs.PolicyPropertiesScopeResponse'):
         """
         Expanded info of resource scope
 
-        :param 'PolicyPropertiesResponseScope' scope: Details of the resource scope
+        :param 'PolicyPropertiesScopeResponse' scope: Details of the resource scope
         """
         pulumi.set(__self__, "scope", scope)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> 'outputs.PolicyPropertiesResponseScope':
+    def scope(self) -> 'outputs.PolicyPropertiesScopeResponse':
         """
         Details of the resource scope
         """
@@ -2462,7 +2697,7 @@ class PolicyPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class PolicyPropertiesResponseScope(dict):
+class PolicyPropertiesScopeResponse(dict):
     """
     Details of the resource scope
     """
@@ -2473,14 +2708,14 @@ class PolicyPropertiesResponseScope(dict):
             suggest = "display_name"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PolicyPropertiesResponseScope. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in PolicyPropertiesScopeResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        PolicyPropertiesResponseScope.__key_warning(key)
+        PolicyPropertiesScopeResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        PolicyPropertiesResponseScope.__key_warning(key)
+        PolicyPropertiesScopeResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -2768,83 +3003,6 @@ class PolicyVariableValueColumnValueResponse(dict):
         Column value for the variable value; this can be an integer, double, boolean, null or a string.
         """
         return pulumi.get(self, "column_value")
-
-
-@pulumi.output_type
-class PrincipalResponse(dict):
-    """
-    The name of the entity last modified it
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "displayName":
-            suggest = "display_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PrincipalResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PrincipalResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PrincipalResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 display_name: Optional[_builtins.str] = None,
-                 email: Optional[_builtins.str] = None,
-                 id: Optional[_builtins.str] = None,
-                 type: Optional[_builtins.str] = None):
-        """
-        The name of the entity last modified it
-
-        :param _builtins.str display_name: The name of the principal made changes
-        :param _builtins.str email: Email of principal
-        :param _builtins.str id: The id of the principal made changes
-        :param _builtins.str type: Type of principal such as user , group etc
-        """
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
-        if email is not None:
-            pulumi.set(__self__, "email", email)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @_builtins.property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[_builtins.str]:
-        """
-        The name of the principal made changes
-        """
-        return pulumi.get(self, "display_name")
-
-    @_builtins.property
-    @pulumi.getter
-    def email(self) -> Optional[_builtins.str]:
-        """
-        Email of principal
-        """
-        return pulumi.get(self, "email")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> Optional[_builtins.str]:
-        """
-        The id of the principal made changes
-        """
-        return pulumi.get(self, "id")
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> Optional[_builtins.str]:
-        """
-        Type of principal such as user , group etc
-        """
-        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

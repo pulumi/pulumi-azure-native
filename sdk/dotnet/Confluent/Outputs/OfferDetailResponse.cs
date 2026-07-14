@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.Confluent.Outputs
         /// <summary>
         /// SaaS Offer Status
         /// </summary>
-        public readonly string? Status;
+        public readonly string Status;
         /// <summary>
         /// Offer Plan Term Id
         /// </summary>
@@ -67,7 +67,7 @@ namespace Pulumi.AzureNative.Confluent.Outputs
 
             string publisherId,
 
-            string? status,
+            string status,
 
             string? termId,
 

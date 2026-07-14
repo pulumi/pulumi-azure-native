@@ -263,9 +263,9 @@ namespace Pulumi.AzureNative.Purview
         /// </summary>
         public static ManagedIdentityType SystemAssigned { get; } = new ManagedIdentityType("SystemAssigned");
         /// <summary>
-        /// UserAssigned
+        /// Both SystemAssigned and UserAssigned identities.
         /// </summary>
-        public static ManagedIdentityType UserAssigned { get; } = new ManagedIdentityType("UserAssigned");
+        public static ManagedIdentityType SystemAssignedUserAssigned { get; } = new ManagedIdentityType("SystemAssigned,UserAssigned");
 
         public static bool operator ==(ManagedIdentityType left, ManagedIdentityType right) => left.Equals(right);
         public static bool operator !=(ManagedIdentityType left, ManagedIdentityType right) => !left.Equals(right);

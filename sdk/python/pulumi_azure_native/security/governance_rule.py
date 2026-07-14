@@ -22,6 +22,7 @@ __all__ = ['GovernanceRuleArgs', 'GovernanceRule']
 @pulumi.input_type
 class GovernanceRuleArgs:
     def __init__(__self__, *,
+                 condition_sets: pulumi.Input[Sequence[Any]],
                  display_name: pulumi.Input[_builtins.str],
                  owner_source: pulumi.Input['GovernanceRuleOwnerSourceArgs'],
                  rule_priority: pulumi.Input[_builtins.int],
@@ -39,11 +40,12 @@ class GovernanceRuleArgs:
         """
         The set of arguments for constructing a GovernanceRule resource.
 
+        :param pulumi.Input[Sequence[Any]] condition_sets: The governance rule conditionSets - see examples
         :param pulumi.Input[_builtins.str] display_name: Display name of the governance rule
         :param pulumi.Input['GovernanceRuleOwnerSourceArgs'] owner_source: The owner source for the governance rule - e.g. Manually by user@contoso.com - see example
         :param pulumi.Input[_builtins.int] rule_priority: The governance rule priority, priority to the lower number. Rules with the same priority on the same scope will not be allowed
         :param pulumi.Input[Union[_builtins.str, 'GovernanceRuleType']] rule_type: The rule type of the governance rule, defines the source of the rule e.g. Integrated
-        :param pulumi.Input[_builtins.str] scope: The scope of the Governance rules. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
+        :param pulumi.Input[_builtins.str] scope: The fully qualified Azure Resource manager identifier of the resource.
         :param pulumi.Input[Union[_builtins.str, 'GovernanceRuleSourceResourceType']] source_resource_type: The governance rule source, what the rule affects, e.g. Assessments
         :param pulumi.Input[_builtins.str] description: Description of the governance rule
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_scopes: Excluded scopes, filter out the descendants of the scope (on management scopes)
@@ -54,6 +56,7 @@ class GovernanceRuleArgs:
         :param pulumi.Input[_builtins.str] remediation_timeframe: Governance rule remediation timeframe - this is the time that will affect on the grace-period duration e.g. 7.00:00:00 - means 7 days
         :param pulumi.Input[_builtins.str] rule_id: The governance rule key - unique key for the standard governance rule (GUID)
         """
+        pulumi.set(__self__, "condition_sets", condition_sets)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "owner_source", owner_source)
         pulumi.set(__self__, "rule_priority", rule_priority)
@@ -76,6 +79,18 @@ class GovernanceRuleArgs:
             pulumi.set(__self__, "remediation_timeframe", remediation_timeframe)
         if rule_id is not None:
             pulumi.set(__self__, "rule_id", rule_id)
+
+    @_builtins.property
+    @pulumi.getter(name="conditionSets")
+    def condition_sets(self) -> pulumi.Input[Sequence[Any]]:
+        """
+        The governance rule conditionSets - see examples
+        """
+        return pulumi.get(self, "condition_sets")
+
+    @condition_sets.setter
+    def condition_sets(self, value: pulumi.Input[Sequence[Any]]):
+        pulumi.set(self, "condition_sets", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
@@ -129,7 +144,7 @@ class GovernanceRuleArgs:
     @pulumi.getter
     def scope(self) -> pulumi.Input[_builtins.str]:
         """
-        The scope of the Governance rules. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
+        The fully qualified Azure Resource manager identifier of the resource.
         """
         return pulumi.get(self, "scope")
 
@@ -252,6 +267,7 @@ class GovernanceRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 condition_sets: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  excluded_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -275,6 +291,7 @@ class GovernanceRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[Any]] condition_sets: The governance rule conditionSets - see examples
         :param pulumi.Input[_builtins.str] description: Description of the governance rule
         :param pulumi.Input[_builtins.str] display_name: Display name of the governance rule
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_scopes: Excluded scopes, filter out the descendants of the scope (on management scopes)
@@ -287,7 +304,7 @@ class GovernanceRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] rule_id: The governance rule key - unique key for the standard governance rule (GUID)
         :param pulumi.Input[_builtins.int] rule_priority: The governance rule priority, priority to the lower number. Rules with the same priority on the same scope will not be allowed
         :param pulumi.Input[Union[_builtins.str, 'GovernanceRuleType']] rule_type: The rule type of the governance rule, defines the source of the rule e.g. Integrated
-        :param pulumi.Input[_builtins.str] scope: The scope of the Governance rules. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
+        :param pulumi.Input[_builtins.str] scope: The fully qualified Azure Resource manager identifier of the resource.
         :param pulumi.Input[Union[_builtins.str, 'GovernanceRuleSourceResourceType']] source_resource_type: The governance rule source, what the rule affects, e.g. Assessments
         """
         ...
@@ -317,6 +334,7 @@ class GovernanceRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 condition_sets: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  excluded_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -340,6 +358,9 @@ class GovernanceRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GovernanceRuleArgs.__new__(GovernanceRuleArgs)
 
+            if condition_sets is None and not opts.urn:
+                raise TypeError("Missing required property 'condition_sets'")
+            __props__.__dict__["condition_sets"] = condition_sets
             __props__.__dict__["description"] = description
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
@@ -369,6 +390,7 @@ class GovernanceRule(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["metadata"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["tenant_id"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20220101preview:GovernanceRule")])
@@ -396,6 +418,7 @@ class GovernanceRule(pulumi.CustomResource):
         __props__ = GovernanceRuleArgs.__new__(GovernanceRuleArgs)
 
         __props__.__dict__["azure_api_version"] = None
+        __props__.__dict__["condition_sets"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["excluded_scopes"] = None
@@ -410,6 +433,7 @@ class GovernanceRule(pulumi.CustomResource):
         __props__.__dict__["rule_priority"] = None
         __props__.__dict__["rule_type"] = None
         __props__.__dict__["source_resource_type"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tenant_id"] = None
         __props__.__dict__["type"] = None
         return GovernanceRule(resource_name, opts=opts, __props__=__props__)
@@ -421,6 +445,14 @@ class GovernanceRule(pulumi.CustomResource):
         The Azure API version of the resource.
         """
         return pulumi.get(self, "azure_api_version")
+
+    @_builtins.property
+    @pulumi.getter(name="conditionSets")
+    def condition_sets(self) -> pulumi.Output[Sequence[Any]]:
+        """
+        The governance rule conditionSets - see examples
+        """
+        return pulumi.get(self, "condition_sets")
 
     @_builtins.property
     @pulumi.getter
@@ -490,7 +522,7 @@ class GovernanceRule(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -535,6 +567,14 @@ class GovernanceRule(pulumi.CustomResource):
         return pulumi.get(self, "source_resource_type")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> pulumi.Output[_builtins.str]:
         """
@@ -546,7 +586,7 @@ class GovernanceRule(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

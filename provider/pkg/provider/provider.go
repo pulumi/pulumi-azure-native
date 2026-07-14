@@ -250,9 +250,7 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 			"Please remove this environment variable or set it to 'true'.")
 	}
 
-	for key, val := range req.GetVariables() {
-		k.config[strings.TrimPrefix(key, "azure-native:config:")] = val
-	}
+	k.config = parseLegacyConfigVariables(k.name, req.GetVariables())
 
 	k.setLoggingContext(ctx)
 
@@ -313,6 +311,16 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 
 func (k *azureNativeProvider) isParameterized() bool {
 	return strings.HasPrefix(k.name, "azure-native"+parameterizedNameSeparator)
+}
+
+// parseLegacyConfigVariables strips the "<package>:config:" prefix, using providerName so parameterized providers strip correctly too.
+func parseLegacyConfigVariables(providerName string, variables map[string]string) map[string]string {
+	prefix := providerName + ":config:"
+	config := make(map[string]string, len(variables))
+	for key, val := range variables {
+		config[strings.TrimPrefix(key, prefix)] = val
+	}
+	return config
 }
 
 // Invoke dynamically executes a built-in function in the provider.

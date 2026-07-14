@@ -30,6 +30,10 @@ __all__ = [
     'ApprovalSettingsArgsDict',
     'ApprovalStageArgs',
     'ApprovalStageArgsDict',
+    'DenyAssignmentPermissionArgs',
+    'DenyAssignmentPermissionArgsDict',
+    'DenyAssignmentPrincipalArgs',
+    'DenyAssignmentPrincipalArgsDict',
     'IdentityArgs',
     'IdentityArgsDict',
     'ManagementLockOwnerArgs',
@@ -824,6 +828,194 @@ class ApprovalStageArgs:
     @primary_approvers.setter
     def primary_approvers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserSetArgs']]]]):
         pulumi.set(self, "primary_approvers", value)
+
+
+class DenyAssignmentPermissionArgsDict(TypedDict):
+    """
+    Deny assignment permissions.
+    """
+    actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Actions to which the deny assignment does not grant access.
+    """
+    condition: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The conditions on the Deny assignment permission. This limits the resources it applies to.
+    """
+    condition_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Version of the condition.
+    """
+    data_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Data actions to which the deny assignment does not grant access.
+    """
+    not_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Actions to exclude from that the deny assignment does not grant access.
+    """
+    not_data_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Data actions to exclude from that the deny assignment does not grant access.
+    """
+
+@pulumi.input_type
+class DenyAssignmentPermissionArgs:
+    def __init__(__self__, *,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 condition: Optional[pulumi.Input[_builtins.str]] = None,
+                 condition_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 not_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 not_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        Deny assignment permissions.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] actions: Actions to which the deny assignment does not grant access.
+        :param pulumi.Input[_builtins.str] condition: The conditions on the Deny assignment permission. This limits the resources it applies to.
+        :param pulumi.Input[_builtins.str] condition_version: Version of the condition.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_actions: Data actions to which the deny assignment does not grant access.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] not_actions: Actions to exclude from that the deny assignment does not grant access.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] not_data_actions: Data actions to exclude from that the deny assignment does not grant access.
+        """
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if condition_version is not None:
+            pulumi.set(__self__, "condition_version", condition_version)
+        if data_actions is not None:
+            pulumi.set(__self__, "data_actions", data_actions)
+        if not_actions is not None:
+            pulumi.set(__self__, "not_actions", not_actions)
+        if not_data_actions is not None:
+            pulumi.set(__self__, "not_data_actions", not_data_actions)
+
+    @_builtins.property
+    @pulumi.getter
+    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Actions to which the deny assignment does not grant access.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "actions", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def condition(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The conditions on the Deny assignment permission. This limits the resources it applies to.
+        """
+        return pulumi.get(self, "condition")
+
+    @condition.setter
+    def condition(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "condition", value)
+
+    @_builtins.property
+    @pulumi.getter(name="conditionVersion")
+    def condition_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Version of the condition.
+        """
+        return pulumi.get(self, "condition_version")
+
+    @condition_version.setter
+    def condition_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "condition_version", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataActions")
+    def data_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Data actions to which the deny assignment does not grant access.
+        """
+        return pulumi.get(self, "data_actions")
+
+    @data_actions.setter
+    def data_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "data_actions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="notActions")
+    def not_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Actions to exclude from that the deny assignment does not grant access.
+        """
+        return pulumi.get(self, "not_actions")
+
+    @not_actions.setter
+    def not_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "not_actions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="notDataActions")
+    def not_data_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Data actions to exclude from that the deny assignment does not grant access.
+        """
+        return pulumi.get(self, "not_data_actions")
+
+    @not_data_actions.setter
+    def not_data_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "not_data_actions", value)
+
+
+class DenyAssignmentPrincipalArgsDict(TypedDict):
+    """
+    Deny assignment principal.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The object ID of the principal.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of the principal such as user, group, servicePrincipal, etc.
+    """
+
+@pulumi.input_type
+class DenyAssignmentPrincipalArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Deny assignment principal.
+
+        :param pulumi.Input[_builtins.str] id: The object ID of the principal.
+        :param pulumi.Input[_builtins.str] type: The type of the principal such as user, group, servicePrincipal, etc.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The object ID of the principal.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The type of the principal such as user, group, servicePrincipal, etc.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "type", value)
 
 
 class IdentityArgsDict(TypedDict):
@@ -3070,7 +3262,7 @@ class UsersOrServicePrincipalSetArgsDict(TypedDict):
     """
     The object id of the entity.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'UserType']]]
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'UsersOrServicePrincipalSetUserType']]]
     """
     The type of user.
     """
@@ -3080,13 +3272,13 @@ class UsersOrServicePrincipalSetArgs:
     def __init__(__self__, *,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'UserType']]] = None):
+                 type: Optional[pulumi.Input[Union[_builtins.str, 'UsersOrServicePrincipalSetUserType']]] = None):
         """
         The detail of a subject.
 
         :param pulumi.Input[_builtins.str] display_name: The display Name of the entity.
         :param pulumi.Input[_builtins.str] id: The object id of the entity.
-        :param pulumi.Input[Union[_builtins.str, 'UserType']] type: The type of user.
+        :param pulumi.Input[Union[_builtins.str, 'UsersOrServicePrincipalSetUserType']] type: The type of user.
         """
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
@@ -3121,14 +3313,14 @@ class UsersOrServicePrincipalSetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'UserType']]]:
+    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'UsersOrServicePrincipalSetUserType']]]:
         """
         The type of user.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'UserType']]]):
+    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'UsersOrServicePrincipalSetUserType']]]):
         pulumi.set(self, "type", value)
 
 

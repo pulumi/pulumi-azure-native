@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Discovery
         /// Gets the specified private endpoint connection associated with the bookshelf.
         /// 
         /// Uses Azure REST API version 2026-02-01-preview.
+        /// 
+        /// Other available API versions: 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native discovery [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetBookshelfPrivateEndpointConnectionResult> InvokeAsync(GetBookshelfPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBookshelfPrivateEndpointConnectionResult>("azure-native:discovery:getBookshelfPrivateEndpointConnection", args ?? new GetBookshelfPrivateEndpointConnectionArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Discovery
         /// Gets the specified private endpoint connection associated with the bookshelf.
         /// 
         /// Uses Azure REST API version 2026-02-01-preview.
+        /// 
+        /// Other available API versions: 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native discovery [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetBookshelfPrivateEndpointConnectionResult> Invoke(GetBookshelfPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBookshelfPrivateEndpointConnectionResult>("azure-native:discovery:getBookshelfPrivateEndpointConnection", args ?? new GetBookshelfPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Discovery
         /// Gets the specified private endpoint connection associated with the bookshelf.
         /// 
         /// Uses Azure REST API version 2026-02-01-preview.
+        /// 
+        /// Other available API versions: 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native discovery [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetBookshelfPrivateEndpointConnectionResult> Invoke(GetBookshelfPrivateEndpointConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBookshelfPrivateEndpointConnectionResult>("azure-native:discovery:getBookshelfPrivateEndpointConnection", args ?? new GetBookshelfPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.CognitiveServices
     /// Cognitive Services Rai External Safety provider Schema.
     /// 
     /// Uses Azure REST API version 2025-10-01-preview.
+    /// 
+    /// Other available API versions: 2025-12-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-05-01, 2026-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices:RaiExternalSafetyProvider")]
     public partial class RaiExternalSafetyProvider : global::Pulumi.CustomResource
@@ -51,7 +53,7 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// Resource tags.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -85,6 +87,12 @@ namespace Pulumi.AzureNative.CognitiveServices
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20251001preview:RaiExternalSafetyProvider" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20251201:RaiExternalSafetyProvider" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20260115preview:RaiExternalSafetyProvider" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20260301:RaiExternalSafetyProvider" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20260315preview:RaiExternalSafetyProvider" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20260501:RaiExternalSafetyProvider" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20260515preview:RaiExternalSafetyProvider" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -119,18 +127,6 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// </summary>
         [Input("safetyProviderName")]
         public Input<string>? SafetyProviderName { get; set; }
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
 
         public RaiExternalSafetyProviderArgs()
         {

@@ -148,7 +148,7 @@ def get_private_endpoint_connection(automation_account_name: Optional[_builtins.
 
     :param _builtins.str automation_account_name: The name of the automation account.
     :param _builtins.str private_endpoint_connection_name: The name of the private endpoint connection.
-    :param _builtins.str resource_group_name: Name of an Azure Resource group.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
@@ -180,7 +180,7 @@ def get_private_endpoint_connection_output(automation_account_name: Optional[pul
 
     :param _builtins.str automation_account_name: The name of the automation account.
     :param _builtins.str private_endpoint_connection_name: The name of the private endpoint connection.
-    :param _builtins.str resource_group_name: Name of an Azure Resource group.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name

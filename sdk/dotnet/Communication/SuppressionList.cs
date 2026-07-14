@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Communication
     /// 
     /// Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
     /// 
-    /// Other available API versions: 2024-09-01-preview, 2025-05-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2024-09-01-preview, 2025-05-01-preview, 2025-09-01, 2026-03-18. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:communication:SuppressionList")]
     public partial class SuppressionList : global::Pulumi.CustomResource
@@ -96,6 +96,7 @@ namespace Pulumi.AzureNative.Communication
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20240901preview:SuppressionList" },
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20250501preview:SuppressionList" },
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20250901:SuppressionList" },
+                    new global::Pulumi.Alias { Type = "azure-native:communication/v20260318:SuppressionList" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

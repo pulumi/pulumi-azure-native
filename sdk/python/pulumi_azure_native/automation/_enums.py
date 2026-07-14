@@ -29,7 +29,13 @@ class ContentSourceType(_builtins.str, Enum):
     Gets or sets the content source type.
     """
     EMBEDDED_CONTENT = "embeddedContent"
+    """
+    embeddedContent
+    """
     URI = "uri"
+    """
+    uri
+    """
 
 
 @pulumi.type_token("azure-native:automation:EncryptionKeySourceType")
@@ -38,7 +44,13 @@ class EncryptionKeySourceType(_builtins.str, Enum):
     Encryption Key Source
     """
     MICROSOFT_AUTOMATION = "Microsoft.Automation"
+    """
+    Microsoft.Automation
+    """
     MICROSOFT_KEYVAULT = "Microsoft.Keyvault"
+    """
+    Microsoft.Keyvault
+    """
 
 
 @pulumi.type_token("azure-native:automation:LinuxUpdateClasses")
@@ -47,9 +59,21 @@ class LinuxUpdateClasses(_builtins.str, Enum):
     Update classifications included in the software update configuration.
     """
     UNCLASSIFIED = "Unclassified"
+    """
+    Unclassified
+    """
     CRITICAL = "Critical"
+    """
+    Critical
+    """
     SECURITY = "Security"
+    """
+    Security
+    """
     OTHER = "Other"
+    """
+    Other
+    """
 
 
 @pulumi.type_token("azure-native:automation:OperatingSystemType")
@@ -58,7 +82,13 @@ class OperatingSystemType(_builtins.str, Enum):
     operating system of target machines
     """
     WINDOWS = "Windows"
+    """
+    Windows
+    """
     LINUX = "Linux"
+    """
+    Linux
+    """
 
 
 @pulumi.type_token("azure-native:automation:ResourceIdentityType")
@@ -67,9 +97,21 @@ class ResourceIdentityType(_builtins.str, Enum):
     The identity type.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
+    """
+    SystemAssigned
+    """
     USER_ASSIGNED = "UserAssigned"
+    """
+    UserAssigned
+    """
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
+    """
+    SystemAssigned, UserAssigned
+    """
     NONE = "None"
+    """
+    None
+    """
 
 
 @pulumi.type_token("azure-native:automation:RunbookTypeEnum")
@@ -78,15 +120,45 @@ class RunbookTypeEnum(_builtins.str, Enum):
     Gets or sets the type of the runbook.
     """
     SCRIPT = "Script"
+    """
+    Script
+    """
     GRAPH = "Graph"
+    """
+    Graph
+    """
     POWER_SHELL_WORKFLOW = "PowerShellWorkflow"
+    """
+    PowerShellWorkflow
+    """
     POWER_SHELL = "PowerShell"
+    """
+    PowerShell
+    """
     GRAPH_POWER_SHELL_WORKFLOW = "GraphPowerShellWorkflow"
+    """
+    GraphPowerShellWorkflow
+    """
     GRAPH_POWER_SHELL = "GraphPowerShell"
+    """
+    GraphPowerShell
+    """
     PYTHON2 = "Python2"
+    """
+    Python2
+    """
     PYTHON3 = "Python3"
+    """
+    Python3
+    """
     PYTHON = "Python"
+    """
+    Python
+    """
     POWER_SHELL72 = "PowerShell72"
+    """
+    PowerShell72
+    """
 
 
 @pulumi.type_token("azure-native:automation:ScheduleDay")
@@ -95,12 +167,33 @@ class ScheduleDay(_builtins.str, Enum):
     Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
     """
     MONDAY = "Monday"
+    """
+    Monday
+    """
     TUESDAY = "Tuesday"
+    """
+    Tuesday
+    """
     WEDNESDAY = "Wednesday"
+    """
+    Wednesday
+    """
     THURSDAY = "Thursday"
+    """
+    Thursday
+    """
     FRIDAY = "Friday"
+    """
+    Friday
+    """
     SATURDAY = "Saturday"
+    """
+    Saturday
+    """
     SUNDAY = "Sunday"
+    """
+    Sunday
+    """
 
 
 @pulumi.type_token("azure-native:automation:ScheduleFrequency")
@@ -109,10 +202,25 @@ class ScheduleFrequency(_builtins.str, Enum):
     Gets or sets the frequency of the schedule.
     """
     ONE_TIME = "OneTime"
+    """
+    OneTime
+    """
     DAY = "Day"
+    """
+    Day
+    """
     HOUR = "Hour"
+    """
+    Hour
+    """
     WEEK = "Week"
+    """
+    Week
+    """
     MONTH = "Month"
+    """
+    Month
+    """
     MINUTE = "Minute"
     """
     The minimum allowed interval for Minute schedules is 15 minutes.
@@ -125,7 +233,13 @@ class SkuNameEnum(_builtins.str, Enum):
     Gets or sets the SKU name of the account.
     """
     FREE = "Free"
+    """
+    Free
+    """
     BASIC = "Basic"
+    """
+    Basic
+    """
 
 
 @pulumi.type_token("azure-native:automation:SourceType")
@@ -134,8 +248,17 @@ class SourceType(_builtins.str, Enum):
     The source type. Must be one of VsoGit, VsoTfvc, GitHub, case sensitive.
     """
     VSO_GIT = "VsoGit"
+    """
+    VsoGit
+    """
     VSO_TFVC = "VsoTfvc"
+    """
+    VsoTfvc
+    """
     GIT_HUB = "GitHub"
+    """
+    GitHub
+    """
 
 
 @pulumi.type_token("azure-native:automation:TagOperators")
@@ -144,7 +267,13 @@ class TagOperators(_builtins.str, Enum):
     Filter VMs by Any or All specified tags.
     """
     ALL = "All"
+    """
+    All
+    """
     ANY = "Any"
+    """
+    Any
+    """
 
 
 @pulumi.type_token("azure-native:automation:TokenType")
@@ -153,7 +282,13 @@ class TokenType(_builtins.str, Enum):
     The token type. Must be either PersonalAccessToken or Oauth.
     """
     PERSONAL_ACCESS_TOKEN = "PersonalAccessToken"
+    """
+    PersonalAccessToken
+    """
     OAUTH = "Oauth"
+    """
+    Oauth
+    """
 
 
 @pulumi.type_token("azure-native:automation:WindowsUpdateClasses")
@@ -162,11 +297,38 @@ class WindowsUpdateClasses(_builtins.str, Enum):
     Update classification included in the software update configuration. A comma separated string with required values
     """
     UNCLASSIFIED = "Unclassified"
+    """
+    Unclassified
+    """
     CRITICAL = "Critical"
+    """
+    Critical
+    """
     SECURITY = "Security"
+    """
+    Security
+    """
     UPDATE_ROLLUP = "UpdateRollup"
+    """
+    UpdateRollup
+    """
     FEATURE_PACK = "FeaturePack"
+    """
+    FeaturePack
+    """
     SERVICE_PACK = "ServicePack"
+    """
+    ServicePack
+    """
     DEFINITION = "Definition"
+    """
+    Definition
+    """
     TOOLS = "Tools"
+    """
+    Tools
+    """
     UPDATES = "Updates"
+    """
+    Updates
+    """

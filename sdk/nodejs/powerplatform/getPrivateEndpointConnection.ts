@@ -23,7 +23,7 @@ export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionA
 
 export interface GetPrivateEndpointConnectionArgs {
     /**
-     * EnterprisePolicy for the Microsoft Azure subscription.
+     * The EnterprisePolicy name.
      */
     enterprisePolicyName: string;
     /**
@@ -65,7 +65,7 @@ export interface GetPrivateEndpointConnectionResult {
      */
     readonly provisioningState: string;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.powerplatform.SystemDataResponse;
     /**
@@ -89,7 +89,7 @@ export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConne
 
 export interface GetPrivateEndpointConnectionOutputArgs {
     /**
-     * EnterprisePolicy for the Microsoft Azure subscription.
+     * The EnterprisePolicy name.
      */
     enterprisePolicyName: pulumi.Input<string>;
     /**

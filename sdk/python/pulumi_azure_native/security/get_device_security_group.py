@@ -27,7 +27,7 @@ class GetDeviceSecurityGroupResult:
     """
     The device security group resource
     """
-    def __init__(__self__, allowlist_rules=None, azure_api_version=None, denylist_rules=None, id=None, name=None, threshold_rules=None, time_window_rules=None, type=None):
+    def __init__(__self__, allowlist_rules=None, azure_api_version=None, denylist_rules=None, id=None, name=None, system_data=None, threshold_rules=None, time_window_rules=None, type=None):
         if allowlist_rules and not isinstance(allowlist_rules, list):
             raise TypeError("Expected argument 'allowlist_rules' to be a list")
         pulumi.set(__self__, "allowlist_rules", allowlist_rules)
@@ -43,6 +43,9 @@ class GetDeviceSecurityGroupResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if threshold_rules and not isinstance(threshold_rules, list):
             raise TypeError("Expected argument 'threshold_rules' to be a list")
         pulumi.set(__self__, "threshold_rules", threshold_rules)
@@ -81,7 +84,7 @@ class GetDeviceSecurityGroupResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -89,9 +92,17 @@ class GetDeviceSecurityGroupResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @_builtins.property
     @pulumi.getter(name="thresholdRules")
@@ -113,7 +124,7 @@ class GetDeviceSecurityGroupResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -129,6 +140,7 @@ class AwaitableGetDeviceSecurityGroupResult(GetDeviceSecurityGroupResult):
             denylist_rules=self.denylist_rules,
             id=self.id,
             name=self.name,
+            system_data=self.system_data,
             threshold_rules=self.threshold_rules,
             time_window_rules=self.time_window_rules,
             type=self.type)
@@ -146,7 +158,7 @@ def get_device_security_group(device_security_group_name: Optional[_builtins.str
 
 
     :param _builtins.str device_security_group_name: The name of the device security group. Note that the name of the device security group is case insensitive.
-    :param _builtins.str resource_id: The identifier of the resource.
+    :param _builtins.str resource_id: The fully qualified Azure Resource manager identifier of the resource.
     """
     __args__ = dict()
     __args__['deviceSecurityGroupName'] = device_security_group_name
@@ -160,6 +172,7 @@ def get_device_security_group(device_security_group_name: Optional[_builtins.str
         denylist_rules=pulumi.get(__ret__, 'denylist_rules'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         threshold_rules=pulumi.get(__ret__, 'threshold_rules'),
         time_window_rules=pulumi.get(__ret__, 'time_window_rules'),
         type=pulumi.get(__ret__, 'type'))
@@ -175,7 +188,7 @@ def get_device_security_group_output(device_security_group_name: Optional[pulumi
 
 
     :param _builtins.str device_security_group_name: The name of the device security group. Note that the name of the device security group is case insensitive.
-    :param _builtins.str resource_id: The identifier of the resource.
+    :param _builtins.str resource_id: The fully qualified Azure Resource manager identifier of the resource.
     """
     __args__ = dict()
     __args__['deviceSecurityGroupName'] = device_security_group_name
@@ -188,6 +201,7 @@ def get_device_security_group_output(device_security_group_name: Optional[pulumi
         denylist_rules=pulumi.get(__response__, 'denylist_rules'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        system_data=pulumi.get(__response__, 'system_data'),
         threshold_rules=pulumi.get(__response__, 'threshold_rules'),
         time_window_rules=pulumi.get(__response__, 'time_window_rules'),
         type=pulumi.get(__response__, 'type')))

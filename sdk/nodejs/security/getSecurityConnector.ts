@@ -24,7 +24,7 @@ export function getSecurityConnector(args: GetSecurityConnectorArgs, opts?: pulu
 
 export interface GetSecurityConnectorArgs {
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -62,7 +62,7 @@ export interface GetSecurityConnectorResult {
      */
     readonly hierarchyIdentifierTrialEndDate: string;
     /**
-     * Resource Id
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -70,11 +70,11 @@ export interface GetSecurityConnectorResult {
      */
     readonly kind?: string;
     /**
-     * Location where the resource is stored
+     * The geo-location where the resource lives
      */
     readonly location?: string;
     /**
-     * Resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -86,11 +86,11 @@ export interface GetSecurityConnectorResult {
      */
     readonly systemData: outputs.security.SystemDataResponse;
     /**
-     * A list of key value pairs that describe the resource.
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
@@ -111,7 +111,7 @@ export function getSecurityConnectorOutput(args: GetSecurityConnectorOutputArgs,
 
 export interface GetSecurityConnectorOutputArgs {
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

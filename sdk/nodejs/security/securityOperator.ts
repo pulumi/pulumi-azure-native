@@ -48,11 +48,15 @@ export class SecurityOperator extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly identity: pulumi.Output<outputs.security.IdentityResponse | undefined>;
     /**
-     * Resource name
+     * The name of the resource
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
-     * Resource type
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.security.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
 
@@ -75,11 +79,13 @@ export class SecurityOperator extends pulumi.CustomResource {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -94,11 +100,11 @@ export class SecurityOperator extends pulumi.CustomResource {
  */
 export interface SecurityOperatorArgs {
     /**
-     * name of the pricing configuration
+     * Name of the pricing configuration.
      */
     pricingName: pulumi.Input<string>;
     /**
-     * name of the securityOperator
+     * Name of the security operator.
      */
     securityOperatorName?: pulumi.Input<string>;
 }

@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.Security
         public string RuleId { get; set; } = null!;
 
         /// <summary>
-        /// The scope of the Governance rules. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("scope", required: true)]
         public string Scope { get; set; } = null!;
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNative.Security
         public Input<string> RuleId { get; set; } = null!;
 
         /// <summary>
-        /// The scope of the Governance rules. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
@@ -86,6 +86,10 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly string AzureApiVersion;
         /// <summary>
+        /// The governance rule conditionSets - see examples
+        /// </summary>
+        public readonly ImmutableArray<object> ConditionSets;
+        /// <summary>
         /// Description of the governance rule
         /// </summary>
         public readonly string? Description;
@@ -102,7 +106,7 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly Outputs.GovernanceRuleEmailNotificationResponse? GovernanceEmailNotification;
         /// <summary>
-        /// Resource Id
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -122,7 +126,7 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly Outputs.GovernanceRuleMetadataResponse? Metadata;
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -146,17 +150,23 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly string SourceResourceType;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The tenantId (GUID)
         /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetGovernanceRuleResult(
             string azureApiVersion,
+
+            ImmutableArray<object> conditionSets,
 
             string? description,
 
@@ -188,11 +198,14 @@ namespace Pulumi.AzureNative.Security
 
             string sourceResourceType,
 
+            Outputs.SystemDataResponse systemData,
+
             string tenantId,
 
             string type)
         {
             AzureApiVersion = azureApiVersion;
+            ConditionSets = conditionSets;
             Description = description;
             DisplayName = displayName;
             ExcludedScopes = excludedScopes;
@@ -208,6 +221,7 @@ namespace Pulumi.AzureNative.Security
             RulePriority = rulePriority;
             RuleType = ruleType;
             SourceResourceType = sourceResourceType;
+            SystemData = systemData;
             TenantId = tenantId;
             Type = type;
         }

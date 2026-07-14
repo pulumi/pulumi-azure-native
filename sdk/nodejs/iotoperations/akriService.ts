@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * AkriService resource.
  *
  * Uses Azure REST API version 2026-03-01.
+ *
+ * Other available API versions: 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class AkriService extends pulumi.CustomResource {
     /**
@@ -99,7 +101,7 @@ export class AkriService extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:iotoperations/v20260301:AkriService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:iotoperations/v20260301:AkriService" }, { type: "azure-native:iotoperations/v20260701:AkriService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AkriService.__pulumiType, name, resourceInputs, opts);
     }

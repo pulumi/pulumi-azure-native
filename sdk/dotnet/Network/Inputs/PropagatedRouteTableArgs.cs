@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Network.Inputs
     public sealed class PropagatedRouteTableArgs : global::Pulumi.ResourceArgs
     {
         [Input("ids")]
-        private InputList<Inputs.SubResourceArgs>? _ids;
+        private InputList<Inputs.CommonSubResourceArgs>? _ids;
 
         /// <summary>
         /// The list of resource ids of all the RouteTables.
         /// </summary>
-        public InputList<Inputs.SubResourceArgs> Ids
+        public InputList<Inputs.CommonSubResourceArgs> Ids
         {
-            get => _ids ?? (_ids = new InputList<Inputs.SubResourceArgs>());
+            get => _ids ?? (_ids = new InputList<Inputs.CommonSubResourceArgs>());
             set => _ids = value;
         }
 

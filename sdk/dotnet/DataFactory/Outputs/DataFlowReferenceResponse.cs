@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// Data flow parameters
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Parameters;
+        public readonly object? Parameters;
         /// <summary>
         /// Reference data flow name.
         /// </summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         private DataFlowReferenceResponse(
             object? datasetParameters,
 
-            ImmutableDictionary<string, object>? parameters,
+            object? parameters,
 
             string referenceName,
 

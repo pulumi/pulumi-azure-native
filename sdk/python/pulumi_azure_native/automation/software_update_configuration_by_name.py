@@ -26,17 +26,17 @@ class SoftwareUpdateConfigurationByNameArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  schedule_info: pulumi.Input['SUCSchedulePropertiesArgs'],
                  update_configuration: pulumi.Input['UpdateConfigurationArgs'],
-                 error: Optional[pulumi.Input['ErrorResponseArgs']] = None,
+                 error: Optional[pulumi.Input['AutomationErrorResponseArgs']] = None,
                  software_update_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tasks: Optional[pulumi.Input['SoftwareUpdateConfigurationTasksArgs']] = None):
         """
         The set of arguments for constructing a SoftwareUpdateConfigurationByName resource.
 
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SUCSchedulePropertiesArgs'] schedule_info: Schedule information for the Software update configuration
         :param pulumi.Input['UpdateConfigurationArgs'] update_configuration: update specific properties for the Software update configuration
-        :param pulumi.Input['ErrorResponseArgs'] error: Details of provisioning error
+        :param pulumi.Input['AutomationErrorResponseArgs'] error: Details of provisioning error
         :param pulumi.Input[_builtins.str] software_update_configuration_name: The name of the software update configuration to be created.
         :param pulumi.Input['SoftwareUpdateConfigurationTasksArgs'] tasks: Tasks information for the Software update configuration.
         """
@@ -67,7 +67,7 @@ class SoftwareUpdateConfigurationByNameArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of an Azure Resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -101,14 +101,14 @@ class SoftwareUpdateConfigurationByNameArgs:
 
     @_builtins.property
     @pulumi.getter
-    def error(self) -> Optional[pulumi.Input['ErrorResponseArgs']]:
+    def error(self) -> Optional[pulumi.Input['AutomationErrorResponseArgs']]:
         """
         Details of provisioning error
         """
         return pulumi.get(self, "error")
 
     @error.setter
-    def error(self, value: Optional[pulumi.Input['ErrorResponseArgs']]):
+    def error(self, value: Optional[pulumi.Input['AutomationErrorResponseArgs']]):
         pulumi.set(self, "error", value)
 
     @_builtins.property
@@ -143,7 +143,7 @@ class SoftwareUpdateConfigurationByName(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 error: Optional[pulumi.Input[Union['ErrorResponseArgs', 'ErrorResponseArgsDict']]] = None,
+                 error: Optional[pulumi.Input[Union['AutomationErrorResponseArgs', 'AutomationErrorResponseArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  schedule_info: Optional[pulumi.Input[Union['SUCSchedulePropertiesArgs', 'SUCSchedulePropertiesArgsDict']]] = None,
                  software_update_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -161,8 +161,8 @@ class SoftwareUpdateConfigurationByName(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
-        :param pulumi.Input[Union['ErrorResponseArgs', 'ErrorResponseArgsDict']] error: Details of provisioning error
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[Union['AutomationErrorResponseArgs', 'AutomationErrorResponseArgsDict']] error: Details of provisioning error
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['SUCSchedulePropertiesArgs', 'SUCSchedulePropertiesArgsDict']] schedule_info: Schedule information for the Software update configuration
         :param pulumi.Input[_builtins.str] software_update_configuration_name: The name of the software update configuration to be created.
         :param pulumi.Input[Union['SoftwareUpdateConfigurationTasksArgs', 'SoftwareUpdateConfigurationTasksArgsDict']] tasks: Tasks information for the Software update configuration.
@@ -198,7 +198,7 @@ class SoftwareUpdateConfigurationByName(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 error: Optional[pulumi.Input[Union['ErrorResponseArgs', 'ErrorResponseArgsDict']]] = None,
+                 error: Optional[pulumi.Input[Union['AutomationErrorResponseArgs', 'AutomationErrorResponseArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  schedule_info: Optional[pulumi.Input[Union['SUCSchedulePropertiesArgs', 'SUCSchedulePropertiesArgsDict']]] = None,
                  software_update_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -235,6 +235,7 @@ class SoftwareUpdateConfigurationByName(pulumi.CustomResource):
             __props__.__dict__["last_modified_time"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation/v20170515preview:SoftwareUpdateConfigurationByName"), pulumi.Alias(type_="azure-native:automation/v20190601:SoftwareUpdateConfigurationByName"), pulumi.Alias(type_="azure-native:automation/v20230515preview:SoftwareUpdateConfigurationByName"), pulumi.Alias(type_="azure-native:automation/v20241023:SoftwareUpdateConfigurationByName")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -269,6 +270,7 @@ class SoftwareUpdateConfigurationByName(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["schedule_info"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tasks"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["update_configuration"] = None
@@ -300,7 +302,7 @@ class SoftwareUpdateConfigurationByName(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def error(self) -> pulumi.Output[Optional['outputs.ErrorResponseResponse']]:
+    def error(self) -> pulumi.Output[Optional['outputs.AutomationErrorResponseResponse']]:
         """
         Details of provisioning error
         """
@@ -326,7 +328,7 @@ class SoftwareUpdateConfigurationByName(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -347,6 +349,14 @@ class SoftwareUpdateConfigurationByName(pulumi.CustomResource):
         return pulumi.get(self, "schedule_info")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def tasks(self) -> pulumi.Output[Optional['outputs.SoftwareUpdateConfigurationTasksResponse']]:
         """
@@ -358,7 +368,7 @@ class SoftwareUpdateConfigurationByName(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

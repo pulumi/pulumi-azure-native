@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Gets the details of the API Tool specified by its identifier.
         /// 
         /// Uses Azure REST API version 2025-03-01-preview.
+        /// 
+        /// Other available API versions: 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetApiToolResult> InvokeAsync(GetApiToolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiToolResult>("azure-native:apimanagement:getApiTool", args ?? new GetApiToolArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Gets the details of the API Tool specified by its identifier.
         /// 
         /// Uses Azure REST API version 2025-03-01-preview.
+        /// 
+        /// Other available API versions: 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetApiToolResult> Invoke(GetApiToolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiToolResult>("azure-native:apimanagement:getApiTool", args ?? new GetApiToolInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Gets the details of the API Tool specified by its identifier.
         /// 
         /// Uses Azure REST API version 2025-03-01-preview.
+        /// 
+        /// Other available API versions: 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetApiToolResult> Invoke(GetApiToolInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiToolResult>("azure-native:apimanagement:getApiTool", args ?? new GetApiToolInvokeArgs(), options.WithDefaults());

@@ -91,7 +91,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// Spark configuration property.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? SparkConfig;
+        public readonly object? SparkConfig;
         /// <summary>
         /// Synapse spark job reference.
         /// </summary>
@@ -156,7 +156,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? scanFolder,
 
-            ImmutableDictionary<string, object>? sparkConfig,
+            object? sparkConfig,
 
             Outputs.SynapseSparkJobReferenceResponse sparkJob,
 

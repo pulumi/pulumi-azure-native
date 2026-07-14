@@ -30,7 +30,7 @@ class HybridRunbookWorkerGroupArgs:
         The set of arguments for constructing a HybridRunbookWorkerGroup resource.
 
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['RunAsCredentialAssociationPropertyArgs'] credential: Sets the credential of a worker group.
         :param pulumi.Input[_builtins.str] hybrid_runbook_worker_group_name: The hybrid runbook worker group name
         :param pulumi.Input[_builtins.str] name: Gets or sets the name of the resource.
@@ -60,7 +60,7 @@ class HybridRunbookWorkerGroupArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of an Azure Resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -131,7 +131,7 @@ class HybridRunbookWorkerGroup(pulumi.CustomResource):
         :param pulumi.Input[Union['RunAsCredentialAssociationPropertyArgs', 'RunAsCredentialAssociationPropertyArgsDict']] credential: Sets the credential of a worker group.
         :param pulumi.Input[_builtins.str] hybrid_runbook_worker_group_name: The hybrid runbook worker group name
         :param pulumi.Input[_builtins.str] name: Gets or sets the name of the resource.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
     @overload

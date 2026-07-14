@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Microsoft Defender for Cloud is provided in two pricing tiers: free and standard. The standard tier offers advanced security capabilities, while the free tier offers basic security features.
  *
  * Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2024-01-01.
+ *
+ * Other available API versions: 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Pricing extends pulumi.CustomResource {
     /**
@@ -72,7 +74,7 @@ export class Pricing extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly inheritedFrom: pulumi.Output<string>;
     /**
-     * Resource name
+     * The name of the resource
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
@@ -92,7 +94,11 @@ export class Pricing extends pulumi.CustomResource {
      */
     declare public readonly subPlan: pulumi.Output<string | undefined>;
     /**
-     * Resource type
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.security.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
 
@@ -128,6 +134,7 @@ export class Pricing extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["replacedBy"] = undefined /*out*/;
             resourceInputs["resourcesCoverageStatus"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -143,10 +150,11 @@ export class Pricing extends pulumi.CustomResource {
             resourceInputs["replacedBy"] = undefined /*out*/;
             resourceInputs["resourcesCoverageStatus"] = undefined /*out*/;
             resourceInputs["subPlan"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:security/v20240101:Pricing" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security/v20240101:Pricing" }, { type: "azure-native:security/v20251001preview:Pricing" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Pricing.__pulumiType, name, resourceInputs, opts);
     }
@@ -173,7 +181,7 @@ export interface PricingArgs {
      */
     pricingTier: pulumi.Input<string | enums.security.PricingTier>;
     /**
-     * The scope id of the pricing. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or a specific resource (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}) - Supported resources are (VirtualMachines)
+     * The fully qualified Azure Resource manager identifier of the resource.
      */
     scopeId: pulumi.Input<string>;
     /**

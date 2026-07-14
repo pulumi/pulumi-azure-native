@@ -44,7 +44,7 @@ namespace Pulumi.AzureNative.ResourceGraph
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource name. This is GUID value. The display name should be assigned within properties field.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -62,13 +62,13 @@ namespace Pulumi.AzureNative.ResourceGraph
         public Output<string> ResultKind { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to this resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNative.ResourceGraph
         public Output<string> TimeModified { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -173,7 +173,7 @@ namespace Pulumi.AzureNative.ResourceGraph
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {

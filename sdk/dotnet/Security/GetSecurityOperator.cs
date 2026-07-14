@@ -40,13 +40,13 @@ namespace Pulumi.AzureNative.Security
     public sealed class GetSecurityOperatorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// name of the pricing configuration
+        /// Name of the pricing configuration.
         /// </summary>
         [Input("pricingName", required: true)]
         public string PricingName { get; set; } = null!;
 
         /// <summary>
-        /// name of the securityOperator
+        /// Name of the security operator.
         /// </summary>
         [Input("securityOperatorName", required: true)]
         public string SecurityOperatorName { get; set; } = null!;
@@ -60,13 +60,13 @@ namespace Pulumi.AzureNative.Security
     public sealed class GetSecurityOperatorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// name of the pricing configuration
+        /// Name of the pricing configuration.
         /// </summary>
         [Input("pricingName", required: true)]
         public Input<string> PricingName { get; set; } = null!;
 
         /// <summary>
-        /// name of the securityOperator
+        /// Name of the security operator.
         /// </summary>
         [Input("securityOperatorName", required: true)]
         public Input<string> SecurityOperatorName { get; set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly string AzureApiVersion;
         /// <summary>
-        /// Resource Id
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -94,11 +94,15 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Resource type
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -112,12 +116,15 @@ namespace Pulumi.AzureNative.Security
 
             string name,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             AzureApiVersion = azureApiVersion;
             Id = id;
             Identity = identity;
             Name = name;
+            SystemData = systemData;
             Type = type;
         }
     }

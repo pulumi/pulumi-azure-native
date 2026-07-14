@@ -20,7 +20,13 @@ namespace Pulumi.AzureNative.Automation
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// embeddedContent
+        /// </summary>
         public static ContentSourceType EmbeddedContent { get; } = new ContentSourceType("embeddedContent");
+        /// <summary>
+        /// uri
+        /// </summary>
         public static ContentSourceType Uri { get; } = new ContentSourceType("uri");
 
         public static bool operator ==(ContentSourceType left, ContentSourceType right) => left.Equals(right);
@@ -51,7 +57,13 @@ namespace Pulumi.AzureNative.Automation
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Microsoft.Automation
+        /// </summary>
         public static EncryptionKeySourceType Microsoft_Automation { get; } = new EncryptionKeySourceType("Microsoft.Automation");
+        /// <summary>
+        /// Microsoft.Keyvault
+        /// </summary>
         public static EncryptionKeySourceType Microsoft_Keyvault { get; } = new EncryptionKeySourceType("Microsoft.Keyvault");
 
         public static bool operator ==(EncryptionKeySourceType left, EncryptionKeySourceType right) => left.Equals(right);
@@ -82,9 +94,21 @@ namespace Pulumi.AzureNative.Automation
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Unclassified
+        /// </summary>
         public static LinuxUpdateClasses Unclassified { get; } = new LinuxUpdateClasses("Unclassified");
+        /// <summary>
+        /// Critical
+        /// </summary>
         public static LinuxUpdateClasses Critical { get; } = new LinuxUpdateClasses("Critical");
+        /// <summary>
+        /// Security
+        /// </summary>
         public static LinuxUpdateClasses Security { get; } = new LinuxUpdateClasses("Security");
+        /// <summary>
+        /// Other
+        /// </summary>
         public static LinuxUpdateClasses Other { get; } = new LinuxUpdateClasses("Other");
 
         public static bool operator ==(LinuxUpdateClasses left, LinuxUpdateClasses right) => left.Equals(right);
@@ -115,7 +139,13 @@ namespace Pulumi.AzureNative.Automation
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Windows
+        /// </summary>
         public static OperatingSystemType Windows { get; } = new OperatingSystemType("Windows");
+        /// <summary>
+        /// Linux
+        /// </summary>
         public static OperatingSystemType Linux { get; } = new OperatingSystemType("Linux");
 
         public static bool operator ==(OperatingSystemType left, OperatingSystemType right) => left.Equals(right);
@@ -146,9 +176,21 @@ namespace Pulumi.AzureNative.Automation
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// SystemAssigned
+        /// </summary>
         public static ResourceIdentityType SystemAssigned { get; } = new ResourceIdentityType("SystemAssigned");
+        /// <summary>
+        /// UserAssigned
+        /// </summary>
         public static ResourceIdentityType UserAssigned { get; } = new ResourceIdentityType("UserAssigned");
+        /// <summary>
+        /// SystemAssigned, UserAssigned
+        /// </summary>
         public static ResourceIdentityType SystemAssigned_UserAssigned { get; } = new ResourceIdentityType("SystemAssigned, UserAssigned");
+        /// <summary>
+        /// None
+        /// </summary>
         public static ResourceIdentityType None { get; } = new ResourceIdentityType("None");
 
         public static bool operator ==(ResourceIdentityType left, ResourceIdentityType right) => left.Equals(right);
@@ -179,15 +221,45 @@ namespace Pulumi.AzureNative.Automation
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Script
+        /// </summary>
         public static RunbookTypeEnum Script { get; } = new RunbookTypeEnum("Script");
+        /// <summary>
+        /// Graph
+        /// </summary>
         public static RunbookTypeEnum Graph { get; } = new RunbookTypeEnum("Graph");
+        /// <summary>
+        /// PowerShellWorkflow
+        /// </summary>
         public static RunbookTypeEnum PowerShellWorkflow { get; } = new RunbookTypeEnum("PowerShellWorkflow");
+        /// <summary>
+        /// PowerShell
+        /// </summary>
         public static RunbookTypeEnum PowerShell { get; } = new RunbookTypeEnum("PowerShell");
+        /// <summary>
+        /// GraphPowerShellWorkflow
+        /// </summary>
         public static RunbookTypeEnum GraphPowerShellWorkflow { get; } = new RunbookTypeEnum("GraphPowerShellWorkflow");
+        /// <summary>
+        /// GraphPowerShell
+        /// </summary>
         public static RunbookTypeEnum GraphPowerShell { get; } = new RunbookTypeEnum("GraphPowerShell");
+        /// <summary>
+        /// Python2
+        /// </summary>
         public static RunbookTypeEnum Python2 { get; } = new RunbookTypeEnum("Python2");
+        /// <summary>
+        /// Python3
+        /// </summary>
         public static RunbookTypeEnum Python3 { get; } = new RunbookTypeEnum("Python3");
+        /// <summary>
+        /// Python
+        /// </summary>
         public static RunbookTypeEnum Python { get; } = new RunbookTypeEnum("Python");
+        /// <summary>
+        /// PowerShell72
+        /// </summary>
         public static RunbookTypeEnum PowerShell72 { get; } = new RunbookTypeEnum("PowerShell72");
 
         public static bool operator ==(RunbookTypeEnum left, RunbookTypeEnum right) => left.Equals(right);
@@ -218,12 +290,33 @@ namespace Pulumi.AzureNative.Automation
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Monday
+        /// </summary>
         public static ScheduleDay Monday { get; } = new ScheduleDay("Monday");
+        /// <summary>
+        /// Tuesday
+        /// </summary>
         public static ScheduleDay Tuesday { get; } = new ScheduleDay("Tuesday");
+        /// <summary>
+        /// Wednesday
+        /// </summary>
         public static ScheduleDay Wednesday { get; } = new ScheduleDay("Wednesday");
+        /// <summary>
+        /// Thursday
+        /// </summary>
         public static ScheduleDay Thursday { get; } = new ScheduleDay("Thursday");
+        /// <summary>
+        /// Friday
+        /// </summary>
         public static ScheduleDay Friday { get; } = new ScheduleDay("Friday");
+        /// <summary>
+        /// Saturday
+        /// </summary>
         public static ScheduleDay Saturday { get; } = new ScheduleDay("Saturday");
+        /// <summary>
+        /// Sunday
+        /// </summary>
         public static ScheduleDay Sunday { get; } = new ScheduleDay("Sunday");
 
         public static bool operator ==(ScheduleDay left, ScheduleDay right) => left.Equals(right);
@@ -254,10 +347,25 @@ namespace Pulumi.AzureNative.Automation
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// OneTime
+        /// </summary>
         public static ScheduleFrequency OneTime { get; } = new ScheduleFrequency("OneTime");
+        /// <summary>
+        /// Day
+        /// </summary>
         public static ScheduleFrequency Day { get; } = new ScheduleFrequency("Day");
+        /// <summary>
+        /// Hour
+        /// </summary>
         public static ScheduleFrequency Hour { get; } = new ScheduleFrequency("Hour");
+        /// <summary>
+        /// Week
+        /// </summary>
         public static ScheduleFrequency Week { get; } = new ScheduleFrequency("Week");
+        /// <summary>
+        /// Month
+        /// </summary>
         public static ScheduleFrequency Month { get; } = new ScheduleFrequency("Month");
         /// <summary>
         /// The minimum allowed interval for Minute schedules is 15 minutes.
@@ -292,7 +400,13 @@ namespace Pulumi.AzureNative.Automation
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Free
+        /// </summary>
         public static SkuNameEnum Free { get; } = new SkuNameEnum("Free");
+        /// <summary>
+        /// Basic
+        /// </summary>
         public static SkuNameEnum Basic { get; } = new SkuNameEnum("Basic");
 
         public static bool operator ==(SkuNameEnum left, SkuNameEnum right) => left.Equals(right);
@@ -323,8 +437,17 @@ namespace Pulumi.AzureNative.Automation
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// VsoGit
+        /// </summary>
         public static SourceType VsoGit { get; } = new SourceType("VsoGit");
+        /// <summary>
+        /// VsoTfvc
+        /// </summary>
         public static SourceType VsoTfvc { get; } = new SourceType("VsoTfvc");
+        /// <summary>
+        /// GitHub
+        /// </summary>
         public static SourceType GitHub { get; } = new SourceType("GitHub");
 
         public static bool operator ==(SourceType left, SourceType right) => left.Equals(right);
@@ -355,7 +478,13 @@ namespace Pulumi.AzureNative.Automation
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// All
+        /// </summary>
         public static TagOperators All { get; } = new TagOperators("All");
+        /// <summary>
+        /// Any
+        /// </summary>
         public static TagOperators Any { get; } = new TagOperators("Any");
 
         public static bool operator ==(TagOperators left, TagOperators right) => left.Equals(right);
@@ -386,7 +515,13 @@ namespace Pulumi.AzureNative.Automation
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// PersonalAccessToken
+        /// </summary>
         public static TokenType PersonalAccessToken { get; } = new TokenType("PersonalAccessToken");
+        /// <summary>
+        /// Oauth
+        /// </summary>
         public static TokenType Oauth { get; } = new TokenType("Oauth");
 
         public static bool operator ==(TokenType left, TokenType right) => left.Equals(right);
@@ -417,14 +552,41 @@ namespace Pulumi.AzureNative.Automation
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Unclassified
+        /// </summary>
         public static WindowsUpdateClasses Unclassified { get; } = new WindowsUpdateClasses("Unclassified");
+        /// <summary>
+        /// Critical
+        /// </summary>
         public static WindowsUpdateClasses Critical { get; } = new WindowsUpdateClasses("Critical");
+        /// <summary>
+        /// Security
+        /// </summary>
         public static WindowsUpdateClasses Security { get; } = new WindowsUpdateClasses("Security");
+        /// <summary>
+        /// UpdateRollup
+        /// </summary>
         public static WindowsUpdateClasses UpdateRollup { get; } = new WindowsUpdateClasses("UpdateRollup");
+        /// <summary>
+        /// FeaturePack
+        /// </summary>
         public static WindowsUpdateClasses FeaturePack { get; } = new WindowsUpdateClasses("FeaturePack");
+        /// <summary>
+        /// ServicePack
+        /// </summary>
         public static WindowsUpdateClasses ServicePack { get; } = new WindowsUpdateClasses("ServicePack");
+        /// <summary>
+        /// Definition
+        /// </summary>
         public static WindowsUpdateClasses Definition { get; } = new WindowsUpdateClasses("Definition");
+        /// <summary>
+        /// Tools
+        /// </summary>
         public static WindowsUpdateClasses Tools { get; } = new WindowsUpdateClasses("Tools");
+        /// <summary>
+        /// Updates
+        /// </summary>
         public static WindowsUpdateClasses Updates { get; } = new WindowsUpdateClasses("Updates");
 
         public static bool operator ==(WindowsUpdateClasses left, WindowsUpdateClasses right) => left.Equals(right);

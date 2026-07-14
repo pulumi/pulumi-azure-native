@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// List of user assigned identities for the factory.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? UserAssignedIdentities;
+        public readonly object? UserAssignedIdentities;
 
         [OutputConstructor]
         private FactoryIdentityResponse(
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string type,
 
-            ImmutableDictionary<string, object>? userAssignedIdentities)
+            object? userAssignedIdentities)
         {
             PrincipalId = principalId;
             TenantId = tenantId;

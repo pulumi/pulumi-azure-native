@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Monitor.Outputs
         /// <summary>
         /// The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
         /// </summary>
-        public readonly Outputs.ConditionResponseFailingPeriods? FailingPeriods;
+        public readonly Outputs.ConditionFailingPeriodsResponse? FailingPeriods;
         /// <summary>
         /// Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format). Relevant only for dynamic threshold rules of the kind LogAlert.
         /// </summary>
@@ -77,7 +77,7 @@ namespace Pulumi.AzureNative.Monitor.Outputs
 
             ImmutableArray<Outputs.DimensionResponse> dimensions,
 
-            Outputs.ConditionResponseFailingPeriods? failingPeriods,
+            Outputs.ConditionFailingPeriodsResponse? failingPeriods,
 
             string? ignoreDataBefore,
 

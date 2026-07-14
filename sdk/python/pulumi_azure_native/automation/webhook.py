@@ -36,7 +36,7 @@ class WebhookArgs:
 
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
         :param pulumi.Input[_builtins.str] name: Gets or sets the name of the webhook.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] expiry_time: Gets or sets the expiry time.
         :param pulumi.Input[_builtins.bool] is_enabled: Gets or sets the value of the enabled flag of webhook.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Gets or sets the parameters of the job.
@@ -91,7 +91,7 @@ class WebhookArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of an Azure Resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -216,7 +216,7 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] is_enabled: Gets or sets the value of the enabled flag of webhook.
         :param pulumi.Input[_builtins.str] name: Gets or sets the name of the webhook.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Gets or sets the parameters of the job.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] run_on: Gets or sets the name of the hybrid worker group the webhook job will run on.
         :param pulumi.Input[Union['RunbookAssociationPropertyArgs', 'RunbookAssociationPropertyArgsDict']] runbook: Gets or sets the runbook.
         :param pulumi.Input[_builtins.str] uri: Gets or sets the uri.

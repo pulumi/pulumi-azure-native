@@ -300,6 +300,16 @@ export const EncryptionScopeState = {
  */
 export type EncryptionScopeState = (typeof EncryptionScopeState)[keyof typeof EncryptionScopeState];
 
+export const FirewallSku = {
+    Standard: "Standard",
+    Basic: "Basic",
+} as const;
+
+/**
+ * Firewall Sku used for FQDN Rules
+ */
+export type FirewallSku = (typeof FirewallSku)[keyof typeof FirewallSku];
+
 export const HostingModel = {
     Web: "Web",
     ConnectedContainer: "ConnectedContainer",
@@ -360,6 +370,17 @@ export const IdentityManagementType = {
  */
 export type IdentityManagementType = (typeof IdentityManagementType)[keyof typeof IdentityManagementType];
 
+export const IsolationMode = {
+    Disabled: "Disabled",
+    AllowInternetOutbound: "AllowInternetOutbound",
+    AllowOnlyApprovedOutbound: "AllowOnlyApprovedOutbound",
+} as const;
+
+/**
+ * Isolation mode for the managed network of a cognitive services account.
+ */
+export type IsolationMode = (typeof IsolationMode)[keyof typeof IsolationMode];
+
 export const KeySource = {
     Microsoft_CognitiveServices: "Microsoft.CognitiveServices",
     Microsoft_KeyVault: "Microsoft.KeyVault",
@@ -369,6 +390,26 @@ export const KeySource = {
  * Enumerates the possible value of keySource for Encryption
  */
 export type KeySource = (typeof KeySource)[keyof typeof KeySource];
+
+export const ManagedNetworkKind = {
+    V1: "V1",
+    V2: "V2",
+} as const;
+
+/**
+ * The Kind of the managed network. Users can switch from V1 to V2 for granular access controls, but cannot switch back to V1 once V2 is enabled.
+ */
+export type ManagedNetworkKind = (typeof ManagedNetworkKind)[keyof typeof ManagedNetworkKind];
+
+export const ManagedNetworkStatus = {
+    Inactive: "Inactive",
+    Active: "Active",
+} as const;
+
+/**
+ * Status for the managed network of a cognitive services account.
+ */
+export type ManagedNetworkStatus = (typeof ManagedNetworkStatus)[keyof typeof ManagedNetworkStatus];
 
 export const ManagedPERequirement = {
     Required: "Required",
@@ -484,6 +525,16 @@ export const RoutingMethods = {
  * Multiregion routing methods.
  */
 export type RoutingMethods = (typeof RoutingMethods)[keyof typeof RoutingMethods];
+
+export const RuleAction = {
+    Allow: "Allow",
+    Deny: "Deny",
+} as const;
+
+/**
+ * The action for the service tag outbound rule.
+ */
+export type RuleAction = (typeof RuleAction)[keyof typeof RuleAction];
 
 export const RuleCategory = {
     Required: "Required",

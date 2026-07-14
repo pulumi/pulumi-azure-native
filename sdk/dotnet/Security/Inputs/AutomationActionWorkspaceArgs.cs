@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Security.Inputs
     public sealed class AutomationActionWorkspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of the action that will be triggered by the Automation
+        /// Enum. Indicates the action type.
         /// Expected value is 'Workspace'.
         /// </summary>
         [Input("actionType", required: true)]

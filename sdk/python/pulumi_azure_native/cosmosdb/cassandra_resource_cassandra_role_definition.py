@@ -174,7 +174,7 @@ class CassandraResourceCassandraRoleDefinition(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-05-01-preview.
 
-        Other available API versions: 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2025-11-01-preview, 2026-03-15, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -199,7 +199,7 @@ class CassandraResourceCassandraRoleDefinition(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-05-01-preview.
 
-        Other available API versions: 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2025-11-01-preview, 2026-03-15, 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -249,7 +249,7 @@ class CassandraResourceCassandraRoleDefinition(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cosmosdb/v20250501preview:CassandraResourceCassandraRoleDefinition"), pulumi.Alias(type_="azure-native:cosmosdb/v20251101preview:CassandraResourceCassandraRoleDefinition")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cosmosdb/v20250501preview:CassandraResourceCassandraRoleDefinition"), pulumi.Alias(type_="azure-native:cosmosdb/v20251101preview:CassandraResourceCassandraRoleDefinition"), pulumi.Alias(type_="azure-native:cosmosdb/v20260315:CassandraResourceCassandraRoleDefinition"), pulumi.Alias(type_="azure-native:cosmosdb/v20260401preview:CassandraResourceCassandraRoleDefinition")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CassandraResourceCassandraRoleDefinition, __self__).__init__(
             'azure-native:cosmosdb:CassandraResourceCassandraRoleDefinition',

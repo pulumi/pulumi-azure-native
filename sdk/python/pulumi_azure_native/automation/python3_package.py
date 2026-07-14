@@ -31,8 +31,8 @@ class Python3PackageArgs:
 
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
         :param pulumi.Input['ContentLinkArgs'] content_link: Gets or sets the module content link.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
-        :param pulumi.Input[_builtins.str] package_name: The name of python package.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] package_name: The python package name.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Gets or sets the tags attached to the resource.
         """
         pulumi.set(__self__, "automation_account_name", automation_account_name)
@@ -71,7 +71,7 @@ class Python3PackageArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of an Azure Resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -83,7 +83,7 @@ class Python3PackageArgs:
     @pulumi.getter(name="packageName")
     def package_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of python package.
+        The python package name.
         """
         return pulumi.get(self, "package_name")
 
@@ -128,8 +128,8 @@ class Python3Package(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
         :param pulumi.Input[Union['ContentLinkArgs', 'ContentLinkArgsDict']] content_link: Gets or sets the module content link.
-        :param pulumi.Input[_builtins.str] package_name: The name of python package.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[_builtins.str] package_name: The python package name.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Gets or sets the tags attached to the resource.
         """
         ...

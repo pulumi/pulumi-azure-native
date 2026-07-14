@@ -27,10 +27,13 @@ class GetGovernanceRuleResult:
     """
     Governance rule over a given scope
     """
-    def __init__(__self__, azure_api_version=None, description=None, display_name=None, excluded_scopes=None, governance_email_notification=None, id=None, include_member_scopes=None, is_disabled=None, is_grace_period=None, metadata=None, name=None, owner_source=None, remediation_timeframe=None, rule_priority=None, rule_type=None, source_resource_type=None, tenant_id=None, type=None):
+    def __init__(__self__, azure_api_version=None, condition_sets=None, description=None, display_name=None, excluded_scopes=None, governance_email_notification=None, id=None, include_member_scopes=None, is_disabled=None, is_grace_period=None, metadata=None, name=None, owner_source=None, remediation_timeframe=None, rule_priority=None, rule_type=None, source_resource_type=None, system_data=None, tenant_id=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
+        if condition_sets and not isinstance(condition_sets, list):
+            raise TypeError("Expected argument 'condition_sets' to be a list")
+        pulumi.set(__self__, "condition_sets", condition_sets)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -76,6 +79,9 @@ class GetGovernanceRuleResult:
         if source_resource_type and not isinstance(source_resource_type, str):
             raise TypeError("Expected argument 'source_resource_type' to be a str")
         pulumi.set(__self__, "source_resource_type", source_resource_type)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tenant_id and not isinstance(tenant_id, str):
             raise TypeError("Expected argument 'tenant_id' to be a str")
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -90,6 +96,14 @@ class GetGovernanceRuleResult:
         The Azure API version of the resource.
         """
         return pulumi.get(self, "azure_api_version")
+
+    @_builtins.property
+    @pulumi.getter(name="conditionSets")
+    def condition_sets(self) -> Sequence[Any]:
+        """
+        The governance rule conditionSets - see examples
+        """
+        return pulumi.get(self, "condition_sets")
 
     @_builtins.property
     @pulumi.getter
@@ -127,7 +141,7 @@ class GetGovernanceRuleResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -167,7 +181,7 @@ class GetGovernanceRuleResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -212,6 +226,14 @@ class GetGovernanceRuleResult:
         return pulumi.get(self, "source_resource_type")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> _builtins.str:
         """
@@ -223,7 +245,7 @@ class GetGovernanceRuleResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -235,6 +257,7 @@ class AwaitableGetGovernanceRuleResult(GetGovernanceRuleResult):
             yield self
         return GetGovernanceRuleResult(
             azure_api_version=self.azure_api_version,
+            condition_sets=self.condition_sets,
             description=self.description,
             display_name=self.display_name,
             excluded_scopes=self.excluded_scopes,
@@ -250,6 +273,7 @@ class AwaitableGetGovernanceRuleResult(GetGovernanceRuleResult):
             rule_priority=self.rule_priority,
             rule_type=self.rule_type,
             source_resource_type=self.source_resource_type,
+            system_data=self.system_data,
             tenant_id=self.tenant_id,
             type=self.type)
 
@@ -264,7 +288,7 @@ def get_governance_rule(rule_id: Optional[_builtins.str] = None,
 
 
     :param _builtins.str rule_id: The governance rule key - unique key for the standard governance rule (GUID)
-    :param _builtins.str scope: The scope of the Governance rules. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
+    :param _builtins.str scope: The fully qualified Azure Resource manager identifier of the resource.
     """
     __args__ = dict()
     __args__['ruleId'] = rule_id
@@ -274,6 +298,7 @@ def get_governance_rule(rule_id: Optional[_builtins.str] = None,
 
     return AwaitableGetGovernanceRuleResult(
         azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
+        condition_sets=pulumi.get(__ret__, 'condition_sets'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         excluded_scopes=pulumi.get(__ret__, 'excluded_scopes'),
@@ -289,6 +314,7 @@ def get_governance_rule(rule_id: Optional[_builtins.str] = None,
         rule_priority=pulumi.get(__ret__, 'rule_priority'),
         rule_type=pulumi.get(__ret__, 'rule_type'),
         source_resource_type=pulumi.get(__ret__, 'source_resource_type'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
 def get_governance_rule_output(rule_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -301,7 +327,7 @@ def get_governance_rule_output(rule_id: Optional[pulumi.Input[_builtins.str]] = 
 
 
     :param _builtins.str rule_id: The governance rule key - unique key for the standard governance rule (GUID)
-    :param _builtins.str scope: The scope of the Governance rules. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
+    :param _builtins.str scope: The fully qualified Azure Resource manager identifier of the resource.
     """
     __args__ = dict()
     __args__['ruleId'] = rule_id
@@ -310,6 +336,7 @@ def get_governance_rule_output(rule_id: Optional[pulumi.Input[_builtins.str]] = 
     __ret__ = pulumi.runtime.invoke_output('azure-native:security:getGovernanceRule', __args__, opts=opts, typ=GetGovernanceRuleResult)
     return __ret__.apply(lambda __response__: GetGovernanceRuleResult(
         azure_api_version=pulumi.get(__response__, 'azure_api_version'),
+        condition_sets=pulumi.get(__response__, 'condition_sets'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),
         excluded_scopes=pulumi.get(__response__, 'excluded_scopes'),
@@ -325,5 +352,6 @@ def get_governance_rule_output(rule_id: Optional[pulumi.Input[_builtins.str]] = 
         rule_priority=pulumi.get(__response__, 'rule_priority'),
         rule_type=pulumi.get(__response__, 'rule_type'),
         source_resource_type=pulumi.get(__response__, 'source_resource_type'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tenant_id=pulumi.get(__response__, 'tenant_id'),
         type=pulumi.get(__response__, 'type')))

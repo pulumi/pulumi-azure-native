@@ -565,10 +565,10 @@ class FileShareSnapshotPropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "initiatorId":
-            suggest = "initiator_id"
-        elif key == "snapshotTime":
+        if key == "snapshotTime":
             suggest = "snapshot_time"
+        elif key == "initiatorId":
+            suggest = "initiator_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FileShareSnapshotPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -582,28 +582,21 @@ class FileShareSnapshotPropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 initiator_id: _builtins.str,
                  snapshot_time: _builtins.str,
+                 initiator_id: Optional[_builtins.str] = None,
                  metadata: Optional[Mapping[str, _builtins.str]] = None):
         """
         FileShareSnapshot properties
 
-        :param _builtins.str initiator_id: The initiator of the FileShareSnapshot. This is a user-defined value.
         :param _builtins.str snapshot_time: The FileShareSnapshot time in UTC in string representation
+        :param _builtins.str initiator_id: The initiator of the FileShareSnapshot. This is a user-defined value.
         :param Mapping[str, _builtins.str] metadata: The metadata
         """
-        pulumi.set(__self__, "initiator_id", initiator_id)
         pulumi.set(__self__, "snapshot_time", snapshot_time)
+        if initiator_id is not None:
+            pulumi.set(__self__, "initiator_id", initiator_id)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
-
-    @_builtins.property
-    @pulumi.getter(name="initiatorId")
-    def initiator_id(self) -> _builtins.str:
-        """
-        The initiator of the FileShareSnapshot. This is a user-defined value.
-        """
-        return pulumi.get(self, "initiator_id")
 
     @_builtins.property
     @pulumi.getter(name="snapshotTime")
@@ -612,6 +605,14 @@ class FileShareSnapshotPropertiesResponse(dict):
         The FileShareSnapshot time in UTC in string representation
         """
         return pulumi.get(self, "snapshot_time")
+
+    @_builtins.property
+    @pulumi.getter(name="initiatorId")
+    def initiator_id(self) -> Optional[_builtins.str]:
+        """
+        The initiator of the FileShareSnapshot. This is a user-defined value.
+        """
+        return pulumi.get(self, "initiator_id")
 
     @_builtins.property
     @pulumi.getter

@@ -134,6 +134,84 @@ namespace Pulumi.AzureNative.App
     }
 
     /// <summary>
+    /// The access level of the action
+    /// </summary>
+    [EnumType]
+    public readonly struct AgentAccessLevel : IEquatable<AgentAccessLevel>
+    {
+        private readonly string _value;
+
+        private AgentAccessLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Agent has read-only permissions on managed resource groups
+        /// </summary>
+        public static AgentAccessLevel Low { get; } = new AgentAccessLevel("Low");
+        /// <summary>
+        /// Agent can take approved actions on resources using its own managed identity
+        /// </summary>
+        public static AgentAccessLevel High { get; } = new AgentAccessLevel("High");
+
+        public static bool operator ==(AgentAccessLevel left, AgentAccessLevel right) => left.Equals(right);
+        public static bool operator !=(AgentAccessLevel left, AgentAccessLevel right) => !left.Equals(right);
+
+        public static explicit operator string(AgentAccessLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AgentAccessLevel other && Equals(other);
+        public bool Equals(AgentAccessLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The mode of the action
+    /// </summary>
+    [EnumType]
+    public readonly struct AgentMode : IEquatable<AgentMode>
+    {
+        private readonly string _value;
+
+        private AgentMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Write actions are executed automatically without user approval
+        /// </summary>
+        public static AgentMode Autonomous { get; } = new AgentMode("Autonomous");
+        /// <summary>
+        /// Write actions require user approval before execution
+        /// </summary>
+        public static AgentMode Review { get; } = new AgentMode("Review");
+        /// <summary>
+        /// No write actions are executed
+        /// </summary>
+        public static AgentMode ReadOnly { get; } = new AgentMode("ReadOnly");
+
+        public static bool operator ==(AgentMode left, AgentMode right) => left.Equals(right);
+        public static bool operator !=(AgentMode left, AgentMode right) => !left.Equals(right);
+
+        public static explicit operator string(AgentMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AgentMode other && Equals(other);
+        public bool Equals(AgentMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Tells Dapr which protocol your application is using. Valid options are http and grpc. Default is http
     /// </summary>
     [EnumType]
@@ -404,6 +482,43 @@ namespace Pulumi.AzureNative.App
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ForwardProxyConvention other && Equals(other);
         public bool Equals(ForwardProxyConvention other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Authentication mode for Geneva Actions
+    /// </summary>
+    [EnumType]
+    public readonly struct GenevaActionAuthenticationMode : IEquatable<GenevaActionAuthenticationMode>
+    {
+        private readonly string _value;
+
+        private GenevaActionAuthenticationMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// OAuth authentication mode
+        /// </summary>
+        public static GenevaActionAuthenticationMode OAuth { get; } = new GenevaActionAuthenticationMode("OAuth");
+        /// <summary>
+        /// WS-Trust authentication mode
+        /// </summary>
+        public static GenevaActionAuthenticationMode WSTrust { get; } = new GenevaActionAuthenticationMode("WS-Trust");
+
+        public static bool operator ==(GenevaActionAuthenticationMode left, GenevaActionAuthenticationMode right) => left.Equals(right);
+        public static bool operator !=(GenevaActionAuthenticationMode left, GenevaActionAuthenticationMode right) => !left.Equals(right);
+
+        public static explicit operator string(GenevaActionAuthenticationMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GenevaActionAuthenticationMode other && Equals(other);
+        public bool Equals(GenevaActionAuthenticationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1143,6 +1258,43 @@ namespace Pulumi.AzureNative.App
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is UnauthenticatedClientActionV2 other && Equals(other);
         public bool Equals(UnauthenticatedClientActionV2 other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The upgrade channel of the agent
+    /// </summary>
+    [EnumType]
+    public readonly struct UpgradeChannel : IEquatable<UpgradeChannel>
+    {
+        private readonly string _value;
+
+        private UpgradeChannel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Preview upgrade channel
+        /// </summary>
+        public static UpgradeChannel Preview { get; } = new UpgradeChannel("Preview");
+        /// <summary>
+        /// Stable upgrade channel
+        /// </summary>
+        public static UpgradeChannel Stable { get; } = new UpgradeChannel("Stable");
+
+        public static bool operator ==(UpgradeChannel left, UpgradeChannel right) => left.Equals(right);
+        public static bool operator !=(UpgradeChannel left, UpgradeChannel right) => !left.Equals(right);
+
+        public static explicit operator string(UpgradeChannel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UpgradeChannel other && Equals(other);
+        public bool Equals(UpgradeChannel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

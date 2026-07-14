@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.Security
     /// Microsoft Defender for Cloud is provided in two pricing tiers: free and standard. The standard tier offers advanced security capabilities, while the free tier offers basic security features.
     /// 
     /// Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2024-01-01.
+    /// 
+    /// Other available API versions: 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:Pricing")]
     public partial class Pricing : global::Pulumi.CustomResource
@@ -66,7 +68,7 @@ namespace Pulumi.AzureNative.Security
         public Output<string> InheritedFrom { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -96,7 +98,13 @@ namespace Pulumi.AzureNative.Security
         public Output<string?> SubPlan { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -127,6 +135,7 @@ namespace Pulumi.AzureNative.Security
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:security/v20240101:Pricing" },
+                    new global::Pulumi.Alias { Type = "azure-native:security/v20251001preview:Pricing" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -181,7 +190,7 @@ namespace Pulumi.AzureNative.Security
         public InputUnion<string, Pulumi.AzureNative.Security.PricingTier> PricingTier { get; set; } = null!;
 
         /// <summary>
-        /// The scope id of the pricing. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or a specific resource (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}) - Supported resources are (VirtualMachines)
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("scopeId", required: true)]
         public Input<string> ScopeId { get; set; } = null!;

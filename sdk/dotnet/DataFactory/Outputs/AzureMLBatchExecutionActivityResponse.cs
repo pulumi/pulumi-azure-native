@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// Key,Value pairs to be passed to the Azure ML Batch Execution Service endpoint. Keys must match the names of web service parameters defined in the published Azure ML web service. Values will be passed in the GlobalParameters property of the Azure ML batch execution request.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? GlobalParameters;
+        public readonly object? GlobalParameters;
         /// <summary>
         /// Linked service reference.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string? description,
 
-            ImmutableDictionary<string, object>? globalParameters,
+            object? globalParameters,
 
             Outputs.LinkedServiceReferenceResponse? linkedServiceName,
 

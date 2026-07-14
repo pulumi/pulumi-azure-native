@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.ResourceGraph
         /// </summary>
         public readonly string? Etag;
         /// <summary>
-        /// Azure resource Id
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.ResourceGraph
         /// </summary>
         public readonly string? Location;
         /// <summary>
-        /// Azure resource name. This is GUID value. The display name should be assigned within properties field.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -120,11 +120,11 @@ namespace Pulumi.AzureNative.ResourceGraph
         /// </summary>
         public readonly string ResultKind;
         /// <summary>
-        /// The system metadata relating to this resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNative.ResourceGraph
         /// </summary>
         public readonly string TimeModified;
         /// <summary>
-        /// Azure resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 

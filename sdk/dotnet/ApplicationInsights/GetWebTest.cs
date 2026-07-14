@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.ApplicationInsights
         /// <summary>
         /// An XML configuration specification for a WebTest.
         /// </summary>
-        public readonly Outputs.WebTestPropertiesResponseConfiguration? Configuration;
+        public readonly Outputs.WebTestPropertiesConfigurationResponse? Configuration;
         /// <summary>
         /// User defined description for this WebTest.
         /// </summary>
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.ApplicationInsights
         /// <summary>
         /// The collection of request properties
         /// </summary>
-        public readonly Outputs.WebTestPropertiesResponseRequest? Request;
+        public readonly Outputs.WebTestPropertiesRequestResponse? Request;
         /// <summary>
         /// Allow for retries should this WebTest fail.
         /// </summary>
@@ -158,7 +158,7 @@ namespace Pulumi.AzureNative.ApplicationInsights
         /// <summary>
         /// The collection of validation rule properties
         /// </summary>
-        public readonly Outputs.WebTestPropertiesResponseValidationRules? ValidationRules;
+        public readonly Outputs.WebTestPropertiesValidationRulesResponse? ValidationRules;
         /// <summary>
         /// The kind of web test this is, valid choices are ping, multistep and standard.
         /// </summary>
@@ -172,7 +172,7 @@ namespace Pulumi.AzureNative.ApplicationInsights
         private GetWebTestResult(
             string azureApiVersion,
 
-            Outputs.WebTestPropertiesResponseConfiguration? configuration,
+            Outputs.WebTestPropertiesConfigurationResponse? configuration,
 
             string? description,
 
@@ -192,7 +192,7 @@ namespace Pulumi.AzureNative.ApplicationInsights
 
             string provisioningState,
 
-            Outputs.WebTestPropertiesResponseRequest? request,
+            Outputs.WebTestPropertiesRequestResponse? request,
 
             bool? retryEnabled,
 
@@ -204,7 +204,7 @@ namespace Pulumi.AzureNative.ApplicationInsights
 
             string type,
 
-            Outputs.WebTestPropertiesResponseValidationRules? validationRules,
+            Outputs.WebTestPropertiesValidationRulesResponse? validationRules,
 
             string webTestKind,
 

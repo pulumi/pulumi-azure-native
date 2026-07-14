@@ -15,7 +15,6 @@ __all__ = [
     'DataFormatType',
     'Package',
     'PartnerConnectorType',
-    'SaaSOfferStatus',
 ]
 
 
@@ -100,20 +99,3 @@ class PartnerConnectorType(_builtins.str, Enum):
     KAFKA_AZURE_COSMOS_DB_SOURCE = "KafkaAzureCosmosDBSource"
     KAFKA_AZURE_COSMOS_DB_SINK = "KafkaAzureCosmosDBSink"
     KAFKA_AZURE_SYNAPSE_ANALYTICS_SINK = "KafkaAzureSynapseAnalyticsSink"
-
-
-@pulumi.type_token("azure-native:confluent:SaaSOfferStatus")
-class SaaSOfferStatus(_builtins.str, Enum):
-    """
-    SaaS Offer Status
-    """
-    STARTED = "Started"
-    PENDING_FULFILLMENT_START = "PendingFulfillmentStart"
-    IN_PROGRESS = "InProgress"
-    SUBSCRIBED = "Subscribed"
-    SUSPENDED = "Suspended"
-    REINSTATED = "Reinstated"
-    SUCCEEDED = "Succeeded"
-    FAILED = "Failed"
-    UNSUBSCRIBED = "Unsubscribed"
-    UPDATING = "Updating"

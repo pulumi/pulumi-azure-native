@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.DataFactory
         public Output<string> CreateTime { get; private set; } = null!;
 
         /// <summary>
-        /// Etag identifies change in the resource.
+        /// If eTag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
         /// </summary>
         [Output("eTag")]
         public Output<string> ETag { get; private set; } = null!;
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNative.DataFactory
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -90,13 +90,19 @@ namespace Pulumi.AzureNative.DataFactory
         public Output<Union<Outputs.FactoryGitHubConfigurationResponse, Outputs.FactoryVSTSConfigurationResponse>?> RepoConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// The resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -212,7 +218,7 @@ namespace Pulumi.AzureNative.DataFactory
         public InputUnion<Inputs.FactoryGitHubConfigurationArgs, Inputs.FactoryVSTSConfigurationArgs>? RepoConfiguration { get; set; }
 
         /// <summary>
-        /// The resource group name.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

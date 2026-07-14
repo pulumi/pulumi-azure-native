@@ -42,27 +42,7 @@ export interface GetConditionalCreditResult {
      */
     readonly azureApiVersion: string;
     /**
-     * Fully-qualified identifier of the benefit under applicable benefit list.
-     */
-    readonly benefitResourceId: string;
-    /**
-     * The billing account resource ID
-     */
-    readonly billingAccountResourceId?: string;
-    /**
-     * Display name for the conditional credit
-     */
-    readonly displayName?: string;
-    /**
-     * End date of the conditional credit (derived from last milestone)
-     */
-    readonly endAt?: string;
-    /**
-     * Type of conditional credit entity
-     */
-    readonly entityType: string;
-    /**
-     * The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+     * The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
      */
     readonly etag: string;
     /**
@@ -94,29 +74,13 @@ export interface GetConditionalCreditResult {
      */
     readonly plan?: outputs.billingbenefits.PlanResponse;
     /**
-     * Product code for the conditional credit
+     * Conditional credit properties
      */
-    readonly productCode?: string;
-    /**
-     * The provisioning state of the resource
-     */
-    readonly provisioningState: string;
-    /**
-     * Fully-qualified resource identifier of the resource. Format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/{benefitType}/{benefitName}.
-     */
-    readonly resourceId?: string;
+    readonly properties: outputs.billingbenefits.ContributorConditionalCreditPropertiesResponse | outputs.billingbenefits.PrimaryConditionalCreditPropertiesResponse;
     /**
      * The resource model definition representing SKU
      */
     readonly sku?: outputs.billingbenefits.SkuResponse;
-    /**
-     * Start date of the conditional credit
-     */
-    readonly startAt?: string;
-    /**
-     * The status of the conditional credit
-     */
-    readonly status?: string;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

@@ -27,7 +27,7 @@ class GetSourceControlResult:
     """
     Represents a SourceControl in Azure Security Insights.
     """
-    def __init__(__self__, azure_api_version=None, content_types=None, description=None, display_name=None, etag=None, id=None, last_deployment_info=None, name=None, repo_type=None, repository=None, repository_resource_info=None, system_data=None, type=None, version=None):
+    def __init__(__self__, azure_api_version=None, content_types=None, description=None, display_name=None, etag=None, id=None, last_deployment_info=None, name=None, pull_request=None, repo_type=None, repository=None, repository_resource_info=None, service_principal=None, system_data=None, type=None, version=None, workload_identity_federation=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -52,6 +52,9 @@ class GetSourceControlResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if pull_request and not isinstance(pull_request, dict):
+            raise TypeError("Expected argument 'pull_request' to be a dict")
+        pulumi.set(__self__, "pull_request", pull_request)
         if repo_type and not isinstance(repo_type, str):
             raise TypeError("Expected argument 'repo_type' to be a str")
         pulumi.set(__self__, "repo_type", repo_type)
@@ -61,6 +64,9 @@ class GetSourceControlResult:
         if repository_resource_info and not isinstance(repository_resource_info, dict):
             raise TypeError("Expected argument 'repository_resource_info' to be a dict")
         pulumi.set(__self__, "repository_resource_info", repository_resource_info)
+        if service_principal and not isinstance(service_principal, dict):
+            raise TypeError("Expected argument 'service_principal' to be a dict")
+        pulumi.set(__self__, "service_principal", service_principal)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -70,6 +76,9 @@ class GetSourceControlResult:
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
+        if workload_identity_federation and not isinstance(workload_identity_federation, dict):
+            raise TypeError("Expected argument 'workload_identity_federation' to be a dict")
+        pulumi.set(__self__, "workload_identity_federation", workload_identity_federation)
 
     @_builtins.property
     @pulumi.getter(name="azureApiVersion")
@@ -121,7 +130,7 @@ class GetSourceControlResult:
 
     @_builtins.property
     @pulumi.getter(name="lastDeploymentInfo")
-    def last_deployment_info(self) -> Optional['outputs.DeploymentInfoResponse']:
+    def last_deployment_info(self) -> 'outputs.DeploymentInfoResponse':
         """
         Information regarding the latest deployment for the source control.
         """
@@ -134,6 +143,14 @@ class GetSourceControlResult:
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="pullRequest")
+    def pull_request(self) -> 'outputs.PullRequestResponse':
+        """
+        Information regarding the pull request of the source control.
+        """
+        return pulumi.get(self, "pull_request")
 
     @_builtins.property
     @pulumi.getter(name="repoType")
@@ -160,6 +177,14 @@ class GetSourceControlResult:
         return pulumi.get(self, "repository_resource_info")
 
     @_builtins.property
+    @pulumi.getter(name="servicePrincipal")
+    def service_principal(self) -> Optional['outputs.ServicePrincipalResponse']:
+        """
+        Service principal metadata.
+        """
+        return pulumi.get(self, "service_principal")
+
+    @_builtins.property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -177,11 +202,19 @@ class GetSourceControlResult:
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[_builtins.str]:
+    def version(self) -> _builtins.str:
         """
         The version number associated with the source control
         """
         return pulumi.get(self, "version")
+
+    @_builtins.property
+    @pulumi.getter(name="workloadIdentityFederation")
+    def workload_identity_federation(self) -> 'outputs.WorkloadIdentityFederationResponse':
+        """
+        Workload Identity metadata.
+        """
+        return pulumi.get(self, "workload_identity_federation")
 
 
 class AwaitableGetSourceControlResult(GetSourceControlResult):
@@ -198,12 +231,15 @@ class AwaitableGetSourceControlResult(GetSourceControlResult):
             id=self.id,
             last_deployment_info=self.last_deployment_info,
             name=self.name,
+            pull_request=self.pull_request,
             repo_type=self.repo_type,
             repository=self.repository,
             repository_resource_info=self.repository_resource_info,
+            service_principal=self.service_principal,
             system_data=self.system_data,
             type=self.type,
-            version=self.version)
+            version=self.version,
+            workload_identity_federation=self.workload_identity_federation)
 
 
 def get_source_control(resource_group_name: Optional[_builtins.str] = None,
@@ -213,9 +249,9 @@ def get_source_control(resource_group_name: Optional[_builtins.str] = None,
     """
     Gets a source control byt its identifier.
 
-    Uses Azure REST API version 2023-05-01-preview.
+    Uses Azure REST API version 2025-09-01.
 
-    Other available API versions: 2023-03-01-preview, 2023-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2025-06-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -238,12 +274,15 @@ def get_source_control(resource_group_name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         last_deployment_info=pulumi.get(__ret__, 'last_deployment_info'),
         name=pulumi.get(__ret__, 'name'),
+        pull_request=pulumi.get(__ret__, 'pull_request'),
         repo_type=pulumi.get(__ret__, 'repo_type'),
         repository=pulumi.get(__ret__, 'repository'),
         repository_resource_info=pulumi.get(__ret__, 'repository_resource_info'),
+        service_principal=pulumi.get(__ret__, 'service_principal'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
-        version=pulumi.get(__ret__, 'version'))
+        version=pulumi.get(__ret__, 'version'),
+        workload_identity_federation=pulumi.get(__ret__, 'workload_identity_federation'))
 def get_source_control_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                               source_control_id: Optional[pulumi.Input[_builtins.str]] = None,
                               workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -251,9 +290,9 @@ def get_source_control_output(resource_group_name: Optional[pulumi.Input[_builti
     """
     Gets a source control byt its identifier.
 
-    Uses Azure REST API version 2023-05-01-preview.
+    Uses Azure REST API version 2025-09-01.
 
-    Other available API versions: 2023-03-01-preview, 2023-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2025-06-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -275,9 +314,12 @@ def get_source_control_output(resource_group_name: Optional[pulumi.Input[_builti
         id=pulumi.get(__response__, 'id'),
         last_deployment_info=pulumi.get(__response__, 'last_deployment_info'),
         name=pulumi.get(__response__, 'name'),
+        pull_request=pulumi.get(__response__, 'pull_request'),
         repo_type=pulumi.get(__response__, 'repo_type'),
         repository=pulumi.get(__response__, 'repository'),
         repository_resource_info=pulumi.get(__response__, 'repository_resource_info'),
+        service_principal=pulumi.get(__response__, 'service_principal'),
         system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type'),
-        version=pulumi.get(__response__, 'version')))
+        version=pulumi.get(__response__, 'version'),
+        workload_identity_federation=pulumi.get(__response__, 'workload_identity_federation')))

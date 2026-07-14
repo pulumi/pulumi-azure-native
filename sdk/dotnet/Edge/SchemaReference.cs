@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Edge
     /// 
     /// Uses Azure REST API version 2025-08-01.
     /// 
-    /// Other available API versions: 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2025-06-01, 2025-08-15-preview, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:edge:SchemaReference")]
     public partial class SchemaReference : global::Pulumi.CustomResource
@@ -82,6 +82,8 @@ namespace Pulumi.AzureNative.Edge
                 {
                     new global::Pulumi.Alias { Type = "azure-native:edge/v20250601:SchemaReference" },
                     new global::Pulumi.Alias { Type = "azure-native:edge/v20250801:SchemaReference" },
+                    new global::Pulumi.Alias { Type = "azure-native:edge/v20250815preview:SchemaReference" },
+                    new global::Pulumi.Alias { Type = "azure-native:edge/v20260301:SchemaReference" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -17,6 +17,16 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ActionConfigurationResponse',
+    'AgentConnectorPropertiesResponse',
+    'AgentConnectorResponse',
+    'AgentIdentityResponse',
+    'AgentPropertiesResponse',
+    'AgentSpaceComplianceStatusResponse',
+    'AgentSpaceConnectorPropertiesResponse',
+    'AgentSpaceConnectorResponse',
+    'AgentSpacePoliciesResponse',
+    'AgentSpacePropertiesResponse',
     'AllowedAudiencesValidationResponse',
     'AllowedPrincipalsResponse',
     'AppInsightsConfigurationResponse',
@@ -24,6 +34,7 @@ __all__ = [
     'AppRegistrationResponse',
     'AppleRegistrationResponse',
     'AppleResponse',
+    'ApplicationInsightsConfigurationResponse',
     'AuthPlatformResponse',
     'AzureActiveDirectoryLoginResponse',
     'AzureActiveDirectoryRegistrationResponse',
@@ -77,6 +88,7 @@ __all__ = [
     'DaprSubscriptionRoutesResponse',
     'DataDogConfigurationResponse',
     'DefaultAuthorizationPolicyResponse',
+    'DefaultModelResponse',
     'DestinationsConfigurationResponse',
     'DiskEncryptionConfigurationResponse',
     'DiskEncryptionConfigurationResponseAuth',
@@ -91,6 +103,9 @@ __all__ = [
     'ExtendedLocationResponse',
     'FacebookResponse',
     'ForwardProxyResponse',
+    'GenevaActionConfigResponse',
+    'GenevaActionParameterResponse',
+    'GenevaActionsPolicyResponse',
     'GitHubResponse',
     'GithubActionConfigurationResponse',
     'GlobalValidationResponse',
@@ -112,6 +127,7 @@ __all__ = [
     'HttpSettingsRoutesResponse',
     'IdentityProvidersResponse',
     'IdentitySettingsResponse',
+    'IncidentManagementConfigurationResponse',
     'IngressConfigurationResponse',
     'IngressConfigurationResponseScale',
     'IngressPortMappingResponse',
@@ -132,8 +148,10 @@ __all__ = [
     'JobTemplateResponse',
     'JwtClaimChecksResponse',
     'KedaConfigurationResponse',
+    'KnowledgeGraphConfigurationResponse',
     'LifecycleConfigurationResponse',
     'LogAnalyticsConfigurationResponse',
+    'LogConfigurationResponse',
     'LoggerSettingResponse',
     'LoginResponse',
     'LoginRoutesResponse',
@@ -214,6 +232,962 @@ __all__ = [
     'WorkflowHealthResponse',
     'WorkloadProfileResponse',
 ]
+
+@pulumi.output_type
+class ActionConfigurationResponse(dict):
+    """
+    Configuration for action
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessLevel":
+            suggest = "access_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_level: Optional[_builtins.str] = None,
+                 identity: Optional[_builtins.str] = None,
+                 mode: Optional[_builtins.str] = None):
+        """
+        Configuration for action
+
+        :param _builtins.str access_level: The access level of the action
+        :param _builtins.str identity: The identity used by the action
+        :param _builtins.str mode: The mode of the action
+        """
+        if access_level is not None:
+            pulumi.set(__self__, "access_level", access_level)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+
+    @_builtins.property
+    @pulumi.getter(name="accessLevel")
+    def access_level(self) -> Optional[_builtins.str]:
+        """
+        The access level of the action
+        """
+        return pulumi.get(self, "access_level")
+
+    @_builtins.property
+    @pulumi.getter
+    def identity(self) -> Optional[_builtins.str]:
+        """
+        The identity used by the action
+        """
+        return pulumi.get(self, "identity")
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> Optional[_builtins.str]:
+        """
+        The mode of the action
+        """
+        return pulumi.get(self, "mode")
+
+
+@pulumi.output_type
+class AgentConnectorPropertiesResponse(dict):
+    """
+    Agent Connector Properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deploymentError":
+            suggest = "deployment_error"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "dataConnectorType":
+            suggest = "data_connector_type"
+        elif key == "dataSource":
+            suggest = "data_source"
+        elif key == "extendedProperties":
+            suggest = "extended_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentConnectorPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentConnectorPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentConnectorPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 deployment_error: _builtins.str,
+                 provisioning_state: _builtins.str,
+                 source: _builtins.str,
+                 data_connector_type: Optional[_builtins.str] = None,
+                 data_source: Optional[_builtins.str] = None,
+                 endpoint: Optional[_builtins.str] = None,
+                 extended_properties: Optional[Any] = None,
+                 identity: Optional[_builtins.str] = None):
+        """
+        Agent Connector Properties
+
+        :param _builtins.str deployment_error: Deployment error message if provisioning failed
+        :param _builtins.str provisioning_state: Provisioning state of the connector
+        :param _builtins.str source: Source of the data connector - "Agent" when directly stored in agent, "AgentSpace" when inherited
+        :param _builtins.str data_connector_type: The type of the data connector
+        :param _builtins.str data_source: Data source connection string or endpoint
+        :param _builtins.str endpoint: Endpoint of the connector
+        :param Any extended_properties: Additional properties for the data connector which can be used to store custom key-value pairs
+        :param _builtins.str identity: Identity used to access the data source
+        """
+        pulumi.set(__self__, "deployment_error", deployment_error)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "source", source)
+        if data_connector_type is not None:
+            pulumi.set(__self__, "data_connector_type", data_connector_type)
+        if data_source is not None:
+            pulumi.set(__self__, "data_source", data_source)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+        if extended_properties is not None:
+            pulumi.set(__self__, "extended_properties", extended_properties)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentError")
+    def deployment_error(self) -> _builtins.str:
+        """
+        Deployment error message if provisioning failed
+        """
+        return pulumi.get(self, "deployment_error")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        Provisioning state of the connector
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> _builtins.str:
+        """
+        Source of the data connector - "Agent" when directly stored in agent, "AgentSpace" when inherited
+        """
+        return pulumi.get(self, "source")
+
+    @_builtins.property
+    @pulumi.getter(name="dataConnectorType")
+    def data_connector_type(self) -> Optional[_builtins.str]:
+        """
+        The type of the data connector
+        """
+        return pulumi.get(self, "data_connector_type")
+
+    @_builtins.property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> Optional[_builtins.str]:
+        """
+        Data source connection string or endpoint
+        """
+        return pulumi.get(self, "data_source")
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> Optional[_builtins.str]:
+        """
+        Endpoint of the connector
+        """
+        return pulumi.get(self, "endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="extendedProperties")
+    def extended_properties(self) -> Optional[Any]:
+        """
+        Additional properties for the data connector which can be used to store custom key-value pairs
+        """
+        return pulumi.get(self, "extended_properties")
+
+    @_builtins.property
+    @pulumi.getter
+    def identity(self) -> Optional[_builtins.str]:
+        """
+        Identity used to access the data source
+        """
+        return pulumi.get(self, "identity")
+
+
+@pulumi.output_type
+class AgentConnectorResponse(dict):
+    """
+    Agent Connector used to connect to data sources
+    """
+    def __init__(__self__, *,
+                 id: _builtins.str,
+                 name: _builtins.str,
+                 system_data: 'outputs.SystemDataResponse',
+                 type: _builtins.str,
+                 properties: Optional['outputs.AgentConnectorPropertiesResponse'] = None):
+        """
+        Agent Connector used to connect to data sources
+
+        :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        :param _builtins.str name: The name of the resource
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param _builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        :param 'AgentConnectorPropertiesResponse' properties: The resource-specific properties for this resource.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "system_data", system_data)
+        pulumi.set(__self__, "type", type)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.AgentConnectorPropertiesResponse']:
+        """
+        The resource-specific properties for this resource.
+        """
+        return pulumi.get(self, "properties")
+
+
+@pulumi.output_type
+class AgentIdentityResponse(dict):
+    """
+    Agent identity configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "initialSponsorGroupId":
+            suggest = "initial_sponsor_group_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: _builtins.str,
+                 enabled: _builtins.bool,
+                 initial_sponsor_group_id: _builtins.str):
+        """
+        Agent identity configuration
+
+        :param _builtins.str client_id: Client ID (GUID) for the agent identity
+        :param _builtins.bool enabled: Indicates whether the agent identity is enabled
+        :param _builtins.str initial_sponsor_group_id: Initial sponsor group ID (required for agent identity)
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "initial_sponsor_group_id", initial_sponsor_group_id)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> _builtins.str:
+        """
+        Client ID (GUID) for the agent identity
+        """
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        Indicates whether the agent identity is enabled
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="initialSponsorGroupId")
+    def initial_sponsor_group_id(self) -> _builtins.str:
+        """
+        Initial sponsor group ID (required for agent identity)
+        """
+        return pulumi.get(self, "initial_sponsor_group_id")
+
+
+@pulumi.output_type
+class AgentPropertiesResponse(dict):
+    """
+    Properties of the Agent
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentEndpoint":
+            suggest = "agent_endpoint"
+        elif key == "powerState":
+            suggest = "power_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "runningState":
+            suggest = "running_state"
+        elif key == "actionConfiguration":
+            suggest = "action_configuration"
+        elif key == "agentIdentity":
+            suggest = "agent_identity"
+        elif key == "agentSpaceId":
+            suggest = "agent_space_id"
+        elif key == "defaultModel":
+            suggest = "default_model"
+        elif key == "incidentManagementConfiguration":
+            suggest = "incident_management_configuration"
+        elif key == "knowledgeGraphConfiguration":
+            suggest = "knowledge_graph_configuration"
+        elif key == "logConfiguration":
+            suggest = "log_configuration"
+        elif key == "upgradeChannel":
+            suggest = "upgrade_channel"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 agent_endpoint: _builtins.str,
+                 power_state: _builtins.str,
+                 provisioning_state: _builtins.str,
+                 running_state: _builtins.str,
+                 action_configuration: Optional['outputs.ActionConfigurationResponse'] = None,
+                 agent_identity: Optional['outputs.AgentIdentityResponse'] = None,
+                 agent_space_id: Optional[_builtins.str] = None,
+                 default_model: Optional['outputs.DefaultModelResponse'] = None,
+                 incident_management_configuration: Optional['outputs.IncidentManagementConfigurationResponse'] = None,
+                 knowledge_graph_configuration: Optional['outputs.KnowledgeGraphConfigurationResponse'] = None,
+                 log_configuration: Optional['outputs.LogConfigurationResponse'] = None,
+                 upgrade_channel: Optional[_builtins.str] = None):
+        """
+        Properties of the Agent
+
+        :param _builtins.str agent_endpoint: The endpoint of the Agent
+        :param _builtins.str power_state: The power state of the Agent
+        :param _builtins.str provisioning_state: Provisioning state of the Agent
+        :param _builtins.str running_state: The running state of the Agent
+        :param 'ActionConfigurationResponse' action_configuration: Configuration for action
+        :param 'AgentIdentityResponse' agent_identity: Agent identity configuration for accessing resources
+        :param _builtins.str agent_space_id: The agent space ID referenced by the agent
+        :param 'DefaultModelResponse' default_model: Default AI model configuration for the agent
+        :param 'IncidentManagementConfigurationResponse' incident_management_configuration: Incident management configurations
+        :param 'KnowledgeGraphConfigurationResponse' knowledge_graph_configuration: Knowledge graph configuration for agent
+        :param 'LogConfigurationResponse' log_configuration: Log configurations
+        :param _builtins.str upgrade_channel: The upgrade channel of the agent
+        """
+        pulumi.set(__self__, "agent_endpoint", agent_endpoint)
+        pulumi.set(__self__, "power_state", power_state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "running_state", running_state)
+        if action_configuration is not None:
+            pulumi.set(__self__, "action_configuration", action_configuration)
+        if agent_identity is not None:
+            pulumi.set(__self__, "agent_identity", agent_identity)
+        if agent_space_id is not None:
+            pulumi.set(__self__, "agent_space_id", agent_space_id)
+        if default_model is not None:
+            pulumi.set(__self__, "default_model", default_model)
+        if incident_management_configuration is not None:
+            pulumi.set(__self__, "incident_management_configuration", incident_management_configuration)
+        if knowledge_graph_configuration is not None:
+            pulumi.set(__self__, "knowledge_graph_configuration", knowledge_graph_configuration)
+        if log_configuration is not None:
+            pulumi.set(__self__, "log_configuration", log_configuration)
+        if upgrade_channel is not None:
+            pulumi.set(__self__, "upgrade_channel", upgrade_channel)
+
+    @_builtins.property
+    @pulumi.getter(name="agentEndpoint")
+    def agent_endpoint(self) -> _builtins.str:
+        """
+        The endpoint of the Agent
+        """
+        return pulumi.get(self, "agent_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="powerState")
+    def power_state(self) -> _builtins.str:
+        """
+        The power state of the Agent
+        """
+        return pulumi.get(self, "power_state")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        Provisioning state of the Agent
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="runningState")
+    def running_state(self) -> _builtins.str:
+        """
+        The running state of the Agent
+        """
+        return pulumi.get(self, "running_state")
+
+    @_builtins.property
+    @pulumi.getter(name="actionConfiguration")
+    def action_configuration(self) -> Optional['outputs.ActionConfigurationResponse']:
+        """
+        Configuration for action
+        """
+        return pulumi.get(self, "action_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="agentIdentity")
+    def agent_identity(self) -> Optional['outputs.AgentIdentityResponse']:
+        """
+        Agent identity configuration for accessing resources
+        """
+        return pulumi.get(self, "agent_identity")
+
+    @_builtins.property
+    @pulumi.getter(name="agentSpaceId")
+    def agent_space_id(self) -> Optional[_builtins.str]:
+        """
+        The agent space ID referenced by the agent
+        """
+        return pulumi.get(self, "agent_space_id")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultModel")
+    def default_model(self) -> Optional['outputs.DefaultModelResponse']:
+        """
+        Default AI model configuration for the agent
+        """
+        return pulumi.get(self, "default_model")
+
+    @_builtins.property
+    @pulumi.getter(name="incidentManagementConfiguration")
+    def incident_management_configuration(self) -> Optional['outputs.IncidentManagementConfigurationResponse']:
+        """
+        Incident management configurations
+        """
+        return pulumi.get(self, "incident_management_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="knowledgeGraphConfiguration")
+    def knowledge_graph_configuration(self) -> Optional['outputs.KnowledgeGraphConfigurationResponse']:
+        """
+        Knowledge graph configuration for agent
+        """
+        return pulumi.get(self, "knowledge_graph_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="logConfiguration")
+    def log_configuration(self) -> Optional['outputs.LogConfigurationResponse']:
+        """
+        Log configurations
+        """
+        return pulumi.get(self, "log_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="upgradeChannel")
+    def upgrade_channel(self) -> Optional[_builtins.str]:
+        """
+        The upgrade channel of the agent
+        """
+        return pulumi.get(self, "upgrade_channel")
+
+
+@pulumi.output_type
+class AgentSpaceComplianceStatusResponse(dict):
+    """
+    Compliance status of the Agent Space
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "complianceIssues":
+            suggest = "compliance_issues"
+        elif key == "isCompliant":
+            suggest = "is_compliant"
+        elif key == "lastComplianceCheck":
+            suggest = "last_compliance_check"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentSpaceComplianceStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentSpaceComplianceStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentSpaceComplianceStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compliance_issues: Sequence[_builtins.str],
+                 is_compliant: _builtins.bool,
+                 last_compliance_check: _builtins.str):
+        """
+        Compliance status of the Agent Space
+
+        :param Sequence[_builtins.str] compliance_issues: List of compliance issues found in the Agent Space
+        :param _builtins.bool is_compliant: Indicates whether the Agent Space is compliant
+        :param _builtins.str last_compliance_check: Timestamp of the last compliance check
+        """
+        pulumi.set(__self__, "compliance_issues", compliance_issues)
+        pulumi.set(__self__, "is_compliant", is_compliant)
+        pulumi.set(__self__, "last_compliance_check", last_compliance_check)
+
+    @_builtins.property
+    @pulumi.getter(name="complianceIssues")
+    def compliance_issues(self) -> Sequence[_builtins.str]:
+        """
+        List of compliance issues found in the Agent Space
+        """
+        return pulumi.get(self, "compliance_issues")
+
+    @_builtins.property
+    @pulumi.getter(name="isCompliant")
+    def is_compliant(self) -> _builtins.bool:
+        """
+        Indicates whether the Agent Space is compliant
+        """
+        return pulumi.get(self, "is_compliant")
+
+    @_builtins.property
+    @pulumi.getter(name="lastComplianceCheck")
+    def last_compliance_check(self) -> _builtins.str:
+        """
+        Timestamp of the last compliance check
+        """
+        return pulumi.get(self, "last_compliance_check")
+
+
+@pulumi.output_type
+class AgentSpaceConnectorPropertiesResponse(dict):
+    """
+    Agent Space Connector Properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deploymentError":
+            suggest = "deployment_error"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "dataConnectorType":
+            suggest = "data_connector_type"
+        elif key == "dataSource":
+            suggest = "data_source"
+        elif key == "extendedProperties":
+            suggest = "extended_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentSpaceConnectorPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentSpaceConnectorPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentSpaceConnectorPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 deployment_error: _builtins.str,
+                 provisioning_state: _builtins.str,
+                 data_connector_type: Optional[_builtins.str] = None,
+                 data_source: Optional[_builtins.str] = None,
+                 endpoint: Optional[_builtins.str] = None,
+                 extended_properties: Optional[Any] = None,
+                 identity: Optional[_builtins.str] = None):
+        """
+        Agent Space Connector Properties
+
+        :param _builtins.str deployment_error: Deployment error message if provisioning failed
+        :param _builtins.str provisioning_state: Provisioning state of the connector
+        :param _builtins.str data_connector_type: The type of the data connector
+        :param _builtins.str data_source: Data source connection string or endpoint
+        :param _builtins.str endpoint: Endpoint of the connector
+        :param Any extended_properties: Additional properties for the data connector which can be used to store custom key-value pairs
+        :param _builtins.str identity: Identity used to access the data source
+        """
+        pulumi.set(__self__, "deployment_error", deployment_error)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if data_connector_type is not None:
+            pulumi.set(__self__, "data_connector_type", data_connector_type)
+        if data_source is not None:
+            pulumi.set(__self__, "data_source", data_source)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+        if extended_properties is not None:
+            pulumi.set(__self__, "extended_properties", extended_properties)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentError")
+    def deployment_error(self) -> _builtins.str:
+        """
+        Deployment error message if provisioning failed
+        """
+        return pulumi.get(self, "deployment_error")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        Provisioning state of the connector
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="dataConnectorType")
+    def data_connector_type(self) -> Optional[_builtins.str]:
+        """
+        The type of the data connector
+        """
+        return pulumi.get(self, "data_connector_type")
+
+    @_builtins.property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> Optional[_builtins.str]:
+        """
+        Data source connection string or endpoint
+        """
+        return pulumi.get(self, "data_source")
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> Optional[_builtins.str]:
+        """
+        Endpoint of the connector
+        """
+        return pulumi.get(self, "endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="extendedProperties")
+    def extended_properties(self) -> Optional[Any]:
+        """
+        Additional properties for the data connector which can be used to store custom key-value pairs
+        """
+        return pulumi.get(self, "extended_properties")
+
+    @_builtins.property
+    @pulumi.getter
+    def identity(self) -> Optional[_builtins.str]:
+        """
+        Identity used to access the data source
+        """
+        return pulumi.get(self, "identity")
+
+
+@pulumi.output_type
+class AgentSpaceConnectorResponse(dict):
+    """
+    Agent Space Connector used to connect to data sources
+    """
+    def __init__(__self__, *,
+                 id: _builtins.str,
+                 name: _builtins.str,
+                 system_data: 'outputs.SystemDataResponse',
+                 type: _builtins.str,
+                 properties: Optional['outputs.AgentSpaceConnectorPropertiesResponse'] = None):
+        """
+        Agent Space Connector used to connect to data sources
+
+        :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        :param _builtins.str name: The name of the resource
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param _builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        :param 'AgentSpaceConnectorPropertiesResponse' properties: The resource-specific properties for this resource.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "system_data", system_data)
+        pulumi.set(__self__, "type", type)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.AgentSpaceConnectorPropertiesResponse']:
+        """
+        The resource-specific properties for this resource.
+        """
+        return pulumi.get(self, "properties")
+
+
+@pulumi.output_type
+class AgentSpacePoliciesResponse(dict):
+    """
+    Policy configurations for an Agent Space
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "genevaActionsConfiguration":
+            suggest = "geneva_actions_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentSpacePoliciesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentSpacePoliciesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentSpacePoliciesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 geneva_actions_configuration: Optional['outputs.GenevaActionsPolicyResponse'] = None):
+        """
+        Policy configurations for an Agent Space
+
+        :param 'GenevaActionsPolicyResponse' geneva_actions_configuration: Configuration for Geneva Actions policy
+        """
+        if geneva_actions_configuration is not None:
+            pulumi.set(__self__, "geneva_actions_configuration", geneva_actions_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="genevaActionsConfiguration")
+    def geneva_actions_configuration(self) -> Optional['outputs.GenevaActionsPolicyResponse']:
+        """
+        Configuration for Geneva Actions policy
+        """
+        return pulumi.get(self, "geneva_actions_configuration")
+
+
+@pulumi.output_type
+class AgentSpacePropertiesResponse(dict):
+    """
+    Agent Space specific properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "complianceStatus":
+            suggest = "compliance_status"
+        elif key == "currentAgentCount":
+            suggest = "current_agent_count"
+        elif key == "lastPolicyPropagation":
+            suggest = "last_policy_propagation"
+        elif key == "memberAgents":
+            suggest = "member_agents"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "maxAgentCount":
+            suggest = "max_agent_count"
+        elif key == "serviceTreeId":
+            suggest = "service_tree_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentSpacePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentSpacePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentSpacePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compliance_status: 'outputs.AgentSpaceComplianceStatusResponse',
+                 current_agent_count: _builtins.int,
+                 last_policy_propagation: _builtins.str,
+                 member_agents: Sequence[_builtins.str],
+                 provisioning_state: _builtins.str,
+                 description: Optional[_builtins.str] = None,
+                 max_agent_count: Optional[_builtins.int] = None,
+                 policies: Optional['outputs.AgentSpacePoliciesResponse'] = None,
+                 service_tree_id: Optional[_builtins.str] = None):
+        """
+        Agent Space specific properties
+
+        :param 'AgentSpaceComplianceStatusResponse' compliance_status: Compliance status of the Agent Space
+        :param _builtins.int current_agent_count: Current number of agents in the Agent Space
+        :param _builtins.str last_policy_propagation: Timestamp of the last policy propagation to agents in this Agent Space
+        :param Sequence[_builtins.str] member_agents: List of agents referencing the Agent Space
+        :param _builtins.str provisioning_state: Provisioning state of the Agent Space
+        :param _builtins.str description: Description of the Agent Space
+        :param _builtins.int max_agent_count: Maximum number of agents allowed in the Agent Space
+        :param 'AgentSpacePoliciesResponse' policies: Policy configurations for the Agent Space
+        :param _builtins.str service_tree_id: Universal unique ID (UUID) of the Service Tree associated with this Agent Space
+        """
+        pulumi.set(__self__, "compliance_status", compliance_status)
+        pulumi.set(__self__, "current_agent_count", current_agent_count)
+        pulumi.set(__self__, "last_policy_propagation", last_policy_propagation)
+        pulumi.set(__self__, "member_agents", member_agents)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if max_agent_count is not None:
+            pulumi.set(__self__, "max_agent_count", max_agent_count)
+        if policies is not None:
+            pulumi.set(__self__, "policies", policies)
+        if service_tree_id is not None:
+            pulumi.set(__self__, "service_tree_id", service_tree_id)
+
+    @_builtins.property
+    @pulumi.getter(name="complianceStatus")
+    def compliance_status(self) -> 'outputs.AgentSpaceComplianceStatusResponse':
+        """
+        Compliance status of the Agent Space
+        """
+        return pulumi.get(self, "compliance_status")
+
+    @_builtins.property
+    @pulumi.getter(name="currentAgentCount")
+    def current_agent_count(self) -> _builtins.int:
+        """
+        Current number of agents in the Agent Space
+        """
+        return pulumi.get(self, "current_agent_count")
+
+    @_builtins.property
+    @pulumi.getter(name="lastPolicyPropagation")
+    def last_policy_propagation(self) -> _builtins.str:
+        """
+        Timestamp of the last policy propagation to agents in this Agent Space
+        """
+        return pulumi.get(self, "last_policy_propagation")
+
+    @_builtins.property
+    @pulumi.getter(name="memberAgents")
+    def member_agents(self) -> Sequence[_builtins.str]:
+        """
+        List of agents referencing the Agent Space
+        """
+        return pulumi.get(self, "member_agents")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        Provisioning state of the Agent Space
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        Description of the Agent Space
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="maxAgentCount")
+    def max_agent_count(self) -> Optional[_builtins.int]:
+        """
+        Maximum number of agents allowed in the Agent Space
+        """
+        return pulumi.get(self, "max_agent_count")
+
+    @_builtins.property
+    @pulumi.getter
+    def policies(self) -> Optional['outputs.AgentSpacePoliciesResponse']:
+        """
+        Policy configurations for the Agent Space
+        """
+        return pulumi.get(self, "policies")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceTreeId")
+    def service_tree_id(self) -> Optional[_builtins.str]:
+        """
+        Universal unique ID (UUID) of the Service Tree associated with this Agent Space
+        """
+        return pulumi.get(self, "service_tree_id")
+
 
 @pulumi.output_type
 class AllowedAudiencesValidationResponse(dict):
@@ -542,6 +1516,61 @@ class AppleResponse(dict):
         The configuration settings of the Apple registration.
         """
         return pulumi.get(self, "registration")
+
+
+@pulumi.output_type
+class ApplicationInsightsConfigurationResponse(dict):
+    """
+    Application Insights Configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appId":
+            suggest = "app_id"
+        elif key == "connectionString":
+            suggest = "connection_string"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationInsightsConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationInsightsConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationInsightsConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 app_id: Optional[_builtins.str] = None,
+                 connection_string: Optional[_builtins.str] = None):
+        """
+        Application Insights Configuration
+
+        :param _builtins.str app_id: The Application ID for the Application Insights resource
+        :param _builtins.str connection_string: The connection string for the Application Insights resource
+        """
+        if app_id is not None:
+            pulumi.set(__self__, "app_id", app_id)
+        if connection_string is not None:
+            pulumi.set(__self__, "connection_string", connection_string)
+
+    @_builtins.property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> Optional[_builtins.str]:
+        """
+        The Application ID for the Application Insights resource
+        """
+        return pulumi.get(self, "app_id")
+
+    @_builtins.property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> Optional[_builtins.str]:
+        """
+        The connection string for the Application Insights resource
+        """
+        return pulumi.get(self, "connection_string")
 
 
 @pulumi.output_type
@@ -4300,6 +5329,42 @@ class DefaultAuthorizationPolicyResponse(dict):
 
 
 @pulumi.output_type
+class DefaultModelResponse(dict):
+    """
+    Default AI model configuration
+    """
+    def __init__(__self__, *,
+                 name: Optional[_builtins.str] = None,
+                 provider: Optional[_builtins.str] = None):
+        """
+        Default AI model configuration
+
+        :param _builtins.str name: Model name (e.g., gpt-5, claude-opus-4-5, claude-sonnet-4-5)
+        :param _builtins.str provider: AI provider name (e.g., MicrosoftFoundry, Anthropic)
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if provider is not None:
+            pulumi.set(__self__, "provider", provider)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        Model name (e.g., gpt-5, claude-opus-4-5, claude-sonnet-4-5)
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def provider(self) -> Optional[_builtins.str]:
+        """
+        AI provider name (e.g., MicrosoftFoundry, Anthropic)
+        """
+        return pulumi.get(self, "provider")
+
+
+@pulumi.output_type
 class DestinationsConfigurationResponse(dict):
     """
     Configuration of Open Telemetry destinations
@@ -5059,6 +6124,246 @@ class ForwardProxyResponse(dict):
         The name of the header containing the scheme of the request.
         """
         return pulumi.get(self, "custom_proto_header_name")
+
+
+@pulumi.output_type
+class GenevaActionConfigResponse(dict):
+    """
+    Configuration for a Geneva action
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionName":
+            suggest = "action_name"
+        elif key == "actionParameters":
+            suggest = "action_parameters"
+        elif key == "approvalRequired":
+            suggest = "approval_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GenevaActionConfigResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GenevaActionConfigResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GenevaActionConfigResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action_name: Optional[_builtins.str] = None,
+                 action_parameters: Optional[Sequence['outputs.GenevaActionParameterResponse']] = None,
+                 approval_required: Optional[_builtins.bool] = None,
+                 extension: Optional[_builtins.str] = None):
+        """
+        Configuration for a Geneva action
+
+        :param _builtins.str action_name: Name of the Geneva action
+        :param Sequence['GenevaActionParameterResponse'] action_parameters: Parameters for the Geneva action
+        :param _builtins.bool approval_required: Indicates whether approval is required for this action
+        :param _builtins.str extension: Extension associated with the action
+        """
+        if action_name is not None:
+            pulumi.set(__self__, "action_name", action_name)
+        if action_parameters is not None:
+            pulumi.set(__self__, "action_parameters", action_parameters)
+        if approval_required is not None:
+            pulumi.set(__self__, "approval_required", approval_required)
+        if extension is not None:
+            pulumi.set(__self__, "extension", extension)
+
+    @_builtins.property
+    @pulumi.getter(name="actionName")
+    def action_name(self) -> Optional[_builtins.str]:
+        """
+        Name of the Geneva action
+        """
+        return pulumi.get(self, "action_name")
+
+    @_builtins.property
+    @pulumi.getter(name="actionParameters")
+    def action_parameters(self) -> Optional[Sequence['outputs.GenevaActionParameterResponse']]:
+        """
+        Parameters for the Geneva action
+        """
+        return pulumi.get(self, "action_parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="approvalRequired")
+    def approval_required(self) -> Optional[_builtins.bool]:
+        """
+        Indicates whether approval is required for this action
+        """
+        return pulumi.get(self, "approval_required")
+
+    @_builtins.property
+    @pulumi.getter
+    def extension(self) -> Optional[_builtins.str]:
+        """
+        Extension associated with the action
+        """
+        return pulumi.get(self, "extension")
+
+
+@pulumi.output_type
+class GenevaActionParameterResponse(dict):
+    """
+    Parameter for a Geneva action
+    """
+    def __init__(__self__, *,
+                 name: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None):
+        """
+        Parameter for a Geneva action
+
+        :param _builtins.str name: Name of the parameter
+        :param _builtins.str type: Type of the parameter
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        Name of the parameter
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        Type of the parameter
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GenevaActionsPolicyResponse(dict):
+    """
+    Geneva Actions policy configuration for Agent Space
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateSubjectAlternativeName":
+            suggest = "certificate_subject_alternative_name"
+        elif key == "extensionName":
+            suggest = "extension_name"
+        elif key == "acisEndpoint":
+            suggest = "acis_endpoint"
+        elif key == "allowedActions":
+            suggest = "allowed_actions"
+        elif key == "authenticationMode":
+            suggest = "authentication_mode"
+        elif key == "certificateSubjectName":
+            suggest = "certificate_subject_name"
+        elif key == "clientId":
+            suggest = "client_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GenevaActionsPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GenevaActionsPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GenevaActionsPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_subject_alternative_name: _builtins.str,
+                 extension_name: _builtins.str,
+                 acis_endpoint: Optional[_builtins.str] = None,
+                 allowed_actions: Optional[Sequence['outputs.GenevaActionConfigResponse']] = None,
+                 authentication_mode: Optional[_builtins.str] = None,
+                 certificate_subject_name: Optional[_builtins.str] = None,
+                 client_id: Optional[_builtins.str] = None):
+        """
+        Geneva Actions policy configuration for Agent Space
+
+        :param _builtins.str certificate_subject_alternative_name: Subject alternative name of the certificate used for authentication
+        :param _builtins.str extension_name: Name of the Geneva extension
+        :param _builtins.str acis_endpoint: ACIS (Azure Container Instance Service) endpoint URL
+        :param Sequence['GenevaActionConfigResponse'] allowed_actions: Collection of allowed Geneva actions
+        :param _builtins.str authentication_mode: Authentication mode for Geneva Actions
+        :param _builtins.str certificate_subject_name: Subject name of the certificate used for authentication
+        :param _builtins.str client_id: Client ID for authentication
+        """
+        pulumi.set(__self__, "certificate_subject_alternative_name", certificate_subject_alternative_name)
+        pulumi.set(__self__, "extension_name", extension_name)
+        if acis_endpoint is not None:
+            pulumi.set(__self__, "acis_endpoint", acis_endpoint)
+        if allowed_actions is not None:
+            pulumi.set(__self__, "allowed_actions", allowed_actions)
+        if authentication_mode is not None:
+            pulumi.set(__self__, "authentication_mode", authentication_mode)
+        if certificate_subject_name is not None:
+            pulumi.set(__self__, "certificate_subject_name", certificate_subject_name)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateSubjectAlternativeName")
+    def certificate_subject_alternative_name(self) -> _builtins.str:
+        """
+        Subject alternative name of the certificate used for authentication
+        """
+        return pulumi.get(self, "certificate_subject_alternative_name")
+
+    @_builtins.property
+    @pulumi.getter(name="extensionName")
+    def extension_name(self) -> _builtins.str:
+        """
+        Name of the Geneva extension
+        """
+        return pulumi.get(self, "extension_name")
+
+    @_builtins.property
+    @pulumi.getter(name="acisEndpoint")
+    def acis_endpoint(self) -> Optional[_builtins.str]:
+        """
+        ACIS (Azure Container Instance Service) endpoint URL
+        """
+        return pulumi.get(self, "acis_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedActions")
+    def allowed_actions(self) -> Optional[Sequence['outputs.GenevaActionConfigResponse']]:
+        """
+        Collection of allowed Geneva actions
+        """
+        return pulumi.get(self, "allowed_actions")
+
+    @_builtins.property
+    @pulumi.getter(name="authenticationMode")
+    def authentication_mode(self) -> Optional[_builtins.str]:
+        """
+        Authentication mode for Geneva Actions
+        """
+        return pulumi.get(self, "authentication_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="certificateSubjectName")
+    def certificate_subject_name(self) -> Optional[_builtins.str]:
+        """
+        Subject name of the certificate used for authentication
+        """
+        return pulumi.get(self, "certificate_subject_name")
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[_builtins.str]:
+        """
+        Client ID for authentication
+        """
+        return pulumi.get(self, "client_id")
 
 
 @pulumi.output_type
@@ -6490,6 +7795,101 @@ class IdentitySettingsResponse(dict):
         Use to select the lifecycle stages of a Container App during which the Managed Identity should be available.
         """
         return pulumi.get(self, "lifecycle")
+
+
+@pulumi.output_type
+class IncidentManagementConfigurationResponse(dict):
+    """
+    Incident Management Configurations
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionKey":
+            suggest = "connection_key"
+        elif key == "connectionName":
+            suggest = "connection_name"
+        elif key == "connectionUrl":
+            suggest = "connection_url"
+        elif key == "oboUser":
+            suggest = "obo_user"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IncidentManagementConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IncidentManagementConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IncidentManagementConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connection_key: Optional[_builtins.str] = None,
+                 connection_name: Optional[_builtins.str] = None,
+                 connection_url: Optional[_builtins.str] = None,
+                 obo_user: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None):
+        """
+        Incident Management Configurations
+
+        :param _builtins.str connection_key: The key for the connection
+        :param _builtins.str connection_name: The name of the connection
+        :param _builtins.str connection_url: The URL of the connection
+        :param _builtins.str obo_user: The user for the connection
+        :param _builtins.str type: The type of incident management system
+        """
+        if connection_key is not None:
+            pulumi.set(__self__, "connection_key", connection_key)
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+        if connection_url is not None:
+            pulumi.set(__self__, "connection_url", connection_url)
+        if obo_user is not None:
+            pulumi.set(__self__, "obo_user", obo_user)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionKey")
+    def connection_key(self) -> Optional[_builtins.str]:
+        """
+        The key for the connection
+        """
+        return pulumi.get(self, "connection_key")
+
+    @_builtins.property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the connection
+        """
+        return pulumi.get(self, "connection_name")
+
+    @_builtins.property
+    @pulumi.getter(name="connectionUrl")
+    def connection_url(self) -> Optional[_builtins.str]:
+        """
+        The URL of the connection
+        """
+        return pulumi.get(self, "connection_url")
+
+    @_builtins.property
+    @pulumi.getter(name="oboUser")
+    def obo_user(self) -> Optional[_builtins.str]:
+        """
+        The user for the connection
+        """
+        return pulumi.get(self, "obo_user")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        The type of incident management system
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -7972,6 +9372,59 @@ class KedaConfigurationResponse(dict):
 
 
 @pulumi.output_type
+class KnowledgeGraphConfigurationResponse(dict):
+    """
+    Knowledge graph configuration for agent
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedResources":
+            suggest = "managed_resources"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeGraphConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeGraphConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeGraphConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity: Optional[_builtins.str] = None,
+                 managed_resources: Optional[Sequence[_builtins.str]] = None):
+        """
+        Knowledge graph configuration for agent
+
+        :param _builtins.str identity: The identity used to access the knowledge graph
+        :param Sequence[_builtins.str] managed_resources: The list of resources managed by agent
+        """
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if managed_resources is not None:
+            pulumi.set(__self__, "managed_resources", managed_resources)
+
+    @_builtins.property
+    @pulumi.getter
+    def identity(self) -> Optional[_builtins.str]:
+        """
+        The identity used to access the knowledge graph
+        """
+        return pulumi.get(self, "identity")
+
+    @_builtins.property
+    @pulumi.getter(name="managedResources")
+    def managed_resources(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The list of resources managed by agent
+        """
+        return pulumi.get(self, "managed_resources")
+
+
+@pulumi.output_type
 class LifecycleConfigurationResponse(dict):
     """
     The lifecycle configuration properties of a session in the dynamic session pool
@@ -8093,6 +9546,47 @@ class LogAnalyticsConfigurationResponse(dict):
         Boolean indicating whether to parse json string log into dynamic json columns
         """
         return pulumi.get(self, "dynamic_json_columns")
+
+
+@pulumi.output_type
+class LogConfigurationResponse(dict):
+    """
+    Log Configurations
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationInsightsConfiguration":
+            suggest = "application_insights_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 application_insights_configuration: Optional['outputs.ApplicationInsightsConfigurationResponse'] = None):
+        """
+        Log Configurations
+
+        :param 'ApplicationInsightsConfigurationResponse' application_insights_configuration: Application Insights Configuration
+        """
+        if application_insights_configuration is not None:
+            pulumi.set(__self__, "application_insights_configuration", application_insights_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationInsightsConfiguration")
+    def application_insights_configuration(self) -> Optional['outputs.ApplicationInsightsConfigurationResponse']:
+        """
+        Application Insights Configuration
+        """
+        return pulumi.get(self, "application_insights_configuration")
 
 
 @pulumi.output_type

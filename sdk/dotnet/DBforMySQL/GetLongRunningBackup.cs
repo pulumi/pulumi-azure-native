@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// Get backup for a given server.
         /// 
         /// Uses Azure REST API version 2025-06-01-preview.
+        /// 
+        /// Other available API versions: 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetLongRunningBackupResult> InvokeAsync(GetLongRunningBackupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLongRunningBackupResult>("azure-native:dbformysql:getLongRunningBackup", args ?? new GetLongRunningBackupArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// Get backup for a given server.
         /// 
         /// Uses Azure REST API version 2025-06-01-preview.
+        /// 
+        /// Other available API versions: 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetLongRunningBackupResult> Invoke(GetLongRunningBackupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLongRunningBackupResult>("azure-native:dbformysql:getLongRunningBackup", args ?? new GetLongRunningBackupInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// Get backup for a given server.
         /// 
         /// Uses Azure REST API version 2025-06-01-preview.
+        /// 
+        /// Other available API versions: 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetLongRunningBackupResult> Invoke(GetLongRunningBackupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLongRunningBackupResult>("azure-native:dbformysql:getLongRunningBackup", args ?? new GetLongRunningBackupInvokeArgs(), options.WithDefaults());

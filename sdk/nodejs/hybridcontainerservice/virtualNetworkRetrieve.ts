@@ -8,11 +8,11 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The virtualNetworks resource definition.
+ * The Virtual Network resource definition.
  *
- * Uses Azure REST API version 2022-09-01-preview.
+ * Uses Azure REST API version 2024-01-01.
  *
- * Other available API versions: 2023-11-15-preview, 2024-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-11-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class VirtualNetworkRetrieve extends pulumi.CustomResource {
     /**
@@ -45,7 +45,10 @@ export class VirtualNetworkRetrieve extends pulumi.CustomResource {
      * The Azure API version of the resource.
      */
     declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
-    declare public readonly extendedLocation: pulumi.Output<outputs.hybridcontainerservice.VirtualNetworksResponseExtendedLocation | undefined>;
+    /**
+     * Extended location pointing to the underlying infrastructure
+     */
+    declare public readonly extendedLocation: pulumi.Output<outputs.hybridcontainerservice.VirtualNetworkResponseExtendedLocation | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -55,11 +58,11 @@ export class VirtualNetworkRetrieve extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
-     * HybridAKSNetworkSpec defines the desired state of HybridAKSNetwork
+     * Properties of the virtual network resource
      */
-    declare public readonly properties: pulumi.Output<outputs.hybridcontainerservice.VirtualNetworksPropertiesResponse>;
+    declare public readonly properties: pulumi.Output<outputs.hybridcontainerservice.VirtualNetworkPropertiesResponse>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     declare public /*out*/ readonly systemData: pulumi.Output<outputs.hybridcontainerservice.SystemDataResponse>;
     /**
@@ -90,7 +93,7 @@ export class VirtualNetworkRetrieve extends pulumi.CustomResource {
             resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["tags"] = args?.tags;
-            resourceInputs["virtualNetworksName"] = args?.virtualNetworksName;
+            resourceInputs["virtualNetworkName"] = args?.virtualNetworkName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -106,7 +109,7 @@ export class VirtualNetworkRetrieve extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridcontainerservice/v20220501preview:VirtualNetworkRetrieve" }, { type: "azure-native:hybridcontainerservice/v20220901preview:VirtualNetworkRetrieve" }, { type: "azure-native:hybridcontainerservice/v20231115preview:VirtualNetworkRetrieve" }, { type: "azure-native:hybridcontainerservice/v20240101:VirtualNetworkRetrieve" }, { type: "azure-native:hybridcontainerservice/v20250201preview:VirtualNetworkRetrieve" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridcontainerservice/v20220901preview:VirtualNetworkRetrieve" }, { type: "azure-native:hybridcontainerservice/v20231115preview:VirtualNetworkRetrieve" }, { type: "azure-native:hybridcontainerservice/v20240101:VirtualNetworkRetrieve" }, { type: "azure-native:hybridcontainerservice/v20260401preview:VirtualNetworkRetrieve" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualNetworkRetrieve.__pulumiType, name, resourceInputs, opts);
     }
@@ -116,15 +119,18 @@ export class VirtualNetworkRetrieve extends pulumi.CustomResource {
  * The set of arguments for constructing a VirtualNetworkRetrieve resource.
  */
 export interface VirtualNetworkRetrieveArgs {
-    extendedLocation?: pulumi.Input<inputs.hybridcontainerservice.VirtualNetworksExtendedLocationArgs>;
+    /**
+     * Extended location pointing to the underlying infrastructure
+     */
+    extendedLocation?: pulumi.Input<inputs.hybridcontainerservice.VirtualNetworkExtendedLocationArgs>;
     /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
-     * HybridAKSNetworkSpec defines the desired state of HybridAKSNetwork
+     * Properties of the virtual network resource
      */
-    properties?: pulumi.Input<inputs.hybridcontainerservice.VirtualNetworksPropertiesArgs>;
+    properties?: pulumi.Input<inputs.hybridcontainerservice.VirtualNetworkPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -136,5 +142,5 @@ export interface VirtualNetworkRetrieveArgs {
     /**
      * Parameter for the name of the virtual network
      */
-    virtualNetworksName?: pulumi.Input<string>;
+    virtualNetworkName?: pulumi.Input<string>;
 }

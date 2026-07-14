@@ -154,6 +154,8 @@ def get_device_pool(device_pool_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2026-03-01-preview.
 
+    Other available API versions: 2026-04-01-preview, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param _builtins.str device_pool_name: The name of the DevicePool
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -181,6 +183,8 @@ def get_device_pool_output(device_pool_name: Optional[pulumi.Input[_builtins.str
     Get a DevicePool
 
     Uses Azure REST API version 2026-03-01-preview.
+
+    Other available API versions: 2026-04-01-preview, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str device_pool_name: The name of the DevicePool

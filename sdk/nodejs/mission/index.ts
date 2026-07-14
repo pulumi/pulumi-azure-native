@@ -20,6 +20,11 @@ export type CommunityEndpoint = import("./communityEndpoint").CommunityEndpoint;
 export const CommunityEndpoint: typeof import("./communityEndpoint").CommunityEndpoint = null as any;
 utilities.lazyLoad(exports, ["CommunityEndpoint"], () => require("./communityEndpoint"));
 
+export { DedicatedHubArgs } from "./dedicatedHub";
+export type DedicatedHub = import("./dedicatedHub").DedicatedHub;
+export const DedicatedHub: typeof import("./dedicatedHub").DedicatedHub = null as any;
+utilities.lazyLoad(exports, ["DedicatedHub"], () => require("./dedicatedHub"));
+
 export { EnclaveConnectionArgs } from "./enclaveConnection";
 export type EnclaveConnection = import("./enclaveConnection").EnclaveConnection;
 export const EnclaveConnection: typeof import("./enclaveConnection").EnclaveConnection = null as any;
@@ -44,6 +49,11 @@ export { GetCommunityEndpointArgs, GetCommunityEndpointResult, GetCommunityEndpo
 export const getCommunityEndpoint: typeof import("./getCommunityEndpoint").getCommunityEndpoint = null as any;
 export const getCommunityEndpointOutput: typeof import("./getCommunityEndpoint").getCommunityEndpointOutput = null as any;
 utilities.lazyLoad(exports, ["getCommunityEndpoint","getCommunityEndpointOutput"], () => require("./getCommunityEndpoint"));
+
+export { GetDedicatedHubArgs, GetDedicatedHubResult, GetDedicatedHubOutputArgs } from "./getDedicatedHub";
+export const getDedicatedHub: typeof import("./getDedicatedHub").getDedicatedHub = null as any;
+export const getDedicatedHubOutput: typeof import("./getDedicatedHub").getDedicatedHubOutput = null as any;
+utilities.lazyLoad(exports, ["getDedicatedHub","getDedicatedHubOutput"], () => require("./getDedicatedHub"));
 
 export { GetEnclaveConnectionArgs, GetEnclaveConnectionResult, GetEnclaveConnectionOutputArgs } from "./getEnclaveConnection";
 export const getEnclaveConnection: typeof import("./getEnclaveConnection").getEnclaveConnection = null as any;
@@ -99,6 +109,8 @@ const _module = {
                 return new Community(name, <any>undefined, { urn })
             case "azure-native:mission:CommunityEndpoint":
                 return new CommunityEndpoint(name, <any>undefined, { urn })
+            case "azure-native:mission:DedicatedHub":
+                return new DedicatedHub(name, <any>undefined, { urn })
             case "azure-native:mission:EnclaveConnection":
                 return new EnclaveConnection(name, <any>undefined, { urn })
             case "azure-native:mission:EnclaveEndpoint":

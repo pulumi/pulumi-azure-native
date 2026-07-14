@@ -58,7 +58,7 @@ export class GraphQuery extends pulumi.CustomResource {
      */
     declare public readonly location: pulumi.Output<string | undefined>;
     /**
-     * Azure resource name. This is GUID value. The display name should be assigned within properties field.
+     * The name of the resource
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
@@ -70,11 +70,11 @@ export class GraphQuery extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly resultKind: pulumi.Output<string>;
     /**
-     * The system metadata relating to this resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     declare public /*out*/ readonly systemData: pulumi.Output<outputs.resourcegraph.SystemDataResponse>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -82,7 +82,7 @@ export class GraphQuery extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly timeModified: pulumi.Output<string>;
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
 
@@ -161,7 +161,7 @@ export interface GraphQueryArgs {
      */
     resourceName?: pulumi.Input<string>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

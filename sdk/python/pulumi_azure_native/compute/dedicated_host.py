@@ -190,7 +190,7 @@ class DedicatedHost(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
 
-        Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01, 2025-11-01, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -216,7 +216,7 @@ class DedicatedHost(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
 
-        Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01, 2025-11-01, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -277,7 +277,7 @@ class DedicatedHost(pulumi.CustomResource):
             __props__.__dict__["time_created"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["virtual_machines"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20190301:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20190701:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20191201:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20200601:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20201201:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20210301:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20210401:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20210701:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20211101:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20220301:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20220801:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20221101:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20230301:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20230701:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20230901:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20240301:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20240701:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20241101:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20250401:DedicatedHost")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20190301:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20190701:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20191201:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20200601:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20201201:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20210301:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20210401:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20210701:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20211101:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20220301:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20220801:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20221101:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20230301:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20230701:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20230901:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20240301:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20240701:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20241101:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20250401:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20251101:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20260301:DedicatedHost")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DedicatedHost, __self__).__init__(
             'azure-native:compute:DedicatedHost',

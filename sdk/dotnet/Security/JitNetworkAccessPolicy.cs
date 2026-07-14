@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security
 {
     /// <summary>
+    /// Concrete proxy resource types can be created by aliasing this type using a specific property type.
+    /// 
     /// Uses Azure REST API version 2020-01-01. In version 2.x of the Azure Native provider, it used API version 2020-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:JitNetworkAccessPolicy")]
@@ -34,7 +36,7 @@ namespace Pulumi.AzureNative.Security
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -49,7 +51,13 @@ namespace Pulumi.AzureNative.Security
         public Output<ImmutableArray<Outputs.JitNetworkAccessRequestResponse>> Requests { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -137,7 +145,7 @@ namespace Pulumi.AzureNative.Security
         }
 
         /// <summary>
-        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

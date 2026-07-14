@@ -241,10 +241,10 @@ def get_lab(billing_account_name: Optional[_builtins.str] = None,
     Uses Azure REST API version 2021-12-01-preview.
 
 
-    :param _builtins.str billing_account_name: The ID that uniquely identifies a billing account.
-    :param _builtins.str billing_profile_name: The ID that uniquely identifies a billing profile.
+    :param _builtins.str billing_account_name: The name of the billing account.
+    :param _builtins.str billing_profile_name: The name of the billing profile.
     :param _builtins.bool include_budget: May be used to include budget information.
-    :param _builtins.str invoice_section_name: The ID that uniquely identifies an invoice section.
+    :param _builtins.str invoice_section_name: The name of the invoice section.
     """
     __args__ = dict()
     __args__['billingAccountName'] = billing_account_name
@@ -282,10 +282,10 @@ def get_lab_output(billing_account_name: Optional[pulumi.Input[_builtins.str]] =
     Uses Azure REST API version 2021-12-01-preview.
 
 
-    :param _builtins.str billing_account_name: The ID that uniquely identifies a billing account.
-    :param _builtins.str billing_profile_name: The ID that uniquely identifies a billing profile.
+    :param _builtins.str billing_account_name: The name of the billing account.
+    :param _builtins.str billing_profile_name: The name of the billing profile.
     :param _builtins.bool include_budget: May be used to include budget information.
-    :param _builtins.str invoice_section_name: The ID that uniquely identifies an invoice section.
+    :param _builtins.str invoice_section_name: The name of the invoice section.
     """
     __args__ = dict()
     __args__['billingAccountName'] = billing_account_name

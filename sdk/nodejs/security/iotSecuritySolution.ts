@@ -70,11 +70,11 @@ export class IotSecuritySolution extends pulumi.CustomResource {
      */
     declare public readonly iotHubs: pulumi.Output<string[]>;
     /**
-     * The resource location.
+     * The geo-location where the resource lives
      */
     declare public readonly location: pulumi.Output<string | undefined>;
     /**
-     * Resource name
+     * The name of the resource
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
@@ -90,11 +90,11 @@ export class IotSecuritySolution extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly systemData: pulumi.Output<outputs.security.SystemDataResponse>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
@@ -200,7 +200,7 @@ export interface IotSecuritySolutionArgs {
      */
     iotHubs: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The resource location.
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
@@ -208,7 +208,7 @@ export interface IotSecuritySolutionArgs {
      */
     recommendationsConfiguration?: pulumi.Input<pulumi.Input<inputs.security.RecommendationConfigurationPropertiesArgs>[]>;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -220,7 +220,7 @@ export interface IotSecuritySolutionArgs {
      */
     status?: pulumi.Input<string | enums.security.SecuritySolutionStatus>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

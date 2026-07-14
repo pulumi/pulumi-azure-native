@@ -21,13 +21,13 @@ namespace Pulumi.AzureNative.Security
         /// Standard item with key as applied to this standard assignment over the given scope
         /// </summary>
         [Output("assignedStandard")]
-        public Output<Outputs.AssignedStandardItemResponse?> AssignedStandard { get; private set; } = null!;
+        public Output<Outputs.CommonAssignedStandardItemResponse?> AssignedStandard { get; private set; } = null!;
 
         /// <summary>
         /// Additional data about assignment that has Attest effect
         /// </summary>
         [Output("attestationData")]
-        public Output<Outputs.StandardAssignmentPropertiesResponseAttestationData?> AttestationData { get; private set; } = null!;
+        public Output<Outputs.StandardAssignmentPropertiesAttestationDataResponse?> AttestationData { get; private set; } = null!;
 
         /// <summary>
         /// The Azure API version of the resource.
@@ -63,7 +63,7 @@ namespace Pulumi.AzureNative.Security
         /// Additional data about assignment that has Exempt effect
         /// </summary>
         [Output("exemptionData")]
-        public Output<Outputs.StandardAssignmentPropertiesResponseExemptionData?> ExemptionData { get; private set; } = null!;
+        public Output<Outputs.StandardAssignmentPropertiesExemptionDataResponse?> ExemptionData { get; private set; } = null!;
 
         /// <summary>
         /// Expiration date of this assignment as a full ISO date
@@ -78,13 +78,19 @@ namespace Pulumi.AzureNative.Security
         public Output<Outputs.StandardAssignmentMetadataResponse?> Metadata { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -142,7 +148,7 @@ namespace Pulumi.AzureNative.Security
         /// Standard item with key as applied to this standard assignment over the given scope
         /// </summary>
         [Input("assignedStandard")]
-        public Input<Inputs.AssignedStandardItemArgs>? AssignedStandard { get; set; }
+        public Input<Inputs.CommonAssignedStandardItemArgs>? AssignedStandard { get; set; }
 
         /// <summary>
         /// Additional data about assignment that has Attest effect
@@ -193,7 +199,7 @@ namespace Pulumi.AzureNative.Security
         public Input<string>? ExpiresOn { get; set; }
 
         /// <summary>
-        /// The identifier of the resource.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;

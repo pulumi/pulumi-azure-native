@@ -68,13 +68,15 @@ def list_agent_application_agents(account_name: Optional[_builtins.str] = None,
                                   resource_group_name: Optional[_builtins.str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAgentApplicationAgentsResult:
     """
-    A paginated list of Agent Reference entities.
+    Lists agents for an Agent Application.
 
     Uses Azure REST API version 2025-10-01-preview.
 
+    Other available API versions: 2025-12-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-05-01, 2026-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param _builtins.str account_name: The name of Cognitive Services account.
-    :param _builtins.str name: Agent Application name.
+    :param _builtins.str name: Name for the Agent Application.
     :param _builtins.str project_name: The name of Cognitive Services account's project.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -95,13 +97,15 @@ def list_agent_application_agents_output(account_name: Optional[pulumi.Input[_bu
                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAgentApplicationAgentsResult]:
     """
-    A paginated list of Agent Reference entities.
+    Lists agents for an Agent Application.
 
     Uses Azure REST API version 2025-10-01-preview.
 
+    Other available API versions: 2025-12-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-05-01, 2026-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param _builtins.str account_name: The name of Cognitive Services account.
-    :param _builtins.str name: Agent Application name.
+    :param _builtins.str name: Name for the Agent Application.
     :param _builtins.str project_name: The name of Cognitive Services account's project.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """

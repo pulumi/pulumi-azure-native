@@ -2941,15 +2941,15 @@ class GarnetClusterResourcePropertiesArgsDict(TypedDict):
     """
     node_count: NotRequired[pulumi.Input[_builtins.int]]
     """
-    Number of nodes
+    Number of nodes.
     """
     node_sku: NotRequired[pulumi.Input[_builtins.str]]
     """
-    Virtual Machine SKU used for clusters. Default value is Standard_DS14_v2
+    Virtual Machine SKU used for clusters. Default value is Standard_DS14_v2.
     """
     replication_factor: NotRequired[pulumi.Input[_builtins.int]]
     """
-    Number of copies of data maintained by the cluster
+    Number of copies of data maintained by the cluster.
     """
     subnet_id: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -2974,9 +2974,9 @@ class GarnetClusterResourcePropertiesArgs:
         :param pulumi.Input[_builtins.bool] availability_zone: If the data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the garnet cluster virtual machines.
         :param pulumi.Input[Union[_builtins.str, 'ClusterType']] cluster_type: Type of the cluster. If set to Production, some operations might not be permitted on cluster.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] extensions: Extensions to be added or updated on cluster.
-        :param pulumi.Input[_builtins.int] node_count: Number of nodes
-        :param pulumi.Input[_builtins.str] node_sku: Virtual Machine SKU used for clusters. Default value is Standard_DS14_v2
-        :param pulumi.Input[_builtins.int] replication_factor: Number of copies of data maintained by the cluster
+        :param pulumi.Input[_builtins.int] node_count: Number of nodes.
+        :param pulumi.Input[_builtins.str] node_sku: Virtual Machine SKU used for clusters. Default value is Standard_DS14_v2.
+        :param pulumi.Input[_builtins.int] replication_factor: Number of copies of data maintained by the cluster.
         :param pulumi.Input[_builtins.str] subnet_id: Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
         """
         if allocation_state is not None:
@@ -3048,7 +3048,7 @@ class GarnetClusterResourcePropertiesArgs:
     @pulumi.getter(name="nodeCount")
     def node_count(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Number of nodes
+        Number of nodes.
         """
         return pulumi.get(self, "node_count")
 
@@ -3060,7 +3060,7 @@ class GarnetClusterResourcePropertiesArgs:
     @pulumi.getter(name="nodeSku")
     def node_sku(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Virtual Machine SKU used for clusters. Default value is Standard_DS14_v2
+        Virtual Machine SKU used for clusters. Default value is Standard_DS14_v2.
         """
         return pulumi.get(self, "node_sku")
 
@@ -3072,7 +3072,7 @@ class GarnetClusterResourcePropertiesArgs:
     @pulumi.getter(name="replicationFactor")
     def replication_factor(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Number of copies of data maintained by the cluster
+        Number of copies of data maintained by the cluster.
         """
         return pulumi.get(self, "replication_factor")
 

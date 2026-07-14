@@ -29,11 +29,10 @@ class SourceControlArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  description: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_deployment_info: Optional[pulumi.Input['DeploymentInfoArgs']] = None,
+                 repository_access: Optional[pulumi.Input['RepositoryAccessArgs']] = None,
                  repository_resource_info: Optional[pulumi.Input['RepositoryResourceInfoArgs']] = None,
-                 source_control_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[Union[_builtins.str, 'Version']]] = None):
+                 service_principal: Optional[pulumi.Input['ServicePrincipalArgs']] = None,
+                 source_control_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SourceControl resource.
 
@@ -44,11 +43,10 @@ class SourceControlArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         :param pulumi.Input[_builtins.str] description: A description of the source control
-        :param pulumi.Input[_builtins.str] id: The id (a Guid) of the source control
-        :param pulumi.Input['DeploymentInfoArgs'] last_deployment_info: Information regarding the latest deployment for the source control.
+        :param pulumi.Input['RepositoryAccessArgs'] repository_access: Repository access credentials. This is write-only object and it never returns back to a user.
         :param pulumi.Input['RepositoryResourceInfoArgs'] repository_resource_info: Information regarding the resources created in user's repository.
+        :param pulumi.Input['ServicePrincipalArgs'] service_principal: Service principal metadata.
         :param pulumi.Input[_builtins.str] source_control_id: Source control Id
-        :param pulumi.Input[Union[_builtins.str, 'Version']] version: The version number associated with the source control
         """
         pulumi.set(__self__, "content_types", content_types)
         pulumi.set(__self__, "display_name", display_name)
@@ -58,16 +56,14 @@ class SourceControlArgs:
         pulumi.set(__self__, "workspace_name", workspace_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if last_deployment_info is not None:
-            pulumi.set(__self__, "last_deployment_info", last_deployment_info)
+        if repository_access is not None:
+            pulumi.set(__self__, "repository_access", repository_access)
         if repository_resource_info is not None:
             pulumi.set(__self__, "repository_resource_info", repository_resource_info)
+        if service_principal is not None:
+            pulumi.set(__self__, "service_principal", service_principal)
         if source_control_id is not None:
             pulumi.set(__self__, "source_control_id", source_control_id)
-        if version is not None:
-            pulumi.set(__self__, "version", version)
 
     @_builtins.property
     @pulumi.getter(name="contentTypes")
@@ -154,28 +150,16 @@ class SourceControlArgs:
         pulumi.set(self, "description", value)
 
     @_builtins.property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    @pulumi.getter(name="repositoryAccess")
+    def repository_access(self) -> Optional[pulumi.Input['RepositoryAccessArgs']]:
         """
-        The id (a Guid) of the source control
+        Repository access credentials. This is write-only object and it never returns back to a user.
         """
-        return pulumi.get(self, "id")
+        return pulumi.get(self, "repository_access")
 
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="lastDeploymentInfo")
-    def last_deployment_info(self) -> Optional[pulumi.Input['DeploymentInfoArgs']]:
-        """
-        Information regarding the latest deployment for the source control.
-        """
-        return pulumi.get(self, "last_deployment_info")
-
-    @last_deployment_info.setter
-    def last_deployment_info(self, value: Optional[pulumi.Input['DeploymentInfoArgs']]):
-        pulumi.set(self, "last_deployment_info", value)
+    @repository_access.setter
+    def repository_access(self, value: Optional[pulumi.Input['RepositoryAccessArgs']]):
+        pulumi.set(self, "repository_access", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryResourceInfo")
@@ -190,6 +174,18 @@ class SourceControlArgs:
         pulumi.set(self, "repository_resource_info", value)
 
     @_builtins.property
+    @pulumi.getter(name="servicePrincipal")
+    def service_principal(self) -> Optional[pulumi.Input['ServicePrincipalArgs']]:
+        """
+        Service principal metadata.
+        """
+        return pulumi.get(self, "service_principal")
+
+    @service_principal.setter
+    def service_principal(self, value: Optional[pulumi.Input['ServicePrincipalArgs']]):
+        pulumi.set(self, "service_principal", value)
+
+    @_builtins.property
     @pulumi.getter(name="sourceControlId")
     def source_control_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -201,18 +197,6 @@ class SourceControlArgs:
     def source_control_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "source_control_id", value)
 
-    @_builtins.property
-    @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Version']]]:
-        """
-        The version number associated with the source control
-        """
-        return pulumi.get(self, "version")
-
-    @version.setter
-    def version(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Version']]]):
-        pulumi.set(self, "version", value)
-
 
 @pulumi.type_token("azure-native:securityinsights:SourceControl")
 class SourceControl(pulumi.CustomResource):
@@ -223,22 +207,21 @@ class SourceControl(pulumi.CustomResource):
                  content_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ContentType']]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_deployment_info: Optional[pulumi.Input[Union['DeploymentInfoArgs', 'DeploymentInfoArgsDict']]] = None,
                  repo_type: Optional[pulumi.Input[Union[_builtins.str, 'RepoType']]] = None,
                  repository: Optional[pulumi.Input[Union['RepositoryArgs', 'RepositoryArgsDict']]] = None,
+                 repository_access: Optional[pulumi.Input[Union['RepositoryAccessArgs', 'RepositoryAccessArgsDict']]] = None,
                  repository_resource_info: Optional[pulumi.Input[Union['RepositoryResourceInfoArgs', 'RepositoryResourceInfoArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_principal: Optional[pulumi.Input[Union['ServicePrincipalArgs', 'ServicePrincipalArgsDict']]] = None,
                  source_control_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[Union[_builtins.str, 'Version']]] = None,
                  workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Represents a SourceControl in Azure Security Insights.
 
-        Uses Azure REST API version 2023-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
+        Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
 
-        Other available API versions: 2023-03-01-preview, 2023-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2025-06-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -246,14 +229,13 @@ class SourceControl(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ContentType']]]] content_types: Array of source control content types.
         :param pulumi.Input[_builtins.str] description: A description of the source control
         :param pulumi.Input[_builtins.str] display_name: The display name of the source control
-        :param pulumi.Input[_builtins.str] id: The id (a Guid) of the source control
-        :param pulumi.Input[Union['DeploymentInfoArgs', 'DeploymentInfoArgsDict']] last_deployment_info: Information regarding the latest deployment for the source control.
         :param pulumi.Input[Union[_builtins.str, 'RepoType']] repo_type: The repository type of the source control
         :param pulumi.Input[Union['RepositoryArgs', 'RepositoryArgsDict']] repository: Repository metadata.
+        :param pulumi.Input[Union['RepositoryAccessArgs', 'RepositoryAccessArgsDict']] repository_access: Repository access credentials. This is write-only object and it never returns back to a user.
         :param pulumi.Input[Union['RepositoryResourceInfoArgs', 'RepositoryResourceInfoArgsDict']] repository_resource_info: Information regarding the resources created in user's repository.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[Union['ServicePrincipalArgs', 'ServicePrincipalArgsDict']] service_principal: Service principal metadata.
         :param pulumi.Input[_builtins.str] source_control_id: Source control Id
-        :param pulumi.Input[Union[_builtins.str, 'Version']] version: The version number associated with the source control
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         """
         ...
@@ -265,9 +247,9 @@ class SourceControl(pulumi.CustomResource):
         """
         Represents a SourceControl in Azure Security Insights.
 
-        Uses Azure REST API version 2023-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
+        Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
 
-        Other available API versions: 2023-03-01-preview, 2023-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2025-06-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -288,14 +270,13 @@ class SourceControl(pulumi.CustomResource):
                  content_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ContentType']]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_deployment_info: Optional[pulumi.Input[Union['DeploymentInfoArgs', 'DeploymentInfoArgsDict']]] = None,
                  repo_type: Optional[pulumi.Input[Union[_builtins.str, 'RepoType']]] = None,
                  repository: Optional[pulumi.Input[Union['RepositoryArgs', 'RepositoryArgsDict']]] = None,
+                 repository_access: Optional[pulumi.Input[Union['RepositoryAccessArgs', 'RepositoryAccessArgsDict']]] = None,
                  repository_resource_info: Optional[pulumi.Input[Union['RepositoryResourceInfoArgs', 'RepositoryResourceInfoArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_principal: Optional[pulumi.Input[Union['ServicePrincipalArgs', 'ServicePrincipalArgsDict']]] = None,
                  source_control_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[Union[_builtins.str, 'Version']]] = None,
                  workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -313,29 +294,32 @@ class SourceControl(pulumi.CustomResource):
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
-            __props__.__dict__["id"] = id
-            __props__.__dict__["last_deployment_info"] = last_deployment_info
             if repo_type is None and not opts.urn:
                 raise TypeError("Missing required property 'repo_type'")
             __props__.__dict__["repo_type"] = repo_type
             if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
             __props__.__dict__["repository"] = repository
+            __props__.__dict__["repository_access"] = repository_access
             __props__.__dict__["repository_resource_info"] = repository_resource_info
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["service_principal"] = service_principal
             __props__.__dict__["source_control_id"] = source_control_id
-            __props__.__dict__["version"] = version
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
+            __props__.__dict__["last_deployment_info"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["pull_request"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20230301preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:SourceControl")])
+            __props__.__dict__["version"] = None
+            __props__.__dict__["workload_identity_federation"] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20250601:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20250701preview:SourceControl"), pulumi.Alias(type_="azure-native:securityinsights/v20250901:SourceControl")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SourceControl, __self__).__init__(
             'azure-native:securityinsights:SourceControl',
@@ -366,12 +350,15 @@ class SourceControl(pulumi.CustomResource):
         __props__.__dict__["etag"] = None
         __props__.__dict__["last_deployment_info"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["pull_request"] = None
         __props__.__dict__["repo_type"] = None
         __props__.__dict__["repository"] = None
         __props__.__dict__["repository_resource_info"] = None
+        __props__.__dict__["service_principal"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["version"] = None
+        __props__.__dict__["workload_identity_federation"] = None
         return SourceControl(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -416,7 +403,7 @@ class SourceControl(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="lastDeploymentInfo")
-    def last_deployment_info(self) -> pulumi.Output[Optional['outputs.DeploymentInfoResponse']]:
+    def last_deployment_info(self) -> pulumi.Output['outputs.DeploymentInfoResponse']:
         """
         Information regarding the latest deployment for the source control.
         """
@@ -429,6 +416,14 @@ class SourceControl(pulumi.CustomResource):
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="pullRequest")
+    def pull_request(self) -> pulumi.Output['outputs.PullRequestResponse']:
+        """
+        Information regarding the pull request of the source control.
+        """
+        return pulumi.get(self, "pull_request")
 
     @_builtins.property
     @pulumi.getter(name="repoType")
@@ -455,6 +450,14 @@ class SourceControl(pulumi.CustomResource):
         return pulumi.get(self, "repository_resource_info")
 
     @_builtins.property
+    @pulumi.getter(name="servicePrincipal")
+    def service_principal(self) -> pulumi.Output[Optional['outputs.ServicePrincipalResponse']]:
+        """
+        Service principal metadata.
+        """
+        return pulumi.get(self, "service_principal")
+
+    @_builtins.property
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
@@ -472,9 +475,17 @@ class SourceControl(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def version(self) -> pulumi.Output[_builtins.str]:
         """
         The version number associated with the source control
         """
         return pulumi.get(self, "version")
+
+    @_builtins.property
+    @pulumi.getter(name="workloadIdentityFederation")
+    def workload_identity_federation(self) -> pulumi.Output['outputs.WorkloadIdentityFederationResponse']:
+        """
+        Workload Identity metadata.
+        """
+        return pulumi.get(self, "workload_identity_federation")
 

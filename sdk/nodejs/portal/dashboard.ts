@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2022-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-09-01-preview.
  *
- * Other available API versions: 2019-01-01-preview, 2020-09-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native portal [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2019-01-01-preview, 2020-09-01-preview, 2025-04-01-preview, 2026-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native portal [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Dashboard extends pulumi.CustomResource {
     /**
@@ -103,7 +103,7 @@ export class Dashboard extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:portal/v20150801preview:Dashboard" }, { type: "azure-native:portal/v20181001preview:Dashboard" }, { type: "azure-native:portal/v20190101preview:Dashboard" }, { type: "azure-native:portal/v20200901preview:Dashboard" }, { type: "azure-native:portal/v20221201preview:Dashboard" }, { type: "azure-native:portal/v20250401preview:Dashboard" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:portal/v20150801preview:Dashboard" }, { type: "azure-native:portal/v20181001preview:Dashboard" }, { type: "azure-native:portal/v20190101preview:Dashboard" }, { type: "azure-native:portal/v20200901preview:Dashboard" }, { type: "azure-native:portal/v20221201preview:Dashboard" }, { type: "azure-native:portal/v20250401preview:Dashboard" }, { type: "azure-native:portal/v20260401:Dashboard" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Dashboard.__pulumiType, name, resourceInputs, opts);
     }

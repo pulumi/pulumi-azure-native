@@ -60,7 +60,7 @@ export interface GetScheduledQueryRuleResult {
     /**
      * The rule criteria that defines the conditions of the scheduled query rule.
      */
-    readonly criteria: outputs.monitor.ScheduledQueryRuleCriteriaResponse;
+    readonly criteria?: outputs.monitor.ScheduledQueryRuleCriteriaResponse;
     /**
      * The description of the scheduled query rule.
      */
@@ -72,9 +72,9 @@ export interface GetScheduledQueryRuleResult {
     /**
      * The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
      */
-    readonly enabled: boolean;
+    readonly enabled?: boolean;
     /**
-     * The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+     * "If etag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.")
      */
     readonly etag: string;
     /**
@@ -88,7 +88,7 @@ export interface GetScheduledQueryRuleResult {
     /**
      * The identity of the resource.
      */
-    readonly identity?: outputs.monitor.IdentityResponse;
+    readonly identity?: outputs.monitor.MicrosoftCommonIdentityResponse;
     /**
      * True if alert rule is legacy Log Analytic rule
      */
@@ -124,7 +124,7 @@ export interface GetScheduledQueryRuleResult {
     /**
      * The list of resource id's that this scheduled query rule is scoped to.
      */
-    readonly scopes: string[];
+    readonly scopes?: string[];
     /**
      * Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest. Relevant and required only for rules of the kind LogAlert.
      */
@@ -134,7 +134,7 @@ export interface GetScheduledQueryRuleResult {
      */
     readonly skipQueryValidation?: boolean;
     /**
-     * SystemData of ScheduledQueryRule.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.monitor.SystemDataResponse;
     /**

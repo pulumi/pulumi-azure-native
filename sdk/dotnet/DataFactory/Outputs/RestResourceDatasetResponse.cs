@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// The additional HTTP headers in the request to the RESTful API.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? AdditionalHeaders;
+        public readonly object? AdditionalHeaders;
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         /// </summary>
-        public readonly Outputs.DatasetResponseFolder? Folder;
+        public readonly Outputs.DatasetFolderResponse? Folder;
         /// <summary>
         /// Linked service reference.
         /// </summary>
@@ -39,7 +39,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// The pagination rules to compose next page requests.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? PaginationRules;
+        public readonly object? PaginationRules;
         /// <summary>
         /// Parameters for dataset.
         /// </summary>
@@ -72,17 +72,17 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
         [OutputConstructor]
         private RestResourceDatasetResponse(
-            ImmutableDictionary<string, object>? additionalHeaders,
+            object? additionalHeaders,
 
             ImmutableArray<object> annotations,
 
             string? description,
 
-            Outputs.DatasetResponseFolder? folder,
+            Outputs.DatasetFolderResponse? folder,
 
             Outputs.LinkedServiceReferenceResponse linkedServiceName,
 
-            ImmutableDictionary<string, object>? paginationRules,
+            object? paginationRules,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 

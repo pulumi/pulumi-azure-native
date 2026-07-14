@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DevHub
     public static class GetADOOAuthInfo
     {
         /// <summary>
-        /// Response containing ADO OAuth information
+        /// Gets ADOOAuth info used to authenticate users with ADO.
         /// 
         /// Uses Azure REST API version 2025-03-01-preview.
         /// 
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.DevHub
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetADOOAuthInfoResult>("azure-native:devhub:getADOOAuthInfo", args ?? new GetADOOAuthInfoArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Response containing ADO OAuth information
+        /// Gets ADOOAuth info used to authenticate users with ADO.
         /// 
         /// Uses Azure REST API version 2025-03-01-preview.
         /// 
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.DevHub
             => global::Pulumi.Deployment.Instance.Invoke<GetADOOAuthInfoResult>("azure-native:devhub:getADOOAuthInfo", args ?? new GetADOOAuthInfoInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Response containing ADO OAuth information
+        /// Gets ADOOAuth info used to authenticate users with ADO.
         /// 
         /// Uses Azure REST API version 2025-03-01-preview.
         /// 

@@ -22,40 +22,33 @@ __all__ = ['NetworkMonitorArgs', 'NetworkMonitor']
 @pulumi.input_type
 class NetworkMonitorArgs:
     def __init__(__self__, *,
-                 properties: pulumi.Input['NetworkMonitorPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 annotation: Optional[pulumi.Input[_builtins.str]] = None,
+                 bmp_configuration: Optional[pulumi.Input['BmpConfigurationPropertiesArgs']] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  network_monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkMonitor resource.
 
-        :param pulumi.Input['NetworkMonitorPropertiesArgs'] properties: The NetworkFabric Properties
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] annotation: Switch configuration description.
+        :param pulumi.Input['BmpConfigurationPropertiesArgs'] bmp_configuration: BMP Configurations for the Network Fabric.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] network_monitor_name: Name of the Network Monitor.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if annotation is not None:
+            pulumi.set(__self__, "annotation", annotation)
+        if bmp_configuration is not None:
+            pulumi.set(__self__, "bmp_configuration", bmp_configuration)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if network_monitor_name is not None:
             pulumi.set(__self__, "network_monitor_name", network_monitor_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter
-    def properties(self) -> pulumi.Input['NetworkMonitorPropertiesArgs']:
-        """
-        The NetworkFabric Properties
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: pulumi.Input['NetworkMonitorPropertiesArgs']):
-        pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -68,6 +61,30 @@ class NetworkMonitorArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def annotation(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Switch configuration description.
+        """
+        return pulumi.get(self, "annotation")
+
+    @annotation.setter
+    def annotation(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "annotation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bmpConfiguration")
+    def bmp_configuration(self) -> Optional[pulumi.Input['BmpConfigurationPropertiesArgs']]:
+        """
+        BMP Configurations for the Network Fabric.
+        """
+        return pulumi.get(self, "bmp_configuration")
+
+    @bmp_configuration.setter
+    def bmp_configuration(self, value: Optional[pulumi.Input['BmpConfigurationPropertiesArgs']]):
+        pulumi.set(self, "bmp_configuration", value)
 
     @_builtins.property
     @pulumi.getter
@@ -112,9 +129,10 @@ class NetworkMonitor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 annotation: Optional[pulumi.Input[_builtins.str]] = None,
+                 bmp_configuration: Optional[pulumi.Input[Union['BmpConfigurationPropertiesArgs', 'BmpConfigurationPropertiesArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  network_monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['NetworkMonitorPropertiesArgs', 'NetworkMonitorPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -123,12 +141,15 @@ class NetworkMonitor(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-06-15-preview.
 
+        Other available API versions: 2025-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] annotation: Switch configuration description.
+        :param pulumi.Input[Union['BmpConfigurationPropertiesArgs', 'BmpConfigurationPropertiesArgsDict']] bmp_configuration: BMP Configurations for the Network Fabric.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] network_monitor_name: Name of the Network Monitor.
-        :param pulumi.Input[Union['NetworkMonitorPropertiesArgs', 'NetworkMonitorPropertiesArgsDict']] properties: The NetworkFabric Properties
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
@@ -142,6 +163,8 @@ class NetworkMonitor(pulumi.CustomResource):
         The NetworkMonitor resource definition.
 
         Uses Azure REST API version 2024-06-15-preview.
+
+        Other available API versions: 2025-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -159,9 +182,10 @@ class NetworkMonitor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 annotation: Optional[pulumi.Input[_builtins.str]] = None,
+                 bmp_configuration: Optional[pulumi.Input[Union['BmpConfigurationPropertiesArgs', 'BmpConfigurationPropertiesArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  network_monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['NetworkMonitorPropertiesArgs', 'NetworkMonitorPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -173,20 +197,23 @@ class NetworkMonitor(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NetworkMonitorArgs.__new__(NetworkMonitorArgs)
 
+            __props__.__dict__["annotation"] = annotation
+            __props__.__dict__["bmp_configuration"] = bmp_configuration
             __props__.__dict__["location"] = location
             __props__.__dict__["network_monitor_name"] = network_monitor_name
-            if properties is None and not opts.urn:
-                raise TypeError("Missing required property 'properties'")
-            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["administrative_state"] = None
             __props__.__dict__["azure_api_version"] = None
+            __props__.__dict__["configuration_state"] = None
+            __props__.__dict__["last_operation"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:managednetworkfabric/v20240615preview:NetworkMonitor")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:managednetworkfabric/v20240615preview:NetworkMonitor"), pulumi.Alias(type_="azure-native:managednetworkfabric/v20250715:NetworkMonitor")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkMonitor, __self__).__init__(
             'azure-native:managednetworkfabric:NetworkMonitor',
@@ -210,14 +237,35 @@ class NetworkMonitor(pulumi.CustomResource):
 
         __props__ = NetworkMonitorArgs.__new__(NetworkMonitorArgs)
 
+        __props__.__dict__["administrative_state"] = None
+        __props__.__dict__["annotation"] = None
         __props__.__dict__["azure_api_version"] = None
+        __props__.__dict__["bmp_configuration"] = None
+        __props__.__dict__["configuration_state"] = None
+        __props__.__dict__["last_operation"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["properties"] = None
+        __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return NetworkMonitor(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="administrativeState")
+    def administrative_state(self) -> pulumi.Output[_builtins.str]:
+        """
+        Administrative state of the resource.
+        """
+        return pulumi.get(self, "administrative_state")
+
+    @_builtins.property
+    @pulumi.getter
+    def annotation(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Switch configuration description.
+        """
+        return pulumi.get(self, "annotation")
 
     @_builtins.property
     @pulumi.getter(name="azureApiVersion")
@@ -226,6 +274,30 @@ class NetworkMonitor(pulumi.CustomResource):
         The Azure API version of the resource.
         """
         return pulumi.get(self, "azure_api_version")
+
+    @_builtins.property
+    @pulumi.getter(name="bmpConfiguration")
+    def bmp_configuration(self) -> pulumi.Output[Optional['outputs.BmpConfigurationPropertiesResponse']]:
+        """
+        BMP Configurations for the Network Fabric.
+        """
+        return pulumi.get(self, "bmp_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="configurationState")
+    def configuration_state(self) -> pulumi.Output[_builtins.str]:
+        """
+        Configuration state of the resource.
+        """
+        return pulumi.get(self, "configuration_state")
+
+    @_builtins.property
+    @pulumi.getter(name="lastOperation")
+    def last_operation(self) -> pulumi.Output['outputs.LastOperationPropertiesResponse']:
+        """
+        Details of the last operation performed on the resource
+        """
+        return pulumi.get(self, "last_operation")
 
     @_builtins.property
     @pulumi.getter
@@ -244,12 +316,12 @@ class NetworkMonitor(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @_builtins.property
-    @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.NetworkMonitorPropertiesResponse']:
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> pulumi.Output[_builtins.str]:
         """
-        The NetworkFabric Properties
+        Provides you the latest status of the NetworkMonitor resource
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "provisioning_state")
 
     @_builtins.property
     @pulumi.getter(name="systemData")

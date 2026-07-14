@@ -25,11 +25,11 @@ namespace Pulumi.AzureNative.Authorization.Outputs
         /// </summary>
         public readonly string? EndDateTime;
         /// <summary>
-        /// The access review instance id.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The access review instance name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -49,7 +49,11 @@ namespace Pulumi.AzureNative.Authorization.Outputs
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// The resource type.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -71,6 +75,8 @@ namespace Pulumi.AzureNative.Authorization.Outputs
 
             string status,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             BackupReviewers = backupReviewers;
@@ -81,6 +87,7 @@ namespace Pulumi.AzureNative.Authorization.Outputs
             ReviewersType = reviewersType;
             StartDateTime = startDateTime;
             Status = status;
+            SystemData = systemData;
             Type = type;
         }
     }

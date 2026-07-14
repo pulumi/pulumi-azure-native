@@ -130,7 +130,7 @@ def get_schema_reference(resource_uri: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2025-08-01.
 
-    Other available API versions: 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2025-06-01, 2025-08-15-preview, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
@@ -158,7 +158,7 @@ def get_schema_reference_output(resource_uri: Optional[pulumi.Input[_builtins.st
 
     Uses Azure REST API version 2025-08-01.
 
-    Other available API versions: 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2025-06-01, 2025-08-15-preview, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str resource_uri: The fully qualified Azure Resource manager identifier of the resource.

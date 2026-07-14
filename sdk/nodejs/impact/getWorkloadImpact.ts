@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Get a WorkloadImpact
  *
  * Uses Azure REST API version 2024-05-01-preview.
+ *
+ * Other available API versions: 2025-01-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native impact [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getWorkloadImpact(args: GetWorkloadImpactArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadImpactResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -59,6 +61,8 @@ export interface GetWorkloadImpactResult {
  * Get a WorkloadImpact
  *
  * Uses Azure REST API version 2024-05-01-preview.
+ *
+ * Other available API versions: 2025-01-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native impact [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getWorkloadImpactOutput(args: GetWorkloadImpactOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkloadImpactResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

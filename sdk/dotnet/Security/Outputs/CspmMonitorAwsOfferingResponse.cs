@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// <summary>
         /// The native cloud connection configuration
         /// </summary>
-        public readonly Outputs.CspmMonitorAwsOfferingResponseNativeCloudConnection? NativeCloudConnection;
+        public readonly Outputs.CspmMonitorAwsOfferingNativeCloudConnectionResponse? NativeCloudConnection;
         /// <summary>
         /// The type of the security offering.
         /// Expected value is 'CspmMonitorAws'.
@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.Security.Outputs
         private CspmMonitorAwsOfferingResponse(
             string description,
 
-            Outputs.CspmMonitorAwsOfferingResponseNativeCloudConnection? nativeCloudConnection,
+            Outputs.CspmMonitorAwsOfferingNativeCloudConnectionResponse? nativeCloudConnection,
 
             string offeringType)
         {

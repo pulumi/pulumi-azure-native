@@ -253,7 +253,7 @@ export interface RunbookArgs {
      */
     publishContentLink?: pulumi.Input<inputs.automation.ContentLinkArgs>;
     /**
-     * Name of an Azure Resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

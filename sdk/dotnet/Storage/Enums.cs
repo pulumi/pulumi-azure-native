@@ -876,7 +876,7 @@ namespace Pulumi.AzureNative.Storage
     }
 
     /// <summary>
-    /// Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
+    /// Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property. Minimum TLS version 1.3 version is not supported.
     /// </summary>
     [EnumType]
     public readonly struct MinimumTlsVersion : IEquatable<MinimumTlsVersion>
@@ -1427,6 +1427,213 @@ namespace Pulumi.AzureNative.Storage
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is State other && Equals(other);
         public bool Equals(State other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of the authentication properties. Controls the type of the authProperties object
+    /// </summary>
+    [EnumType]
+    public readonly struct StorageConnectorAuthType : IEquatable<StorageConnectorAuthType>
+    {
+        private readonly string _value;
+
+        private StorageConnectorAuthType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Managed Identity auth type
+        /// </summary>
+        public static StorageConnectorAuthType ManagedIdentity { get; } = new StorageConnectorAuthType("ManagedIdentity");
+
+        public static bool operator ==(StorageConnectorAuthType left, StorageConnectorAuthType right) => left.Equals(right);
+        public static bool operator !=(StorageConnectorAuthType left, StorageConnectorAuthType right) => !left.Equals(right);
+
+        public static explicit operator string(StorageConnectorAuthType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StorageConnectorAuthType other && Equals(other);
+        public bool Equals(StorageConnectorAuthType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of the connection. Controls the type of the connection object. Not mutable once the Storage Connector is created.
+    /// </summary>
+    [EnumType]
+    public readonly struct StorageConnectorConnectionType : IEquatable<StorageConnectorConnectionType>
+    {
+        private readonly string _value;
+
+        private StorageConnectorConnectionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// DataShare connection type
+        /// </summary>
+        public static StorageConnectorConnectionType DataShare { get; } = new StorageConnectorConnectionType("DataShare");
+
+        public static bool operator ==(StorageConnectorConnectionType left, StorageConnectorConnectionType right) => left.Equals(right);
+        public static bool operator !=(StorageConnectorConnectionType left, StorageConnectorConnectionType right) => !left.Equals(right);
+
+        public static explicit operator string(StorageConnectorConnectionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StorageConnectorConnectionType other && Equals(other);
+        public bool Equals(StorageConnectorConnectionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of backing data source for this Storage Connector.
+    /// </summary>
+    [EnumType]
+    public readonly struct StorageConnectorDataSourceType : IEquatable<StorageConnectorDataSourceType>
+    {
+        private readonly string _value;
+
+        private StorageConnectorDataSourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Azure DataShare data source type.
+        /// </summary>
+        public static StorageConnectorDataSourceType Azure_DataShare { get; } = new StorageConnectorDataSourceType("Azure_DataShare");
+
+        public static bool operator ==(StorageConnectorDataSourceType left, StorageConnectorDataSourceType right) => left.Equals(right);
+        public static bool operator !=(StorageConnectorDataSourceType left, StorageConnectorDataSourceType right) => !left.Equals(right);
+
+        public static explicit operator string(StorageConnectorDataSourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StorageConnectorDataSourceType other && Equals(other);
+        public bool Equals(StorageConnectorDataSourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of the Storage Connector. Not mutable once the Storage Connector is created."
+    /// </summary>
+    [EnumType]
+    public readonly struct StorageConnectorSourceType : IEquatable<StorageConnectorSourceType>
+    {
+        private readonly string _value;
+
+        private StorageConnectorSourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Source type - DataShare
+        /// </summary>
+        public static StorageConnectorSourceType DataShare { get; } = new StorageConnectorSourceType("DataShare");
+
+        public static bool operator ==(StorageConnectorSourceType left, StorageConnectorSourceType right) => left.Equals(right);
+        public static bool operator !=(StorageConnectorSourceType left, StorageConnectorSourceType right) => !left.Equals(right);
+
+        public static explicit operator string(StorageConnectorSourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StorageConnectorSourceType other && Equals(other);
+        public bool Equals(StorageConnectorSourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// State - Active or Inactive. Whether or not the Storage Connector should start as active (default: Active)
+    /// (While set to false on the Storage Connector, all data plane requests using this Storage Connector fail, and this Storage Connector is not billed if it would be otherwise.
+    /// </summary>
+    [EnumType]
+    public readonly struct StorageConnectorState : IEquatable<StorageConnectorState>
+    {
+        private readonly string _value;
+
+        private StorageConnectorState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Whether the connector is active
+        /// </summary>
+        public static StorageConnectorState Active { get; } = new StorageConnectorState("Active");
+        /// <summary>
+        /// Whether the connector is inactive
+        /// </summary>
+        public static StorageConnectorState Inactive { get; } = new StorageConnectorState("Inactive");
+
+        public static bool operator ==(StorageConnectorState left, StorageConnectorState right) => left.Equals(right);
+        public static bool operator !=(StorageConnectorState left, StorageConnectorState right) => !left.Equals(right);
+
+        public static explicit operator string(StorageConnectorState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StorageConnectorState other && Equals(other);
+        public bool Equals(StorageConnectorState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Allowed permissions. Currently, only supported value is Read.
+    /// </summary>
+    [EnumType]
+    public readonly struct StorageDataShareAccessPolicyPermission : IEquatable<StorageDataShareAccessPolicyPermission>
+    {
+        private readonly string _value;
+
+        private StorageDataShareAccessPolicyPermission(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// No permission
+        /// </summary>
+        public static StorageDataShareAccessPolicyPermission None { get; } = new StorageDataShareAccessPolicyPermission("None");
+        /// <summary>
+        /// Read permission
+        /// </summary>
+        public static StorageDataShareAccessPolicyPermission Read { get; } = new StorageDataShareAccessPolicyPermission("Read");
+
+        public static bool operator ==(StorageDataShareAccessPolicyPermission left, StorageDataShareAccessPolicyPermission right) => left.Equals(right);
+        public static bool operator !=(StorageDataShareAccessPolicyPermission left, StorageDataShareAccessPolicyPermission right) => !left.Equals(right);
+
+        public static explicit operator string(StorageDataShareAccessPolicyPermission value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StorageDataShareAccessPolicyPermission other && Equals(other);
+        public bool Equals(StorageDataShareAccessPolicyPermission other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

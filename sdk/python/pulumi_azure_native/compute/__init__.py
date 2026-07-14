@@ -10,7 +10,6 @@ from ._enums import *
 from .availability_set import *
 from .capacity_reservation import *
 from .capacity_reservation_group import *
-from .cloud_service import *
 from .dedicated_host import *
 from .dedicated_host_group import *
 from .disk import *
@@ -29,7 +28,6 @@ from .gallery_script_version import *
 from .get_availability_set import *
 from .get_capacity_reservation import *
 from .get_capacity_reservation_group import *
-from .get_cloud_service import *
 from .get_dedicated_host import *
 from .get_dedicated_host_group import *
 from .get_disk import *

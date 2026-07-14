@@ -19,7 +19,6 @@ __all__ = [
     'ConnectionStatus',
     'DeletePolicy',
     'DeploymentSafeguardsLevel',
-    'ExecutionPoint',
     'Expander',
     'ExtendedLocationTypes',
     'GPUDriver',
@@ -69,7 +68,6 @@ __all__ = [
     'ScaleDownMode',
     'ScaleSetEvictionPolicy',
     'ScaleSetPriority',
-    'ScriptType',
     'ServiceMeshMode',
     'SnapshotType',
     'TaintEffect',
@@ -271,22 +269,6 @@ class DeploymentSafeguardsLevel(_builtins.str, Enum):
     ENFORCE = "Enforce"
     """
     Best practice violations will be denied
-    """
-
-
-@pulumi.type_token("azure-native:containerservice:ExecutionPoint")
-class ExecutionPoint(_builtins.str, Enum):
-    """
-    The stage at which the script is executed.
-    Specifying `NodeImageBuildTime` will ensure changes are persisted into the node image.
-    """
-    NODE_IMAGE_BUILD_TIME = "NodeImageBuildTime"
-    """
-    Execute during node image build time.
-    """
-    NODE_PROVISION_TIME = "NodeProvisionTime"
-    """
-    Execute during node provisioning time.
     """
 
 
@@ -1114,21 +1096,6 @@ class ScaleSetPriority(_builtins.str, Enum):
     REGULAR = "Regular"
     """
     Regular VMs will be used.
-    """
-
-
-@pulumi.type_token("azure-native:containerservice:ScriptType")
-class ScriptType(_builtins.str, Enum):
-    """
-    The runtime environment for the script (e.g. Bash).
-    """
-    BASH = "Bash"
-    """
-    Bash script.
-    """
-    POWER_SHELL = "PowerShell"
-    """
-    PowerShell script.
     """
 
 

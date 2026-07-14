@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Sql
         /// Gets a virtual cluster.
         /// 
         /// Uses Azure REST API version 2024-11-01-preview.
+        /// 
+        /// Other available API versions: 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetVirtualClusterResult> InvokeAsync(GetVirtualClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualClusterResult>("azure-native:sql:getVirtualCluster", args ?? new GetVirtualClusterArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Sql
         /// Gets a virtual cluster.
         /// 
         /// Uses Azure REST API version 2024-11-01-preview.
+        /// 
+        /// Other available API versions: 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetVirtualClusterResult> Invoke(GetVirtualClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualClusterResult>("azure-native:sql:getVirtualCluster", args ?? new GetVirtualClusterInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Sql
         /// Gets a virtual cluster.
         /// 
         /// Uses Azure REST API version 2024-11-01-preview.
+        /// 
+        /// Other available API versions: 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetVirtualClusterResult> Invoke(GetVirtualClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualClusterResult>("azure-native:sql:getVirtualCluster", args ?? new GetVirtualClusterInvokeArgs(), options.WithDefaults());

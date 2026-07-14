@@ -22,6 +22,7 @@ __all__ = ['RedisEnterpriseArgs', 'RedisEnterprise']
 @pulumi.input_type
 class RedisEnterpriseArgs:
     def __init__(__self__, *,
+                 public_network_access: pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['SkuArgs'],
                  cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -35,6 +36,7 @@ class RedisEnterpriseArgs:
         """
         The set of arguments for constructing a RedisEnterprise resource.
 
+        :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] public_network_access: Whether or not public network traffic can access the Redis cluster. Only 'Enabled' or 'Disabled' can be set. null is returned only for clusters created using an old API version which do not have this property and cannot be set.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SkuArgs'] sku: The SKU to create, which affects price, performance, and features.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the Redis Enterprise cluster. Name must be 1-60 characters long. Allowed characters(A-Z, a-z, 0-9) and hyphen(-). There can be no leading nor trailing nor consecutive hyphens
@@ -46,6 +48,7 @@ class RedisEnterpriseArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: The Availability Zones where this cluster will be deployed.
         """
+        pulumi.set(__self__, "public_network_access", public_network_access)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
         if cluster_name is not None:
@@ -64,6 +67,18 @@ class RedisEnterpriseArgs:
             pulumi.set(__self__, "tags", tags)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
+
+    @_builtins.property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]:
+        """
+        Whether or not public network traffic can access the Redis cluster. Only 'Enabled' or 'Disabled' can be set. null is returned only for clusters created using an old API version which do not have this property and cannot be set.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]):
+        pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -198,6 +213,7 @@ class RedisEnterprise(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[Union[_builtins.str, 'TlsVersion']]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -206,9 +222,9 @@ class RedisEnterprise(pulumi.CustomResource):
         """
         Describes the Redis Enterprise cluster
 
-        Uses Azure REST API version 2025-05-01-preview.
+        Uses Azure REST API version 2025-07-01.
 
-        Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01, 2025-07-01, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01, 2025-05-01-preview, 2025-08-01-preview, 2026-02-01-preview, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -219,6 +235,7 @@ class RedisEnterprise(pulumi.CustomResource):
         :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The identity of the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[_builtins.str, 'TlsVersion']] minimum_tls_version: The minimum TLS version for the cluster to support, e.g. '1.2'. Newer versions can be added in the future. Note that TLS 1.0 and TLS 1.1 are now completely obsolete -- you cannot use them. They are mentioned only for the sake of consistency with old API versions.
+        :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] public_network_access: Whether or not public network traffic can access the Redis cluster. Only 'Enabled' or 'Disabled' can be set. null is returned only for clusters created using an old API version which do not have this property and cannot be set.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The SKU to create, which affects price, performance, and features.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
@@ -233,9 +250,9 @@ class RedisEnterprise(pulumi.CustomResource):
         """
         Describes the Redis Enterprise cluster
 
-        Uses Azure REST API version 2025-05-01-preview.
+        Uses Azure REST API version 2025-07-01.
 
-        Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01, 2025-07-01, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01, 2025-05-01-preview, 2025-08-01-preview, 2026-02-01-preview, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -259,6 +276,7 @@ class RedisEnterprise(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[Union[_builtins.str, 'TlsVersion']]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -278,6 +296,9 @@ class RedisEnterprise(pulumi.CustomResource):
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["minimum_tls_version"] = minimum_tls_version
+            if public_network_access is None and not opts.urn:
+                raise TypeError("Missing required property 'public_network_access'")
+            __props__.__dict__["public_network_access"] = public_network_access
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -296,7 +317,7 @@ class RedisEnterprise(pulumi.CustomResource):
             __props__.__dict__["redundancy_mode"] = None
             __props__.__dict__["resource_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache/v20201001preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20230301preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20230701:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20230801preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20231001preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20231101:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20240201:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20240301preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20240601preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20240901preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20241001:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20201001preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20210201preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20210301:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20210801:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20220101:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20221101preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20230301preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20230701:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20230801preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20231001preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20231101:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20240201:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20240301preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20240601preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20240901preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20241001:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20250401:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20250501preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20250701:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20250801preview:RedisEnterprise")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache/v20201001preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20230301preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20230701:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20230801preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20231001preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20231101:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20240201:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20240301preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20240601preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20240901preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20241001:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20201001preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20210201preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20210301:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20210801:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20220101:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20221101preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20230301preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20230701:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20230801preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20231001preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20231101:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20240201:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20240301preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20240601preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20240901preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20241001:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20250401:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20250501preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20250701:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20250801preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20260201preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:redisenterprise/v20260501preview:RedisEnterprise")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RedisEnterprise, __self__).__init__(
             'azure-native:redisenterprise:RedisEnterprise',
@@ -331,6 +352,7 @@ class RedisEnterprise(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["private_endpoint_connections"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["public_network_access"] = None
         __props__.__dict__["redis_version"] = None
         __props__.__dict__["redundancy_mode"] = None
         __props__.__dict__["resource_state"] = None
@@ -427,6 +449,14 @@ class RedisEnterprise(pulumi.CustomResource):
         Current provisioning status of the cluster
         """
         return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> pulumi.Output[_builtins.str]:
+        """
+        Whether or not public network traffic can access the Redis cluster. Only 'Enabled' or 'Disabled' can be set. null is returned only for clusters created using an old API version which do not have this property and cannot be set.
+        """
+        return pulumi.get(self, "public_network_access")
 
     @_builtins.property
     @pulumi.getter(name="redisVersion")

@@ -15,17 +15,11 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// </summary>
     public sealed class LinkedServiceReferenceArgs : global::Pulumi.ResourceArgs
     {
-        [Input("parameters")]
-        private InputMap<object>? _parameters;
-
         /// <summary>
         /// Arguments for LinkedService.
         /// </summary>
-        public InputMap<object> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputMap<object>());
-            set => _parameters = value;
-        }
+        [Input("parameters")]
+        public Input<object>? Parameters { get; set; }
 
         /// <summary>
         /// Reference LinkedService name.

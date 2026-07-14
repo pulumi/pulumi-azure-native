@@ -20,10 +20,25 @@ namespace Pulumi.AzureNative.PowerPlatform
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Lockbox
+        /// </summary>
         public static EnterprisePolicyKind Lockbox { get; } = new EnterprisePolicyKind("Lockbox");
+        /// <summary>
+        /// PrivateEndpoint
+        /// </summary>
         public static EnterprisePolicyKind PrivateEndpoint { get; } = new EnterprisePolicyKind("PrivateEndpoint");
+        /// <summary>
+        /// Encryption
+        /// </summary>
         public static EnterprisePolicyKind Encryption { get; } = new EnterprisePolicyKind("Encryption");
+        /// <summary>
+        /// NetworkInjection
+        /// </summary>
         public static EnterprisePolicyKind NetworkInjection { get; } = new EnterprisePolicyKind("NetworkInjection");
+        /// <summary>
+        /// Identity
+        /// </summary>
         public static EnterprisePolicyKind Identity { get; } = new EnterprisePolicyKind("Identity");
 
         public static bool operator ==(EnterprisePolicyKind left, EnterprisePolicyKind right) => left.Equals(right);
@@ -54,9 +69,21 @@ namespace Pulumi.AzureNative.PowerPlatform
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Undetermined
+        /// </summary>
         public static HealthStatus Undetermined { get; } = new HealthStatus("Undetermined");
+        /// <summary>
+        /// Healthy
+        /// </summary>
         public static HealthStatus Healthy { get; } = new HealthStatus("Healthy");
+        /// <summary>
+        /// Warning
+        /// </summary>
         public static HealthStatus Warning { get; } = new HealthStatus("Warning");
+        /// <summary>
+        /// Unhealthy
+        /// </summary>
         public static HealthStatus Unhealthy { get; } = new HealthStatus("Unhealthy");
 
         public static bool operator ==(HealthStatus left, HealthStatus right) => left.Equals(right);
@@ -119,7 +146,13 @@ namespace Pulumi.AzureNative.PowerPlatform
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// SystemAssigned
+        /// </summary>
         public static ResourceIdentityType SystemAssigned { get; } = new ResourceIdentityType("SystemAssigned");
+        /// <summary>
+        /// None
+        /// </summary>
         public static ResourceIdentityType None { get; } = new ResourceIdentityType("None");
 
         public static bool operator ==(ResourceIdentityType left, ResourceIdentityType right) => left.Equals(right);
@@ -150,8 +183,17 @@ namespace Pulumi.AzureNative.PowerPlatform
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Enabled
+        /// </summary>
         public static State Enabled { get; } = new State("Enabled");
+        /// <summary>
+        /// Disabled
+        /// </summary>
         public static State Disabled { get; } = new State("Disabled");
+        /// <summary>
+        /// NotConfigured
+        /// </summary>
         public static State NotConfigured { get; } = new State("NotConfigured");
 
         public static bool operator ==(State left, State right) => left.Equals(right);

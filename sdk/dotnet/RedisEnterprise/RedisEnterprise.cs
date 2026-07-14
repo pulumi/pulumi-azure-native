@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.RedisEnterprise
     /// <summary>
     /// Describes the Redis Enterprise cluster
     /// 
-    /// Uses Azure REST API version 2025-05-01-preview.
+    /// Uses Azure REST API version 2025-07-01.
     /// 
-    /// Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01, 2025-07-01, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01, 2025-05-01-preview, 2025-08-01-preview, 2026-02-01-preview, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:redisenterprise:RedisEnterprise")]
     public partial class RedisEnterprise : global::Pulumi.CustomResource
@@ -84,6 +84,12 @@ namespace Pulumi.AzureNative.RedisEnterprise
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether or not public network traffic can access the Redis cluster. Only 'Enabled' or 'Disabled' can be set. null is returned only for clusters created using an old API version which do not have this property and cannot be set.
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// Version of redis the cluster supports, e.g. '6'
@@ -184,6 +190,8 @@ namespace Pulumi.AzureNative.RedisEnterprise
                     new global::Pulumi.Alias { Type = "azure-native:redisenterprise/v20250501preview:RedisEnterprise" },
                     new global::Pulumi.Alias { Type = "azure-native:redisenterprise/v20250701:RedisEnterprise" },
                     new global::Pulumi.Alias { Type = "azure-native:redisenterprise/v20250801preview:RedisEnterprise" },
+                    new global::Pulumi.Alias { Type = "azure-native:redisenterprise/v20260201preview:RedisEnterprise" },
+                    new global::Pulumi.Alias { Type = "azure-native:redisenterprise/v20260501preview:RedisEnterprise" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -242,6 +250,12 @@ namespace Pulumi.AzureNative.RedisEnterprise
         /// </summary>
         [Input("minimumTlsVersion")]
         public InputUnion<string, Pulumi.AzureNative.RedisEnterprise.TlsVersion>? MinimumTlsVersion { get; set; }
+
+        /// <summary>
+        /// Whether or not public network traffic can access the Redis cluster. Only 'Enabled' or 'Disabled' can be set. null is returned only for clusters created using an old API version which do not have this property and cannot be set.
+        /// </summary>
+        [Input("publicNetworkAccess", required: true)]
+        public InputUnion<string, Pulumi.AzureNative.RedisEnterprise.PublicNetworkAccess> PublicNetworkAccess { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

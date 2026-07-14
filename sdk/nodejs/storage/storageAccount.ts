@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
  *
- * Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01, 2025-08-01, 2026-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class StorageAccount extends pulumi.CustomResource {
     /**
@@ -170,7 +170,7 @@ export class StorageAccount extends pulumi.CustomResource {
      */
     declare public readonly location: pulumi.Output<string>;
     /**
-     * Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
+     * Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property. Minimum TLS version 1.3 version is not supported.
      */
     declare public readonly minimumTlsVersion: pulumi.Output<string | undefined>;
     /**
@@ -367,7 +367,7 @@ export class StorageAccount extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storage/v20150501preview:StorageAccount" }, { type: "azure-native:storage/v20150615:StorageAccount" }, { type: "azure-native:storage/v20160101:StorageAccount" }, { type: "azure-native:storage/v20160501:StorageAccount" }, { type: "azure-native:storage/v20161201:StorageAccount" }, { type: "azure-native:storage/v20170601:StorageAccount" }, { type: "azure-native:storage/v20171001:StorageAccount" }, { type: "azure-native:storage/v20180201:StorageAccount" }, { type: "azure-native:storage/v20180301preview:StorageAccount" }, { type: "azure-native:storage/v20180701:StorageAccount" }, { type: "azure-native:storage/v20181101:StorageAccount" }, { type: "azure-native:storage/v20190401:StorageAccount" }, { type: "azure-native:storage/v20190601:StorageAccount" }, { type: "azure-native:storage/v20200801preview:StorageAccount" }, { type: "azure-native:storage/v20210101:StorageAccount" }, { type: "azure-native:storage/v20210201:StorageAccount" }, { type: "azure-native:storage/v20210401:StorageAccount" }, { type: "azure-native:storage/v20210601:StorageAccount" }, { type: "azure-native:storage/v20210801:StorageAccount" }, { type: "azure-native:storage/v20210901:StorageAccount" }, { type: "azure-native:storage/v20220501:StorageAccount" }, { type: "azure-native:storage/v20220901:StorageAccount" }, { type: "azure-native:storage/v20230101:StorageAccount" }, { type: "azure-native:storage/v20230401:StorageAccount" }, { type: "azure-native:storage/v20230501:StorageAccount" }, { type: "azure-native:storage/v20240101:StorageAccount" }, { type: "azure-native:storage/v20250101:StorageAccount" }, { type: "azure-native:storage/v20250601:StorageAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storage/v20150501preview:StorageAccount" }, { type: "azure-native:storage/v20150615:StorageAccount" }, { type: "azure-native:storage/v20160101:StorageAccount" }, { type: "azure-native:storage/v20160501:StorageAccount" }, { type: "azure-native:storage/v20161201:StorageAccount" }, { type: "azure-native:storage/v20170601:StorageAccount" }, { type: "azure-native:storage/v20171001:StorageAccount" }, { type: "azure-native:storage/v20180201:StorageAccount" }, { type: "azure-native:storage/v20180301preview:StorageAccount" }, { type: "azure-native:storage/v20180701:StorageAccount" }, { type: "azure-native:storage/v20181101:StorageAccount" }, { type: "azure-native:storage/v20190401:StorageAccount" }, { type: "azure-native:storage/v20190601:StorageAccount" }, { type: "azure-native:storage/v20200801preview:StorageAccount" }, { type: "azure-native:storage/v20210101:StorageAccount" }, { type: "azure-native:storage/v20210201:StorageAccount" }, { type: "azure-native:storage/v20210401:StorageAccount" }, { type: "azure-native:storage/v20210601:StorageAccount" }, { type: "azure-native:storage/v20210801:StorageAccount" }, { type: "azure-native:storage/v20210901:StorageAccount" }, { type: "azure-native:storage/v20220501:StorageAccount" }, { type: "azure-native:storage/v20220901:StorageAccount" }, { type: "azure-native:storage/v20230101:StorageAccount" }, { type: "azure-native:storage/v20230401:StorageAccount" }, { type: "azure-native:storage/v20230501:StorageAccount" }, { type: "azure-native:storage/v20240101:StorageAccount" }, { type: "azure-native:storage/v20250101:StorageAccount" }, { type: "azure-native:storage/v20250601:StorageAccount" }, { type: "azure-native:storage/v20250801:StorageAccount" }, { type: "azure-native:storage/v20260401:StorageAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StorageAccount.__pulumiType, name, resourceInputs, opts);
     }
@@ -474,7 +474,7 @@ export interface StorageAccountArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
+     * Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property. Minimum TLS version 1.3 version is not supported.
      */
     minimumTlsVersion?: pulumi.Input<string | enums.storage.MinimumTlsVersion>;
     /**

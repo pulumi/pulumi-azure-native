@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Inputs
         private InputList<Inputs.InboundNATRuleArgs>? _inboundNATRules;
 
         /// <summary>
-        /// List of inbound NAT rules. InboundNATRules can only be set after the NAT Gateway has been associated with a vnet
+        /// List of inbound NAT rules. InboundNATRules can only be set after the NAT Gateway has been associated with a vnet. Removed in 2026-04-01-preview; use InboundRule Child resource instead.
         /// </summary>
         public InputList<Inputs.InboundNATRuleArgs> InboundNATRules
         {

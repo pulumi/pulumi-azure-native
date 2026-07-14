@@ -68,11 +68,11 @@ export class Standard extends pulumi.CustomResource {
      */
     declare public readonly kind: pulumi.Output<string | undefined>;
     /**
-     * Location where the resource is stored
+     * The geo-location where the resource lives
      */
     declare public readonly location: pulumi.Output<string | undefined>;
     /**
-     * Resource name
+     * The name of the resource
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
@@ -88,11 +88,11 @@ export class Standard extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly systemData: pulumi.Output<outputs.security.SystemDataResponse>;
     /**
-     * A list of key value pairs that describe the resource.
+     * Resource tags.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
 
@@ -174,11 +174,11 @@ export interface StandardArgs {
      */
     kind?: pulumi.Input<string>;
     /**
-     * Location where the resource is stored
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -190,7 +190,7 @@ export interface StandardArgs {
      */
     supportedClouds?: pulumi.Input<pulumi.Input<enums.security.StandardSupportedClouds>[]>;
     /**
-     * A list of key value pairs that describe the resource.
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

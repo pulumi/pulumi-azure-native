@@ -20,7 +20,13 @@ namespace Pulumi.AzureNative.CosmosDB
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Active implies the virtual machines of the cluster are allocated.
+        /// </summary>
         public static AllocationState Active { get; } = new AllocationState("Active");
+        /// <summary>
+        /// Deallocated implies virtual machines and resources are deallocated.
+        /// </summary>
         public static AllocationState Deallocated { get; } = new AllocationState("Deallocated");
 
         public static bool operator ==(AllocationState left, AllocationState right) => left.Equals(right);
@@ -631,6 +637,37 @@ namespace Pulumi.AzureNative.CosmosDB
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DistanceFunction other && Equals(other);
         public bool Equals(DistanceFunction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the fleet analytics resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct FleetAnalyticsPropertiesStorageLocationType : IEquatable<FleetAnalyticsPropertiesStorageLocationType>
+    {
+        private readonly string _value;
+
+        private FleetAnalyticsPropertiesStorageLocationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FleetAnalyticsPropertiesStorageLocationType StorageAccount { get; } = new FleetAnalyticsPropertiesStorageLocationType("StorageAccount");
+        public static FleetAnalyticsPropertiesStorageLocationType FabricLakehouse { get; } = new FleetAnalyticsPropertiesStorageLocationType("FabricLakehouse");
+
+        public static bool operator ==(FleetAnalyticsPropertiesStorageLocationType left, FleetAnalyticsPropertiesStorageLocationType right) => left.Equals(right);
+        public static bool operator !=(FleetAnalyticsPropertiesStorageLocationType left, FleetAnalyticsPropertiesStorageLocationType right) => !left.Equals(right);
+
+        public static explicit operator string(FleetAnalyticsPropertiesStorageLocationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FleetAnalyticsPropertiesStorageLocationType other && Equals(other);
+        public bool Equals(FleetAnalyticsPropertiesStorageLocationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1269,37 +1306,6 @@ namespace Pulumi.AzureNative.CosmosDB
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SpatialType other && Equals(other);
         public bool Equals(SpatialType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The type of the fleet analytics resource.
-    /// </summary>
-    [EnumType]
-    public readonly struct StorageLocationType : IEquatable<StorageLocationType>
-    {
-        private readonly string _value;
-
-        private StorageLocationType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static StorageLocationType StorageAccount { get; } = new StorageLocationType("StorageAccount");
-        public static StorageLocationType FabricLakehouse { get; } = new StorageLocationType("FabricLakehouse");
-
-        public static bool operator ==(StorageLocationType left, StorageLocationType right) => left.Equals(right);
-        public static bool operator !=(StorageLocationType left, StorageLocationType right) => !left.Equals(right);
-
-        public static explicit operator string(StorageLocationType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is StorageLocationType other && Equals(other);
-        public bool Equals(StorageLocationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

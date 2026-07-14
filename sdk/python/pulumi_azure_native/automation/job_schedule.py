@@ -32,7 +32,7 @@ class JobScheduleArgs:
         The set of arguments for constructing a JobSchedule resource.
 
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['RunbookAssociationPropertyArgs'] runbook: Gets or sets the runbook.
         :param pulumi.Input['ScheduleAssociationPropertyArgs'] schedule: Gets or sets the schedule.
         :param pulumi.Input[_builtins.str] job_schedule_id: The job schedule name.
@@ -66,7 +66,7 @@ class JobScheduleArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of an Azure Resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -162,7 +162,7 @@ class JobSchedule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
         :param pulumi.Input[_builtins.str] job_schedule_id: The job schedule name.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Gets or sets a list of job properties.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] run_on: Gets or sets the hybrid worker group that the scheduled job should run on.
         :param pulumi.Input[Union['RunbookAssociationPropertyArgs', 'RunbookAssociationPropertyArgsDict']] runbook: Gets or sets the runbook.
         :param pulumi.Input[Union['ScheduleAssociationPropertyArgs', 'ScheduleAssociationPropertyArgsDict']] schedule: Gets or sets the schedule.
@@ -229,6 +229,7 @@ class JobSchedule(pulumi.CustomResource):
             __props__.__dict__["schedule"] = schedule
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation/v20151031:JobSchedule"), pulumi.Alias(type_="azure-native:automation/v20190601:JobSchedule"), pulumi.Alias(type_="azure-native:automation/v20200113preview:JobSchedule"), pulumi.Alias(type_="azure-native:automation/v20220808:JobSchedule"), pulumi.Alias(type_="azure-native:automation/v20230515preview:JobSchedule"), pulumi.Alias(type_="azure-native:automation/v20231101:JobSchedule"), pulumi.Alias(type_="azure-native:automation/v20241023:JobSchedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -261,6 +262,7 @@ class JobSchedule(pulumi.CustomResource):
         __props__.__dict__["run_on"] = None
         __props__.__dict__["runbook"] = None
         __props__.__dict__["schedule"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return JobSchedule(resource_name, opts=opts, __props__=__props__)
 
@@ -284,7 +286,7 @@ class JobSchedule(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Gets the name of the variable.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -321,10 +323,18 @@ class JobSchedule(pulumi.CustomResource):
         return pulumi.get(self, "schedule")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

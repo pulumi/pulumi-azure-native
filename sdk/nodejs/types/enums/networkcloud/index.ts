@@ -124,6 +124,22 @@ export const DefaultGateway = {
  */
 export type DefaultGateway = (typeof DefaultGateway)[keyof typeof DefaultGateway];
 
+export const ExtendedLocationType = {
+    /**
+     * Azure Edge Zones location type
+     */
+    EdgeZone: "EdgeZone",
+    /**
+     * Azure Custom Locations type
+     */
+    CustomLocation: "CustomLocation",
+} as const;
+
+/**
+ * The type of the extended location.
+ */
+export type ExtendedLocationType = (typeof ExtendedLocationType)[keyof typeof ExtendedLocationType];
+
 export const FabricPeeringEnabled = {
     True: "True",
     False: "False",

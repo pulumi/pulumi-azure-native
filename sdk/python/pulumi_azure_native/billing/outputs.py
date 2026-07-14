@@ -19,12 +19,12 @@ from ._enums import *
 __all__ = [
     'AssociatedTenantPropertiesResponse',
     'AzurePlanResponse',
+    'BillingProfilePropertiesBillToResponse',
+    'BillingProfilePropertiesCurrentPaymentTermResponse',
+    'BillingProfilePropertiesIndirectRelationshipInfoResponse',
     'BillingProfilePropertiesResponse',
-    'BillingProfilePropertiesResponseBillTo',
-    'BillingProfilePropertiesResponseCurrentPaymentTerm',
-    'BillingProfilePropertiesResponseIndirectRelationshipInfo',
-    'BillingProfilePropertiesResponseShipTo',
-    'BillingProfilePropertiesResponseSoldTo',
+    'BillingProfilePropertiesShipToResponse',
+    'BillingProfilePropertiesSoldToResponse',
     'BillingRoleAssignmentPropertiesResponse',
     'InvoiceSectionPropertiesResponse',
     'InvoiceSectionWithCreateSubPermissionResponse',
@@ -212,6 +212,380 @@ class AzurePlanResponse(dict):
 
 
 @pulumi.output_type
+class BillingProfilePropertiesBillToResponse(dict):
+    """
+    Billing address.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addressLine1":
+            suggest = "address_line1"
+        elif key == "addressLine2":
+            suggest = "address_line2"
+        elif key == "addressLine3":
+            suggest = "address_line3"
+        elif key == "companyName":
+            suggest = "company_name"
+        elif key == "firstName":
+            suggest = "first_name"
+        elif key == "isValidAddress":
+            suggest = "is_valid_address"
+        elif key == "lastName":
+            suggest = "last_name"
+        elif key == "middleName":
+            suggest = "middle_name"
+        elif key == "phoneNumber":
+            suggest = "phone_number"
+        elif key == "postalCode":
+            suggest = "postal_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BillingProfilePropertiesBillToResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BillingProfilePropertiesBillToResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BillingProfilePropertiesBillToResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 address_line1: _builtins.str,
+                 country: _builtins.str,
+                 address_line2: Optional[_builtins.str] = None,
+                 address_line3: Optional[_builtins.str] = None,
+                 city: Optional[_builtins.str] = None,
+                 company_name: Optional[_builtins.str] = None,
+                 district: Optional[_builtins.str] = None,
+                 email: Optional[_builtins.str] = None,
+                 first_name: Optional[_builtins.str] = None,
+                 is_valid_address: Optional[_builtins.bool] = None,
+                 last_name: Optional[_builtins.str] = None,
+                 middle_name: Optional[_builtins.str] = None,
+                 phone_number: Optional[_builtins.str] = None,
+                 postal_code: Optional[_builtins.str] = None,
+                 region: Optional[_builtins.str] = None):
+        """
+        Billing address.
+
+        :param _builtins.str address_line1: Address line 1.
+        :param _builtins.str country: Country code uses ISO 3166-1 Alpha-2 format.
+        :param _builtins.str address_line2: Address line 2.
+        :param _builtins.str address_line3: Address line 3.
+        :param _builtins.str city: Address city.
+        :param _builtins.str company_name: Company name. Optional for MCA Individual (Pay-as-you-go).
+        :param _builtins.str district: Address district.
+        :param _builtins.str email: Email address.
+        :param _builtins.str first_name: First name. Optional for MCA Enterprise.
+        :param _builtins.bool is_valid_address: Indicates if the address is incomplete.
+        :param _builtins.str last_name: Last name. Optional for MCA Enterprise.
+        :param _builtins.str middle_name: Middle name.
+        :param _builtins.str phone_number: Phone number.
+        :param _builtins.str postal_code: Postal code.
+        :param _builtins.str region: Address region.
+        """
+        pulumi.set(__self__, "address_line1", address_line1)
+        pulumi.set(__self__, "country", country)
+        if address_line2 is not None:
+            pulumi.set(__self__, "address_line2", address_line2)
+        if address_line3 is not None:
+            pulumi.set(__self__, "address_line3", address_line3)
+        if city is not None:
+            pulumi.set(__self__, "city", city)
+        if company_name is not None:
+            pulumi.set(__self__, "company_name", company_name)
+        if district is not None:
+            pulumi.set(__self__, "district", district)
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if first_name is not None:
+            pulumi.set(__self__, "first_name", first_name)
+        if is_valid_address is not None:
+            pulumi.set(__self__, "is_valid_address", is_valid_address)
+        if last_name is not None:
+            pulumi.set(__self__, "last_name", last_name)
+        if middle_name is not None:
+            pulumi.set(__self__, "middle_name", middle_name)
+        if phone_number is not None:
+            pulumi.set(__self__, "phone_number", phone_number)
+        if postal_code is not None:
+            pulumi.set(__self__, "postal_code", postal_code)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter(name="addressLine1")
+    def address_line1(self) -> _builtins.str:
+        """
+        Address line 1.
+        """
+        return pulumi.get(self, "address_line1")
+
+    @_builtins.property
+    @pulumi.getter
+    def country(self) -> _builtins.str:
+        """
+        Country code uses ISO 3166-1 Alpha-2 format.
+        """
+        return pulumi.get(self, "country")
+
+    @_builtins.property
+    @pulumi.getter(name="addressLine2")
+    def address_line2(self) -> Optional[_builtins.str]:
+        """
+        Address line 2.
+        """
+        return pulumi.get(self, "address_line2")
+
+    @_builtins.property
+    @pulumi.getter(name="addressLine3")
+    def address_line3(self) -> Optional[_builtins.str]:
+        """
+        Address line 3.
+        """
+        return pulumi.get(self, "address_line3")
+
+    @_builtins.property
+    @pulumi.getter
+    def city(self) -> Optional[_builtins.str]:
+        """
+        Address city.
+        """
+        return pulumi.get(self, "city")
+
+    @_builtins.property
+    @pulumi.getter(name="companyName")
+    def company_name(self) -> Optional[_builtins.str]:
+        """
+        Company name. Optional for MCA Individual (Pay-as-you-go).
+        """
+        return pulumi.get(self, "company_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def district(self) -> Optional[_builtins.str]:
+        """
+        Address district.
+        """
+        return pulumi.get(self, "district")
+
+    @_builtins.property
+    @pulumi.getter
+    def email(self) -> Optional[_builtins.str]:
+        """
+        Email address.
+        """
+        return pulumi.get(self, "email")
+
+    @_builtins.property
+    @pulumi.getter(name="firstName")
+    def first_name(self) -> Optional[_builtins.str]:
+        """
+        First name. Optional for MCA Enterprise.
+        """
+        return pulumi.get(self, "first_name")
+
+    @_builtins.property
+    @pulumi.getter(name="isValidAddress")
+    def is_valid_address(self) -> Optional[_builtins.bool]:
+        """
+        Indicates if the address is incomplete.
+        """
+        return pulumi.get(self, "is_valid_address")
+
+    @_builtins.property
+    @pulumi.getter(name="lastName")
+    def last_name(self) -> Optional[_builtins.str]:
+        """
+        Last name. Optional for MCA Enterprise.
+        """
+        return pulumi.get(self, "last_name")
+
+    @_builtins.property
+    @pulumi.getter(name="middleName")
+    def middle_name(self) -> Optional[_builtins.str]:
+        """
+        Middle name.
+        """
+        return pulumi.get(self, "middle_name")
+
+    @_builtins.property
+    @pulumi.getter(name="phoneNumber")
+    def phone_number(self) -> Optional[_builtins.str]:
+        """
+        Phone number.
+        """
+        return pulumi.get(self, "phone_number")
+
+    @_builtins.property
+    @pulumi.getter(name="postalCode")
+    def postal_code(self) -> Optional[_builtins.str]:
+        """
+        Postal code.
+        """
+        return pulumi.get(self, "postal_code")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> Optional[_builtins.str]:
+        """
+        Address region.
+        """
+        return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class BillingProfilePropertiesCurrentPaymentTermResponse(dict):
+    """
+    The current payment term of the billing profile.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isDefault":
+            suggest = "is_default"
+        elif key == "endDate":
+            suggest = "end_date"
+        elif key == "startDate":
+            suggest = "start_date"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BillingProfilePropertiesCurrentPaymentTermResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BillingProfilePropertiesCurrentPaymentTermResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BillingProfilePropertiesCurrentPaymentTermResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_default: _builtins.bool,
+                 end_date: Optional[_builtins.str] = None,
+                 start_date: Optional[_builtins.str] = None,
+                 term: Optional[_builtins.str] = None):
+        """
+        The current payment term of the billing profile.
+
+        :param _builtins.bool is_default: Indicates payment term is the standard payment term.
+        :param _builtins.str end_date: The date on when the defined 'Payment Term' will end and is always in UTC.
+        :param _builtins.str start_date: The date on when the defined 'Payment Term' will be effective from and is always in UTC.
+        :param _builtins.str term: Represents duration in netXX format. Always in days.
+        """
+        pulumi.set(__self__, "is_default", is_default)
+        if end_date is not None:
+            pulumi.set(__self__, "end_date", end_date)
+        if start_date is not None:
+            pulumi.set(__self__, "start_date", start_date)
+        if term is not None:
+            pulumi.set(__self__, "term", term)
+
+    @_builtins.property
+    @pulumi.getter(name="isDefault")
+    def is_default(self) -> _builtins.bool:
+        """
+        Indicates payment term is the standard payment term.
+        """
+        return pulumi.get(self, "is_default")
+
+    @_builtins.property
+    @pulumi.getter(name="endDate")
+    def end_date(self) -> Optional[_builtins.str]:
+        """
+        The date on when the defined 'Payment Term' will end and is always in UTC.
+        """
+        return pulumi.get(self, "end_date")
+
+    @_builtins.property
+    @pulumi.getter(name="startDate")
+    def start_date(self) -> Optional[_builtins.str]:
+        """
+        The date on when the defined 'Payment Term' will be effective from and is always in UTC.
+        """
+        return pulumi.get(self, "start_date")
+
+    @_builtins.property
+    @pulumi.getter
+    def term(self) -> Optional[_builtins.str]:
+        """
+        Represents duration in netXX format. Always in days.
+        """
+        return pulumi.get(self, "term")
+
+
+@pulumi.output_type
+class BillingProfilePropertiesIndirectRelationshipInfoResponse(dict):
+    """
+    Identifies the billing profile that is linked to another billing profile in indirect purchase motion.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "billingAccountName":
+            suggest = "billing_account_name"
+        elif key == "billingProfileName":
+            suggest = "billing_profile_name"
+        elif key == "displayName":
+            suggest = "display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BillingProfilePropertiesIndirectRelationshipInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BillingProfilePropertiesIndirectRelationshipInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BillingProfilePropertiesIndirectRelationshipInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 billing_account_name: Optional[_builtins.str] = None,
+                 billing_profile_name: Optional[_builtins.str] = None,
+                 display_name: Optional[_builtins.str] = None):
+        """
+        Identifies the billing profile that is linked to another billing profile in indirect purchase motion.
+
+        :param _builtins.str billing_account_name: The billing account name of the partner or the customer for an indirect motion.
+        :param _builtins.str billing_profile_name: The billing profile name of the partner or the customer for an indirect motion.
+        :param _builtins.str display_name: The display name of the partner or customer for an indirect motion.
+        """
+        if billing_account_name is not None:
+            pulumi.set(__self__, "billing_account_name", billing_account_name)
+        if billing_profile_name is not None:
+            pulumi.set(__self__, "billing_profile_name", billing_profile_name)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+
+    @_builtins.property
+    @pulumi.getter(name="billingAccountName")
+    def billing_account_name(self) -> Optional[_builtins.str]:
+        """
+        The billing account name of the partner or the customer for an indirect motion.
+        """
+        return pulumi.get(self, "billing_account_name")
+
+    @_builtins.property
+    @pulumi.getter(name="billingProfileName")
+    def billing_profile_name(self) -> Optional[_builtins.str]:
+        """
+        The billing profile name of the partner or the customer for an indirect motion.
+        """
+        return pulumi.get(self, "billing_profile_name")
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[_builtins.str]:
+        """
+        The display name of the partner or customer for an indirect motion.
+        """
+        return pulumi.get(self, "display_name")
+
+
+@pulumi.output_type
 class BillingProfilePropertiesResponse(dict):
     """
     A billing profile.
@@ -284,16 +658,16 @@ class BillingProfilePropertiesResponse(dict):
                  status_reason_code: _builtins.str,
                  system_id: _builtins.str,
                  target_clouds: Sequence[_builtins.str],
-                 bill_to: Optional['outputs.BillingProfilePropertiesResponseBillTo'] = None,
-                 current_payment_term: Optional['outputs.BillingProfilePropertiesResponseCurrentPaymentTerm'] = None,
+                 bill_to: Optional['outputs.BillingProfilePropertiesBillToResponse'] = None,
+                 current_payment_term: Optional['outputs.BillingProfilePropertiesCurrentPaymentTermResponse'] = None,
                  display_name: Optional[_builtins.str] = None,
                  enabled_azure_plans: Optional[Sequence['outputs.AzurePlanResponse']] = None,
-                 indirect_relationship_info: Optional['outputs.BillingProfilePropertiesResponseIndirectRelationshipInfo'] = None,
+                 indirect_relationship_info: Optional['outputs.BillingProfilePropertiesIndirectRelationshipInfoResponse'] = None,
                  invoice_email_opt_in: Optional[_builtins.bool] = None,
                  invoice_recipients: Optional[Sequence[_builtins.str]] = None,
                  po_number: Optional[_builtins.str] = None,
-                 ship_to: Optional['outputs.BillingProfilePropertiesResponseShipTo'] = None,
-                 sold_to: Optional['outputs.BillingProfilePropertiesResponseSoldTo'] = None,
+                 ship_to: Optional['outputs.BillingProfilePropertiesShipToResponse'] = None,
+                 sold_to: Optional['outputs.BillingProfilePropertiesSoldToResponse'] = None,
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         A billing profile.
@@ -310,16 +684,16 @@ class BillingProfilePropertiesResponse(dict):
         :param _builtins.str status_reason_code: Reason for the specified billing profile status.
         :param _builtins.str system_id: The system generated unique identifier for a billing profile.
         :param Sequence[_builtins.str] target_clouds: Identifies the cloud environments that are associated with a billing profile. This is a system managed optional field and gets updated as the billing profile gets associated with accounts in various clouds.
-        :param 'BillingProfilePropertiesResponseBillTo' bill_to: Billing address.
-        :param 'BillingProfilePropertiesResponseCurrentPaymentTerm' current_payment_term: The current payment term of the billing profile.
+        :param 'BillingProfilePropertiesBillToResponse' bill_to: Billing address.
+        :param 'BillingProfilePropertiesCurrentPaymentTermResponse' current_payment_term: The current payment term of the billing profile.
         :param _builtins.str display_name: The name of the billing profile.
         :param Sequence['AzurePlanResponse'] enabled_azure_plans: Information about the enabled azure plans.
-        :param 'BillingProfilePropertiesResponseIndirectRelationshipInfo' indirect_relationship_info: Identifies the billing profile that is linked to another billing profile in indirect purchase motion.
+        :param 'BillingProfilePropertiesIndirectRelationshipInfoResponse' indirect_relationship_info: Identifies the billing profile that is linked to another billing profile in indirect purchase motion.
         :param _builtins.bool invoice_email_opt_in: Flag controlling whether the invoices for the billing profile are sent through email.
         :param Sequence[_builtins.str] invoice_recipients: The list of email addresses to receive invoices by email for the billing profile.
         :param _builtins.str po_number: The default purchase order number that will appear on the invoices generated for the billing profile.
-        :param 'BillingProfilePropertiesResponseShipTo' ship_to: The default address where the products are shipped, or the services are being used. If a ship to is not specified for a product or a subscription, then this address will be used.
-        :param 'BillingProfilePropertiesResponseSoldTo' sold_to: The address of the individual or organization that is responsible for the billing account.
+        :param 'BillingProfilePropertiesShipToResponse' ship_to: The default address where the products are shipped, or the services are being used. If a ship to is not specified for a product or a subscription, then this address will be used.
+        :param 'BillingProfilePropertiesSoldToResponse' sold_to: The address of the individual or organization that is responsible for the billing account.
         :param Mapping[str, _builtins.str] tags: Dictionary of metadata associated with the resource. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /
         """
         pulumi.set(__self__, "billing_relationship_type", billing_relationship_type)
@@ -455,7 +829,7 @@ class BillingProfilePropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="billTo")
-    def bill_to(self) -> Optional['outputs.BillingProfilePropertiesResponseBillTo']:
+    def bill_to(self) -> Optional['outputs.BillingProfilePropertiesBillToResponse']:
         """
         Billing address.
         """
@@ -463,7 +837,7 @@ class BillingProfilePropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="currentPaymentTerm")
-    def current_payment_term(self) -> Optional['outputs.BillingProfilePropertiesResponseCurrentPaymentTerm']:
+    def current_payment_term(self) -> Optional['outputs.BillingProfilePropertiesCurrentPaymentTermResponse']:
         """
         The current payment term of the billing profile.
         """
@@ -487,7 +861,7 @@ class BillingProfilePropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="indirectRelationshipInfo")
-    def indirect_relationship_info(self) -> Optional['outputs.BillingProfilePropertiesResponseIndirectRelationshipInfo']:
+    def indirect_relationship_info(self) -> Optional['outputs.BillingProfilePropertiesIndirectRelationshipInfoResponse']:
         """
         Identifies the billing profile that is linked to another billing profile in indirect purchase motion.
         """
@@ -519,7 +893,7 @@ class BillingProfilePropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="shipTo")
-    def ship_to(self) -> Optional['outputs.BillingProfilePropertiesResponseShipTo']:
+    def ship_to(self) -> Optional['outputs.BillingProfilePropertiesShipToResponse']:
         """
         The default address where the products are shipped, or the services are being used. If a ship to is not specified for a product or a subscription, then this address will be used.
         """
@@ -527,7 +901,7 @@ class BillingProfilePropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="soldTo")
-    def sold_to(self) -> Optional['outputs.BillingProfilePropertiesResponseSoldTo']:
+    def sold_to(self) -> Optional['outputs.BillingProfilePropertiesSoldToResponse']:
         """
         The address of the individual or organization that is responsible for the billing account.
         """
@@ -543,381 +917,7 @@ class BillingProfilePropertiesResponse(dict):
 
 
 @pulumi.output_type
-class BillingProfilePropertiesResponseBillTo(dict):
-    """
-    Billing address.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "addressLine1":
-            suggest = "address_line1"
-        elif key == "addressLine2":
-            suggest = "address_line2"
-        elif key == "addressLine3":
-            suggest = "address_line3"
-        elif key == "companyName":
-            suggest = "company_name"
-        elif key == "firstName":
-            suggest = "first_name"
-        elif key == "isValidAddress":
-            suggest = "is_valid_address"
-        elif key == "lastName":
-            suggest = "last_name"
-        elif key == "middleName":
-            suggest = "middle_name"
-        elif key == "phoneNumber":
-            suggest = "phone_number"
-        elif key == "postalCode":
-            suggest = "postal_code"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in BillingProfilePropertiesResponseBillTo. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        BillingProfilePropertiesResponseBillTo.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        BillingProfilePropertiesResponseBillTo.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 address_line1: _builtins.str,
-                 country: _builtins.str,
-                 address_line2: Optional[_builtins.str] = None,
-                 address_line3: Optional[_builtins.str] = None,
-                 city: Optional[_builtins.str] = None,
-                 company_name: Optional[_builtins.str] = None,
-                 district: Optional[_builtins.str] = None,
-                 email: Optional[_builtins.str] = None,
-                 first_name: Optional[_builtins.str] = None,
-                 is_valid_address: Optional[_builtins.bool] = None,
-                 last_name: Optional[_builtins.str] = None,
-                 middle_name: Optional[_builtins.str] = None,
-                 phone_number: Optional[_builtins.str] = None,
-                 postal_code: Optional[_builtins.str] = None,
-                 region: Optional[_builtins.str] = None):
-        """
-        Billing address.
-
-        :param _builtins.str address_line1: Address line 1.
-        :param _builtins.str country: Country code uses ISO 3166-1 Alpha-2 format.
-        :param _builtins.str address_line2: Address line 2.
-        :param _builtins.str address_line3: Address line 3.
-        :param _builtins.str city: Address city.
-        :param _builtins.str company_name: Company name. Optional for MCA Individual (Pay-as-you-go).
-        :param _builtins.str district: Address district.
-        :param _builtins.str email: Email address.
-        :param _builtins.str first_name: First name. Optional for MCA Enterprise.
-        :param _builtins.bool is_valid_address: Indicates if the address is incomplete.
-        :param _builtins.str last_name: Last name. Optional for MCA Enterprise.
-        :param _builtins.str middle_name: Middle name.
-        :param _builtins.str phone_number: Phone number.
-        :param _builtins.str postal_code: Postal code.
-        :param _builtins.str region: Address region.
-        """
-        pulumi.set(__self__, "address_line1", address_line1)
-        pulumi.set(__self__, "country", country)
-        if address_line2 is not None:
-            pulumi.set(__self__, "address_line2", address_line2)
-        if address_line3 is not None:
-            pulumi.set(__self__, "address_line3", address_line3)
-        if city is not None:
-            pulumi.set(__self__, "city", city)
-        if company_name is not None:
-            pulumi.set(__self__, "company_name", company_name)
-        if district is not None:
-            pulumi.set(__self__, "district", district)
-        if email is not None:
-            pulumi.set(__self__, "email", email)
-        if first_name is not None:
-            pulumi.set(__self__, "first_name", first_name)
-        if is_valid_address is not None:
-            pulumi.set(__self__, "is_valid_address", is_valid_address)
-        if last_name is not None:
-            pulumi.set(__self__, "last_name", last_name)
-        if middle_name is not None:
-            pulumi.set(__self__, "middle_name", middle_name)
-        if phone_number is not None:
-            pulumi.set(__self__, "phone_number", phone_number)
-        if postal_code is not None:
-            pulumi.set(__self__, "postal_code", postal_code)
-        if region is not None:
-            pulumi.set(__self__, "region", region)
-
-    @_builtins.property
-    @pulumi.getter(name="addressLine1")
-    def address_line1(self) -> _builtins.str:
-        """
-        Address line 1.
-        """
-        return pulumi.get(self, "address_line1")
-
-    @_builtins.property
-    @pulumi.getter
-    def country(self) -> _builtins.str:
-        """
-        Country code uses ISO 3166-1 Alpha-2 format.
-        """
-        return pulumi.get(self, "country")
-
-    @_builtins.property
-    @pulumi.getter(name="addressLine2")
-    def address_line2(self) -> Optional[_builtins.str]:
-        """
-        Address line 2.
-        """
-        return pulumi.get(self, "address_line2")
-
-    @_builtins.property
-    @pulumi.getter(name="addressLine3")
-    def address_line3(self) -> Optional[_builtins.str]:
-        """
-        Address line 3.
-        """
-        return pulumi.get(self, "address_line3")
-
-    @_builtins.property
-    @pulumi.getter
-    def city(self) -> Optional[_builtins.str]:
-        """
-        Address city.
-        """
-        return pulumi.get(self, "city")
-
-    @_builtins.property
-    @pulumi.getter(name="companyName")
-    def company_name(self) -> Optional[_builtins.str]:
-        """
-        Company name. Optional for MCA Individual (Pay-as-you-go).
-        """
-        return pulumi.get(self, "company_name")
-
-    @_builtins.property
-    @pulumi.getter
-    def district(self) -> Optional[_builtins.str]:
-        """
-        Address district.
-        """
-        return pulumi.get(self, "district")
-
-    @_builtins.property
-    @pulumi.getter
-    def email(self) -> Optional[_builtins.str]:
-        """
-        Email address.
-        """
-        return pulumi.get(self, "email")
-
-    @_builtins.property
-    @pulumi.getter(name="firstName")
-    def first_name(self) -> Optional[_builtins.str]:
-        """
-        First name. Optional for MCA Enterprise.
-        """
-        return pulumi.get(self, "first_name")
-
-    @_builtins.property
-    @pulumi.getter(name="isValidAddress")
-    def is_valid_address(self) -> Optional[_builtins.bool]:
-        """
-        Indicates if the address is incomplete.
-        """
-        return pulumi.get(self, "is_valid_address")
-
-    @_builtins.property
-    @pulumi.getter(name="lastName")
-    def last_name(self) -> Optional[_builtins.str]:
-        """
-        Last name. Optional for MCA Enterprise.
-        """
-        return pulumi.get(self, "last_name")
-
-    @_builtins.property
-    @pulumi.getter(name="middleName")
-    def middle_name(self) -> Optional[_builtins.str]:
-        """
-        Middle name.
-        """
-        return pulumi.get(self, "middle_name")
-
-    @_builtins.property
-    @pulumi.getter(name="phoneNumber")
-    def phone_number(self) -> Optional[_builtins.str]:
-        """
-        Phone number.
-        """
-        return pulumi.get(self, "phone_number")
-
-    @_builtins.property
-    @pulumi.getter(name="postalCode")
-    def postal_code(self) -> Optional[_builtins.str]:
-        """
-        Postal code.
-        """
-        return pulumi.get(self, "postal_code")
-
-    @_builtins.property
-    @pulumi.getter
-    def region(self) -> Optional[_builtins.str]:
-        """
-        Address region.
-        """
-        return pulumi.get(self, "region")
-
-
-@pulumi.output_type
-class BillingProfilePropertiesResponseCurrentPaymentTerm(dict):
-    """
-    The current payment term of the billing profile.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "isDefault":
-            suggest = "is_default"
-        elif key == "endDate":
-            suggest = "end_date"
-        elif key == "startDate":
-            suggest = "start_date"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in BillingProfilePropertiesResponseCurrentPaymentTerm. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        BillingProfilePropertiesResponseCurrentPaymentTerm.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        BillingProfilePropertiesResponseCurrentPaymentTerm.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 is_default: _builtins.bool,
-                 end_date: Optional[_builtins.str] = None,
-                 start_date: Optional[_builtins.str] = None,
-                 term: Optional[_builtins.str] = None):
-        """
-        The current payment term of the billing profile.
-
-        :param _builtins.bool is_default: Indicates payment term is the standard payment term.
-        :param _builtins.str end_date: The date on when the defined 'Payment Term' will end and is always in UTC.
-        :param _builtins.str start_date: The date on when the defined 'Payment Term' will be effective from and is always in UTC.
-        :param _builtins.str term: Represents duration in netXX format. Always in days.
-        """
-        pulumi.set(__self__, "is_default", is_default)
-        if end_date is not None:
-            pulumi.set(__self__, "end_date", end_date)
-        if start_date is not None:
-            pulumi.set(__self__, "start_date", start_date)
-        if term is not None:
-            pulumi.set(__self__, "term", term)
-
-    @_builtins.property
-    @pulumi.getter(name="isDefault")
-    def is_default(self) -> _builtins.bool:
-        """
-        Indicates payment term is the standard payment term.
-        """
-        return pulumi.get(self, "is_default")
-
-    @_builtins.property
-    @pulumi.getter(name="endDate")
-    def end_date(self) -> Optional[_builtins.str]:
-        """
-        The date on when the defined 'Payment Term' will end and is always in UTC.
-        """
-        return pulumi.get(self, "end_date")
-
-    @_builtins.property
-    @pulumi.getter(name="startDate")
-    def start_date(self) -> Optional[_builtins.str]:
-        """
-        The date on when the defined 'Payment Term' will be effective from and is always in UTC.
-        """
-        return pulumi.get(self, "start_date")
-
-    @_builtins.property
-    @pulumi.getter
-    def term(self) -> Optional[_builtins.str]:
-        """
-        Represents duration in netXX format. Always in days.
-        """
-        return pulumi.get(self, "term")
-
-
-@pulumi.output_type
-class BillingProfilePropertiesResponseIndirectRelationshipInfo(dict):
-    """
-    Identifies the billing profile that is linked to another billing profile in indirect purchase motion.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "billingAccountName":
-            suggest = "billing_account_name"
-        elif key == "billingProfileName":
-            suggest = "billing_profile_name"
-        elif key == "displayName":
-            suggest = "display_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in BillingProfilePropertiesResponseIndirectRelationshipInfo. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        BillingProfilePropertiesResponseIndirectRelationshipInfo.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        BillingProfilePropertiesResponseIndirectRelationshipInfo.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 billing_account_name: Optional[_builtins.str] = None,
-                 billing_profile_name: Optional[_builtins.str] = None,
-                 display_name: Optional[_builtins.str] = None):
-        """
-        Identifies the billing profile that is linked to another billing profile in indirect purchase motion.
-
-        :param _builtins.str billing_account_name: The billing account name of the partner or the customer for an indirect motion.
-        :param _builtins.str billing_profile_name: The billing profile name of the partner or the customer for an indirect motion.
-        :param _builtins.str display_name: The display name of the partner or customer for an indirect motion.
-        """
-        if billing_account_name is not None:
-            pulumi.set(__self__, "billing_account_name", billing_account_name)
-        if billing_profile_name is not None:
-            pulumi.set(__self__, "billing_profile_name", billing_profile_name)
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
-
-    @_builtins.property
-    @pulumi.getter(name="billingAccountName")
-    def billing_account_name(self) -> Optional[_builtins.str]:
-        """
-        The billing account name of the partner or the customer for an indirect motion.
-        """
-        return pulumi.get(self, "billing_account_name")
-
-    @_builtins.property
-    @pulumi.getter(name="billingProfileName")
-    def billing_profile_name(self) -> Optional[_builtins.str]:
-        """
-        The billing profile name of the partner or the customer for an indirect motion.
-        """
-        return pulumi.get(self, "billing_profile_name")
-
-    @_builtins.property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[_builtins.str]:
-        """
-        The display name of the partner or customer for an indirect motion.
-        """
-        return pulumi.get(self, "display_name")
-
-
-@pulumi.output_type
-class BillingProfilePropertiesResponseShipTo(dict):
+class BillingProfilePropertiesShipToResponse(dict):
     """
     The default address where the products are shipped, or the services are being used. If a ship to is not specified for a product or a subscription, then this address will be used.
     """
@@ -946,14 +946,14 @@ class BillingProfilePropertiesResponseShipTo(dict):
             suggest = "postal_code"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in BillingProfilePropertiesResponseShipTo. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in BillingProfilePropertiesShipToResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        BillingProfilePropertiesResponseShipTo.__key_warning(key)
+        BillingProfilePropertiesShipToResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        BillingProfilePropertiesResponseShipTo.__key_warning(key)
+        BillingProfilePropertiesShipToResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1142,7 +1142,7 @@ class BillingProfilePropertiesResponseShipTo(dict):
 
 
 @pulumi.output_type
-class BillingProfilePropertiesResponseSoldTo(dict):
+class BillingProfilePropertiesSoldToResponse(dict):
     """
     The address of the individual or organization that is responsible for the billing account.
     """
@@ -1171,14 +1171,14 @@ class BillingProfilePropertiesResponseSoldTo(dict):
             suggest = "postal_code"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in BillingProfilePropertiesResponseSoldTo. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in BillingProfilePropertiesSoldToResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        BillingProfilePropertiesResponseSoldTo.__key_warning(key)
+        BillingProfilePropertiesSoldToResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        BillingProfilePropertiesResponseSoldTo.__key_warning(key)
+        BillingProfilePropertiesSoldToResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

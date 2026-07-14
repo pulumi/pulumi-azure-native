@@ -27,6 +27,7 @@ __all__ = [
     'AnalyticsOutputSettingsResponse',
     'AttachedNetworkConfigurationResponse',
     'AvailableUpgradeResponse',
+    'AzureResourceManagerCommonTypesExtendedLocationResponse',
     'BareMetalMachineConfigurationDataResponse',
     'BgpAdvertisementResponse',
     'BgpServiceLoadBalancerConfigurationResponse',
@@ -120,6 +121,9 @@ class AadConfigurationResponse(dict):
 
 @pulumi.output_type
 class AccessBridgeEndpointResponse(dict):
+    """
+    AccessBridgeEndpoint describes a single advertised service endpoint.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -145,6 +149,8 @@ class AccessBridgeEndpointResponse(dict):
                  ipv6_address: _builtins.str,
                  name: _builtins.str):
         """
+        AccessBridgeEndpoint describes a single advertised service endpoint.
+
         :param _builtins.str fqdn: The fully qualified domain name used to describe the certificate name for the endpoint.
         :param _builtins.str ipv4_address: The IPv4 address associated with the endpoint.
         :param _builtins.str ipv6_address: The IPv6 address associated with the endpoint.
@@ -190,6 +196,9 @@ class AccessBridgeEndpointResponse(dict):
 
 @pulumi.output_type
 class AccessBridgeSecurityRuleResponse(dict):
+    """
+    AccessBridgeSecurityRule captures an individual access rule enforced by the bridge.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -216,6 +225,8 @@ class AccessBridgeSecurityRuleResponse(dict):
                  ipv4_addresses: Optional[Sequence[_builtins.str]] = None,
                  ipv6_addresses: Optional[Sequence[_builtins.str]] = None):
         """
+        AccessBridgeSecurityRule captures an individual access rule enforced by the bridge.
+
         :param _builtins.str direction: The direction of allowed network traffic based on the rule.
         :param _builtins.str port: The source or destination port or port range. Example 24562 or 24562-24570.
         :param _builtins.str description: The user provided value describing this rule.
@@ -624,6 +635,40 @@ class AvailableUpgradeResponse(dict):
         The version available for upgrading.
         """
         return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class AzureResourceManagerCommonTypesExtendedLocationResponse(dict):
+    """
+    The complex type of the extended location.
+    """
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 type: _builtins.str):
+        """
+        The complex type of the extended location.
+
+        :param _builtins.str name: The name of the extended location.
+        :param _builtins.str type: The type of the extended location.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the extended location.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The type of the extended location.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -2564,10 +2609,15 @@ class KubernetesLabelResponse(dict):
 
 @pulumi.output_type
 class KubernetesVersionValueResponse(dict):
+    """
+    KubernetesVersionValue describes a specific Kubernetes version that can be deployed.
+    """
     def __init__(__self__, *,
                  description: _builtins.str,
                  version: _builtins.str):
         """
+        KubernetesVersionValue describes a specific Kubernetes version that can be deployed.
+
         :param _builtins.str description: Additional description for the Kubernetes version.
         :param _builtins.str version: The Kubernetes version identifier.
         """

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// <summary>
         /// Boolean indicating whether static routes on this connection are automatically propagate to route tables which this connection propagates to.
         /// </summary>
-        public readonly bool PropagateStaticRoutes;
+        public readonly bool? PropagateStaticRoutes;
         /// <summary>
         /// Parameter determining whether NVA in spoke vnet is bypassed for traffic with destination in spoke.
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network.Outputs
 
         [OutputConstructor]
         private StaticRoutesConfigResponse(
-            bool propagateStaticRoutes,
+            bool? propagateStaticRoutes,
 
             string? vnetLocalRouteOverrideCriteria)
         {

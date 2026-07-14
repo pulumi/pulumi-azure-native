@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.Security.Inputs
         /// <summary>
         /// The Microsoft Defender Container agentless discovery configuration
         /// </summary>
-        [Input("mdcContainersAgentlessDiscoveryK8s")]
-        public Input<Inputs.DefenderForContainersGcpOfferingMdcContainersAgentlessDiscoveryK8sArgs>? MdcContainersAgentlessDiscoveryK8s { get; set; }
+        [Input("mdcContainersAgentlessDiscoveryK8S")]
+        public Input<Inputs.DefenderForContainersGcpOfferingMdcContainersAgentlessDiscoveryK8SArgs>? MdcContainersAgentlessDiscoveryK8S { get; set; }
 
         /// <summary>
         /// The Microsoft Defender Container image assessment configuration

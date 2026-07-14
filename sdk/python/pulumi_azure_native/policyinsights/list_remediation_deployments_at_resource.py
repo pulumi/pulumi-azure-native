@@ -37,9 +37,9 @@ class ListRemediationDeploymentsAtResourceResult:
 
     @_builtins.property
     @pulumi.getter(name="nextLink")
-    def next_link(self) -> _builtins.str:
+    def next_link(self) -> Optional[_builtins.str]:
         """
-        The URL to get the next set of results.
+        The link to the next page of items
         """
         return pulumi.get(self, "next_link")
 
@@ -47,7 +47,7 @@ class ListRemediationDeploymentsAtResourceResult:
     @pulumi.getter
     def value(self) -> Sequence['outputs.RemediationDeploymentResponse']:
         """
-        Array of deployments for the remediation.
+        The RemediationDeployment items on this page
         """
         return pulumi.get(self, "value")
 

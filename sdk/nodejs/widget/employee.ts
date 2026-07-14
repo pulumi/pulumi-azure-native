@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2021-11-01.
  *
- * Other available API versions: 2021-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native widget [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native widget [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Employee extends pulumi.CustomResource {
     /**
@@ -103,7 +103,7 @@ export class Employee extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:widget/v20211001preview:Employee" }, { type: "azure-native:widget/v20211101:Employee" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:widget/v20211101:Employee" }, { type: "azure-native:widget/v20241001preview:Employee" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Employee.__pulumiType, name, resourceInputs, opts);
     }

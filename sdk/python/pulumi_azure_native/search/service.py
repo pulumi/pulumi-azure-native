@@ -55,11 +55,11 @@ class ServiceArgs:
         :param pulumi.Input['IdentityArgs'] identity: The identity of the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['NetworkRuleSetArgs'] network_rule_set: Network specific rules that determine how the Azure AI Search service may be reached.
-        :param pulumi.Input[_builtins.int] partition_count: The number of partitions in the search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
+        :param pulumi.Input[_builtins.int] partition_count: The number of partitions in the dedicated search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
         :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] public_network_access: This value can be set to 'Enabled' to avoid breaking changes on existing customer resources and templates. If set to 'Disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
-        :param pulumi.Input[_builtins.int] replica_count: The number of replicas in the search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
+        :param pulumi.Input[_builtins.int] replica_count: The number of replicas in the dedicated search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
         :param pulumi.Input[_builtins.str] search_service_name: The name of the Azure AI Search service associated with the specified resource group.
-        :param pulumi.Input[Union[_builtins.str, 'SearchSemanticSearch']] semantic_search: Sets options that control the availability of semantic search. This configuration is only possible for certain Azure AI Search SKUs in certain locations.
+        :param pulumi.Input[Union[_builtins.str, 'SearchSemanticSearch']] semantic_search: Specifies the availability and billing plan for semantic search on the Azure AI Search service. This configuration is only available for certain pricing tiers in certain regions.
         :param pulumi.Input['SkuArgs'] sku: The SKU of the search service, which determines price tier and capacity limits. This property is required when creating a new search service.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Union[_builtins.str, 'UpgradeAvailable']] upgrade_available: Indicates if the search service has an upgrade available.
@@ -246,7 +246,7 @@ class ServiceArgs:
     @pulumi.getter(name="partitionCount")
     def partition_count(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The number of partitions in the search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
+        The number of partitions in the dedicated search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
         """
         return pulumi.get(self, "partition_count")
 
@@ -270,7 +270,7 @@ class ServiceArgs:
     @pulumi.getter(name="replicaCount")
     def replica_count(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The number of replicas in the search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
+        The number of replicas in the dedicated search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
         """
         return pulumi.get(self, "replica_count")
 
@@ -294,7 +294,7 @@ class ServiceArgs:
     @pulumi.getter(name="semanticSearch")
     def semantic_search(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SearchSemanticSearch']]]:
         """
-        Sets options that control the availability of semantic search. This configuration is only possible for certain Azure AI Search SKUs in certain locations.
+        Specifies the availability and billing plan for semantic search on the Azure AI Search service. This configuration is only available for certain pricing tiers in certain regions.
         """
         return pulumi.get(self, "semantic_search")
 
@@ -370,7 +370,7 @@ class Service(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2022-09-01, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-09-01, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -385,12 +385,12 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']] identity: The identity of the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union['NetworkRuleSetArgs', 'NetworkRuleSetArgsDict']] network_rule_set: Network specific rules that determine how the Azure AI Search service may be reached.
-        :param pulumi.Input[_builtins.int] partition_count: The number of partitions in the search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
+        :param pulumi.Input[_builtins.int] partition_count: The number of partitions in the dedicated search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
         :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] public_network_access: This value can be set to 'Enabled' to avoid breaking changes on existing customer resources and templates. If set to 'Disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
-        :param pulumi.Input[_builtins.int] replica_count: The number of replicas in the search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
+        :param pulumi.Input[_builtins.int] replica_count: The number of replicas in the dedicated search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] search_service_name: The name of the Azure AI Search service associated with the specified resource group.
-        :param pulumi.Input[Union[_builtins.str, 'SearchSemanticSearch']] semantic_search: Sets options that control the availability of semantic search. This configuration is only possible for certain Azure AI Search SKUs in certain locations.
+        :param pulumi.Input[Union[_builtins.str, 'SearchSemanticSearch']] semantic_search: Specifies the availability and billing plan for semantic search on the Azure AI Search service. This configuration is only available for certain pricing tiers in certain regions.
         :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The SKU of the search service, which determines price tier and capacity limits. This property is required when creating a new search service.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Union[_builtins.str, 'UpgradeAvailable']] upgrade_available: Indicates if the search service has an upgrade available.
@@ -406,7 +406,7 @@ class Service(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2022-09-01, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-09-01, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -492,7 +492,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["status_details"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:search/v20150819:Service"), pulumi.Alias(type_="azure-native:search/v20191001preview:Service"), pulumi.Alias(type_="azure-native:search/v20200313:Service"), pulumi.Alias(type_="azure-native:search/v20200801:Service"), pulumi.Alias(type_="azure-native:search/v20200801preview:Service"), pulumi.Alias(type_="azure-native:search/v20210401preview:Service"), pulumi.Alias(type_="azure-native:search/v20220901:Service"), pulumi.Alias(type_="azure-native:search/v20231101:Service"), pulumi.Alias(type_="azure-native:search/v20240301preview:Service"), pulumi.Alias(type_="azure-native:search/v20240601preview:Service"), pulumi.Alias(type_="azure-native:search/v20250201preview:Service"), pulumi.Alias(type_="azure-native:search/v20250501:Service")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:search/v20150819:Service"), pulumi.Alias(type_="azure-native:search/v20191001preview:Service"), pulumi.Alias(type_="azure-native:search/v20200313:Service"), pulumi.Alias(type_="azure-native:search/v20200801:Service"), pulumi.Alias(type_="azure-native:search/v20200801preview:Service"), pulumi.Alias(type_="azure-native:search/v20210401preview:Service"), pulumi.Alias(type_="azure-native:search/v20220901:Service"), pulumi.Alias(type_="azure-native:search/v20231101:Service"), pulumi.Alias(type_="azure-native:search/v20240301preview:Service"), pulumi.Alias(type_="azure-native:search/v20240601preview:Service"), pulumi.Alias(type_="azure-native:search/v20250201preview:Service"), pulumi.Alias(type_="azure-native:search/v20250501:Service"), pulumi.Alias(type_="azure-native:search/v20260301preview:Service")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Service, __self__).__init__(
             'azure-native:search:Service',
@@ -654,7 +654,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="partitionCount")
     def partition_count(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The number of partitions in the search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
+        The number of partitions in the dedicated search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
         """
         return pulumi.get(self, "partition_count")
 
@@ -686,7 +686,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="replicaCount")
     def replica_count(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The number of replicas in the search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
+        The number of replicas in the dedicated search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
         """
         return pulumi.get(self, "replica_count")
 
@@ -694,7 +694,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="semanticSearch")
     def semantic_search(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Sets options that control the availability of semantic search. This configuration is only possible for certain Azure AI Search SKUs in certain locations.
+        Specifies the availability and billing plan for semantic search on the Azure AI Search service. This configuration is only available for certain pricing tiers in certain regions.
         """
         return pulumi.get(self, "semantic_search")
 

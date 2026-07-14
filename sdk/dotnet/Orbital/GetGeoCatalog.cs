@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Orbital
         /// 
         /// Uses Azure REST API version 2025-02-11-preview.
         /// 
-        /// Other available API versions: 2024-01-31-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native orbital [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2024-01-31-preview, 2026-04-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native orbital [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetGeoCatalogResult> InvokeAsync(GetGeoCatalogArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGeoCatalogResult>("azure-native:orbital:getGeoCatalog", args ?? new GetGeoCatalogArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Orbital
         /// 
         /// Uses Azure REST API version 2025-02-11-preview.
         /// 
-        /// Other available API versions: 2024-01-31-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native orbital [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2024-01-31-preview, 2026-04-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native orbital [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetGeoCatalogResult> Invoke(GetGeoCatalogInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGeoCatalogResult>("azure-native:orbital:getGeoCatalog", args ?? new GetGeoCatalogInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Orbital
         /// 
         /// Uses Azure REST API version 2025-02-11-preview.
         /// 
-        /// Other available API versions: 2024-01-31-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native orbital [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2024-01-31-preview, 2026-04-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native orbital [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetGeoCatalogResult> Invoke(GetGeoCatalogInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGeoCatalogResult>("azure-native:orbital:getGeoCatalog", args ?? new GetGeoCatalogInvokeArgs(), options.WithDefaults());

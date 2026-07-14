@@ -27,7 +27,7 @@ class GetSecurityStandardResult:
     """
     Security Standard on a resource
     """
-    def __init__(__self__, assessments=None, azure_api_version=None, cloud_providers=None, description=None, display_name=None, id=None, metadata=None, name=None, policy_set_definition_id=None, standard_type=None, type=None):
+    def __init__(__self__, assessments=None, azure_api_version=None, cloud_providers=None, description=None, display_name=None, id=None, metadata=None, name=None, policy_set_definition_id=None, standard_type=None, system_data=None, type=None):
         if assessments and not isinstance(assessments, list):
             raise TypeError("Expected argument 'assessments' to be a list")
         pulumi.set(__self__, "assessments", assessments)
@@ -58,6 +58,9 @@ class GetSecurityStandardResult:
         if standard_type and not isinstance(standard_type, str):
             raise TypeError("Expected argument 'standard_type' to be a str")
         pulumi.set(__self__, "standard_type", standard_type)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -106,7 +109,7 @@ class GetSecurityStandardResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -122,7 +125,7 @@ class GetSecurityStandardResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -143,10 +146,18 @@ class GetSecurityStandardResult:
         return pulumi.get(self, "standard_type")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -167,6 +178,7 @@ class AwaitableGetSecurityStandardResult(GetSecurityStandardResult):
             name=self.name,
             policy_set_definition_id=self.policy_set_definition_id,
             standard_type=self.standard_type,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -179,7 +191,7 @@ def get_security_standard(scope: Optional[_builtins.str] = None,
     Uses Azure REST API version 2024-08-01.
 
 
-    :param _builtins.str scope: The scope of the security standard. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
+    :param _builtins.str scope: The fully qualified Azure Resource manager identifier of the resource.
     :param _builtins.str standard_id: The Security Standard key - unique key for the standard type
     """
     __args__ = dict()
@@ -199,6 +211,7 @@ def get_security_standard(scope: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         policy_set_definition_id=pulumi.get(__ret__, 'policy_set_definition_id'),
         standard_type=pulumi.get(__ret__, 'standard_type'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_security_standard_output(scope: Optional[pulumi.Input[_builtins.str]] = None,
                                  standard_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -209,7 +222,7 @@ def get_security_standard_output(scope: Optional[pulumi.Input[_builtins.str]] = 
     Uses Azure REST API version 2024-08-01.
 
 
-    :param _builtins.str scope: The scope of the security standard. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
+    :param _builtins.str scope: The fully qualified Azure Resource manager identifier of the resource.
     :param _builtins.str standard_id: The Security Standard key - unique key for the standard type
     """
     __args__ = dict()
@@ -228,4 +241,5 @@ def get_security_standard_output(scope: Optional[pulumi.Input[_builtins.str]] = 
         name=pulumi.get(__response__, 'name'),
         policy_set_definition_id=pulumi.get(__response__, 'policy_set_definition_id'),
         standard_type=pulumi.get(__response__, 'standard_type'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

@@ -32,6 +32,8 @@ __all__ = [
     'AnalyticsOutputSettingsArgsDict',
     'AttachedNetworkConfigurationArgs',
     'AttachedNetworkConfigurationArgsDict',
+    'AzureResourceManagerCommonTypesExtendedLocationArgs',
+    'AzureResourceManagerCommonTypesExtendedLocationArgsDict',
     'BareMetalMachineConfigurationDataArgs',
     'BareMetalMachineConfigurationDataArgsDict',
     'BgpAdvertisementArgs',
@@ -137,6 +139,9 @@ class AadConfigurationArgs:
 
 
 class AccessBridgeSecurityRuleArgsDict(TypedDict):
+    """
+    AccessBridgeSecurityRule captures an individual access rule enforced by the bridge.
+    """
     direction: pulumi.Input[Union[_builtins.str, 'SecurityRuleDirection']]
     """
     The direction of allowed network traffic based on the rule.
@@ -167,6 +172,8 @@ class AccessBridgeSecurityRuleArgs:
                  ipv4_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
+        AccessBridgeSecurityRule captures an individual access rule enforced by the bridge.
+
         :param pulumi.Input[Union[_builtins.str, 'SecurityRuleDirection']] direction: The direction of allowed network traffic based on the rule.
         :param pulumi.Input[_builtins.str] port: The source or destination port or port range. Example 24562 or 24562-24570.
         :param pulumi.Input[_builtins.str] description: The user provided value describing this rule.
@@ -574,6 +581,58 @@ class AttachedNetworkConfigurationArgs:
     @trunked_networks.setter
     def trunked_networks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrunkedNetworkAttachmentConfigurationArgs']]]]):
         pulumi.set(self, "trunked_networks", value)
+
+
+class AzureResourceManagerCommonTypesExtendedLocationArgsDict(TypedDict):
+    """
+    The complex type of the extended location.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the extended location.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']]
+    """
+    The type of the extended location.
+    """
+
+@pulumi.input_type
+class AzureResourceManagerCommonTypesExtendedLocationArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 type: pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']]):
+        """
+        The complex type of the extended location.
+
+        :param pulumi.Input[_builtins.str] name: The name of the extended location.
+        :param pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']] type: The type of the extended location.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the extended location.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']]:
+        """
+        The type of the extended location.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[_builtins.str, 'ExtendedLocationType']]):
+        pulumi.set(self, "type", value)
 
 
 class BareMetalMachineConfigurationDataArgsDict(TypedDict):

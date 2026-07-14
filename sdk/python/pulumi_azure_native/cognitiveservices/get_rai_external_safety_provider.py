@@ -103,7 +103,7 @@ class GetRaiExternalSafetyProviderResult:
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, _builtins.str]]:
+    def tags(self) -> Mapping[str, _builtins.str]:
         """
         Resource tags.
         """
@@ -141,6 +141,8 @@ def get_rai_external_safety_provider(safety_provider_name: Optional[_builtins.st
 
     Uses Azure REST API version 2025-10-01-preview.
 
+    Other available API versions: 2025-12-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-05-01, 2026-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param _builtins.str safety_provider_name: The name of the Rai External Safety Provider associated with the Cognitive Services Account
     """
@@ -164,6 +166,8 @@ def get_rai_external_safety_provider_output(safety_provider_name: Optional[pulum
     Gets the specified external safety provider associated with the Subscription
 
     Uses Azure REST API version 2025-10-01-preview.
+
+    Other available API versions: 2025-12-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-05-01, 2026-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str safety_provider_name: The name of the Rai External Safety Provider associated with the Cognitive Services Account

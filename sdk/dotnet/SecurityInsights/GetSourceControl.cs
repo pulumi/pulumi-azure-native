@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Gets a source control byt its identifier.
         /// 
-        /// Uses Azure REST API version 2023-05-01-preview.
+        /// Uses Azure REST API version 2025-09-01.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2025-06-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetSourceControlResult> InvokeAsync(GetSourceControlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSourceControlResult>("azure-native:securityinsights:getSourceControl", args ?? new GetSourceControlArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Gets a source control byt its identifier.
         /// 
-        /// Uses Azure REST API version 2023-05-01-preview.
+        /// Uses Azure REST API version 2025-09-01.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2025-06-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSourceControlResult> Invoke(GetSourceControlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSourceControlResult>("azure-native:securityinsights:getSourceControl", args ?? new GetSourceControlInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Gets a source control byt its identifier.
         /// 
-        /// Uses Azure REST API version 2023-05-01-preview.
+        /// Uses Azure REST API version 2025-09-01.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2025-06-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSourceControlResult> Invoke(GetSourceControlInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSourceControlResult>("azure-native:securityinsights:getSourceControl", args ?? new GetSourceControlInvokeArgs(), options.WithDefaults());
@@ -126,11 +126,15 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Information regarding the latest deployment for the source control.
         /// </summary>
-        public readonly Outputs.DeploymentInfoResponse? LastDeploymentInfo;
+        public readonly Outputs.DeploymentInfoResponse LastDeploymentInfo;
         /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Information regarding the pull request of the source control.
+        /// </summary>
+        public readonly Outputs.PullRequestResponse PullRequest;
         /// <summary>
         /// The repository type of the source control
         /// </summary>
@@ -144,6 +148,10 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly Outputs.RepositoryResourceInfoResponse? RepositoryResourceInfo;
         /// <summary>
+        /// Service principal metadata.
+        /// </summary>
+        public readonly Outputs.ServicePrincipalResponse? ServicePrincipal;
+        /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -154,7 +162,11 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// The version number associated with the source control
         /// </summary>
-        public readonly string? Version;
+        public readonly string Version;
+        /// <summary>
+        /// Workload Identity metadata.
+        /// </summary>
+        public readonly Outputs.WorkloadIdentityFederationResponse WorkloadIdentityFederation;
 
         [OutputConstructor]
         private GetSourceControlResult(
@@ -170,9 +182,11 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             string id,
 
-            Outputs.DeploymentInfoResponse? lastDeploymentInfo,
+            Outputs.DeploymentInfoResponse lastDeploymentInfo,
 
             string name,
+
+            Outputs.PullRequestResponse pullRequest,
 
             string repoType,
 
@@ -180,11 +194,15 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             Outputs.RepositoryResourceInfoResponse? repositoryResourceInfo,
 
+            Outputs.ServicePrincipalResponse? servicePrincipal,
+
             Outputs.SystemDataResponse systemData,
 
             string type,
 
-            string? version)
+            string version,
+
+            Outputs.WorkloadIdentityFederationResponse workloadIdentityFederation)
         {
             AzureApiVersion = azureApiVersion;
             ContentTypes = contentTypes;
@@ -194,12 +212,15 @@ namespace Pulumi.AzureNative.SecurityInsights
             Id = id;
             LastDeploymentInfo = lastDeploymentInfo;
             Name = name;
+            PullRequest = pullRequest;
             RepoType = repoType;
             Repository = repository;
             RepositoryResourceInfo = repositoryResourceInfo;
+            ServicePrincipal = servicePrincipal;
             SystemData = systemData;
             Type = type;
             Version = version;
+            WorkloadIdentityFederation = workloadIdentityFederation;
         }
     }
 }

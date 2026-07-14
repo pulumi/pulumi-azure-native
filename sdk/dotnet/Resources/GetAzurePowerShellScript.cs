@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.Resources
     public sealed class GetAzurePowerShellScriptResult
     {
         /// <summary>
-        /// Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2' 
+        /// Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2'
         /// </summary>
         public readonly string? Arguments;
         /// <summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.Resources
         /// </summary>
         public readonly string? ForceUpdateTag;
         /// <summary>
-        /// String Id used to locate any resource on Azure.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -123,17 +123,17 @@ namespace Pulumi.AzureNative.Resources
         /// </summary>
         public readonly string Kind;
         /// <summary>
-        /// The location of the ACI and the storage account for the deployment script.
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Name of this resource.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
         /// List of script outputs.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Outputs;
+        public readonly object Outputs;
         /// <summary>
         /// Uri for the script. This is the entry point for the external script.
         /// </summary>
@@ -163,7 +163,7 @@ namespace Pulumi.AzureNative.Resources
         /// </summary>
         public readonly ImmutableArray<string> SupportingScriptUris;
         /// <summary>
-        /// The system metadata related to this resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -175,7 +175,7 @@ namespace Pulumi.AzureNative.Resources
         /// </summary>
         public readonly string? Timeout;
         /// <summary>
-        /// Type of this resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -205,7 +205,7 @@ namespace Pulumi.AzureNative.Resources
 
             string name,
 
-            ImmutableDictionary<string, object> outputs,
+            object outputs,
 
             string? primaryScriptUri,
 

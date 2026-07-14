@@ -25,9 +25,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? PartitionLowerBound;
         /// <summary>
-        /// Names of the physical partitions of AmazonRdsForOracle table. 
+        /// Names of the physical partitions of AmazonRdsForOracle table.
         /// </summary>
-        public readonly ImmutableArray<object> PartitionNames;
+        public readonly object? PartitionNames;
         /// <summary>
         /// The maximum value of column specified in partitionColumnName that will be used for proceeding range partitioning. Type: string (or Expression with resultType string).
         /// </summary>
@@ -39,7 +39,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? partitionLowerBound,
 
-            ImmutableArray<object> partitionNames,
+            object? partitionNames,
 
             object? partitionUpperBound)
         {

@@ -24,7 +24,7 @@ class OutboundRuleArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  managed_network_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input['FqdnOutboundRuleArgs'],
+                 properties: pulumi.Input[Union['FqdnOutboundRuleArgs', 'PrivateEndpointOutboundRuleArgs', 'ServiceTagOutboundRuleArgs']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  rule_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
@@ -32,7 +32,7 @@ class OutboundRuleArgs:
 
         :param pulumi.Input[_builtins.str] account_name: The name of Cognitive Services account.
         :param pulumi.Input[_builtins.str] managed_network_name: Name of the managedNetwork associated with the cognitive services account. Only 'default' is supported.
-        :param pulumi.Input['FqdnOutboundRuleArgs'] properties: Outbound Rule for the managed network of a cognitive services account.
+        :param pulumi.Input[Union['FqdnOutboundRuleArgs', 'PrivateEndpointOutboundRuleArgs', 'ServiceTagOutboundRuleArgs']] properties: Outbound Rule for the managed network of a cognitive services account.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] rule_name: Name of the cognitive services account managed network outbound rule
         """
@@ -69,14 +69,14 @@ class OutboundRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input['FqdnOutboundRuleArgs']:
+    def properties(self) -> pulumi.Input[Union['FqdnOutboundRuleArgs', 'PrivateEndpointOutboundRuleArgs', 'ServiceTagOutboundRuleArgs']]:
         """
         Outbound Rule for the managed network of a cognitive services account.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input['FqdnOutboundRuleArgs']):
+    def properties(self, value: pulumi.Input[Union['FqdnOutboundRuleArgs', 'PrivateEndpointOutboundRuleArgs', 'ServiceTagOutboundRuleArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
@@ -112,19 +112,23 @@ class OutboundRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_network_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['FqdnOutboundRuleArgs', 'FqdnOutboundRuleArgsDict']]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['FqdnOutboundRuleArgs', 'FqdnOutboundRuleArgsDict'], Union['PrivateEndpointOutboundRuleArgs', 'PrivateEndpointOutboundRuleArgsDict'], Union['ServiceTagOutboundRuleArgs', 'ServiceTagOutboundRuleArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  rule_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Concrete proxy resource types can be created by aliasing this type using a specific property type.
+
         Uses Azure REST API version 2025-10-01-preview.
+
+        Other available API versions: 2025-12-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-05-01, 2026-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of Cognitive Services account.
         :param pulumi.Input[_builtins.str] managed_network_name: Name of the managedNetwork associated with the cognitive services account. Only 'default' is supported.
-        :param pulumi.Input[Union['FqdnOutboundRuleArgs', 'FqdnOutboundRuleArgsDict']] properties: Outbound Rule for the managed network of a cognitive services account.
+        :param pulumi.Input[Union[Union['FqdnOutboundRuleArgs', 'FqdnOutboundRuleArgsDict'], Union['PrivateEndpointOutboundRuleArgs', 'PrivateEndpointOutboundRuleArgsDict'], Union['ServiceTagOutboundRuleArgs', 'ServiceTagOutboundRuleArgsDict']]] properties: Outbound Rule for the managed network of a cognitive services account.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] rule_name: Name of the cognitive services account managed network outbound rule
         """
@@ -135,7 +139,11 @@ class OutboundRule(pulumi.CustomResource):
                  args: OutboundRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Concrete proxy resource types can be created by aliasing this type using a specific property type.
+
         Uses Azure REST API version 2025-10-01-preview.
+
+        Other available API versions: 2025-12-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-05-01, 2026-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -155,7 +163,7 @@ class OutboundRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_network_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['FqdnOutboundRuleArgs', 'FqdnOutboundRuleArgsDict']]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['FqdnOutboundRuleArgs', 'FqdnOutboundRuleArgsDict'], Union['PrivateEndpointOutboundRuleArgs', 'PrivateEndpointOutboundRuleArgsDict'], Union['ServiceTagOutboundRuleArgs', 'ServiceTagOutboundRuleArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  rule_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -184,7 +192,7 @@ class OutboundRule(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cognitiveservices/v20251001preview:OutboundRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cognitiveservices/v20251001preview:OutboundRule"), pulumi.Alias(type_="azure-native:cognitiveservices/v20251201:OutboundRule"), pulumi.Alias(type_="azure-native:cognitiveservices/v20260115preview:OutboundRule"), pulumi.Alias(type_="azure-native:cognitiveservices/v20260301:OutboundRule"), pulumi.Alias(type_="azure-native:cognitiveservices/v20260315preview:OutboundRule"), pulumi.Alias(type_="azure-native:cognitiveservices/v20260501:OutboundRule"), pulumi.Alias(type_="azure-native:cognitiveservices/v20260515preview:OutboundRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OutboundRule, __self__).__init__(
             'azure-native:cognitiveservices:OutboundRule',
@@ -233,7 +241,7 @@ class OutboundRule(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.FqdnOutboundRuleResponse']:
+    def properties(self) -> pulumi.Output[Any]:
         """
         Outbound Rule for the managed network of a cognitive services account.
         """

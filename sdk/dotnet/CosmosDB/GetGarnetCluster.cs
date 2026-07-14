@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// Get the properties of a Garnet cache cluster.
         /// 
         /// Uses Azure REST API version 2025-11-01-preview.
+        /// 
+        /// Other available API versions: 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetGarnetClusterResult> InvokeAsync(GetGarnetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGarnetClusterResult>("azure-native:cosmosdb:getGarnetCluster", args ?? new GetGarnetClusterArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// Get the properties of a Garnet cache cluster.
         /// 
         /// Uses Azure REST API version 2025-11-01-preview.
+        /// 
+        /// Other available API versions: 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetGarnetClusterResult> Invoke(GetGarnetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGarnetClusterResult>("azure-native:cosmosdb:getGarnetCluster", args ?? new GetGarnetClusterInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// Get the properties of a Garnet cache cluster.
         /// 
         /// Uses Azure REST API version 2025-11-01-preview.
+        /// 
+        /// Other available API versions: 2026-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetGarnetClusterResult> Invoke(GetGarnetClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGarnetClusterResult>("azure-native:cosmosdb:getGarnetCluster", args ?? new GetGarnetClusterInvokeArgs(), options.WithDefaults());
@@ -40,7 +46,7 @@ namespace Pulumi.AzureNative.CosmosDB
     public sealed class GetGarnetClusterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Garnet cache cluster name.
+        /// The name of the GarnetClusterResource
         /// </summary>
         [Input("clusterName", required: true)]
         public string ClusterName { get; set; } = null!;
@@ -60,7 +66,7 @@ namespace Pulumi.AzureNative.CosmosDB
     public sealed class GetGarnetClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Garnet cache cluster name.
+        /// The name of the GarnetClusterResource
         /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
@@ -90,6 +96,10 @@ namespace Pulumi.AzureNative.CosmosDB
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Identity for the resource.
+        /// </summary>
+        public readonly Outputs.ManagedCassandraManagedServiceIdentityResponse? Identity;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -98,9 +108,9 @@ namespace Pulumi.AzureNative.CosmosDB
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of a Garnet cache cluster.
+        /// The resource-specific properties for this resource.
         /// </summary>
-        public readonly Outputs.GarnetClusterResourceResponseProperties Properties;
+        public readonly Outputs.GarnetClusterResourcePropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -120,11 +130,13 @@ namespace Pulumi.AzureNative.CosmosDB
 
             string id,
 
+            Outputs.ManagedCassandraManagedServiceIdentityResponse? identity,
+
             string location,
 
             string name,
 
-            Outputs.GarnetClusterResourceResponseProperties properties,
+            Outputs.GarnetClusterResourcePropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
@@ -134,6 +146,7 @@ namespace Pulumi.AzureNative.CosmosDB
         {
             AzureApiVersion = azureApiVersion;
             Id = id;
+            Identity = identity;
             Location = location;
             Name = name;
             Properties = properties;

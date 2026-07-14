@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// Arguments for LinkedService.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Parameters;
+        public readonly object? Parameters;
         /// <summary>
         /// Reference LinkedService name.
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
         [OutputConstructor]
         private LinkedServiceReferenceResponse(
-            ImmutableDictionary<string, object>? parameters,
+            object? parameters,
 
             string referenceName,
 

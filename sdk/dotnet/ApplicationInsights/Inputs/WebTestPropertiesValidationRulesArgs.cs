@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.ApplicationInsights.Inputs
         /// The collection of content validation properties
         /// </summary>
         [Input("contentValidation")]
-        public Input<Inputs.WebTestPropertiesContentValidationArgs>? ContentValidation { get; set; }
+        public Input<Inputs.WebTestPropertiesValidationRulesContentValidationArgs>? ContentValidation { get; set; }
 
         /// <summary>
         /// Validate that the WebTest returns the http status code provided.

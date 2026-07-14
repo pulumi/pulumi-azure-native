@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Resources.Inputs
 {
 
     /// <summary>
-    /// Managed identity generic object.
+    /// Describes the managed identities for an Azure resource.
     /// </summary>
     public sealed class ManagedServiceIdentityArgs : global::Pulumi.ResourceArgs
     {

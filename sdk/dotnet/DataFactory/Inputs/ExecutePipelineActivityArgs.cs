@@ -45,17 +45,11 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("onInactiveMarkAs")]
         public InputUnion<string, Pulumi.AzureNative.DataFactory.ActivityOnInactiveMarkAs>? OnInactiveMarkAs { get; set; }
 
-        [Input("parameters")]
-        private InputMap<object>? _parameters;
-
         /// <summary>
         /// Pipeline parameters.
         /// </summary>
-        public InputMap<object> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputMap<object>());
-            set => _parameters = value;
-        }
+        [Input("parameters")]
+        public Input<object>? Parameters { get; set; }
 
         /// <summary>
         /// Pipeline reference.

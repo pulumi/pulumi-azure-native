@@ -19,23 +19,23 @@ namespace Pulumi.AzureNative.Authorization.Outputs
         /// <summary>
         /// Details of the policy
         /// </summary>
-        public readonly Outputs.PolicyAssignmentPropertiesResponsePolicy? Policy;
+        public readonly Outputs.PolicyAssignmentPropertiesPolicyResponse? Policy;
         /// <summary>
         /// Details of role definition
         /// </summary>
-        public readonly Outputs.PolicyAssignmentPropertiesResponseRoleDefinition? RoleDefinition;
+        public readonly Outputs.PolicyAssignmentPropertiesRoleDefinitionResponse? RoleDefinition;
         /// <summary>
         /// Details of the resource scope
         /// </summary>
-        public readonly Outputs.PolicyAssignmentPropertiesResponseScope? Scope;
+        public readonly Outputs.PolicyAssignmentPropertiesScopeResponse? Scope;
 
         [OutputConstructor]
         private PolicyAssignmentPropertiesResponse(
-            Outputs.PolicyAssignmentPropertiesResponsePolicy? policy,
+            Outputs.PolicyAssignmentPropertiesPolicyResponse? policy,
 
-            Outputs.PolicyAssignmentPropertiesResponseRoleDefinition? roleDefinition,
+            Outputs.PolicyAssignmentPropertiesRoleDefinitionResponse? roleDefinition,
 
-            Outputs.PolicyAssignmentPropertiesResponseScope? scope)
+            Outputs.PolicyAssignmentPropertiesScopeResponse? scope)
         {
             Policy = policy;
             RoleDefinition = roleDefinition;

@@ -883,6 +883,26 @@ ApiManagement:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/subscriptions/{sid}/listSecrets
         RpNamespace: Microsoft.ApiManagement
 App:
+    Agent:
+        ApiVersion: "2026-01-01"
+        SpecFilePath: specification/app/resource-manager/Microsoft.App/SreAgent/stable/2026-01-01/sreagent.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/agents/{agentName}
+        RpNamespace: Microsoft.App
+    AgentSpace:
+        ApiVersion: "2026-01-01"
+        SpecFilePath: specification/app/resource-manager/Microsoft.App/SreAgent/stable/2026-01-01/sreagent.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/agentSpaces/{agentSpaceName}
+        RpNamespace: Microsoft.App
+    AgentSpacesConnector:
+        ApiVersion: "2026-01-01"
+        SpecFilePath: specification/app/resource-manager/Microsoft.App/SreAgent/stable/2026-01-01/sreagent.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/agentSpaces/{agentSpaceName}/connectors/{connectorName}
+        RpNamespace: Microsoft.App
+    AgentsConnector:
+        ApiVersion: "2026-01-01"
+        SpecFilePath: specification/app/resource-manager/Microsoft.App/SreAgent/stable/2026-01-01/sreagent.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/agents/{agentName}/connectors/{connectorName}
+        RpNamespace: Microsoft.App
     AppResiliency:
         ApiVersion: 2025-02-02-preview
         SpecFilePath: specification/app/resource-manager/Microsoft.App/ContainerApps/preview/2025-02-02-preview/AppResiliency.json
@@ -1023,6 +1043,26 @@ App:
         SpecFilePath: specification/app/resource-manager/Microsoft.App/ContainerApps/preview/2025-02-02-preview/ManagedEnvironments.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{environmentName}/getAuthtoken
         RpNamespace: Microsoft.App
+    listAgentSpacesConnectorAllSecrets:
+        ApiVersion: "2026-01-01"
+        SpecFilePath: specification/app/resource-manager/Microsoft.App/SreAgent/stable/2026-01-01/sreagent.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/agentSpaces/{agentSpaceName}/listConnectorsWithSecrets
+        RpNamespace: Microsoft.App
+    listAgentSpacesConnectorSecrets:
+        ApiVersion: "2026-01-01"
+        SpecFilePath: specification/app/resource-manager/Microsoft.App/SreAgent/stable/2026-01-01/sreagent.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/agentSpaces/{agentSpaceName}/connectors/{connectorName}/listSecrets
+        RpNamespace: Microsoft.App
+    listAgentsConnectorSecrets:
+        ApiVersion: "2026-01-01"
+        SpecFilePath: specification/app/resource-manager/Microsoft.App/SreAgent/stable/2026-01-01/sreagent.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/agents/{agentName}/connectors/{connectorName}/listSecrets
+        RpNamespace: Microsoft.App
+    listAgentsConnectorWithSecretsByAgent:
+        ApiVersion: "2026-01-01"
+        SpecFilePath: specification/app/resource-manager/Microsoft.App/SreAgent/stable/2026-01-01/sreagent.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/agents/{agentName}/listConnectorsWithSecrets
+        RpNamespace: Microsoft.App
     listBuildAuthToken:
         ApiVersion: 2025-02-02-preview
         SpecFilePath: specification/app/resource-manager/Microsoft.App/ContainerApps/preview/2025-02-02-preview/Builds.json
@@ -1125,6 +1165,17 @@ AppConfiguration:
         SpecFilePath: specification/appconfiguration/resource-manager/Microsoft.AppConfiguration/AppConfiguration/stable/2024-05-01/appconfiguration.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppConfiguration/configurationStores/{configStoreName}/listKeys
         RpNamespace: Microsoft.AppConfiguration
+AppLink:
+    AppLink:
+        ApiVersion: 2025-08-01-preview
+        SpecFilePath: specification/applink/resource-manager/Microsoft.AppLink/preview/2025-08-01-preview/openapi.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppLink/appLinks/{appLinkName}
+        RpNamespace: Microsoft.AppLink
+    AppLinkMember:
+        ApiVersion: 2025-08-01-preview
+        SpecFilePath: specification/applink/resource-manager/Microsoft.AppLink/preview/2025-08-01-preview/openapi.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppLink/appLinks/{appLinkName}/appLinkMembers/{appLinkMemberName}
+        RpNamespace: Microsoft.AppLink
 AppPlatform:
     ApiPortal:
         ApiVersion: 2024-01-01-preview
@@ -1334,17 +1385,17 @@ ApplicationInsights:
         RpNamespace: Microsoft.Insights
     ComponentCurrentBillingFeature:
         ApiVersion: "2015-05-01"
-        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/ApplicationInsights/stable/2015-05-01/componentFeaturesAndPricing_API.json
+        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/ApplicationInsights/stable/2015-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/currentbillingfeatures
         RpNamespace: Microsoft.Insights
     ComponentLinkedStorageAccount:
         ApiVersion: 2020-03-01-preview
         SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/ApplicationInsights/preview/2020-03-01-preview/componentLinkedStorageAccounts_API.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.insights/components/{resourceName}/linkedStorageAccounts/{storageType}
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/linkedStorageAccounts/{storageType}
         RpNamespace: Microsoft.Insights
     ExportConfiguration:
         ApiVersion: "2015-05-01"
-        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/ApplicationInsights/stable/2015-05-01/componentContinuousExport_API.json
+        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/ApplicationInsights/stable/2015-05-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/exportconfiguration/{exportId}
         RpNamespace: Microsoft.Insights
     Favorite:
@@ -1413,6 +1464,11 @@ Authorization:
         ApiVersion: 2021-12-01-preview
         SpecFilePath: specification/authorization/resource-manager/Microsoft.Authorization/Authorization/preview/2021-12-01-preview/authorization-AccessReviewCalls.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}
+        RpNamespace: Microsoft.Authorization
+    DenyAssignment:
+        ApiVersion: 2024-07-01-preview
+        SpecFilePath: specification/authorization/resource-manager/Microsoft.Authorization/Authorization/preview/2024-07-01-preview/authorization-DenyAssignmentCalls.json
+        ResourceUri: /{scope}/providers/Microsoft.Authorization/denyAssignments/{denyAssignmentId}
         RpNamespace: Microsoft.Authorization
     ManagementLockAtResourceGroupLevel:
         ApiVersion: "2020-05-01"
@@ -1511,12 +1567,12 @@ Authorization:
         RpNamespace: Microsoft.Authorization
     RoleManagementPolicy:
         ApiVersion: 2024-09-01-preview
-        SpecFilePath: specification/authorization/resource-manager/Microsoft.Authorization/Authorization/preview/2024-09-01-preview/RoleManagementPolicy.json
+        SpecFilePath: specification/authorization/resource-manager/Microsoft.Authorization/Authorization/preview/2024-09-01-preview/openapi.json
         ResourceUri: /{scope}/providers/Microsoft.Authorization/roleManagementPolicies/{roleManagementPolicyName}
         RpNamespace: Microsoft.Authorization
     RoleManagementPolicyAssignment:
         ApiVersion: 2024-09-01-preview
-        SpecFilePath: specification/authorization/resource-manager/Microsoft.Authorization/Authorization/preview/2024-09-01-preview/RoleManagementPolicyAssignment.json
+        SpecFilePath: specification/authorization/resource-manager/Microsoft.Authorization/Authorization/preview/2024-09-01-preview/openapi.json
         ResourceUri: /{scope}/providers/Microsoft.Authorization/roleManagementPolicyAssignments/{roleManagementPolicyAssignmentName}
         RpNamespace: Microsoft.Authorization
     ScopeAccessReviewHistoryDefinitionById:
@@ -1608,62 +1664,62 @@ Automanage:
 Automation:
     AutomationAccount:
         ApiVersion: "2024-10-23"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/account.json
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}
         RpNamespace: Microsoft.Automation
     Certificate:
         ApiVersion: "2024-10-23"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/certificate.json
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/certificates/{certificateName}
         RpNamespace: Microsoft.Automation
     Connection:
         ApiVersion: "2024-10-23"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/connection.json
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/connections/{connectionName}
         RpNamespace: Microsoft.Automation
     ConnectionType:
         ApiVersion: "2024-10-23"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/connectionType.json
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/connectionTypes/{connectionTypeName}
         RpNamespace: Microsoft.Automation
     Credential:
         ApiVersion: "2024-10-23"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/credential.json
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/credentials/{credentialName}
         RpNamespace: Microsoft.Automation
     DscConfiguration:
         ApiVersion: "2024-10-23"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/dscConfiguration.json
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/configurations/{configurationName}
         RpNamespace: Microsoft.Automation
     DscNodeConfiguration:
         ApiVersion: "2024-10-23"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/dscNodeConfiguration.json
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/nodeConfigurations/{nodeConfigurationName}
         RpNamespace: Microsoft.Automation
     HybridRunbookWorker:
         ApiVersion: "2024-10-23"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/hybridRunbookWorker.json
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/hybridRunbookWorkerGroups/{hybridRunbookWorkerGroupName}/hybridRunbookWorkers/{hybridRunbookWorkerId}
         RpNamespace: Microsoft.Automation
     HybridRunbookWorkerGroup:
         ApiVersion: "2024-10-23"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/hybridRunbookWorkerGroup.json
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/hybridRunbookWorkerGroups/{hybridRunbookWorkerGroupName}
         RpNamespace: Microsoft.Automation
     JobSchedule:
         ApiVersion: "2024-10-23"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/jobSchedule.json
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/jobSchedules/{jobScheduleId}
         RpNamespace: Microsoft.Automation
     Module:
         ApiVersion: "2024-10-23"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/module.json
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/modules/{moduleName}
         RpNamespace: Microsoft.Automation
     Package:
         ApiVersion: "2024-10-23"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/package.json
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/runtimeEnvironments/{runtimeEnvironmentName}/packages/{packageName}
         RpNamespace: Microsoft.Automation
     PowerShell72Module:
@@ -1673,67 +1729,67 @@ Automation:
         RpNamespace: Microsoft.Automation
     PrivateEndpointConnection:
         ApiVersion: "2024-10-23"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/privateEndpointConnection.json
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/privateEndpointConnections/{privateEndpointConnectionName}
         RpNamespace: Microsoft.Automation
     Python2Package:
         ApiVersion: "2024-10-23"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/python2package.json
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/python2Packages/{packageName}
         RpNamespace: Microsoft.Automation
     Python3Package:
         ApiVersion: "2024-10-23"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/python3package.json
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/python3Packages/{packageName}
         RpNamespace: Microsoft.Automation
     Runbook:
         ApiVersion: "2024-10-23"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/runbook.json
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/runbooks/{runbookName}
         RpNamespace: Microsoft.Automation
     RuntimeEnvironment:
         ApiVersion: "2024-10-23"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/runtimeEnvironment.json
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/runtimeEnvironments/{runtimeEnvironmentName}
         RpNamespace: Microsoft.Automation
     Schedule:
         ApiVersion: "2024-10-23"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/schedule.json
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/schedules/{scheduleName}
         RpNamespace: Microsoft.Automation
     SoftwareUpdateConfigurationByName:
         ApiVersion: "2024-10-23"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/softwareUpdateConfiguration.json
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/softwareUpdateConfigurations/{softwareUpdateConfigurationName}
         RpNamespace: Microsoft.Automation
     SourceControl:
         ApiVersion: "2024-10-23"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/sourceControl.json
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/sourceControls/{sourceControlName}
         RpNamespace: Microsoft.Automation
     Variable:
         ApiVersion: "2024-10-23"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/variable.json
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/variables/{variableName}
         RpNamespace: Microsoft.Automation
     Watcher:
         ApiVersion: "2024-10-23"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/watcher.json
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/watchers/{watcherName}
         RpNamespace: Microsoft.Automation
     Webhook:
         ApiVersion: "2024-10-23"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/webhook.json
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/webhooks/{webhookName}
         RpNamespace: Microsoft.Automation
     listAutomationAccountDeletedRunbooks:
         ApiVersion: "2024-10-23"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/account.json
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/listDeletedRunbooks
         RpNamespace: Microsoft.Automation
     listKeyByAutomationAccount:
         ApiVersion: "2024-10-23"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/account.json
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/listKeys
         RpNamespace: Microsoft.Automation
 AwsConnector:
@@ -2484,6 +2540,37 @@ AzurePlaywrightService:
         SpecFilePath: specification/playwrighttesting/resource-manager/Microsoft.AzurePlaywrightService/stable/2024-12-01/playwrighttesting.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzurePlaywrightService/accounts/{accountName}
         RpNamespace: Microsoft.AzurePlaywrightService
+AzureResilienceManagement:
+    Drill:
+        ApiVersion: 2026-03-01-preview
+        SpecFilePath: specification/azureresiliencemanagement/resource-manager/Microsoft.AzureResilienceManagement/AzureResilienceManagement/preview/2026-03-01-preview/openapi.json
+        ResourceUri: /providers/Microsoft.Management/serviceGroups/{serviceGroupName}/providers/Microsoft.AzureResilienceManagement/drills/{drillName}
+        RpNamespace: Microsoft.AzureResilienceManagement
+    Enrollment:
+        ApiVersion: 2026-03-01-preview
+        SpecFilePath: specification/azureresiliencemanagement/resource-manager/Microsoft.AzureResilienceManagement/AzureResilienceManagement/preview/2026-03-01-preview/openapi.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureResilienceManagement/usagePlans/{usagePlanName}/enrollments/{enrollmentName}
+        RpNamespace: Microsoft.AzureResilienceManagement
+    GoalAssignment:
+        ApiVersion: 2026-03-01-preview
+        SpecFilePath: specification/azureresiliencemanagement/resource-manager/Microsoft.AzureResilienceManagement/AzureResilienceManagement/preview/2026-03-01-preview/openapi.json
+        ResourceUri: /providers/Microsoft.Management/serviceGroups/{serviceGroupName}/providers/Microsoft.AzureResilienceManagement/goalAssignments/{goalAssignmentName}
+        RpNamespace: Microsoft.AzureResilienceManagement
+    GoalTemplate:
+        ApiVersion: 2026-03-01-preview
+        SpecFilePath: specification/azureresiliencemanagement/resource-manager/Microsoft.AzureResilienceManagement/AzureResilienceManagement/preview/2026-03-01-preview/openapi.json
+        ResourceUri: /providers/Microsoft.Management/serviceGroups/{serviceGroupName}/providers/Microsoft.AzureResilienceManagement/goalTemplates/{goalTemplateName}
+        RpNamespace: Microsoft.AzureResilienceManagement
+    RecoveryPlan:
+        ApiVersion: 2026-03-01-preview
+        SpecFilePath: specification/azureresiliencemanagement/resource-manager/Microsoft.AzureResilienceManagement/AzureResilienceManagement/preview/2026-03-01-preview/openapi.json
+        ResourceUri: /providers/Microsoft.Management/serviceGroups/{serviceGroupName}/providers/Microsoft.AzureResilienceManagement/recoveryPlans/{recoveryPlanName}
+        RpNamespace: Microsoft.AzureResilienceManagement
+    UsagePlan:
+        ApiVersion: 2026-03-01-preview
+        SpecFilePath: specification/azureresiliencemanagement/resource-manager/Microsoft.AzureResilienceManagement/AzureResilienceManagement/preview/2026-03-01-preview/openapi.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureResilienceManagement/usagePlans/{usagePlanName}
+        RpNamespace: Microsoft.AzureResilienceManagement
 AzureSphere:
     Catalog:
         ApiVersion: "2024-04-01"
@@ -2642,6 +2729,11 @@ AzureStackHCI:
         SpecFilePath: specification/azurestackhci/resource-manager/Microsoft.AzureStackHCI/StackHCIVM/preview/2022-12-15-preview/virtualMachines.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/virtualMachines/{virtualMachineName}/hybridIdentityMetadata/{metadataName}
         RpNamespace: Microsoft.AzureStackHCI
+    InboundRule:
+        ApiVersion: 2026-04-01-preview
+        SpecFilePath: specification/azurestackhci/resource-manager/Microsoft.AzureStackHCI/StackHCIVM/preview/2026-04-01-preview/stackhcivm.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/natGateways/{natGatewayName}/inboundRules/{inboundRuleName}
+        RpNamespace: Microsoft.AzureStackHCI
     LoadBalancer:
         ApiVersion: 2025-09-01-preview
         SpecFilePath: specification/azurestackhci/resource-manager/Microsoft.AzureStackHCI/StackHCIVM/preview/2025-09-01-preview/stackhcivm.json
@@ -2783,37 +2875,37 @@ Batch:
 Billing:
     AssociatedTenant:
         ApiVersion: "2024-04-01"
-        SpecFilePath: specification/billing/resource-manager/Microsoft.Billing/Billing/stable/2024-04-01/associatedTenant.json
+        SpecFilePath: specification/billing/resource-manager/Microsoft.Billing/Billing/stable/2024-04-01/openapi.json
         ResourceUri: /providers/Microsoft.Billing/billingAccounts/{billingAccountName}/associatedTenants/{associatedTenantName}
         RpNamespace: Microsoft.Billing
     BillingProfile:
         ApiVersion: "2024-04-01"
-        SpecFilePath: specification/billing/resource-manager/Microsoft.Billing/Billing/stable/2024-04-01/billingProfile.json
+        SpecFilePath: specification/billing/resource-manager/Microsoft.Billing/Billing/stable/2024-04-01/openapi.json
         ResourceUri: /providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}
         RpNamespace: Microsoft.Billing
     BillingRoleAssignmentByBillingAccount:
         ApiVersion: "2024-04-01"
-        SpecFilePath: specification/billing/resource-manager/Microsoft.Billing/Billing/stable/2024-04-01/billingRoleAssignment.json
+        SpecFilePath: specification/billing/resource-manager/Microsoft.Billing/Billing/stable/2024-04-01/openapi.json
         ResourceUri: /providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingRoleAssignments/{billingRoleAssignmentName}
         RpNamespace: Microsoft.Billing
     BillingRoleAssignmentByDepartment:
         ApiVersion: "2024-04-01"
-        SpecFilePath: specification/billing/resource-manager/Microsoft.Billing/Billing/stable/2024-04-01/billingRoleAssignment.json
+        SpecFilePath: specification/billing/resource-manager/Microsoft.Billing/Billing/stable/2024-04-01/openapi.json
         ResourceUri: /providers/Microsoft.Billing/billingAccounts/{billingAccountName}/departments/{departmentName}/billingRoleAssignments/{billingRoleAssignmentName}
         RpNamespace: Microsoft.Billing
     BillingRoleAssignmentByEnrollmentAccount:
         ApiVersion: "2024-04-01"
-        SpecFilePath: specification/billing/resource-manager/Microsoft.Billing/Billing/stable/2024-04-01/billingRoleAssignment.json
+        SpecFilePath: specification/billing/resource-manager/Microsoft.Billing/Billing/stable/2024-04-01/openapi.json
         ResourceUri: /providers/Microsoft.Billing/billingAccounts/{billingAccountName}/enrollmentAccounts/{enrollmentAccountName}/billingRoleAssignments/{billingRoleAssignmentName}
         RpNamespace: Microsoft.Billing
     InvoiceSection:
         ApiVersion: "2024-04-01"
-        SpecFilePath: specification/billing/resource-manager/Microsoft.Billing/Billing/stable/2024-04-01/invoiceSection.json
+        SpecFilePath: specification/billing/resource-manager/Microsoft.Billing/Billing/stable/2024-04-01/openapi.json
         ResourceUri: /providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}/invoiceSections/{invoiceSectionName}
         RpNamespace: Microsoft.Billing
     listBillingAccountInvoiceSectionsByCreateSubscriptionPermission:
         ApiVersion: "2024-04-01"
-        SpecFilePath: specification/billing/resource-manager/Microsoft.Billing/Billing/stable/2024-04-01/billingAccount.json
+        SpecFilePath: specification/billing/resource-manager/Microsoft.Billing/Billing/stable/2024-04-01/openapi.json
         ResourceUri: /providers/Microsoft.Billing/billingAccounts/{billingAccountName}/listInvoiceSectionsWithCreateSubscriptionPermission
         RpNamespace: Microsoft.Billing
 BillingBenefits:
@@ -2852,6 +2944,17 @@ BillingBenefits:
         SpecFilePath: specification/billingbenefits/resource-manager/Microsoft.BillingBenefits/preview/2025-05-01-preview/billingbenefits.json
         ResourceUri: /providers/Microsoft.BillingBenefits/listSellerResources
         RpNamespace: Microsoft.BillingBenefits
+BillingTrust:
+    Assessment:
+        ApiVersion: 2026-03-17-preview
+        SpecFilePath: specification/billingtrust/resource-manager/Microsoft.BillingTrust/BillingTrust/preview/2026-03-17-preview/openapi.json
+        ResourceUri: /{resourceUri}/providers/Microsoft.BillingTrust/assessments/default
+        RpNamespace: Microsoft.BillingTrust
+    listAssessmentUploadToken:
+        ApiVersion: 2026-03-17-preview
+        SpecFilePath: specification/billingtrust/resource-manager/Microsoft.BillingTrust/BillingTrust/preview/2026-03-17-preview/openapi.json
+        ResourceUri: /{resourceUri}/providers/Microsoft.BillingTrust/assessments/default/listUploadToken
+        RpNamespace: Microsoft.BillingTrust
 Blueprint:
     Artifact:
         ApiVersion: 2018-11-01-preview
@@ -3058,12 +3161,6 @@ CertificateRegistration:
         SpecFilePath: specification/certificateregistration/resource-manager/Microsoft.CertificateRegistration/CertificateRegistration/stable/2024-04-01/AppServiceCertificateOrders.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CertificateRegistration/certificateOrders/{certificateOrderName}/certificates/{name}
         RpNamespace: Microsoft.CertificateRegistration
-ChangeAnalysis:
-    ConfigurationProfile:
-        ApiVersion: 2020-04-01-preview
-        SpecFilePath: specification/changeanalysis/resource-manager/Microsoft.ChangeAnalysis/ChangeAnalysis/preview/2020-04-01-preview/changeanalysis.json
-        ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.ChangeAnalysis/profile/{profileName}
-        RpNamespace: Microsoft.ChangeAnalysis
 Chaos:
     Capability:
         ApiVersion: 2024-03-22-preview
@@ -3369,6 +3466,11 @@ CognitiveServices:
         SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2025-06-01/cognitiveservices.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/encryptionScopes/{encryptionScopeName}
         RpNamespace: Microsoft.CognitiveServices
+    ManagedNetworkSetting:
+        ApiVersion: 2026-01-15-preview
+        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/preview/2026-01-15-preview/cognitiveservices.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/managedNetworks/{managedNetworkName}
+        RpNamespace: Microsoft.CognitiveServices
     OutboundRule:
         ApiVersion: 2025-10-01-preview
         SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/preview/2025-10-01-preview/cognitiveservices.json
@@ -3500,177 +3602,172 @@ Community:
 Compute:
     AvailabilitySet:
         ApiVersion: "2024-11-01"
-        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/ComputeRP/stable/2024-11-01/ComputeRP.json
+        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/Compute/stable/2024-11-01/ComputeRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName}
         RpNamespace: Microsoft.Compute
     CapacityReservation:
         ApiVersion: "2024-11-01"
-        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/ComputeRP/stable/2024-11-01/ComputeRP.json
+        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/Compute/stable/2024-11-01/ComputeRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/capacityReservationGroups/{capacityReservationGroupName}/capacityReservations/{capacityReservationName}
         RpNamespace: Microsoft.Compute
     CapacityReservationGroup:
         ApiVersion: "2024-11-01"
-        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/ComputeRP/stable/2024-11-01/ComputeRP.json
+        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/Compute/stable/2024-11-01/ComputeRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/capacityReservationGroups/{capacityReservationGroupName}
-        RpNamespace: Microsoft.Compute
-    CloudService:
-        ApiVersion: "2022-09-04"
-        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/CloudserviceRP/stable/2022-09-04/cloudService.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/cloudServices/{cloudServiceName}
         RpNamespace: Microsoft.Compute
     DedicatedHost:
         ApiVersion: "2024-11-01"
-        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/ComputeRP/stable/2024-11-01/ComputeRP.json
+        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/Compute/stable/2024-11-01/ComputeRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/hostGroups/{hostGroupName}/hosts/{hostName}
         RpNamespace: Microsoft.Compute
     DedicatedHostGroup:
         ApiVersion: "2024-11-01"
-        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/ComputeRP/stable/2024-11-01/ComputeRP.json
+        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/Compute/stable/2024-11-01/ComputeRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/hostGroups/{hostGroupName}
         RpNamespace: Microsoft.Compute
     Disk:
         ApiVersion: "2024-03-02"
-        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/DiskRP/stable/2024-03-02/DiskRP.json
+        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/Compute/stable/2024-03-02/DiskRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/disks/{diskName}
         RpNamespace: Microsoft.Compute
     DiskAccess:
         ApiVersion: "2024-03-02"
-        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/DiskRP/stable/2024-03-02/DiskRP.json
+        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/Compute/stable/2024-03-02/DiskRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/diskAccesses/{diskAccessName}
         RpNamespace: Microsoft.Compute
     DiskAccessAPrivateEndpointConnection:
         ApiVersion: "2024-03-02"
-        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/DiskRP/stable/2024-03-02/DiskRP.json
+        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/Compute/stable/2024-03-02/DiskRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/diskAccesses/{diskAccessName}/privateEndpointConnections/{privateEndpointConnectionName}
         RpNamespace: Microsoft.Compute
     DiskEncryptionSet:
         ApiVersion: "2024-03-02"
-        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/DiskRP/stable/2024-03-02/DiskRP.json
+        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/Compute/stable/2024-03-02/DiskRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/diskEncryptionSets/{diskEncryptionSetName}
         RpNamespace: Microsoft.Compute
     Gallery:
         ApiVersion: "2024-03-03"
-        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/GalleryRP/stable/2024-03-03/GalleryRP.json
+        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/Compute/stable/2024-03-03/GalleryRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}
         RpNamespace: Microsoft.Compute
     GalleryApplication:
         ApiVersion: "2024-03-03"
-        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/GalleryRP/stable/2024-03-03/GalleryRP.json
+        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/Compute/stable/2024-03-03/GalleryRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/applications/{galleryApplicationName}
         RpNamespace: Microsoft.Compute
     GalleryApplicationVersion:
         ApiVersion: "2024-03-03"
-        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/GalleryRP/stable/2024-03-03/GalleryRP.json
+        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/Compute/stable/2024-03-03/GalleryRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/applications/{galleryApplicationName}/versions/{galleryApplicationVersionName}
         RpNamespace: Microsoft.Compute
     GalleryImage:
         ApiVersion: "2024-03-03"
-        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/GalleryRP/stable/2024-03-03/GalleryRP.json
+        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/Compute/stable/2024-03-03/GalleryRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/images/{galleryImageName}
         RpNamespace: Microsoft.Compute
     GalleryImageVersion:
         ApiVersion: "2024-03-03"
-        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/GalleryRP/stable/2024-03-03/GalleryRP.json
+        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/Compute/stable/2024-03-03/GalleryRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/images/{galleryImageName}/versions/{galleryImageVersionName}
         RpNamespace: Microsoft.Compute
     GalleryInVMAccessControlProfile:
         ApiVersion: "2024-03-03"
-        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/GalleryRP/stable/2024-03-03/GalleryRP.json
+        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/Compute/stable/2024-03-03/GalleryRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/inVMAccessControlProfiles/{inVMAccessControlProfileName}
         RpNamespace: Microsoft.Compute
     GalleryInVMAccessControlProfileVersion:
         ApiVersion: "2024-03-03"
-        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/GalleryRP/stable/2024-03-03/GalleryRP.json
+        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/Compute/stable/2024-03-03/GalleryRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/inVMAccessControlProfiles/{inVMAccessControlProfileName}/versions/{inVMAccessControlProfileVersionName}
         RpNamespace: Microsoft.Compute
     GalleryScript:
         ApiVersion: "2025-03-03"
-        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/GalleryRP/stable/2025-03-03/GalleryRP.json
+        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/Compute/stable/2025-03-03/GalleryRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/scripts/{galleryScriptName}
         RpNamespace: Microsoft.Compute
     GalleryScriptVersion:
         ApiVersion: "2025-03-03"
-        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/GalleryRP/stable/2025-03-03/GalleryRP.json
+        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/Compute/stable/2025-03-03/GalleryRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/scripts/{galleryScriptName}/versions/{galleryScriptVersionName}
         RpNamespace: Microsoft.Compute
     Image:
         ApiVersion: "2024-11-01"
-        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/ComputeRP/stable/2024-11-01/ComputeRP.json
+        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/Compute/stable/2024-11-01/ComputeRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/images/{imageName}
         RpNamespace: Microsoft.Compute
     ProximityPlacementGroup:
         ApiVersion: "2024-11-01"
-        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/ComputeRP/stable/2024-11-01/ComputeRP.json
+        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/Compute/stable/2024-11-01/ComputeRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/proximityPlacementGroups/{proximityPlacementGroupName}
         RpNamespace: Microsoft.Compute
     RestorePoint:
         ApiVersion: "2024-11-01"
-        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/ComputeRP/stable/2024-11-01/ComputeRP.json
+        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/Compute/stable/2024-11-01/ComputeRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/restorePointCollections/{restorePointCollectionName}/restorePoints/{restorePointName}
         RpNamespace: Microsoft.Compute
     RestorePointCollection:
         ApiVersion: "2024-11-01"
-        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/ComputeRP/stable/2024-11-01/ComputeRP.json
+        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/Compute/stable/2024-11-01/ComputeRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/restorePointCollections/{restorePointCollectionName}
         RpNamespace: Microsoft.Compute
     Snapshot:
         ApiVersion: "2024-03-02"
-        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/DiskRP/stable/2024-03-02/DiskRP.json
+        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/Compute/stable/2024-03-02/DiskRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/snapshots/{snapshotName}
         RpNamespace: Microsoft.Compute
     SshPublicKey:
         ApiVersion: "2024-11-01"
-        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/ComputeRP/stable/2024-11-01/ComputeRP.json
+        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/Compute/stable/2024-11-01/ComputeRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/sshPublicKeys/{sshPublicKeyName}
         RpNamespace: Microsoft.Compute
     VirtualMachine:
         ApiVersion: "2024-11-01"
-        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/ComputeRP/stable/2024-11-01/ComputeRP.json
+        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/Compute/stable/2024-11-01/ComputeRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}
         RpNamespace: Microsoft.Compute
     VirtualMachineExtension:
         ApiVersion: "2024-11-01"
-        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/ComputeRP/stable/2024-11-01/ComputeRP.json
+        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/Compute/stable/2024-11-01/ComputeRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/extensions/{vmExtensionName}
         RpNamespace: Microsoft.Compute
     VirtualMachineRunCommandByVirtualMachine:
         ApiVersion: "2024-11-01"
-        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/ComputeRP/stable/2024-11-01/ComputeRP.json
+        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/Compute/stable/2024-11-01/ComputeRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/runCommands/{runCommandName}
         RpNamespace: Microsoft.Compute
     VirtualMachineScaleSet:
         ApiVersion: "2024-11-01"
-        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/ComputeRP/stable/2024-11-01/ComputeRP.json
+        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/Compute/stable/2024-11-01/ComputeRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}
         RpNamespace: Microsoft.Compute
     VirtualMachineScaleSetExtension:
         ApiVersion: "2024-11-01"
-        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/ComputeRP/stable/2024-11-01/ComputeRP.json
+        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/Compute/stable/2024-11-01/ComputeRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/extensions/{vmssExtensionName}
         RpNamespace: Microsoft.Compute
     VirtualMachineScaleSetVM:
         ApiVersion: "2024-11-01"
-        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/ComputeRP/stable/2024-11-01/ComputeRP.json
+        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/Compute/stable/2024-11-01/ComputeRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualMachines/{instanceId}
         RpNamespace: Microsoft.Compute
     VirtualMachineScaleSetVMExtension:
         ApiVersion: "2024-11-01"
-        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/ComputeRP/stable/2024-11-01/ComputeRP.json
+        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/Compute/stable/2024-11-01/ComputeRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualMachines/{instanceId}/extensions/{vmExtensionName}
         RpNamespace: Microsoft.Compute
     VirtualMachineScaleSetVMRunCommand:
         ApiVersion: "2024-11-01"
-        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/ComputeRP/stable/2024-11-01/ComputeRP.json
+        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/Compute/stable/2024-11-01/ComputeRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualMachines/{instanceId}/runCommands/{runCommandName}
         RpNamespace: Microsoft.Compute
     getLogAnalyticExportRequestRateByInterval:
         ApiVersion: "2024-11-01"
-        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/ComputeRP/stable/2024-11-01/ComputeRP.json
+        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/Compute/stable/2024-11-01/ComputeRP.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.Compute/locations/{location}/logAnalytics/apiAccess/getRequestRateByInterval
         RpNamespace: Microsoft.Compute
     getLogAnalyticExportThrottledRequests:
         ApiVersion: "2024-11-01"
-        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/ComputeRP/stable/2024-11-01/ComputeRP.json
+        SpecFilePath: specification/compute/resource-manager/Microsoft.Compute/Compute/stable/2024-11-01/ComputeRP.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.Compute/locations/{location}/logAnalytics/apiAccess/getThrottledRequests
         RpNamespace: Microsoft.Compute
 ComputeBulkActions:
@@ -3699,12 +3796,12 @@ ComputeSchedule:
 ConfidentialLedger:
     Ledger:
         ApiVersion: 2023-06-28-preview
-        SpecFilePath: specification/confidentialledger/resource-manager/Microsoft.ConfidentialLedger/preview/2023-06-28-preview/confidentialledger.json
+        SpecFilePath: specification/confidentialledger/resource-manager/Microsoft.ConfidentialLedger/ConfidentialLedger/preview/2023-06-28-preview/confidentialledger.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ConfidentialLedger/ledgers/{ledgerName}
         RpNamespace: Microsoft.ConfidentialLedger
     ManagedCCF:
         ApiVersion: 2023-06-28-preview
-        SpecFilePath: specification/confidentialledger/resource-manager/Microsoft.ConfidentialLedger/preview/2023-06-28-preview/managedccf.json
+        SpecFilePath: specification/confidentialledger/resource-manager/Microsoft.ConfidentialLedger/ConfidentialLedger/preview/2023-06-28-preview/managedccf.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ConfidentialLedger/managedCCFs/{appName}
         RpNamespace: Microsoft.ConfidentialLedger
 Confluent:
@@ -4149,11 +4246,6 @@ ContainerService:
         SpecFilePath: specification/containerservice/resource-manager/Microsoft.ContainerService/aks/preview/2025-02-02-preview/managedClusters.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/namespaces/{namespaceName}
         RpNamespace: Microsoft.ContainerService
-    NodeCustomization:
-        ApiVersion: 2025-08-02-preview
-        SpecFilePath: specification/containerservice/resource-manager/Microsoft.ContainerService/nodecustomization/preview/2025-08-02-preview/nodecustomization.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/nodeCustomizations/{nodeCustomizationName}
-        RpNamespace: Microsoft.ContainerService
     PrivateEndpointConnection:
         ApiVersion: "2025-09-01"
         SpecFilePath: specification/containerservice/resource-manager/Microsoft.ContainerService/aks/stable/2025-09-01/managedClusters.json
@@ -4324,7 +4416,7 @@ CosmosDB:
         RpNamespace: Microsoft.DocumentDB
     FleetAnalytic:
         ApiVersion: 2025-11-01-preview
-        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/DocumentDB/preview/2025-11-01-preview/fleet.json
+        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/DocumentDB/preview/2025-11-01-preview/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/fleets/{fleetName}/fleetAnalytics/{fleetAnalyticsName}
         RpNamespace: Microsoft.DocumentDB
     Fleetspace:
@@ -4339,7 +4431,7 @@ CosmosDB:
         RpNamespace: Microsoft.DocumentDB
     GarnetCluster:
         ApiVersion: 2025-11-01-preview
-        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/DocumentDB/preview/2025-11-01-preview/garnetCache.json
+        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/DocumentDB/preview/2025-11-01-preview/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/garnetClusters/{clusterName}
         RpNamespace: Microsoft.DocumentDB
     GraphResourceGraph:
@@ -5021,107 +5113,107 @@ DataCatalog:
 DataFactory:
     ChangeDataCapture:
         ApiVersion: "2018-06-01"
-        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/datafactory.json
+        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/adfcdcs/{changeDataCaptureName}
         RpNamespace: Microsoft.DataFactory
     CredentialOperation:
         ApiVersion: "2018-06-01"
-        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/datafactory.json
+        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/credentials/{credentialName}
         RpNamespace: Microsoft.DataFactory
     DataFlow:
         ApiVersion: "2018-06-01"
-        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/datafactory.json
+        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/dataflows/{dataFlowName}
         RpNamespace: Microsoft.DataFactory
     Dataset:
         ApiVersion: "2018-06-01"
-        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/datafactory.json
+        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/datasets/{datasetName}
         RpNamespace: Microsoft.DataFactory
     Factory:
         ApiVersion: "2018-06-01"
-        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/datafactory.json
+        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}
         RpNamespace: Microsoft.DataFactory
     GlobalParameter:
         ApiVersion: "2018-06-01"
-        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/datafactory.json
+        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/globalParameters/{globalParameterName}
         RpNamespace: Microsoft.DataFactory
     IntegrationRuntime:
         ApiVersion: "2018-06-01"
-        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/datafactory.json
+        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}
         RpNamespace: Microsoft.DataFactory
     LinkedService:
         ApiVersion: "2018-06-01"
-        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/datafactory.json
+        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/linkedservices/{linkedServiceName}
         RpNamespace: Microsoft.DataFactory
     ManagedPrivateEndpoint:
         ApiVersion: "2018-06-01"
-        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/datafactory.json
+        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/managedVirtualNetworks/{managedVirtualNetworkName}/managedPrivateEndpoints/{managedPrivateEndpointName}
         RpNamespace: Microsoft.DataFactory
     Pipeline:
         ApiVersion: "2018-06-01"
-        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/datafactory.json
+        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/pipelines/{pipelineName}
         RpNamespace: Microsoft.DataFactory
     PrivateEndpointConnection:
         ApiVersion: "2018-06-01"
-        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/datafactory.json
+        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/privateEndpointConnections/{privateEndpointConnectionName}
         RpNamespace: Microsoft.DataFactory
     Trigger:
         ApiVersion: "2018-06-01"
-        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/datafactory.json
+        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/triggers/{triggerName}
         RpNamespace: Microsoft.DataFactory
     getExposureControlFeatureValue:
         ApiVersion: "2018-06-01"
-        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/datafactory.json
+        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.DataFactory/locations/{locationId}/getFeatureValue
         RpNamespace: Microsoft.DataFactory
     getExposureControlFeatureValueByFactory:
         ApiVersion: "2018-06-01"
-        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/datafactory.json
+        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/getFeatureValue
         RpNamespace: Microsoft.DataFactory
     getFactoryDataPlaneAccess:
         ApiVersion: "2018-06-01"
-        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/datafactory.json
+        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/getDataPlaneAccess
         RpNamespace: Microsoft.DataFactory
     getFactoryGitHubAccessToken:
         ApiVersion: "2018-06-01"
-        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/datafactory.json
+        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/getGitHubAccessToken
         RpNamespace: Microsoft.DataFactory
     getIntegrationRuntimeConnectionInfo:
         ApiVersion: "2018-06-01"
-        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/datafactory.json
+        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/getConnectionInfo
         RpNamespace: Microsoft.DataFactory
     getIntegrationRuntimeObjectMetadatum:
         ApiVersion: "2018-06-01"
-        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/datafactory.json
+        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/getObjectMetadata
         RpNamespace: Microsoft.DataFactory
     getIntegrationRuntimeStatus:
         ApiVersion: "2018-06-01"
-        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/datafactory.json
+        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/getStatus
         RpNamespace: Microsoft.DataFactory
     getTriggerEventSubscriptionStatus:
         ApiVersion: "2018-06-01"
-        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/datafactory.json
+        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/triggers/{triggerName}/getEventSubscriptionStatus
         RpNamespace: Microsoft.DataFactory
     listIntegrationRuntimeAuthKeys:
         ApiVersion: "2018-06-01"
-        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/datafactory.json
+        SpecFilePath: specification/datafactory/resource-manager/Microsoft.DataFactory/DataFactory/stable/2018-06-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/listAuthKeys
         RpNamespace: Microsoft.DataFactory
 DataLakeAnalytics:
@@ -5298,11 +5390,6 @@ DataReplication:
         ApiVersion: "2024-09-01"
         SpecFilePath: specification/recoveryservicesdatareplication/resource-manager/Microsoft.DataReplication/DataReplication/stable/2024-09-01/recoveryservicesdatareplication.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataReplication/replicationVaults/{vaultName}/privateEndpointConnections/{privateEndpointConnectionName}
-        RpNamespace: Microsoft.DataReplication
-    PrivateEndpointConnectionProxy:
-        ApiVersion: "2024-09-01"
-        SpecFilePath: specification/recoveryservicesdatareplication/resource-manager/Microsoft.DataReplication/DataReplication/stable/2024-09-01/recoveryservicesdatareplication.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataReplication/replicationVaults/{vaultName}/privateEndpointConnectionProxies/{privateEndpointConnectionProxyName}
         RpNamespace: Microsoft.DataReplication
     ProtectedItem:
         ApiVersion: 2021-02-16-preview
@@ -5781,7 +5868,7 @@ DevHub:
         RpNamespace: Microsoft.DevHub
     getADOOAuthInfo:
         ApiVersion: 2025-03-01-preview
-        SpecFilePath: specification/developerhub/resource-manager/Microsoft.DevHub/DeveloperHub/preview/2025-03-01-preview/workflow.json
+        SpecFilePath: specification/developerhub/resource-manager/Microsoft.DevHub/DeveloperHub/preview/2025-03-01-preview/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.DevHub/locations/{location}/adooauth/default/getADOOAuthInfo
         RpNamespace: Microsoft.DevHub
     getGitHubOAuth:
@@ -6316,6 +6403,11 @@ Edge:
         SpecFilePath: specification/edge/resource-manager/Microsoft.Edge/configurationmanager/stable/2025-06-01/configurationmanager.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/contexts/{contextName}/workflows/{workflowName}/versions/{versionName}/executions/{executionName}
         RpNamespace: Microsoft.Edge
+    ExecutionV2:
+        ApiVersion: 2025-08-15-preview
+        SpecFilePath: specification/edge/resource-manager/Microsoft.Edge/configurationmanager/preview/2025-08-15-preview/configurationmanager.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/workflows/{workflowName}/versions/{versionName}/executions/{executionName}
+        RpNamespace: Microsoft.Edge
     Instance:
         ApiVersion: "2025-06-01"
         SpecFilePath: specification/edge/resource-manager/Microsoft.Edge/configurationmanager/stable/2025-06-01/configurationmanager.json
@@ -6381,10 +6473,20 @@ Edge:
         SpecFilePath: specification/edge/resource-manager/Microsoft.Edge/configurationmanager/stable/2025-06-01/configurationmanager.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/contexts/{contextName}/workflows/{workflowName}
         RpNamespace: Microsoft.Edge
+    WorkflowV2:
+        ApiVersion: 2025-08-15-preview
+        SpecFilePath: specification/edge/resource-manager/Microsoft.Edge/configurationmanager/preview/2025-08-15-preview/configurationmanager.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/workflows/{workflowName}
+        RpNamespace: Microsoft.Edge
     WorkflowVersion:
         ApiVersion: "2025-06-01"
         SpecFilePath: specification/edge/resource-manager/Microsoft.Edge/configurationmanager/stable/2025-06-01/configurationmanager.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/contexts/{contextName}/workflows/{workflowName}/versions/{versionName}
+        RpNamespace: Microsoft.Edge
+    WorkflowVersionV2:
+        ApiVersion: 2025-08-15-preview
+        SpecFilePath: specification/edge/resource-manager/Microsoft.Edge/configurationmanager/preview/2025-08-15-preview/configurationmanager.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/workflows/{workflowName}/versions/{versionName}
         RpNamespace: Microsoft.Edge
 EdgeMarketplace:
     getOfferAccessToken:
@@ -6934,28 +7036,28 @@ FluidRelay:
         RpNamespace: Microsoft.FluidRelay
 FrontDoor:
     Experiment:
-        ApiVersion: "2019-11-01"
-        SpecFilePath: specification/frontdoor/resource-manager/Microsoft.Network/stable/2019-11-01/networkexperiment.json
+        ApiVersion: "2025-11-01"
+        SpecFilePath: specification/frontdoor/resource-manager/Microsoft.Network/FrontDoor/stable/2025-11-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/NetworkExperimentProfiles/{profileName}/Experiments/{experimentName}
         RpNamespace: Microsoft.Network
     FrontDoor:
-        ApiVersion: "2021-06-01"
-        SpecFilePath: specification/frontdoor/resource-manager/Microsoft.Network/stable/2021-06-01/frontdoor.json
+        ApiVersion: "2025-11-01"
+        SpecFilePath: specification/frontdoor/resource-manager/Microsoft.Network/FrontDoor/stable/2025-11-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/frontDoors/{frontDoorName}
         RpNamespace: Microsoft.Network
     NetworkExperimentProfile:
-        ApiVersion: "2019-11-01"
-        SpecFilePath: specification/frontdoor/resource-manager/Microsoft.Network/stable/2019-11-01/networkexperiment.json
+        ApiVersion: "2025-11-01"
+        SpecFilePath: specification/frontdoor/resource-manager/Microsoft.Network/FrontDoor/stable/2025-11-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/NetworkExperimentProfiles/{profileName}
         RpNamespace: Microsoft.Network
     Policy:
-        ApiVersion: "2024-02-01"
-        SpecFilePath: specification/frontdoor/resource-manager/Microsoft.Network/stable/2024-02-01/webapplicationfirewall.json
+        ApiVersion: "2025-11-01"
+        SpecFilePath: specification/frontdoor/resource-manager/Microsoft.Network/FrontDoor/stable/2025-11-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/FrontDoorWebApplicationFirewallPolicies/{policyName}
         RpNamespace: Microsoft.Network
     RulesEngine:
-        ApiVersion: "2021-06-01"
-        SpecFilePath: specification/frontdoor/resource-manager/Microsoft.Network/stable/2021-06-01/frontdoor.json
+        ApiVersion: "2025-11-01"
+        SpecFilePath: specification/frontdoor/resource-manager/Microsoft.Network/FrontDoor/stable/2025-11-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/frontDoors/{frontDoorName}/rulesEngines/{rulesEngineName}
         RpNamespace: Microsoft.Network
 GraphServices:
@@ -7117,6 +7219,27 @@ HealthcareApis:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareApis/workspaces/{workspaceName}/privateEndpointConnections/{privateEndpointConnectionName}
         RpNamespace: Microsoft.HealthcareApis
 Help: {}
+HorizonDb:
+    HorizonDbCluster:
+        ApiVersion: 2026-01-20-preview
+        SpecFilePath: specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/preview/2026-01-20-preview/openapi.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}
+        RpNamespace: Microsoft.HorizonDb
+    HorizonDbFirewallRule:
+        ApiVersion: 2026-01-20-preview
+        SpecFilePath: specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/preview/2026-01-20-preview/openapi.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/pools/{poolName}/firewallRules/{firewallRuleName}
+        RpNamespace: Microsoft.HorizonDb
+    HorizonDbParameterGroup:
+        ApiVersion: 2026-01-20-preview
+        SpecFilePath: specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/preview/2026-01-20-preview/openapi.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/parameterGroups/{parameterGroupName}
+        RpNamespace: Microsoft.HorizonDb
+    HorizonDbReplica:
+        ApiVersion: 2026-01-20-preview
+        SpecFilePath: specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/preview/2026-01-20-preview/openapi.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/pools/{poolName}/replicas/{replicaName}
+        RpNamespace: Microsoft.HorizonDb
 HybridCloud:
     CloudConnection:
         ApiVersion: 2023-01-01-preview
@@ -7211,54 +7334,24 @@ HybridConnectivity:
         ResourceUri: /{resourceUri}/providers/Microsoft.HybridConnectivity/endpoints/{endpointName}/listManagedProxyDetails
         RpNamespace: Microsoft.HybridConnectivity
 HybridContainerService:
-    AgentPool:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/hybridaks/resource-manager/Microsoft.HybridContainerService/preview/2022-09-01-preview/provisionedClusters.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridContainerService/provisionedClusters/{resourceName}/agentPools/{agentPoolName}
-        RpNamespace: Microsoft.HybridContainerService
     ClusterInstanceHybridIdentityMetadatum:
         ApiVersion: "2024-01-01"
-        SpecFilePath: specification/hybridaks/resource-manager/Microsoft.HybridContainerService/stable/2024-01-01/provisionedClusterInstances.json
+        SpecFilePath: specification/hybridaks/resource-manager/Microsoft.HybridContainerService/HybridContainerService/stable/2024-01-01/provisionedClusterInstances.json
         ResourceUri: /{connectedClusterResourceUri}/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default/hybridIdentityMetadata/default
         RpNamespace: Microsoft.HybridContainerService
-    HybridIdentityMetadatum:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/hybridaks/resource-manager/Microsoft.HybridContainerService/preview/2022-09-01-preview/provisionedClusters.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridContainerService/provisionedClusters/{resourceName}/hybridIdentityMetadata/{hybridIdentityMetadataResourceName}
-        RpNamespace: Microsoft.HybridContainerService
-    KubernetesVersions:
-        ApiVersion: 2025-02-01-preview
-        SpecFilePath: specification/hybridaks/resource-manager/Microsoft.HybridContainerService/preview/2025-02-01-preview/provisionedClusterInstances.json
-        ResourceUri: /{customLocationResourceUri}/providers/Microsoft.HybridContainerService/kubernetesVersions/default
-        RpNamespace: Microsoft.HybridContainerService
-    ProvisionedCluster:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/hybridaks/resource-manager/Microsoft.HybridContainerService/preview/2022-09-01-preview/provisionedClusters.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridContainerService/provisionedClusters/{resourceName}
-        RpNamespace: Microsoft.HybridContainerService
-    StorageSpaceRetrieve:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/hybridaks/resource-manager/Microsoft.HybridContainerService/preview/2022-09-01-preview/storageSpaces.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridContainerService/storageSpaces/{storageSpacesName}
-        RpNamespace: Microsoft.HybridContainerService
-    VMSkus:
-        ApiVersion: 2025-02-01-preview
-        SpecFilePath: specification/hybridaks/resource-manager/Microsoft.HybridContainerService/preview/2025-02-01-preview/provisionedClusterInstances.json
-        ResourceUri: /{customLocationResourceUri}/providers/Microsoft.HybridContainerService/skus/default
-        RpNamespace: Microsoft.HybridContainerService
     VirtualNetworkRetrieve:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/hybridaks/resource-manager/Microsoft.HybridContainerService/preview/2022-09-01-preview/virtualNetworks.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridContainerService/virtualNetworks/{virtualNetworksName}
+        ApiVersion: "2024-01-01"
+        SpecFilePath: specification/hybridaks/resource-manager/Microsoft.HybridContainerService/HybridContainerService/stable/2024-01-01/virtualNetworks.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridContainerService/virtualNetworks/{virtualNetworkName}
         RpNamespace: Microsoft.HybridContainerService
     listProvisionedClusterInstanceAdminKubeconfig:
         ApiVersion: "2024-01-01"
-        SpecFilePath: specification/hybridaks/resource-manager/Microsoft.HybridContainerService/stable/2024-01-01/provisionedClusterInstances.json
+        SpecFilePath: specification/hybridaks/resource-manager/Microsoft.HybridContainerService/HybridContainerService/stable/2024-01-01/provisionedClusterInstances.json
         ResourceUri: /{connectedClusterResourceUri}/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default/listAdminKubeconfig
         RpNamespace: Microsoft.HybridContainerService
     listProvisionedClusterInstanceUserKubeconfig:
         ApiVersion: "2024-01-01"
-        SpecFilePath: specification/hybridaks/resource-manager/Microsoft.HybridContainerService/stable/2024-01-01/provisionedClusterInstances.json
+        SpecFilePath: specification/hybridaks/resource-manager/Microsoft.HybridContainerService/HybridContainerService/stable/2024-01-01/provisionedClusterInstances.json
         ResourceUri: /{connectedClusterResourceUri}/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default/listUserKubeconfig
         RpNamespace: Microsoft.HybridContainerService
 HybridNetwork:
@@ -7383,6 +7476,11 @@ Impact:
         SpecFilePath: specification/impact/resource-manager/Microsoft.Impact/preview/2024-05-01-preview/impact.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.Impact/workloadImpacts/{workloadImpactName}
         RpNamespace: Microsoft.Impact
+    getUploadServiceUploadToken:
+        ApiVersion: 2026-01-01-preview
+        SpecFilePath: specification/impact/resource-manager/Microsoft.Impact/preview/2026-01-01-preview/impact.json
+        ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.Impact/getUploadToken
+        RpNamespace: Microsoft.Impact
 ImportExport:
     Job:
         ApiVersion: "2021-01-01"
@@ -7397,37 +7495,37 @@ ImportExport:
 IntegrationSpaces:
     Application:
         ApiVersion: 2023-11-14-preview
-        SpecFilePath: specification/azureintegrationspaces/resource-manager/Microsoft.IntegrationSpaces/preview/2023-11-14-preview/openapi.json
+        SpecFilePath: specification/azureintegrationspaces/resource-manager/Microsoft.IntegrationSpaces/IntegrationSpaces/preview/2023-11-14-preview/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntegrationSpaces/spaces/{spaceName}/applications/{applicationName}
         RpNamespace: Microsoft.IntegrationSpaces
     ApplicationResource:
         ApiVersion: 2023-11-14-preview
-        SpecFilePath: specification/azureintegrationspaces/resource-manager/Microsoft.IntegrationSpaces/preview/2023-11-14-preview/openapi.json
+        SpecFilePath: specification/azureintegrationspaces/resource-manager/Microsoft.IntegrationSpaces/IntegrationSpaces/preview/2023-11-14-preview/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntegrationSpaces/spaces/{spaceName}/applications/{applicationName}/resources/{resourceName}
         RpNamespace: Microsoft.IntegrationSpaces
     BusinessProcess:
         ApiVersion: 2023-11-14-preview
-        SpecFilePath: specification/azureintegrationspaces/resource-manager/Microsoft.IntegrationSpaces/preview/2023-11-14-preview/openapi.json
+        SpecFilePath: specification/azureintegrationspaces/resource-manager/Microsoft.IntegrationSpaces/IntegrationSpaces/preview/2023-11-14-preview/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntegrationSpaces/spaces/{spaceName}/applications/{applicationName}/businessProcesses/{businessProcessName}
         RpNamespace: Microsoft.IntegrationSpaces
     InfrastructureResource:
         ApiVersion: 2023-11-14-preview
-        SpecFilePath: specification/azureintegrationspaces/resource-manager/Microsoft.IntegrationSpaces/preview/2023-11-14-preview/openapi.json
+        SpecFilePath: specification/azureintegrationspaces/resource-manager/Microsoft.IntegrationSpaces/IntegrationSpaces/preview/2023-11-14-preview/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntegrationSpaces/spaces/{spaceName}/infrastructureResources/{infrastructureResourceName}
         RpNamespace: Microsoft.IntegrationSpaces
     Space:
         ApiVersion: 2023-11-14-preview
-        SpecFilePath: specification/azureintegrationspaces/resource-manager/Microsoft.IntegrationSpaces/preview/2023-11-14-preview/openapi.json
+        SpecFilePath: specification/azureintegrationspaces/resource-manager/Microsoft.IntegrationSpaces/IntegrationSpaces/preview/2023-11-14-preview/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntegrationSpaces/spaces/{spaceName}
         RpNamespace: Microsoft.IntegrationSpaces
     getApplicationBusinessProcessDevelopmentArtifact:
         ApiVersion: 2023-11-14-preview
-        SpecFilePath: specification/azureintegrationspaces/resource-manager/Microsoft.IntegrationSpaces/preview/2023-11-14-preview/openapi.json
+        SpecFilePath: specification/azureintegrationspaces/resource-manager/Microsoft.IntegrationSpaces/IntegrationSpaces/preview/2023-11-14-preview/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntegrationSpaces/spaces/{spaceName}/applications/{applicationName}/getBusinessProcessDevelopmentArtifact
         RpNamespace: Microsoft.IntegrationSpaces
     listApplicationBusinessProcessDevelopmentArtifacts:
         ApiVersion: 2023-11-14-preview
-        SpecFilePath: specification/azureintegrationspaces/resource-manager/Microsoft.IntegrationSpaces/preview/2023-11-14-preview/openapi.json
+        SpecFilePath: specification/azureintegrationspaces/resource-manager/Microsoft.IntegrationSpaces/IntegrationSpaces/preview/2023-11-14-preview/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntegrationSpaces/spaces/{spaceName}/applications/{applicationName}/listBusinessProcessDevelopmentArtifacts
         RpNamespace: Microsoft.IntegrationSpaces
 Intune:
@@ -7656,32 +7754,32 @@ IoTOperationsOrchestrator:
 KeyVault:
     Key:
         ApiVersion: "2024-11-01"
-        SpecFilePath: specification/keyvault/resource-manager/Microsoft.KeyVault/stable/2024-11-01/keys.json
+        SpecFilePath: specification/keyvault/resource-manager/Microsoft.KeyVault/KeyVault/stable/2024-11-01/keys.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/keys/{keyName}
         RpNamespace: Microsoft.KeyVault
     MHSMPrivateEndpointConnection:
         ApiVersion: "2024-11-01"
-        SpecFilePath: specification/keyvault/resource-manager/Microsoft.KeyVault/stable/2024-11-01/managedHsm.json
+        SpecFilePath: specification/keyvault/resource-manager/Microsoft.KeyVault/KeyVault/stable/2024-11-01/managedHsm.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/managedHSMs/{name}/privateEndpointConnections/{privateEndpointConnectionName}
         RpNamespace: Microsoft.KeyVault
     ManagedHsm:
         ApiVersion: "2024-11-01"
-        SpecFilePath: specification/keyvault/resource-manager/Microsoft.KeyVault/stable/2024-11-01/managedHsm.json
+        SpecFilePath: specification/keyvault/resource-manager/Microsoft.KeyVault/KeyVault/stable/2024-11-01/managedHsm.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/managedHSMs/{name}
         RpNamespace: Microsoft.KeyVault
     PrivateEndpointConnection:
         ApiVersion: "2024-11-01"
-        SpecFilePath: specification/keyvault/resource-manager/Microsoft.KeyVault/stable/2024-11-01/keyvault.json
+        SpecFilePath: specification/keyvault/resource-manager/Microsoft.KeyVault/KeyVault/stable/2024-11-01/keyvault.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/privateEndpointConnections/{privateEndpointConnectionName}
         RpNamespace: Microsoft.KeyVault
     Secret:
         ApiVersion: "2024-11-01"
-        SpecFilePath: specification/keyvault/resource-manager/Microsoft.KeyVault/stable/2024-11-01/secrets.json
+        SpecFilePath: specification/keyvault/resource-manager/Microsoft.KeyVault/KeyVault/stable/2024-11-01/secrets.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/secrets/{secretName}
         RpNamespace: Microsoft.KeyVault
     Vault:
         ApiVersion: "2024-11-01"
-        SpecFilePath: specification/keyvault/resource-manager/Microsoft.KeyVault/stable/2024-11-01/keyvault.json
+        SpecFilePath: specification/keyvault/resource-manager/Microsoft.KeyVault/KeyVault/stable/2024-11-01/keyvault.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}
         RpNamespace: Microsoft.KeyVault
 Kubernetes:
@@ -8608,6 +8706,16 @@ ManagedNetworkFabric:
         SpecFilePath: specification/managednetworkfabric/resource-manager/Microsoft.ManagedNetworkFabric/stable/2023-06-15/NeighborGroups.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/neighborGroups/{neighborGroupName}
         RpNamespace: Microsoft.ManagedNetworkFabric
+    NetworkBootstrapDevice:
+        ApiVersion: "2025-07-15"
+        SpecFilePath: specification/managednetworkfabric/resource-manager/Microsoft.ManagedNetworkFabric/stable/2025-07-15/managednetworkfabric.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/networkBootstrapDevices/{networkBootstrapDeviceName}
+        RpNamespace: Microsoft.ManagedNetworkFabric
+    NetworkBootstrapInterface:
+        ApiVersion: "2025-07-15"
+        SpecFilePath: specification/managednetworkfabric/resource-manager/Microsoft.ManagedNetworkFabric/stable/2025-07-15/managednetworkfabric.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/networkBootstrapDevices/{networkBootstrapDeviceName}/networkBootstrapInterfaces/{networkBootstrapInterfaceName}
+        RpNamespace: Microsoft.ManagedNetworkFabric
     NetworkDevice:
         ApiVersion: "2023-06-15"
         SpecFilePath: specification/managednetworkfabric/resource-manager/Microsoft.ManagedNetworkFabric/stable/2023-06-15/NetworkDevices.json
@@ -9079,6 +9187,11 @@ Mission:
         SpecFilePath: specification/mission/resource-manager/Microsoft.Mission/preview/2025-05-01-preview/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Mission/communities/{communityName}/communityEndpoints/{communityEndpointName}
         RpNamespace: Microsoft.Mission
+    DedicatedHub:
+        ApiVersion: 2025-11-01-preview
+        SpecFilePath: specification/mission/resource-manager/Microsoft.Mission/preview/2025-11-01-preview/openapi.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Mission/communities/{communityName}/dedicatedHubs/{dedicatedHubName}
+        RpNamespace: Microsoft.Mission
     EnclaveConnection:
         ApiVersion: 2025-05-01-preview
         SpecFilePath: specification/mission/resource-manager/Microsoft.Mission/preview/2025-05-01-preview/openapi.json
@@ -9133,137 +9246,142 @@ MongoCluster:
 Monitor:
     ActionGroup:
         ApiVersion: 2024-10-01-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2024-10-01-preview/actionGroups_API.json
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/Insights/preview/2024-10-01-preview/actionGroups.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/actionGroups/{actionGroupName}
         RpNamespace: Microsoft.Insights
     ActivityLogAlert:
         ApiVersion: "2020-10-01"
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/stable/2020-10-01/activityLogAlerts_API.json
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/Insights/stable/2020-10-01/activityLogAlerts_API.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/activityLogAlerts/{activityLogAlertName}
         RpNamespace: Microsoft.Insights
     AuthenticationSetting:
         ApiVersion: 2025-05-03-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Monitor/Accounts/preview/2025-05-03-preview/azuremonitorworkspace.json
+        SpecFilePath: specification/monitoringservice/resource-manager/Microsoft.Monitor/Accounts/preview/2025-05-03-preview/azuremonitorworkspace.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/healthmodels/{healthModelName}/authenticationsettings/{authenticationSettingName}
         RpNamespace: Microsoft.Monitor
     AutoscaleSetting:
         ApiVersion: 2021-05-01-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2021-05-01-preview/autoscale_API.json
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/Insights/preview/2021-05-01-preview/autoscale_API.json
         ResourceUri: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Insights/autoscalesettings/{autoscaleSettingName}
         RpNamespace: Microsoft.Insights
     AzureMonitorWorkspace:
         ApiVersion: "2023-04-03"
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Monitor/stable/2023-04-03/monitoringAccounts_API.json
+        SpecFilePath: specification/monitoringservice/resource-manager/Microsoft.Monitor/Accounts/stable/2023-04-03/monitoringAccounts_API.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}
         RpNamespace: Microsoft.Monitor
     DataCollectionEndpoint:
         ApiVersion: "2022-06-01"
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/stable/2022-06-01/dataCollectionEndpoints_API.json
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/Insights/stable/2022-06-01/dataCollectionEndpoints_API.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionEndpoints/{dataCollectionEndpointName}
         RpNamespace: Microsoft.Insights
     DataCollectionRule:
         ApiVersion: "2022-06-01"
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/stable/2022-06-01/dataCollectionRules_API.json
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/Insights/stable/2022-06-01/dataCollectionRules_API.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{dataCollectionRuleName}
         RpNamespace: Microsoft.Insights
     DataCollectionRuleAssociation:
         ApiVersion: "2022-06-01"
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/stable/2022-06-01/dataCollectionRuleAssociations_API.json
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/Insights/stable/2022-06-01/dataCollectionRuleAssociations_API.json
         ResourceUri: /{resourceUri}/providers/Microsoft.Insights/dataCollectionRuleAssociations/{associationName}
         RpNamespace: Microsoft.Insights
     DiagnosticSetting:
         ApiVersion: 2021-05-01-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2021-05-01-preview/diagnosticsSettings_API.json
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/Insights/preview/2021-05-01-preview/diagnosticsSettings_API.json
         ResourceUri: /{resourceUri}/providers/Microsoft.Insights/diagnosticSettings/{name}
         RpNamespace: Microsoft.Insights
     DiscoveryRule:
         ApiVersion: 2025-05-03-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Monitor/Accounts/preview/2025-05-03-preview/azuremonitorworkspace.json
+        SpecFilePath: specification/monitoringservice/resource-manager/Microsoft.Monitor/Accounts/preview/2025-05-03-preview/azuremonitorworkspace.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/healthmodels/{healthModelName}/discoveryrules/{discoveryRuleName}
         RpNamespace: Microsoft.Monitor
     Entity:
         ApiVersion: 2025-05-03-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Monitor/Accounts/preview/2025-05-03-preview/azuremonitorworkspace.json
+        SpecFilePath: specification/monitoringservice/resource-manager/Microsoft.Monitor/Accounts/preview/2025-05-03-preview/azuremonitorworkspace.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/healthmodels/{healthModelName}/entities/{entityName}
         RpNamespace: Microsoft.Monitor
     HealthModel:
         ApiVersion: 2025-05-03-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Monitor/Accounts/preview/2025-05-03-preview/azuremonitorworkspace.json
+        SpecFilePath: specification/monitoringservice/resource-manager/Microsoft.Monitor/Accounts/preview/2025-05-03-preview/azuremonitorworkspace.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/healthmodels/{healthModelName}
         RpNamespace: Microsoft.Monitor
     Issue:
         ApiVersion: 2025-05-03-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Monitor/Accounts/preview/2025-05-03-preview/azuremonitorworkspace.json
+        SpecFilePath: specification/monitoringservice/resource-manager/Microsoft.Monitor/Accounts/preview/2025-05-03-preview/azuremonitorworkspace.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/issues/{issueName}
         RpNamespace: Microsoft.Monitor
     ManagementGroupDiagnosticSetting:
         ApiVersion: 2021-05-01-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2021-05-01-preview/managementGroupDiagnosticSettings_API.json
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/Insights/preview/2021-05-01-preview/managementGroupDiagnosticSettings_API.json
         ResourceUri: /providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Insights/diagnosticSettings/{name}
         RpNamespace: Microsoft.Insights
     MetricAlert:
         ApiVersion: "2018-03-01"
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/stable/2018-03-01/metricAlert_API.json
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/Insights/stable/2018-03-01/metricAlert_API.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/metricAlerts/{ruleName}
         RpNamespace: Microsoft.Insights
     PipelineGroup:
         ApiVersion: 2024-10-01-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Monitor/PipelineGroups/preview/2024-10-01-preview/pipelineGroups.json
+        SpecFilePath: specification/monitoringservice/resource-manager/Microsoft.Monitor/PipelineGroups/preview/2024-10-01-preview/pipelineGroups.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/pipelineGroups/{pipelineGroupName}
         RpNamespace: Microsoft.Monitor
     PrivateEndpointConnection:
         ApiVersion: 2023-06-01-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/PrivateLinkScopes/preview/2023-06-01-preview/privateLinkScopes_API.json
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/Insights/preview/2023-06-01-preview/privateLinkScopes.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/privateLinkScopes/{scopeName}/privateEndpointConnections/{privateEndpointConnectionName}
         RpNamespace: Microsoft.Insights
     PrivateLinkScope:
         ApiVersion: 2023-06-01-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/PrivateLinkScopes/preview/2023-06-01-preview/privateLinkScopes_API.json
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/Insights/preview/2023-06-01-preview/privateLinkScopes.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/privateLinkScopes/{scopeName}
         RpNamespace: Microsoft.Insights
     PrivateLinkScopedResource:
         ApiVersion: 2023-06-01-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/PrivateLinkScopes/preview/2023-06-01-preview/privateLinkScopes_API.json
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/Insights/preview/2023-06-01-preview/privateLinkScopes.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/privateLinkScopes/{scopeName}/scopedResources/{name}
         RpNamespace: Microsoft.Insights
     Relationship:
         ApiVersion: 2025-05-03-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Monitor/Accounts/preview/2025-05-03-preview/azuremonitorworkspace.json
+        SpecFilePath: specification/monitoringservice/resource-manager/Microsoft.Monitor/Accounts/preview/2025-05-03-preview/azuremonitorworkspace.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/healthmodels/{healthModelName}/relationships/{relationshipName}
         RpNamespace: Microsoft.Monitor
     ScheduledQueryRule:
         ApiVersion: 2025-01-01-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2025-01-01-preview/scheduledQueryRule_API.json
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/Insights/preview/2025-01-01-preview/scheduledQueryRule.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/scheduledQueryRules/{ruleName}
         RpNamespace: Microsoft.Insights
     SignalDefinition:
         ApiVersion: 2025-05-03-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Monitor/Accounts/preview/2025-05-03-preview/azuremonitorworkspace.json
+        SpecFilePath: specification/monitoringservice/resource-manager/Microsoft.Monitor/Accounts/preview/2025-05-03-preview/azuremonitorworkspace.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/healthmodels/{healthModelName}/signaldefinitions/{signalDefinitionName}
+        RpNamespace: Microsoft.Monitor
+    Sli:
+        ApiVersion: 2025-03-01-preview
+        SpecFilePath: specification/monitoringservice/resource-manager/Microsoft.Monitor/Slis/preview/2025-03-01-preview/openapi.json
+        ResourceUri: /providers/Microsoft.Management/serviceGroups/{serviceGroupName}/providers/Microsoft.Monitor/slis/{sliName}
         RpNamespace: Microsoft.Monitor
     SubscriptionDiagnosticSetting:
         ApiVersion: 2021-05-01-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2021-05-01-preview/subscriptionDiagnosticsSettings_API.json
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/Insights/preview/2021-05-01-preview/subscriptionDiagnosticsSettings_API.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.Insights/diagnosticSettings/{name}
         RpNamespace: Microsoft.Insights
     TenantActionGroup:
         ApiVersion: 2023-05-01-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2023-05-01-preview/tenantActionGroups_API.json
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/Insights/preview/2023-05-01-preview/tenantActionGroups_API.json
         ResourceUri: /providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Insights/tenantActionGroups/{tenantActionGroupName}
         RpNamespace: Microsoft.Insights
     listDiagnosticSettingsCategory:
         ApiVersion: 2021-05-01-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2021-05-01-preview/diagnosticsSettingsCategories_API.json
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/Insights/preview/2021-05-01-preview/diagnosticsSettingsCategories_API.json
         ResourceUri: /{resourceUri}/providers/Microsoft.Insights/diagnosticSettingsCategories
         RpNamespace: Microsoft.Insights
     listIssueAlerts:
         ApiVersion: 2025-05-03-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Monitor/Accounts/preview/2025-05-03-preview/azuremonitorworkspace.json
+        SpecFilePath: specification/monitoringservice/resource-manager/Microsoft.Monitor/Accounts/preview/2025-05-03-preview/azuremonitorworkspace.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/issues/{issueName}/listAlerts
         RpNamespace: Microsoft.Monitor
     listIssueResources:
         ApiVersion: 2025-05-03-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Monitor/Accounts/preview/2025-05-03-preview/azuremonitorworkspace.json
+        SpecFilePath: specification/monitoringservice/resource-manager/Microsoft.Monitor/Accounts/preview/2025-05-03-preview/azuremonitorworkspace.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/issues/{issueName}/listResources
         RpNamespace: Microsoft.Monitor
 MySQLDiscovery:
@@ -9464,6 +9582,11 @@ Network:
         SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/bastionHost.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/bastionHosts/{bastionHostName}
         RpNamespace: Microsoft.Network
+    Commit:
+        ApiVersion: "2025-07-01"
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2025-07-01/networkManager.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/commits/{commitName}
+        RpNamespace: Microsoft.Network
     ConfigurationPolicyGroup:
         ApiVersion: "2024-05-01"
         SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/virtualWan.json
@@ -9473,6 +9596,11 @@ Network:
         ApiVersion: "2024-05-01"
         SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/networkWatcher.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkWatchers/{networkWatcherName}/connectionMonitors/{connectionMonitorName}
+        RpNamespace: Microsoft.Network
+    ConnectionPolicy:
+        ApiVersion: "2025-07-01"
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2025-07-01/virtualWan.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/connectionPolicies/{connectionPolicyName}
         RpNamespace: Microsoft.Network
     ConnectivityConfiguration:
         ApiVersion: "2024-05-01"
@@ -9588,6 +9716,11 @@ Network:
         ApiVersion: "2024-05-01"
         SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/loadBalancer.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/inboundNatRules/{inboundNatRuleName}
+        RpNamespace: Microsoft.Network
+    InterconnectGroup:
+        ApiVersion: "2025-07-01"
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2025-07-01/interconnectGroup.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/interconnectGroups/{interconnectGroupName}
         RpNamespace: Microsoft.Network
     InterfaceEndpoint:
         ApiVersion: "2019-02-01"
@@ -10039,6 +10172,36 @@ Network:
         SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/bastionHost.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/bastionHosts/{bastionHostName}/getShareableLinks
         RpNamespace: Microsoft.Network
+    getExpressRouteCircuitLinkFailoverAllTestsDetails:
+        ApiVersion: "2025-07-01"
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2025-07-01/expressRoute.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCircuits/{circuitName}/getCircuitLinkFailoverAllTestsDetails
+        RpNamespace: Microsoft.Network
+    getExpressRouteCircuitLinkFailoverSingleTestDetails:
+        ApiVersion: "2025-07-01"
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2025-07-01/expressRoute.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCircuits/{circuitName}/getCircuitLinkFailoverSingleTestDetails
+        RpNamespace: Microsoft.Network
+    getExpressRouteGatewayFailoverAllTestsDetails:
+        ApiVersion: "2025-07-01"
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2025-07-01/virtualWan.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteGateways/{expressRouteGatewayName}/getFailoverAllTestsDetails
+        RpNamespace: Microsoft.Network
+    getExpressRouteGatewayFailoverSingleTestDetails:
+        ApiVersion: "2025-07-01"
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2025-07-01/virtualWan.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteGateways/{expressRouteGatewayName}/getFailoverSingleTestDetails
+        RpNamespace: Microsoft.Network
+    getExpressRouteGatewayResiliencyInformation:
+        ApiVersion: "2025-07-01"
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2025-07-01/virtualWan.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteGateways/{expressRouteGatewayName}/getResiliencyInformation
+        RpNamespace: Microsoft.Network
+    getExpressRouteGatewayRoutesInformation:
+        ApiVersion: "2025-07-01"
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2025-07-01/virtualWan.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteGateways/{expressRouteGatewayName}/getRoutesInformation
+        RpNamespace: Microsoft.Network
     getIpamPoolUsage:
         ApiVersion: "2024-05-01"
         SpecFilePath: specification/network/resource-manager/Microsoft.Network/Network/stable/2024-05-01/ipAddressManager.json
@@ -10380,107 +10543,107 @@ NotificationHubs:
 OffAzure:
     HyperVSite:
         ApiVersion: "2020-07-07"
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/stable/2020-07-07/migrate.json
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/OffAzure/stable/2020-07-07/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/HyperVSites/{siteName}
         RpNamespace: Microsoft.OffAzure
     HypervClusterControllerCluster:
         ApiVersion: 2023-10-01-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/preview/2023-10-01-preview/migrate.json
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/OffAzure/preview/2023-10-01-preview/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/hypervSites/{siteName}/clusters/{clusterName}
         RpNamespace: Microsoft.OffAzure
     HypervHostController:
         ApiVersion: 2023-10-01-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/preview/2023-10-01-preview/migrate.json
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/OffAzure/preview/2023-10-01-preview/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/hypervSites/{siteName}/hosts/{hostName}
         RpNamespace: Microsoft.OffAzure
     HypervSitesController:
         ApiVersion: 2023-10-01-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/preview/2023-10-01-preview/migrate.json
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/OffAzure/preview/2023-10-01-preview/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/hypervSites/{siteName}
         RpNamespace: Microsoft.OffAzure
     ImportSitesController:
         ApiVersion: 2023-10-01-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/preview/2023-10-01-preview/migrate.json
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/OffAzure/preview/2023-10-01-preview/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/importSites/{siteName}
         RpNamespace: Microsoft.OffAzure
     MasterSite:
         ApiVersion: "2020-07-07"
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/stable/2020-07-07/migrate.json
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/OffAzure/stable/2020-07-07/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/MasterSites/{siteName}
         RpNamespace: Microsoft.OffAzure
     MasterSitesController:
         ApiVersion: 2023-10-01-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/preview/2023-10-01-preview/migrate.json
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/OffAzure/preview/2023-10-01-preview/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/masterSites/{siteName}
         RpNamespace: Microsoft.OffAzure
     PrivateEndpointConnection:
         ApiVersion: "2020-07-07"
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/stable/2020-07-07/migrate.json
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/OffAzure/stable/2020-07-07/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/masterSites/{siteName}/privateEndpointConnections/{peConnectionName}
         RpNamespace: Microsoft.OffAzure
     PrivateEndpointConnectionController:
         ApiVersion: 2023-10-01-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/preview/2023-10-01-preview/migrate.json
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/OffAzure/preview/2023-10-01-preview/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/masterSites/{siteName}/privateEndpointConnections/{peConnectionName}
         RpNamespace: Microsoft.OffAzure
     ServerSitesController:
         ApiVersion: 2023-10-01-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/preview/2023-10-01-preview/migrate.json
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/OffAzure/preview/2023-10-01-preview/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/serverSites/{siteName}
         RpNamespace: Microsoft.OffAzure
     Site:
         ApiVersion: "2020-07-07"
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/stable/2020-07-07/migrate.json
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/OffAzure/stable/2020-07-07/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/VMwareSites/{siteName}
         RpNamespace: Microsoft.OffAzure
     SitesController:
         ApiVersion: 2023-10-01-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/preview/2023-10-01-preview/migrate.json
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/OffAzure/preview/2023-10-01-preview/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/vmwareSites/{siteName}
         RpNamespace: Microsoft.OffAzure
     SqlDiscoverySiteDataSourceController:
         ApiVersion: 2023-10-01-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/preview/2023-10-01-preview/migrate.json
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/OffAzure/preview/2023-10-01-preview/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/masterSites/{siteName}/sqlSites/{sqlSiteName}/discoverySiteDataSources/{discoverySiteDataSourceName}
         RpNamespace: Microsoft.OffAzure
     SqlSitesController:
         ApiVersion: 2023-10-01-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/preview/2023-10-01-preview/migrate.json
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/OffAzure/preview/2023-10-01-preview/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/masterSites/{siteName}/sqlSites/{sqlSiteName}
         RpNamespace: Microsoft.OffAzure
     VCenter:
         ApiVersion: "2020-07-07"
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/stable/2020-07-07/migrate.json
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/OffAzure/stable/2020-07-07/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/VMwareSites/{siteName}/vCenters/{vcenterName}
         RpNamespace: Microsoft.OffAzure
     VcenterController:
         ApiVersion: 2023-10-01-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/preview/2023-10-01-preview/migrate.json
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/OffAzure/preview/2023-10-01-preview/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/vmwareSites/{siteName}/vcenters/{vcenterName}
         RpNamespace: Microsoft.OffAzure
     WebAppDiscoverySiteDataSourcesController:
         ApiVersion: 2023-10-01-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/preview/2023-10-01-preview/migrate.json
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/OffAzure/preview/2023-10-01-preview/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/masterSites/{siteName}/webAppSites/{webAppSiteName}/discoverySiteDataSources/{discoverySiteDataSourceName}
         RpNamespace: Microsoft.OffAzure
     WebAppSitesController:
         ApiVersion: 2023-10-01-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/preview/2023-10-01-preview/migrate.json
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/OffAzure/preview/2023-10-01-preview/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/masterSites/{siteName}/webAppSites/{webAppSiteName}
         RpNamespace: Microsoft.OffAzure
     listHypervSitesControllerHealthSummary:
         ApiVersion: 2023-10-01-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/preview/2023-10-01-preview/migrate.json
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/OffAzure/preview/2023-10-01-preview/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/hypervSites/{siteName}/listHealthSummary
         RpNamespace: Microsoft.OffAzure
     listServerSitesControllerHealthSummary:
         ApiVersion: 2023-10-01-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/preview/2023-10-01-preview/migrate.json
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/OffAzure/preview/2023-10-01-preview/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/serverSites/{siteName}/listHealthSummary
         RpNamespace: Microsoft.OffAzure
     listSitesControllerHealthSummary:
         ApiVersion: 2023-10-01-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/preview/2023-10-01-preview/migrate.json
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.OffAzure/OffAzure/preview/2023-10-01-preview/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/vmwareSites/{siteName}/listHealthSummary
         RpNamespace: Microsoft.OffAzure
 OffAzureSpringBoot:
@@ -10574,7 +10737,7 @@ OperationalInsights:
         RpNamespace: Microsoft.OperationalInsights
     SummaryLog:
         ApiVersion: "2025-07-01"
-        SpecFilePath: specification/operationalinsights/resource-manager/Microsoft.OperationalInsights/OperationalInsights/stable/2025-07-01/SummaryLogs.json
+        SpecFilePath: specification/operationalinsights/resource-manager/Microsoft.OperationalInsights/OperationalInsights/stable/2025-07-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/summaryLogs/{summaryLogsName}
         RpNamespace: Microsoft.OperationalInsights
     Table:
@@ -10703,57 +10866,57 @@ Peering:
 PolicyInsights:
     AttestationAtResource:
         ApiVersion: "2024-10-01"
-        SpecFilePath: specification/policyinsights/resource-manager/Microsoft.PolicyInsights/PolicyInsights/stable/2024-10-01/attestations.json
+        SpecFilePath: specification/policyinsights/resource-manager/Microsoft.PolicyInsights/PolicyInsights/stable/2024-10-01/openapi.json
         ResourceUri: /{resourceId}/providers/Microsoft.PolicyInsights/attestations/{attestationName}
         RpNamespace: Microsoft.PolicyInsights
     AttestationAtResourceGroup:
         ApiVersion: "2024-10-01"
-        SpecFilePath: specification/policyinsights/resource-manager/Microsoft.PolicyInsights/PolicyInsights/stable/2024-10-01/attestations.json
+        SpecFilePath: specification/policyinsights/resource-manager/Microsoft.PolicyInsights/PolicyInsights/stable/2024-10-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PolicyInsights/attestations/{attestationName}
         RpNamespace: Microsoft.PolicyInsights
     AttestationAtSubscription:
         ApiVersion: "2024-10-01"
-        SpecFilePath: specification/policyinsights/resource-manager/Microsoft.PolicyInsights/PolicyInsights/stable/2024-10-01/attestations.json
+        SpecFilePath: specification/policyinsights/resource-manager/Microsoft.PolicyInsights/PolicyInsights/stable/2024-10-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/attestations/{attestationName}
         RpNamespace: Microsoft.PolicyInsights
     RemediationAtManagementGroup:
         ApiVersion: "2024-10-01"
-        SpecFilePath: specification/policyinsights/resource-manager/Microsoft.PolicyInsights/PolicyInsights/stable/2024-10-01/remediations.json
+        SpecFilePath: specification/policyinsights/resource-manager/Microsoft.PolicyInsights/PolicyInsights/stable/2024-10-01/openapi.json
         ResourceUri: /providers/{managementGroupsNamespace}/managementGroups/{managementGroupId}/providers/Microsoft.PolicyInsights/remediations/{remediationName}
         RpNamespace: Microsoft.PolicyInsights
     RemediationAtResource:
         ApiVersion: "2024-10-01"
-        SpecFilePath: specification/policyinsights/resource-manager/Microsoft.PolicyInsights/PolicyInsights/stable/2024-10-01/remediations.json
+        SpecFilePath: specification/policyinsights/resource-manager/Microsoft.PolicyInsights/PolicyInsights/stable/2024-10-01/openapi.json
         ResourceUri: /{resourceId}/providers/Microsoft.PolicyInsights/remediations/{remediationName}
         RpNamespace: Microsoft.PolicyInsights
     RemediationAtResourceGroup:
         ApiVersion: "2024-10-01"
-        SpecFilePath: specification/policyinsights/resource-manager/Microsoft.PolicyInsights/PolicyInsights/stable/2024-10-01/remediations.json
+        SpecFilePath: specification/policyinsights/resource-manager/Microsoft.PolicyInsights/PolicyInsights/stable/2024-10-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PolicyInsights/remediations/{remediationName}
         RpNamespace: Microsoft.PolicyInsights
     RemediationAtSubscription:
         ApiVersion: "2024-10-01"
-        SpecFilePath: specification/policyinsights/resource-manager/Microsoft.PolicyInsights/PolicyInsights/stable/2024-10-01/remediations.json
+        SpecFilePath: specification/policyinsights/resource-manager/Microsoft.PolicyInsights/PolicyInsights/stable/2024-10-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/remediations/{remediationName}
         RpNamespace: Microsoft.PolicyInsights
     listRemediationDeploymentsAtManagementGroup:
         ApiVersion: "2024-10-01"
-        SpecFilePath: specification/policyinsights/resource-manager/Microsoft.PolicyInsights/PolicyInsights/stable/2024-10-01/remediations.json
+        SpecFilePath: specification/policyinsights/resource-manager/Microsoft.PolicyInsights/PolicyInsights/stable/2024-10-01/openapi.json
         ResourceUri: /providers/{managementGroupsNamespace}/managementGroups/{managementGroupId}/providers/Microsoft.PolicyInsights/remediations/{remediationName}/listDeployments
         RpNamespace: Microsoft.PolicyInsights
     listRemediationDeploymentsAtResource:
         ApiVersion: "2024-10-01"
-        SpecFilePath: specification/policyinsights/resource-manager/Microsoft.PolicyInsights/PolicyInsights/stable/2024-10-01/remediations.json
+        SpecFilePath: specification/policyinsights/resource-manager/Microsoft.PolicyInsights/PolicyInsights/stable/2024-10-01/openapi.json
         ResourceUri: /{resourceId}/providers/Microsoft.PolicyInsights/remediations/{remediationName}/listDeployments
         RpNamespace: Microsoft.PolicyInsights
     listRemediationDeploymentsAtResourceGroup:
         ApiVersion: "2024-10-01"
-        SpecFilePath: specification/policyinsights/resource-manager/Microsoft.PolicyInsights/PolicyInsights/stable/2024-10-01/remediations.json
+        SpecFilePath: specification/policyinsights/resource-manager/Microsoft.PolicyInsights/PolicyInsights/stable/2024-10-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PolicyInsights/remediations/{remediationName}/listDeployments
         RpNamespace: Microsoft.PolicyInsights
     listRemediationDeploymentsAtSubscription:
         ApiVersion: "2024-10-01"
-        SpecFilePath: specification/policyinsights/resource-manager/Microsoft.PolicyInsights/PolicyInsights/stable/2024-10-01/remediations.json
+        SpecFilePath: specification/policyinsights/resource-manager/Microsoft.PolicyInsights/PolicyInsights/stable/2024-10-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/remediations/{remediationName}/listDeployments
         RpNamespace: Microsoft.PolicyInsights
 Portal:
@@ -10833,17 +10996,17 @@ PowerBIDedicated:
 PowerPlatform:
     Account:
         ApiVersion: 2020-10-30-preview
-        SpecFilePath: specification/powerplatform/resource-manager/Microsoft.PowerPlatform/PowerPlatform/preview/2020-10-30-preview/account.json
+        SpecFilePath: specification/powerplatform/resource-manager/Microsoft.PowerPlatform/PowerPlatform/preview/2020-10-30-preview/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerPlatform/accounts/{accountName}
         RpNamespace: Microsoft.PowerPlatform
     EnterprisePolicy:
         ApiVersion: 2020-10-30-preview
-        SpecFilePath: specification/powerplatform/resource-manager/Microsoft.PowerPlatform/PowerPlatform/preview/2020-10-30-preview/enterprisePolicy.json
+        SpecFilePath: specification/powerplatform/resource-manager/Microsoft.PowerPlatform/PowerPlatform/preview/2020-10-30-preview/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerPlatform/enterprisePolicies/{enterprisePolicyName}
         RpNamespace: Microsoft.PowerPlatform
     PrivateEndpointConnection:
         ApiVersion: 2020-10-30-preview
-        SpecFilePath: specification/powerplatform/resource-manager/Microsoft.PowerPlatform/PowerPlatform/preview/2020-10-30-preview/privateEndpointConnection.json
+        SpecFilePath: specification/powerplatform/resource-manager/Microsoft.PowerPlatform/PowerPlatform/preview/2020-10-30-preview/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerPlatform/enterprisePolicies/{enterprisePolicyName}/privateEndpointConnections/{privateEndpointConnectionName}
         RpNamespace: Microsoft.PowerPlatform
 PrivateDns:
@@ -10868,6 +11031,12 @@ ProfessionalService:
         SpecFilePath: specification/professionalservice/resource-manager/Microsoft.ProfessionalService/ProfessionalService/preview/2023-07-01-preview/professionalservice.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ProfessionalService/resources/{resourceName}
         RpNamespace: Microsoft.ProfessionalService
+ProgramEnrollment:
+    EduEnrollment:
+        ApiVersion: 2026-03-01-preview
+        SpecFilePath: specification/programenrollment/resource-manager/Microsoft.ProgramEnrollment/ProgramEnrollment/preview/2026-03-01-preview/openapi.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ProgramEnrollment/eduEnrollments/{enrollmentName}
+        RpNamespace: Microsoft.ProgramEnrollment
 ProgrammableConnectivity:
     Gateway:
         ApiVersion: 2024-01-15-preview
@@ -11194,33 +11363,33 @@ Redis:
         RpNamespace: Microsoft.Cache
 RedisEnterprise:
     AccessPolicyAssignment:
-        ApiVersion: 2025-05-01-preview
-        SpecFilePath: specification/redisenterprise/resource-manager/Microsoft.Cache/RedisEnterprise/preview/2025-05-01-preview/redisenterprise.json
+        ApiVersion: "2025-07-01"
+        SpecFilePath: specification/redisenterprise/resource-manager/Microsoft.Cache/RedisEnterprise/stable/2025-07-01/redisenterprise.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/databases/{databaseName}/accessPolicyAssignments/{accessPolicyAssignmentName}
         RpNamespace: Microsoft.Cache
     Database:
-        ApiVersion: 2025-05-01-preview
-        SpecFilePath: specification/redisenterprise/resource-manager/Microsoft.Cache/RedisEnterprise/preview/2025-05-01-preview/redisenterprise.json
+        ApiVersion: "2025-07-01"
+        SpecFilePath: specification/redisenterprise/resource-manager/Microsoft.Cache/RedisEnterprise/stable/2025-07-01/redisenterprise.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/databases/{databaseName}
         RpNamespace: Microsoft.Cache
     PrivateEndpointConnection:
-        ApiVersion: 2025-05-01-preview
-        SpecFilePath: specification/redisenterprise/resource-manager/Microsoft.Cache/RedisEnterprise/preview/2025-05-01-preview/redisenterprise.json
+        ApiVersion: "2025-07-01"
+        SpecFilePath: specification/redisenterprise/resource-manager/Microsoft.Cache/RedisEnterprise/stable/2025-07-01/redisenterprise.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}
         RpNamespace: Microsoft.Cache
     RedisEnterprise:
-        ApiVersion: 2025-05-01-preview
-        SpecFilePath: specification/redisenterprise/resource-manager/Microsoft.Cache/RedisEnterprise/preview/2025-05-01-preview/redisenterprise.json
+        ApiVersion: "2025-07-01"
+        SpecFilePath: specification/redisenterprise/resource-manager/Microsoft.Cache/RedisEnterprise/stable/2025-07-01/redisenterprise.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}
         RpNamespace: Microsoft.Cache
     listDatabaseKeys:
-        ApiVersion: 2025-05-01-preview
-        SpecFilePath: specification/redisenterprise/resource-manager/Microsoft.Cache/RedisEnterprise/preview/2025-05-01-preview/redisenterprise.json
+        ApiVersion: "2025-07-01"
+        SpecFilePath: specification/redisenterprise/resource-manager/Microsoft.Cache/RedisEnterprise/stable/2025-07-01/redisenterprise.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/databases/{databaseName}/listKeys
         RpNamespace: Microsoft.Cache
     listRedisEnterpriseSkusForScaling:
-        ApiVersion: 2025-05-01-preview
-        SpecFilePath: specification/redisenterprise/resource-manager/Microsoft.Cache/RedisEnterprise/preview/2025-05-01-preview/redisenterprise.json
+        ApiVersion: "2025-07-01"
+        SpecFilePath: specification/redisenterprise/resource-manager/Microsoft.Cache/RedisEnterprise/stable/2025-07-01/redisenterprise.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/listSkusForScaling
         RpNamespace: Microsoft.Cache
 Relationships:
@@ -11593,17 +11762,17 @@ Security:
         RpNamespace: Microsoft.Security
     Assignment:
         ApiVersion: 2021-08-01-preview
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/preview/2021-08-01-preview/assignments.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/preview/2021-08-01-preview/security-Standards.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/assignments/{assignmentId}
         RpNamespace: Microsoft.Security
     Automation:
         ApiVersion: 2023-12-01-preview
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/preview/2023-12-01-preview/automations.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/preview/2023-12-01-preview/security-Automations.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/automations/{automationName}
         RpNamespace: Microsoft.Security
     CustomRecommendation:
         ApiVersion: "2024-08-01"
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/stable/2024-08-01/customRecommedations.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/stable/2024-08-01/security-SecurityStandards.json
         ResourceUri: /{scope}/providers/Microsoft.Security/customRecommendations/{customRecommendationName}
         RpNamespace: Microsoft.Security
     DefenderForStorage:
@@ -11618,27 +11787,27 @@ Security:
         RpNamespace: Microsoft.Security
     DeviceSecurityGroup:
         ApiVersion: "2019-08-01"
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/stable/2019-08-01/deviceSecurityGroups.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/stable/2019-08-01/security-IoTSecurity.json
         ResourceUri: /{resourceId}/providers/Microsoft.Security/deviceSecurityGroups/{deviceSecurityGroupName}
         RpNamespace: Microsoft.Security
     GovernanceAssignment:
         ApiVersion: 2022-01-01-preview
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/preview/2022-01-01-preview/governanceAssignments.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/preview/2022-01-01-preview/security-Governance.json
         ResourceUri: /{scope}/providers/Microsoft.Security/assessments/{assessmentName}/governanceAssignments/{assignmentKey}
         RpNamespace: Microsoft.Security
     GovernanceRule:
         ApiVersion: 2022-01-01-preview
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/preview/2022-01-01-preview/governanceRules.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/preview/2022-01-01-preview/security-Governance.json
         ResourceUri: /{scope}/providers/Microsoft.Security/governanceRules/{ruleId}
         RpNamespace: Microsoft.Security
     IotSecuritySolution:
         ApiVersion: "2019-08-01"
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/stable/2019-08-01/iotSecuritySolutions.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/stable/2019-08-01/security-IoTSecurity.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/iotSecuritySolutions/{solutionName}
         RpNamespace: Microsoft.Security
     JitNetworkAccessPolicy:
         ApiVersion: "2020-01-01"
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/stable/2020-01-01/jitNetworkAccessPolicies.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/stable/2020-01-01/security-SecuritySolutions.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/locations/{ascLocation}/jitNetworkAccessPolicies/{jitNetworkAccessPolicyName}
         RpNamespace: Microsoft.Security
     Pricing:
@@ -11668,7 +11837,7 @@ Security:
         RpNamespace: Microsoft.Security
     SecurityContact:
         ApiVersion: 2023-12-01-preview
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/preview/2023-12-01-preview/securityContacts.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/preview/2023-12-01-preview/security-Automations.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.Security/securityContacts/{securityContactName}
         RpNamespace: Microsoft.Security
     SecurityOperator:
@@ -11678,12 +11847,12 @@ Security:
         RpNamespace: Microsoft.Security
     SecurityStandard:
         ApiVersion: "2024-08-01"
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/stable/2024-08-01/securityStandards.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/stable/2024-08-01/security-SecurityStandards.json
         ResourceUri: /{scope}/providers/Microsoft.Security/securityStandards/{standardId}
         RpNamespace: Microsoft.Security
     ServerVulnerabilityAssessment:
         ApiVersion: "2020-01-01"
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/stable/2020-01-01/serverVulnerabilityAssessments.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/stable/2020-01-01/security-SecuritySolutions.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceNamespace}/{resourceType}/{resourceName}/providers/Microsoft.Security/serverVulnerabilityAssessments/{serverVulnerabilityAssessment}
         RpNamespace: Microsoft.Security
     ServerVulnerabilityAssessmentsSetting:
@@ -11698,17 +11867,17 @@ Security:
         RpNamespace: Microsoft.Security
     Standard:
         ApiVersion: 2021-08-01-preview
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/preview/2021-08-01-preview/standards.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/preview/2021-08-01-preview/security-Standards.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/standards/{standardId}
         RpNamespace: Microsoft.Security
     StandardAssignment:
         ApiVersion: "2024-08-01"
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/stable/2024-08-01/standardAssignments.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/stable/2024-08-01/security-SecurityStandards.json
         ResourceUri: /{resourceId}/providers/Microsoft.Security/standardAssignments/{standardAssignmentName}
         RpNamespace: Microsoft.Security
     WorkspaceSetting:
         ApiVersion: 2017-08-01-preview
-        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/preview/2017-08-01-preview/workspaceSettings.json
+        SpecFilePath: specification/security/resource-manager/Microsoft.Security/Security/preview/2017-08-01-preview/security-LegacySettings.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.Security/workspaceSettings/{workspaceSettingName}
         RpNamespace: Microsoft.Security
     listAzureDevOpsOrgAvailable:
@@ -11904,8 +12073,8 @@ SecurityInsights:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/onboardingStates/{sentinelOnboardingStateName}
         RpNamespace: Microsoft.SecurityInsights
     SourceControl:
-        ApiVersion: 2023-05-01-preview
-        SpecFilePath: specification/securityinsights/resource-manager/Microsoft.SecurityInsights/SecurityInsights/preview/2023-05-01-preview/SourceControls.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/securityinsights/resource-manager/Microsoft.SecurityInsights/SecurityInsights/stable/2025-09-01/SourceControls.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/sourcecontrols/{sourceControlId}
         RpNamespace: Microsoft.SecurityInsights
     ThreatIntelligenceIndicator:
@@ -11959,8 +12128,8 @@ SecurityInsights:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/enrichment/{enrichmentType}/listGeodataByIp
         RpNamespace: Microsoft.SecurityInsights
     listSourceControlRepositories:
-        ApiVersion: 2025-01-01-preview
-        SpecFilePath: specification/securityinsights/resource-manager/Microsoft.SecurityInsights/SecurityInsights/preview/2025-01-01-preview/SourceControls.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/securityinsights/resource-manager/Microsoft.SecurityInsights/SecurityInsights/stable/2025-09-01/SourceControls.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/listRepositories
         RpNamespace: Microsoft.SecurityInsights
     listWhoisByDomain:
@@ -12687,6 +12856,16 @@ Storage:
         SpecFilePath: specification/storage/resource-manager/Microsoft.Storage/stable/2024-01-01/blob.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/{BlobServicesName}
         RpNamespace: Microsoft.Storage
+    Connector:
+        ApiVersion: "2025-08-01"
+        SpecFilePath: specification/storage/resource-manager/Microsoft.Storage/stable/2025-08-01/openapi.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/connectors/{connectorName}
+        RpNamespace: Microsoft.Storage
+    DataShare:
+        ApiVersion: "2025-08-01"
+        SpecFilePath: specification/storage/resource-manager/Microsoft.Storage/stable/2025-08-01/openapi.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/dataShares/{dataShareName}
+        RpNamespace: Microsoft.Storage
     EncryptionScope:
         ApiVersion: "2024-01-01"
         SpecFilePath: specification/storage/resource-manager/Microsoft.Storage/stable/2024-01-01/storage.json
@@ -12817,7 +12996,7 @@ StorageCache:
 StorageDiscovery:
     StorageDiscoveryWorkspace:
         ApiVersion: 2025-06-01-preview
-        SpecFilePath: specification/storagediscovery/resource-manager/Microsoft.StorageDiscovery/preview/2025-06-01-preview/storageDiscoveryWorkspace.json
+        SpecFilePath: specification/storagediscovery/resource-manager/Microsoft.StorageDiscovery/StorageDiscovery/preview/2025-06-01-preview/storageDiscoveryWorkspace.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageDiscovery/storageDiscoveryWorkspaces/{storageDiscoveryWorkspaceName}
         RpNamespace: Microsoft.StorageDiscovery
 StorageMover:
@@ -13105,93 +13284,93 @@ Synapse:
 Syntex:
     DocumentProcessor:
         ApiVersion: 2022-09-15-preview
-        SpecFilePath: specification/syntex/resource-manager/Microsoft.Syntex/preview/2022-09-15-preview/syntex.json
+        SpecFilePath: specification/syntex/resource-manager/Microsoft.Syntex/Syntex/preview/2022-09-15-preview/syntex.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Syntex/documentProcessors/{processorName}
         RpNamespace: Microsoft.Syntex
 TestBase:
     ActionRequest:
         ApiVersion: 2023-11-01-preview
-        SpecFilePath: specification/testbase/resource-manager/Microsoft.TestBase/preview/2023-11-01-preview/actionrequest.json
+        SpecFilePath: specification/testbase/resource-manager/Microsoft.TestBase/TestBase/preview/2023-11-01-preview/actionrequest.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/actionRequests/{actionRequestName}
         RpNamespace: Microsoft.TestBase
     Credential:
         ApiVersion: 2023-11-01-preview
-        SpecFilePath: specification/testbase/resource-manager/Microsoft.TestBase/preview/2023-11-01-preview/credential.json
+        SpecFilePath: specification/testbase/resource-manager/Microsoft.TestBase/TestBase/preview/2023-11-01-preview/credential.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/credentials/{credentialName}
         RpNamespace: Microsoft.TestBase
     CustomImage:
         ApiVersion: 2023-11-01-preview
-        SpecFilePath: specification/testbase/resource-manager/Microsoft.TestBase/preview/2023-11-01-preview/customimage.json
+        SpecFilePath: specification/testbase/resource-manager/Microsoft.TestBase/TestBase/preview/2023-11-01-preview/customimage.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/customImages/{customImageName}
         RpNamespace: Microsoft.TestBase
     CustomerEvent:
         ApiVersion: 2023-11-01-preview
-        SpecFilePath: specification/testbase/resource-manager/Microsoft.TestBase/preview/2023-11-01-preview/testbase.json
+        SpecFilePath: specification/testbase/resource-manager/Microsoft.TestBase/TestBase/preview/2023-11-01-preview/testbase.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/customerEvents/{customerEventName}
         RpNamespace: Microsoft.TestBase
     DraftPackage:
         ApiVersion: 2023-11-01-preview
-        SpecFilePath: specification/testbase/resource-manager/Microsoft.TestBase/preview/2023-11-01-preview/draftpackage.json
+        SpecFilePath: specification/testbase/resource-manager/Microsoft.TestBase/TestBase/preview/2023-11-01-preview/draftpackage.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/draftPackages/{draftPackageName}
         RpNamespace: Microsoft.TestBase
     FavoriteProcess:
         ApiVersion: 2023-11-01-preview
-        SpecFilePath: specification/testbase/resource-manager/Microsoft.TestBase/preview/2023-11-01-preview/testbase.json
+        SpecFilePath: specification/testbase/resource-manager/Microsoft.TestBase/TestBase/preview/2023-11-01-preview/testbase.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/packages/{packageName}/favoriteProcesses/{favoriteProcessResourceName}
         RpNamespace: Microsoft.TestBase
     ImageDefinition:
         ApiVersion: 2023-11-01-preview
-        SpecFilePath: specification/testbase/resource-manager/Microsoft.TestBase/preview/2023-11-01-preview/customimage.json
+        SpecFilePath: specification/testbase/resource-manager/Microsoft.TestBase/TestBase/preview/2023-11-01-preview/customimage.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/imageDefinitions/{imageDefinitionName}
         RpNamespace: Microsoft.TestBase
     Package:
         ApiVersion: 2023-11-01-preview
-        SpecFilePath: specification/testbase/resource-manager/Microsoft.TestBase/preview/2023-11-01-preview/testbase.json
+        SpecFilePath: specification/testbase/resource-manager/Microsoft.TestBase/TestBase/preview/2023-11-01-preview/testbase.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/packages/{packageName}
         RpNamespace: Microsoft.TestBase
     TestBaseAccount:
         ApiVersion: 2023-11-01-preview
-        SpecFilePath: specification/testbase/resource-manager/Microsoft.TestBase/preview/2023-11-01-preview/testbase.json
+        SpecFilePath: specification/testbase/resource-manager/Microsoft.TestBase/TestBase/preview/2023-11-01-preview/testbase.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}
         RpNamespace: Microsoft.TestBase
     getBillingHubServiceFreeHourBalance:
         ApiVersion: 2023-11-01-preview
-        SpecFilePath: specification/testbase/resource-manager/Microsoft.TestBase/preview/2023-11-01-preview/testbase.json
+        SpecFilePath: specification/testbase/resource-manager/Microsoft.TestBase/TestBase/preview/2023-11-01-preview/testbase.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/getFreeHourBalance
         RpNamespace: Microsoft.TestBase
     getBillingHubServiceUsage:
         ApiVersion: 2023-11-01-preview
-        SpecFilePath: specification/testbase/resource-manager/Microsoft.TestBase/preview/2023-11-01-preview/testbase.json
+        SpecFilePath: specification/testbase/resource-manager/Microsoft.TestBase/TestBase/preview/2023-11-01-preview/testbase.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/getUsage
         RpNamespace: Microsoft.TestBase
     getDraftPackagePath:
         ApiVersion: 2023-11-01-preview
-        SpecFilePath: specification/testbase/resource-manager/Microsoft.TestBase/preview/2023-11-01-preview/draftpackage.json
+        SpecFilePath: specification/testbase/resource-manager/Microsoft.TestBase/TestBase/preview/2023-11-01-preview/draftpackage.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/draftPackages/{draftPackageName}/getPath
         RpNamespace: Microsoft.TestBase
     getPackageDownloadURL:
         ApiVersion: 2023-11-01-preview
-        SpecFilePath: specification/testbase/resource-manager/Microsoft.TestBase/preview/2023-11-01-preview/testbase.json
+        SpecFilePath: specification/testbase/resource-manager/Microsoft.TestBase/TestBase/preview/2023-11-01-preview/testbase.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/packages/{packageName}/getDownloadUrl
         RpNamespace: Microsoft.TestBase
     getTestBaseAccountFileUploadUrl:
         ApiVersion: 2023-11-01-preview
-        SpecFilePath: specification/testbase/resource-manager/Microsoft.TestBase/preview/2023-11-01-preview/testbase.json
+        SpecFilePath: specification/testbase/resource-manager/Microsoft.TestBase/TestBase/preview/2023-11-01-preview/testbase.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/getFileUploadUrl
         RpNamespace: Microsoft.TestBase
     getTestResultConsoleLogDownloadURL:
         ApiVersion: 2023-11-01-preview
-        SpecFilePath: specification/testbase/resource-manager/Microsoft.TestBase/preview/2023-11-01-preview/testbase.json
+        SpecFilePath: specification/testbase/resource-manager/Microsoft.TestBase/TestBase/preview/2023-11-01-preview/testbase.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/packages/{packageName}/testResults/{testResultName}/getConsoleLogDownloadUrl
         RpNamespace: Microsoft.TestBase
     getTestResultDownloadURL:
         ApiVersion: 2023-11-01-preview
-        SpecFilePath: specification/testbase/resource-manager/Microsoft.TestBase/preview/2023-11-01-preview/testbase.json
+        SpecFilePath: specification/testbase/resource-manager/Microsoft.TestBase/TestBase/preview/2023-11-01-preview/testbase.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/packages/{packageName}/testResults/{testResultName}/getDownloadUrl
         RpNamespace: Microsoft.TestBase
     getTestResultVideoDownloadURL:
         ApiVersion: 2023-11-01-preview
-        SpecFilePath: specification/testbase/resource-manager/Microsoft.TestBase/preview/2023-11-01-preview/testbase.json
+        SpecFilePath: specification/testbase/resource-manager/Microsoft.TestBase/TestBase/preview/2023-11-01-preview/testbase.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/packages/{packageName}/testResults/{testResultName}/getVideoDownloadUrl
         RpNamespace: Microsoft.TestBase
 TimeSeriesInsights:
@@ -13275,23 +13454,12 @@ VirtualMachineImages:
         SpecFilePath: specification/imagebuilder/resource-manager/Microsoft.VirtualMachineImages/ImageBuilder/stable/2024-02-01/imagebuilder.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VirtualMachineImages/imageTemplates/{imageTemplateName}
         RpNamespace: Microsoft.VirtualMachineImages
-VoiceServices:
-    CommunicationsGateway:
-        ApiVersion: "2023-09-01"
-        SpecFilePath: specification/voiceservices/resource-manager/Microsoft.VoiceServices/stable/2023-09-01/voiceservices.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VoiceServices/communicationsGateways/{communicationsGatewayName}
-        RpNamespace: Microsoft.VoiceServices
-    Contact:
-        ApiVersion: 2022-12-01-preview
-        SpecFilePath: specification/voiceservices/resource-manager/Microsoft.VoiceServices/preview/2022-12-01-preview/openapi.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VoiceServices/communicationsGateways/{communicationsGatewayName}/contacts/{contactName}
-        RpNamespace: Microsoft.VoiceServices
-    TestLine:
-        ApiVersion: "2023-09-01"
-        SpecFilePath: specification/voiceservices/resource-manager/Microsoft.VoiceServices/stable/2023-09-01/voiceservices.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VoiceServices/communicationsGateways/{communicationsGatewayName}/testLines/{testLineName}
-        RpNamespace: Microsoft.VoiceServices
 Web:
+    AiGateway:
+        ApiVersion: 2026-03-01-preview
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/preview/2026-03-01-preview/openapi.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/aigateways/{name}
+        RpNamespace: Microsoft.Web
     AppServiceEnvironment:
         ApiVersion: "2024-11-01"
         SpecFilePath: specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/AppServiceEnvironments.json
@@ -13983,7 +14151,7 @@ Widget:
 WindowsESU:
     MultipleActivationKey:
         ApiVersion: 2019-09-16-preview
-        SpecFilePath: specification/windowsesu/resource-manager/Microsoft.WindowsESU/preview/2019-09-16-preview/windowsesu.json
+        SpecFilePath: specification/windowsesu/resource-manager/Microsoft.WindowsESU/WindowsESU/preview/2019-09-16-preview/windowsesu.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.WindowsESU/multipleActivationKeys/{multipleActivationKeyName}
         RpNamespace: Microsoft.WindowsESU
 WindowsIoT:

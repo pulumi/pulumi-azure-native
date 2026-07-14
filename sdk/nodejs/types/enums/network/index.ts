@@ -1062,6 +1062,22 @@ export const IkeIntegrity = {
  */
 export type IkeIntegrity = (typeof IkeIntegrity)[keyof typeof IkeIntegrity];
 
+export const InterconnectGroupScope = {
+    /**
+     * No interconnect group scope.
+     */
+    None: "None",
+    /**
+     * InfiniBand interconnect group scope.
+     */
+    InfiniBand: "InfiniBand",
+} as const;
+
+/**
+ * Scope of interconnect group resource.
+ */
+export type InterconnectGroupScope = (typeof InterconnectGroupScope)[keyof typeof InterconnectGroupScope];
+
 export const IpAllocationType = {
     Undefined: "Undefined",
     Hypernet: "Hypernet",
@@ -1714,6 +1730,9 @@ export const SensitivityType = {
 export type SensitivityType = (typeof SensitivityType)[keyof typeof SensitivityType];
 
 export const ServiceGatewaySkuName = {
+    /**
+     * Standard
+     */
     Standard: "Standard",
 } as const;
 
@@ -1723,6 +1742,9 @@ export const ServiceGatewaySkuName = {
 export type ServiceGatewaySkuName = (typeof ServiceGatewaySkuName)[keyof typeof ServiceGatewaySkuName];
 
 export const ServiceGatewaySkuTier = {
+    /**
+     * Regional
+     */
     Regional: "Regional",
 } as const;
 
@@ -1752,6 +1774,22 @@ export const SharingScope = {
  * Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.
  */
 export type SharingScope = (typeof SharingScope)[keyof typeof SharingScope];
+
+export const SubgroupProfileScope = {
+    /**
+     * No subgroup profile scope.
+     */
+    None: "None",
+    /**
+     * VerticalConnect subgroup profile scope.
+     */
+    VerticalConnect: "VerticalConnect",
+} as const;
+
+/**
+ * Scope of the subgroup profile.
+ */
+export type SubgroupProfileScope = (typeof SubgroupProfileScope)[keyof typeof SubgroupProfileScope];
 
 export const SyncMode = {
     Automatic: "Automatic",

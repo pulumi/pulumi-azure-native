@@ -106,7 +106,7 @@ class DiscoveryRule(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-05-01-preview.
 
-        Other available API versions: 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudhealth [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2026-01-01-preview, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudhealth [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -127,7 +127,7 @@ class DiscoveryRule(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-05-01-preview.
 
-        Other available API versions: 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudhealth [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2026-01-01-preview, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudhealth [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -170,7 +170,7 @@ class DiscoveryRule(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cloudhealth/v20250501preview:DiscoveryRule"), pulumi.Alias(type_="azure-native:cloudhealth/v20260101preview:DiscoveryRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cloudhealth/v20250501preview:DiscoveryRule"), pulumi.Alias(type_="azure-native:cloudhealth/v20260101preview:DiscoveryRule"), pulumi.Alias(type_="azure-native:cloudhealth/v20260501preview:DiscoveryRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DiscoveryRule, __self__).__init__(
             'azure-native:cloudhealth:DiscoveryRule',

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Security.Outputs
 {
 
     /// <summary>
-    /// A status describing the success/failure of the extension's enablement/disablement operation.
+    /// A status describing the success/failure of the enablement/disablement operation.
     /// </summary>
     [OutputType]
     public sealed class OperationStatusResponse

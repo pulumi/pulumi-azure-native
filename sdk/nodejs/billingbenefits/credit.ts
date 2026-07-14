@@ -70,7 +70,7 @@ export class Credit extends pulumi.CustomResource {
      */
     declare public readonly endAt: pulumi.Output<string | undefined>;
     /**
-     * The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+     * The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
      */
     declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
@@ -112,7 +112,7 @@ export class Credit extends pulumi.CustomResource {
     /**
      * The reason for the credit. Not required if not applicable.
      */
-    declare public /*out*/ readonly reason: pulumi.Output<outputs.billingbenefits.CreditReasonResponse | undefined>;
+    declare public readonly reason: pulumi.Output<outputs.billingbenefits.CreditReasonResponse | undefined>;
     /**
      * Fully-qualified resource identifier of the resource. Format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/{benefitType}/{benefitName}.
      */
@@ -172,6 +172,7 @@ export class Credit extends pulumi.CustomResource {
             resourceInputs["plan"] = args?.plan;
             resourceInputs["policies"] = args?.policies;
             resourceInputs["productCode"] = args?.productCode;
+            resourceInputs["reason"] = args?.reason;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["resourceId"] = args?.resourceId;
             resourceInputs["sku"] = args?.sku;
@@ -185,7 +186,6 @@ export class Credit extends pulumi.CustomResource {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["reason"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -275,6 +275,10 @@ export interface CreditArgs {
      * Product UPN for the credit type
      */
     productCode?: pulumi.Input<string>;
+    /**
+     * The reason for the credit. Not required if not applicable.
+     */
+    reason?: pulumi.Input<inputs.billingbenefits.CreditReasonArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

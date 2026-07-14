@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Portal
     /// 
     /// Uses Azure REST API version 2022-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-09-01-preview.
     /// 
-    /// Other available API versions: 2019-01-01-preview, 2020-09-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native portal [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2019-01-01-preview, 2020-09-01-preview, 2025-04-01-preview, 2026-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native portal [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:portal:Dashboard")]
     public partial class Dashboard : global::Pulumi.CustomResource
@@ -92,6 +92,7 @@ namespace Pulumi.AzureNative.Portal
                     new global::Pulumi.Alias { Type = "azure-native:portal/v20200901preview:Dashboard" },
                     new global::Pulumi.Alias { Type = "azure-native:portal/v20221201preview:Dashboard" },
                     new global::Pulumi.Alias { Type = "azure-native:portal/v20250401preview:Dashboard" },
+                    new global::Pulumi.Alias { Type = "azure-native:portal/v20260401:Dashboard" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Storage
     /// 
     /// Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
     /// 
-    /// Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01, 2025-08-01, 2026-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:StorageAccount")]
     public partial class StorageAccount : global::Pulumi.CustomResource
@@ -212,7 +212,7 @@ namespace Pulumi.AzureNative.Storage
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
+        /// Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property. Minimum TLS version 1.3 version is not supported.
         /// </summary>
         [Output("minimumTlsVersion")]
         public Output<string?> MinimumTlsVersion { get; private set; } = null!;
@@ -372,6 +372,8 @@ namespace Pulumi.AzureNative.Storage
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20240101:StorageAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20250101:StorageAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20250601:StorageAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20250801:StorageAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20260401:StorageAccount" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -540,7 +542,7 @@ namespace Pulumi.AzureNative.Storage
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
+        /// Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property. Minimum TLS version 1.3 version is not supported.
         /// </summary>
         [Input("minimumTlsVersion")]
         public InputUnion<string, Pulumi.AzureNative.Storage.MinimumTlsVersion>? MinimumTlsVersion { get; set; }

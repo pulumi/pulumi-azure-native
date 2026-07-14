@@ -46,27 +46,7 @@ export class ConditionalCredit extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
-     * Fully-qualified identifier of the benefit under applicable benefit list.
-     */
-    declare public /*out*/ readonly benefitResourceId: pulumi.Output<string>;
-    /**
-     * The billing account resource ID
-     */
-    declare public readonly billingAccountResourceId: pulumi.Output<string | undefined>;
-    /**
-     * Display name for the conditional credit
-     */
-    declare public readonly displayName: pulumi.Output<string | undefined>;
-    /**
-     * End date of the conditional credit (derived from last milestone)
-     */
-    declare public readonly endAt: pulumi.Output<string | undefined>;
-    /**
-     * Type of conditional credit entity
-     */
-    declare public readonly entityType: pulumi.Output<string>;
-    /**
-     * The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+     * The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
      */
     declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
@@ -94,29 +74,13 @@ export class ConditionalCredit extends pulumi.CustomResource {
      */
     declare public readonly plan: pulumi.Output<outputs.billingbenefits.PlanResponse | undefined>;
     /**
-     * Product code for the conditional credit
+     * Conditional credit properties
      */
-    declare public readonly productCode: pulumi.Output<string | undefined>;
-    /**
-     * The provisioning state of the resource
-     */
-    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
-    /**
-     * Fully-qualified resource identifier of the resource. Format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/{benefitType}/{benefitName}.
-     */
-    declare public readonly resourceId: pulumi.Output<string | undefined>;
+    declare public readonly properties: pulumi.Output<outputs.billingbenefits.ContributorConditionalCreditPropertiesResponse | outputs.billingbenefits.PrimaryConditionalCreditPropertiesResponse>;
     /**
      * The resource model definition representing SKU
      */
     declare public readonly sku: pulumi.Output<outputs.billingbenefits.SkuResponse | undefined>;
-    /**
-     * Start date of the conditional credit
-     */
-    declare public readonly startAt: pulumi.Output<string | undefined>;
-    /**
-     * The status of the conditional credit
-     */
-    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -141,43 +105,26 @@ export class ConditionalCredit extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.entityType === undefined && !opts.urn) {
-                throw new Error("Missing required property 'entityType'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["billingAccountResourceId"] = args?.billingAccountResourceId;
             resourceInputs["conditionalCreditName"] = args?.conditionalCreditName;
-            resourceInputs["displayName"] = args?.displayName;
-            resourceInputs["endAt"] = args?.endAt;
-            resourceInputs["entityType"] = args?.entityType;
             resourceInputs["identity"] = args?.identity;
             resourceInputs["kind"] = args?.kind;
             resourceInputs["location"] = args?.location;
             resourceInputs["managedBy"] = args?.managedBy;
             resourceInputs["plan"] = args?.plan;
-            resourceInputs["productCode"] = args?.productCode;
+            resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
-            resourceInputs["resourceId"] = args?.resourceId;
             resourceInputs["sku"] = args?.sku;
-            resourceInputs["startAt"] = args?.startAt;
-            resourceInputs["status"] = args?.status;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
-            resourceInputs["benefitResourceId"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
-            resourceInputs["benefitResourceId"] = undefined /*out*/;
-            resourceInputs["billingAccountResourceId"] = undefined /*out*/;
-            resourceInputs["displayName"] = undefined /*out*/;
-            resourceInputs["endAt"] = undefined /*out*/;
-            resourceInputs["entityType"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
@@ -185,12 +132,8 @@ export class ConditionalCredit extends pulumi.CustomResource {
             resourceInputs["managedBy"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["plan"] = undefined /*out*/;
-            resourceInputs["productCode"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["resourceId"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
-            resourceInputs["startAt"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -207,25 +150,9 @@ export class ConditionalCredit extends pulumi.CustomResource {
  */
 export interface ConditionalCreditArgs {
     /**
-     * The billing account resource ID
-     */
-    billingAccountResourceId?: pulumi.Input<string>;
-    /**
      * Name of the conditional credit
      */
     conditionalCreditName?: pulumi.Input<string>;
-    /**
-     * Display name for the conditional credit
-     */
-    displayName?: pulumi.Input<string>;
-    /**
-     * End date of the conditional credit (derived from last milestone)
-     */
-    endAt?: pulumi.Input<string>;
-    /**
-     * Type of conditional credit entity
-     */
-    entityType: pulumi.Input<string | enums.billingbenefits.ConditionalCreditEntityType>;
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
@@ -247,29 +174,17 @@ export interface ConditionalCreditArgs {
      */
     plan?: pulumi.Input<inputs.billingbenefits.PlanArgs>;
     /**
-     * Product code for the conditional credit
+     * Conditional credit properties
      */
-    productCode?: pulumi.Input<string>;
+    properties?: pulumi.Input<inputs.billingbenefits.ContributorConditionalCreditPropertiesArgs | inputs.billingbenefits.PrimaryConditionalCreditPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Fully-qualified resource identifier of the resource. Format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/{benefitType}/{benefitName}.
-     */
-    resourceId?: pulumi.Input<string>;
-    /**
      * The resource model definition representing SKU
      */
     sku?: pulumi.Input<inputs.billingbenefits.SkuArgs>;
-    /**
-     * Start date of the conditional credit
-     */
-    startAt?: pulumi.Input<string>;
-    /**
-     * The status of the conditional credit
-     */
-    status?: pulumi.Input<string | enums.billingbenefits.ConditionalCreditStatus>;
     /**
      * Resource tags.
      */

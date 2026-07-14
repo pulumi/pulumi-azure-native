@@ -33,9 +33,9 @@ class CredentialArgs:
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
         :param pulumi.Input[_builtins.str] name: Gets or sets the name of the credential.
         :param pulumi.Input[_builtins.str] password: Gets or sets the password of the credential.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] user_name: Gets or sets the user name of the credential.
-        :param pulumi.Input[_builtins.str] credential_name: The parameters supplied to the create or update credential operation.
+        :param pulumi.Input[_builtins.str] credential_name: The name of credential.
         :param pulumi.Input[_builtins.str] description: Gets or sets the description of the credential.
         """
         pulumi.set(__self__, "automation_account_name", automation_account_name)
@@ -88,7 +88,7 @@ class CredentialArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of an Azure Resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -112,7 +112,7 @@ class CredentialArgs:
     @pulumi.getter(name="credentialName")
     def credential_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The parameters supplied to the create or update credential operation.
+        The name of credential.
         """
         return pulumi.get(self, "credential_name")
 
@@ -158,11 +158,11 @@ class Credential(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
-        :param pulumi.Input[_builtins.str] credential_name: The parameters supplied to the create or update credential operation.
+        :param pulumi.Input[_builtins.str] credential_name: The name of credential.
         :param pulumi.Input[_builtins.str] description: Gets or sets the description of the credential.
         :param pulumi.Input[_builtins.str] name: Gets or sets the name of the credential.
         :param pulumi.Input[_builtins.str] password: Gets or sets the password of the credential.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] user_name: Gets or sets the user name of the credential.
         """
         ...

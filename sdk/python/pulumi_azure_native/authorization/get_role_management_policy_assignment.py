@@ -27,7 +27,7 @@ class GetRoleManagementPolicyAssignmentResult:
     """
     Role management policy
     """
-    def __init__(__self__, azure_api_version=None, effective_rules=None, id=None, name=None, policy_assignment_properties=None, policy_id=None, role_definition_id=None, scope=None, type=None):
+    def __init__(__self__, azure_api_version=None, effective_rules=None, id=None, name=None, policy_assignment_properties=None, policy_id=None, role_definition_id=None, scope=None, system_data=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -52,6 +52,9 @@ class GetRoleManagementPolicyAssignmentResult:
         if scope and not isinstance(scope, str):
             raise TypeError("Expected argument 'scope' to be a str")
         pulumi.set(__self__, "scope", scope)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -76,7 +79,7 @@ class GetRoleManagementPolicyAssignmentResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The role management policy Id.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -84,7 +87,7 @@ class GetRoleManagementPolicyAssignmentResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The role management policy name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -121,10 +124,18 @@ class GetRoleManagementPolicyAssignmentResult:
         return pulumi.get(self, "scope")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The role management policy type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -143,6 +154,7 @@ class AwaitableGetRoleManagementPolicyAssignmentResult(GetRoleManagementPolicyAs
             policy_id=self.policy_id,
             role_definition_id=self.role_definition_id,
             scope=self.scope,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -158,7 +170,7 @@ def get_role_management_policy_assignment(role_management_policy_assignment_name
 
 
     :param _builtins.str role_management_policy_assignment_name: The name of format {guid_guid} the role management policy assignment to get.
-    :param _builtins.str scope: The scope of the role management policy.
+    :param _builtins.str scope: The fully qualified Azure Resource manager identifier of the resource.
     """
     __args__ = dict()
     __args__['roleManagementPolicyAssignmentName'] = role_management_policy_assignment_name
@@ -175,6 +187,7 @@ def get_role_management_policy_assignment(role_management_policy_assignment_name
         policy_id=pulumi.get(__ret__, 'policy_id'),
         role_definition_id=pulumi.get(__ret__, 'role_definition_id'),
         scope=pulumi.get(__ret__, 'scope'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_role_management_policy_assignment_output(role_management_policy_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                  scope: Optional[pulumi.Input[_builtins.str]] = None,
@@ -188,7 +201,7 @@ def get_role_management_policy_assignment_output(role_management_policy_assignme
 
 
     :param _builtins.str role_management_policy_assignment_name: The name of format {guid_guid} the role management policy assignment to get.
-    :param _builtins.str scope: The scope of the role management policy.
+    :param _builtins.str scope: The fully qualified Azure Resource manager identifier of the resource.
     """
     __args__ = dict()
     __args__['roleManagementPolicyAssignmentName'] = role_management_policy_assignment_name
@@ -204,4 +217,5 @@ def get_role_management_policy_assignment_output(role_management_policy_assignme
         policy_id=pulumi.get(__response__, 'policy_id'),
         role_definition_id=pulumi.get(__response__, 'role_definition_id'),
         scope=pulumi.get(__response__, 'scope'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

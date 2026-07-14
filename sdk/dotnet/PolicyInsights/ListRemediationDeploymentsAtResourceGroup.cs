@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.PolicyInsights
         public string RemediationName { get; set; } = null!;
 
         /// <summary>
-        /// Resource group name.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNative.PolicyInsights
         public Input<string> RemediationName { get; set; } = null!;
 
         /// <summary>
-        /// Resource group name.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -100,17 +100,17 @@ namespace Pulumi.AzureNative.PolicyInsights
     public sealed class ListRemediationDeploymentsAtResourceGroupResult
     {
         /// <summary>
-        /// The URL to get the next set of results.
+        /// The link to the next page of items
         /// </summary>
-        public readonly string NextLink;
+        public readonly string? NextLink;
         /// <summary>
-        /// Array of deployments for the remediation.
+        /// The RemediationDeployment items on this page
         /// </summary>
         public readonly ImmutableArray<Outputs.RemediationDeploymentResponse> Value;
 
         [OutputConstructor]
         private ListRemediationDeploymentsAtResourceGroupResult(
-            string nextLink,
+            string? nextLink,
 
             ImmutableArray<Outputs.RemediationDeploymentResponse> value)
         {

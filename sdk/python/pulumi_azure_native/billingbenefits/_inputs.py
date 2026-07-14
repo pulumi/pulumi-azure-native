@@ -18,18 +18,26 @@ from ._enums import *
 __all__ = [
     'AutomaticShortfallSuppressReasonArgs',
     'AutomaticShortfallSuppressReasonArgsDict',
+    'AwardArgs',
+    'AwardArgsDict',
     'CatalogClaimsItemArgs',
     'CatalogClaimsItemArgsDict',
     'CommitmentArgs',
     'CommitmentArgsDict',
+    'ConditionalCreditMilestoneArgs',
+    'ConditionalCreditMilestoneArgsDict',
     'ConditionsItemArgs',
     'ConditionsItemArgsDict',
+    'ContributorConditionalCreditPropertiesArgs',
+    'ContributorConditionalCreditPropertiesArgsDict',
     'CreditBreakdownItemArgs',
     'CreditBreakdownItemArgsDict',
     'CreditDimensionArgs',
     'CreditDimensionArgsDict',
     'CreditPoliciesArgs',
     'CreditPoliciesArgsDict',
+    'CreditReasonArgs',
+    'CreditReasonArgsDict',
     'CustomPricePropertiesArgs',
     'CustomPricePropertiesArgsDict',
     'DiscountCustomPriceMultiCurrencyArgs',
@@ -58,6 +66,8 @@ __all__ = [
     'PriceGuaranteePropertiesArgsDict',
     'PriceArgs',
     'PriceArgsDict',
+    'PrimaryConditionalCreditPropertiesArgs',
+    'PrimaryConditionalCreditPropertiesArgsDict',
     'ShortfallArgs',
     'ShortfallArgsDict',
     'SkuArgs',
@@ -116,6 +126,100 @@ class AutomaticShortfallSuppressReasonArgs:
     @message.setter
     def message(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "message", value)
+
+
+class AwardArgsDict(TypedDict):
+    """
+    Award details for milestone completion
+    """
+    credit: NotRequired[pulumi.Input['CommitmentArgsDict']]
+    """
+    Credit amount to be awarded
+    """
+    duration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Duration for which the benefit is active. Will be in format P{int}M or P{int}Y. Any values representing up to 12 years are valid. Upper limit examples: P144M, P12Y.
+    """
+    end_at: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    End date when the credit expires
+    """
+    start_at: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Start date when the credit becomes effective
+    """
+
+@pulumi.input_type
+class AwardArgs:
+    def __init__(__self__, *,
+                 credit: Optional[pulumi.Input['CommitmentArgs']] = None,
+                 duration: Optional[pulumi.Input[_builtins.str]] = None,
+                 end_at: Optional[pulumi.Input[_builtins.str]] = None,
+                 start_at: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Award details for milestone completion
+
+        :param pulumi.Input['CommitmentArgs'] credit: Credit amount to be awarded
+        :param pulumi.Input[_builtins.str] duration: Duration for which the benefit is active. Will be in format P{int}M or P{int}Y. Any values representing up to 12 years are valid. Upper limit examples: P144M, P12Y.
+        :param pulumi.Input[_builtins.str] end_at: End date when the credit expires
+        :param pulumi.Input[_builtins.str] start_at: Start date when the credit becomes effective
+        """
+        if credit is not None:
+            pulumi.set(__self__, "credit", credit)
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
+        if end_at is not None:
+            pulumi.set(__self__, "end_at", end_at)
+        if start_at is not None:
+            pulumi.set(__self__, "start_at", start_at)
+
+    @_builtins.property
+    @pulumi.getter
+    def credit(self) -> Optional[pulumi.Input['CommitmentArgs']]:
+        """
+        Credit amount to be awarded
+        """
+        return pulumi.get(self, "credit")
+
+    @credit.setter
+    def credit(self, value: Optional[pulumi.Input['CommitmentArgs']]):
+        pulumi.set(self, "credit", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Duration for which the benefit is active. Will be in format P{int}M or P{int}Y. Any values representing up to 12 years are valid. Upper limit examples: P144M, P12Y.
+        """
+        return pulumi.get(self, "duration")
+
+    @duration.setter
+    def duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "duration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="endAt")
+    def end_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        End date when the credit expires
+        """
+        return pulumi.get(self, "end_at")
+
+    @end_at.setter
+    def end_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "end_at", value)
+
+    @_builtins.property
+    @pulumi.getter(name="startAt")
+    def start_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Start date when the credit becomes effective
+        """
+        return pulumi.get(self, "start_at")
+
+    @start_at.setter
+    def start_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "start_at", value)
 
 
 class CatalogClaimsItemArgsDict(TypedDict):
@@ -224,6 +328,140 @@ class CommitmentArgs:
         pulumi.set(self, "grain", value)
 
 
+class ConditionalCreditMilestoneArgsDict(TypedDict):
+    """
+    Milestone definition within a conditional credit
+    """
+    award: NotRequired[pulumi.Input['AwardArgsDict']]
+    """
+    Award details for this milestone (only present for primary conditional credits)
+    """
+    end_at: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    End date for this milestone
+    """
+    milestone_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Unique identifier for the milestone
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Display name for the milestone
+    """
+    spend_target: NotRequired[pulumi.Input['PriceArgsDict']]
+    """
+    Spend target for this milestone
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'MilestoneStatus']]]
+    """
+    Current status of the milestone
+    """
+
+@pulumi.input_type
+class ConditionalCreditMilestoneArgs:
+    def __init__(__self__, *,
+                 award: Optional[pulumi.Input['AwardArgs']] = None,
+                 end_at: Optional[pulumi.Input[_builtins.str]] = None,
+                 milestone_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 spend_target: Optional[pulumi.Input['PriceArgs']] = None,
+                 status: Optional[pulumi.Input[Union[_builtins.str, 'MilestoneStatus']]] = None):
+        """
+        Milestone definition within a conditional credit
+
+        :param pulumi.Input['AwardArgs'] award: Award details for this milestone (only present for primary conditional credits)
+        :param pulumi.Input[_builtins.str] end_at: End date for this milestone
+        :param pulumi.Input[_builtins.str] milestone_id: Unique identifier for the milestone
+        :param pulumi.Input[_builtins.str] name: Display name for the milestone
+        :param pulumi.Input['PriceArgs'] spend_target: Spend target for this milestone
+        :param pulumi.Input[Union[_builtins.str, 'MilestoneStatus']] status: Current status of the milestone
+        """
+        if award is not None:
+            pulumi.set(__self__, "award", award)
+        if end_at is not None:
+            pulumi.set(__self__, "end_at", end_at)
+        if milestone_id is not None:
+            pulumi.set(__self__, "milestone_id", milestone_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if spend_target is not None:
+            pulumi.set(__self__, "spend_target", spend_target)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def award(self) -> Optional[pulumi.Input['AwardArgs']]:
+        """
+        Award details for this milestone (only present for primary conditional credits)
+        """
+        return pulumi.get(self, "award")
+
+    @award.setter
+    def award(self, value: Optional[pulumi.Input['AwardArgs']]):
+        pulumi.set(self, "award", value)
+
+    @_builtins.property
+    @pulumi.getter(name="endAt")
+    def end_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        End date for this milestone
+        """
+        return pulumi.get(self, "end_at")
+
+    @end_at.setter
+    def end_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "end_at", value)
+
+    @_builtins.property
+    @pulumi.getter(name="milestoneId")
+    def milestone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Unique identifier for the milestone
+        """
+        return pulumi.get(self, "milestone_id")
+
+    @milestone_id.setter
+    def milestone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "milestone_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Display name for the milestone
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="spendTarget")
+    def spend_target(self) -> Optional[pulumi.Input['PriceArgs']]:
+        """
+        Spend target for this milestone
+        """
+        return pulumi.get(self, "spend_target")
+
+    @spend_target.setter
+    def spend_target(self, value: Optional[pulumi.Input['PriceArgs']]):
+        pulumi.set(self, "spend_target", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'MilestoneStatus']]]:
+        """
+        Current status of the milestone
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'MilestoneStatus']]]):
+        pulumi.set(self, "status", value)
+
+
 class ConditionsItemArgsDict(TypedDict):
     """
     Condition for a discount.
@@ -282,6 +520,242 @@ class ConditionsItemArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "value", value)
+
+
+class ContributorConditionalCreditPropertiesArgsDict(TypedDict):
+    """
+    Properties for contributor conditional credit.
+    """
+    entity_type: pulumi.Input[_builtins.str]
+    """
+    Type of conditional credit entity
+    Expected value is 'Contributor'.
+    """
+    billing_account_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The billing account resource ID
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Display name for the conditional credit
+    """
+    end_at: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    End date of the conditional credit (derived from last milestone)
+    """
+    primary_billing_account_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Fully-qualified billing account resource identifier of the primary CACO. Format must be Azure Resource ID: /providers/Microsoft.Billing/billingAccounts/{acctId:orgId}.
+    """
+    primary_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource ID of the primary conditional credit (required for contributors)
+    """
+    product_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Product code for the conditional credit
+    """
+    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Fully-qualified resource identifier of the resource. Format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/{benefitType}/{benefitName}.
+    """
+    start_at: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Start date of the conditional credit
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'ConditionalCreditStatus']]]
+    """
+    The status of the conditional credit
+    """
+    system_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    System identifier shared between primary and contributor conditional credits representing the same conditional credit program
+    """
+
+@pulumi.input_type
+class ContributorConditionalCreditPropertiesArgs:
+    def __init__(__self__, *,
+                 entity_type: pulumi.Input[_builtins.str],
+                 billing_account_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 end_at: Optional[pulumi.Input[_builtins.str]] = None,
+                 primary_billing_account_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 primary_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 product_code: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 start_at: Optional[pulumi.Input[_builtins.str]] = None,
+                 status: Optional[pulumi.Input[Union[_builtins.str, 'ConditionalCreditStatus']]] = None,
+                 system_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Properties for contributor conditional credit.
+
+        :param pulumi.Input[_builtins.str] entity_type: Type of conditional credit entity
+               Expected value is 'Contributor'.
+        :param pulumi.Input[_builtins.str] billing_account_resource_id: The billing account resource ID
+        :param pulumi.Input[_builtins.str] display_name: Display name for the conditional credit
+        :param pulumi.Input[_builtins.str] end_at: End date of the conditional credit (derived from last milestone)
+        :param pulumi.Input[_builtins.str] primary_billing_account_resource_id: Fully-qualified billing account resource identifier of the primary CACO. Format must be Azure Resource ID: /providers/Microsoft.Billing/billingAccounts/{acctId:orgId}.
+        :param pulumi.Input[_builtins.str] primary_resource_id: Resource ID of the primary conditional credit (required for contributors)
+        :param pulumi.Input[_builtins.str] product_code: Product code for the conditional credit
+        :param pulumi.Input[_builtins.str] resource_id: Fully-qualified resource identifier of the resource. Format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/{benefitType}/{benefitName}.
+        :param pulumi.Input[_builtins.str] start_at: Start date of the conditional credit
+        :param pulumi.Input[Union[_builtins.str, 'ConditionalCreditStatus']] status: The status of the conditional credit
+        :param pulumi.Input[_builtins.str] system_id: System identifier shared between primary and contributor conditional credits representing the same conditional credit program
+        """
+        pulumi.set(__self__, "entity_type", 'Contributor')
+        if billing_account_resource_id is not None:
+            pulumi.set(__self__, "billing_account_resource_id", billing_account_resource_id)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if end_at is not None:
+            pulumi.set(__self__, "end_at", end_at)
+        if primary_billing_account_resource_id is not None:
+            pulumi.set(__self__, "primary_billing_account_resource_id", primary_billing_account_resource_id)
+        if primary_resource_id is not None:
+            pulumi.set(__self__, "primary_resource_id", primary_resource_id)
+        if product_code is not None:
+            pulumi.set(__self__, "product_code", product_code)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if start_at is not None:
+            pulumi.set(__self__, "start_at", start_at)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if system_id is not None:
+            pulumi.set(__self__, "system_id", system_id)
+
+    @_builtins.property
+    @pulumi.getter(name="entityType")
+    def entity_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Type of conditional credit entity
+        Expected value is 'Contributor'.
+        """
+        return pulumi.get(self, "entity_type")
+
+    @entity_type.setter
+    def entity_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "entity_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="billingAccountResourceId")
+    def billing_account_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The billing account resource ID
+        """
+        return pulumi.get(self, "billing_account_resource_id")
+
+    @billing_account_resource_id.setter
+    def billing_account_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "billing_account_resource_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Display name for the conditional credit
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "display_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="endAt")
+    def end_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        End date of the conditional credit (derived from last milestone)
+        """
+        return pulumi.get(self, "end_at")
+
+    @end_at.setter
+    def end_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "end_at", value)
+
+    @_builtins.property
+    @pulumi.getter(name="primaryBillingAccountResourceId")
+    def primary_billing_account_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Fully-qualified billing account resource identifier of the primary CACO. Format must be Azure Resource ID: /providers/Microsoft.Billing/billingAccounts/{acctId:orgId}.
+        """
+        return pulumi.get(self, "primary_billing_account_resource_id")
+
+    @primary_billing_account_resource_id.setter
+    def primary_billing_account_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "primary_billing_account_resource_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="primaryResourceId")
+    def primary_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Resource ID of the primary conditional credit (required for contributors)
+        """
+        return pulumi.get(self, "primary_resource_id")
+
+    @primary_resource_id.setter
+    def primary_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "primary_resource_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="productCode")
+    def product_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Product code for the conditional credit
+        """
+        return pulumi.get(self, "product_code")
+
+    @product_code.setter
+    def product_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "product_code", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Fully-qualified resource identifier of the resource. Format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/{benefitType}/{benefitName}.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "resource_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="startAt")
+    def start_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Start date of the conditional credit
+        """
+        return pulumi.get(self, "start_at")
+
+    @start_at.setter
+    def start_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "start_at", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ConditionalCreditStatus']]]:
+        """
+        The status of the conditional credit
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ConditionalCreditStatus']]]):
+        pulumi.set(self, "status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="systemId")
+    def system_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        System identifier shared between primary and contributor conditional credits representing the same conditional credit program
+        """
+        return pulumi.get(self, "system_id")
+
+    @system_id.setter
+    def system_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "system_id", value)
 
 
 class CreditBreakdownItemArgsDict(TypedDict):
@@ -482,6 +956,60 @@ class CreditPoliciesArgs:
     @redemption.setter
     def redemption(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CreditRedemptionPolicy']]]):
         pulumi.set(self, "redemption", value)
+
+
+class CreditReasonArgsDict(TypedDict):
+    """
+    The reason for the credit. Not required if not applicable.
+    """
+    code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The reason code for credit.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The free string description of the credit.
+    """
+
+@pulumi.input_type
+class CreditReasonArgs:
+    def __init__(__self__, *,
+                 code: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        The reason for the credit. Not required if not applicable.
+
+        :param pulumi.Input[_builtins.str] code: The reason code for credit.
+        :param pulumi.Input[_builtins.str] description: The free string description of the credit.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @_builtins.property
+    @pulumi.getter
+    def code(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The reason code for credit.
+        """
+        return pulumi.get(self, "code")
+
+    @code.setter
+    def code(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "code", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The free string description of the credit.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
 
 
 class CustomPricePropertiesArgsDict(TypedDict):
@@ -2177,7 +2705,7 @@ class PlanArgsDict(TypedDict):
     """
     product: pulumi.Input[_builtins.str]
     """
-    The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+    The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
     """
     publisher: pulumi.Input[_builtins.str]
     """
@@ -2204,7 +2732,7 @@ class PlanArgs:
         Plan for the resource.
 
         :param pulumi.Input[_builtins.str] name: A user defined name of the 3rd Party Artifact that is being procured.
-        :param pulumi.Input[_builtins.str] product: The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+        :param pulumi.Input[_builtins.str] product: The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
         :param pulumi.Input[_builtins.str] publisher: The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
         :param pulumi.Input[_builtins.str] promotion_code: A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
         :param pulumi.Input[_builtins.str] version: The version of the desired product/artifact.
@@ -2233,7 +2761,7 @@ class PlanArgs:
     @pulumi.getter
     def product(self) -> pulumi.Input[_builtins.str]:
         """
-        The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+        The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
         """
         return pulumi.get(self, "product")
 
@@ -2372,6 +2900,242 @@ class PriceArgs:
     @currency_code.setter
     def currency_code(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "currency_code", value)
+
+
+class PrimaryConditionalCreditPropertiesArgsDict(TypedDict):
+    """
+    Properties for primary conditional credit.
+    """
+    entity_type: pulumi.Input[_builtins.str]
+    """
+    Type of conditional credit entity
+    Expected value is 'Primary'.
+    """
+    allow_contributors: NotRequired[pulumi.Input[Union[_builtins.str, 'EnablementMode']]]
+    """
+    Whether this conditional credit allows contributor billing accounts
+    """
+    billing_account_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The billing account resource ID
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Display name for the conditional credit
+    """
+    end_at: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    End date of the conditional credit (derived from last milestone)
+    """
+    milestones: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConditionalCreditMilestoneArgsDict']]]]
+    """
+    List of milestones for this conditional credit (must include awards)
+    """
+    product_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Product code for the conditional credit
+    """
+    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Fully-qualified resource identifier of the resource. Format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/{benefitType}/{benefitName}.
+    """
+    start_at: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Start date of the conditional credit
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'ConditionalCreditStatus']]]
+    """
+    The status of the conditional credit
+    """
+    system_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    System identifier shared between primary and contributor conditional credits representing the same conditional credit program
+    """
+
+@pulumi.input_type
+class PrimaryConditionalCreditPropertiesArgs:
+    def __init__(__self__, *,
+                 entity_type: pulumi.Input[_builtins.str],
+                 allow_contributors: Optional[pulumi.Input[Union[_builtins.str, 'EnablementMode']]] = None,
+                 billing_account_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 end_at: Optional[pulumi.Input[_builtins.str]] = None,
+                 milestones: Optional[pulumi.Input[Sequence[pulumi.Input['ConditionalCreditMilestoneArgs']]]] = None,
+                 product_code: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 start_at: Optional[pulumi.Input[_builtins.str]] = None,
+                 status: Optional[pulumi.Input[Union[_builtins.str, 'ConditionalCreditStatus']]] = None,
+                 system_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Properties for primary conditional credit.
+
+        :param pulumi.Input[_builtins.str] entity_type: Type of conditional credit entity
+               Expected value is 'Primary'.
+        :param pulumi.Input[Union[_builtins.str, 'EnablementMode']] allow_contributors: Whether this conditional credit allows contributor billing accounts
+        :param pulumi.Input[_builtins.str] billing_account_resource_id: The billing account resource ID
+        :param pulumi.Input[_builtins.str] display_name: Display name for the conditional credit
+        :param pulumi.Input[_builtins.str] end_at: End date of the conditional credit (derived from last milestone)
+        :param pulumi.Input[Sequence[pulumi.Input['ConditionalCreditMilestoneArgs']]] milestones: List of milestones for this conditional credit (must include awards)
+        :param pulumi.Input[_builtins.str] product_code: Product code for the conditional credit
+        :param pulumi.Input[_builtins.str] resource_id: Fully-qualified resource identifier of the resource. Format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/{benefitType}/{benefitName}.
+        :param pulumi.Input[_builtins.str] start_at: Start date of the conditional credit
+        :param pulumi.Input[Union[_builtins.str, 'ConditionalCreditStatus']] status: The status of the conditional credit
+        :param pulumi.Input[_builtins.str] system_id: System identifier shared between primary and contributor conditional credits representing the same conditional credit program
+        """
+        pulumi.set(__self__, "entity_type", 'Primary')
+        if allow_contributors is not None:
+            pulumi.set(__self__, "allow_contributors", allow_contributors)
+        if billing_account_resource_id is not None:
+            pulumi.set(__self__, "billing_account_resource_id", billing_account_resource_id)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if end_at is not None:
+            pulumi.set(__self__, "end_at", end_at)
+        if milestones is not None:
+            pulumi.set(__self__, "milestones", milestones)
+        if product_code is not None:
+            pulumi.set(__self__, "product_code", product_code)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if start_at is not None:
+            pulumi.set(__self__, "start_at", start_at)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if system_id is not None:
+            pulumi.set(__self__, "system_id", system_id)
+
+    @_builtins.property
+    @pulumi.getter(name="entityType")
+    def entity_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Type of conditional credit entity
+        Expected value is 'Primary'.
+        """
+        return pulumi.get(self, "entity_type")
+
+    @entity_type.setter
+    def entity_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "entity_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowContributors")
+    def allow_contributors(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EnablementMode']]]:
+        """
+        Whether this conditional credit allows contributor billing accounts
+        """
+        return pulumi.get(self, "allow_contributors")
+
+    @allow_contributors.setter
+    def allow_contributors(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EnablementMode']]]):
+        pulumi.set(self, "allow_contributors", value)
+
+    @_builtins.property
+    @pulumi.getter(name="billingAccountResourceId")
+    def billing_account_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The billing account resource ID
+        """
+        return pulumi.get(self, "billing_account_resource_id")
+
+    @billing_account_resource_id.setter
+    def billing_account_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "billing_account_resource_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Display name for the conditional credit
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "display_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="endAt")
+    def end_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        End date of the conditional credit (derived from last milestone)
+        """
+        return pulumi.get(self, "end_at")
+
+    @end_at.setter
+    def end_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "end_at", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def milestones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConditionalCreditMilestoneArgs']]]]:
+        """
+        List of milestones for this conditional credit (must include awards)
+        """
+        return pulumi.get(self, "milestones")
+
+    @milestones.setter
+    def milestones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConditionalCreditMilestoneArgs']]]]):
+        pulumi.set(self, "milestones", value)
+
+    @_builtins.property
+    @pulumi.getter(name="productCode")
+    def product_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Product code for the conditional credit
+        """
+        return pulumi.get(self, "product_code")
+
+    @product_code.setter
+    def product_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "product_code", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Fully-qualified resource identifier of the resource. Format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/{benefitType}/{benefitName}.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "resource_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="startAt")
+    def start_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Start date of the conditional credit
+        """
+        return pulumi.get(self, "start_at")
+
+    @start_at.setter
+    def start_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "start_at", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ConditionalCreditStatus']]]:
+        """
+        The status of the conditional credit
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ConditionalCreditStatus']]]):
+        pulumi.set(self, "status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="systemId")
+    def system_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        System identifier shared between primary and contributor conditional credits representing the same conditional credit program
+        """
+        return pulumi.get(self, "system_id")
+
+    @system_id.setter
+    def system_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "system_id", value)
 
 
 class ShortfallArgsDict(TypedDict):
@@ -2546,7 +3310,7 @@ class SkuArgsDict(TypedDict):
     """
     size: NotRequired[pulumi.Input[_builtins.str]]
     """
-    The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+    The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
     """
     tier: NotRequired[pulumi.Input['SkuTier']]
     """
@@ -2567,7 +3331,7 @@ class SkuArgs:
         :param pulumi.Input[_builtins.str] name: The name of the SKU. E.g. P3. It is typically a letter+number code
         :param pulumi.Input[_builtins.int] capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         :param pulumi.Input[_builtins.str] family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
-        :param pulumi.Input[_builtins.str] size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        :param pulumi.Input[_builtins.str] size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
         :param pulumi.Input['SkuTier'] tier: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         """
         pulumi.set(__self__, "name", name)
@@ -2620,7 +3384,7 @@ class SkuArgs:
     @pulumi.getter
     def size(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
         """
         return pulumi.get(self, "size")
 

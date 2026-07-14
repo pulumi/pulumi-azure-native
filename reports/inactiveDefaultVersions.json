@@ -5,8 +5,8 @@
   "AzureData": [
     "2019-07-24-preview"
   ],
-  "ChangeAnalysis": [
-    "2020-04-01-preview"
+  "BillingTrust": [
+    "2026-03-17-preview"
   ],
   "Cloudngfw": [
     "2025-05-23"
@@ -41,6 +41,12 @@
   "EnterpriseKnowledgeGraph": [
     "2018-12-03"
   ],
+  "FrontDoor": [
+    "2025-11-01"
+  ],
+  "HorizonDb": [
+    "2026-01-20-preview"
+  ],
   "ImportExport": [
     "2021-01-01"
   ],
@@ -70,6 +76,9 @@
   ],
   "Migrate": [
     "2022-05-01-preview"
+  ],
+  "ProgramEnrollment": [
+    "2026-03-01-preview"
   ],
   "ProgrammableConnectivity": [
     "2024-01-15-preview"

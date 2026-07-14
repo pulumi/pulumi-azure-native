@@ -52,10 +52,10 @@ __all__ = [
     'DeploymentExtensionSpecArgsDict',
     'DnsConfigurationArgs',
     'DnsConfigurationArgsDict',
+    'ElasticProfileContainerGroupNamingPolicyGuidNamingPolicyArgs',
+    'ElasticProfileContainerGroupNamingPolicyGuidNamingPolicyArgsDict',
     'ElasticProfileContainerGroupNamingPolicyArgs',
     'ElasticProfileContainerGroupNamingPolicyArgsDict',
-    'ElasticProfileGuidNamingPolicyArgs',
-    'ElasticProfileGuidNamingPolicyArgsDict',
     'ElasticProfileArgs',
     'ElasticProfileArgsDict',
     'EncryptionPropertiesArgs',
@@ -608,7 +608,7 @@ class ContainerGroupProfileStubArgsDict(TypedDict):
     """
     container_group_properties: NotRequired[pulumi.Input['NGroupContainerGroupPropertiesArgsDict']]
     """
-     Container Group properties which can be set while creating or updating the NGroups.
+    Container Group properties which can be set while creating or updating the NGroups.
     """
     network_profile: NotRequired[pulumi.Input['NetworkProfileArgsDict']]
     """
@@ -638,7 +638,7 @@ class ContainerGroupProfileStubArgs:
         """
         The object that contains a reference to a Container Group Profile and it's other related properties.
 
-        :param pulumi.Input['NGroupContainerGroupPropertiesArgs'] container_group_properties:  Container Group properties which can be set while creating or updating the NGroups.
+        :param pulumi.Input['NGroupContainerGroupPropertiesArgs'] container_group_properties: Container Group properties which can be set while creating or updating the NGroups.
         :param pulumi.Input['NetworkProfileArgs'] network_profile: A network profile for network settings of a ContainerGroupProfile.
         :param pulumi.Input['ApiEntityReferenceArgs'] resource: A reference to the container group profile ARM resource hosted in ACI RP.
         :param pulumi.Input[_builtins.int] revision: The revision of the CG profile is an optional property. If customer does not to provide a revision then NGroups will pickup the latest revision of CGProfile.
@@ -659,7 +659,7 @@ class ContainerGroupProfileStubArgs:
     @pulumi.getter(name="containerGroupProperties")
     def container_group_properties(self) -> Optional[pulumi.Input['NGroupContainerGroupPropertiesArgs']]:
         """
-         Container Group properties which can be set while creating or updating the NGroups.
+        Container Group properties which can be set while creating or updating the NGroups.
         """
         return pulumi.get(self, "container_group_properties")
 
@@ -1486,40 +1486,14 @@ class DnsConfigurationArgs:
         pulumi.set(self, "search_domains", value)
 
 
-class ElasticProfileContainerGroupNamingPolicyArgsDict(TypedDict):
-    """
-    Container Groups are named on a generic guid based naming scheme/policy. Customer can modify naming policy to add prefix to CG names during scale out operation.
-    """
-    guid_naming_policy: NotRequired[pulumi.Input['ElasticProfileGuidNamingPolicyArgsDict']]
-
-@pulumi.input_type
-class ElasticProfileContainerGroupNamingPolicyArgs:
-    def __init__(__self__, *,
-                 guid_naming_policy: Optional[pulumi.Input['ElasticProfileGuidNamingPolicyArgs']] = None):
-        """
-        Container Groups are named on a generic guid based naming scheme/policy. Customer can modify naming policy to add prefix to CG names during scale out operation.
-        """
-        if guid_naming_policy is not None:
-            pulumi.set(__self__, "guid_naming_policy", guid_naming_policy)
-
-    @_builtins.property
-    @pulumi.getter(name="guidNamingPolicy")
-    def guid_naming_policy(self) -> Optional[pulumi.Input['ElasticProfileGuidNamingPolicyArgs']]:
-        return pulumi.get(self, "guid_naming_policy")
-
-    @guid_naming_policy.setter
-    def guid_naming_policy(self, value: Optional[pulumi.Input['ElasticProfileGuidNamingPolicyArgs']]):
-        pulumi.set(self, "guid_naming_policy", value)
-
-
-class ElasticProfileGuidNamingPolicyArgsDict(TypedDict):
+class ElasticProfileContainerGroupNamingPolicyGuidNamingPolicyArgsDict(TypedDict):
     prefix: NotRequired[pulumi.Input[_builtins.str]]
     """
     The prefix can be used when there are tooling limitations (e.g. on the Azure portal where CGs from multiple NGroups exist in the same RG). The prefix with the suffixed resource name must still follow Azure resource naming guidelines.
     """
 
 @pulumi.input_type
-class ElasticProfileGuidNamingPolicyArgs:
+class ElasticProfileContainerGroupNamingPolicyGuidNamingPolicyArgs:
     def __init__(__self__, *,
                  prefix: Optional[pulumi.Input[_builtins.str]] = None):
         """
@@ -1539,6 +1513,32 @@ class ElasticProfileGuidNamingPolicyArgs:
     @prefix.setter
     def prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "prefix", value)
+
+
+class ElasticProfileContainerGroupNamingPolicyArgsDict(TypedDict):
+    """
+    Container Groups are named on a generic guid based naming scheme/policy. Customer can modify naming policy to add prefix to CG names during scale out operation.
+    """
+    guid_naming_policy: NotRequired[pulumi.Input['ElasticProfileContainerGroupNamingPolicyGuidNamingPolicyArgsDict']]
+
+@pulumi.input_type
+class ElasticProfileContainerGroupNamingPolicyArgs:
+    def __init__(__self__, *,
+                 guid_naming_policy: Optional[pulumi.Input['ElasticProfileContainerGroupNamingPolicyGuidNamingPolicyArgs']] = None):
+        """
+        Container Groups are named on a generic guid based naming scheme/policy. Customer can modify naming policy to add prefix to CG names during scale out operation.
+        """
+        if guid_naming_policy is not None:
+            pulumi.set(__self__, "guid_naming_policy", guid_naming_policy)
+
+    @_builtins.property
+    @pulumi.getter(name="guidNamingPolicy")
+    def guid_naming_policy(self) -> Optional[pulumi.Input['ElasticProfileContainerGroupNamingPolicyGuidNamingPolicyArgs']]:
+        return pulumi.get(self, "guid_naming_policy")
+
+    @guid_naming_policy.setter
+    def guid_naming_policy(self, value: Optional[pulumi.Input['ElasticProfileContainerGroupNamingPolicyGuidNamingPolicyArgs']]):
+        pulumi.set(self, "guid_naming_policy", value)
 
 
 class ElasticProfileArgsDict(TypedDict):
@@ -1799,7 +1799,7 @@ class FileSharePropertiesArgsDict(TypedDict):
     """
     share_access_type: NotRequired[pulumi.Input['AzureFileShareAccessType']]
     """
-     Specifies how Container Groups can access the Azure file share i.e. all CG will share same Azure file share or going to have exclusive file share.
+    Specifies how Container Groups can access the Azure file share i.e. all CG will share same Azure file share or going to have exclusive file share.
     """
 
 @pulumi.input_type
@@ -1809,7 +1809,7 @@ class FileSharePropertiesArgs:
                  share_access_type: Optional[pulumi.Input['AzureFileShareAccessType']] = None):
         """
         :param pulumi.Input['AzureFileShareAccessTier'] share_access_tier: Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium. Learn more at: https://learn.microsoft.com/en-us/rest/api/storagerp/file-shares/create?tabs=HTTP#shareaccesstier
-        :param pulumi.Input['AzureFileShareAccessType'] share_access_type:  Specifies how Container Groups can access the Azure file share i.e. all CG will share same Azure file share or going to have exclusive file share.
+        :param pulumi.Input['AzureFileShareAccessType'] share_access_type: Specifies how Container Groups can access the Azure file share i.e. all CG will share same Azure file share or going to have exclusive file share.
         """
         if share_access_tier is None:
             share_access_tier = 'TransactionOptimized'
@@ -1834,7 +1834,7 @@ class FileSharePropertiesArgs:
     @pulumi.getter(name="shareAccessType")
     def share_access_type(self) -> Optional[pulumi.Input['AzureFileShareAccessType']]:
         """
-         Specifies how Container Groups can access the Azure file share i.e. all CG will share same Azure file share or going to have exclusive file share.
+        Specifies how Container Groups can access the Azure file share i.e. all CG will share same Azure file share or going to have exclusive file share.
         """
         return pulumi.get(self, "share_access_type")
 

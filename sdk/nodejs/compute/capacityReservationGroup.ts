@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
  *
- * Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01, 2025-11-01, 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class CapacityReservationGroup extends pulumi.CustomResource {
     /**
@@ -127,7 +127,7 @@ export class CapacityReservationGroup extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20210401:CapacityReservationGroup" }, { type: "azure-native:compute/v20210701:CapacityReservationGroup" }, { type: "azure-native:compute/v20211101:CapacityReservationGroup" }, { type: "azure-native:compute/v20220301:CapacityReservationGroup" }, { type: "azure-native:compute/v20220801:CapacityReservationGroup" }, { type: "azure-native:compute/v20221101:CapacityReservationGroup" }, { type: "azure-native:compute/v20230301:CapacityReservationGroup" }, { type: "azure-native:compute/v20230701:CapacityReservationGroup" }, { type: "azure-native:compute/v20230901:CapacityReservationGroup" }, { type: "azure-native:compute/v20240301:CapacityReservationGroup" }, { type: "azure-native:compute/v20240701:CapacityReservationGroup" }, { type: "azure-native:compute/v20241101:CapacityReservationGroup" }, { type: "azure-native:compute/v20250401:CapacityReservationGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20210401:CapacityReservationGroup" }, { type: "azure-native:compute/v20210701:CapacityReservationGroup" }, { type: "azure-native:compute/v20211101:CapacityReservationGroup" }, { type: "azure-native:compute/v20220301:CapacityReservationGroup" }, { type: "azure-native:compute/v20220801:CapacityReservationGroup" }, { type: "azure-native:compute/v20221101:CapacityReservationGroup" }, { type: "azure-native:compute/v20230301:CapacityReservationGroup" }, { type: "azure-native:compute/v20230701:CapacityReservationGroup" }, { type: "azure-native:compute/v20230901:CapacityReservationGroup" }, { type: "azure-native:compute/v20240301:CapacityReservationGroup" }, { type: "azure-native:compute/v20240701:CapacityReservationGroup" }, { type: "azure-native:compute/v20241101:CapacityReservationGroup" }, { type: "azure-native:compute/v20250401:CapacityReservationGroup" }, { type: "azure-native:compute/v20251101:CapacityReservationGroup" }, { type: "azure-native:compute/v20260301:CapacityReservationGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CapacityReservationGroup.__pulumiType, name, resourceInputs, opts);
     }

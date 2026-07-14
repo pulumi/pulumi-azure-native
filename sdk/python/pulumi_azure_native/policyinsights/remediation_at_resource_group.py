@@ -34,7 +34,7 @@ class RemediationAtResourceGroupArgs:
         """
         The set of arguments for constructing a RemediationAtResourceGroup resource.
 
-        :param pulumi.Input[_builtins.str] resource_group_name: Resource group name.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['RemediationPropertiesFailureThresholdArgs'] failure_threshold: The remediation failure threshold settings
         :param pulumi.Input['RemediationFiltersArgs'] filters: The filters that will be applied to determine which resources to remediate.
         :param pulumi.Input[_builtins.int] parallel_deployments: Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
@@ -66,7 +66,7 @@ class RemediationAtResourceGroupArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Resource group name.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -205,7 +205,7 @@ class RemediationAtResourceGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] remediation_name: The name of the remediation.
         :param pulumi.Input[_builtins.int] resource_count: Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
         :param pulumi.Input[Union[_builtins.str, 'ResourceDiscoveryMode']] resource_discovery_mode: The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
-        :param pulumi.Input[_builtins.str] resource_group_name: Resource group name.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
     @overload
@@ -352,7 +352,7 @@ class RemediationAtResourceGroup(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="failureThreshold")
-    def failure_threshold(self) -> pulumi.Output[Optional['outputs.RemediationPropertiesResponseFailureThreshold']]:
+    def failure_threshold(self) -> pulumi.Output[Optional['outputs.RemediationPropertiesFailureThresholdResponse']]:
         """
         The remediation failure threshold settings
         """
@@ -378,7 +378,7 @@ class RemediationAtResourceGroup(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the remediation.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -450,7 +450,7 @@ class RemediationAtResourceGroup(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        The type of the remediation.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

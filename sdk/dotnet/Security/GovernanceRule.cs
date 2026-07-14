@@ -24,6 +24,12 @@ namespace Pulumi.AzureNative.Security
         public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
+        /// The governance rule conditionSets - see examples
+        /// </summary>
+        [Output("conditionSets")]
+        public Output<ImmutableArray<object>> ConditionSets { get; private set; } = null!;
+
+        /// <summary>
         /// Description of the governance rule
         /// </summary>
         [Output("description")]
@@ -72,7 +78,7 @@ namespace Pulumi.AzureNative.Security
         public Output<Outputs.GovernanceRuleMetadataResponse?> Metadata { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -108,13 +114,19 @@ namespace Pulumi.AzureNative.Security
         public Output<string> SourceResourceType { get; private set; } = null!;
 
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// The tenantId (GUID)
         /// </summary>
         [Output("tenantId")]
         public Output<string> TenantId { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -168,6 +180,18 @@ namespace Pulumi.AzureNative.Security
 
     public sealed class GovernanceRuleArgs : global::Pulumi.ResourceArgs
     {
+        [Input("conditionSets", required: true)]
+        private InputList<object>? _conditionSets;
+
+        /// <summary>
+        /// The governance rule conditionSets - see examples
+        /// </summary>
+        public InputList<object> ConditionSets
+        {
+            get => _conditionSets ?? (_conditionSets = new InputList<object>());
+            set => _conditionSets = value;
+        }
+
         /// <summary>
         /// Description of the governance rule
         /// </summary>
@@ -247,7 +271,7 @@ namespace Pulumi.AzureNative.Security
         public InputUnion<string, Pulumi.AzureNative.Security.GovernanceRuleType> RuleType { get; set; } = null!;
 
         /// <summary>
-        /// The scope of the Governance rules. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;

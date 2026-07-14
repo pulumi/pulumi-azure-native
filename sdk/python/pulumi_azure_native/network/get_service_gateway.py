@@ -180,7 +180,7 @@ class GetServiceGatewayResult:
 
     @_builtins.property
     @pulumi.getter(name="virtualNetwork")
-    def virtual_network(self) -> Optional['outputs.VirtualNetworkResponse']:
+    def virtual_network(self) -> Optional['outputs.CommonVirtualNetworkResponse']:
         """
         Reference to an existing virtual network.
         """
@@ -190,7 +190,7 @@ class GetServiceGatewayResult:
     @pulumi.getter
     def zones(self) -> Optional[Sequence[_builtins.str]]:
         """
-        A list of availability zones denoting the zone in which service gateway should be deployed. 
+        A list of availability zones denoting the zone in which service gateway should be deployed.
 
         - The zone values must be provided as strings representing numeric identifiers like "1", "2", "3" etc.
         """
@@ -228,6 +228,8 @@ def get_service_gateway(resource_group_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2025-05-01.
 
+    Other available API versions: 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str service_gateway_name: The name of the service gateway.
@@ -261,6 +263,8 @@ def get_service_gateway_output(resource_group_name: Optional[pulumi.Input[_built
     Gets the specified service gateway.
 
     Uses Azure REST API version 2025-05-01.
+
+    Other available API versions: 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Get the storage task properties
  *
  * Uses Azure REST API version 2023-01-01.
+ *
+ * Other available API versions: 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storageactions [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getStorageTask(args: GetStorageTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageTaskResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -96,6 +98,8 @@ export interface GetStorageTaskResult {
  * Get the storage task properties
  *
  * Uses Azure REST API version 2023-01-01.
+ *
+ * Other available API versions: 2026-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storageactions [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getStorageTaskOutput(args: GetStorageTaskOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStorageTaskResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

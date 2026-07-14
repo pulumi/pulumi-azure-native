@@ -73,7 +73,7 @@ def list_integration_runtime_auth_keys(factory_name: Optional[_builtins.str] = N
 
     :param _builtins.str factory_name: The factory name.
     :param _builtins.str integration_runtime_name: The integration runtime name.
-    :param _builtins.str resource_group_name: The resource group name.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['factoryName'] = factory_name
@@ -97,7 +97,7 @@ def list_integration_runtime_auth_keys_output(factory_name: Optional[pulumi.Inpu
 
     :param _builtins.str factory_name: The factory name.
     :param _builtins.str integration_runtime_name: The integration runtime name.
-    :param _builtins.str resource_group_name: The resource group name.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['factoryName'] = factory_name

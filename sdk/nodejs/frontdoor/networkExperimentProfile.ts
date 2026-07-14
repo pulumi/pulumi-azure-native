@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Defines an Network Experiment Profile and lists of Experiments
  *
- * Uses Azure REST API version 2019-11-01.
+ * Uses Azure REST API version 2025-11-01.
  *
- * Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2019-11-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class NetworkExperimentProfile extends pulumi.CustomResource {
     /**
@@ -60,7 +60,7 @@ export class NetworkExperimentProfile extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    declare public readonly name: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Resource status.
      */
@@ -90,12 +90,12 @@ export class NetworkExperimentProfile extends pulumi.CustomResource {
             }
             resourceInputs["enabledState"] = args?.enabledState;
             resourceInputs["location"] = args?.location;
-            resourceInputs["name"] = args?.name;
             resourceInputs["profileName"] = args?.profileName;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
             resourceInputs["resourceState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -109,7 +109,7 @@ export class NetworkExperimentProfile extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:frontdoor/v20191101:NetworkExperimentProfile" }, { type: "azure-native:frontdoor/v20251001:NetworkExperimentProfile" }, { type: "azure-native:network/v20191101:NetworkExperimentProfile" }, { type: "azure-native:network:NetworkExperimentProfile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:frontdoor/v20191101:NetworkExperimentProfile" }, { type: "azure-native:frontdoor/v20251001:NetworkExperimentProfile" }, { type: "azure-native:frontdoor/v20251101:NetworkExperimentProfile" }, { type: "azure-native:network/v20191101:NetworkExperimentProfile" }, { type: "azure-native:network:NetworkExperimentProfile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkExperimentProfile.__pulumiType, name, resourceInputs, opts);
     }
@@ -128,15 +128,11 @@ export interface NetworkExperimentProfileArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the Profile
-     */
-    name?: pulumi.Input<string>;
-    /**
      * The Profile identifier associated with the Tenant and Partner
      */
     profileName?: pulumi.Input<string>;
     /**
-     * Name of the Resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

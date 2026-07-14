@@ -20,7 +20,13 @@ namespace Pulumi.AzureNative.ApplicationInsights
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// web
+        /// </summary>
         public static ApplicationType Web { get; } = new ApplicationType("web");
+        /// <summary>
+        /// other
+        /// </summary>
         public static ApplicationType Other { get; } = new ApplicationType("other");
 
         public static bool operator ==(ApplicationType left, ApplicationType right) => left.Equals(right);
@@ -51,7 +57,13 @@ namespace Pulumi.AzureNative.ApplicationInsights
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// shared
+        /// </summary>
         public static FavoriteType Shared { get; } = new FavoriteType("shared");
+        /// <summary>
+        /// user
+        /// </summary>
         public static FavoriteType User { get; } = new FavoriteType("user");
 
         public static bool operator ==(FavoriteType left, FavoriteType right) => left.Equals(right);
@@ -82,6 +94,9 @@ namespace Pulumi.AzureNative.ApplicationInsights
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Bluefield
+        /// </summary>
         public static FlowType Bluefield { get; } = new FlowType("Bluefield");
 
         public static bool operator ==(FlowType left, FlowType right) => left.Equals(right);
@@ -112,8 +127,17 @@ namespace Pulumi.AzureNative.ApplicationInsights
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// ApplicationInsights
+        /// </summary>
         public static IngestionMode ApplicationInsights { get; } = new IngestionMode("ApplicationInsights");
+        /// <summary>
+        /// ApplicationInsightsWithDiagnosticSettings
+        /// </summary>
         public static IngestionMode ApplicationInsightsWithDiagnosticSettings { get; } = new IngestionMode("ApplicationInsightsWithDiagnosticSettings");
+        /// <summary>
+        /// LogAnalytics
+        /// </summary>
         public static IngestionMode LogAnalytics { get; } = new IngestionMode("LogAnalytics");
 
         public static bool operator ==(IngestionMode left, IngestionMode right) => left.Equals(right);
@@ -144,7 +168,13 @@ namespace Pulumi.AzureNative.ApplicationInsights
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// shared
+        /// </summary>
         public static ItemScope Shared { get; } = new ItemScope("shared");
+        /// <summary>
+        /// user
+        /// </summary>
         public static ItemScope User { get; } = new ItemScope("user");
 
         public static bool operator ==(ItemScope left, ItemScope right) => left.Equals(right);
@@ -175,9 +205,21 @@ namespace Pulumi.AzureNative.ApplicationInsights
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// none
+        /// </summary>
         public static ItemType None { get; } = new ItemType("none");
+        /// <summary>
+        /// query
+        /// </summary>
         public static ItemType Query { get; } = new ItemType("query");
+        /// <summary>
+        /// recent
+        /// </summary>
         public static ItemType Recent { get; } = new ItemType("recent");
+        /// <summary>
+        /// function
+        /// </summary>
         public static ItemType Function { get; } = new ItemType("function");
 
         public static bool operator ==(ItemType left, ItemType right) => left.Equals(right);
@@ -309,6 +351,9 @@ namespace Pulumi.AzureNative.ApplicationInsights
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// rest
+        /// </summary>
         public static RequestSource Rest { get; } = new RequestSource("rest");
 
         public static bool operator ==(RequestSource left, RequestSource right) => left.Equals(right);
@@ -339,8 +384,17 @@ namespace Pulumi.AzureNative.ApplicationInsights
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// ping
+        /// </summary>
         public static WebTestKind Ping { get; } = new WebTestKind("ping");
+        /// <summary>
+        /// multistep
+        /// </summary>
         public static WebTestKind Multistep { get; } = new WebTestKind("multistep");
+        /// <summary>
+        /// standard
+        /// </summary>
         public static WebTestKind Standard { get; } = new WebTestKind("standard");
 
         public static bool operator ==(WebTestKind left, WebTestKind right) => left.Equals(right);
@@ -371,6 +425,9 @@ namespace Pulumi.AzureNative.ApplicationInsights
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// shared
+        /// </summary>
         public static WorkbookSharedTypeKind Shared { get; } = new WorkbookSharedTypeKind("shared");
 
         public static bool operator ==(WorkbookSharedTypeKind left, WorkbookSharedTypeKind right) => left.Equals(right);

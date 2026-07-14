@@ -195,13 +195,13 @@ namespace Pulumi.AzureNative.Automation
         public Input<Inputs.ContentLinkArgs> ContentLink { get; set; } = null!;
 
         /// <summary>
-        /// The name of python package.
+        /// The python package name.
         /// </summary>
         [Input("packageName")]
         public Input<string>? PackageName { get; set; }
 
         /// <summary>
-        /// Name of an Azure Resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

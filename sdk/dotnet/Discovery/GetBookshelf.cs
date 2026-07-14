@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Discovery
         /// Get a Bookshelf
         /// 
         /// Uses Azure REST API version 2026-02-01-preview.
+        /// 
+        /// Other available API versions: 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native discovery [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetBookshelfResult> InvokeAsync(GetBookshelfArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBookshelfResult>("azure-native:discovery:getBookshelf", args ?? new GetBookshelfArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Discovery
         /// Get a Bookshelf
         /// 
         /// Uses Azure REST API version 2026-02-01-preview.
+        /// 
+        /// Other available API versions: 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native discovery [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetBookshelfResult> Invoke(GetBookshelfInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBookshelfResult>("azure-native:discovery:getBookshelf", args ?? new GetBookshelfInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Discovery
         /// Get a Bookshelf
         /// 
         /// Uses Azure REST API version 2026-02-01-preview.
+        /// 
+        /// Other available API versions: 2026-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native discovery [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetBookshelfResult> Invoke(GetBookshelfInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBookshelfResult>("azure-native:discovery:getBookshelf", args ?? new GetBookshelfInvokeArgs(), options.WithDefaults());

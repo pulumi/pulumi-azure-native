@@ -267,7 +267,7 @@ namespace Pulumi.AzureNative.Automation
         public Input<Inputs.ContentLinkArgs>? PublishContentLink { get; set; }
 
         /// <summary>
-        /// Name of an Azure Resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

@@ -141,6 +141,8 @@ namespace Pulumi.AzureNative.Sql
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20240501preview:DatabaseSecurityAlertPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20240501preview:DatabaseThreatDetectionPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20241101preview:DatabaseThreatDetectionPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20250101:DatabaseThreatDetectionPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20250201preview:DatabaseThreatDetectionPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql:DatabaseSecurityAlertPolicy" },
                 },
             };

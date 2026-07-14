@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-11-01.
  *
- * Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class AccessPolicy extends pulumi.CustomResource {
     /**
@@ -104,7 +104,7 @@ export class AccessPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cache/v20230501preview:AccessPolicy" }, { type: "azure-native:cache/v20230801:AccessPolicy" }, { type: "azure-native:cache/v20240301:AccessPolicy" }, { type: "azure-native:cache/v20240401preview:AccessPolicy" }, { type: "azure-native:cache/v20241101:AccessPolicy" }, { type: "azure-native:cache:AccessPolicy" }, { type: "azure-native:redis/v20230501preview:AccessPolicy" }, { type: "azure-native:redis/v20230801:AccessPolicy" }, { type: "azure-native:redis/v20240301:AccessPolicy" }, { type: "azure-native:redis/v20240401preview:AccessPolicy" }, { type: "azure-native:redis/v20241101:AccessPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cache/v20230501preview:AccessPolicy" }, { type: "azure-native:cache/v20230801:AccessPolicy" }, { type: "azure-native:cache/v20240301:AccessPolicy" }, { type: "azure-native:cache/v20240401preview:AccessPolicy" }, { type: "azure-native:cache/v20241101:AccessPolicy" }, { type: "azure-native:cache:AccessPolicy" }, { type: "azure-native:redis/v20230501preview:AccessPolicy" }, { type: "azure-native:redis/v20230801:AccessPolicy" }, { type: "azure-native:redis/v20240301:AccessPolicy" }, { type: "azure-native:redis/v20240401preview:AccessPolicy" }, { type: "azure-native:redis/v20241101:AccessPolicy" }, { type: "azure-native:redis/v20250801preview:AccessPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AccessPolicy.__pulumiType, name, resourceInputs, opts);
     }

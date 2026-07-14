@@ -23,16 +23,14 @@ class NetworkExperimentProfileArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  enabled_state: Optional[pulumi.Input[Union[_builtins.str, 'State']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
                  profile_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkExperimentProfile resource.
 
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[_builtins.str, 'State']] enabled_state: The state of the Experiment
         :param pulumi.Input[_builtins.str] location: Resource location.
-        :param pulumi.Input[_builtins.str] name: The name of the Profile
         :param pulumi.Input[_builtins.str] profile_name: The Profile identifier associated with the Tenant and Partner
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
@@ -41,8 +39,6 @@ class NetworkExperimentProfileArgs:
             pulumi.set(__self__, "enabled_state", enabled_state)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if profile_name is not None:
             pulumi.set(__self__, "profile_name", profile_name)
         if tags is not None:
@@ -52,7 +48,7 @@ class NetworkExperimentProfileArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the Resource group within the Azure subscription.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -83,18 +79,6 @@ class NetworkExperimentProfileArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the Profile
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="profileName")
@@ -129,7 +113,6 @@ class NetworkExperimentProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled_state: Optional[pulumi.Input[Union[_builtins.str, 'State']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
                  profile_name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -137,18 +120,17 @@ class NetworkExperimentProfile(pulumi.CustomResource):
         """
         Defines an Network Experiment Profile and lists of Experiments
 
-        Uses Azure REST API version 2019-11-01.
+        Uses Azure REST API version 2025-11-01.
 
-        Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2019-11-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, 'State']] enabled_state: The state of the Experiment
         :param pulumi.Input[_builtins.str] location: Resource location.
-        :param pulumi.Input[_builtins.str] name: The name of the Profile
         :param pulumi.Input[_builtins.str] profile_name: The Profile identifier associated with the Tenant and Partner
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         ...
@@ -160,9 +142,9 @@ class NetworkExperimentProfile(pulumi.CustomResource):
         """
         Defines an Network Experiment Profile and lists of Experiments
 
-        Uses Azure REST API version 2019-11-01.
+        Uses Azure REST API version 2025-11-01.
 
-        Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2019-11-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -182,7 +164,6 @@ class NetworkExperimentProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled_state: Optional[pulumi.Input[Union[_builtins.str, 'State']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
                  profile_name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -197,7 +178,6 @@ class NetworkExperimentProfile(pulumi.CustomResource):
 
             __props__.__dict__["enabled_state"] = enabled_state
             __props__.__dict__["location"] = location
-            __props__.__dict__["name"] = name
             __props__.__dict__["profile_name"] = profile_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -205,9 +185,10 @@ class NetworkExperimentProfile(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
+            __props__.__dict__["name"] = None
             __props__.__dict__["resource_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:frontdoor/v20191101:NetworkExperimentProfile"), pulumi.Alias(type_="azure-native:frontdoor/v20251001:NetworkExperimentProfile"), pulumi.Alias(type_="azure-native:network/v20191101:NetworkExperimentProfile"), pulumi.Alias(type_="azure-native:network:NetworkExperimentProfile")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:frontdoor/v20191101:NetworkExperimentProfile"), pulumi.Alias(type_="azure-native:frontdoor/v20251001:NetworkExperimentProfile"), pulumi.Alias(type_="azure-native:frontdoor/v20251101:NetworkExperimentProfile"), pulumi.Alias(type_="azure-native:network/v20191101:NetworkExperimentProfile"), pulumi.Alias(type_="azure-native:network:NetworkExperimentProfile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkExperimentProfile, __self__).__init__(
             'azure-native:frontdoor:NetworkExperimentProfile',

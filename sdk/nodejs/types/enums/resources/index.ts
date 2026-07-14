@@ -3,8 +3,17 @@
 
 
 export const CleanupOptions = {
+    /**
+     * Always clean up the resources created by the script execution.
+     */
     Always: "Always",
+    /**
+     * Clean up the resources created by the script execution only if the script execution is successful.
+     */
     OnSuccess: "OnSuccess",
+    /**
+     * Clean up the resources created by the script execution only on expiration.
+     */
     OnExpiration: "OnExpiration",
 } as const;
 
@@ -64,6 +73,9 @@ export const ExtendedLocationType = {
 export type ExtendedLocationType = (typeof ExtendedLocationType)[keyof typeof ExtendedLocationType];
 
 export const ManagedServiceIdentityType = {
+    /**
+     * User assigned identity.
+     */
     UserAssigned: "UserAssigned",
 } as const;
 
@@ -111,7 +123,13 @@ export const ResourcesWithoutDeleteSupportAction = {
 export type ResourcesWithoutDeleteSupportAction = (typeof ResourcesWithoutDeleteSupportAction)[keyof typeof ResourcesWithoutDeleteSupportAction];
 
 export const ScriptType = {
+    /**
+     * Azure PowerShell script.
+     */
     AzurePowerShell: "AzurePowerShell",
+    /**
+     * Azure CLI script.
+     */
     AzureCLI: "AzureCLI",
 } as const;
 

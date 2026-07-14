@@ -39,15 +39,15 @@ class ListServiceGroupAncestorsResult:
     @pulumi.getter(name="nextLink")
     def next_link(self) -> Optional[_builtins.str]:
         """
-        URL to query the next page of results for this request
+        The link to the next page of items
         """
         return pulumi.get(self, "next_link")
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.ServiceGroupResponse']]:
+    def value(self) -> Sequence['outputs.ServiceGroupResponse']:
         """
-        Array of service groups based on the request criteria
+        The ServiceGroup items on this page
         """
         return pulumi.get(self, "value")
 

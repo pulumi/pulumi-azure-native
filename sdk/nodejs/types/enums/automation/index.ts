@@ -3,7 +3,13 @@
 
 
 export const ContentSourceType = {
+    /**
+     * embeddedContent
+     */
     EmbeddedContent: "embeddedContent",
+    /**
+     * uri
+     */
     Uri: "uri",
 } as const;
 
@@ -13,7 +19,13 @@ export const ContentSourceType = {
 export type ContentSourceType = (typeof ContentSourceType)[keyof typeof ContentSourceType];
 
 export const EncryptionKeySourceType = {
+    /**
+     * Microsoft.Automation
+     */
     Microsoft_Automation: "Microsoft.Automation",
+    /**
+     * Microsoft.Keyvault
+     */
     Microsoft_Keyvault: "Microsoft.Keyvault",
 } as const;
 
@@ -23,9 +35,21 @@ export const EncryptionKeySourceType = {
 export type EncryptionKeySourceType = (typeof EncryptionKeySourceType)[keyof typeof EncryptionKeySourceType];
 
 export const LinuxUpdateClasses = {
+    /**
+     * Unclassified
+     */
     Unclassified: "Unclassified",
+    /**
+     * Critical
+     */
     Critical: "Critical",
+    /**
+     * Security
+     */
     Security: "Security",
+    /**
+     * Other
+     */
     Other: "Other",
 } as const;
 
@@ -35,7 +59,13 @@ export const LinuxUpdateClasses = {
 export type LinuxUpdateClasses = (typeof LinuxUpdateClasses)[keyof typeof LinuxUpdateClasses];
 
 export const OperatingSystemType = {
+    /**
+     * Windows
+     */
     Windows: "Windows",
+    /**
+     * Linux
+     */
     Linux: "Linux",
 } as const;
 
@@ -45,9 +75,21 @@ export const OperatingSystemType = {
 export type OperatingSystemType = (typeof OperatingSystemType)[keyof typeof OperatingSystemType];
 
 export const ResourceIdentityType = {
+    /**
+     * SystemAssigned
+     */
     SystemAssigned: "SystemAssigned",
+    /**
+     * UserAssigned
+     */
     UserAssigned: "UserAssigned",
+    /**
+     * SystemAssigned, UserAssigned
+     */
     SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
+    /**
+     * None
+     */
     None: "None",
 } as const;
 
@@ -57,15 +99,45 @@ export const ResourceIdentityType = {
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
 export const RunbookTypeEnum = {
+    /**
+     * Script
+     */
     Script: "Script",
+    /**
+     * Graph
+     */
     Graph: "Graph",
+    /**
+     * PowerShellWorkflow
+     */
     PowerShellWorkflow: "PowerShellWorkflow",
+    /**
+     * PowerShell
+     */
     PowerShell: "PowerShell",
+    /**
+     * GraphPowerShellWorkflow
+     */
     GraphPowerShellWorkflow: "GraphPowerShellWorkflow",
+    /**
+     * GraphPowerShell
+     */
     GraphPowerShell: "GraphPowerShell",
+    /**
+     * Python2
+     */
     Python2: "Python2",
+    /**
+     * Python3
+     */
     Python3: "Python3",
+    /**
+     * Python
+     */
     Python: "Python",
+    /**
+     * PowerShell72
+     */
     PowerShell72: "PowerShell72",
 } as const;
 
@@ -75,12 +147,33 @@ export const RunbookTypeEnum = {
 export type RunbookTypeEnum = (typeof RunbookTypeEnum)[keyof typeof RunbookTypeEnum];
 
 export const ScheduleDay = {
+    /**
+     * Monday
+     */
     Monday: "Monday",
+    /**
+     * Tuesday
+     */
     Tuesday: "Tuesday",
+    /**
+     * Wednesday
+     */
     Wednesday: "Wednesday",
+    /**
+     * Thursday
+     */
     Thursday: "Thursday",
+    /**
+     * Friday
+     */
     Friday: "Friday",
+    /**
+     * Saturday
+     */
     Saturday: "Saturday",
+    /**
+     * Sunday
+     */
     Sunday: "Sunday",
 } as const;
 
@@ -90,10 +183,25 @@ export const ScheduleDay = {
 export type ScheduleDay = (typeof ScheduleDay)[keyof typeof ScheduleDay];
 
 export const ScheduleFrequency = {
+    /**
+     * OneTime
+     */
     OneTime: "OneTime",
+    /**
+     * Day
+     */
     Day: "Day",
+    /**
+     * Hour
+     */
     Hour: "Hour",
+    /**
+     * Week
+     */
     Week: "Week",
+    /**
+     * Month
+     */
     Month: "Month",
     /**
      * The minimum allowed interval for Minute schedules is 15 minutes.
@@ -107,7 +215,13 @@ export const ScheduleFrequency = {
 export type ScheduleFrequency = (typeof ScheduleFrequency)[keyof typeof ScheduleFrequency];
 
 export const SkuNameEnum = {
+    /**
+     * Free
+     */
     Free: "Free",
+    /**
+     * Basic
+     */
     Basic: "Basic",
 } as const;
 
@@ -117,8 +231,17 @@ export const SkuNameEnum = {
 export type SkuNameEnum = (typeof SkuNameEnum)[keyof typeof SkuNameEnum];
 
 export const SourceType = {
+    /**
+     * VsoGit
+     */
     VsoGit: "VsoGit",
+    /**
+     * VsoTfvc
+     */
     VsoTfvc: "VsoTfvc",
+    /**
+     * GitHub
+     */
     GitHub: "GitHub",
 } as const;
 
@@ -128,7 +251,13 @@ export const SourceType = {
 export type SourceType = (typeof SourceType)[keyof typeof SourceType];
 
 export const TagOperators = {
+    /**
+     * All
+     */
     All: "All",
+    /**
+     * Any
+     */
     Any: "Any",
 } as const;
 
@@ -138,7 +267,13 @@ export const TagOperators = {
 export type TagOperators = (typeof TagOperators)[keyof typeof TagOperators];
 
 export const TokenType = {
+    /**
+     * PersonalAccessToken
+     */
     PersonalAccessToken: "PersonalAccessToken",
+    /**
+     * Oauth
+     */
     Oauth: "Oauth",
 } as const;
 
@@ -148,14 +283,41 @@ export const TokenType = {
 export type TokenType = (typeof TokenType)[keyof typeof TokenType];
 
 export const WindowsUpdateClasses = {
+    /**
+     * Unclassified
+     */
     Unclassified: "Unclassified",
+    /**
+     * Critical
+     */
     Critical: "Critical",
+    /**
+     * Security
+     */
     Security: "Security",
+    /**
+     * UpdateRollup
+     */
     UpdateRollup: "UpdateRollup",
+    /**
+     * FeaturePack
+     */
     FeaturePack: "FeaturePack",
+    /**
+     * ServicePack
+     */
     ServicePack: "ServicePack",
+    /**
+     * Definition
+     */
     Definition: "Definition",
+    /**
+     * Tools
+     */
     Tools: "Tools",
+    /**
+     * Updates
+     */
     Updates: "Updates",
 } as const;
 

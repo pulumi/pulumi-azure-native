@@ -126,7 +126,7 @@ namespace Pulumi.AzureNative.ApplicationInsights
         /// <summary>
         /// Identity used for BYOS
         /// </summary>
-        public readonly Outputs.WorkbookResourceResponseIdentity? Identity;
+        public readonly Outputs.WorkbookResourceIdentityResponse? Identity;
         /// <summary>
         /// The kind of workbook. Only valid value is shared.
         /// </summary>
@@ -156,7 +156,7 @@ namespace Pulumi.AzureNative.ApplicationInsights
         /// </summary>
         public readonly string? StorageUri;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -194,7 +194,7 @@ namespace Pulumi.AzureNative.ApplicationInsights
 
             string id,
 
-            Outputs.WorkbookResourceResponseIdentity? identity,
+            Outputs.WorkbookResourceIdentityResponse? identity,
 
             string? kind,
 

@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.Automation
         public string AutomationAccountName { get; set; } = null!;
 
         /// <summary>
-        /// Name of an Azure Resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNative.Automation
         public Input<string> AutomationAccountName { get; set; } = null!;
 
         /// <summary>
-        /// Name of an Azure Resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -114,9 +114,9 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// Details of provisioning error
         /// </summary>
-        public readonly Outputs.ErrorResponseResponse? Error;
+        public readonly Outputs.AutomationErrorResponseResponse? Error;
         /// <summary>
-        /// Resource Id.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNative.Automation
         /// </summary>
         public readonly string LastModifiedTime;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -140,11 +140,15 @@ namespace Pulumi.AzureNative.Automation
         /// </summary>
         public readonly Outputs.SUCSchedulePropertiesResponse ScheduleInfo;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Tasks information for the Software update configuration.
         /// </summary>
         public readonly Outputs.SoftwareUpdateConfigurationTasksResponse? Tasks;
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -160,7 +164,7 @@ namespace Pulumi.AzureNative.Automation
 
             string creationTime,
 
-            Outputs.ErrorResponseResponse? error,
+            Outputs.AutomationErrorResponseResponse? error,
 
             string id,
 
@@ -173,6 +177,8 @@ namespace Pulumi.AzureNative.Automation
             string provisioningState,
 
             Outputs.SUCSchedulePropertiesResponse scheduleInfo,
+
+            Outputs.SystemDataResponse systemData,
 
             Outputs.SoftwareUpdateConfigurationTasksResponse? tasks,
 
@@ -190,6 +196,7 @@ namespace Pulumi.AzureNative.Automation
             Name = name;
             ProvisioningState = provisioningState;
             ScheduleInfo = scheduleInfo;
+            SystemData = systemData;
             Tasks = tasks;
             Type = type;
             UpdateConfiguration = updateConfiguration;

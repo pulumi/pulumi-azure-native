@@ -206,7 +206,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, variants
 		if resolvedProperty.ReadOnly && !variants.isOutput {
 			continue
 		}
-		if variants.isOutput && isWriteOnly(resolvedProperty) {
+		if variants.isOutput && isWriteOnly(resolvedProperty) && !m.isReadableOutput(name) {
 			continue
 		}
 
@@ -658,6 +658,36 @@ func isWriteOnly(schema *openapi.Schema) bool {
 		}
 	}
 	return true
+}
+
+// readableOutputs lists properties that the Azure spec annotates as write-only (an
+// "x-ms-mutability" without "read") but which the provider can nonetheless read back, so they
+// must be retained as resource outputs. Keyed by Module -> Resource -> property names.
+//
+// Web/WebApp(Slot).siteConfig: a GET of Microsoft.Web/sites does not return siteConfig (Azure
+// annotates it write-only because it "may contain sensitive information"), but the provider's
+// custom Read fetches it from GET .../config/web and merges it back (see
+// resources/customresources.makeWebAppResource, added in pulumi/pulumi-azure-native#3464).
+// Retaining the output is required for siteConfig to round-trip on refresh/import. This
+// regressed when the default Web API version advanced to 2024-11-01, which introduced the
+// x-ms-mutability annotation that strips the output.
+var readableOutputs = map[openapi.ModuleName]map[string]codegen.StringSet{
+	"Web": {
+		"WebApp":     codegen.NewStringSet("siteConfig"),
+		"WebAppSlot": codegen.NewStringSet("siteConfig"),
+	},
+}
+
+// isReadableOutput reports whether propertyName, although annotated write-only by
+// x-ms-mutability, should still be generated as an output for the resource currently being
+// generated, because the provider is able to read its value (e.g. via a custom Read).
+func (m *moduleGenerator) isReadableOutput(propertyName string) bool {
+	if resourceMap, ok := readableOutputs[m.moduleName]; ok {
+		if properties, ok := resourceMap[m.resourceName]; ok {
+			return properties.Has(propertyName)
+		}
+	}
+	return false
 }
 
 // getDiscriminator returns a property name and description for a discriminator if it's defined on the schema.

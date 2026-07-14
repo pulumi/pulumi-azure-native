@@ -124,11 +124,11 @@ namespace Pulumi.AzureNative.Monitor
         /// </summary>
         public readonly string GroupShortName;
         /// <summary>
-        /// Azure resource Id
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Managed service identity (system assigned and/or user assigned identities)
+        /// The managed service identities assigned to this resource.
         /// </summary>
         public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNative.Monitor
         /// </summary>
         public readonly ImmutableArray<Outputs.ItsmReceiverResponse> ItsmReceivers;
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNative.Monitor
         /// </summary>
         public readonly ImmutableArray<Outputs.LogicAppReceiverResponse> LogicAppReceivers;
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -156,11 +156,15 @@ namespace Pulumi.AzureNative.Monitor
         /// </summary>
         public readonly ImmutableArray<Outputs.SmsReceiverResponse> SmsReceivers;
         /// <summary>
-        /// Resource tags
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Azure resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -208,6 +212,8 @@ namespace Pulumi.AzureNative.Monitor
 
             ImmutableArray<Outputs.SmsReceiverResponse> smsReceivers,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -233,6 +239,7 @@ namespace Pulumi.AzureNative.Monitor
             LogicAppReceivers = logicAppReceivers;
             Name = name;
             SmsReceivers = smsReceivers;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             VoiceReceivers = voiceReceivers;

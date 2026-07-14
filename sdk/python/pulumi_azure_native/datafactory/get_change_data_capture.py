@@ -27,7 +27,7 @@ class GetChangeDataCaptureResult:
     """
     Change data capture resource type.
     """
-    def __init__(__self__, allow_v_net_override=None, azure_api_version=None, description=None, etag=None, folder=None, id=None, name=None, policy=None, source_connections_info=None, status=None, target_connections_info=None, type=None):
+    def __init__(__self__, allow_v_net_override=None, azure_api_version=None, description=None, etag=None, folder=None, id=None, name=None, policy=None, source_connections_info=None, status=None, system_data=None, target_connections_info=None, type=None):
         if allow_v_net_override and not isinstance(allow_v_net_override, bool):
             raise TypeError("Expected argument 'allow_v_net_override' to be a bool")
         pulumi.set(__self__, "allow_v_net_override", allow_v_net_override)
@@ -58,6 +58,9 @@ class GetChangeDataCaptureResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if target_connections_info and not isinstance(target_connections_info, list):
             raise TypeError("Expected argument 'target_connections_info' to be a list")
         pulumi.set(__self__, "target_connections_info", target_connections_info)
@@ -93,13 +96,13 @@ class GetChangeDataCaptureResult:
     @pulumi.getter
     def etag(self) -> _builtins.str:
         """
-        Etag identifies change in the resource.
+        "If etag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.")
         """
         return pulumi.get(self, "etag")
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.ChangeDataCaptureResponseFolder']:
+    def folder(self) -> Optional['outputs.ChangeDataCaptureFolderResponse']:
         """
         The folder that this CDC is in. If not specified, CDC will appear at the root level.
         """
@@ -109,7 +112,7 @@ class GetChangeDataCaptureResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The resource identifier.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -117,7 +120,7 @@ class GetChangeDataCaptureResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -146,6 +149,14 @@ class GetChangeDataCaptureResult:
         return pulumi.get(self, "status")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter(name="targetConnectionsInfo")
     def target_connections_info(self) -> Sequence['outputs.MapperTargetConnectionsInfoResponse']:
         """
@@ -157,7 +168,7 @@ class GetChangeDataCaptureResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -178,6 +189,7 @@ class AwaitableGetChangeDataCaptureResult(GetChangeDataCaptureResult):
             policy=self.policy,
             source_connections_info=self.source_connections_info,
             status=self.status,
+            system_data=self.system_data,
             target_connections_info=self.target_connections_info,
             type=self.type)
 
@@ -194,7 +206,7 @@ def get_change_data_capture(change_data_capture_name: Optional[_builtins.str] = 
 
     :param _builtins.str change_data_capture_name: The change data capture name.
     :param _builtins.str factory_name: The factory name.
-    :param _builtins.str resource_group_name: The resource group name.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['changeDataCaptureName'] = change_data_capture_name
@@ -214,6 +226,7 @@ def get_change_data_capture(change_data_capture_name: Optional[_builtins.str] = 
         policy=pulumi.get(__ret__, 'policy'),
         source_connections_info=pulumi.get(__ret__, 'source_connections_info'),
         status=pulumi.get(__ret__, 'status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         target_connections_info=pulumi.get(__ret__, 'target_connections_info'),
         type=pulumi.get(__ret__, 'type'))
 def get_change_data_capture_output(change_data_capture_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -228,7 +241,7 @@ def get_change_data_capture_output(change_data_capture_name: Optional[pulumi.Inp
 
     :param _builtins.str change_data_capture_name: The change data capture name.
     :param _builtins.str factory_name: The factory name.
-    :param _builtins.str resource_group_name: The resource group name.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['changeDataCaptureName'] = change_data_capture_name
@@ -247,5 +260,6 @@ def get_change_data_capture_output(change_data_capture_name: Optional[pulumi.Inp
         policy=pulumi.get(__response__, 'policy'),
         source_connections_info=pulumi.get(__response__, 'source_connections_info'),
         status=pulumi.get(__response__, 'status'),
+        system_data=pulumi.get(__response__, 'system_data'),
         target_connections_info=pulumi.get(__response__, 'target_connections_info'),
         type=pulumi.get(__response__, 'type')))

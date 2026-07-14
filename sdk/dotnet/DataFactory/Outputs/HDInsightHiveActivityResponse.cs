@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// Allows user to specify defines for Hive job request.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Defines;
+        public readonly object? Defines;
         /// <summary>
         /// Activity depends on condition.
         /// </summary>
@@ -84,13 +84,13 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// User specified arguments under hivevar namespace.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Variables;
+        public readonly object? Variables;
 
         [OutputConstructor]
         private HDInsightHiveActivityResponse(
             ImmutableArray<object> arguments,
 
-            ImmutableDictionary<string, object>? defines,
+            object? defines,
 
             ImmutableArray<Outputs.ActivityDependencyResponse> dependsOn,
 
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             ImmutableArray<Outputs.UserPropertyResponse> userProperties,
 
-            ImmutableDictionary<string, object>? variables)
+            object? variables)
         {
             Arguments = arguments;
             Defines = defines;

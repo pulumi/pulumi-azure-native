@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// <summary>
     /// Represents a SourceControl in Azure Security Insights.
     /// 
-    /// Uses Azure REST API version 2023-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
+    /// Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
     /// 
-    /// Other available API versions: 2023-03-01-preview, 2023-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2025-06-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:SourceControl")]
     public partial class SourceControl : global::Pulumi.CustomResource
@@ -53,13 +53,19 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// Information regarding the latest deployment for the source control.
         /// </summary>
         [Output("lastDeploymentInfo")]
-        public Output<Outputs.DeploymentInfoResponse?> LastDeploymentInfo { get; private set; } = null!;
+        public Output<Outputs.DeploymentInfoResponse> LastDeploymentInfo { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Information regarding the pull request of the source control.
+        /// </summary>
+        [Output("pullRequest")]
+        public Output<Outputs.PullRequestResponse> PullRequest { get; private set; } = null!;
 
         /// <summary>
         /// The repository type of the source control
@@ -80,6 +86,12 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<Outputs.RepositoryResourceInfoResponse?> RepositoryResourceInfo { get; private set; } = null!;
 
         /// <summary>
+        /// Service principal metadata.
+        /// </summary>
+        [Output("servicePrincipal")]
+        public Output<Outputs.ServicePrincipalResponse?> ServicePrincipal { get; private set; } = null!;
+
+        /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
@@ -95,7 +107,13 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// The version number associated with the source control
         /// </summary>
         [Output("version")]
-        public Output<string?> Version { get; private set; } = null!;
+        public Output<string> Version { get; private set; } = null!;
+
+        /// <summary>
+        /// Workload Identity metadata.
+        /// </summary>
+        [Output("workloadIdentityFederation")]
+        public Output<Outputs.WorkloadIdentityFederationResponse> WorkloadIdentityFederation { get; private set; } = null!;
 
 
         /// <summary>
@@ -123,22 +141,10 @@ namespace Pulumi.AzureNative.SecurityInsights
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:SourceControl" },
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:SourceControl" },
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:SourceControl" },
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:SourceControl" },
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:SourceControl" },
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:SourceControl" },
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:SourceControl" },
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:SourceControl" },
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220801preview:SourceControl" },
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220901preview:SourceControl" },
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221001preview:SourceControl" },
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221101preview:SourceControl" },
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221201preview:SourceControl" },
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:SourceControl" },
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230301preview:SourceControl" },
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:SourceControl" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:SourceControl" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250601:SourceControl" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250701preview:SourceControl" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250901:SourceControl" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -187,18 +193,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<string> DisplayName { get; set; } = null!;
 
         /// <summary>
-        /// The id (a Guid) of the source control
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// Information regarding the latest deployment for the source control.
-        /// </summary>
-        [Input("lastDeploymentInfo")]
-        public Input<Inputs.DeploymentInfoArgs>? LastDeploymentInfo { get; set; }
-
-        /// <summary>
         /// The repository type of the source control
         /// </summary>
         [Input("repoType", required: true)]
@@ -209,6 +203,12 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         [Input("repository", required: true)]
         public Input<Inputs.RepositoryArgs> Repository { get; set; } = null!;
+
+        /// <summary>
+        /// Repository access credentials. This is write-only object and it never returns back to a user.
+        /// </summary>
+        [Input("repositoryAccess")]
+        public Input<Inputs.RepositoryAccessArgs>? RepositoryAccess { get; set; }
 
         /// <summary>
         /// Information regarding the resources created in user's repository.
@@ -223,16 +223,16 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// Service principal metadata.
+        /// </summary>
+        [Input("servicePrincipal")]
+        public Input<Inputs.ServicePrincipalArgs>? ServicePrincipal { get; set; }
+
+        /// <summary>
         /// Source control Id
         /// </summary>
         [Input("sourceControlId")]
         public Input<string>? SourceControlId { get; set; }
-
-        /// <summary>
-        /// The version number associated with the source control
-        /// </summary>
-        [Input("version")]
-        public InputUnion<string, Pulumi.AzureNative.SecurityInsights.Version>? Version { get; set; }
 
         /// <summary>
         /// The name of the workspace.

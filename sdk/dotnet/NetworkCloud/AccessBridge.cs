@@ -10,7 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NetworkCloud
 {
     /// <summary>
+    /// AccessBridge represents a managed access bridge resource.
+    /// 
     /// Uses Azure REST API version 2026-01-01-preview.
+    /// 
+    /// Other available API versions: 2026-05-01-preview, 2026-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud:AccessBridge")]
     public partial class AccessBridge : global::Pulumi.CustomResource
@@ -40,16 +44,16 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Output<ImmutableArray<Outputs.AccessBridgeEndpointResponse>> Endpoints { get; private set; } = null!;
 
         /// <summary>
-        /// Resource ETag.
+        /// "If etag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.")
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// The extended location of the cluster associated with the resource.
+        /// The extended location of the resource. This property is required when creating the resource.
         /// </summary>
         [Output("extendedLocation")]
-        public Output<Outputs.ExtendedLocationResponse> ExtendedLocation { get; private set; } = null!;
+        public Output<Outputs.AzureResourceManagerCommonTypesExtendedLocationResponse> ExtendedLocation { get; private set; } = null!;
 
         /// <summary>
         /// The IPv4 subnet from which the access bridge allocates an address. This subnet must be part of the internal network specified by networkId.
@@ -143,6 +147,8 @@ namespace Pulumi.AzureNative.NetworkCloud
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20260101preview:AccessBridge" },
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20260501preview:AccessBridge" },
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20260701:AccessBridge" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -173,10 +179,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Input<string>? AccessBridgeName { get; set; }
 
         /// <summary>
-        /// The extended location of the cluster associated with the resource.
+        /// The extended location of the resource. This property is required when creating the resource.
         /// </summary>
         [Input("extendedLocation", required: true)]
-        public Input<Inputs.ExtendedLocationArgs> ExtendedLocation { get; set; } = null!;
+        public Input<Inputs.AzureResourceManagerCommonTypesExtendedLocationArgs> ExtendedLocation { get; set; } = null!;
 
         /// <summary>
         /// The IPv4 subnet from which the access bridge allocates an address. This subnet must be part of the internal network specified by networkId.

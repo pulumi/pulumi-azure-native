@@ -138,7 +138,7 @@ class RaiBlocklistItem(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
-        Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview, 2025-12-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-05-01, 2026-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -161,7 +161,7 @@ class RaiBlocklistItem(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
-        Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview, 2025-12-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-05-01, 2026-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -211,7 +211,7 @@ class RaiBlocklistItem(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cognitiveservices/v20231001preview:RaiBlocklistItem"), pulumi.Alias(type_="azure-native:cognitiveservices/v20240401preview:RaiBlocklistItem"), pulumi.Alias(type_="azure-native:cognitiveservices/v20240601preview:RaiBlocklistItem"), pulumi.Alias(type_="azure-native:cognitiveservices/v20241001:RaiBlocklistItem"), pulumi.Alias(type_="azure-native:cognitiveservices/v20250401preview:RaiBlocklistItem"), pulumi.Alias(type_="azure-native:cognitiveservices/v20250601:RaiBlocklistItem"), pulumi.Alias(type_="azure-native:cognitiveservices/v20250701preview:RaiBlocklistItem"), pulumi.Alias(type_="azure-native:cognitiveservices/v20250901:RaiBlocklistItem"), pulumi.Alias(type_="azure-native:cognitiveservices/v20251001preview:RaiBlocklistItem")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cognitiveservices/v20231001preview:RaiBlocklistItem"), pulumi.Alias(type_="azure-native:cognitiveservices/v20240401preview:RaiBlocklistItem"), pulumi.Alias(type_="azure-native:cognitiveservices/v20240601preview:RaiBlocklistItem"), pulumi.Alias(type_="azure-native:cognitiveservices/v20241001:RaiBlocklistItem"), pulumi.Alias(type_="azure-native:cognitiveservices/v20250401preview:RaiBlocklistItem"), pulumi.Alias(type_="azure-native:cognitiveservices/v20250601:RaiBlocklistItem"), pulumi.Alias(type_="azure-native:cognitiveservices/v20250701preview:RaiBlocklistItem"), pulumi.Alias(type_="azure-native:cognitiveservices/v20250901:RaiBlocklistItem"), pulumi.Alias(type_="azure-native:cognitiveservices/v20251001preview:RaiBlocklistItem"), pulumi.Alias(type_="azure-native:cognitiveservices/v20251201:RaiBlocklistItem"), pulumi.Alias(type_="azure-native:cognitiveservices/v20260115preview:RaiBlocklistItem"), pulumi.Alias(type_="azure-native:cognitiveservices/v20260301:RaiBlocklistItem"), pulumi.Alias(type_="azure-native:cognitiveservices/v20260315preview:RaiBlocklistItem"), pulumi.Alias(type_="azure-native:cognitiveservices/v20260501:RaiBlocklistItem"), pulumi.Alias(type_="azure-native:cognitiveservices/v20260515preview:RaiBlocklistItem")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RaiBlocklistItem, __self__).__init__(
             'azure-native:cognitiveservices:RaiBlocklistItem',

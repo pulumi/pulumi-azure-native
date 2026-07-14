@@ -153,6 +153,8 @@ def get_virtual_cluster(resource_group_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-11-01-preview.
 
+    Other available API versions: 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param _builtins.str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param _builtins.str virtual_cluster_name: The name of the virtual cluster.
@@ -180,6 +182,8 @@ def get_virtual_cluster_output(resource_group_name: Optional[pulumi.Input[_built
     Gets a virtual cluster.
 
     Uses Azure REST API version 2024-11-01-preview.
+
+    Other available API versions: 2025-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

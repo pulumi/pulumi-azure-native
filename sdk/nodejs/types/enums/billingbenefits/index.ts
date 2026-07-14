@@ -14,9 +14,9 @@ export const ApplyDiscountOn = {
 export type ApplyDiscountOn = (typeof ApplyDiscountOn)[keyof typeof ApplyDiscountOn];
 
 export const CommitmentGrain = {
-    Unknown: "Unknown",
     Hourly: "Hourly",
     FullTerm: "FullTerm",
+    Unknown: "Unknown",
 } as const;
 
 /**
@@ -284,6 +284,24 @@ export const ManagedServiceIdentityType = {
  * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
  */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
+
+export const MilestoneStatus = {
+    Unknown: "Unknown",
+    Scheduled: "Scheduled",
+    Active: "Active",
+    Pending: "Pending",
+    Failed: "Failed",
+    Completed: "Completed",
+    Canceled: "Canceled",
+    Removed: "Removed",
+    PendingSettlement: "PendingSettlement",
+    Missed: "Missed",
+} as const;
+
+/**
+ * Current status of the milestone
+ */
+export type MilestoneStatus = (typeof MilestoneStatus)[keyof typeof MilestoneStatus];
 
 export const PricingPolicy = {
     Protected: "Protected",

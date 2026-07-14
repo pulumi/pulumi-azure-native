@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-03-02. In version 2.x of the Azure Native provider, it used API version 2022-07-02.
  *
- * Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02, 2025-01-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02, 2025-01-02, 2026-03-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class DiskAccess extends pulumi.CustomResource {
     /**
@@ -121,7 +121,7 @@ export class DiskAccess extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20200501:DiskAccess" }, { type: "azure-native:compute/v20200630:DiskAccess" }, { type: "azure-native:compute/v20200930:DiskAccess" }, { type: "azure-native:compute/v20201201:DiskAccess" }, { type: "azure-native:compute/v20210401:DiskAccess" }, { type: "azure-native:compute/v20210801:DiskAccess" }, { type: "azure-native:compute/v20211201:DiskAccess" }, { type: "azure-native:compute/v20220302:DiskAccess" }, { type: "azure-native:compute/v20220702:DiskAccess" }, { type: "azure-native:compute/v20230102:DiskAccess" }, { type: "azure-native:compute/v20230402:DiskAccess" }, { type: "azure-native:compute/v20231002:DiskAccess" }, { type: "azure-native:compute/v20240302:DiskAccess" }, { type: "azure-native:compute/v20250102:DiskAccess" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20200501:DiskAccess" }, { type: "azure-native:compute/v20200630:DiskAccess" }, { type: "azure-native:compute/v20200930:DiskAccess" }, { type: "azure-native:compute/v20201201:DiskAccess" }, { type: "azure-native:compute/v20210401:DiskAccess" }, { type: "azure-native:compute/v20210801:DiskAccess" }, { type: "azure-native:compute/v20211201:DiskAccess" }, { type: "azure-native:compute/v20220302:DiskAccess" }, { type: "azure-native:compute/v20220702:DiskAccess" }, { type: "azure-native:compute/v20230102:DiskAccess" }, { type: "azure-native:compute/v20230402:DiskAccess" }, { type: "azure-native:compute/v20231002:DiskAccess" }, { type: "azure-native:compute/v20240302:DiskAccess" }, { type: "azure-native:compute/v20250102:DiskAccess" }, { type: "azure-native:compute/v20260302:DiskAccess" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DiskAccess.__pulumiType, name, resourceInputs, opts);
     }

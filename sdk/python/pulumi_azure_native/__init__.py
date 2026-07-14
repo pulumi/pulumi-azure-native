@@ -38,6 +38,8 @@ if typing.TYPE_CHECKING:
     appconfiguration = __appconfiguration
     import pulumi_azure_native.applicationinsights as __applicationinsights
     applicationinsights = __applicationinsights
+    import pulumi_azure_native.applink as __applink
+    applink = __applink
     import pulumi_azure_native.appplatform as __appplatform
     appplatform = __appplatform
     import pulumi_azure_native.attestation as __attestation
@@ -66,6 +68,8 @@ if typing.TYPE_CHECKING:
     azurelargeinstance = __azurelargeinstance
     import pulumi_azure_native.azureplaywrightservice as __azureplaywrightservice
     azureplaywrightservice = __azureplaywrightservice
+    import pulumi_azure_native.azureresiliencemanagement as __azureresiliencemanagement
+    azureresiliencemanagement = __azureresiliencemanagement
     import pulumi_azure_native.azuresphere as __azuresphere
     azuresphere = __azuresphere
     import pulumi_azure_native.azurestack as __azurestack
@@ -80,6 +84,8 @@ if typing.TYPE_CHECKING:
     billing = __billing
     import pulumi_azure_native.billingbenefits as __billingbenefits
     billingbenefits = __billingbenefits
+    import pulumi_azure_native.billingtrust as __billingtrust
+    billingtrust = __billingtrust
     import pulumi_azure_native.blueprint as __blueprint
     blueprint = __blueprint
     import pulumi_azure_native.botservice as __botservice
@@ -88,8 +94,6 @@ if typing.TYPE_CHECKING:
     cdn = __cdn
     import pulumi_azure_native.certificateregistration as __certificateregistration
     certificateregistration = __certificateregistration
-    import pulumi_azure_native.changeanalysis as __changeanalysis
-    changeanalysis = __changeanalysis
     import pulumi_azure_native.chaos as __chaos
     chaos = __chaos
     import pulumi_azure_native.cloudhealth as __cloudhealth
@@ -262,6 +266,8 @@ if typing.TYPE_CHECKING:
     healthcareapis = __healthcareapis
     import pulumi_azure_native.healthdataaiservices as __healthdataaiservices
     healthdataaiservices = __healthdataaiservices
+    import pulumi_azure_native.horizondb as __horizondb
+    horizondb = __horizondb
     import pulumi_azure_native.hybridcloud as __hybridcloud
     hybridcloud = __hybridcloud
     import pulumi_azure_native.hybridcompute as __hybridcompute
@@ -390,6 +396,8 @@ if typing.TYPE_CHECKING:
     privatedns = __privatedns
     import pulumi_azure_native.professionalservice as __professionalservice
     professionalservice = __professionalservice
+    import pulumi_azure_native.programenrollment as __programenrollment
+    programenrollment = __programenrollment
     import pulumi_azure_native.programmableconnectivity as __programmableconnectivity
     programmableconnectivity = __programmableconnectivity
     import pulumi_azure_native.providerhub as __providerhub
@@ -502,8 +510,6 @@ if typing.TYPE_CHECKING:
     virtualmachineimages = __virtualmachineimages
     import pulumi_azure_native.vmwarecloudsimple as __vmwarecloudsimple
     vmwarecloudsimple = __vmwarecloudsimple
-    import pulumi_azure_native.voiceservices as __voiceservices
-    voiceservices = __voiceservices
     import pulumi_azure_native.web as __web
     web = __web
     import pulumi_azure_native.webpubsub as __webpubsub
@@ -533,6 +539,7 @@ else:
     appcomplianceautomation = _utilities.lazy_import('pulumi_azure_native.appcomplianceautomation')
     appconfiguration = _utilities.lazy_import('pulumi_azure_native.appconfiguration')
     applicationinsights = _utilities.lazy_import('pulumi_azure_native.applicationinsights')
+    applink = _utilities.lazy_import('pulumi_azure_native.applink')
     appplatform = _utilities.lazy_import('pulumi_azure_native.appplatform')
     attestation = _utilities.lazy_import('pulumi_azure_native.attestation')
     authorization = _utilities.lazy_import('pulumi_azure_native.authorization')
@@ -547,6 +554,7 @@ else:
     azurefleet = _utilities.lazy_import('pulumi_azure_native.azurefleet')
     azurelargeinstance = _utilities.lazy_import('pulumi_azure_native.azurelargeinstance')
     azureplaywrightservice = _utilities.lazy_import('pulumi_azure_native.azureplaywrightservice')
+    azureresiliencemanagement = _utilities.lazy_import('pulumi_azure_native.azureresiliencemanagement')
     azuresphere = _utilities.lazy_import('pulumi_azure_native.azuresphere')
     azurestack = _utilities.lazy_import('pulumi_azure_native.azurestack')
     azurestackhci = _utilities.lazy_import('pulumi_azure_native.azurestackhci')
@@ -554,11 +562,11 @@ else:
     batch = _utilities.lazy_import('pulumi_azure_native.batch')
     billing = _utilities.lazy_import('pulumi_azure_native.billing')
     billingbenefits = _utilities.lazy_import('pulumi_azure_native.billingbenefits')
+    billingtrust = _utilities.lazy_import('pulumi_azure_native.billingtrust')
     blueprint = _utilities.lazy_import('pulumi_azure_native.blueprint')
     botservice = _utilities.lazy_import('pulumi_azure_native.botservice')
     cdn = _utilities.lazy_import('pulumi_azure_native.cdn')
     certificateregistration = _utilities.lazy_import('pulumi_azure_native.certificateregistration')
-    changeanalysis = _utilities.lazy_import('pulumi_azure_native.changeanalysis')
     chaos = _utilities.lazy_import('pulumi_azure_native.chaos')
     cloudhealth = _utilities.lazy_import('pulumi_azure_native.cloudhealth')
     cloudngfw = _utilities.lazy_import('pulumi_azure_native.cloudngfw')
@@ -645,6 +653,7 @@ else:
     healthbot = _utilities.lazy_import('pulumi_azure_native.healthbot')
     healthcareapis = _utilities.lazy_import('pulumi_azure_native.healthcareapis')
     healthdataaiservices = _utilities.lazy_import('pulumi_azure_native.healthdataaiservices')
+    horizondb = _utilities.lazy_import('pulumi_azure_native.horizondb')
     hybridcloud = _utilities.lazy_import('pulumi_azure_native.hybridcloud')
     hybridcompute = _utilities.lazy_import('pulumi_azure_native.hybridcompute')
     hybridconnectivity = _utilities.lazy_import('pulumi_azure_native.hybridconnectivity')
@@ -709,6 +718,7 @@ else:
     powerplatform = _utilities.lazy_import('pulumi_azure_native.powerplatform')
     privatedns = _utilities.lazy_import('pulumi_azure_native.privatedns')
     professionalservice = _utilities.lazy_import('pulumi_azure_native.professionalservice')
+    programenrollment = _utilities.lazy_import('pulumi_azure_native.programenrollment')
     programmableconnectivity = _utilities.lazy_import('pulumi_azure_native.programmableconnectivity')
     providerhub = _utilities.lazy_import('pulumi_azure_native.providerhub')
     purview = _utilities.lazy_import('pulumi_azure_native.purview')
@@ -765,7 +775,6 @@ else:
     videoindexer = _utilities.lazy_import('pulumi_azure_native.videoindexer')
     virtualmachineimages = _utilities.lazy_import('pulumi_azure_native.virtualmachineimages')
     vmwarecloudsimple = _utilities.lazy_import('pulumi_azure_native.vmwarecloudsimple')
-    voiceservices = _utilities.lazy_import('pulumi_azure_native.voiceservices')
     web = _utilities.lazy_import('pulumi_azure_native.web')
     webpubsub = _utilities.lazy_import('pulumi_azure_native.webpubsub')
     weightsandbiases = _utilities.lazy_import('pulumi_azure_native.weightsandbiases')
@@ -977,6 +986,10 @@ _utilities.register(
   "mod": "app",
   "fqn": "pulumi_azure_native.app",
   "classes": {
+   "azure-native:app:Agent": "Agent",
+   "azure-native:app:AgentSpace": "AgentSpace",
+   "azure-native:app:AgentSpacesConnector": "AgentSpacesConnector",
+   "azure-native:app:AgentsConnector": "AgentsConnector",
    "azure-native:app:AppResiliency": "AppResiliency",
    "azure-native:app:Build": "Build",
    "azure-native:app:Builder": "Builder",
@@ -1046,6 +1059,15 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "applink",
+  "fqn": "pulumi_azure_native.applink",
+  "classes": {
+   "azure-native:applink:AppLink": "AppLink",
+   "azure-native:applink:AppLinkMember": "AppLinkMember"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "appplatform",
   "fqn": "pulumi_azure_native.appplatform",
   "classes": {
@@ -1094,6 +1116,7 @@ _utilities.register(
   "classes": {
    "azure-native:authorization:AccessReviewHistoryDefinitionById": "AccessReviewHistoryDefinitionById",
    "azure-native:authorization:AccessReviewScheduleDefinitionById": "AccessReviewScheduleDefinitionById",
+   "azure-native:authorization:DenyAssignment": "DenyAssignment",
    "azure-native:authorization:ManagementLockAtResourceGroupLevel": "ManagementLockAtResourceGroupLevel",
    "azure-native:authorization:ManagementLockAtResourceLevel": "ManagementLockAtResourceLevel",
    "azure-native:authorization:ManagementLockAtSubscriptionLevel": "ManagementLockAtSubscriptionLevel",
@@ -1386,6 +1409,19 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "azureresiliencemanagement",
+  "fqn": "pulumi_azure_native.azureresiliencemanagement",
+  "classes": {
+   "azure-native:azureresiliencemanagement:Drill": "Drill",
+   "azure-native:azureresiliencemanagement:Enrollment": "Enrollment",
+   "azure-native:azureresiliencemanagement:GoalAssignment": "GoalAssignment",
+   "azure-native:azureresiliencemanagement:GoalTemplate": "GoalTemplate",
+   "azure-native:azureresiliencemanagement:RecoveryPlan": "RecoveryPlan",
+   "azure-native:azureresiliencemanagement:UsagePlan": "UsagePlan"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "azuresphere",
   "fqn": "pulumi_azure_native.azuresphere",
   "classes": {
@@ -1425,6 +1461,7 @@ _utilities.register(
    "azure-native:azurestackhci:HciEdgeDevice": "HciEdgeDevice",
    "azure-native:azurestackhci:HciEdgeDeviceJob": "HciEdgeDeviceJob",
    "azure-native:azurestackhci:HybridIdentityMetadatum": "HybridIdentityMetadatum",
+   "azure-native:azurestackhci:InboundRule": "InboundRule",
    "azure-native:azurestackhci:LoadBalancer": "LoadBalancer",
    "azure-native:azurestackhci:LogicalNetwork": "LogicalNetwork",
    "azure-native:azurestackhci:MachineExtension": "MachineExtension",
@@ -1495,6 +1532,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "billingtrust",
+  "fqn": "pulumi_azure_native.billingtrust",
+  "classes": {
+   "azure-native:billingtrust:Assessment": "Assessment"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "blueprint",
   "fqn": "pulumi_azure_native.blueprint",
   "classes": {
@@ -1555,14 +1600,6 @@ _utilities.register(
   "classes": {
    "azure-native:certificateregistration:AppServiceCertificateOrder": "AppServiceCertificateOrder",
    "azure-native:certificateregistration:AppServiceCertificateOrderCertificate": "AppServiceCertificateOrderCertificate"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "changeanalysis",
-  "fqn": "pulumi_azure_native.changeanalysis",
-  "classes": {
-   "azure-native:changeanalysis:ConfigurationProfile": "ConfigurationProfile"
   }
  },
  {
@@ -1631,6 +1668,7 @@ _utilities.register(
    "azure-native:cognitiveservices:CommitmentPlanAssociation": "CommitmentPlanAssociation",
    "azure-native:cognitiveservices:Deployment": "Deployment",
    "azure-native:cognitiveservices:EncryptionScope": "EncryptionScope",
+   "azure-native:cognitiveservices:ManagedNetworkSetting": "ManagedNetworkSetting",
    "azure-native:cognitiveservices:OutboundRule": "OutboundRule",
    "azure-native:cognitiveservices:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:cognitiveservices:Project": "Project",
@@ -1676,7 +1714,6 @@ _utilities.register(
    "azure-native:compute:AvailabilitySet": "AvailabilitySet",
    "azure-native:compute:CapacityReservation": "CapacityReservation",
    "azure-native:compute:CapacityReservationGroup": "CapacityReservationGroup",
-   "azure-native:compute:CloudService": "CloudService",
    "azure-native:compute:DedicatedHost": "DedicatedHost",
    "azure-native:compute:DedicatedHostGroup": "DedicatedHostGroup",
    "azure-native:compute:Disk": "Disk",
@@ -1852,7 +1889,6 @@ _utilities.register(
    "azure-native:containerservice:ManagedNamespace": "ManagedNamespace",
    "azure-native:containerservice:MeshMembership": "MeshMembership",
    "azure-native:containerservice:Namespace": "Namespace",
-   "azure-native:containerservice:NodeCustomization": "NodeCustomization",
    "azure-native:containerservice:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:containerservice:Snapshot": "Snapshot",
    "azure-native:containerservice:TrustedAccessRoleBinding": "TrustedAccessRoleBinding",
@@ -2161,7 +2197,6 @@ _utilities.register(
    "azure-native:datareplication:FabricAgent": "FabricAgent",
    "azure-native:datareplication:Policy": "Policy",
    "azure-native:datareplication:PrivateEndpointConnection": "PrivateEndpointConnection",
-   "azure-native:datareplication:PrivateEndpointConnectionProxy": "PrivateEndpointConnectionProxy",
    "azure-native:datareplication:ProtectedItem": "ProtectedItem",
    "azure-native:datareplication:ReplicationExtension": "ReplicationExtension",
    "azure-native:datareplication:Vault": "Vault"
@@ -2530,6 +2565,7 @@ _utilities.register(
    "azure-native:edge:DynamicSchema": "DynamicSchema",
    "azure-native:edge:DynamicSchemaVersion": "DynamicSchemaVersion",
    "azure-native:edge:Execution": "Execution",
+   "azure-native:edge:ExecutionV2": "ExecutionV2",
    "azure-native:edge:Instance": "Instance",
    "azure-native:edge:Schema": "Schema",
    "azure-native:edge:SchemaReference": "SchemaReference",
@@ -2543,7 +2579,9 @@ _utilities.register(
    "azure-native:edge:SolutionVersion": "SolutionVersion",
    "azure-native:edge:Target": "Target",
    "azure-native:edge:Workflow": "Workflow",
-   "azure-native:edge:WorkflowVersion": "WorkflowVersion"
+   "azure-native:edge:WorkflowV2": "WorkflowV2",
+   "azure-native:edge:WorkflowVersion": "WorkflowVersion",
+   "azure-native:edge:WorkflowVersionV2": "WorkflowVersionV2"
   }
  },
  {
@@ -2790,6 +2828,17 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "horizondb",
+  "fqn": "pulumi_azure_native.horizondb",
+  "classes": {
+   "azure-native:horizondb:HorizonDbCluster": "HorizonDbCluster",
+   "azure-native:horizondb:HorizonDbFirewallRule": "HorizonDbFirewallRule",
+   "azure-native:horizondb:HorizonDbParameterGroup": "HorizonDbParameterGroup",
+   "azure-native:horizondb:HorizonDbReplica": "HorizonDbReplica"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "hybridcloud",
   "fqn": "pulumi_azure_native.hybridcloud",
   "classes": {
@@ -2829,13 +2878,7 @@ _utilities.register(
   "mod": "hybridcontainerservice",
   "fqn": "pulumi_azure_native.hybridcontainerservice",
   "classes": {
-   "azure-native:hybridcontainerservice:AgentPool": "AgentPool",
    "azure-native:hybridcontainerservice:ClusterInstanceHybridIdentityMetadatum": "ClusterInstanceHybridIdentityMetadatum",
-   "azure-native:hybridcontainerservice:HybridIdentityMetadatum": "HybridIdentityMetadatum",
-   "azure-native:hybridcontainerservice:KubernetesVersions": "KubernetesVersions",
-   "azure-native:hybridcontainerservice:ProvisionedCluster": "ProvisionedCluster",
-   "azure-native:hybridcontainerservice:StorageSpaceRetrieve": "StorageSpaceRetrieve",
-   "azure-native:hybridcontainerservice:VMSkus": "VMSkus",
    "azure-native:hybridcontainerservice:VirtualNetworkRetrieve": "VirtualNetworkRetrieve"
   }
  },
@@ -3238,6 +3281,8 @@ _utilities.register(
    "azure-native:managednetworkfabric:L2IsolationDomain": "L2IsolationDomain",
    "azure-native:managednetworkfabric:L3IsolationDomain": "L3IsolationDomain",
    "azure-native:managednetworkfabric:NeighborGroup": "NeighborGroup",
+   "azure-native:managednetworkfabric:NetworkBootstrapDevice": "NetworkBootstrapDevice",
+   "azure-native:managednetworkfabric:NetworkBootstrapInterface": "NetworkBootstrapInterface",
    "azure-native:managednetworkfabric:NetworkDevice": "NetworkDevice",
    "azure-native:managednetworkfabric:NetworkFabric": "NetworkFabric",
    "azure-native:managednetworkfabric:NetworkFabricController": "NetworkFabricController",
@@ -3375,6 +3420,7 @@ _utilities.register(
    "azure-native:mission:Approval": "Approval",
    "azure-native:mission:Community": "Community",
    "azure-native:mission:CommunityEndpoint": "CommunityEndpoint",
+   "azure-native:mission:DedicatedHub": "DedicatedHub",
    "azure-native:mission:EnclaveConnection": "EnclaveConnection",
    "azure-native:mission:EnclaveEndpoint": "EnclaveEndpoint",
    "azure-native:mission:TransitHub": "TransitHub",
@@ -3420,6 +3466,7 @@ _utilities.register(
    "azure-native:monitor:Relationship": "Relationship",
    "azure-native:monitor:ScheduledQueryRule": "ScheduledQueryRule",
    "azure-native:monitor:SignalDefinition": "SignalDefinition",
+   "azure-native:monitor:Sli": "Sli",
    "azure-native:monitor:SubscriptionDiagnosticSetting": "SubscriptionDiagnosticSetting",
    "azure-native:monitor:TenantActionGroup": "TenantActionGroup"
   }
@@ -3475,8 +3522,10 @@ _utilities.register(
    "azure-native:network:ApplicationSecurityGroup": "ApplicationSecurityGroup",
    "azure-native:network:AzureFirewall": "AzureFirewall",
    "azure-native:network:BastionHost": "BastionHost",
+   "azure-native:network:Commit": "Commit",
    "azure-native:network:ConfigurationPolicyGroup": "ConfigurationPolicyGroup",
    "azure-native:network:ConnectionMonitor": "ConnectionMonitor",
+   "azure-native:network:ConnectionPolicy": "ConnectionPolicy",
    "azure-native:network:ConnectivityConfiguration": "ConnectivityConfiguration",
    "azure-native:network:CustomIPPrefix": "CustomIPPrefix",
    "azure-native:network:DdosCustomPolicy": "DdosCustomPolicy",
@@ -3502,6 +3551,7 @@ _utilities.register(
    "azure-native:network:HubRouteTable": "HubRouteTable",
    "azure-native:network:HubVirtualNetworkConnection": "HubVirtualNetworkConnection",
    "azure-native:network:InboundNatRule": "InboundNatRule",
+   "azure-native:network:InterconnectGroup": "InterconnectGroup",
    "azure-native:network:InterfaceEndpoint": "InterfaceEndpoint",
    "azure-native:network:IpAllocation": "IpAllocation",
    "azure-native:network:IpGroup": "IpGroup",
@@ -3827,6 +3877,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.professionalservice",
   "classes": {
    "azure-native:professionalservice:ProfessionalServiceSubscriptionLevel": "ProfessionalServiceSubscriptionLevel"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "programenrollment",
+  "fqn": "pulumi_azure_native.programenrollment",
+  "classes": {
+   "azure-native:programenrollment:EduEnrollment": "EduEnrollment"
   }
  },
  {
@@ -4421,6 +4479,8 @@ _utilities.register(
    "azure-native:storage:BlobContainerLegalHold": "BlobContainerLegalHold",
    "azure-native:storage:BlobInventoryPolicy": "BlobInventoryPolicy",
    "azure-native:storage:BlobServiceProperties": "BlobServiceProperties",
+   "azure-native:storage:Connector": "Connector",
+   "azure-native:storage:DataShare": "DataShare",
    "azure-native:storage:EncryptionScope": "EncryptionScope",
    "azure-native:storage:FileServiceProperties": "FileServiceProperties",
    "azure-native:storage:FileShare": "FileShare",
@@ -4642,19 +4702,10 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "voiceservices",
-  "fqn": "pulumi_azure_native.voiceservices",
-  "classes": {
-   "azure-native:voiceservices:CommunicationsGateway": "CommunicationsGateway",
-   "azure-native:voiceservices:Contact": "Contact",
-   "azure-native:voiceservices:TestLine": "TestLine"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "web",
   "fqn": "pulumi_azure_native.web",
   "classes": {
+   "azure-native:web:AiGateway": "AiGateway",
    "azure-native:web:AppServiceEnvironment": "AppServiceEnvironment",
    "azure-native:web:AppServiceEnvironmentAseCustomDnsSuffixConfiguration": "AppServiceEnvironmentAseCustomDnsSuffixConfiguration",
    "azure-native:web:AppServiceEnvironmentPrivateEndpointConnection": "AppServiceEnvironmentPrivateEndpointConnection",

@@ -27,7 +27,7 @@ class GetRedisEnterpriseResult:
     """
     Describes the Redis Enterprise cluster
     """
-    def __init__(__self__, azure_api_version=None, encryption=None, high_availability=None, host_name=None, id=None, identity=None, kind=None, location=None, minimum_tls_version=None, name=None, private_endpoint_connections=None, provisioning_state=None, redis_version=None, redundancy_mode=None, resource_state=None, sku=None, tags=None, type=None, zones=None):
+    def __init__(__self__, azure_api_version=None, encryption=None, high_availability=None, host_name=None, id=None, identity=None, kind=None, location=None, minimum_tls_version=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, redis_version=None, redundancy_mode=None, resource_state=None, sku=None, tags=None, type=None, zones=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -64,6 +64,9 @@ class GetRedisEnterpriseResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        pulumi.set(__self__, "public_network_access", public_network_access)
         if redis_version and not isinstance(redis_version, str):
             raise TypeError("Expected argument 'redis_version' to be a str")
         pulumi.set(__self__, "redis_version", redis_version)
@@ -183,6 +186,14 @@ class GetRedisEnterpriseResult:
         return pulumi.get(self, "provisioning_state")
 
     @_builtins.property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> _builtins.str:
+        """
+        Whether or not public network traffic can access the Redis cluster. Only 'Enabled' or 'Disabled' can be set. null is returned only for clusters created using an old API version which do not have this property and cannot be set.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @_builtins.property
     @pulumi.getter(name="redisVersion")
     def redis_version(self) -> _builtins.str:
         """
@@ -257,6 +268,7 @@ class AwaitableGetRedisEnterpriseResult(GetRedisEnterpriseResult):
             name=self.name,
             private_endpoint_connections=self.private_endpoint_connections,
             provisioning_state=self.provisioning_state,
+            public_network_access=self.public_network_access,
             redis_version=self.redis_version,
             redundancy_mode=self.redundancy_mode,
             resource_state=self.resource_state,
@@ -272,9 +284,9 @@ def get_redis_enterprise(cluster_name: Optional[_builtins.str] = None,
     """
     Gets information about a Redis Enterprise cluster
 
-    Uses Azure REST API version 2025-05-01-preview.
+    Uses Azure REST API version 2025-07-01.
 
-    Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01, 2025-07-01, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01, 2025-05-01-preview, 2025-08-01-preview, 2026-02-01-preview, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str cluster_name: The name of the Redis Enterprise cluster. Name must be 1-60 characters long. Allowed characters(A-Z, a-z, 0-9) and hyphen(-). There can be no leading nor trailing nor consecutive hyphens
@@ -299,6 +311,7 @@ def get_redis_enterprise(cluster_name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        public_network_access=pulumi.get(__ret__, 'public_network_access'),
         redis_version=pulumi.get(__ret__, 'redis_version'),
         redundancy_mode=pulumi.get(__ret__, 'redundancy_mode'),
         resource_state=pulumi.get(__ret__, 'resource_state'),
@@ -312,9 +325,9 @@ def get_redis_enterprise_output(cluster_name: Optional[pulumi.Input[_builtins.st
     """
     Gets information about a Redis Enterprise cluster
 
-    Uses Azure REST API version 2025-05-01-preview.
+    Uses Azure REST API version 2025-07-01.
 
-    Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01, 2025-07-01, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01, 2025-05-01-preview, 2025-08-01-preview, 2026-02-01-preview, 2026-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str cluster_name: The name of the Redis Enterprise cluster. Name must be 1-60 characters long. Allowed characters(A-Z, a-z, 0-9) and hyphen(-). There can be no leading nor trailing nor consecutive hyphens
@@ -338,6 +351,7 @@ def get_redis_enterprise_output(cluster_name: Optional[pulumi.Input[_builtins.st
         name=pulumi.get(__response__, 'name'),
         private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        public_network_access=pulumi.get(__response__, 'public_network_access'),
         redis_version=pulumi.get(__response__, 'redis_version'),
         redundancy_mode=pulumi.get(__response__, 'redundancy_mode'),
         resource_state=pulumi.get(__response__, 'resource_state'),

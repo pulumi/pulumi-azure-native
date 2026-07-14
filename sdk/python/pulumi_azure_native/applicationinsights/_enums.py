@@ -28,7 +28,13 @@ class ApplicationType(_builtins.str, Enum):
     Type of application being monitored.
     """
     WEB = "web"
+    """
+    web
+    """
     OTHER = "other"
+    """
+    other
+    """
 
 
 @pulumi.type_token("azure-native:applicationinsights:FavoriteType")
@@ -37,7 +43,13 @@ class FavoriteType(_builtins.str, Enum):
     Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
     """
     SHARED = "shared"
+    """
+    shared
+    """
     USER = "user"
+    """
+    user
+    """
 
 
 @pulumi.type_token("azure-native:applicationinsights:FlowType")
@@ -46,6 +58,9 @@ class FlowType(_builtins.str, Enum):
     Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
     """
     BLUEFIELD = "Bluefield"
+    """
+    Bluefield
+    """
 
 
 @pulumi.type_token("azure-native:applicationinsights:IngestionMode")
@@ -54,8 +69,17 @@ class IngestionMode(_builtins.str, Enum):
     Indicates the flow of the ingestion.
     """
     APPLICATION_INSIGHTS = "ApplicationInsights"
+    """
+    ApplicationInsights
+    """
     APPLICATION_INSIGHTS_WITH_DIAGNOSTIC_SETTINGS = "ApplicationInsightsWithDiagnosticSettings"
+    """
+    ApplicationInsightsWithDiagnosticSettings
+    """
     LOG_ANALYTICS = "LogAnalytics"
+    """
+    LogAnalytics
+    """
 
 
 @pulumi.type_token("azure-native:applicationinsights:ItemScope")
@@ -64,7 +88,13 @@ class ItemScope(_builtins.str, Enum):
     Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
     """
     SHARED = "shared"
+    """
+    shared
+    """
     USER = "user"
+    """
+    user
+    """
 
 
 @pulumi.type_token("azure-native:applicationinsights:ItemType")
@@ -73,9 +103,21 @@ class ItemType(_builtins.str, Enum):
     Enum indicating the type of the Analytics item.
     """
     NONE = "none"
+    """
+    none
+    """
     QUERY = "query"
+    """
+    query
+    """
     RECENT = "recent"
+    """
+    recent
+    """
     FUNCTION = "function"
+    """
+    function
+    """
 
 
 @pulumi.type_token("azure-native:applicationinsights:Kind")
@@ -119,6 +161,9 @@ class RequestSource(_builtins.str, Enum):
     Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
     """
     REST = "rest"
+    """
+    rest
+    """
 
 
 @pulumi.type_token("azure-native:applicationinsights:WebTestKind")
@@ -127,8 +172,17 @@ class WebTestKind(_builtins.str, Enum):
     The kind of web test this is, valid choices are ping, multistep and standard.
     """
     PING = "ping"
+    """
+    ping
+    """
     MULTISTEP = "multistep"
+    """
+    multistep
+    """
     STANDARD = "standard"
+    """
+    standard
+    """
 
 
 @pulumi.type_token("azure-native:applicationinsights:WorkbookSharedTypeKind")
@@ -137,3 +191,6 @@ class WorkbookSharedTypeKind(_builtins.str, Enum):
     The kind of workbook. Only valid value is shared.
     """
     SHARED = "shared"
+    """
+    shared
+    """

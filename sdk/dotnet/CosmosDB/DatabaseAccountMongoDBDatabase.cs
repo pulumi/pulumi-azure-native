@@ -122,6 +122,8 @@ namespace Pulumi.AzureNative.CosmosDB
                     new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20250501preview:DatabaseAccountMongoDBDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20251015:DatabaseAccountMongoDBDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20251101preview:DatabaseAccountMongoDBDatabase" },
+                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20260315:DatabaseAccountMongoDBDatabase" },
+                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20260401preview:DatabaseAccountMongoDBDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315preview:MongoDBResourceMongoDBDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230415:MongoDBResourceMongoDBDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230915:MongoDBResourceMongoDBDatabase" },

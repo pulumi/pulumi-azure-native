@@ -171,7 +171,7 @@ def get_variable(automation_account_name: Optional[_builtins.str] = None,
 
 
     :param _builtins.str automation_account_name: The name of the automation account.
-    :param _builtins.str resource_group_name: Name of an Azure Resource group.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str variable_name: The name of variable.
     """
     __args__ = dict()
@@ -205,7 +205,7 @@ def get_variable_output(automation_account_name: Optional[pulumi.Input[_builtins
 
 
     :param _builtins.str automation_account_name: The name of the automation account.
-    :param _builtins.str resource_group_name: Name of an Azure Resource group.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str variable_name: The name of variable.
     """
     __args__ = dict()

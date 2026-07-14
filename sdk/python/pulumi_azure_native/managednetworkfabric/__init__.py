@@ -20,6 +20,8 @@ from .get_ip_prefix import *
 from .get_l2_isolation_domain import *
 from .get_l3_isolation_domain import *
 from .get_neighbor_group import *
+from .get_network_bootstrap_device import *
+from .get_network_bootstrap_interface import *
 from .get_network_device import *
 from .get_network_device_status import *
 from .get_network_fabric import *
@@ -43,6 +45,8 @@ from .ip_prefix import *
 from .l2_isolation_domain import *
 from .l3_isolation_domain import *
 from .neighbor_group import *
+from .network_bootstrap_device import *
+from .network_bootstrap_interface import *
 from .network_device import *
 from .network_fabric import *
 from .network_fabric_controller import *

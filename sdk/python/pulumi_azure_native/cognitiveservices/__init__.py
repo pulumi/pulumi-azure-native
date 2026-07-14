@@ -25,6 +25,7 @@ from .get_commitment_plan import *
 from .get_commitment_plan_association import *
 from .get_deployment import *
 from .get_encryption_scope import *
+from .get_managed_network_setting import *
 from .get_outbound_rule import *
 from .get_private_endpoint_connection import *
 from .get_project import *
@@ -40,6 +41,7 @@ from .get_shared_commitment_plan import *
 from .get_subscription_rai_policy import *
 from .list_account_keys import *
 from .list_agent_application_agents import *
+from .managed_network_setting import *
 from .outbound_rule import *
 from .private_endpoint_connection import *
 from .project import *

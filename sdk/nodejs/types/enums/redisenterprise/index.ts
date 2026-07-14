@@ -121,6 +121,16 @@ export const Protocol = {
  */
 export type Protocol = (typeof Protocol)[keyof typeof Protocol];
 
+export const PublicNetworkAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Whether or not public network traffic can access the Redis cluster. Only 'Enabled' or 'Disabled' can be set. null is returned only for clusters created using an old API version which do not have this property and cannot be set.
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
+
 export const RdbFrequency = {
     RdbFrequency_1h: "1h",
     RdbFrequency_6h: "6h",

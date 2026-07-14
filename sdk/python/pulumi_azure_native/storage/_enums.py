@@ -51,6 +51,12 @@ __all__ = [
     'SignedResourceTypes',
     'SkuName',
     'State',
+    'StorageConnectorAuthType',
+    'StorageConnectorConnectionType',
+    'StorageConnectorDataSourceType',
+    'StorageConnectorSourceType',
+    'StorageConnectorState',
+    'StorageDataShareAccessPolicyPermission',
     'TriggerType',
 ]
 
@@ -332,7 +338,7 @@ class LargeFileSharesState(_builtins.str, Enum):
 @pulumi.type_token("azure-native:storage:MinimumTlsVersion")
 class MinimumTlsVersion(_builtins.str, Enum):
     """
-    Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
+    Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property. Minimum TLS version 1.3 version is not supported.
     """
     TLS1_0 = "TLS1_0"
     TLS1_1 = "TLS1_1"
@@ -512,6 +518,81 @@ class State(_builtins.str, Enum):
     SUCCEEDED = "Succeeded"
     FAILED = "Failed"
     NETWORK_SOURCE_DELETED = "NetworkSourceDeleted"
+
+
+@pulumi.type_token("azure-native:storage:StorageConnectorAuthType")
+class StorageConnectorAuthType(_builtins.str, Enum):
+    """
+    Type of the authentication properties. Controls the type of the authProperties object
+    """
+    MANAGED_IDENTITY = "ManagedIdentity"
+    """
+    Managed Identity auth type
+    """
+
+
+@pulumi.type_token("azure-native:storage:StorageConnectorConnectionType")
+class StorageConnectorConnectionType(_builtins.str, Enum):
+    """
+    Type of the connection. Controls the type of the connection object. Not mutable once the Storage Connector is created.
+    """
+    DATA_SHARE = "DataShare"
+    """
+    DataShare connection type
+    """
+
+
+@pulumi.type_token("azure-native:storage:StorageConnectorDataSourceType")
+class StorageConnectorDataSourceType(_builtins.str, Enum):
+    """
+    The type of backing data source for this Storage Connector.
+    """
+    AZURE_DATA_SHARE = "Azure_DataShare"
+    """
+    Azure DataShare data source type.
+    """
+
+
+@pulumi.type_token("azure-native:storage:StorageConnectorSourceType")
+class StorageConnectorSourceType(_builtins.str, Enum):
+    """
+    Type of the Storage Connector. Not mutable once the Storage Connector is created."
+    """
+    DATA_SHARE = "DataShare"
+    """
+    Source type - DataShare
+    """
+
+
+@pulumi.type_token("azure-native:storage:StorageConnectorState")
+class StorageConnectorState(_builtins.str, Enum):
+    """
+    State - Active or Inactive. Whether or not the Storage Connector should start as active (default: Active)
+    (While set to false on the Storage Connector, all data plane requests using this Storage Connector fail, and this Storage Connector is not billed if it would be otherwise.
+    """
+    ACTIVE = "Active"
+    """
+    Whether the connector is active
+    """
+    INACTIVE = "Inactive"
+    """
+    Whether the connector is inactive
+    """
+
+
+@pulumi.type_token("azure-native:storage:StorageDataShareAccessPolicyPermission")
+class StorageDataShareAccessPolicyPermission(_builtins.str, Enum):
+    """
+    Allowed permissions. Currently, only supported value is Read.
+    """
+    NONE = "None"
+    """
+    No permission
+    """
+    READ = "Read"
+    """
+    Read permission
+    """
 
 
 @pulumi.type_token("azure-native:storage:TriggerType")

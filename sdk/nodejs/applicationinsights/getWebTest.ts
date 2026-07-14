@@ -44,7 +44,7 @@ export interface GetWebTestResult {
     /**
      * An XML configuration specification for a WebTest.
      */
-    readonly configuration?: outputs.applicationinsights.WebTestPropertiesResponseConfiguration;
+    readonly configuration?: outputs.applicationinsights.WebTestPropertiesConfigurationResponse;
     /**
      * User defined description for this WebTest.
      */
@@ -84,7 +84,7 @@ export interface GetWebTestResult {
     /**
      * The collection of request properties
      */
-    readonly request?: outputs.applicationinsights.WebTestPropertiesResponseRequest;
+    readonly request?: outputs.applicationinsights.WebTestPropertiesRequestResponse;
     /**
      * Allow for retries should this WebTest fail.
      */
@@ -108,7 +108,7 @@ export interface GetWebTestResult {
     /**
      * The collection of validation rule properties
      */
-    readonly validationRules?: outputs.applicationinsights.WebTestPropertiesResponseValidationRules;
+    readonly validationRules?: outputs.applicationinsights.WebTestPropertiesValidationRulesResponse;
     /**
      * The kind of web test this is, valid choices are ping, multistep and standard.
      */

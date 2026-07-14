@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// Pipeline reference type.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.PipelineReferenceType> Type { get; set; } = null!;
 
         public PipelineReferenceArgs()
         {

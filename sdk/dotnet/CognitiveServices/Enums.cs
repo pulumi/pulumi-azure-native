@@ -558,6 +558,37 @@ namespace Pulumi.AzureNative.CognitiveServices
     }
 
     /// <summary>
+    /// Firewall Sku used for FQDN Rules
+    /// </summary>
+    [EnumType]
+    public readonly struct FirewallSku : IEquatable<FirewallSku>
+    {
+        private readonly string _value;
+
+        private FirewallSku(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FirewallSku Standard { get; } = new FirewallSku("Standard");
+        public static FirewallSku Basic { get; } = new FirewallSku("Basic");
+
+        public static bool operator ==(FirewallSku left, FirewallSku right) => left.Equals(right);
+        public static bool operator !=(FirewallSku left, FirewallSku right) => !left.Equals(right);
+
+        public static explicit operator string(FirewallSku value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FirewallSku other && Equals(other);
+        public bool Equals(FirewallSku other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Account hosting model.
     /// </summary>
     [EnumType]
@@ -681,6 +712,38 @@ namespace Pulumi.AzureNative.CognitiveServices
     }
 
     /// <summary>
+    /// Isolation mode for the managed network of a cognitive services account.
+    /// </summary>
+    [EnumType]
+    public readonly struct IsolationMode : IEquatable<IsolationMode>
+    {
+        private readonly string _value;
+
+        private IsolationMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IsolationMode Disabled { get; } = new IsolationMode("Disabled");
+        public static IsolationMode AllowInternetOutbound { get; } = new IsolationMode("AllowInternetOutbound");
+        public static IsolationMode AllowOnlyApprovedOutbound { get; } = new IsolationMode("AllowOnlyApprovedOutbound");
+
+        public static bool operator ==(IsolationMode left, IsolationMode right) => left.Equals(right);
+        public static bool operator !=(IsolationMode left, IsolationMode right) => !left.Equals(right);
+
+        public static explicit operator string(IsolationMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IsolationMode other && Equals(other);
+        public bool Equals(IsolationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Enumerates the possible value of keySource for Encryption
     /// </summary>
     [EnumType]
@@ -704,6 +767,68 @@ namespace Pulumi.AzureNative.CognitiveServices
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is KeySource other && Equals(other);
         public bool Equals(KeySource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The Kind of the managed network. Users can switch from V1 to V2 for granular access controls, but cannot switch back to V1 once V2 is enabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedNetworkKind : IEquatable<ManagedNetworkKind>
+    {
+        private readonly string _value;
+
+        private ManagedNetworkKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedNetworkKind V1 { get; } = new ManagedNetworkKind("V1");
+        public static ManagedNetworkKind V2 { get; } = new ManagedNetworkKind("V2");
+
+        public static bool operator ==(ManagedNetworkKind left, ManagedNetworkKind right) => left.Equals(right);
+        public static bool operator !=(ManagedNetworkKind left, ManagedNetworkKind right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedNetworkKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedNetworkKind other && Equals(other);
+        public bool Equals(ManagedNetworkKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Status for the managed network of a cognitive services account.
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedNetworkStatus : IEquatable<ManagedNetworkStatus>
+    {
+        private readonly string _value;
+
+        private ManagedNetworkStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedNetworkStatus Inactive { get; } = new ManagedNetworkStatus("Inactive");
+        public static ManagedNetworkStatus Active { get; } = new ManagedNetworkStatus("Active");
+
+        public static bool operator ==(ManagedNetworkStatus left, ManagedNetworkStatus right) => left.Equals(right);
+        public static bool operator !=(ManagedNetworkStatus left, ManagedNetworkStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedNetworkStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedNetworkStatus other && Equals(other);
+        public bool Equals(ManagedNetworkStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1029,6 +1154,37 @@ namespace Pulumi.AzureNative.CognitiveServices
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RoutingMethods other && Equals(other);
         public bool Equals(RoutingMethods other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The action for the service tag outbound rule.
+    /// </summary>
+    [EnumType]
+    public readonly struct RuleAction : IEquatable<RuleAction>
+    {
+        private readonly string _value;
+
+        private RuleAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuleAction Allow { get; } = new RuleAction("Allow");
+        public static RuleAction Deny { get; } = new RuleAction("Deny");
+
+        public static bool operator ==(RuleAction left, RuleAction right) => left.Equals(right);
+        public static bool operator !=(RuleAction left, RuleAction right) => !left.Equals(right);
+
+        public static explicit operator string(RuleAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuleAction other && Equals(other);
+        public bool Equals(RuleAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

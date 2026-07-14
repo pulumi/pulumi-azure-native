@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.Security
     public sealed class GetSecurityConnectorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNative.Security
     public sealed class GetSecurityConnectorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly string HierarchyIdentifierTrialEndDate;
         /// <summary>
-        /// Resource Id
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -120,11 +120,11 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly string? Kind;
         /// <summary>
-        /// Location where the resource is stored
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string? Location;
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -136,11 +136,11 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// A list of key value pairs that describe the resource.
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 

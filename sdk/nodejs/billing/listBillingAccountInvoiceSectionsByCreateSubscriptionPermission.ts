@@ -38,11 +38,11 @@ export interface ListBillingAccountInvoiceSectionsByCreateSubscriptionPermission
  */
 export interface ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult {
     /**
-     * The link (url) to the next page of results.
+     * The link to the next page of items
      */
-    readonly nextLink: string;
+    readonly nextLink?: string;
     /**
-     * The list of resources.
+     * The InvoiceSectionWithCreateSubPermission items on this page
      */
     readonly value: outputs.billing.InvoiceSectionWithCreateSubPermissionResponse[];
 }

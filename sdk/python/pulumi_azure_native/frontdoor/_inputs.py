@@ -50,8 +50,14 @@ __all__ = [
     'ManagedRuleGroupOverrideArgsDict',
     'ManagedRuleOverrideArgs',
     'ManagedRuleOverrideArgsDict',
+    'ManagedRuleSetExceptionListArgs',
+    'ManagedRuleSetExceptionListArgsDict',
+    'ManagedRuleSetExceptionArgs',
+    'ManagedRuleSetExceptionArgsDict',
     'ManagedRuleSetListArgs',
     'ManagedRuleSetListArgsDict',
+    'ManagedRuleSetScopeArgs',
+    'ManagedRuleSetScopeArgsDict',
     'ManagedRuleSetArgs',
     'ManagedRuleSetArgsDict',
     'MatchConditionArgs',
@@ -64,6 +70,10 @@ __all__ = [
     'RoutingRuleUpdateParametersWebApplicationFirewallPolicyLinkArgsDict',
     'RoutingRuleArgs',
     'RoutingRuleArgsDict',
+    'RuleGroupScopeArgs',
+    'RuleGroupScopeArgsDict',
+    'RuleScopeArgs',
+    'RuleScopeArgsDict',
     'RulesEngineActionArgs',
     'RulesEngineActionArgsDict',
     'RulesEngineMatchConditionArgs',
@@ -1677,6 +1687,10 @@ class ManagedRuleOverrideArgsDict(TypedDict):
     """
     Describes the exclusions that are applied to this specific rule.
     """
+    sensitivity: NotRequired[pulumi.Input[Union[_builtins.str, 'SensitivityType']]]
+    """
+    Describes the override sensitivity to be applied when rule matches.
+    """
 
 @pulumi.input_type
 class ManagedRuleOverrideArgs:
@@ -1684,7 +1698,8 @@ class ManagedRuleOverrideArgs:
                  rule_id: pulumi.Input[_builtins.str],
                  action: Optional[pulumi.Input[Union[_builtins.str, 'ActionType']]] = None,
                  enabled_state: Optional[pulumi.Input[Union[_builtins.str, 'ManagedRuleEnabledState']]] = None,
-                 exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleExclusionArgs']]]] = None):
+                 exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleExclusionArgs']]]] = None,
+                 sensitivity: Optional[pulumi.Input[Union[_builtins.str, 'SensitivityType']]] = None):
         """
         Defines a managed rule group override setting.
 
@@ -1692,6 +1707,7 @@ class ManagedRuleOverrideArgs:
         :param pulumi.Input[Union[_builtins.str, 'ActionType']] action: Describes the override action to be applied when rule matches.
         :param pulumi.Input[Union[_builtins.str, 'ManagedRuleEnabledState']] enabled_state: Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
         :param pulumi.Input[Sequence[pulumi.Input['ManagedRuleExclusionArgs']]] exclusions: Describes the exclusions that are applied to this specific rule.
+        :param pulumi.Input[Union[_builtins.str, 'SensitivityType']] sensitivity: Describes the override sensitivity to be applied when rule matches.
         """
         pulumi.set(__self__, "rule_id", rule_id)
         if action is not None:
@@ -1700,6 +1716,8 @@ class ManagedRuleOverrideArgs:
             pulumi.set(__self__, "enabled_state", enabled_state)
         if exclusions is not None:
             pulumi.set(__self__, "exclusions", exclusions)
+        if sensitivity is not None:
+            pulumi.set(__self__, "sensitivity", sensitivity)
 
     @_builtins.property
     @pulumi.getter(name="ruleId")
@@ -1749,10 +1767,199 @@ class ManagedRuleOverrideArgs:
     def exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleExclusionArgs']]]]):
         pulumi.set(self, "exclusions", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def sensitivity(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SensitivityType']]]:
+        """
+        Describes the override sensitivity to be applied when rule matches.
+        """
+        return pulumi.get(self, "sensitivity")
+
+    @sensitivity.setter
+    def sensitivity(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SensitivityType']]]):
+        pulumi.set(self, "sensitivity", value)
+
+
+class ManagedRuleSetExceptionListArgsDict(TypedDict):
+    """
+    Defines the list of exceptions for the managed rule sets.
+    """
+    exceptions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagedRuleSetExceptionArgsDict']]]]
+    """
+    List of exceptions.
+    """
+
+@pulumi.input_type
+class ManagedRuleSetExceptionListArgs:
+    def __init__(__self__, *,
+                 exceptions: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleSetExceptionArgs']]]] = None):
+        """
+        Defines the list of exceptions for the managed rule sets.
+
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedRuleSetExceptionArgs']]] exceptions: List of exceptions.
+        """
+        if exceptions is not None:
+            pulumi.set(__self__, "exceptions", exceptions)
+
+    @_builtins.property
+    @pulumi.getter
+    def exceptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleSetExceptionArgs']]]]:
+        """
+        List of exceptions.
+        """
+        return pulumi.get(self, "exceptions")
+
+    @exceptions.setter
+    def exceptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleSetExceptionArgs']]]]):
+        pulumi.set(self, "exceptions", value)
+
+
+class ManagedRuleSetExceptionArgsDict(TypedDict):
+    """
+    Excludes whole requests from managed rule evaluation according to match conditions.
+    """
+    match_values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of values to be matched with.
+    """
+    match_variable: pulumi.Input[Union[_builtins.str, 'ExceptionMatchVariable']]
+    """
+    The variable to be evaluated for excluding the request.
+    """
+    scopes: pulumi.Input[Sequence[pulumi.Input['ManagedRuleSetScopeArgsDict']]]
+    """
+    Scope(s) of the exception.
+    """
+    value_match_operator: pulumi.Input[Union[_builtins.str, 'ExceptionValueMatchOperator']]
+    """
+    Comparison operator to apply to the value to be matched.
+    """
+    selector: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    When matchVariable is a collection, operator used to specify which elements
+    in the collection this exception applies to.
+    Currently supported only for RequestHeaderNames.
+    """
+    selector_match_operator: NotRequired[pulumi.Input[Union[_builtins.str, 'ExceptionSelectorMatchOperator']]]
+    """
+    Comparison operator to apply to the selector when specifying which elements
+    in the collection this exception applies to.
+    """
+
+@pulumi.input_type
+class ManagedRuleSetExceptionArgs:
+    def __init__(__self__, *,
+                 match_values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 match_variable: pulumi.Input[Union[_builtins.str, 'ExceptionMatchVariable']],
+                 scopes: pulumi.Input[Sequence[pulumi.Input['ManagedRuleSetScopeArgs']]],
+                 value_match_operator: pulumi.Input[Union[_builtins.str, 'ExceptionValueMatchOperator']],
+                 selector: Optional[pulumi.Input[_builtins.str]] = None,
+                 selector_match_operator: Optional[pulumi.Input[Union[_builtins.str, 'ExceptionSelectorMatchOperator']]] = None):
+        """
+        Excludes whole requests from managed rule evaluation according to match conditions.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_values: List of values to be matched with.
+        :param pulumi.Input[Union[_builtins.str, 'ExceptionMatchVariable']] match_variable: The variable to be evaluated for excluding the request.
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedRuleSetScopeArgs']]] scopes: Scope(s) of the exception.
+        :param pulumi.Input[Union[_builtins.str, 'ExceptionValueMatchOperator']] value_match_operator: Comparison operator to apply to the value to be matched.
+        :param pulumi.Input[_builtins.str] selector: When matchVariable is a collection, operator used to specify which elements
+               in the collection this exception applies to.
+               Currently supported only for RequestHeaderNames.
+        :param pulumi.Input[Union[_builtins.str, 'ExceptionSelectorMatchOperator']] selector_match_operator: Comparison operator to apply to the selector when specifying which elements
+               in the collection this exception applies to.
+        """
+        pulumi.set(__self__, "match_values", match_values)
+        pulumi.set(__self__, "match_variable", match_variable)
+        pulumi.set(__self__, "scopes", scopes)
+        pulumi.set(__self__, "value_match_operator", value_match_operator)
+        if selector is not None:
+            pulumi.set(__self__, "selector", selector)
+        if selector_match_operator is not None:
+            pulumi.set(__self__, "selector_match_operator", selector_match_operator)
+
+    @_builtins.property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        List of values to be matched with.
+        """
+        return pulumi.get(self, "match_values")
+
+    @match_values.setter
+    def match_values(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "match_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="matchVariable")
+    def match_variable(self) -> pulumi.Input[Union[_builtins.str, 'ExceptionMatchVariable']]:
+        """
+        The variable to be evaluated for excluding the request.
+        """
+        return pulumi.get(self, "match_variable")
+
+    @match_variable.setter
+    def match_variable(self, value: pulumi.Input[Union[_builtins.str, 'ExceptionMatchVariable']]):
+        pulumi.set(self, "match_variable", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def scopes(self) -> pulumi.Input[Sequence[pulumi.Input['ManagedRuleSetScopeArgs']]]:
+        """
+        Scope(s) of the exception.
+        """
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: pulumi.Input[Sequence[pulumi.Input['ManagedRuleSetScopeArgs']]]):
+        pulumi.set(self, "scopes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueMatchOperator")
+    def value_match_operator(self) -> pulumi.Input[Union[_builtins.str, 'ExceptionValueMatchOperator']]:
+        """
+        Comparison operator to apply to the value to be matched.
+        """
+        return pulumi.get(self, "value_match_operator")
+
+    @value_match_operator.setter
+    def value_match_operator(self, value: pulumi.Input[Union[_builtins.str, 'ExceptionValueMatchOperator']]):
+        pulumi.set(self, "value_match_operator", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def selector(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        When matchVariable is a collection, operator used to specify which elements
+        in the collection this exception applies to.
+        Currently supported only for RequestHeaderNames.
+        """
+        return pulumi.get(self, "selector")
+
+    @selector.setter
+    def selector(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "selector", value)
+
+    @_builtins.property
+    @pulumi.getter(name="selectorMatchOperator")
+    def selector_match_operator(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ExceptionSelectorMatchOperator']]]:
+        """
+        Comparison operator to apply to the selector when specifying which elements
+        in the collection this exception applies to.
+        """
+        return pulumi.get(self, "selector_match_operator")
+
+    @selector_match_operator.setter
+    def selector_match_operator(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ExceptionSelectorMatchOperator']]]):
+        pulumi.set(self, "selector_match_operator", value)
+
 
 class ManagedRuleSetListArgsDict(TypedDict):
     """
     Defines the list of managed rule sets for the policy.
+    """
+    exceptions_list: NotRequired[pulumi.Input['ManagedRuleSetExceptionListArgsDict']]
+    """
+    List of exceptions applied on the managed rule sets.
     """
     managed_rule_sets: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagedRuleSetArgsDict']]]]
     """
@@ -1762,14 +1969,30 @@ class ManagedRuleSetListArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedRuleSetListArgs:
     def __init__(__self__, *,
+                 exceptions_list: Optional[pulumi.Input['ManagedRuleSetExceptionListArgs']] = None,
                  managed_rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleSetArgs']]]] = None):
         """
         Defines the list of managed rule sets for the policy.
 
+        :param pulumi.Input['ManagedRuleSetExceptionListArgs'] exceptions_list: List of exceptions applied on the managed rule sets.
         :param pulumi.Input[Sequence[pulumi.Input['ManagedRuleSetArgs']]] managed_rule_sets: List of rule sets.
         """
+        if exceptions_list is not None:
+            pulumi.set(__self__, "exceptions_list", exceptions_list)
         if managed_rule_sets is not None:
             pulumi.set(__self__, "managed_rule_sets", managed_rule_sets)
+
+    @_builtins.property
+    @pulumi.getter(name="exceptionsList")
+    def exceptions_list(self) -> Optional[pulumi.Input['ManagedRuleSetExceptionListArgs']]:
+        """
+        List of exceptions applied on the managed rule sets.
+        """
+        return pulumi.get(self, "exceptions_list")
+
+    @exceptions_list.setter
+    def exceptions_list(self, value: Optional[pulumi.Input['ManagedRuleSetExceptionListArgs']]):
+        pulumi.set(self, "exceptions_list", value)
 
     @_builtins.property
     @pulumi.getter(name="managedRuleSets")
@@ -1782,6 +2005,84 @@ class ManagedRuleSetListArgs:
     @managed_rule_sets.setter
     def managed_rule_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleSetArgs']]]]):
         pulumi.set(self, "managed_rule_sets", value)
+
+
+class ManagedRuleSetScopeArgsDict(TypedDict):
+    """
+    Defines the scope of the managed rules.
+    """
+    rule_set_type: pulumi.Input[_builtins.str]
+    """
+    Defines the rule set type.
+    Examples: DefaultRuleSet, Microsoft_DefaultRuleSet,
+    Microsoft_BotManagerRuleSet, Microsoft_HTTPDDoSRuleSet, BotProtection
+    """
+    rule_set_version: pulumi.Input[_builtins.str]
+    """
+    Defines the version of the rule set.
+    """
+    rule_group_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleGroupScopeArgsDict']]]]
+    """
+    List of rule group scopes.
+    """
+
+@pulumi.input_type
+class ManagedRuleSetScopeArgs:
+    def __init__(__self__, *,
+                 rule_set_type: pulumi.Input[_builtins.str],
+                 rule_set_version: pulumi.Input[_builtins.str],
+                 rule_group_scopes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupScopeArgs']]]] = None):
+        """
+        Defines the scope of the managed rules.
+
+        :param pulumi.Input[_builtins.str] rule_set_type: Defines the rule set type.
+               Examples: DefaultRuleSet, Microsoft_DefaultRuleSet,
+               Microsoft_BotManagerRuleSet, Microsoft_HTTPDDoSRuleSet, BotProtection
+        :param pulumi.Input[_builtins.str] rule_set_version: Defines the version of the rule set.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupScopeArgs']]] rule_group_scopes: List of rule group scopes.
+        """
+        pulumi.set(__self__, "rule_set_type", rule_set_type)
+        pulumi.set(__self__, "rule_set_version", rule_set_version)
+        if rule_group_scopes is not None:
+            pulumi.set(__self__, "rule_group_scopes", rule_group_scopes)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleSetType")
+    def rule_set_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Defines the rule set type.
+        Examples: DefaultRuleSet, Microsoft_DefaultRuleSet,
+        Microsoft_BotManagerRuleSet, Microsoft_HTTPDDoSRuleSet, BotProtection
+        """
+        return pulumi.get(self, "rule_set_type")
+
+    @rule_set_type.setter
+    def rule_set_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "rule_set_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleSetVersion")
+    def rule_set_version(self) -> pulumi.Input[_builtins.str]:
+        """
+        Defines the version of the rule set.
+        """
+        return pulumi.get(self, "rule_set_version")
+
+    @rule_set_version.setter
+    def rule_set_version(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "rule_set_version", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleGroupScopes")
+    def rule_group_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupScopeArgs']]]]:
+        """
+        List of rule group scopes.
+        """
+        return pulumi.get(self, "rule_group_scopes")
+
+    @rule_group_scopes.setter
+    def rule_group_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupScopeArgs']]]]):
+        pulumi.set(self, "rule_group_scopes", value)
 
 
 class ManagedRuleSetArgsDict(TypedDict):
@@ -2031,6 +2332,10 @@ class PolicySettingsArgsDict(TypedDict):
     """
     Defines top-level WebApplicationFirewallPolicy configuration settings.
     """
+    captcha_expiration_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Defines the Captcha cookie validity lifetime in minutes. This setting is only applicable to Premium_AzureFrontDoor. Value must be an integer between 5 and 1440 with the default value being 30.
+    """
     custom_block_response_body: NotRequired[pulumi.Input[_builtins.str]]
     """
     If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
@@ -2071,6 +2376,7 @@ class PolicySettingsArgsDict(TypedDict):
 @pulumi.input_type
 class PolicySettingsArgs:
     def __init__(__self__, *,
+                 captcha_expiration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
                  custom_block_response_body: Optional[pulumi.Input[_builtins.str]] = None,
                  custom_block_response_status_code: Optional[pulumi.Input[_builtins.int]] = None,
                  enabled_state: Optional[pulumi.Input[Union[_builtins.str, 'PolicyEnabledState']]] = None,
@@ -2083,6 +2389,7 @@ class PolicySettingsArgs:
         """
         Defines top-level WebApplicationFirewallPolicy configuration settings.
 
+        :param pulumi.Input[_builtins.int] captcha_expiration_in_minutes: Defines the Captcha cookie validity lifetime in minutes. This setting is only applicable to Premium_AzureFrontDoor. Value must be an integer between 5 and 1440 with the default value being 30.
         :param pulumi.Input[_builtins.str] custom_block_response_body: If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
         :param pulumi.Input[_builtins.int] custom_block_response_status_code: If the action type is block, customer can override the response status code.
         :param pulumi.Input[Union[_builtins.str, 'PolicyEnabledState']] enabled_state: Describes if the policy is in enabled or disabled state. Defaults to Enabled if not specified.
@@ -2093,6 +2400,8 @@ class PolicySettingsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['WebApplicationFirewallScrubbingRulesArgs']]] scrubbing_rules: List of log scrubbing rules applied to the Web Application Firewall logs.
         :param pulumi.Input[Union[_builtins.str, 'WebApplicationFirewallScrubbingState']] state: State of the log scrubbing config. Default value is Enabled.
         """
+        if captcha_expiration_in_minutes is not None:
+            pulumi.set(__self__, "captcha_expiration_in_minutes", captcha_expiration_in_minutes)
         if custom_block_response_body is not None:
             pulumi.set(__self__, "custom_block_response_body", custom_block_response_body)
         if custom_block_response_status_code is not None:
@@ -2111,6 +2420,18 @@ class PolicySettingsArgs:
             pulumi.set(__self__, "scrubbing_rules", scrubbing_rules)
         if state is not None:
             pulumi.set(__self__, "state", state)
+
+    @_builtins.property
+    @pulumi.getter(name="captchaExpirationInMinutes")
+    def captcha_expiration_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Defines the Captcha cookie validity lifetime in minutes. This setting is only applicable to Premium_AzureFrontDoor. Value must be an integer between 5 and 1440 with the default value being 30.
+        """
+        return pulumi.get(self, "captcha_expiration_in_minutes")
+
+    @captcha_expiration_in_minutes.setter
+    def captcha_expiration_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "captcha_expiration_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="customBlockResponseBody")
@@ -2605,6 +2926,92 @@ class RoutingRuleArgs:
         pulumi.set(self, "web_application_firewall_policy_link", value)
 
 
+class RuleGroupScopeArgsDict(TypedDict):
+    """
+    Defines the scope of the rule group.
+    """
+    rule_group_name: pulumi.Input[_builtins.str]
+    """
+    Defines the rule group name.
+    """
+    rule_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleScopeArgsDict']]]]
+    """
+    List of rule scopes.
+    """
+
+@pulumi.input_type
+class RuleGroupScopeArgs:
+    def __init__(__self__, *,
+                 rule_group_name: pulumi.Input[_builtins.str],
+                 rule_scopes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleScopeArgs']]]] = None):
+        """
+        Defines the scope of the rule group.
+
+        :param pulumi.Input[_builtins.str] rule_group_name: Defines the rule group name.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleScopeArgs']]] rule_scopes: List of rule scopes.
+        """
+        pulumi.set(__self__, "rule_group_name", rule_group_name)
+        if rule_scopes is not None:
+            pulumi.set(__self__, "rule_scopes", rule_scopes)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleGroupName")
+    def rule_group_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Defines the rule group name.
+        """
+        return pulumi.get(self, "rule_group_name")
+
+    @rule_group_name.setter
+    def rule_group_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "rule_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleScopes")
+    def rule_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleScopeArgs']]]]:
+        """
+        List of rule scopes.
+        """
+        return pulumi.get(self, "rule_scopes")
+
+    @rule_scopes.setter
+    def rule_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleScopeArgs']]]]):
+        pulumi.set(self, "rule_scopes", value)
+
+
+class RuleScopeArgsDict(TypedDict):
+    """
+    Defines the scope of the rule.
+    """
+    rule_id: pulumi.Input[_builtins.str]
+    """
+    Defines the rule id.
+    """
+
+@pulumi.input_type
+class RuleScopeArgs:
+    def __init__(__self__, *,
+                 rule_id: pulumi.Input[_builtins.str]):
+        """
+        Defines the scope of the rule.
+
+        :param pulumi.Input[_builtins.str] rule_id: Defines the rule id.
+        """
+        pulumi.set(__self__, "rule_id", rule_id)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleId")
+    def rule_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Defines the rule id.
+        """
+        return pulumi.get(self, "rule_id")
+
+    @rule_id.setter
+    def rule_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "rule_id", value)
+
+
 class RulesEngineActionArgsDict(TypedDict):
     """
     One or more actions that will execute, modifying the request and/or response.
@@ -2824,7 +3231,7 @@ class RulesEngineRuleArgsDict(TypedDict):
     """
     priority: pulumi.Input[_builtins.int]
     """
-    A priority assigned to this rule. 
+    A priority assigned to this rule.
     """
     match_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RulesEngineMatchConditionArgsDict']]]]
     """
@@ -2848,7 +3255,7 @@ class RulesEngineRuleArgs:
 
         :param pulumi.Input['RulesEngineActionArgs'] action: Actions to perform on the request and response if all of the match conditions are met.
         :param pulumi.Input[_builtins.str] name: A name to refer to this specific rule.
-        :param pulumi.Input[_builtins.int] priority: A priority assigned to this rule. 
+        :param pulumi.Input[_builtins.int] priority: A priority assigned to this rule.
         :param pulumi.Input[Sequence[pulumi.Input['RulesEngineMatchConditionArgs']]] match_conditions: A list of match conditions that must meet in order for the actions of this rule to run. Having no match conditions means the actions will always run.
         :param pulumi.Input[Union[_builtins.str, 'MatchProcessingBehavior']] match_processing_behavior: If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
         """
@@ -2888,7 +3295,7 @@ class RulesEngineRuleArgs:
     @pulumi.getter
     def priority(self) -> pulumi.Input[_builtins.int]:
         """
-        A priority assigned to this rule. 
+        A priority assigned to this rule.
         """
         return pulumi.get(self, "priority")
 

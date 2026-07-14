@@ -46,19 +46,19 @@ namespace Pulumi.AzureNative.CosmosDB.Inputs
         }
 
         /// <summary>
-        /// Number of nodes
+        /// Number of nodes.
         /// </summary>
         [Input("nodeCount")]
         public Input<int>? NodeCount { get; set; }
 
         /// <summary>
-        /// Virtual Machine SKU used for clusters. Default value is Standard_DS14_v2
+        /// Virtual Machine SKU used for clusters. Default value is Standard_DS14_v2.
         /// </summary>
         [Input("nodeSku")]
         public Input<string>? NodeSku { get; set; }
 
         /// <summary>
-        /// Number of copies of data maintained by the cluster
+        /// Number of copies of data maintained by the cluster.
         /// </summary>
         [Input("replicationFactor")]
         public Input<int>? ReplicationFactor { get; set; }

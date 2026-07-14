@@ -135,9 +135,9 @@ class ManagedIdentityType(_builtins.str, Enum):
     """
     SystemAssigned
     """
-    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
     """
-    UserAssigned
+    Both SystemAssigned and UserAssigned identities.
     """
 
 
