@@ -27,7 +27,7 @@ class GetWebAppResult:
     """
     A web app, a mobile app backend, or an API app.
     """
-    def __init__(__self__, auto_generated_domain_name_label_scope=None, availability_state=None, azure_api_version=None, client_affinity_enabled=None, client_affinity_partitioning_enabled=None, client_affinity_proxy_enabled=None, client_cert_enabled=None, client_cert_exclusion_paths=None, client_cert_mode=None, container_size=None, custom_domain_verification_id=None, daily_memory_time_quota=None, dapr_config=None, default_host_name=None, dns_configuration=None, enabled=None, enabled_host_names=None, end_to_end_encryption_enabled=None, extended_location=None, function_app_config=None, host_name_ssl_states=None, host_names=None, host_names_disabled=None, hosting_environment_profile=None, https_only=None, hyper_v=None, id=None, identity=None, in_progress_operation_id=None, ip_mode=None, is_default_container=None, is_xenon=None, key_vault_reference_identity=None, kind=None, last_modified_time_utc=None, location=None, managed_environment_id=None, max_number_of_workers=None, name=None, outbound_ip_addresses=None, outbound_vnet_routing=None, possible_outbound_ip_addresses=None, public_network_access=None, redundancy_mode=None, repository_site_name=None, reserved=None, resource_config=None, resource_group=None, scm_site_also_stopped=None, server_farm_id=None, sku=None, slot_swap_status=None, ssh_enabled=None, state=None, storage_account_required=None, suspended_till=None, tags=None, target_swap_slot=None, traffic_manager_host_names=None, type=None, usage_state=None, virtual_network_subnet_id=None, workload_profile_name=None):
+    def __init__(__self__, auto_generated_domain_name_label_scope=None, availability_state=None, azure_api_version=None, client_affinity_enabled=None, client_affinity_partitioning_enabled=None, client_affinity_proxy_enabled=None, client_cert_enabled=None, client_cert_exclusion_paths=None, client_cert_mode=None, container_size=None, custom_domain_verification_id=None, daily_memory_time_quota=None, dapr_config=None, default_host_name=None, dns_configuration=None, enabled=None, enabled_host_names=None, end_to_end_encryption_enabled=None, extended_location=None, function_app_config=None, host_name_ssl_states=None, host_names=None, host_names_disabled=None, hosting_environment_profile=None, https_only=None, hyper_v=None, id=None, identity=None, in_progress_operation_id=None, ip_mode=None, is_default_container=None, is_xenon=None, key_vault_reference_identity=None, kind=None, last_modified_time_utc=None, location=None, managed_environment_id=None, max_number_of_workers=None, name=None, outbound_ip_addresses=None, outbound_vnet_routing=None, possible_outbound_ip_addresses=None, public_network_access=None, redundancy_mode=None, repository_site_name=None, reserved=None, resource_config=None, resource_group=None, scm_site_also_stopped=None, server_farm_id=None, site_config=None, sku=None, slot_swap_status=None, ssh_enabled=None, state=None, storage_account_required=None, suspended_till=None, tags=None, target_swap_slot=None, traffic_manager_host_names=None, type=None, usage_state=None, virtual_network_subnet_id=None, workload_profile_name=None):
         if auto_generated_domain_name_label_scope and not isinstance(auto_generated_domain_name_label_scope, str):
             raise TypeError("Expected argument 'auto_generated_domain_name_label_scope' to be a str")
         pulumi.set(__self__, "auto_generated_domain_name_label_scope", auto_generated_domain_name_label_scope)
@@ -178,6 +178,9 @@ class GetWebAppResult:
         if server_farm_id and not isinstance(server_farm_id, str):
             raise TypeError("Expected argument 'server_farm_id' to be a str")
         pulumi.set(__self__, "server_farm_id", server_farm_id)
+        if site_config and not isinstance(site_config, dict):
+            raise TypeError("Expected argument 'site_config' to be a dict")
+        pulumi.set(__self__, "site_config", site_config)
         if sku and not isinstance(sku, str):
             raise TypeError("Expected argument 'sku' to be a str")
         pulumi.set(__self__, "sku", sku)
@@ -626,6 +629,14 @@ class GetWebAppResult:
         return pulumi.get(self, "server_farm_id")
 
     @_builtins.property
+    @pulumi.getter(name="siteConfig")
+    def site_config(self) -> Optional['outputs.SiteConfigResponse']:
+        """
+        Configuration of an App Service app. This property is not returned in response to normal create and read requests since it may contain sensitive information.
+        """
+        return pulumi.get(self, "site_config")
+
+    @_builtins.property
     @pulumi.getter
     def sku(self) -> _builtins.str:
         """
@@ -787,6 +798,7 @@ class AwaitableGetWebAppResult(GetWebAppResult):
             resource_group=self.resource_group,
             scm_site_also_stopped=self.scm_site_also_stopped,
             server_farm_id=self.server_farm_id,
+            site_config=self.site_config,
             sku=self.sku,
             slot_swap_status=self.slot_swap_status,
             ssh_enabled=self.ssh_enabled,
@@ -873,6 +885,7 @@ def get_web_app(name: Optional[_builtins.str] = None,
         resource_group=pulumi.get(__ret__, 'resource_group'),
         scm_site_also_stopped=pulumi.get(__ret__, 'scm_site_also_stopped'),
         server_farm_id=pulumi.get(__ret__, 'server_farm_id'),
+        site_config=pulumi.get(__ret__, 'site_config'),
         sku=pulumi.get(__ret__, 'sku'),
         slot_swap_status=pulumi.get(__ret__, 'slot_swap_status'),
         ssh_enabled=pulumi.get(__ret__, 'ssh_enabled'),
@@ -956,6 +969,7 @@ def get_web_app_output(name: Optional[pulumi.Input[_builtins.str]] = None,
         resource_group=pulumi.get(__response__, 'resource_group'),
         scm_site_also_stopped=pulumi.get(__response__, 'scm_site_also_stopped'),
         server_farm_id=pulumi.get(__response__, 'server_farm_id'),
+        site_config=pulumi.get(__response__, 'site_config'),
         sku=pulumi.get(__response__, 'sku'),
         slot_swap_status=pulumi.get(__response__, 'slot_swap_status'),
         ssh_enabled=pulumi.get(__response__, 'ssh_enabled'),
