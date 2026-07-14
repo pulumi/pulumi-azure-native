@@ -1,0 +1,43 @@
+name: keyvault-soft-delete-recovery
+runtime: yaml
+description: Tests that a soft-deleted KeyVault secret/key is recovered on re-create
+variables:
+  clientConfig:
+    fn::invoke:
+      function: azure-native:authorization:getClientConfig
+
+resources:
+  rg:
+    type: azure-native:resources:ResourceGroup
+
+  vault:
+    type: azure-native:keyvault:Vault
+    properties:
+      resourceGroupName: ${rg.name}
+      properties:
+        accessPolicies:
+          - objectId: ${clientConfig.objectId}
+            permissions:
+              keys:
+                - Get
+                - Create
+                - Delete
+                - List
+                - Recover
+                - Purge
+              secrets:
+                - Get
+                - List
+                - Set
+                - Delete
+                - Recover
+                - Purge
+            tenantId: ${clientConfig.tenantId}
+        sku:
+          family: A
+          name: standard
+        tenantId: ${clientConfig.tenantId}
+
+# secret and key are intentionally omitted here: removing them from the desired state causes Pulumi to delete them,
+# which soft-deletes them in the vault (Azure Key Vault enforces soft-delete for all vaults). Re-introducing them
+# (see ../step1) then exercises the soft-delete recovery path in custom_keyvault.go.

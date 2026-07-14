@@ -268,8 +268,16 @@ func BuildCustomResources(
 		securityInsightsSourceControl(azureClient),
 	}
 
-	resources = append(resources, keyVaultSecret(cloud, tokenCred))
-	resources = append(resources, keyVaultKey(cloud, tokenCred))
+	kvSecret, err := keyVaultSecret(cloud, tokenCred, crudClientFactory, lookupResource)
+	if err != nil {
+		return nil, err
+	}
+	kvKey, err := keyVaultKey(cloud, tokenCred, crudClientFactory, lookupResource)
+	if err != nil {
+		return nil, err
+	}
+	resources = append(resources, kvSecret)
+	resources = append(resources, kvKey)
 
 	resources = append(resources, storageAccountStaticWebsite_azidentity(cloud, tokenCred))
 	resources = append(resources, newBlob_azidentity(cloud, tokenCred))

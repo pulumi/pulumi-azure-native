@@ -127,6 +127,47 @@ func TestParallelSubnetCreation(t *testing.T) {
 	assertrefresh.HasNoChanges(t, pt.Refresh(t))
 }
 
+// TestKeyVaultSecretAndKeySoftDeleteRecovery verifies that re-creating a KeyVault secret/key after it has been
+// deleted (and therefore soft-deleted by Azure, which enforces soft-delete on all vaults) succeeds by recovering
+// the soft-deleted resource instead of failing with a conflict. See custom_keyvault.go and issues #1174, #1211.
+func TestKeyVaultSecretAndKeySoftDeleteRecovery(t *testing.T) {
+	t.Parallel()
+	pt := newPulumiTest(t, "keyvault-soft-delete-recovery/step1")
+	defer func() {
+		pt.Destroy(t)
+	}()
+
+	up := pt.Up(t)
+	assertNonEmptyStringOutput(t, up, "secretUri")
+	assertNonEmptyStringOutput(t, up, "keyUri")
+
+	// Remove the secret and key. The provider deletes them via the KeyVault data plane, which soft-deletes them.
+	pt.UpdateSource(t, "test-programs", "keyvault-soft-delete-recovery", "step2")
+	pt.Up(t)
+
+	// Re-introduce the secret and key with the same names. Azure still has them in a soft-deleted state, so
+	// creating them again requires recovering them first; a plain ARM PUT would fail with a conflict.
+	pt.UpdateSource(t, "test-programs", "keyvault-soft-delete-recovery", "step1")
+	up = pt.Up(t)
+
+	upSummary := changesummary.FromStringIntMap(*up.Summary.ResourceChanges)
+	assert.Equal(t, 2, upSummary[apitype.OpCreate], "expected the secret and key to be (re-)created")
+
+	// Real ARM-issued outputs (as opposed to nil outputs from a create that never actually called ARM) confirm
+	// the resources were genuinely created, not just recovered and left stale.
+	assertNonEmptyStringOutput(t, up, "secretUri")
+	assertNonEmptyStringOutput(t, up, "keyUri")
+
+	assertrefresh.HasNoChanges(t, pt.Refresh(t))
+}
+
+func assertNonEmptyStringOutput(t *testing.T, up auto.UpResult, name string) {
+	t.Helper()
+	value, ok := up.Outputs[name].Value.(string)
+	require.True(t, ok, "expected output %q to be a string", name)
+	require.NotEmpty(t, value, "expected output %q to be non-empty", name)
+}
+
 func TestGenericResourceCreatingCongitiveServicesAccount(t *testing.T) {
 	t.Parallel()
 	pt := newPulumiTest(t, "generic-resource-cognitive-services")
