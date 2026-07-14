@@ -250,6 +250,10 @@ export interface GetWebAppSlotResult {
      */
     readonly serverFarmId?: string;
     /**
+     * Configuration of an App Service app. This property is not returned in response to normal create and read requests since it may contain sensitive information.
+     */
+    readonly siteConfig?: outputs.web.SiteConfigResponse;
+    /**
      * Current SKU of application based on associated App Service Plan. Some valid SKU values are Free, Shared, Basic, Dynamic, FlexConsumption, Standard, Premium, PremiumV2, PremiumV3, Isolated, IsolatedV2
      */
     readonly sku: string;

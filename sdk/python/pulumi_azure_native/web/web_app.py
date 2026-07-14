@@ -1093,6 +1093,7 @@ class WebApp(pulumi.CustomResource):
         __props__.__dict__["resource_group"] = None
         __props__.__dict__["scm_site_also_stopped"] = None
         __props__.__dict__["server_farm_id"] = None
+        __props__.__dict__["site_config"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["slot_swap_status"] = None
         __props__.__dict__["ssh_enabled"] = None
@@ -1506,6 +1507,14 @@ class WebApp(pulumi.CustomResource):
         Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
         """
         return pulumi.get(self, "server_farm_id")
+
+    @_builtins.property
+    @pulumi.getter(name="siteConfig")
+    def site_config(self) -> pulumi.Output[Optional['outputs.SiteConfigResponse']]:
+        """
+        Configuration of an App Service app. This property is not returned in response to normal create and read requests since it may contain sensitive information.
+        """
+        return pulumi.get(self, "site_config")
 
     @_builtins.property
     @pulumi.getter

@@ -321,6 +321,12 @@ namespace Pulumi.AzureNative.Web
         public Output<string?> ServerFarmId { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration of an App Service app. This property is not returned in response to normal create and read requests since it may contain sensitive information.
+        /// </summary>
+        [Output("siteConfig")]
+        public Output<Outputs.SiteConfigResponse?> SiteConfig { get; private set; } = null!;
+
+        /// <summary>
         /// Current SKU of application based on associated App Service Plan. Some valid SKU values are Free, Shared, Basic, Dynamic, FlexConsumption, Standard, Premium, PremiumV2, PremiumV3, Isolated, IsolatedV2
         /// </summary>
         [Output("sku")]

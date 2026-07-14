@@ -295,6 +295,10 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly string? ServerFarmId;
         /// <summary>
+        /// Configuration of an App Service app. This property is not returned in response to normal create and read requests since it may contain sensitive information.
+        /// </summary>
+        public readonly Outputs.SiteConfigResponse? SiteConfig;
+        /// <summary>
         /// Current SKU of application based on associated App Service Plan. Some valid SKU values are Free, Shared, Basic, Dynamic, FlexConsumption, Standard, Premium, PremiumV2, PremiumV3, Isolated, IsolatedV2
         /// </summary>
         public readonly string Sku;
@@ -450,6 +454,8 @@ namespace Pulumi.AzureNative.Web
 
             string? serverFarmId,
 
+            Outputs.SiteConfigResponse? siteConfig,
+
             string sku,
 
             Outputs.SlotSwapStatusResponse slotSwapStatus,
@@ -526,6 +532,7 @@ namespace Pulumi.AzureNative.Web
             ResourceGroup = resourceGroup;
             ScmSiteAlsoStopped = scmSiteAlsoStopped;
             ServerFarmId = serverFarmId;
+            SiteConfig = siteConfig;
             Sku = sku;
             SlotSwapStatus = slotSwapStatus;
             SshEnabled = sshEnabled;

@@ -22,6 +22,8 @@ __all__ = [
     'AllowedPrincipalsResponse',
     'ApiConnectionDefinitionResponseProperties',
     'ApiConnectionTestLinkResponse',
+    'ApiDefinitionInfoResponse',
+    'ApiManagementConfigResponse',
     'ApiOAuthSettingsParameterResponse',
     'ApiOAuthSettingsResponse',
     'ApiReferenceResponse',
@@ -37,6 +39,10 @@ __all__ = [
     'ArmPlanResponse',
     'AseV3NetworkingConfigurationResponse',
     'AuthPlatformResponse',
+    'AutoHealActionsResponse',
+    'AutoHealCustomActionResponse',
+    'AutoHealRulesResponse',
+    'AutoHealTriggersResponse',
     'AzureActiveDirectoryLoginResponse',
     'AzureActiveDirectoryRegistrationResponse',
     'AzureActiveDirectoryResponse',
@@ -62,6 +68,7 @@ __all__ = [
     'ConsentLinkDefinitionResponse',
     'ContainerAppsConfigurationResponse',
     'CookieExpirationResponse',
+    'CorsSettingsResponse',
     'CustomApiPropertiesDefinitionResponse',
     'CustomDnsSuffixConfigurationResponse',
     'CustomOpenIdConnectProviderResponse',
@@ -72,6 +79,7 @@ __all__ = [
     'EnabledConfigResponse',
     'EnvironmentVariableResponse',
     'ErrorEntityResponse',
+    'ExperimentsResponse',
     'ExpressionResponse',
     'ExpressionRootResponse',
     'ExtendedLocationResponse',
@@ -96,6 +104,7 @@ __all__ = [
     'GitHubResponse',
     'GlobalValidationResponse',
     'GoogleResponse',
+    'HandlerMappingResponse',
     'HostNameSslStateResponse',
     'HostingEnvironmentProfileResponse',
     'HttpLogsConfigResponse',
@@ -103,6 +112,7 @@ __all__ = [
     'HttpSettingsRoutesResponse',
     'IdentifierResponse',
     'IdentityProvidersResponse',
+    'IpSecurityRestrictionResponse',
     'JwtClaimChecksResponse',
     'KubeEnvironmentProfileResponse',
     'LegacyMicrosoftAccountResponse',
@@ -119,25 +129,36 @@ __all__ = [
     'OpenIdConnectRegistrationResponse',
     'OutboundVnetRoutingResponse',
     'PrivateLinkConnectionStateResponse',
+    'PushSettingsResponse',
+    'RampUpRuleResponse',
     'RemotePrivateEndpointConnectionResponse',
+    'RequestsBasedTriggerResponse',
     'ResourceConfigResponse',
     'ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse',
     'ServerFarmInstanceResponse',
+    'SiteConfigResponse',
     'SiteDnsConfigResponse',
+    'SiteLimitsResponse',
+    'SiteMachineKeyResponse',
     'SkuCapacityResponse',
     'SkuDescriptionResponse',
     'SlotSwapStatusResponse',
+    'SlowRequestsBasedTriggerResponse',
     'StaticSiteBuildPropertiesResponse',
     'StaticSiteDatabaseConnectionConfigurationFileOverviewResponse',
     'StaticSiteLinkedBackendResponse',
     'StaticSiteTemplateOptionsResponse',
     'StaticSiteUserARMResourceResponse',
     'StaticSiteUserProvidedFunctionAppResponse',
+    'StatusCodesBasedTriggerResponse',
+    'StatusCodesRangeBasedTriggerResponse',
     'SystemDataResponse',
     'TokenStoreResponse',
     'TwitterRegistrationResponse',
     'TwitterResponse',
     'UserAssignedIdentityResponse',
+    'VirtualApplicationResponse',
+    'VirtualDirectoryResponse',
     'VirtualNetworkProfileResponse',
     'VnetRouteResponse',
     'VolumeMountResponse',
@@ -456,6 +477,54 @@ class ApiConnectionTestLinkResponse(dict):
         Test link request URI
         """
         return pulumi.get(self, "request_uri")
+
+
+@pulumi.output_type
+class ApiDefinitionInfoResponse(dict):
+    """
+    Information about the formal API definition for the app.
+    """
+    def __init__(__self__, *,
+                 url: Optional[_builtins.str] = None):
+        """
+        Information about the formal API definition for the app.
+
+        :param _builtins.str url: The URL of the API definition.
+        """
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> Optional[_builtins.str]:
+        """
+        The URL of the API definition.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class ApiManagementConfigResponse(dict):
+    """
+    Azure API management (APIM) configuration linked to the app.
+    """
+    def __init__(__self__, *,
+                 id: Optional[_builtins.str] = None):
+        """
+        Azure API management (APIM) configuration linked to the app.
+
+        :param _builtins.str id: APIM-Api Identifier.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        """
+        APIM-Api Identifier.
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
@@ -1549,6 +1618,260 @@ class AuthPlatformResponse(dict):
         The setting in this value can control the behavior of certain features in the Authentication / Authorization module.
         """
         return pulumi.get(self, "runtime_version")
+
+
+@pulumi.output_type
+class AutoHealActionsResponse(dict):
+    """
+    Actions which to take by the auto-heal module when a rule is triggered.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionType":
+            suggest = "action_type"
+        elif key == "customAction":
+            suggest = "custom_action"
+        elif key == "minProcessExecutionTime":
+            suggest = "min_process_execution_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutoHealActionsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutoHealActionsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutoHealActionsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action_type: Optional[_builtins.str] = None,
+                 custom_action: Optional['outputs.AutoHealCustomActionResponse'] = None,
+                 min_process_execution_time: Optional[_builtins.str] = None):
+        """
+        Actions which to take by the auto-heal module when a rule is triggered.
+
+        :param _builtins.str action_type: Predefined action to be taken.
+        :param 'AutoHealCustomActionResponse' custom_action: Custom action to be taken.
+        :param _builtins.str min_process_execution_time: Minimum time the process must execute
+               before taking the action
+        """
+        if action_type is not None:
+            pulumi.set(__self__, "action_type", action_type)
+        if custom_action is not None:
+            pulumi.set(__self__, "custom_action", custom_action)
+        if min_process_execution_time is not None:
+            pulumi.set(__self__, "min_process_execution_time", min_process_execution_time)
+
+    @_builtins.property
+    @pulumi.getter(name="actionType")
+    def action_type(self) -> Optional[_builtins.str]:
+        """
+        Predefined action to be taken.
+        """
+        return pulumi.get(self, "action_type")
+
+    @_builtins.property
+    @pulumi.getter(name="customAction")
+    def custom_action(self) -> Optional['outputs.AutoHealCustomActionResponse']:
+        """
+        Custom action to be taken.
+        """
+        return pulumi.get(self, "custom_action")
+
+    @_builtins.property
+    @pulumi.getter(name="minProcessExecutionTime")
+    def min_process_execution_time(self) -> Optional[_builtins.str]:
+        """
+        Minimum time the process must execute
+        before taking the action
+        """
+        return pulumi.get(self, "min_process_execution_time")
+
+
+@pulumi.output_type
+class AutoHealCustomActionResponse(dict):
+    """
+    Custom action to be executed
+    when an auto heal rule is triggered.
+    """
+    def __init__(__self__, *,
+                 exe: Optional[_builtins.str] = None,
+                 parameters: Optional[_builtins.str] = None):
+        """
+        Custom action to be executed
+        when an auto heal rule is triggered.
+
+        :param _builtins.str exe: Executable to be run.
+        :param _builtins.str parameters: Parameters for the executable.
+        """
+        if exe is not None:
+            pulumi.set(__self__, "exe", exe)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @_builtins.property
+    @pulumi.getter
+    def exe(self) -> Optional[_builtins.str]:
+        """
+        Executable to be run.
+        """
+        return pulumi.get(self, "exe")
+
+    @_builtins.property
+    @pulumi.getter
+    def parameters(self) -> Optional[_builtins.str]:
+        """
+        Parameters for the executable.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class AutoHealRulesResponse(dict):
+    """
+    Rules that can be defined for auto-heal.
+    """
+    def __init__(__self__, *,
+                 actions: Optional['outputs.AutoHealActionsResponse'] = None,
+                 triggers: Optional['outputs.AutoHealTriggersResponse'] = None):
+        """
+        Rules that can be defined for auto-heal.
+
+        :param 'AutoHealActionsResponse' actions: Actions to be executed when a rule is triggered.
+        :param 'AutoHealTriggersResponse' triggers: Conditions that describe when to execute the auto-heal actions.
+        """
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if triggers is not None:
+            pulumi.set(__self__, "triggers", triggers)
+
+    @_builtins.property
+    @pulumi.getter
+    def actions(self) -> Optional['outputs.AutoHealActionsResponse']:
+        """
+        Actions to be executed when a rule is triggered.
+        """
+        return pulumi.get(self, "actions")
+
+    @_builtins.property
+    @pulumi.getter
+    def triggers(self) -> Optional['outputs.AutoHealTriggersResponse']:
+        """
+        Conditions that describe when to execute the auto-heal actions.
+        """
+        return pulumi.get(self, "triggers")
+
+
+@pulumi.output_type
+class AutoHealTriggersResponse(dict):
+    """
+    Triggers for auto-heal.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateBytesInKB":
+            suggest = "private_bytes_in_kb"
+        elif key == "slowRequests":
+            suggest = "slow_requests"
+        elif key == "slowRequestsWithPath":
+            suggest = "slow_requests_with_path"
+        elif key == "statusCodes":
+            suggest = "status_codes"
+        elif key == "statusCodesRange":
+            suggest = "status_codes_range"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutoHealTriggersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutoHealTriggersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutoHealTriggersResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 private_bytes_in_kb: Optional[_builtins.int] = None,
+                 requests: Optional['outputs.RequestsBasedTriggerResponse'] = None,
+                 slow_requests: Optional['outputs.SlowRequestsBasedTriggerResponse'] = None,
+                 slow_requests_with_path: Optional[Sequence['outputs.SlowRequestsBasedTriggerResponse']] = None,
+                 status_codes: Optional[Sequence['outputs.StatusCodesBasedTriggerResponse']] = None,
+                 status_codes_range: Optional[Sequence['outputs.StatusCodesRangeBasedTriggerResponse']] = None):
+        """
+        Triggers for auto-heal.
+
+        :param _builtins.int private_bytes_in_kb: A rule based on private bytes.
+        :param 'RequestsBasedTriggerResponse' requests: A rule based on total requests.
+        :param 'SlowRequestsBasedTriggerResponse' slow_requests: A rule based on request execution time.
+        :param Sequence['SlowRequestsBasedTriggerResponse'] slow_requests_with_path: A rule based on multiple Slow Requests Rule with path
+        :param Sequence['StatusCodesBasedTriggerResponse'] status_codes: A rule based on status codes.
+        :param Sequence['StatusCodesRangeBasedTriggerResponse'] status_codes_range: A rule based on status codes ranges.
+        """
+        if private_bytes_in_kb is not None:
+            pulumi.set(__self__, "private_bytes_in_kb", private_bytes_in_kb)
+        if requests is not None:
+            pulumi.set(__self__, "requests", requests)
+        if slow_requests is not None:
+            pulumi.set(__self__, "slow_requests", slow_requests)
+        if slow_requests_with_path is not None:
+            pulumi.set(__self__, "slow_requests_with_path", slow_requests_with_path)
+        if status_codes is not None:
+            pulumi.set(__self__, "status_codes", status_codes)
+        if status_codes_range is not None:
+            pulumi.set(__self__, "status_codes_range", status_codes_range)
+
+    @_builtins.property
+    @pulumi.getter(name="privateBytesInKB")
+    def private_bytes_in_kb(self) -> Optional[_builtins.int]:
+        """
+        A rule based on private bytes.
+        """
+        return pulumi.get(self, "private_bytes_in_kb")
+
+    @_builtins.property
+    @pulumi.getter
+    def requests(self) -> Optional['outputs.RequestsBasedTriggerResponse']:
+        """
+        A rule based on total requests.
+        """
+        return pulumi.get(self, "requests")
+
+    @_builtins.property
+    @pulumi.getter(name="slowRequests")
+    def slow_requests(self) -> Optional['outputs.SlowRequestsBasedTriggerResponse']:
+        """
+        A rule based on request execution time.
+        """
+        return pulumi.get(self, "slow_requests")
+
+    @_builtins.property
+    @pulumi.getter(name="slowRequestsWithPath")
+    def slow_requests_with_path(self) -> Optional[Sequence['outputs.SlowRequestsBasedTriggerResponse']]:
+        """
+        A rule based on multiple Slow Requests Rule with path
+        """
+        return pulumi.get(self, "slow_requests_with_path")
+
+    @_builtins.property
+    @pulumi.getter(name="statusCodes")
+    def status_codes(self) -> Optional[Sequence['outputs.StatusCodesBasedTriggerResponse']]:
+        """
+        A rule based on status codes.
+        """
+        return pulumi.get(self, "status_codes")
+
+    @_builtins.property
+    @pulumi.getter(name="statusCodesRange")
+    def status_codes_range(self) -> Optional[Sequence['outputs.StatusCodesRangeBasedTriggerResponse']]:
+        """
+        A rule based on status codes ranges.
+        """
+        return pulumi.get(self, "status_codes_range")
 
 
 @pulumi.output_type
@@ -3428,6 +3751,67 @@ class CookieExpirationResponse(dict):
 
 
 @pulumi.output_type
+class CorsSettingsResponse(dict):
+    """
+    Cross-Origin Resource Sharing (CORS) settings for the app.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedOrigins":
+            suggest = "allowed_origins"
+        elif key == "supportCredentials":
+            suggest = "support_credentials"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CorsSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CorsSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CorsSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_origins: Optional[Sequence[_builtins.str]] = None,
+                 support_credentials: Optional[_builtins.bool] = None):
+        """
+        Cross-Origin Resource Sharing (CORS) settings for the app.
+
+        :param Sequence[_builtins.str] allowed_origins: Gets or sets the list of origins that should be allowed to make cross-origin
+               calls (for example: http://example.com:12345). Use "*" to allow all.
+        :param _builtins.bool support_credentials: Gets or sets whether CORS requests with credentials are allowed. See 
+               https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Requests_with_credentials
+               for more details.
+        """
+        if allowed_origins is not None:
+            pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if support_credentials is not None:
+            pulumi.set(__self__, "support_credentials", support_credentials)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Gets or sets the list of origins that should be allowed to make cross-origin
+        calls (for example: http://example.com:12345). Use "*" to allow all.
+        """
+        return pulumi.get(self, "allowed_origins")
+
+    @_builtins.property
+    @pulumi.getter(name="supportCredentials")
+    def support_credentials(self) -> Optional[_builtins.bool]:
+        """
+        Gets or sets whether CORS requests with credentials are allowed. See 
+        https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Requests_with_credentials
+        for more details.
+        """
+        return pulumi.get(self, "support_credentials")
+
+
+@pulumi.output_type
 class CustomApiPropertiesDefinitionResponse(dict):
     """
     Custom API properties
@@ -4322,6 +4706,47 @@ class ErrorEntityResponse(dict):
         The error target.
         """
         return pulumi.get(self, "target")
+
+
+@pulumi.output_type
+class ExperimentsResponse(dict):
+    """
+    Routing rules in production experiments.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rampUpRules":
+            suggest = "ramp_up_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExperimentsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExperimentsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExperimentsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ramp_up_rules: Optional[Sequence['outputs.RampUpRuleResponse']] = None):
+        """
+        Routing rules in production experiments.
+
+        :param Sequence['RampUpRuleResponse'] ramp_up_rules: List of ramp-up rules.
+        """
+        if ramp_up_rules is not None:
+            pulumi.set(__self__, "ramp_up_rules", ramp_up_rules)
+
+    @_builtins.property
+    @pulumi.getter(name="rampUpRules")
+    def ramp_up_rules(self) -> Optional[Sequence['outputs.RampUpRuleResponse']]:
+        """
+        List of ramp-up rules.
+        """
+        return pulumi.get(self, "ramp_up_rules")
 
 
 @pulumi.output_type
@@ -5617,6 +6042,73 @@ class GoogleResponse(dict):
 
 
 @pulumi.output_type
+class HandlerMappingResponse(dict):
+    """
+    The IIS handler mappings used to define which handler processes HTTP requests with certain extension. 
+    For example, it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scriptProcessor":
+            suggest = "script_processor"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HandlerMappingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HandlerMappingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HandlerMappingResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arguments: Optional[_builtins.str] = None,
+                 extension: Optional[_builtins.str] = None,
+                 script_processor: Optional[_builtins.str] = None):
+        """
+        The IIS handler mappings used to define which handler processes HTTP requests with certain extension. 
+        For example, it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
+
+        :param _builtins.str arguments: Command-line arguments to be passed to the script processor.
+        :param _builtins.str extension: Requests with this extension will be handled using the specified FastCGI application.
+        :param _builtins.str script_processor: The absolute path to the FastCGI application.
+        """
+        if arguments is not None:
+            pulumi.set(__self__, "arguments", arguments)
+        if extension is not None:
+            pulumi.set(__self__, "extension", extension)
+        if script_processor is not None:
+            pulumi.set(__self__, "script_processor", script_processor)
+
+    @_builtins.property
+    @pulumi.getter
+    def arguments(self) -> Optional[_builtins.str]:
+        """
+        Command-line arguments to be passed to the script processor.
+        """
+        return pulumi.get(self, "arguments")
+
+    @_builtins.property
+    @pulumi.getter
+    def extension(self) -> Optional[_builtins.str]:
+        """
+        Requests with this extension will be handled using the specified FastCGI application.
+        """
+        return pulumi.get(self, "extension")
+
+    @_builtins.property
+    @pulumi.getter(name="scriptProcessor")
+    def script_processor(self) -> Optional[_builtins.str]:
+        """
+        The absolute path to the FastCGI application.
+        """
+        return pulumi.get(self, "script_processor")
+
+
+@pulumi.output_type
 class HostNameSslStateResponse(dict):
     """
     SSL-enabled hostname.
@@ -6146,6 +6638,211 @@ class IdentityProvidersResponse(dict):
         The configuration settings of the Twitter provider.
         """
         return pulumi.get(self, "twitter")
+
+
+@pulumi.output_type
+class IpSecurityRestrictionResponse(dict):
+    """
+    IP security restriction on an app.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddress":
+            suggest = "ip_address"
+        elif key == "subnetMask":
+            suggest = "subnet_mask"
+        elif key == "subnetTrafficTag":
+            suggest = "subnet_traffic_tag"
+        elif key == "vnetSubnetResourceId":
+            suggest = "vnet_subnet_resource_id"
+        elif key == "vnetTrafficTag":
+            suggest = "vnet_traffic_tag"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IpSecurityRestrictionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IpSecurityRestrictionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IpSecurityRestrictionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 headers: Optional[Mapping[str, Sequence[_builtins.str]]] = None,
+                 ip_address: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 priority: Optional[_builtins.int] = None,
+                 subnet_mask: Optional[_builtins.str] = None,
+                 subnet_traffic_tag: Optional[_builtins.int] = None,
+                 tag: Optional[_builtins.str] = None,
+                 vnet_subnet_resource_id: Optional[_builtins.str] = None,
+                 vnet_traffic_tag: Optional[_builtins.int] = None):
+        """
+        IP security restriction on an app.
+
+        :param _builtins.str action: Allow or Deny access for this IP range.
+        :param _builtins.str description: IP restriction rule description.
+        :param Mapping[str, Sequence[_builtins.str]] headers: IP restriction rule headers.
+               X-Forwarded-Host (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-Host#Examples). 
+               The matching logic is ..
+               - If the property is null or empty (default), all hosts(or lack of) are allowed.
+               - A value is compared using ordinal-ignore-case (excluding port number).
+               - Subdomain wildcards are permitted but don't match the root domain. For example, *.contoso.com matches the subdomain foo.contoso.com
+                but not the root domain contoso.com or multi-level foo.bar.contoso.com
+               - Unicode host names are allowed but are converted to Punycode for matching.
+               
+               X-Forwarded-For (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-For#Examples).
+               The matching logic is ..
+               - If the property is null or empty (default), any forwarded-for chains (or lack of) are allowed.
+               - If any address (excluding port number) in the chain (comma separated) matches the CIDR defined by the property.
+               
+               X-Azure-FDID and X-FD-HealthProbe.
+               The matching logic is exact match.
+        :param _builtins.str ip_address: IP address the security restriction is valid for.
+               It can be in form of pure ipv4 address (required SubnetMask property) or
+               CIDR notation such as ipv4/mask (leading bit match). For CIDR,
+               SubnetMask property must not be specified.
+        :param _builtins.str name: IP restriction rule name.
+        :param _builtins.int priority: Priority of IP restriction rule.
+        :param _builtins.str subnet_mask: Subnet mask for the range of IP addresses the restriction is valid for.
+        :param _builtins.int subnet_traffic_tag: (internal) Subnet traffic tag
+        :param _builtins.str tag: Defines what this IP filter will be used for. This is to support IP filtering on proxies.
+        :param _builtins.str vnet_subnet_resource_id: Virtual network resource id
+        :param _builtins.int vnet_traffic_tag: (internal) Vnet traffic tag
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if subnet_mask is not None:
+            pulumi.set(__self__, "subnet_mask", subnet_mask)
+        if subnet_traffic_tag is not None:
+            pulumi.set(__self__, "subnet_traffic_tag", subnet_traffic_tag)
+        if tag is not None:
+            pulumi.set(__self__, "tag", tag)
+        if vnet_subnet_resource_id is not None:
+            pulumi.set(__self__, "vnet_subnet_resource_id", vnet_subnet_resource_id)
+        if vnet_traffic_tag is not None:
+            pulumi.set(__self__, "vnet_traffic_tag", vnet_traffic_tag)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> Optional[_builtins.str]:
+        """
+        Allow or Deny access for this IP range.
+        """
+        return pulumi.get(self, "action")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        IP restriction rule description.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def headers(self) -> Optional[Mapping[str, Sequence[_builtins.str]]]:
+        """
+        IP restriction rule headers.
+        X-Forwarded-Host (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-Host#Examples). 
+        The matching logic is ..
+        - If the property is null or empty (default), all hosts(or lack of) are allowed.
+        - A value is compared using ordinal-ignore-case (excluding port number).
+        - Subdomain wildcards are permitted but don't match the root domain. For example, *.contoso.com matches the subdomain foo.contoso.com
+         but not the root domain contoso.com or multi-level foo.bar.contoso.com
+        - Unicode host names are allowed but are converted to Punycode for matching.
+
+        X-Forwarded-For (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-For#Examples).
+        The matching logic is ..
+        - If the property is null or empty (default), any forwarded-for chains (or lack of) are allowed.
+        - If any address (excluding port number) in the chain (comma separated) matches the CIDR defined by the property.
+
+        X-Azure-FDID and X-FD-HealthProbe.
+        The matching logic is exact match.
+        """
+        return pulumi.get(self, "headers")
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[_builtins.str]:
+        """
+        IP address the security restriction is valid for.
+        It can be in form of pure ipv4 address (required SubnetMask property) or
+        CIDR notation such as ipv4/mask (leading bit match). For CIDR,
+        SubnetMask property must not be specified.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        IP restriction rule name.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def priority(self) -> Optional[_builtins.int]:
+        """
+        Priority of IP restriction rule.
+        """
+        return pulumi.get(self, "priority")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetMask")
+    def subnet_mask(self) -> Optional[_builtins.str]:
+        """
+        Subnet mask for the range of IP addresses the restriction is valid for.
+        """
+        return pulumi.get(self, "subnet_mask")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetTrafficTag")
+    def subnet_traffic_tag(self) -> Optional[_builtins.int]:
+        """
+        (internal) Subnet traffic tag
+        """
+        return pulumi.get(self, "subnet_traffic_tag")
+
+    @_builtins.property
+    @pulumi.getter
+    def tag(self) -> Optional[_builtins.str]:
+        """
+        Defines what this IP filter will be used for. This is to support IP filtering on proxies.
+        """
+        return pulumi.get(self, "tag")
+
+    @_builtins.property
+    @pulumi.getter(name="vnetSubnetResourceId")
+    def vnet_subnet_resource_id(self) -> Optional[_builtins.str]:
+        """
+        Virtual network resource id
+        """
+        return pulumi.get(self, "vnet_subnet_resource_id")
+
+    @_builtins.property
+    @pulumi.getter(name="vnetTrafficTag")
+    def vnet_traffic_tag(self) -> Optional[_builtins.int]:
+        """
+        (internal) Vnet traffic tag
+        """
+        return pulumi.get(self, "vnet_traffic_tag")
 
 
 @pulumi.output_type
@@ -7118,6 +7815,280 @@ class PrivateLinkConnectionStateResponse(dict):
 
 
 @pulumi.output_type
+class PushSettingsResponse(dict):
+    """
+    Push settings for the App.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isPushEnabled":
+            suggest = "is_push_enabled"
+        elif key == "dynamicTagsJson":
+            suggest = "dynamic_tags_json"
+        elif key == "tagWhitelistJson":
+            suggest = "tag_whitelist_json"
+        elif key == "tagsRequiringAuth":
+            suggest = "tags_requiring_auth"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PushSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PushSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PushSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: _builtins.str,
+                 is_push_enabled: _builtins.bool,
+                 name: _builtins.str,
+                 type: _builtins.str,
+                 dynamic_tags_json: Optional[_builtins.str] = None,
+                 kind: Optional[_builtins.str] = None,
+                 tag_whitelist_json: Optional[_builtins.str] = None,
+                 tags_requiring_auth: Optional[_builtins.str] = None):
+        """
+        Push settings for the App.
+
+        :param _builtins.str id: Resource Id.
+        :param _builtins.bool is_push_enabled: Gets or sets a flag indicating whether the Push endpoint is enabled.
+        :param _builtins.str name: Resource Name.
+        :param _builtins.str type: Resource type.
+        :param _builtins.str dynamic_tags_json: Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
+        :param _builtins.str kind: Kind of resource.
+        :param _builtins.str tag_whitelist_json: Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
+        :param _builtins.str tags_requiring_auth: Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
+               Tags can consist of alphanumeric characters and the following:
+               '_', '@', '#', '.', ':', '-'. 
+               Validation should be performed at the PushRequestHandler.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "is_push_enabled", is_push_enabled)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if dynamic_tags_json is not None:
+            pulumi.set(__self__, "dynamic_tags_json", dynamic_tags_json)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if tag_whitelist_json is not None:
+            pulumi.set(__self__, "tag_whitelist_json", tag_whitelist_json)
+        if tags_requiring_auth is not None:
+            pulumi.set(__self__, "tags_requiring_auth", tags_requiring_auth)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="isPushEnabled")
+    def is_push_enabled(self) -> _builtins.bool:
+        """
+        Gets or sets a flag indicating whether the Push endpoint is enabled.
+        """
+        return pulumi.get(self, "is_push_enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Resource Name.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="dynamicTagsJson")
+    def dynamic_tags_json(self) -> Optional[_builtins.str]:
+        """
+        Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
+        """
+        return pulumi.get(self, "dynamic_tags_json")
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> Optional[_builtins.str]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @_builtins.property
+    @pulumi.getter(name="tagWhitelistJson")
+    def tag_whitelist_json(self) -> Optional[_builtins.str]:
+        """
+        Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
+        """
+        return pulumi.get(self, "tag_whitelist_json")
+
+    @_builtins.property
+    @pulumi.getter(name="tagsRequiringAuth")
+    def tags_requiring_auth(self) -> Optional[_builtins.str]:
+        """
+        Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
+        Tags can consist of alphanumeric characters and the following:
+        '_', '@', '#', '.', ':', '-'. 
+        Validation should be performed at the PushRequestHandler.
+        """
+        return pulumi.get(self, "tags_requiring_auth")
+
+
+@pulumi.output_type
+class RampUpRuleResponse(dict):
+    """
+    Routing rules for ramp up testing. This rule allows to redirect static traffic % to a slot or to gradually change routing % based on performance.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionHostName":
+            suggest = "action_host_name"
+        elif key == "changeDecisionCallbackUrl":
+            suggest = "change_decision_callback_url"
+        elif key == "changeIntervalInMinutes":
+            suggest = "change_interval_in_minutes"
+        elif key == "changeStep":
+            suggest = "change_step"
+        elif key == "maxReroutePercentage":
+            suggest = "max_reroute_percentage"
+        elif key == "minReroutePercentage":
+            suggest = "min_reroute_percentage"
+        elif key == "reroutePercentage":
+            suggest = "reroute_percentage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RampUpRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RampUpRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RampUpRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action_host_name: Optional[_builtins.str] = None,
+                 change_decision_callback_url: Optional[_builtins.str] = None,
+                 change_interval_in_minutes: Optional[_builtins.int] = None,
+                 change_step: Optional[_builtins.float] = None,
+                 max_reroute_percentage: Optional[_builtins.float] = None,
+                 min_reroute_percentage: Optional[_builtins.float] = None,
+                 name: Optional[_builtins.str] = None,
+                 reroute_percentage: Optional[_builtins.float] = None):
+        """
+        Routing rules for ramp up testing. This rule allows to redirect static traffic % to a slot or to gradually change routing % based on performance.
+
+        :param _builtins.str action_host_name: Hostname of a slot to which the traffic will be redirected if decided to. E.g. myapp-stage.azurewebsites.net.
+        :param _builtins.str change_decision_callback_url: Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified.
+        :param _builtins.int change_interval_in_minutes: Specifies interval in minutes to reevaluate ReroutePercentage.
+        :param _builtins.float change_step: In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches \\n<code>MinReroutePercentage</code> or 
+               <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.\\nCustom decision algorithm 
+               can be provided in TiPCallback site extension which URL can be specified in <code>ChangeDecisionCallbackUrl</code>.
+        :param _builtins.float max_reroute_percentage: Specifies upper boundary below which ReroutePercentage will stay.
+        :param _builtins.float min_reroute_percentage: Specifies lower boundary above which ReroutePercentage will stay.
+        :param _builtins.str name: Name of the routing rule. The recommended name would be to point to the slot which will receive the traffic in the experiment.
+        :param _builtins.float reroute_percentage: Percentage of the traffic which will be redirected to <code>ActionHostName</code>.
+        """
+        if action_host_name is not None:
+            pulumi.set(__self__, "action_host_name", action_host_name)
+        if change_decision_callback_url is not None:
+            pulumi.set(__self__, "change_decision_callback_url", change_decision_callback_url)
+        if change_interval_in_minutes is not None:
+            pulumi.set(__self__, "change_interval_in_minutes", change_interval_in_minutes)
+        if change_step is not None:
+            pulumi.set(__self__, "change_step", change_step)
+        if max_reroute_percentage is not None:
+            pulumi.set(__self__, "max_reroute_percentage", max_reroute_percentage)
+        if min_reroute_percentage is not None:
+            pulumi.set(__self__, "min_reroute_percentage", min_reroute_percentage)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if reroute_percentage is not None:
+            pulumi.set(__self__, "reroute_percentage", reroute_percentage)
+
+    @_builtins.property
+    @pulumi.getter(name="actionHostName")
+    def action_host_name(self) -> Optional[_builtins.str]:
+        """
+        Hostname of a slot to which the traffic will be redirected if decided to. E.g. myapp-stage.azurewebsites.net.
+        """
+        return pulumi.get(self, "action_host_name")
+
+    @_builtins.property
+    @pulumi.getter(name="changeDecisionCallbackUrl")
+    def change_decision_callback_url(self) -> Optional[_builtins.str]:
+        """
+        Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified.
+        """
+        return pulumi.get(self, "change_decision_callback_url")
+
+    @_builtins.property
+    @pulumi.getter(name="changeIntervalInMinutes")
+    def change_interval_in_minutes(self) -> Optional[_builtins.int]:
+        """
+        Specifies interval in minutes to reevaluate ReroutePercentage.
+        """
+        return pulumi.get(self, "change_interval_in_minutes")
+
+    @_builtins.property
+    @pulumi.getter(name="changeStep")
+    def change_step(self) -> Optional[_builtins.float]:
+        """
+        In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches \\n<code>MinReroutePercentage</code> or 
+        <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.\\nCustom decision algorithm 
+        can be provided in TiPCallback site extension which URL can be specified in <code>ChangeDecisionCallbackUrl</code>.
+        """
+        return pulumi.get(self, "change_step")
+
+    @_builtins.property
+    @pulumi.getter(name="maxReroutePercentage")
+    def max_reroute_percentage(self) -> Optional[_builtins.float]:
+        """
+        Specifies upper boundary below which ReroutePercentage will stay.
+        """
+        return pulumi.get(self, "max_reroute_percentage")
+
+    @_builtins.property
+    @pulumi.getter(name="minReroutePercentage")
+    def min_reroute_percentage(self) -> Optional[_builtins.float]:
+        """
+        Specifies lower boundary above which ReroutePercentage will stay.
+        """
+        return pulumi.get(self, "min_reroute_percentage")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        Name of the routing rule. The recommended name would be to point to the slot which will receive the traffic in the experiment.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="reroutePercentage")
+    def reroute_percentage(self) -> Optional[_builtins.float]:
+        """
+        Percentage of the traffic which will be redirected to <code>ActionHostName</code>.
+        """
+        return pulumi.get(self, "reroute_percentage")
+
+
+@pulumi.output_type
 class RemotePrivateEndpointConnectionResponse(dict):
     """
     A remote private endpoint connection
@@ -7238,6 +8209,59 @@ class RemotePrivateEndpointConnectionResponse(dict):
         The state of a private link connection
         """
         return pulumi.get(self, "private_link_service_connection_state")
+
+
+@pulumi.output_type
+class RequestsBasedTriggerResponse(dict):
+    """
+    Trigger based on total requests.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeInterval":
+            suggest = "time_interval"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RequestsBasedTriggerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RequestsBasedTriggerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RequestsBasedTriggerResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 count: Optional[_builtins.int] = None,
+                 time_interval: Optional[_builtins.str] = None):
+        """
+        Trigger based on total requests.
+
+        :param _builtins.int count: Request Count.
+        :param _builtins.str time_interval: Time interval.
+        """
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if time_interval is not None:
+            pulumi.set(__self__, "time_interval", time_interval)
+
+    @_builtins.property
+    @pulumi.getter
+    def count(self) -> Optional[_builtins.int]:
+        """
+        Request Count.
+        """
+        return pulumi.get(self, "count")
+
+    @_builtins.property
+    @pulumi.getter(name="timeInterval")
+    def time_interval(self) -> Optional[_builtins.str]:
+        """
+        Time interval.
+        """
+        return pulumi.get(self, "time_interval")
 
 
 @pulumi.output_type
@@ -7485,6 +8509,1024 @@ class ServerFarmInstanceResponse(dict):
 
 
 @pulumi.output_type
+class SiteConfigResponse(dict):
+    """
+    Configuration of an App Service app.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "machineKey":
+            suggest = "machine_key"
+        elif key == "acrUseManagedIdentityCreds":
+            suggest = "acr_use_managed_identity_creds"
+        elif key == "acrUserManagedIdentityID":
+            suggest = "acr_user_managed_identity_id"
+        elif key == "alwaysOn":
+            suggest = "always_on"
+        elif key == "apiDefinition":
+            suggest = "api_definition"
+        elif key == "apiManagementConfig":
+            suggest = "api_management_config"
+        elif key == "appCommandLine":
+            suggest = "app_command_line"
+        elif key == "autoHealEnabled":
+            suggest = "auto_heal_enabled"
+        elif key == "autoHealRules":
+            suggest = "auto_heal_rules"
+        elif key == "autoSwapSlotName":
+            suggest = "auto_swap_slot_name"
+        elif key == "azureStorageAccounts":
+            suggest = "azure_storage_accounts"
+        elif key == "defaultDocuments":
+            suggest = "default_documents"
+        elif key == "detailedErrorLoggingEnabled":
+            suggest = "detailed_error_logging_enabled"
+        elif key == "documentRoot":
+            suggest = "document_root"
+        elif key == "elasticWebAppScaleLimit":
+            suggest = "elastic_web_app_scale_limit"
+        elif key == "ftpsState":
+            suggest = "ftps_state"
+        elif key == "functionAppScaleLimit":
+            suggest = "function_app_scale_limit"
+        elif key == "functionsRuntimeScaleMonitoringEnabled":
+            suggest = "functions_runtime_scale_monitoring_enabled"
+        elif key == "handlerMappings":
+            suggest = "handler_mappings"
+        elif key == "healthCheckPath":
+            suggest = "health_check_path"
+        elif key == "http20Enabled":
+            suggest = "http20_enabled"
+        elif key == "http20ProxyFlag":
+            suggest = "http20_proxy_flag"
+        elif key == "httpLoggingEnabled":
+            suggest = "http_logging_enabled"
+        elif key == "ipSecurityRestrictions":
+            suggest = "ip_security_restrictions"
+        elif key == "ipSecurityRestrictionsDefaultAction":
+            suggest = "ip_security_restrictions_default_action"
+        elif key == "javaContainer":
+            suggest = "java_container"
+        elif key == "javaContainerVersion":
+            suggest = "java_container_version"
+        elif key == "javaVersion":
+            suggest = "java_version"
+        elif key == "keyVaultReferenceIdentity":
+            suggest = "key_vault_reference_identity"
+        elif key == "linuxFxVersion":
+            suggest = "linux_fx_version"
+        elif key == "loadBalancing":
+            suggest = "load_balancing"
+        elif key == "localMySqlEnabled":
+            suggest = "local_my_sql_enabled"
+        elif key == "logsDirectorySizeLimit":
+            suggest = "logs_directory_size_limit"
+        elif key == "managedPipelineMode":
+            suggest = "managed_pipeline_mode"
+        elif key == "managedServiceIdentityId":
+            suggest = "managed_service_identity_id"
+        elif key == "minTlsCipherSuite":
+            suggest = "min_tls_cipher_suite"
+        elif key == "minTlsVersion":
+            suggest = "min_tls_version"
+        elif key == "minimumElasticInstanceCount":
+            suggest = "minimum_elastic_instance_count"
+        elif key == "netFrameworkVersion":
+            suggest = "net_framework_version"
+        elif key == "nodeVersion":
+            suggest = "node_version"
+        elif key == "numberOfWorkers":
+            suggest = "number_of_workers"
+        elif key == "phpVersion":
+            suggest = "php_version"
+        elif key == "powerShellVersion":
+            suggest = "power_shell_version"
+        elif key == "preWarmedInstanceCount":
+            suggest = "pre_warmed_instance_count"
+        elif key == "publicNetworkAccess":
+            suggest = "public_network_access"
+        elif key == "publishingUsername":
+            suggest = "publishing_username"
+        elif key == "pythonVersion":
+            suggest = "python_version"
+        elif key == "remoteDebuggingEnabled":
+            suggest = "remote_debugging_enabled"
+        elif key == "remoteDebuggingVersion":
+            suggest = "remote_debugging_version"
+        elif key == "requestTracingEnabled":
+            suggest = "request_tracing_enabled"
+        elif key == "requestTracingExpirationTime":
+            suggest = "request_tracing_expiration_time"
+        elif key == "scmIpSecurityRestrictions":
+            suggest = "scm_ip_security_restrictions"
+        elif key == "scmIpSecurityRestrictionsDefaultAction":
+            suggest = "scm_ip_security_restrictions_default_action"
+        elif key == "scmIpSecurityRestrictionsUseMain":
+            suggest = "scm_ip_security_restrictions_use_main"
+        elif key == "scmMinTlsVersion":
+            suggest = "scm_min_tls_version"
+        elif key == "scmType":
+            suggest = "scm_type"
+        elif key == "tracingOptions":
+            suggest = "tracing_options"
+        elif key == "use32BitWorkerProcess":
+            suggest = "use32_bit_worker_process"
+        elif key == "virtualApplications":
+            suggest = "virtual_applications"
+        elif key == "vnetName":
+            suggest = "vnet_name"
+        elif key == "vnetPrivatePortsCount":
+            suggest = "vnet_private_ports_count"
+        elif key == "vnetRouteAllEnabled":
+            suggest = "vnet_route_all_enabled"
+        elif key == "webSocketsEnabled":
+            suggest = "web_sockets_enabled"
+        elif key == "websiteTimeZone":
+            suggest = "website_time_zone"
+        elif key == "windowsFxVersion":
+            suggest = "windows_fx_version"
+        elif key == "xManagedServiceIdentityId":
+            suggest = "x_managed_service_identity_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SiteConfigResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SiteConfigResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SiteConfigResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 machine_key: 'outputs.SiteMachineKeyResponse',
+                 acr_use_managed_identity_creds: Optional[_builtins.bool] = None,
+                 acr_user_managed_identity_id: Optional[_builtins.str] = None,
+                 always_on: Optional[_builtins.bool] = None,
+                 api_definition: Optional['outputs.ApiDefinitionInfoResponse'] = None,
+                 api_management_config: Optional['outputs.ApiManagementConfigResponse'] = None,
+                 app_command_line: Optional[_builtins.str] = None,
+                 auto_heal_enabled: Optional[_builtins.bool] = None,
+                 auto_heal_rules: Optional['outputs.AutoHealRulesResponse'] = None,
+                 auto_swap_slot_name: Optional[_builtins.str] = None,
+                 azure_storage_accounts: Optional[Mapping[str, 'outputs.AzureStorageInfoValueResponse']] = None,
+                 cors: Optional['outputs.CorsSettingsResponse'] = None,
+                 default_documents: Optional[Sequence[_builtins.str]] = None,
+                 detailed_error_logging_enabled: Optional[_builtins.bool] = None,
+                 document_root: Optional[_builtins.str] = None,
+                 elastic_web_app_scale_limit: Optional[_builtins.int] = None,
+                 experiments: Optional['outputs.ExperimentsResponse'] = None,
+                 ftps_state: Optional[_builtins.str] = None,
+                 function_app_scale_limit: Optional[_builtins.int] = None,
+                 functions_runtime_scale_monitoring_enabled: Optional[_builtins.bool] = None,
+                 handler_mappings: Optional[Sequence['outputs.HandlerMappingResponse']] = None,
+                 health_check_path: Optional[_builtins.str] = None,
+                 http20_enabled: Optional[_builtins.bool] = None,
+                 http20_proxy_flag: Optional[_builtins.int] = None,
+                 http_logging_enabled: Optional[_builtins.bool] = None,
+                 ip_security_restrictions: Optional[Sequence['outputs.IpSecurityRestrictionResponse']] = None,
+                 ip_security_restrictions_default_action: Optional[_builtins.str] = None,
+                 java_container: Optional[_builtins.str] = None,
+                 java_container_version: Optional[_builtins.str] = None,
+                 java_version: Optional[_builtins.str] = None,
+                 key_vault_reference_identity: Optional[_builtins.str] = None,
+                 limits: Optional['outputs.SiteLimitsResponse'] = None,
+                 linux_fx_version: Optional[_builtins.str] = None,
+                 load_balancing: Optional[_builtins.str] = None,
+                 local_my_sql_enabled: Optional[_builtins.bool] = None,
+                 logs_directory_size_limit: Optional[_builtins.int] = None,
+                 managed_pipeline_mode: Optional[_builtins.str] = None,
+                 managed_service_identity_id: Optional[_builtins.int] = None,
+                 min_tls_cipher_suite: Optional[_builtins.str] = None,
+                 min_tls_version: Optional[_builtins.str] = None,
+                 minimum_elastic_instance_count: Optional[_builtins.int] = None,
+                 net_framework_version: Optional[_builtins.str] = None,
+                 node_version: Optional[_builtins.str] = None,
+                 number_of_workers: Optional[_builtins.int] = None,
+                 php_version: Optional[_builtins.str] = None,
+                 power_shell_version: Optional[_builtins.str] = None,
+                 pre_warmed_instance_count: Optional[_builtins.int] = None,
+                 public_network_access: Optional[_builtins.str] = None,
+                 publishing_username: Optional[_builtins.str] = None,
+                 push: Optional['outputs.PushSettingsResponse'] = None,
+                 python_version: Optional[_builtins.str] = None,
+                 remote_debugging_enabled: Optional[_builtins.bool] = None,
+                 remote_debugging_version: Optional[_builtins.str] = None,
+                 request_tracing_enabled: Optional[_builtins.bool] = None,
+                 request_tracing_expiration_time: Optional[_builtins.str] = None,
+                 scm_ip_security_restrictions: Optional[Sequence['outputs.IpSecurityRestrictionResponse']] = None,
+                 scm_ip_security_restrictions_default_action: Optional[_builtins.str] = None,
+                 scm_ip_security_restrictions_use_main: Optional[_builtins.bool] = None,
+                 scm_min_tls_version: Optional[_builtins.str] = None,
+                 scm_type: Optional[_builtins.str] = None,
+                 tracing_options: Optional[_builtins.str] = None,
+                 use32_bit_worker_process: Optional[_builtins.bool] = None,
+                 virtual_applications: Optional[Sequence['outputs.VirtualApplicationResponse']] = None,
+                 vnet_name: Optional[_builtins.str] = None,
+                 vnet_private_ports_count: Optional[_builtins.int] = None,
+                 vnet_route_all_enabled: Optional[_builtins.bool] = None,
+                 web_sockets_enabled: Optional[_builtins.bool] = None,
+                 website_time_zone: Optional[_builtins.str] = None,
+                 windows_fx_version: Optional[_builtins.str] = None,
+                 x_managed_service_identity_id: Optional[_builtins.int] = None):
+        """
+        Configuration of an App Service app.
+
+        :param 'SiteMachineKeyResponse' machine_key: Site MachineKey.
+        :param _builtins.bool acr_use_managed_identity_creds: Flag to use Managed Identity Creds for ACR pull
+        :param _builtins.str acr_user_managed_identity_id: If using user managed identity, the user managed identity ClientId
+        :param _builtins.bool always_on: <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
+        :param 'ApiDefinitionInfoResponse' api_definition: Information about the formal API definition for the app.
+        :param 'ApiManagementConfigResponse' api_management_config: Azure API management settings linked to the app.
+        :param _builtins.str app_command_line: App command line to launch.
+        :param _builtins.bool auto_heal_enabled: <code>true</code> if Auto Heal is enabled; otherwise, <code>false</code>.
+        :param 'AutoHealRulesResponse' auto_heal_rules: Auto Heal rules.
+        :param _builtins.str auto_swap_slot_name: Auto-swap slot name.
+        :param Mapping[str, 'AzureStorageInfoValueResponse'] azure_storage_accounts: List of Azure Storage Accounts.
+        :param 'CorsSettingsResponse' cors: Cross-Origin Resource Sharing (CORS) settings.
+        :param Sequence[_builtins.str] default_documents: Default documents.
+        :param _builtins.bool detailed_error_logging_enabled: <code>true</code> if detailed error logging is enabled; otherwise, <code>false</code>.
+        :param _builtins.str document_root: Document root.
+        :param _builtins.int elastic_web_app_scale_limit: Maximum number of workers that a site can scale out to.
+               This setting only applies to apps in plans where ElasticScaleEnabled is <code>true</code>
+        :param 'ExperimentsResponse' experiments: This is work around for polymorphic types.
+        :param _builtins.str ftps_state: State of FTP / FTPS service
+        :param _builtins.int function_app_scale_limit: Maximum number of workers that a site can scale out to.
+               This setting only applies to the Consumption and Elastic Premium Plans
+        :param _builtins.bool functions_runtime_scale_monitoring_enabled: Gets or sets a value indicating whether functions runtime scale monitoring is enabled. When enabled,
+               the ScaleController will not monitor event sources directly, but will instead call to the
+               runtime to get scale status.
+        :param Sequence['HandlerMappingResponse'] handler_mappings: Handler mappings.
+        :param _builtins.str health_check_path: Health check path
+        :param _builtins.bool http20_enabled: Http20Enabled: configures a web site to allow clients to connect over http2.0
+        :param _builtins.int http20_proxy_flag: Http20ProxyFlag: Configures a website to allow http2.0 to pass be proxied all the way to the app. 0 = disabled, 1 = pass through all http2 traffic, 2 = pass through gRPC only.
+        :param _builtins.bool http_logging_enabled: <code>true</code> if HTTP logging is enabled; otherwise, <code>false</code>.
+        :param Sequence['IpSecurityRestrictionResponse'] ip_security_restrictions: IP security restrictions for main.
+        :param _builtins.str ip_security_restrictions_default_action: Default action for main access restriction if no rules are matched.
+        :param _builtins.str java_container: Java container.
+        :param _builtins.str java_container_version: Java container version.
+        :param _builtins.str java_version: Java version.
+        :param _builtins.str key_vault_reference_identity: Identity to use for Key Vault Reference authentication.
+        :param 'SiteLimitsResponse' limits: Site limits.
+        :param _builtins.str linux_fx_version: Linux App Framework and version
+        :param _builtins.str load_balancing: Site load balancing.
+        :param _builtins.bool local_my_sql_enabled: <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
+        :param _builtins.int logs_directory_size_limit: HTTP logs directory size limit.
+        :param _builtins.str managed_pipeline_mode: Managed pipeline mode.
+        :param _builtins.int managed_service_identity_id: Managed Service Identity Id
+        :param _builtins.str min_tls_cipher_suite: The minimum strength TLS cipher suite allowed for an application
+        :param _builtins.str min_tls_version: MinTlsVersion: configures the minimum version of TLS required for SSL requests
+        :param _builtins.int minimum_elastic_instance_count: Number of minimum instance count for a site
+               This setting only applies to the Elastic Plans
+        :param _builtins.str net_framework_version: .NET Framework version.
+        :param _builtins.str node_version: Version of Node.js.
+        :param _builtins.int number_of_workers: Number of workers.
+        :param _builtins.str php_version: Version of PHP.
+        :param _builtins.str power_shell_version: Version of PowerShell.
+        :param _builtins.int pre_warmed_instance_count: Number of preWarmed instances.
+               This setting only applies to the Consumption and Elastic Plans
+        :param _builtins.str public_network_access: Property to allow or block all public traffic.
+        :param _builtins.str publishing_username: Publishing user name.
+        :param 'PushSettingsResponse' push: Push endpoint settings.
+        :param _builtins.str python_version: Version of Python.
+        :param _builtins.bool remote_debugging_enabled: <code>true</code> if remote debugging is enabled; otherwise, <code>false</code>.
+        :param _builtins.str remote_debugging_version: Remote debugging version.
+        :param _builtins.bool request_tracing_enabled: <code>true</code> if request tracing is enabled; otherwise, <code>false</code>.
+        :param _builtins.str request_tracing_expiration_time: Request tracing expiration time.
+        :param Sequence['IpSecurityRestrictionResponse'] scm_ip_security_restrictions: IP security restrictions for scm.
+        :param _builtins.str scm_ip_security_restrictions_default_action: Default action for scm access restriction if no rules are matched.
+        :param _builtins.bool scm_ip_security_restrictions_use_main: IP security restrictions for scm to use main.
+        :param _builtins.str scm_min_tls_version: ScmMinTlsVersion: configures the minimum version of TLS required for SSL requests for SCM site
+        :param _builtins.str scm_type: SCM type.
+        :param _builtins.str tracing_options: Tracing options.
+        :param _builtins.bool use32_bit_worker_process: <code>true</code> to use 32-bit worker process; otherwise, <code>false</code>.
+        :param Sequence['VirtualApplicationResponse'] virtual_applications: Virtual applications.
+        :param _builtins.str vnet_name: Virtual Network name.
+        :param _builtins.int vnet_private_ports_count: The number of private ports assigned to this app. These will be assigned dynamically on runtime.
+        :param _builtins.bool vnet_route_all_enabled: Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+        :param _builtins.bool web_sockets_enabled: <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
+        :param _builtins.str website_time_zone: Sets the time zone a site uses for generating timestamps. Compatible with Linux and Windows App Service. Setting the WEBSITE_TIME_ZONE app setting takes precedence over this config. For Linux, expects tz database values https://www.iana.org/time-zones (for a quick reference see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). For Windows, expects one of the time zones listed under HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Time Zones
+        :param _builtins.str windows_fx_version: Xenon App Framework and version
+        :param _builtins.int x_managed_service_identity_id: Explicit Managed Service Identity Id
+        """
+        pulumi.set(__self__, "machine_key", machine_key)
+        if acr_use_managed_identity_creds is not None:
+            pulumi.set(__self__, "acr_use_managed_identity_creds", acr_use_managed_identity_creds)
+        if acr_user_managed_identity_id is not None:
+            pulumi.set(__self__, "acr_user_managed_identity_id", acr_user_managed_identity_id)
+        if always_on is not None:
+            pulumi.set(__self__, "always_on", always_on)
+        if api_definition is not None:
+            pulumi.set(__self__, "api_definition", api_definition)
+        if api_management_config is not None:
+            pulumi.set(__self__, "api_management_config", api_management_config)
+        if app_command_line is not None:
+            pulumi.set(__self__, "app_command_line", app_command_line)
+        if auto_heal_enabled is not None:
+            pulumi.set(__self__, "auto_heal_enabled", auto_heal_enabled)
+        if auto_heal_rules is not None:
+            pulumi.set(__self__, "auto_heal_rules", auto_heal_rules)
+        if auto_swap_slot_name is not None:
+            pulumi.set(__self__, "auto_swap_slot_name", auto_swap_slot_name)
+        if azure_storage_accounts is not None:
+            pulumi.set(__self__, "azure_storage_accounts", azure_storage_accounts)
+        if cors is not None:
+            pulumi.set(__self__, "cors", cors)
+        if default_documents is not None:
+            pulumi.set(__self__, "default_documents", default_documents)
+        if detailed_error_logging_enabled is not None:
+            pulumi.set(__self__, "detailed_error_logging_enabled", detailed_error_logging_enabled)
+        if document_root is not None:
+            pulumi.set(__self__, "document_root", document_root)
+        if elastic_web_app_scale_limit is not None:
+            pulumi.set(__self__, "elastic_web_app_scale_limit", elastic_web_app_scale_limit)
+        if experiments is not None:
+            pulumi.set(__self__, "experiments", experiments)
+        if ftps_state is not None:
+            pulumi.set(__self__, "ftps_state", ftps_state)
+        if function_app_scale_limit is not None:
+            pulumi.set(__self__, "function_app_scale_limit", function_app_scale_limit)
+        if functions_runtime_scale_monitoring_enabled is not None:
+            pulumi.set(__self__, "functions_runtime_scale_monitoring_enabled", functions_runtime_scale_monitoring_enabled)
+        if handler_mappings is not None:
+            pulumi.set(__self__, "handler_mappings", handler_mappings)
+        if health_check_path is not None:
+            pulumi.set(__self__, "health_check_path", health_check_path)
+        if http20_enabled is None:
+            http20_enabled = True
+        if http20_enabled is not None:
+            pulumi.set(__self__, "http20_enabled", http20_enabled)
+        if http20_proxy_flag is None:
+            http20_proxy_flag = 0
+        if http20_proxy_flag is not None:
+            pulumi.set(__self__, "http20_proxy_flag", http20_proxy_flag)
+        if http_logging_enabled is not None:
+            pulumi.set(__self__, "http_logging_enabled", http_logging_enabled)
+        if ip_security_restrictions is not None:
+            pulumi.set(__self__, "ip_security_restrictions", ip_security_restrictions)
+        if ip_security_restrictions_default_action is not None:
+            pulumi.set(__self__, "ip_security_restrictions_default_action", ip_security_restrictions_default_action)
+        if java_container is not None:
+            pulumi.set(__self__, "java_container", java_container)
+        if java_container_version is not None:
+            pulumi.set(__self__, "java_container_version", java_container_version)
+        if java_version is not None:
+            pulumi.set(__self__, "java_version", java_version)
+        if key_vault_reference_identity is not None:
+            pulumi.set(__self__, "key_vault_reference_identity", key_vault_reference_identity)
+        if limits is not None:
+            pulumi.set(__self__, "limits", limits)
+        if linux_fx_version is not None:
+            pulumi.set(__self__, "linux_fx_version", linux_fx_version)
+        if load_balancing is not None:
+            pulumi.set(__self__, "load_balancing", load_balancing)
+        if local_my_sql_enabled is None:
+            local_my_sql_enabled = False
+        if local_my_sql_enabled is not None:
+            pulumi.set(__self__, "local_my_sql_enabled", local_my_sql_enabled)
+        if logs_directory_size_limit is not None:
+            pulumi.set(__self__, "logs_directory_size_limit", logs_directory_size_limit)
+        if managed_pipeline_mode is not None:
+            pulumi.set(__self__, "managed_pipeline_mode", managed_pipeline_mode)
+        if managed_service_identity_id is not None:
+            pulumi.set(__self__, "managed_service_identity_id", managed_service_identity_id)
+        if min_tls_cipher_suite is not None:
+            pulumi.set(__self__, "min_tls_cipher_suite", min_tls_cipher_suite)
+        if min_tls_version is not None:
+            pulumi.set(__self__, "min_tls_version", min_tls_version)
+        if minimum_elastic_instance_count is not None:
+            pulumi.set(__self__, "minimum_elastic_instance_count", minimum_elastic_instance_count)
+        if net_framework_version is None:
+            net_framework_version = 'v4.6'
+        if net_framework_version is not None:
+            pulumi.set(__self__, "net_framework_version", net_framework_version)
+        if node_version is not None:
+            pulumi.set(__self__, "node_version", node_version)
+        if number_of_workers is not None:
+            pulumi.set(__self__, "number_of_workers", number_of_workers)
+        if php_version is not None:
+            pulumi.set(__self__, "php_version", php_version)
+        if power_shell_version is not None:
+            pulumi.set(__self__, "power_shell_version", power_shell_version)
+        if pre_warmed_instance_count is not None:
+            pulumi.set(__self__, "pre_warmed_instance_count", pre_warmed_instance_count)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
+        if publishing_username is not None:
+            pulumi.set(__self__, "publishing_username", publishing_username)
+        if push is not None:
+            pulumi.set(__self__, "push", push)
+        if python_version is not None:
+            pulumi.set(__self__, "python_version", python_version)
+        if remote_debugging_enabled is not None:
+            pulumi.set(__self__, "remote_debugging_enabled", remote_debugging_enabled)
+        if remote_debugging_version is not None:
+            pulumi.set(__self__, "remote_debugging_version", remote_debugging_version)
+        if request_tracing_enabled is not None:
+            pulumi.set(__self__, "request_tracing_enabled", request_tracing_enabled)
+        if request_tracing_expiration_time is not None:
+            pulumi.set(__self__, "request_tracing_expiration_time", request_tracing_expiration_time)
+        if scm_ip_security_restrictions is not None:
+            pulumi.set(__self__, "scm_ip_security_restrictions", scm_ip_security_restrictions)
+        if scm_ip_security_restrictions_default_action is not None:
+            pulumi.set(__self__, "scm_ip_security_restrictions_default_action", scm_ip_security_restrictions_default_action)
+        if scm_ip_security_restrictions_use_main is not None:
+            pulumi.set(__self__, "scm_ip_security_restrictions_use_main", scm_ip_security_restrictions_use_main)
+        if scm_min_tls_version is not None:
+            pulumi.set(__self__, "scm_min_tls_version", scm_min_tls_version)
+        if scm_type is not None:
+            pulumi.set(__self__, "scm_type", scm_type)
+        if tracing_options is not None:
+            pulumi.set(__self__, "tracing_options", tracing_options)
+        if use32_bit_worker_process is not None:
+            pulumi.set(__self__, "use32_bit_worker_process", use32_bit_worker_process)
+        if virtual_applications is not None:
+            pulumi.set(__self__, "virtual_applications", virtual_applications)
+        if vnet_name is not None:
+            pulumi.set(__self__, "vnet_name", vnet_name)
+        if vnet_private_ports_count is not None:
+            pulumi.set(__self__, "vnet_private_ports_count", vnet_private_ports_count)
+        if vnet_route_all_enabled is not None:
+            pulumi.set(__self__, "vnet_route_all_enabled", vnet_route_all_enabled)
+        if web_sockets_enabled is not None:
+            pulumi.set(__self__, "web_sockets_enabled", web_sockets_enabled)
+        if website_time_zone is not None:
+            pulumi.set(__self__, "website_time_zone", website_time_zone)
+        if windows_fx_version is not None:
+            pulumi.set(__self__, "windows_fx_version", windows_fx_version)
+        if x_managed_service_identity_id is not None:
+            pulumi.set(__self__, "x_managed_service_identity_id", x_managed_service_identity_id)
+
+    @_builtins.property
+    @pulumi.getter(name="machineKey")
+    def machine_key(self) -> 'outputs.SiteMachineKeyResponse':
+        """
+        Site MachineKey.
+        """
+        return pulumi.get(self, "machine_key")
+
+    @_builtins.property
+    @pulumi.getter(name="acrUseManagedIdentityCreds")
+    def acr_use_managed_identity_creds(self) -> Optional[_builtins.bool]:
+        """
+        Flag to use Managed Identity Creds for ACR pull
+        """
+        return pulumi.get(self, "acr_use_managed_identity_creds")
+
+    @_builtins.property
+    @pulumi.getter(name="acrUserManagedIdentityID")
+    def acr_user_managed_identity_id(self) -> Optional[_builtins.str]:
+        """
+        If using user managed identity, the user managed identity ClientId
+        """
+        return pulumi.get(self, "acr_user_managed_identity_id")
+
+    @_builtins.property
+    @pulumi.getter(name="alwaysOn")
+    def always_on(self) -> Optional[_builtins.bool]:
+        """
+        <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
+        """
+        return pulumi.get(self, "always_on")
+
+    @_builtins.property
+    @pulumi.getter(name="apiDefinition")
+    def api_definition(self) -> Optional['outputs.ApiDefinitionInfoResponse']:
+        """
+        Information about the formal API definition for the app.
+        """
+        return pulumi.get(self, "api_definition")
+
+    @_builtins.property
+    @pulumi.getter(name="apiManagementConfig")
+    def api_management_config(self) -> Optional['outputs.ApiManagementConfigResponse']:
+        """
+        Azure API management settings linked to the app.
+        """
+        return pulumi.get(self, "api_management_config")
+
+    @_builtins.property
+    @pulumi.getter(name="appCommandLine")
+    def app_command_line(self) -> Optional[_builtins.str]:
+        """
+        App command line to launch.
+        """
+        return pulumi.get(self, "app_command_line")
+
+    @_builtins.property
+    @pulumi.getter(name="autoHealEnabled")
+    def auto_heal_enabled(self) -> Optional[_builtins.bool]:
+        """
+        <code>true</code> if Auto Heal is enabled; otherwise, <code>false</code>.
+        """
+        return pulumi.get(self, "auto_heal_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="autoHealRules")
+    def auto_heal_rules(self) -> Optional['outputs.AutoHealRulesResponse']:
+        """
+        Auto Heal rules.
+        """
+        return pulumi.get(self, "auto_heal_rules")
+
+    @_builtins.property
+    @pulumi.getter(name="autoSwapSlotName")
+    def auto_swap_slot_name(self) -> Optional[_builtins.str]:
+        """
+        Auto-swap slot name.
+        """
+        return pulumi.get(self, "auto_swap_slot_name")
+
+    @_builtins.property
+    @pulumi.getter(name="azureStorageAccounts")
+    def azure_storage_accounts(self) -> Optional[Mapping[str, 'outputs.AzureStorageInfoValueResponse']]:
+        """
+        List of Azure Storage Accounts.
+        """
+        return pulumi.get(self, "azure_storage_accounts")
+
+    @_builtins.property
+    @pulumi.getter
+    def cors(self) -> Optional['outputs.CorsSettingsResponse']:
+        """
+        Cross-Origin Resource Sharing (CORS) settings.
+        """
+        return pulumi.get(self, "cors")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultDocuments")
+    def default_documents(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Default documents.
+        """
+        return pulumi.get(self, "default_documents")
+
+    @_builtins.property
+    @pulumi.getter(name="detailedErrorLoggingEnabled")
+    def detailed_error_logging_enabled(self) -> Optional[_builtins.bool]:
+        """
+        <code>true</code> if detailed error logging is enabled; otherwise, <code>false</code>.
+        """
+        return pulumi.get(self, "detailed_error_logging_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="documentRoot")
+    def document_root(self) -> Optional[_builtins.str]:
+        """
+        Document root.
+        """
+        return pulumi.get(self, "document_root")
+
+    @_builtins.property
+    @pulumi.getter(name="elasticWebAppScaleLimit")
+    def elastic_web_app_scale_limit(self) -> Optional[_builtins.int]:
+        """
+        Maximum number of workers that a site can scale out to.
+        This setting only applies to apps in plans where ElasticScaleEnabled is <code>true</code>
+        """
+        return pulumi.get(self, "elastic_web_app_scale_limit")
+
+    @_builtins.property
+    @pulumi.getter
+    def experiments(self) -> Optional['outputs.ExperimentsResponse']:
+        """
+        This is work around for polymorphic types.
+        """
+        return pulumi.get(self, "experiments")
+
+    @_builtins.property
+    @pulumi.getter(name="ftpsState")
+    def ftps_state(self) -> Optional[_builtins.str]:
+        """
+        State of FTP / FTPS service
+        """
+        return pulumi.get(self, "ftps_state")
+
+    @_builtins.property
+    @pulumi.getter(name="functionAppScaleLimit")
+    def function_app_scale_limit(self) -> Optional[_builtins.int]:
+        """
+        Maximum number of workers that a site can scale out to.
+        This setting only applies to the Consumption and Elastic Premium Plans
+        """
+        return pulumi.get(self, "function_app_scale_limit")
+
+    @_builtins.property
+    @pulumi.getter(name="functionsRuntimeScaleMonitoringEnabled")
+    def functions_runtime_scale_monitoring_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Gets or sets a value indicating whether functions runtime scale monitoring is enabled. When enabled,
+        the ScaleController will not monitor event sources directly, but will instead call to the
+        runtime to get scale status.
+        """
+        return pulumi.get(self, "functions_runtime_scale_monitoring_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="handlerMappings")
+    def handler_mappings(self) -> Optional[Sequence['outputs.HandlerMappingResponse']]:
+        """
+        Handler mappings.
+        """
+        return pulumi.get(self, "handler_mappings")
+
+    @_builtins.property
+    @pulumi.getter(name="healthCheckPath")
+    def health_check_path(self) -> Optional[_builtins.str]:
+        """
+        Health check path
+        """
+        return pulumi.get(self, "health_check_path")
+
+    @_builtins.property
+    @pulumi.getter(name="http20Enabled")
+    def http20_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Http20Enabled: configures a web site to allow clients to connect over http2.0
+        """
+        return pulumi.get(self, "http20_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="http20ProxyFlag")
+    def http20_proxy_flag(self) -> Optional[_builtins.int]:
+        """
+        Http20ProxyFlag: Configures a website to allow http2.0 to pass be proxied all the way to the app. 0 = disabled, 1 = pass through all http2 traffic, 2 = pass through gRPC only.
+        """
+        return pulumi.get(self, "http20_proxy_flag")
+
+    @_builtins.property
+    @pulumi.getter(name="httpLoggingEnabled")
+    def http_logging_enabled(self) -> Optional[_builtins.bool]:
+        """
+        <code>true</code> if HTTP logging is enabled; otherwise, <code>false</code>.
+        """
+        return pulumi.get(self, "http_logging_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="ipSecurityRestrictions")
+    def ip_security_restrictions(self) -> Optional[Sequence['outputs.IpSecurityRestrictionResponse']]:
+        """
+        IP security restrictions for main.
+        """
+        return pulumi.get(self, "ip_security_restrictions")
+
+    @_builtins.property
+    @pulumi.getter(name="ipSecurityRestrictionsDefaultAction")
+    def ip_security_restrictions_default_action(self) -> Optional[_builtins.str]:
+        """
+        Default action for main access restriction if no rules are matched.
+        """
+        return pulumi.get(self, "ip_security_restrictions_default_action")
+
+    @_builtins.property
+    @pulumi.getter(name="javaContainer")
+    def java_container(self) -> Optional[_builtins.str]:
+        """
+        Java container.
+        """
+        return pulumi.get(self, "java_container")
+
+    @_builtins.property
+    @pulumi.getter(name="javaContainerVersion")
+    def java_container_version(self) -> Optional[_builtins.str]:
+        """
+        Java container version.
+        """
+        return pulumi.get(self, "java_container_version")
+
+    @_builtins.property
+    @pulumi.getter(name="javaVersion")
+    def java_version(self) -> Optional[_builtins.str]:
+        """
+        Java version.
+        """
+        return pulumi.get(self, "java_version")
+
+    @_builtins.property
+    @pulumi.getter(name="keyVaultReferenceIdentity")
+    def key_vault_reference_identity(self) -> Optional[_builtins.str]:
+        """
+        Identity to use for Key Vault Reference authentication.
+        """
+        return pulumi.get(self, "key_vault_reference_identity")
+
+    @_builtins.property
+    @pulumi.getter
+    def limits(self) -> Optional['outputs.SiteLimitsResponse']:
+        """
+        Site limits.
+        """
+        return pulumi.get(self, "limits")
+
+    @_builtins.property
+    @pulumi.getter(name="linuxFxVersion")
+    def linux_fx_version(self) -> Optional[_builtins.str]:
+        """
+        Linux App Framework and version
+        """
+        return pulumi.get(self, "linux_fx_version")
+
+    @_builtins.property
+    @pulumi.getter(name="loadBalancing")
+    def load_balancing(self) -> Optional[_builtins.str]:
+        """
+        Site load balancing.
+        """
+        return pulumi.get(self, "load_balancing")
+
+    @_builtins.property
+    @pulumi.getter(name="localMySqlEnabled")
+    def local_my_sql_enabled(self) -> Optional[_builtins.bool]:
+        """
+        <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
+        """
+        return pulumi.get(self, "local_my_sql_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="logsDirectorySizeLimit")
+    def logs_directory_size_limit(self) -> Optional[_builtins.int]:
+        """
+        HTTP logs directory size limit.
+        """
+        return pulumi.get(self, "logs_directory_size_limit")
+
+    @_builtins.property
+    @pulumi.getter(name="managedPipelineMode")
+    def managed_pipeline_mode(self) -> Optional[_builtins.str]:
+        """
+        Managed pipeline mode.
+        """
+        return pulumi.get(self, "managed_pipeline_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="managedServiceIdentityId")
+    def managed_service_identity_id(self) -> Optional[_builtins.int]:
+        """
+        Managed Service Identity Id
+        """
+        return pulumi.get(self, "managed_service_identity_id")
+
+    @_builtins.property
+    @pulumi.getter(name="minTlsCipherSuite")
+    def min_tls_cipher_suite(self) -> Optional[_builtins.str]:
+        """
+        The minimum strength TLS cipher suite allowed for an application
+        """
+        return pulumi.get(self, "min_tls_cipher_suite")
+
+    @_builtins.property
+    @pulumi.getter(name="minTlsVersion")
+    def min_tls_version(self) -> Optional[_builtins.str]:
+        """
+        MinTlsVersion: configures the minimum version of TLS required for SSL requests
+        """
+        return pulumi.get(self, "min_tls_version")
+
+    @_builtins.property
+    @pulumi.getter(name="minimumElasticInstanceCount")
+    def minimum_elastic_instance_count(self) -> Optional[_builtins.int]:
+        """
+        Number of minimum instance count for a site
+        This setting only applies to the Elastic Plans
+        """
+        return pulumi.get(self, "minimum_elastic_instance_count")
+
+    @_builtins.property
+    @pulumi.getter(name="netFrameworkVersion")
+    def net_framework_version(self) -> Optional[_builtins.str]:
+        """
+        .NET Framework version.
+        """
+        return pulumi.get(self, "net_framework_version")
+
+    @_builtins.property
+    @pulumi.getter(name="nodeVersion")
+    def node_version(self) -> Optional[_builtins.str]:
+        """
+        Version of Node.js.
+        """
+        return pulumi.get(self, "node_version")
+
+    @_builtins.property
+    @pulumi.getter(name="numberOfWorkers")
+    def number_of_workers(self) -> Optional[_builtins.int]:
+        """
+        Number of workers.
+        """
+        return pulumi.get(self, "number_of_workers")
+
+    @_builtins.property
+    @pulumi.getter(name="phpVersion")
+    def php_version(self) -> Optional[_builtins.str]:
+        """
+        Version of PHP.
+        """
+        return pulumi.get(self, "php_version")
+
+    @_builtins.property
+    @pulumi.getter(name="powerShellVersion")
+    def power_shell_version(self) -> Optional[_builtins.str]:
+        """
+        Version of PowerShell.
+        """
+        return pulumi.get(self, "power_shell_version")
+
+    @_builtins.property
+    @pulumi.getter(name="preWarmedInstanceCount")
+    def pre_warmed_instance_count(self) -> Optional[_builtins.int]:
+        """
+        Number of preWarmed instances.
+        This setting only applies to the Consumption and Elastic Plans
+        """
+        return pulumi.get(self, "pre_warmed_instance_count")
+
+    @_builtins.property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[_builtins.str]:
+        """
+        Property to allow or block all public traffic.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @_builtins.property
+    @pulumi.getter(name="publishingUsername")
+    def publishing_username(self) -> Optional[_builtins.str]:
+        """
+        Publishing user name.
+        """
+        return pulumi.get(self, "publishing_username")
+
+    @_builtins.property
+    @pulumi.getter
+    def push(self) -> Optional['outputs.PushSettingsResponse']:
+        """
+        Push endpoint settings.
+        """
+        return pulumi.get(self, "push")
+
+    @_builtins.property
+    @pulumi.getter(name="pythonVersion")
+    def python_version(self) -> Optional[_builtins.str]:
+        """
+        Version of Python.
+        """
+        return pulumi.get(self, "python_version")
+
+    @_builtins.property
+    @pulumi.getter(name="remoteDebuggingEnabled")
+    def remote_debugging_enabled(self) -> Optional[_builtins.bool]:
+        """
+        <code>true</code> if remote debugging is enabled; otherwise, <code>false</code>.
+        """
+        return pulumi.get(self, "remote_debugging_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="remoteDebuggingVersion")
+    def remote_debugging_version(self) -> Optional[_builtins.str]:
+        """
+        Remote debugging version.
+        """
+        return pulumi.get(self, "remote_debugging_version")
+
+    @_builtins.property
+    @pulumi.getter(name="requestTracingEnabled")
+    def request_tracing_enabled(self) -> Optional[_builtins.bool]:
+        """
+        <code>true</code> if request tracing is enabled; otherwise, <code>false</code>.
+        """
+        return pulumi.get(self, "request_tracing_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="requestTracingExpirationTime")
+    def request_tracing_expiration_time(self) -> Optional[_builtins.str]:
+        """
+        Request tracing expiration time.
+        """
+        return pulumi.get(self, "request_tracing_expiration_time")
+
+    @_builtins.property
+    @pulumi.getter(name="scmIpSecurityRestrictions")
+    def scm_ip_security_restrictions(self) -> Optional[Sequence['outputs.IpSecurityRestrictionResponse']]:
+        """
+        IP security restrictions for scm.
+        """
+        return pulumi.get(self, "scm_ip_security_restrictions")
+
+    @_builtins.property
+    @pulumi.getter(name="scmIpSecurityRestrictionsDefaultAction")
+    def scm_ip_security_restrictions_default_action(self) -> Optional[_builtins.str]:
+        """
+        Default action for scm access restriction if no rules are matched.
+        """
+        return pulumi.get(self, "scm_ip_security_restrictions_default_action")
+
+    @_builtins.property
+    @pulumi.getter(name="scmIpSecurityRestrictionsUseMain")
+    def scm_ip_security_restrictions_use_main(self) -> Optional[_builtins.bool]:
+        """
+        IP security restrictions for scm to use main.
+        """
+        return pulumi.get(self, "scm_ip_security_restrictions_use_main")
+
+    @_builtins.property
+    @pulumi.getter(name="scmMinTlsVersion")
+    def scm_min_tls_version(self) -> Optional[_builtins.str]:
+        """
+        ScmMinTlsVersion: configures the minimum version of TLS required for SSL requests for SCM site
+        """
+        return pulumi.get(self, "scm_min_tls_version")
+
+    @_builtins.property
+    @pulumi.getter(name="scmType")
+    def scm_type(self) -> Optional[_builtins.str]:
+        """
+        SCM type.
+        """
+        return pulumi.get(self, "scm_type")
+
+    @_builtins.property
+    @pulumi.getter(name="tracingOptions")
+    def tracing_options(self) -> Optional[_builtins.str]:
+        """
+        Tracing options.
+        """
+        return pulumi.get(self, "tracing_options")
+
+    @_builtins.property
+    @pulumi.getter(name="use32BitWorkerProcess")
+    def use32_bit_worker_process(self) -> Optional[_builtins.bool]:
+        """
+        <code>true</code> to use 32-bit worker process; otherwise, <code>false</code>.
+        """
+        return pulumi.get(self, "use32_bit_worker_process")
+
+    @_builtins.property
+    @pulumi.getter(name="virtualApplications")
+    def virtual_applications(self) -> Optional[Sequence['outputs.VirtualApplicationResponse']]:
+        """
+        Virtual applications.
+        """
+        return pulumi.get(self, "virtual_applications")
+
+    @_builtins.property
+    @pulumi.getter(name="vnetName")
+    def vnet_name(self) -> Optional[_builtins.str]:
+        """
+        Virtual Network name.
+        """
+        return pulumi.get(self, "vnet_name")
+
+    @_builtins.property
+    @pulumi.getter(name="vnetPrivatePortsCount")
+    def vnet_private_ports_count(self) -> Optional[_builtins.int]:
+        """
+        The number of private ports assigned to this app. These will be assigned dynamically on runtime.
+        """
+        return pulumi.get(self, "vnet_private_ports_count")
+
+    @_builtins.property
+    @pulumi.getter(name="vnetRouteAllEnabled")
+    def vnet_route_all_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+        """
+        return pulumi.get(self, "vnet_route_all_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="webSocketsEnabled")
+    def web_sockets_enabled(self) -> Optional[_builtins.bool]:
+        """
+        <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
+        """
+        return pulumi.get(self, "web_sockets_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="websiteTimeZone")
+    def website_time_zone(self) -> Optional[_builtins.str]:
+        """
+        Sets the time zone a site uses for generating timestamps. Compatible with Linux and Windows App Service. Setting the WEBSITE_TIME_ZONE app setting takes precedence over this config. For Linux, expects tz database values https://www.iana.org/time-zones (for a quick reference see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). For Windows, expects one of the time zones listed under HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Time Zones
+        """
+        return pulumi.get(self, "website_time_zone")
+
+    @_builtins.property
+    @pulumi.getter(name="windowsFxVersion")
+    def windows_fx_version(self) -> Optional[_builtins.str]:
+        """
+        Xenon App Framework and version
+        """
+        return pulumi.get(self, "windows_fx_version")
+
+    @_builtins.property
+    @pulumi.getter(name="xManagedServiceIdentityId")
+    def x_managed_service_identity_id(self) -> Optional[_builtins.int]:
+        """
+        Explicit Managed Service Identity Id
+        """
+        return pulumi.get(self, "x_managed_service_identity_id")
+
+
+@pulumi.output_type
 class SiteDnsConfigResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -7587,6 +9629,154 @@ class SiteDnsConfigResponse(dict):
         List of custom DNS servers to be used by an app for lookups. Maximum 5 dns servers can be set.
         """
         return pulumi.get(self, "dns_servers")
+
+
+@pulumi.output_type
+class SiteLimitsResponse(dict):
+    """
+    Metric limits set on an app.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxDiskSizeInMb":
+            suggest = "max_disk_size_in_mb"
+        elif key == "maxMemoryInMb":
+            suggest = "max_memory_in_mb"
+        elif key == "maxPercentageCpu":
+            suggest = "max_percentage_cpu"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SiteLimitsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SiteLimitsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SiteLimitsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_disk_size_in_mb: Optional[_builtins.float] = None,
+                 max_memory_in_mb: Optional[_builtins.float] = None,
+                 max_percentage_cpu: Optional[_builtins.float] = None):
+        """
+        Metric limits set on an app.
+
+        :param _builtins.float max_disk_size_in_mb: Maximum allowed disk size usage in MB.
+        :param _builtins.float max_memory_in_mb: Maximum allowed memory usage in MB.
+        :param _builtins.float max_percentage_cpu: Maximum allowed CPU usage percentage.
+        """
+        if max_disk_size_in_mb is not None:
+            pulumi.set(__self__, "max_disk_size_in_mb", max_disk_size_in_mb)
+        if max_memory_in_mb is not None:
+            pulumi.set(__self__, "max_memory_in_mb", max_memory_in_mb)
+        if max_percentage_cpu is not None:
+            pulumi.set(__self__, "max_percentage_cpu", max_percentage_cpu)
+
+    @_builtins.property
+    @pulumi.getter(name="maxDiskSizeInMb")
+    def max_disk_size_in_mb(self) -> Optional[_builtins.float]:
+        """
+        Maximum allowed disk size usage in MB.
+        """
+        return pulumi.get(self, "max_disk_size_in_mb")
+
+    @_builtins.property
+    @pulumi.getter(name="maxMemoryInMb")
+    def max_memory_in_mb(self) -> Optional[_builtins.float]:
+        """
+        Maximum allowed memory usage in MB.
+        """
+        return pulumi.get(self, "max_memory_in_mb")
+
+    @_builtins.property
+    @pulumi.getter(name="maxPercentageCpu")
+    def max_percentage_cpu(self) -> Optional[_builtins.float]:
+        """
+        Maximum allowed CPU usage percentage.
+        """
+        return pulumi.get(self, "max_percentage_cpu")
+
+
+@pulumi.output_type
+class SiteMachineKeyResponse(dict):
+    """
+    MachineKey of an app.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "decryptionKey":
+            suggest = "decryption_key"
+        elif key == "validationKey":
+            suggest = "validation_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SiteMachineKeyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SiteMachineKeyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SiteMachineKeyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 decryption: Optional[_builtins.str] = None,
+                 decryption_key: Optional[_builtins.str] = None,
+                 validation: Optional[_builtins.str] = None,
+                 validation_key: Optional[_builtins.str] = None):
+        """
+        MachineKey of an app.
+
+        :param _builtins.str decryption: Algorithm used for decryption.
+        :param _builtins.str decryption_key: Decryption key.
+        :param _builtins.str validation: MachineKey validation.
+        :param _builtins.str validation_key: Validation key.
+        """
+        if decryption is not None:
+            pulumi.set(__self__, "decryption", decryption)
+        if decryption_key is not None:
+            pulumi.set(__self__, "decryption_key", decryption_key)
+        if validation is not None:
+            pulumi.set(__self__, "validation", validation)
+        if validation_key is not None:
+            pulumi.set(__self__, "validation_key", validation_key)
+
+    @_builtins.property
+    @pulumi.getter
+    def decryption(self) -> Optional[_builtins.str]:
+        """
+        Algorithm used for decryption.
+        """
+        return pulumi.get(self, "decryption")
+
+    @_builtins.property
+    @pulumi.getter(name="decryptionKey")
+    def decryption_key(self) -> Optional[_builtins.str]:
+        """
+        Decryption key.
+        """
+        return pulumi.get(self, "decryption_key")
+
+    @_builtins.property
+    @pulumi.getter
+    def validation(self) -> Optional[_builtins.str]:
+        """
+        MachineKey validation.
+        """
+        return pulumi.get(self, "validation")
+
+    @_builtins.property
+    @pulumi.getter(name="validationKey")
+    def validation_key(self) -> Optional[_builtins.str]:
+        """
+        Validation key.
+        """
+        return pulumi.get(self, "validation_key")
 
 
 @pulumi.output_type
@@ -7869,6 +10059,85 @@ class SlotSwapStatusResponse(dict):
         The time the last successful slot swap completed.
         """
         return pulumi.get(self, "timestamp_utc")
+
+
+@pulumi.output_type
+class SlowRequestsBasedTriggerResponse(dict):
+    """
+    Trigger based on request execution time.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeInterval":
+            suggest = "time_interval"
+        elif key == "timeTaken":
+            suggest = "time_taken"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SlowRequestsBasedTriggerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SlowRequestsBasedTriggerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SlowRequestsBasedTriggerResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 count: Optional[_builtins.int] = None,
+                 path: Optional[_builtins.str] = None,
+                 time_interval: Optional[_builtins.str] = None,
+                 time_taken: Optional[_builtins.str] = None):
+        """
+        Trigger based on request execution time.
+
+        :param _builtins.int count: Request Count.
+        :param _builtins.str path: Request Path.
+        :param _builtins.str time_interval: Time interval.
+        :param _builtins.str time_taken: Time taken.
+        """
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if time_interval is not None:
+            pulumi.set(__self__, "time_interval", time_interval)
+        if time_taken is not None:
+            pulumi.set(__self__, "time_taken", time_taken)
+
+    @_builtins.property
+    @pulumi.getter
+    def count(self) -> Optional[_builtins.int]:
+        """
+        Request Count.
+        """
+        return pulumi.get(self, "count")
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> Optional[_builtins.str]:
+        """
+        Request Path.
+        """
+        return pulumi.get(self, "path")
+
+    @_builtins.property
+    @pulumi.getter(name="timeInterval")
+    def time_interval(self) -> Optional[_builtins.str]:
+        """
+        Time interval.
+        """
+        return pulumi.get(self, "time_interval")
+
+    @_builtins.property
+    @pulumi.getter(name="timeTaken")
+    def time_taken(self) -> Optional[_builtins.str]:
+        """
+        Time taken.
+        """
+        return pulumi.get(self, "time_taken")
 
 
 @pulumi.output_type
@@ -8460,6 +10729,186 @@ class StaticSiteUserProvidedFunctionAppResponse(dict):
 
 
 @pulumi.output_type
+class StatusCodesBasedTriggerResponse(dict):
+    """
+    Trigger based on status code.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subStatus":
+            suggest = "sub_status"
+        elif key == "timeInterval":
+            suggest = "time_interval"
+        elif key == "win32Status":
+            suggest = "win32_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StatusCodesBasedTriggerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StatusCodesBasedTriggerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StatusCodesBasedTriggerResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 count: Optional[_builtins.int] = None,
+                 path: Optional[_builtins.str] = None,
+                 status: Optional[_builtins.int] = None,
+                 sub_status: Optional[_builtins.int] = None,
+                 time_interval: Optional[_builtins.str] = None,
+                 win32_status: Optional[_builtins.int] = None):
+        """
+        Trigger based on status code.
+
+        :param _builtins.int count: Request Count.
+        :param _builtins.str path: Request Path
+        :param _builtins.int status: HTTP status code.
+        :param _builtins.int sub_status: Request Sub Status.
+        :param _builtins.str time_interval: Time interval.
+        :param _builtins.int win32_status: Win32 error code.
+        """
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if sub_status is not None:
+            pulumi.set(__self__, "sub_status", sub_status)
+        if time_interval is not None:
+            pulumi.set(__self__, "time_interval", time_interval)
+        if win32_status is not None:
+            pulumi.set(__self__, "win32_status", win32_status)
+
+    @_builtins.property
+    @pulumi.getter
+    def count(self) -> Optional[_builtins.int]:
+        """
+        Request Count.
+        """
+        return pulumi.get(self, "count")
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> Optional[_builtins.str]:
+        """
+        Request Path
+        """
+        return pulumi.get(self, "path")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[_builtins.int]:
+        """
+        HTTP status code.
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="subStatus")
+    def sub_status(self) -> Optional[_builtins.int]:
+        """
+        Request Sub Status.
+        """
+        return pulumi.get(self, "sub_status")
+
+    @_builtins.property
+    @pulumi.getter(name="timeInterval")
+    def time_interval(self) -> Optional[_builtins.str]:
+        """
+        Time interval.
+        """
+        return pulumi.get(self, "time_interval")
+
+    @_builtins.property
+    @pulumi.getter(name="win32Status")
+    def win32_status(self) -> Optional[_builtins.int]:
+        """
+        Win32 error code.
+        """
+        return pulumi.get(self, "win32_status")
+
+
+@pulumi.output_type
+class StatusCodesRangeBasedTriggerResponse(dict):
+    """
+    Trigger based on range of status codes.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statusCodes":
+            suggest = "status_codes"
+        elif key == "timeInterval":
+            suggest = "time_interval"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StatusCodesRangeBasedTriggerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StatusCodesRangeBasedTriggerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StatusCodesRangeBasedTriggerResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 count: Optional[_builtins.int] = None,
+                 path: Optional[_builtins.str] = None,
+                 status_codes: Optional[_builtins.str] = None,
+                 time_interval: Optional[_builtins.str] = None):
+        """
+        Trigger based on range of status codes.
+
+        :param _builtins.int count: Request Count.
+        :param _builtins.str status_codes: HTTP status code.
+        :param _builtins.str time_interval: Time interval.
+        """
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if status_codes is not None:
+            pulumi.set(__self__, "status_codes", status_codes)
+        if time_interval is not None:
+            pulumi.set(__self__, "time_interval", time_interval)
+
+    @_builtins.property
+    @pulumi.getter
+    def count(self) -> Optional[_builtins.int]:
+        """
+        Request Count.
+        """
+        return pulumi.get(self, "count")
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "path")
+
+    @_builtins.property
+    @pulumi.getter(name="statusCodes")
+    def status_codes(self) -> Optional[_builtins.str]:
+        """
+        HTTP status code.
+        """
+        return pulumi.get(self, "status_codes")
+
+    @_builtins.property
+    @pulumi.getter(name="timeInterval")
+    def time_interval(self) -> Optional[_builtins.str]:
+        """
+        Time interval.
+        """
+        return pulumi.get(self, "time_interval")
+
+
+@pulumi.output_type
 class SystemDataResponse(dict):
     """
     Metadata pertaining to creation and last modification of the resource.
@@ -8803,6 +11252,144 @@ class UserAssignedIdentityResponse(dict):
         Principal Id of user assigned identity
         """
         return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
+class VirtualApplicationResponse(dict):
+    """
+    Virtual application in an app.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "physicalPath":
+            suggest = "physical_path"
+        elif key == "preloadEnabled":
+            suggest = "preload_enabled"
+        elif key == "virtualDirectories":
+            suggest = "virtual_directories"
+        elif key == "virtualPath":
+            suggest = "virtual_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualApplicationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualApplicationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualApplicationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 physical_path: Optional[_builtins.str] = None,
+                 preload_enabled: Optional[_builtins.bool] = None,
+                 virtual_directories: Optional[Sequence['outputs.VirtualDirectoryResponse']] = None,
+                 virtual_path: Optional[_builtins.str] = None):
+        """
+        Virtual application in an app.
+
+        :param _builtins.str physical_path: Physical path.
+        :param _builtins.bool preload_enabled: <code>true</code> if preloading is enabled; otherwise, <code>false</code>.
+        :param Sequence['VirtualDirectoryResponse'] virtual_directories: Virtual directories for virtual application.
+        :param _builtins.str virtual_path: Virtual path.
+        """
+        if physical_path is not None:
+            pulumi.set(__self__, "physical_path", physical_path)
+        if preload_enabled is not None:
+            pulumi.set(__self__, "preload_enabled", preload_enabled)
+        if virtual_directories is not None:
+            pulumi.set(__self__, "virtual_directories", virtual_directories)
+        if virtual_path is not None:
+            pulumi.set(__self__, "virtual_path", virtual_path)
+
+    @_builtins.property
+    @pulumi.getter(name="physicalPath")
+    def physical_path(self) -> Optional[_builtins.str]:
+        """
+        Physical path.
+        """
+        return pulumi.get(self, "physical_path")
+
+    @_builtins.property
+    @pulumi.getter(name="preloadEnabled")
+    def preload_enabled(self) -> Optional[_builtins.bool]:
+        """
+        <code>true</code> if preloading is enabled; otherwise, <code>false</code>.
+        """
+        return pulumi.get(self, "preload_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="virtualDirectories")
+    def virtual_directories(self) -> Optional[Sequence['outputs.VirtualDirectoryResponse']]:
+        """
+        Virtual directories for virtual application.
+        """
+        return pulumi.get(self, "virtual_directories")
+
+    @_builtins.property
+    @pulumi.getter(name="virtualPath")
+    def virtual_path(self) -> Optional[_builtins.str]:
+        """
+        Virtual path.
+        """
+        return pulumi.get(self, "virtual_path")
+
+
+@pulumi.output_type
+class VirtualDirectoryResponse(dict):
+    """
+    Directory for virtual application.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "physicalPath":
+            suggest = "physical_path"
+        elif key == "virtualPath":
+            suggest = "virtual_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualDirectoryResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualDirectoryResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualDirectoryResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 physical_path: Optional[_builtins.str] = None,
+                 virtual_path: Optional[_builtins.str] = None):
+        """
+        Directory for virtual application.
+
+        :param _builtins.str physical_path: Physical path.
+        :param _builtins.str virtual_path: Path to virtual application.
+        """
+        if physical_path is not None:
+            pulumi.set(__self__, "physical_path", physical_path)
+        if virtual_path is not None:
+            pulumi.set(__self__, "virtual_path", virtual_path)
+
+    @_builtins.property
+    @pulumi.getter(name="physicalPath")
+    def physical_path(self) -> Optional[_builtins.str]:
+        """
+        Physical path.
+        """
+        return pulumi.get(self, "physical_path")
+
+    @_builtins.property
+    @pulumi.getter(name="virtualPath")
+    def virtual_path(self) -> Optional[_builtins.str]:
+        """
+        Path to virtual application.
+        """
+        return pulumi.get(self, "virtual_path")
 
 
 @pulumi.output_type

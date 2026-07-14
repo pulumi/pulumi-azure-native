@@ -245,6 +245,10 @@ export class WebAppSlot extends pulumi.CustomResource {
      */
     declare public readonly serverFarmId: pulumi.Output<string | undefined>;
     /**
+     * Configuration of an App Service app. This property is not returned in response to normal create and read requests since it may contain sensitive information.
+     */
+    declare public readonly siteConfig: pulumi.Output<outputs.web.SiteConfigResponse | undefined>;
+    /**
      * Current SKU of application based on associated App Service Plan. Some valid SKU values are Free, Shared, Basic, Dynamic, FlexConsumption, Standard, Premium, PremiumV2, PremiumV3, Isolated, IsolatedV2
      */
     declare public /*out*/ readonly sku: pulumi.Output<string>;
@@ -431,6 +435,7 @@ export class WebAppSlot extends pulumi.CustomResource {
             resourceInputs["resourceGroup"] = undefined /*out*/;
             resourceInputs["scmSiteAlsoStopped"] = undefined /*out*/;
             resourceInputs["serverFarmId"] = undefined /*out*/;
+            resourceInputs["siteConfig"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["slotSwapStatus"] = undefined /*out*/;
             resourceInputs["sshEnabled"] = undefined /*out*/;
