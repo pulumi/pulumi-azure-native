@@ -138232,7 +138232,7 @@
     "VersionedModule": "web",
     "Module": "Web",
     "ResourceName": "KubeEnvironment",
-    "ReferenceName": "ArcConfiguration",
+    "ReferenceName": "StorageType",
     "Property": "artifactsStorageType"
   },
   {
@@ -138283,6 +138283,13 @@
     "ResourceName": "WebApp",
     "ReferenceName": "SiteConfig",
     "Property": "vnetName"
+  },
+  {
+    "VersionedModule": "web",
+    "Module": "Web",
+    "ResourceName": "WebAppSlot",
+    "ReferenceName": "SslState",
+    "Property": "sslState"
   },
   {
     "VersionedModule": "web",
@@ -139361,6 +139368,13 @@
     "ResourceName": "KubeEnvironment",
     "ReferenceName": "ContainerAppsConfiguration",
     "Property": "platformReservedDnsIP"
+  },
+  {
+    "VersionedModule": "web/v20250501",
+    "Module": "Web",
+    "ResourceName": "WebApp",
+    "ReferenceName": "SslState",
+    "Property": "sslState"
   },
   {
     "VersionedModule": "web/v20250501",
