@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetWebAppInstanceFunctionSlotResult',
@@ -26,7 +27,7 @@ class GetWebAppInstanceFunctionSlotResult:
     """
     Function information.
     """
-    def __init__(__self__, azure_api_version=None, config=None, config_href=None, files=None, function_app_id=None, href=None, id=None, invoke_url_template=None, is_disabled=None, kind=None, language=None, name=None, script_href=None, script_root_path_href=None, secrets_file_href=None, test_data=None, test_data_href=None, type=None):
+    def __init__(__self__, azure_api_version=None, config=None, config_href=None, files=None, function_app_id=None, href=None, id=None, invoke_url_template=None, is_disabled=None, kind=None, language=None, name=None, script_href=None, script_root_path_href=None, secrets_file_href=None, system_data=None, test_data=None, test_data_href=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -72,6 +73,9 @@ class GetWebAppInstanceFunctionSlotResult:
         if secrets_file_href and not isinstance(secrets_file_href, str):
             raise TypeError("Expected argument 'secrets_file_href' to be a str")
         pulumi.set(__self__, "secrets_file_href", secrets_file_href)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if test_data and not isinstance(test_data, str):
             raise TypeError("Expected argument 'test_data' to be a str")
         pulumi.set(__self__, "test_data", test_data)
@@ -134,7 +138,7 @@ class GetWebAppInstanceFunctionSlotResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -174,7 +178,7 @@ class GetWebAppInstanceFunctionSlotResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource Name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -203,6 +207,14 @@ class GetWebAppInstanceFunctionSlotResult:
         return pulumi.get(self, "secrets_file_href")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter(name="testData")
     def test_data(self) -> Optional[_builtins.str]:
         """
@@ -222,7 +234,7 @@ class GetWebAppInstanceFunctionSlotResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -248,6 +260,7 @@ class AwaitableGetWebAppInstanceFunctionSlotResult(GetWebAppInstanceFunctionSlot
             script_href=self.script_href,
             script_root_path_href=self.script_root_path_href,
             secrets_file_href=self.secrets_file_href,
+            system_data=self.system_data,
             test_data=self.test_data,
             test_data_href=self.test_data_href,
             type=self.type)
@@ -261,14 +274,14 @@ def get_web_app_instance_function_slot(function_name: Optional[_builtins.str] = 
     """
     Description for Get function information by its ID for web site, or a deployment slot.
 
-    Uses Azure REST API version 2024-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str function_name: Function name.
     :param _builtins.str name: Site name.
-    :param _builtins.str resource_group_name: Name of the resource group to which the resource belongs.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str slot: Name of the deployment slot.
     """
     __args__ = dict()
@@ -295,6 +308,7 @@ def get_web_app_instance_function_slot(function_name: Optional[_builtins.str] = 
         script_href=pulumi.get(__ret__, 'script_href'),
         script_root_path_href=pulumi.get(__ret__, 'script_root_path_href'),
         secrets_file_href=pulumi.get(__ret__, 'secrets_file_href'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         test_data=pulumi.get(__ret__, 'test_data'),
         test_data_href=pulumi.get(__ret__, 'test_data_href'),
         type=pulumi.get(__ret__, 'type'))
@@ -306,14 +320,14 @@ def get_web_app_instance_function_slot_output(function_name: Optional[pulumi.Inp
     """
     Description for Get function information by its ID for web site, or a deployment slot.
 
-    Uses Azure REST API version 2024-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str function_name: Function name.
     :param _builtins.str name: Site name.
-    :param _builtins.str resource_group_name: Name of the resource group to which the resource belongs.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str slot: Name of the deployment slot.
     """
     __args__ = dict()
@@ -339,6 +353,7 @@ def get_web_app_instance_function_slot_output(function_name: Optional[pulumi.Inp
         script_href=pulumi.get(__response__, 'script_href'),
         script_root_path_href=pulumi.get(__response__, 'script_root_path_href'),
         secrets_file_href=pulumi.get(__response__, 'secrets_file_href'),
+        system_data=pulumi.get(__response__, 'system_data'),
         test_data=pulumi.get(__response__, 'test_data'),
         test_data_href=pulumi.get(__response__, 'test_data_href'),
         type=pulumi.get(__response__, 'type')))

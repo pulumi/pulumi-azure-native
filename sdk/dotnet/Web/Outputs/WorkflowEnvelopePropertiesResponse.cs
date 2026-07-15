@@ -14,12 +14,12 @@ namespace Pulumi.AzureNative.Web.Outputs
     /// Additional workflow properties.
     /// </summary>
     [OutputType]
-    public sealed class WorkflowEnvelopeResponseProperties
+    public sealed class WorkflowEnvelopePropertiesResponse
     {
         /// <summary>
         /// Gets or sets the files.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Files;
+        public readonly object? Files;
         /// <summary>
         /// Gets or sets the state of the workflow.
         /// </summary>
@@ -30,8 +30,8 @@ namespace Pulumi.AzureNative.Web.Outputs
         public readonly Outputs.WorkflowHealthResponse? Health;
 
         [OutputConstructor]
-        private WorkflowEnvelopeResponseProperties(
-            ImmutableDictionary<string, object>? files,
+        private WorkflowEnvelopePropertiesResponse(
+            object? files,
 
             string? flowState,
 

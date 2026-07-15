@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.Web.Inputs
 
         /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; to durably store platform-specific security tokens that are obtained during login flows; otherwise, &lt;code&gt;false&lt;/code&gt;.
-        ///  The default is &lt;code&gt;false&lt;/code&gt;.
+        /// The default is &lt;code&gt;false&lt;/code&gt;.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

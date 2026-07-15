@@ -27,7 +27,7 @@ class GetStaticSiteBuildDatabaseConnectionResult:
     """
     Static Site Database Connection resource.
     """
-    def __init__(__self__, azure_api_version=None, configuration_files=None, connection_identity=None, connection_string=None, id=None, kind=None, name=None, region=None, resource_id=None, type=None):
+    def __init__(__self__, azure_api_version=None, configuration_files=None, connection_identity=None, connection_string=None, id=None, kind=None, name=None, region=None, resource_id=None, system_data=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -55,6 +55,9 @@ class GetStaticSiteBuildDatabaseConnectionResult:
         if resource_id and not isinstance(resource_id, str):
             raise TypeError("Expected argument 'resource_id' to be a str")
         pulumi.set(__self__, "resource_id", resource_id)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -95,7 +98,7 @@ class GetStaticSiteBuildDatabaseConnectionResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -111,7 +114,7 @@ class GetStaticSiteBuildDatabaseConnectionResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource Name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -132,10 +135,18 @@ class GetStaticSiteBuildDatabaseConnectionResult:
         return pulumi.get(self, "resource_id")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -155,6 +166,7 @@ class AwaitableGetStaticSiteBuildDatabaseConnectionResult(GetStaticSiteBuildData
             name=self.name,
             region=self.region,
             resource_id=self.resource_id,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -164,17 +176,17 @@ def get_static_site_build_database_connection(database_connection_name: Optional
                                               resource_group_name: Optional[_builtins.str] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStaticSiteBuildDatabaseConnectionResult:
     """
-    Static Site Database Connection resource.
+    Returns overview of a database connection for a static site build by name
 
-    Uses Azure REST API version 2024-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str database_connection_name: Name of the database connection.
     :param _builtins.str environment_name: The stage site identifier.
     :param _builtins.str name: Name of the static site
-    :param _builtins.str resource_group_name: Name of the resource group to which the resource belongs.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['databaseConnectionName'] = database_connection_name
@@ -194,6 +206,7 @@ def get_static_site_build_database_connection(database_connection_name: Optional
         name=pulumi.get(__ret__, 'name'),
         region=pulumi.get(__ret__, 'region'),
         resource_id=pulumi.get(__ret__, 'resource_id'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_static_site_build_database_connection_output(database_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                      environment_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -201,17 +214,17 @@ def get_static_site_build_database_connection_output(database_connection_name: O
                                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStaticSiteBuildDatabaseConnectionResult]:
     """
-    Static Site Database Connection resource.
+    Returns overview of a database connection for a static site build by name
 
-    Uses Azure REST API version 2024-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str database_connection_name: Name of the database connection.
     :param _builtins.str environment_name: The stage site identifier.
     :param _builtins.str name: Name of the static site
-    :param _builtins.str resource_group_name: Name of the resource group to which the resource belongs.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['databaseConnectionName'] = database_connection_name
@@ -230,4 +243,5 @@ def get_static_site_build_database_connection_output(database_connection_name: O
         name=pulumi.get(__response__, 'name'),
         region=pulumi.get(__response__, 'region'),
         resource_id=pulumi.get(__response__, 'resource_id'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Web.Inputs
         private InputMap<string>? _appSettingsOverrides;
 
         /// <summary>
-        /// Application setting overrides for cloned app. If specified, these settings override the settings cloned 
+        /// Application setting overrides for cloned app. If specified, these settings override the settings cloned
         /// from source app. Otherwise, application settings from source app are retained.
         /// </summary>
         public InputMap<string> AppSettingsOverrides
@@ -66,8 +66,8 @@ namespace Pulumi.AzureNative.Web.Inputs
         public Input<bool>? Overwrite { get; set; }
 
         /// <summary>
-        /// ARM resource ID of the source app. App resource ID is of the form 
-        /// /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and 
+        /// ARM resource ID of the source app. App resource ID is of the form
+        /// /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and
         /// /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName} for other slots.
         /// </summary>
         [Input("sourceWebAppId", required: true)]
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNative.Web.Inputs
         public Input<string>? SourceWebAppLocation { get; set; }
 
         /// <summary>
-        /// ARM resource ID of the Traffic Manager profile to use, if it exists. Traffic Manager resource ID is of the form 
+        /// ARM resource ID of the Traffic Manager profile to use, if it exists. Traffic Manager resource ID is of the form
         /// /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}.
         /// </summary>
         [Input("trafficManagerProfileId")]

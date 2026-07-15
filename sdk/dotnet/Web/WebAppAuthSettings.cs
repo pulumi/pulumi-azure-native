@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.Web
     /// <summary>
     /// Configuration settings for the Azure App Service Authentication / Authorization feature.
     /// 
-    /// Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
+    /// Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
     /// 
-    /// Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppAuthSettings")]
     public partial class WebAppAuthSettings : global::Pulumi.CustomResource
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.Web
         public Output<ImmutableArray<string>> AdditionalLoginParams { get; private set; } = null!;
 
         /// <summary>
-        /// Allowed audience values to consider when validating JSON Web Tokens issued by 
+        /// Allowed audience values to consider when validating JSON Web Tokens issued by
         /// Azure Active Directory. Note that the &lt;code&gt;ClientID&lt;/code&gt; value is always considered an
         /// allowed audience, regardless of this setting.
         /// </summary>
@@ -63,7 +63,7 @@ namespace Pulumi.AzureNative.Web
 
         /// <summary>
         /// The Client ID of this relying party application, known as the client_id.
-        /// This setting is required for enabling OpenID Connection authentication with Azure Active Directory or 
+        /// This setting is required for enabling OpenID Connection authentication with Azure Active Directory or
         /// other 3rd party OpenID Connect providers.
         /// More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
         /// </summary>
@@ -188,7 +188,7 @@ namespace Pulumi.AzureNative.Web
         public Output<string?> GoogleClientSecret { get; private set; } = null!;
 
         /// <summary>
-        /// The app setting name that contains the client secret associated with 
+        /// The app setting name that contains the client secret associated with
         /// the Google web application.
         /// </summary>
         [Output("googleClientSecretSettingName")]
@@ -277,7 +277,7 @@ namespace Pulumi.AzureNative.Web
 
         /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; to durably store platform-specific security tokens that are obtained during login flows; otherwise, &lt;code&gt;false&lt;/code&gt;.
-        ///  The default is &lt;code&gt;false&lt;/code&gt;.
+        /// The default is &lt;code&gt;false&lt;/code&gt;.
         /// </summary>
         [Output("tokenStoreEnabled")]
         public Output<bool?> TokenStoreEnabled { get; private set; } = null!;
@@ -417,7 +417,7 @@ namespace Pulumi.AzureNative.Web
         private InputList<string>? _allowedAudiences;
 
         /// <summary>
-        /// Allowed audience values to consider when validating JSON Web Tokens issued by 
+        /// Allowed audience values to consider when validating JSON Web Tokens issued by
         /// Azure Active Directory. Note that the &lt;code&gt;ClientID&lt;/code&gt; value is always considered an
         /// allowed audience, regardless of this setting.
         /// </summary>
@@ -450,7 +450,7 @@ namespace Pulumi.AzureNative.Web
 
         /// <summary>
         /// The Client ID of this relying party application, known as the client_id.
-        /// This setting is required for enabling OpenID Connection authentication with Azure Active Directory or 
+        /// This setting is required for enabling OpenID Connection authentication with Azure Active Directory or
         /// other 3rd party OpenID Connect providers.
         /// More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
         /// </summary>
@@ -587,7 +587,7 @@ namespace Pulumi.AzureNative.Web
         public Input<string>? GoogleClientSecret { get; set; }
 
         /// <summary>
-        /// The app setting name that contains the client secret associated with 
+        /// The app setting name that contains the client secret associated with
         /// the Google web application.
         /// </summary>
         [Input("googleClientSecretSettingName")]
@@ -667,13 +667,13 @@ namespace Pulumi.AzureNative.Web
         }
 
         /// <summary>
-        /// Name of web app.
+        /// Name of the app.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Name of the resource group to which the resource belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -694,7 +694,7 @@ namespace Pulumi.AzureNative.Web
 
         /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; to durably store platform-specific security tokens that are obtained during login flows; otherwise, &lt;code&gt;false&lt;/code&gt;.
-        ///  The default is &lt;code&gt;false&lt;/code&gt;.
+        /// The default is &lt;code&gt;false&lt;/code&gt;.
         /// </summary>
         [Input("tokenStoreEnabled")]
         public Input<bool>? TokenStoreEnabled { get; set; }

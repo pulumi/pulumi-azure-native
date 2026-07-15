@@ -27,7 +27,7 @@ class GetWebAppSlotResult:
     """
     A web app, a mobile app backend, or an API app.
     """
-    def __init__(__self__, auto_generated_domain_name_label_scope=None, availability_state=None, azure_api_version=None, client_affinity_enabled=None, client_affinity_partitioning_enabled=None, client_affinity_proxy_enabled=None, client_cert_enabled=None, client_cert_exclusion_paths=None, client_cert_mode=None, container_size=None, custom_domain_verification_id=None, daily_memory_time_quota=None, dapr_config=None, default_host_name=None, dns_configuration=None, enabled=None, enabled_host_names=None, end_to_end_encryption_enabled=None, extended_location=None, function_app_config=None, host_name_ssl_states=None, host_names=None, host_names_disabled=None, hosting_environment_profile=None, https_only=None, hyper_v=None, id=None, identity=None, in_progress_operation_id=None, ip_mode=None, is_default_container=None, is_xenon=None, key_vault_reference_identity=None, kind=None, last_modified_time_utc=None, location=None, managed_environment_id=None, max_number_of_workers=None, name=None, outbound_ip_addresses=None, outbound_vnet_routing=None, possible_outbound_ip_addresses=None, public_network_access=None, redundancy_mode=None, repository_site_name=None, reserved=None, resource_config=None, resource_group=None, scm_site_also_stopped=None, server_farm_id=None, site_config=None, sku=None, slot_swap_status=None, ssh_enabled=None, state=None, storage_account_required=None, suspended_till=None, tags=None, target_swap_slot=None, traffic_manager_host_names=None, type=None, usage_state=None, virtual_network_subnet_id=None, workload_profile_name=None):
+    def __init__(__self__, auto_generated_domain_name_label_scope=None, availability_state=None, azure_api_version=None, client_affinity_enabled=None, client_affinity_partitioning_enabled=None, client_affinity_proxy_enabled=None, client_cert_enabled=None, client_cert_exclusion_paths=None, client_cert_mode=None, container_size=None, custom_domain_verification_id=None, daily_memory_time_quota=None, dapr_config=None, default_host_name=None, dns_configuration=None, enabled=None, enabled_host_names=None, end_to_end_encryption_enabled=None, extended_location=None, function_app_config=None, host_name_ssl_states=None, host_names=None, host_names_disabled=None, hosting_environment_profile=None, https_only=None, hyper_v=None, id=None, identity=None, in_progress_operation_id=None, ip_mode=None, is_default_container=None, is_xenon=None, key_vault_reference_identity=None, kind=None, last_modified_time_utc=None, location=None, managed_environment_id=None, max_number_of_workers=None, name=None, outbound_ip_addresses=None, outbound_vnet_routing=None, possible_outbound_ip_addresses=None, public_network_access=None, redundancy_mode=None, repository_site_name=None, reserved=None, resource_config=None, resource_group=None, scm_site_also_stopped=None, server_farm_id=None, site_config=None, sku=None, slot_swap_status=None, ssh_enabled=None, state=None, storage_account_required=None, suspended_till=None, system_data=None, tags=None, target_swap_slot=None, traffic_manager_host_names=None, type=None, usage_state=None, virtual_network_subnet_id=None, workload_profile_name=None):
         if auto_generated_domain_name_label_scope and not isinstance(auto_generated_domain_name_label_scope, str):
             raise TypeError("Expected argument 'auto_generated_domain_name_label_scope' to be a str")
         pulumi.set(__self__, "auto_generated_domain_name_label_scope", auto_generated_domain_name_label_scope)
@@ -199,6 +199,9 @@ class GetWebAppSlotResult:
         if suspended_till and not isinstance(suspended_till, str):
             raise TypeError("Expected argument 'suspended_till' to be a str")
         pulumi.set(__self__, "suspended_till", suspended_till)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -406,7 +409,7 @@ class GetWebAppSlotResult:
     def host_names_disabled(self) -> Optional[_builtins.bool]:
         """
         <code>true</code> to disable the public hostnames of the app; otherwise, <code>false</code>.
-         If <code>true</code>, the app is only accessible via API management process.
+        If <code>true</code>, the app is only accessible via API management process.
         """
         return pulumi.get(self, "host_names_disabled")
 
@@ -439,7 +442,7 @@ class GetWebAppSlotResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -511,7 +514,7 @@ class GetWebAppSlotResult:
     @pulumi.getter
     def location(self) -> _builtins.str:
         """
-        Resource Location.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -536,7 +539,7 @@ class GetWebAppSlotResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource Name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -685,6 +688,14 @@ class GetWebAppSlotResult:
         return pulumi.get(self, "suspended_till")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
         """
@@ -712,7 +723,7 @@ class GetWebAppSlotResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -805,6 +816,7 @@ class AwaitableGetWebAppSlotResult(GetWebAppSlotResult):
             state=self.state,
             storage_account_required=self.storage_account_required,
             suspended_till=self.suspended_till,
+            system_data=self.system_data,
             tags=self.tags,
             target_swap_slot=self.target_swap_slot,
             traffic_manager_host_names=self.traffic_manager_host_names,
@@ -821,13 +833,13 @@ def get_web_app_slot(name: Optional[_builtins.str] = None,
     """
     Description for Gets the details of a web, mobile, or API app.
 
-    Uses Azure REST API version 2024-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str name: Name of the app.
-    :param _builtins.str resource_group_name: Name of the resource group to which the resource belongs.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str slot: Name of the deployment slot. By default, this API returns the production slot.
     """
     __args__ = dict()
@@ -895,6 +907,7 @@ def get_web_app_slot(name: Optional[_builtins.str] = None,
         state=pulumi.get(__ret__, 'state'),
         storage_account_required=pulumi.get(__ret__, 'storage_account_required'),
         suspended_till=pulumi.get(__ret__, 'suspended_till'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         target_swap_slot=pulumi.get(__ret__, 'target_swap_slot'),
         traffic_manager_host_names=pulumi.get(__ret__, 'traffic_manager_host_names'),
@@ -909,13 +922,13 @@ def get_web_app_slot_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     """
     Description for Gets the details of a web, mobile, or API app.
 
-    Uses Azure REST API version 2024-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str name: Name of the app.
-    :param _builtins.str resource_group_name: Name of the resource group to which the resource belongs.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str slot: Name of the deployment slot. By default, this API returns the production slot.
     """
     __args__ = dict()
@@ -982,6 +995,7 @@ def get_web_app_slot_output(name: Optional[pulumi.Input[_builtins.str]] = None,
         state=pulumi.get(__response__, 'state'),
         storage_account_required=pulumi.get(__response__, 'storage_account_required'),
         suspended_till=pulumi.get(__response__, 'suspended_till'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         target_swap_slot=pulumi.get(__response__, 'target_swap_slot'),
         traffic_manager_host_names=pulumi.get(__response__, 'traffic_manager_host_names'),

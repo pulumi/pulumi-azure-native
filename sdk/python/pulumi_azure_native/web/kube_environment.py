@@ -38,7 +38,7 @@ class KubeEnvironmentArgs:
         """
         The set of arguments for constructing a KubeEnvironment resource.
 
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['AppLogsConfigurationArgs'] app_logs_configuration: Cluster configuration which enables the log daemon to export
                app logs to a destination. Currently only "log-analytics" is
                supported
@@ -49,8 +49,8 @@ class KubeEnvironmentArgs:
         :param pulumi.Input[_builtins.str] environment_type: Type of Kubernetes Environment. Only supported for Container App Environments with value as Managed
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: Extended Location.
         :param pulumi.Input[_builtins.bool] internal_load_balancer_enabled: Only visible within Vnet/Subnet
-        :param pulumi.Input[_builtins.str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
-        :param pulumi.Input[_builtins.str] location: Resource Location.
+        :param pulumi.Input[_builtins.str] kind: Kind of resource.
+        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of the Kubernetes Environment.
         :param pulumi.Input[_builtins.str] static_ip: Static IP of the KubeEnvironment
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
@@ -85,7 +85,7 @@ class KubeEnvironmentArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the resource group to which the resource belongs.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -182,7 +182,7 @@ class KubeEnvironmentArgs:
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
+        Kind of resource.
         """
         return pulumi.get(self, "kind")
 
@@ -194,7 +194,7 @@ class KubeEnvironmentArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Resource Location.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -262,9 +262,9 @@ class KubeEnvironment(pulumi.CustomResource):
         """
         A Kubernetes cluster specialized for web workloads by Azure App Service
 
-        Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
+        Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -279,10 +279,10 @@ class KubeEnvironment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] environment_type: Type of Kubernetes Environment. Only supported for Container App Environments with value as Managed
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: Extended Location.
         :param pulumi.Input[_builtins.bool] internal_load_balancer_enabled: Only visible within Vnet/Subnet
-        :param pulumi.Input[_builtins.str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
-        :param pulumi.Input[_builtins.str] location: Resource Location.
+        :param pulumi.Input[_builtins.str] kind: Kind of resource.
+        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of the Kubernetes Environment.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] static_ip: Static IP of the KubeEnvironment
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
@@ -295,9 +295,9 @@ class KubeEnvironment(pulumi.CustomResource):
         """
         A Kubernetes cluster specialized for web workloads by Azure App Service
 
-        Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
+        Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -356,6 +356,7 @@ class KubeEnvironment(pulumi.CustomResource):
             __props__.__dict__["default_domain"] = None
             __props__.__dict__["deployment_errors"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20210101:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20210115:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20210201:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20210301:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20220301:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20220901:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20230101:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20231201:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20240401:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20241101:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20250301:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20250501:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20260301preview:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20260315:KubeEnvironment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -396,6 +397,7 @@ class KubeEnvironment(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["static_ip"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return KubeEnvironment(resource_name, opts=opts, __props__=__props__)
@@ -485,7 +487,7 @@ class KubeEnvironment(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
+        Kind of resource.
         """
         return pulumi.get(self, "kind")
 
@@ -493,7 +495,7 @@ class KubeEnvironment(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource Location.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -501,7 +503,7 @@ class KubeEnvironment(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource Name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -522,6 +524,14 @@ class KubeEnvironment(pulumi.CustomResource):
         return pulumi.get(self, "static_ip")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
@@ -533,7 +543,7 @@ class KubeEnvironment(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

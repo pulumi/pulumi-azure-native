@@ -26,19 +26,19 @@ class WebAppAuthSettingsV2WithoutSecretsArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  global_validation: Optional[pulumi.Input['GlobalValidationArgs']] = None,
                  http_settings: Optional[pulumi.Input['HttpSettingsArgs']] = None,
-                 identity_providers: Optional[pulumi.Input['IdentityProvidersArgs']] = None,
+                 identity_providers: Optional[pulumi.Input['IdentityProvidersV1Args']] = None,
                  kind: Optional[pulumi.Input[_builtins.str]] = None,
                  login: Optional[pulumi.Input['LoginArgs']] = None,
                  platform: Optional[pulumi.Input['AuthPlatformArgs']] = None):
         """
         The set of arguments for constructing a WebAppAuthSettingsV2WithoutSecrets resource.
 
-        :param pulumi.Input[_builtins.str] name: Name of web app.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[_builtins.str] name: Name of the app.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['GlobalValidationArgs'] global_validation: The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
         :param pulumi.Input['HttpSettingsArgs'] http_settings: The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
-        :param pulumi.Input['IdentityProvidersArgs'] identity_providers: The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
-        :param pulumi.Input[_builtins.str] kind: Kind of resource.
+        :param pulumi.Input['IdentityProvidersV1Args'] identity_providers: The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
+        :param pulumi.Input[_builtins.str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         :param pulumi.Input['LoginArgs'] login: The configuration settings of the login flow of users using App Service Authentication/Authorization.
         :param pulumi.Input['AuthPlatformArgs'] platform: The configuration settings of the platform of App Service Authentication/Authorization.
         """
@@ -61,7 +61,7 @@ class WebAppAuthSettingsV2WithoutSecretsArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of web app.
+        Name of the app.
         """
         return pulumi.get(self, "name")
 
@@ -73,7 +73,7 @@ class WebAppAuthSettingsV2WithoutSecretsArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the resource group to which the resource belongs.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -107,21 +107,21 @@ class WebAppAuthSettingsV2WithoutSecretsArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityProviders")
-    def identity_providers(self) -> Optional[pulumi.Input['IdentityProvidersArgs']]:
+    def identity_providers(self) -> Optional[pulumi.Input['IdentityProvidersV1Args']]:
         """
         The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
         """
         return pulumi.get(self, "identity_providers")
 
     @identity_providers.setter
-    def identity_providers(self, value: Optional[pulumi.Input['IdentityProvidersArgs']]):
+    def identity_providers(self, value: Optional[pulumi.Input['IdentityProvidersV1Args']]):
         pulumi.set(self, "identity_providers", value)
 
     @_builtins.property
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Kind of resource.
+        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 
@@ -162,7 +162,7 @@ class WebAppAuthSettingsV2WithoutSecrets(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  global_validation: Optional[pulumi.Input[Union['GlobalValidationArgs', 'GlobalValidationArgsDict']]] = None,
                  http_settings: Optional[pulumi.Input[Union['HttpSettingsArgs', 'HttpSettingsArgsDict']]] = None,
-                 identity_providers: Optional[pulumi.Input[Union['IdentityProvidersArgs', 'IdentityProvidersArgsDict']]] = None,
+                 identity_providers: Optional[pulumi.Input[Union['IdentityProvidersV1Args', 'IdentityProvidersV1ArgsDict']]] = None,
                  kind: Optional[pulumi.Input[_builtins.str]] = None,
                  login: Optional[pulumi.Input[Union['LoginArgs', 'LoginArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -172,21 +172,21 @@ class WebAppAuthSettingsV2WithoutSecrets(pulumi.CustomResource):
         """
         Configuration settings for the Azure App Service Authentication / Authorization V2 feature.
 
-        Uses Azure REST API version 2024-11-01.
+        Uses Azure REST API version 2025-05-01.
 
-        Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['GlobalValidationArgs', 'GlobalValidationArgsDict']] global_validation: The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
         :param pulumi.Input[Union['HttpSettingsArgs', 'HttpSettingsArgsDict']] http_settings: The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
-        :param pulumi.Input[Union['IdentityProvidersArgs', 'IdentityProvidersArgsDict']] identity_providers: The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
-        :param pulumi.Input[_builtins.str] kind: Kind of resource.
+        :param pulumi.Input[Union['IdentityProvidersV1Args', 'IdentityProvidersV1ArgsDict']] identity_providers: The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
+        :param pulumi.Input[_builtins.str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         :param pulumi.Input[Union['LoginArgs', 'LoginArgsDict']] login: The configuration settings of the login flow of users using App Service Authentication/Authorization.
-        :param pulumi.Input[_builtins.str] name: Name of web app.
+        :param pulumi.Input[_builtins.str] name: Name of the app.
         :param pulumi.Input[Union['AuthPlatformArgs', 'AuthPlatformArgsDict']] platform: The configuration settings of the platform of App Service Authentication/Authorization.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
     @overload
@@ -197,9 +197,9 @@ class WebAppAuthSettingsV2WithoutSecrets(pulumi.CustomResource):
         """
         Configuration settings for the Azure App Service Authentication / Authorization V2 feature.
 
-        Uses Azure REST API version 2024-11-01.
+        Uses Azure REST API version 2025-05-01.
 
-        Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -219,7 +219,7 @@ class WebAppAuthSettingsV2WithoutSecrets(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  global_validation: Optional[pulumi.Input[Union['GlobalValidationArgs', 'GlobalValidationArgsDict']]] = None,
                  http_settings: Optional[pulumi.Input[Union['HttpSettingsArgs', 'HttpSettingsArgsDict']]] = None,
-                 identity_providers: Optional[pulumi.Input[Union['IdentityProvidersArgs', 'IdentityProvidersArgsDict']]] = None,
+                 identity_providers: Optional[pulumi.Input[Union['IdentityProvidersV1Args', 'IdentityProvidersV1ArgsDict']]] = None,
                  kind: Optional[pulumi.Input[_builtins.str]] = None,
                  login: Optional[pulumi.Input[Union['LoginArgs', 'LoginArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -247,6 +247,7 @@ class WebAppAuthSettingsV2WithoutSecrets(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["azure_api_version"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20200601:WebAppAuthSettingsV2WithoutSecrets"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppAuthSettingsV2WithoutSecrets"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppAuthSettingsV2"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppAuthSettingsV2WithoutSecrets"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppAuthSettingsV2WithoutSecrets"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppAuthSettingsV2WithoutSecrets"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppAuthSettingsV2WithoutSecrets"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppAuthSettingsV2"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppAuthSettingsV2WithoutSecrets"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppAuthSettingsV2WithoutSecrets"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppAuthSettingsV2WithoutSecrets"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppAuthSettingsV2WithoutSecrets"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppAuthSettingsV2WithoutSecrets"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppAuthSettingsV2WithoutSecrets"), pulumi.Alias(type_="azure-native:web/v20240401:WebAppAuthSettingsV2WithoutSecrets"), pulumi.Alias(type_="azure-native:web/v20241101:WebAppAuthSettingsV2WithoutSecrets"), pulumi.Alias(type_="azure-native:web/v20250301:WebAppAuthSettingsV2WithoutSecrets"), pulumi.Alias(type_="azure-native:web/v20250501:WebAppAuthSettingsV2WithoutSecrets"), pulumi.Alias(type_="azure-native:web/v20260301preview:WebAppAuthSettingsV2WithoutSecrets"), pulumi.Alias(type_="azure-native:web/v20260315:WebAppAuthSettingsV2WithoutSecrets"), pulumi.Alias(type_="azure-native:web:WebAppAuthSettingsV2")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -280,6 +281,7 @@ class WebAppAuthSettingsV2WithoutSecrets(pulumi.CustomResource):
         __props__.__dict__["login"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["platform"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return WebAppAuthSettingsV2WithoutSecrets(resource_name, opts=opts, __props__=__props__)
 
@@ -319,7 +321,7 @@ class WebAppAuthSettingsV2WithoutSecrets(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Kind of resource.
+        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 
@@ -335,7 +337,7 @@ class WebAppAuthSettingsV2WithoutSecrets(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource Name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -348,10 +350,18 @@ class WebAppAuthSettingsV2WithoutSecrets(pulumi.CustomResource):
         return pulumi.get(self, "platform")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

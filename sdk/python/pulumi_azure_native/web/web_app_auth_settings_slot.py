@@ -65,13 +65,13 @@ class WebAppAuthSettingsSlotArgs:
         """
         The set of arguments for constructing a WebAppAuthSettingsSlot resource.
 
-        :param pulumi.Input[_builtins.str] name: Name of web app.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
-        :param pulumi.Input[_builtins.str] slot: Name of web app slot. If not specified then will default to production slot.
+        :param pulumi.Input[_builtins.str] name: Name of the app.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] slot: Name of the deployment slot. By default, this API returns the production slot.
         :param pulumi.Input[_builtins.str] aad_claims_authorization: Gets a JSON string containing the Azure AD Acl settings.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] additional_login_params: Login parameters to send to the OpenID Connect authorization endpoint when
                a user logs in. Each parameter must be in the form "key=value".
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_audiences: Allowed audience values to consider when validating JSON Web Tokens issued by 
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_audiences: Allowed audience values to consider when validating JSON Web Tokens issued by
                Azure Active Directory. Note that the <code>ClientID</code> value is always considered an
                allowed audience, regardless of this setting.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_external_redirect_urls: External URLs that can be redirected to as part of logging in or logging out of the app. Note that the query string part of the URL is ignored.
@@ -80,7 +80,7 @@ class WebAppAuthSettingsSlotArgs:
         :param pulumi.Input[_builtins.str] auth_file_path: The path of the config file containing auth settings.
                If the path is relative, base will the site's root directory.
         :param pulumi.Input[_builtins.str] client_id: The Client ID of this relying party application, known as the client_id.
-               This setting is required for enabling OpenID Connection authentication with Azure Active Directory or 
+               This setting is required for enabling OpenID Connection authentication with Azure Active Directory or
                other 3rd party OpenID Connect providers.
                More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
         :param pulumi.Input[_builtins.str] client_secret: The Client Secret of this relying party application (in Azure Active Directory, this is also referred to as the Key).
@@ -120,7 +120,7 @@ class WebAppAuthSettingsSlotArgs:
         :param pulumi.Input[_builtins.str] google_client_secret: The client secret associated with the Google web application.
                This setting is required for enabling Google Sign-In.
                Google Sign-In documentation: https://developers.google.com/identity/sign-in/web/
-        :param pulumi.Input[_builtins.str] google_client_secret_setting_name: The app setting name that contains the client secret associated with 
+        :param pulumi.Input[_builtins.str] google_client_secret_setting_name: The app setting name that contains the client secret associated with
                the Google web application.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] google_o_auth_scopes: The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication.
                This setting is optional. If not specified, "openid", "profile", and "email" are used as default scopes.
@@ -148,7 +148,7 @@ class WebAppAuthSettingsSlotArgs:
         :param pulumi.Input[_builtins.float] token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to
                call the token refresh API. The default is 72 hours.
         :param pulumi.Input[_builtins.bool] token_store_enabled: <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
-                The default is <code>false</code>.
+               The default is <code>false</code>.
         :param pulumi.Input[_builtins.str] twitter_consumer_key: The OAuth 1.0a consumer key of the Twitter application used for sign-in.
                This setting is required for enabling Twitter Sign-In.
                Twitter Sign-In documentation: https://dev.twitter.com/web/sign-in
@@ -246,7 +246,7 @@ class WebAppAuthSettingsSlotArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of web app.
+        Name of the app.
         """
         return pulumi.get(self, "name")
 
@@ -258,7 +258,7 @@ class WebAppAuthSettingsSlotArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the resource group to which the resource belongs.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -270,7 +270,7 @@ class WebAppAuthSettingsSlotArgs:
     @pulumi.getter
     def slot(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of web app slot. If not specified then will default to production slot.
+        Name of the deployment slot. By default, this API returns the production slot.
         """
         return pulumi.get(self, "slot")
 
@@ -307,7 +307,7 @@ class WebAppAuthSettingsSlotArgs:
     @pulumi.getter(name="allowedAudiences")
     def allowed_audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Allowed audience values to consider when validating JSON Web Tokens issued by 
+        Allowed audience values to consider when validating JSON Web Tokens issued by
         Azure Active Directory. Note that the <code>ClientID</code> value is always considered an
         allowed audience, regardless of this setting.
         """
@@ -349,7 +349,7 @@ class WebAppAuthSettingsSlotArgs:
     def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The Client ID of this relying party application, known as the client_id.
-        This setting is required for enabling OpenID Connection authentication with Azure Active Directory or 
+        This setting is required for enabling OpenID Connection authentication with Azure Active Directory or
         other 3rd party OpenID Connect providers.
         More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
         """
@@ -576,7 +576,7 @@ class WebAppAuthSettingsSlotArgs:
     @pulumi.getter(name="googleClientSecretSettingName")
     def google_client_secret_setting_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The app setting name that contains the client secret associated with 
+        The app setting name that contains the client secret associated with
         the Google web application.
         """
         return pulumi.get(self, "google_client_secret_setting_name")
@@ -725,7 +725,7 @@ class WebAppAuthSettingsSlotArgs:
     def token_store_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
-         The default is <code>false</code>.
+        The default is <code>false</code>.
         """
         return pulumi.get(self, "token_store_enabled")
 
@@ -851,9 +851,9 @@ class WebAppAuthSettingsSlot(pulumi.CustomResource):
         """
         Configuration settings for the Azure App Service Authentication / Authorization feature.
 
-        Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
+        Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -861,7 +861,7 @@ class WebAppAuthSettingsSlot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] aad_claims_authorization: Gets a JSON string containing the Azure AD Acl settings.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] additional_login_params: Login parameters to send to the OpenID Connect authorization endpoint when
                a user logs in. Each parameter must be in the form "key=value".
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_audiences: Allowed audience values to consider when validating JSON Web Tokens issued by 
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_audiences: Allowed audience values to consider when validating JSON Web Tokens issued by
                Azure Active Directory. Note that the <code>ClientID</code> value is always considered an
                allowed audience, regardless of this setting.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_external_redirect_urls: External URLs that can be redirected to as part of logging in or logging out of the app. Note that the query string part of the URL is ignored.
@@ -870,7 +870,7 @@ class WebAppAuthSettingsSlot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] auth_file_path: The path of the config file containing auth settings.
                If the path is relative, base will the site's root directory.
         :param pulumi.Input[_builtins.str] client_id: The Client ID of this relying party application, known as the client_id.
-               This setting is required for enabling OpenID Connection authentication with Azure Active Directory or 
+               This setting is required for enabling OpenID Connection authentication with Azure Active Directory or
                other 3rd party OpenID Connect providers.
                More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
         :param pulumi.Input[_builtins.str] client_secret: The Client Secret of this relying party application (in Azure Active Directory, this is also referred to as the Key).
@@ -910,7 +910,7 @@ class WebAppAuthSettingsSlot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] google_client_secret: The client secret associated with the Google web application.
                This setting is required for enabling Google Sign-In.
                Google Sign-In documentation: https://developers.google.com/identity/sign-in/web/
-        :param pulumi.Input[_builtins.str] google_client_secret_setting_name: The app setting name that contains the client secret associated with 
+        :param pulumi.Input[_builtins.str] google_client_secret_setting_name: The app setting name that contains the client secret associated with
                the Google web application.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] google_o_auth_scopes: The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication.
                This setting is optional. If not specified, "openid", "profile", and "email" are used as default scopes.
@@ -933,15 +933,15 @@ class WebAppAuthSettingsSlot(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] microsoft_account_o_auth_scopes: The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication.
                This setting is optional. If not specified, "wl.basic" is used as the default scope.
                Microsoft Account Scopes and permissions documentation: https://msdn.microsoft.com/en-us/library/dn631845.aspx
-        :param pulumi.Input[_builtins.str] name: Name of web app.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[_builtins.str] name: Name of the app.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] runtime_version: The RuntimeVersion of the Authentication / Authorization feature in use for the current app.
                The setting in this value can control the behavior of certain features in the Authentication / Authorization module.
-        :param pulumi.Input[_builtins.str] slot: Name of web app slot. If not specified then will default to production slot.
+        :param pulumi.Input[_builtins.str] slot: Name of the deployment slot. By default, this API returns the production slot.
         :param pulumi.Input[_builtins.float] token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to
                call the token refresh API. The default is 72 hours.
         :param pulumi.Input[_builtins.bool] token_store_enabled: <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
-                The default is <code>false</code>.
+               The default is <code>false</code>.
         :param pulumi.Input[_builtins.str] twitter_consumer_key: The OAuth 1.0a consumer key of the Twitter application used for sign-in.
                This setting is required for enabling Twitter Sign-In.
                Twitter Sign-In documentation: https://dev.twitter.com/web/sign-in
@@ -962,9 +962,9 @@ class WebAppAuthSettingsSlot(pulumi.CustomResource):
         """
         Configuration settings for the Azure App Service Authentication / Authorization feature.
 
-        Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
+        Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -1172,7 +1172,7 @@ class WebAppAuthSettingsSlot(pulumi.CustomResource):
     @pulumi.getter(name="allowedAudiences")
     def allowed_audiences(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        Allowed audience values to consider when validating JSON Web Tokens issued by 
+        Allowed audience values to consider when validating JSON Web Tokens issued by
         Azure Active Directory. Note that the <code>ClientID</code> value is always considered an
         allowed audience, regardless of this setting.
         """
@@ -1210,7 +1210,7 @@ class WebAppAuthSettingsSlot(pulumi.CustomResource):
     def client_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The Client ID of this relying party application, known as the client_id.
-        This setting is required for enabling OpenID Connection authentication with Azure Active Directory or 
+        This setting is required for enabling OpenID Connection authentication with Azure Active Directory or
         other 3rd party OpenID Connect providers.
         More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
         """
@@ -1369,7 +1369,7 @@ class WebAppAuthSettingsSlot(pulumi.CustomResource):
     @pulumi.getter(name="googleClientSecretSettingName")
     def google_client_secret_setting_name(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The app setting name that contains the client secret associated with 
+        The app setting name that contains the client secret associated with
         the Google web application.
         """
         return pulumi.get(self, "google_client_secret_setting_name")
@@ -1482,7 +1482,7 @@ class WebAppAuthSettingsSlot(pulumi.CustomResource):
     def token_store_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
         <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
-         The default is <code>false</code>.
+        The default is <code>false</code>.
         """
         return pulumi.get(self, "token_store_enabled")
 

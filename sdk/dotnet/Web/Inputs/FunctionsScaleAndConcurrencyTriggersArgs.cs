@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Web.Inputs
         /// Scale and concurrency settings for the HTTP trigger.
         /// </summary>
         [Input("http")]
-        public Input<Inputs.FunctionsScaleAndConcurrencyHttpArgs>? Http { get; set; }
+        public Input<Inputs.FunctionsScaleAndConcurrencyTriggersHttpArgs>? Http { get; set; }
 
         public FunctionsScaleAndConcurrencyTriggersArgs()
         {

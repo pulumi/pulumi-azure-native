@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Description for Gets status of a web app backup that may be in progress, including secrets associated with the backup, such as the Azure Storage SAS URL. Also can be used to update the SAS URL for the backup if a new URL is passed in the request body.
  *
- * Uses Azure REST API version 2024-11-01.
+ * Uses Azure REST API version 2025-05-01.
  *
- * Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listWebAppBackupStatusSecretsSlot(args: ListWebAppBackupStatusSecretsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppBackupStatusSecretsSlotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -32,7 +32,7 @@ export function listWebAppBackupStatusSecretsSlot(args: ListWebAppBackupStatusSe
 
 export interface ListWebAppBackupStatusSecretsSlotArgs {
     /**
-     * ID of backup.
+     * ID of the backup.
      */
     backupId: string;
     /**
@@ -56,15 +56,15 @@ export interface ListWebAppBackupStatusSecretsSlotArgs {
      */
     kind?: string;
     /**
-     * Name of web app.
+     * Name of the app.
      */
     name: string;
     /**
-     * Name of the resource group to which the resource belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
-     * Name of web app slot. If not specified then will default to production slot.
+     * Name of the deployment slot. If a slot is not specified, the API will get a backup of the production slot.
      */
     slot: string;
     /**
@@ -102,7 +102,7 @@ export interface ListWebAppBackupStatusSecretsSlotResult {
      */
     readonly finishedTimeStamp: string;
     /**
-     * Resource Id.
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -118,7 +118,7 @@ export interface ListWebAppBackupStatusSecretsSlotResult {
      */
     readonly log: string;
     /**
-     * Resource Name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -138,7 +138,11 @@ export interface ListWebAppBackupStatusSecretsSlotResult {
      */
     readonly storageAccountUrl: string;
     /**
-     * Resource type.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.web.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -149,9 +153,9 @@ export interface ListWebAppBackupStatusSecretsSlotResult {
 /**
  * Description for Gets status of a web app backup that may be in progress, including secrets associated with the backup, such as the Azure Storage SAS URL. Also can be used to update the SAS URL for the backup if a new URL is passed in the request body.
  *
- * Uses Azure REST API version 2024-11-01.
+ * Uses Azure REST API version 2025-05-01.
  *
- * Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listWebAppBackupStatusSecretsSlotOutput(args: ListWebAppBackupStatusSecretsSlotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWebAppBackupStatusSecretsSlotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -171,7 +175,7 @@ export function listWebAppBackupStatusSecretsSlotOutput(args: ListWebAppBackupSt
 
 export interface ListWebAppBackupStatusSecretsSlotOutputArgs {
     /**
-     * ID of backup.
+     * ID of the backup.
      */
     backupId: pulumi.Input<string>;
     /**
@@ -195,15 +199,15 @@ export interface ListWebAppBackupStatusSecretsSlotOutputArgs {
      */
     kind?: pulumi.Input<string>;
     /**
-     * Name of web app.
+     * Name of the app.
      */
     name: pulumi.Input<string>;
     /**
-     * Name of the resource group to which the resource belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Name of web app slot. If not specified then will default to production slot.
+     * Name of the deployment slot. If a slot is not specified, the API will get a backup of the production slot.
      */
     slot: pulumi.Input<string>;
     /**

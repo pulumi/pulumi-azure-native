@@ -27,7 +27,7 @@ class GetAppServicePlanResult:
     """
     App Service plan.
     """
-    def __init__(__self__, async_scaling_enabled=None, azure_api_version=None, elastic_scale_enabled=None, extended_location=None, free_offer_expiration_time=None, geo_region=None, hosting_environment_profile=None, hyper_v=None, id=None, is_spot=None, is_xenon=None, kind=None, kube_environment_profile=None, location=None, maximum_elastic_worker_count=None, maximum_number_of_workers=None, name=None, number_of_sites=None, number_of_workers=None, per_site_scaling=None, provisioning_state=None, reserved=None, resource_group=None, sku=None, spot_expiration_time=None, status=None, subscription=None, tags=None, target_worker_count=None, target_worker_size_id=None, type=None, worker_tier_name=None, zone_redundant=None):
+    def __init__(__self__, async_scaling_enabled=None, azure_api_version=None, elastic_scale_enabled=None, extended_location=None, free_offer_expiration_time=None, geo_region=None, hosting_environment_profile=None, hyper_v=None, id=None, identity=None, install_scripts=None, is_custom_mode=None, is_spot=None, is_xenon=None, kind=None, kube_environment_profile=None, location=None, maximum_elastic_worker_count=None, maximum_number_of_workers=None, name=None, network=None, number_of_sites=None, number_of_workers=None, per_site_scaling=None, plan_default_identity=None, provisioning_state=None, rdp_enabled=None, registry_adapters=None, reserved=None, resource_group=None, sku=None, spot_expiration_time=None, status=None, storage_mounts=None, subscription=None, system_data=None, tags=None, target_worker_count=None, target_worker_size_id=None, type=None, worker_tier_name=None, zone_redundant=None):
         if async_scaling_enabled and not isinstance(async_scaling_enabled, bool):
             raise TypeError("Expected argument 'async_scaling_enabled' to be a bool")
         pulumi.set(__self__, "async_scaling_enabled", async_scaling_enabled)
@@ -55,6 +55,15 @@ class GetAppServicePlanResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
+        if install_scripts and not isinstance(install_scripts, list):
+            raise TypeError("Expected argument 'install_scripts' to be a list")
+        pulumi.set(__self__, "install_scripts", install_scripts)
+        if is_custom_mode and not isinstance(is_custom_mode, bool):
+            raise TypeError("Expected argument 'is_custom_mode' to be a bool")
+        pulumi.set(__self__, "is_custom_mode", is_custom_mode)
         if is_spot and not isinstance(is_spot, bool):
             raise TypeError("Expected argument 'is_spot' to be a bool")
         pulumi.set(__self__, "is_spot", is_spot)
@@ -79,6 +88,9 @@ class GetAppServicePlanResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if network and not isinstance(network, dict):
+            raise TypeError("Expected argument 'network' to be a dict")
+        pulumi.set(__self__, "network", network)
         if number_of_sites and not isinstance(number_of_sites, int):
             raise TypeError("Expected argument 'number_of_sites' to be a int")
         pulumi.set(__self__, "number_of_sites", number_of_sites)
@@ -88,9 +100,18 @@ class GetAppServicePlanResult:
         if per_site_scaling and not isinstance(per_site_scaling, bool):
             raise TypeError("Expected argument 'per_site_scaling' to be a bool")
         pulumi.set(__self__, "per_site_scaling", per_site_scaling)
+        if plan_default_identity and not isinstance(plan_default_identity, dict):
+            raise TypeError("Expected argument 'plan_default_identity' to be a dict")
+        pulumi.set(__self__, "plan_default_identity", plan_default_identity)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if rdp_enabled and not isinstance(rdp_enabled, bool):
+            raise TypeError("Expected argument 'rdp_enabled' to be a bool")
+        pulumi.set(__self__, "rdp_enabled", rdp_enabled)
+        if registry_adapters and not isinstance(registry_adapters, list):
+            raise TypeError("Expected argument 'registry_adapters' to be a list")
+        pulumi.set(__self__, "registry_adapters", registry_adapters)
         if reserved and not isinstance(reserved, bool):
             raise TypeError("Expected argument 'reserved' to be a bool")
         pulumi.set(__self__, "reserved", reserved)
@@ -106,9 +127,15 @@ class GetAppServicePlanResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if storage_mounts and not isinstance(storage_mounts, list):
+            raise TypeError("Expected argument 'storage_mounts' to be a list")
+        pulumi.set(__self__, "storage_mounts", storage_mounts)
         if subscription and not isinstance(subscription, str):
             raise TypeError("Expected argument 'subscription' to be a str")
         pulumi.set(__self__, "subscription", subscription)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -197,9 +224,33 @@ class GetAppServicePlanResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        Managed service identity.
+        """
+        return pulumi.get(self, "identity")
+
+    @_builtins.property
+    @pulumi.getter(name="installScripts")
+    def install_scripts(self) -> Optional[Sequence['outputs.InstallScriptResponse']]:
+        """
+        Install scripts associated with this App Service plan.
+        """
+        return pulumi.get(self, "install_scripts")
+
+    @_builtins.property
+    @pulumi.getter(name="isCustomMode")
+    def is_custom_mode(self) -> Optional[_builtins.bool]:
+        """
+        Whether this server farm is in custom mode.
+        """
+        return pulumi.get(self, "is_custom_mode")
 
     @_builtins.property
     @pulumi.getter(name="isSpot")
@@ -237,7 +288,7 @@ class GetAppServicePlanResult:
     @pulumi.getter
     def location(self) -> _builtins.str:
         """
-        Resource Location.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -261,9 +312,17 @@ class GetAppServicePlanResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource Name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def network(self) -> Optional['outputs.ServerFarmNetworkSettingsResponse']:
+        """
+        All network settings for the server farm.
+        """
+        return pulumi.get(self, "network")
 
     @_builtins.property
     @pulumi.getter(name="numberOfSites")
@@ -291,12 +350,37 @@ class GetAppServicePlanResult:
         return pulumi.get(self, "per_site_scaling")
 
     @_builtins.property
+    @pulumi.getter(name="planDefaultIdentity")
+    def plan_default_identity(self) -> Optional['outputs.DefaultIdentityResponse']:
+        """
+        Identity to use by platform for various features and integrations using managed identity.
+        """
+        return pulumi.get(self, "plan_default_identity")
+
+    @_builtins.property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> _builtins.str:
         """
         Provisioning state of the App Service Plan.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="rdpEnabled")
+    def rdp_enabled(self) -> Optional[_builtins.bool]:
+        """
+        If <code>true</code>, RDP access is enabled for this App Service plan. Only applicable for IsCustomMode ASPs.
+        If <code>false</code>, RDP access is disabled.
+        """
+        return pulumi.get(self, "rdp_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="registryAdapters")
+    def registry_adapters(self) -> Optional[Sequence['outputs.RegistryAdapterResponse']]:
+        """
+        Registry adapters associated with this App Service plan.
+        """
+        return pulumi.get(self, "registry_adapters")
 
     @_builtins.property
     @pulumi.getter
@@ -339,12 +423,28 @@ class GetAppServicePlanResult:
         return pulumi.get(self, "status")
 
     @_builtins.property
+    @pulumi.getter(name="storageMounts")
+    def storage_mounts(self) -> Optional[Sequence['outputs.StorageMountResponse']]:
+        """
+        Storage mounts associated with this App Service plan.
+        """
+        return pulumi.get(self, "storage_mounts")
+
+    @_builtins.property
     @pulumi.getter
     def subscription(self) -> _builtins.str:
         """
         App Service plan subscription.
         """
         return pulumi.get(self, "subscription")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @_builtins.property
     @pulumi.getter
@@ -374,7 +474,7 @@ class GetAppServicePlanResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -411,6 +511,9 @@ class AwaitableGetAppServicePlanResult(GetAppServicePlanResult):
             hosting_environment_profile=self.hosting_environment_profile,
             hyper_v=self.hyper_v,
             id=self.id,
+            identity=self.identity,
+            install_scripts=self.install_scripts,
+            is_custom_mode=self.is_custom_mode,
             is_spot=self.is_spot,
             is_xenon=self.is_xenon,
             kind=self.kind,
@@ -419,16 +522,22 @@ class AwaitableGetAppServicePlanResult(GetAppServicePlanResult):
             maximum_elastic_worker_count=self.maximum_elastic_worker_count,
             maximum_number_of_workers=self.maximum_number_of_workers,
             name=self.name,
+            network=self.network,
             number_of_sites=self.number_of_sites,
             number_of_workers=self.number_of_workers,
             per_site_scaling=self.per_site_scaling,
+            plan_default_identity=self.plan_default_identity,
             provisioning_state=self.provisioning_state,
+            rdp_enabled=self.rdp_enabled,
+            registry_adapters=self.registry_adapters,
             reserved=self.reserved,
             resource_group=self.resource_group,
             sku=self.sku,
             spot_expiration_time=self.spot_expiration_time,
             status=self.status,
+            storage_mounts=self.storage_mounts,
             subscription=self.subscription,
+            system_data=self.system_data,
             tags=self.tags,
             target_worker_count=self.target_worker_count,
             target_worker_size_id=self.target_worker_size_id,
@@ -443,13 +552,13 @@ def get_app_service_plan(name: Optional[_builtins.str] = None,
     """
     Description for Get an App Service plan.
 
-    Uses Azure REST API version 2024-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str name: Name of the App Service plan.
-    :param _builtins.str resource_group_name: Name of the resource group to which the resource belongs.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -467,6 +576,9 @@ def get_app_service_plan(name: Optional[_builtins.str] = None,
         hosting_environment_profile=pulumi.get(__ret__, 'hosting_environment_profile'),
         hyper_v=pulumi.get(__ret__, 'hyper_v'),
         id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        install_scripts=pulumi.get(__ret__, 'install_scripts'),
+        is_custom_mode=pulumi.get(__ret__, 'is_custom_mode'),
         is_spot=pulumi.get(__ret__, 'is_spot'),
         is_xenon=pulumi.get(__ret__, 'is_xenon'),
         kind=pulumi.get(__ret__, 'kind'),
@@ -475,16 +587,22 @@ def get_app_service_plan(name: Optional[_builtins.str] = None,
         maximum_elastic_worker_count=pulumi.get(__ret__, 'maximum_elastic_worker_count'),
         maximum_number_of_workers=pulumi.get(__ret__, 'maximum_number_of_workers'),
         name=pulumi.get(__ret__, 'name'),
+        network=pulumi.get(__ret__, 'network'),
         number_of_sites=pulumi.get(__ret__, 'number_of_sites'),
         number_of_workers=pulumi.get(__ret__, 'number_of_workers'),
         per_site_scaling=pulumi.get(__ret__, 'per_site_scaling'),
+        plan_default_identity=pulumi.get(__ret__, 'plan_default_identity'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        rdp_enabled=pulumi.get(__ret__, 'rdp_enabled'),
+        registry_adapters=pulumi.get(__ret__, 'registry_adapters'),
         reserved=pulumi.get(__ret__, 'reserved'),
         resource_group=pulumi.get(__ret__, 'resource_group'),
         sku=pulumi.get(__ret__, 'sku'),
         spot_expiration_time=pulumi.get(__ret__, 'spot_expiration_time'),
         status=pulumi.get(__ret__, 'status'),
+        storage_mounts=pulumi.get(__ret__, 'storage_mounts'),
         subscription=pulumi.get(__ret__, 'subscription'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         target_worker_count=pulumi.get(__ret__, 'target_worker_count'),
         target_worker_size_id=pulumi.get(__ret__, 'target_worker_size_id'),
@@ -497,13 +615,13 @@ def get_app_service_plan_output(name: Optional[pulumi.Input[_builtins.str]] = No
     """
     Description for Get an App Service plan.
 
-    Uses Azure REST API version 2024-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str name: Name of the App Service plan.
-    :param _builtins.str resource_group_name: Name of the resource group to which the resource belongs.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -520,6 +638,9 @@ def get_app_service_plan_output(name: Optional[pulumi.Input[_builtins.str]] = No
         hosting_environment_profile=pulumi.get(__response__, 'hosting_environment_profile'),
         hyper_v=pulumi.get(__response__, 'hyper_v'),
         id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        install_scripts=pulumi.get(__response__, 'install_scripts'),
+        is_custom_mode=pulumi.get(__response__, 'is_custom_mode'),
         is_spot=pulumi.get(__response__, 'is_spot'),
         is_xenon=pulumi.get(__response__, 'is_xenon'),
         kind=pulumi.get(__response__, 'kind'),
@@ -528,16 +649,22 @@ def get_app_service_plan_output(name: Optional[pulumi.Input[_builtins.str]] = No
         maximum_elastic_worker_count=pulumi.get(__response__, 'maximum_elastic_worker_count'),
         maximum_number_of_workers=pulumi.get(__response__, 'maximum_number_of_workers'),
         name=pulumi.get(__response__, 'name'),
+        network=pulumi.get(__response__, 'network'),
         number_of_sites=pulumi.get(__response__, 'number_of_sites'),
         number_of_workers=pulumi.get(__response__, 'number_of_workers'),
         per_site_scaling=pulumi.get(__response__, 'per_site_scaling'),
+        plan_default_identity=pulumi.get(__response__, 'plan_default_identity'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        rdp_enabled=pulumi.get(__response__, 'rdp_enabled'),
+        registry_adapters=pulumi.get(__response__, 'registry_adapters'),
         reserved=pulumi.get(__response__, 'reserved'),
         resource_group=pulumi.get(__response__, 'resource_group'),
         sku=pulumi.get(__response__, 'sku'),
         spot_expiration_time=pulumi.get(__response__, 'spot_expiration_time'),
         status=pulumi.get(__response__, 'status'),
+        storage_mounts=pulumi.get(__response__, 'storage_mounts'),
         subscription=pulumi.get(__response__, 'subscription'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         target_worker_count=pulumi.get(__response__, 'target_worker_count'),
         target_worker_size_id=pulumi.get(__response__, 'target_worker_size_id'),

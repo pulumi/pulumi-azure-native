@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.Web
     /// <summary>
     /// App Service plan.
     /// 
-    /// Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
+    /// Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
     /// 
-    /// Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:AppServicePlan")]
     public partial class AppServicePlan : global::Pulumi.CustomResource
@@ -69,6 +69,24 @@ namespace Pulumi.AzureNative.Web
         public Output<bool?> HyperV { get; private set; } = null!;
 
         /// <summary>
+        /// Managed service identity.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// Install scripts associated with this App Service plan.
+        /// </summary>
+        [Output("installScripts")]
+        public Output<ImmutableArray<Outputs.InstallScriptResponse>> InstallScripts { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether this server farm is in custom mode.
+        /// </summary>
+        [Output("isCustomMode")]
+        public Output<bool?> IsCustomMode { get; private set; } = null!;
+
+        /// <summary>
         /// If &lt;code&gt;true&lt;/code&gt;, this App Service Plan owns spot instances.
         /// </summary>
         [Output("isSpot")]
@@ -93,7 +111,7 @@ namespace Pulumi.AzureNative.Web
         public Output<Outputs.KubeEnvironmentProfileResponse?> KubeEnvironmentProfile { get; private set; } = null!;
 
         /// <summary>
-        /// Resource Location.
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -111,10 +129,16 @@ namespace Pulumi.AzureNative.Web
         public Output<int> MaximumNumberOfWorkers { get; private set; } = null!;
 
         /// <summary>
-        /// Resource Name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// All network settings for the server farm.
+        /// </summary>
+        [Output("network")]
+        public Output<Outputs.ServerFarmNetworkSettingsResponse?> Network { get; private set; } = null!;
 
         /// <summary>
         /// Number of apps assigned to this App Service plan.
@@ -136,10 +160,29 @@ namespace Pulumi.AzureNative.Web
         public Output<bool?> PerSiteScaling { get; private set; } = null!;
 
         /// <summary>
+        /// Identity to use by platform for various features and integrations using managed identity.
+        /// </summary>
+        [Output("planDefaultIdentity")]
+        public Output<Outputs.DefaultIdentityResponse?> PlanDefaultIdentity { get; private set; } = null!;
+
+        /// <summary>
         /// Provisioning state of the App Service Plan.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// If &lt;code&gt;true&lt;/code&gt;, RDP access is enabled for this App Service plan. Only applicable for IsCustomMode ASPs.
+        /// If &lt;code&gt;false&lt;/code&gt;, RDP access is disabled.
+        /// </summary>
+        [Output("rdpEnabled")]
+        public Output<bool?> RdpEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Registry adapters associated with this App Service plan.
+        /// </summary>
+        [Output("registryAdapters")]
+        public Output<ImmutableArray<Outputs.RegistryAdapterResponse>> RegistryAdapters { get; private set; } = null!;
 
         /// <summary>
         /// If Linux app service plan &lt;code&gt;true&lt;/code&gt;, &lt;code&gt;false&lt;/code&gt; otherwise.
@@ -172,10 +215,22 @@ namespace Pulumi.AzureNative.Web
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
+        /// Storage mounts associated with this App Service plan.
+        /// </summary>
+        [Output("storageMounts")]
+        public Output<ImmutableArray<Outputs.StorageMountResponse>> StorageMounts { get; private set; } = null!;
+
+        /// <summary>
         /// App Service plan subscription.
         /// </summary>
         [Output("subscription")]
         public Output<string> Subscription { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -196,7 +251,7 @@ namespace Pulumi.AzureNative.Web
         public Output<int?> TargetWorkerSizeId { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -322,6 +377,30 @@ namespace Pulumi.AzureNative.Web
         public Input<bool>? HyperV { get; set; }
 
         /// <summary>
+        /// Managed service identity.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+
+        [Input("installScripts")]
+        private InputList<Inputs.InstallScriptArgs>? _installScripts;
+
+        /// <summary>
+        /// Install scripts associated with this App Service plan.
+        /// </summary>
+        public InputList<Inputs.InstallScriptArgs> InstallScripts
+        {
+            get => _installScripts ?? (_installScripts = new InputList<Inputs.InstallScriptArgs>());
+            set => _installScripts = value;
+        }
+
+        /// <summary>
+        /// Whether this server farm is in custom mode.
+        /// </summary>
+        [Input("isCustomMode")]
+        public Input<bool>? IsCustomMode { get; set; }
+
+        /// <summary>
         /// If &lt;code&gt;true&lt;/code&gt;, this App Service Plan owns spot instances.
         /// </summary>
         [Input("isSpot")]
@@ -346,7 +425,7 @@ namespace Pulumi.AzureNative.Web
         public Input<Inputs.KubeEnvironmentProfileArgs>? KubeEnvironmentProfile { get; set; }
 
         /// <summary>
-        /// Resource Location.
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -364,11 +443,42 @@ namespace Pulumi.AzureNative.Web
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// All network settings for the server farm.
+        /// </summary>
+        [Input("network")]
+        public Input<Inputs.ServerFarmNetworkSettingsArgs>? Network { get; set; }
+
+        /// <summary>
         /// If &lt;code&gt;true&lt;/code&gt;, apps assigned to this App Service plan can be scaled independently.
         /// If &lt;code&gt;false&lt;/code&gt;, apps assigned to this App Service plan will scale to all instances of the plan.
         /// </summary>
         [Input("perSiteScaling")]
         public Input<bool>? PerSiteScaling { get; set; }
+
+        /// <summary>
+        /// Identity to use by platform for various features and integrations using managed identity.
+        /// </summary>
+        [Input("planDefaultIdentity")]
+        public Input<Inputs.DefaultIdentityArgs>? PlanDefaultIdentity { get; set; }
+
+        /// <summary>
+        /// If &lt;code&gt;true&lt;/code&gt;, RDP access is enabled for this App Service plan. Only applicable for IsCustomMode ASPs.
+        /// If &lt;code&gt;false&lt;/code&gt;, RDP access is disabled.
+        /// </summary>
+        [Input("rdpEnabled")]
+        public Input<bool>? RdpEnabled { get; set; }
+
+        [Input("registryAdapters")]
+        private InputList<Inputs.RegistryAdapterArgs>? _registryAdapters;
+
+        /// <summary>
+        /// Registry adapters associated with this App Service plan.
+        /// </summary>
+        public InputList<Inputs.RegistryAdapterArgs> RegistryAdapters
+        {
+            get => _registryAdapters ?? (_registryAdapters = new InputList<Inputs.RegistryAdapterArgs>());
+            set => _registryAdapters = value;
+        }
 
         /// <summary>
         /// If Linux app service plan &lt;code&gt;true&lt;/code&gt;, &lt;code&gt;false&lt;/code&gt; otherwise.
@@ -377,7 +487,7 @@ namespace Pulumi.AzureNative.Web
         public Input<bool>? Reserved { get; set; }
 
         /// <summary>
-        /// Name of the resource group to which the resource belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -393,6 +503,18 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         [Input("spotExpirationTime")]
         public Input<string>? SpotExpirationTime { get; set; }
+
+        [Input("storageMounts")]
+        private InputList<Inputs.StorageMountArgs>? _storageMounts;
+
+        /// <summary>
+        /// Storage mounts associated with this App Service plan.
+        /// </summary>
+        public InputList<Inputs.StorageMountArgs> StorageMounts
+        {
+            get => _storageMounts ?? (_storageMounts = new InputList<Inputs.StorageMountArgs>());
+            set => _storageMounts = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -433,11 +555,6 @@ namespace Pulumi.AzureNative.Web
 
         public AppServicePlanArgs()
         {
-            HyperV = false;
-            IsXenon = false;
-            PerSiteScaling = false;
-            Reserved = false;
-            ZoneRedundant = false;
         }
         public static new AppServicePlanArgs Empty => new AppServicePlanArgs();
     }

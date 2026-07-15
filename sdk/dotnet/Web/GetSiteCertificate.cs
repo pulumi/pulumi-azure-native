@@ -12,31 +12,31 @@ namespace Pulumi.AzureNative.Web
     public static class GetSiteCertificate
     {
         /// <summary>
-        /// SSL certificate for an app.
+        /// Get a certificate belonging to a given site.
         /// 
-        /// Uses Azure REST API version 2024-11-01.
+        /// Uses Azure REST API version 2025-05-01.
         /// 
-        /// Other available API versions: 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetSiteCertificateResult> InvokeAsync(GetSiteCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSiteCertificateResult>("azure-native:web:getSiteCertificate", args ?? new GetSiteCertificateArgs(), options.WithDefaults());
 
         /// <summary>
-        /// SSL certificate for an app.
+        /// Get a certificate belonging to a given site.
         /// 
-        /// Uses Azure REST API version 2024-11-01.
+        /// Uses Azure REST API version 2025-05-01.
         /// 
-        /// Other available API versions: 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSiteCertificateResult> Invoke(GetSiteCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSiteCertificateResult>("azure-native:web:getSiteCertificate", args ?? new GetSiteCertificateInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// SSL certificate for an app.
+        /// Get a certificate belonging to a given site.
         /// 
-        /// Uses Azure REST API version 2024-11-01.
+        /// Uses Azure REST API version 2025-05-01.
         /// 
-        /// Other available API versions: 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSiteCertificateResult> Invoke(GetSiteCertificateInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSiteCertificateResult>("azure-native:web:getSiteCertificate", args ?? new GetSiteCertificateInvokeArgs(), options.WithDefaults());
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly Outputs.HostingEnvironmentProfileResponse HostingEnvironmentProfile;
         /// <summary>
-        /// Resource Id.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -160,11 +160,11 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly string? Kind;
         /// <summary>
-        /// Resource Location.
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Resource Name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -196,6 +196,10 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly string SubjectName;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -204,7 +208,7 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly string Thumbprint;
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -262,6 +266,8 @@ namespace Pulumi.AzureNative.Web
 
             string subjectName,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string thumbprint,
@@ -294,6 +300,7 @@ namespace Pulumi.AzureNative.Web
             ServerFarmId = serverFarmId;
             SiteName = siteName;
             SubjectName = subjectName;
+            SystemData = systemData;
             Tags = tags;
             Thumbprint = thumbprint;
             Type = type;

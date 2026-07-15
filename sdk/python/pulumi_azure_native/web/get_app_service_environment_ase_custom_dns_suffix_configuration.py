@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult',
@@ -26,7 +27,7 @@ class GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult:
     """
     Full view of the custom domain suffix configuration for ASEv3.
     """
-    def __init__(__self__, azure_api_version=None, certificate_url=None, dns_suffix=None, id=None, key_vault_reference_identity=None, kind=None, name=None, provisioning_details=None, provisioning_state=None, type=None):
+    def __init__(__self__, azure_api_version=None, certificate_url=None, dns_suffix=None, id=None, key_vault_reference_identity=None, kind=None, name=None, provisioning_details=None, provisioning_state=None, system_data=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -54,6 +55,9 @@ class GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -86,7 +90,7 @@ class GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -110,7 +114,7 @@ class GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource Name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -125,10 +129,18 @@ class GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult:
         return pulumi.get(self, "provisioning_state")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -148,6 +160,7 @@ class AwaitableGetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult(Get
             name=self.name,
             provisioning_details=self.provisioning_details,
             provisioning_state=self.provisioning_state,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -155,15 +168,15 @@ def get_app_service_environment_ase_custom_dns_suffix_configuration(name: Option
                                                                     resource_group_name: Optional[_builtins.str] = None,
                                                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult:
     """
-    Full view of the custom domain suffix configuration for ASEv3.
+    Get Custom Dns Suffix configuration of an App Service Environment
 
-    Uses Azure REST API version 2024-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str name: Name of the App Service Environment.
-    :param _builtins.str resource_group_name: Name of the resource group to which the resource belongs.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -181,20 +194,21 @@ def get_app_service_environment_ase_custom_dns_suffix_configuration(name: Option
         name=pulumi.get(__ret__, 'name'),
         provisioning_details=pulumi.get(__ret__, 'provisioning_details'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_app_service_environment_ase_custom_dns_suffix_configuration_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                                                                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult]:
     """
-    Full view of the custom domain suffix configuration for ASEv3.
+    Get Custom Dns Suffix configuration of an App Service Environment
 
-    Uses Azure REST API version 2024-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str name: Name of the App Service Environment.
-    :param _builtins.str resource_group_name: Name of the resource group to which the resource belongs.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -211,4 +225,5 @@ def get_app_service_environment_ase_custom_dns_suffix_configuration_output(name:
         name=pulumi.get(__response__, 'name'),
         provisioning_details=pulumi.get(__response__, 'provisioning_details'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

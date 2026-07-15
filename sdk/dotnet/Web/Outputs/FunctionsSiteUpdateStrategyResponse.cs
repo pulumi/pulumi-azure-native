@@ -11,20 +11,20 @@ namespace Pulumi.AzureNative.Web.Outputs
 {
 
     /// <summary>
-    /// Scale and concurrency settings for the HTTP trigger.
+    /// Function app site update strategy configuration for deployments and site config updates.
     /// </summary>
     [OutputType]
-    public sealed class FunctionsScaleAndConcurrencyResponseHttp
+    public sealed class FunctionsSiteUpdateStrategyResponse
     {
         /// <summary>
-        /// The maximum number of concurrent HTTP trigger invocations per instance.
+        /// Function app site update strategy type. Available options: Recreate, RollingUpdate
         /// </summary>
-        public readonly int? PerInstanceConcurrency;
+        public readonly string? Type;
 
         [OutputConstructor]
-        private FunctionsScaleAndConcurrencyResponseHttp(int? perInstanceConcurrency)
+        private FunctionsSiteUpdateStrategyResponse(string? type)
         {
-            PerInstanceConcurrency = perInstanceConcurrency;
+            Type = type;
         }
     }
 }

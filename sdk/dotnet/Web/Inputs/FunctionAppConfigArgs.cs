@@ -33,6 +33,12 @@ namespace Pulumi.AzureNative.Web.Inputs
         [Input("scaleAndConcurrency")]
         public Input<Inputs.FunctionsScaleAndConcurrencyArgs>? ScaleAndConcurrency { get; set; }
 
+        /// <summary>
+        /// Function app site update strategy configuration.
+        /// </summary>
+        [Input("siteUpdateStrategy")]
+        public Input<Inputs.FunctionsSiteUpdateStrategyArgs>? SiteUpdateStrategy { get; set; }
+
         public FunctionAppConfigArgs()
         {
         }

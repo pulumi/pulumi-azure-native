@@ -12,31 +12,31 @@ namespace Pulumi.AzureNative.Web
     public static class GetStaticSiteLinkedBackend
     {
         /// <summary>
-        /// Static Site Linked Backend ARM resource.
+        /// Returns the details of a linked backend linked to a static site by name
         /// 
-        /// Uses Azure REST API version 2024-11-01.
+        /// Uses Azure REST API version 2025-05-01.
         /// 
-        /// Other available API versions: 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetStaticSiteLinkedBackendResult> InvokeAsync(GetStaticSiteLinkedBackendArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStaticSiteLinkedBackendResult>("azure-native:web:getStaticSiteLinkedBackend", args ?? new GetStaticSiteLinkedBackendArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Static Site Linked Backend ARM resource.
+        /// Returns the details of a linked backend linked to a static site by name
         /// 
-        /// Uses Azure REST API version 2024-11-01.
+        /// Uses Azure REST API version 2025-05-01.
         /// 
-        /// Other available API versions: 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetStaticSiteLinkedBackendResult> Invoke(GetStaticSiteLinkedBackendInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStaticSiteLinkedBackendResult>("azure-native:web:getStaticSiteLinkedBackend", args ?? new GetStaticSiteLinkedBackendInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Static Site Linked Backend ARM resource.
+        /// Returns the details of a linked backend linked to a static site by name
         /// 
-        /// Uses Azure REST API version 2024-11-01.
+        /// Uses Azure REST API version 2025-05-01.
         /// 
-        /// Other available API versions: 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetStaticSiteLinkedBackendResult> Invoke(GetStaticSiteLinkedBackendInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetStaticSiteLinkedBackendResult>("azure-native:web:getStaticSiteLinkedBackend", args ?? new GetStaticSiteLinkedBackendInvokeArgs(), options.WithDefaults());
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.Web
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// Name of the resource group to which the resource belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.Web
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Name of the resource group to which the resource belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly string CreatedOn;
         /// <summary>
-        /// Resource Id.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly string? Kind;
         /// <summary>
-        /// Resource Name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -132,7 +132,11 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly string? Region;
         /// <summary>
-        /// Resource type.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -154,6 +158,8 @@ namespace Pulumi.AzureNative.Web
 
             string? region,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             AzureApiVersion = azureApiVersion;
@@ -164,6 +170,7 @@ namespace Pulumi.AzureNative.Web
             Name = name;
             ProvisioningState = provisioningState;
             Region = region;
+            SystemData = systemData;
             Type = type;
         }
     }

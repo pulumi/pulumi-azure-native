@@ -250333,7 +250333,7 @@ export namespace web {
          */
         ftpEnabled?: boolean;
         /**
-         * Resource Id.
+         * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
          */
         id: string;
         /**
@@ -250347,7 +250347,7 @@ export namespace web {
         kind?: string;
         linuxOutboundIpAddresses: string[];
         /**
-         * Resource Name.
+         * The name of the resource
          */
         name: string;
         /**
@@ -250355,7 +250355,11 @@ export namespace web {
          */
         remoteDebugEnabled?: boolean;
         /**
-         * Resource type.
+         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+         */
+        systemData: outputs.web.SystemDataResponse;
+        /**
+         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
         type: string;
         windowsOutboundIpAddresses: string[];
@@ -250480,7 +250484,7 @@ export namespace web {
     export interface AzureActiveDirectoryRegistrationResponse {
         /**
          * The Client ID of this relying party application, known as the client_id.
-         * This setting is required for enabling OpenID Connection authentication with Azure Active Directory or 
+         * This setting is required for enabling OpenID Connection authentication with Azure Active Directory or
          * other 3rd party OpenID Connect providers.
          * More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
          */
@@ -250718,7 +250722,7 @@ export namespace web {
          */
         finishedTimeStamp: string;
         /**
-         * Resource Id.
+         * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
          */
         id: string;
         /**
@@ -250734,7 +250738,7 @@ export namespace web {
          */
         log: string;
         /**
-         * Resource Name.
+         * The name of the resource
          */
         name: string;
         /**
@@ -250754,7 +250758,11 @@ export namespace web {
          */
         storageAccountUrl: string;
         /**
-         * Resource type.
+         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+         */
+        systemData: outputs.web.SystemDataResponse;
+        /**
+         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
         type: string;
         /**
@@ -251057,7 +251065,7 @@ export namespace web {
          */
         allowedOrigins?: string[];
         /**
-         * Gets or sets whether CORS requests with credentials are allowed. See 
+         * Gets or sets whether CORS requests with credentials are allowed. See
          * https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Requests_with_credentials
          * for more details.
          */
@@ -251131,7 +251139,7 @@ export namespace web {
          */
         dnsSuffix?: string;
         /**
-         * Resource Id.
+         * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
          */
         id: string;
         /**
@@ -251143,13 +251151,17 @@ export namespace web {
          */
         kind?: string;
         /**
-         * Resource Name.
+         * The name of the resource
          */
         name: string;
         provisioningDetails: string;
         provisioningState: string;
         /**
-         * Resource type.
+         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+         */
+        systemData: outputs.web.SystemDataResponse;
+        /**
+         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
         type: string;
     }
@@ -251275,6 +251287,14 @@ export namespace web {
         allowedPrincipals?: outputs.web.AllowedPrincipalsResponse;
     }
 
+    export interface DefaultIdentityResponse {
+        /**
+         * Type of managed service identity.
+         */
+        identityType?: string;
+        userAssignedIdentityResourceId?: string;
+    }
+
     /**
      * Enabled configuration.
      */
@@ -251360,6 +251380,9 @@ export namespace web {
          * The text.
          */
         text?: string;
+        /**
+         * Anything
+         */
         value?: any;
     }
 
@@ -251383,6 +251406,9 @@ export namespace web {
          * The text.
          */
         text?: string;
+        /**
+         * Anything
+         */
         value?: any;
     }
 
@@ -251511,6 +251537,10 @@ export namespace web {
          * Function app scale and concurrency settings.
          */
         scaleAndConcurrency?: outputs.web.FunctionsScaleAndConcurrencyResponse;
+        /**
+         * Function app site update strategy configuration.
+         */
+        siteUpdateStrategy?: outputs.web.FunctionsSiteUpdateStrategyResponse;
     }
 
     /**
@@ -251534,13 +251564,13 @@ export namespace web {
         /**
          * Storage for deployed package used by the function app.
          */
-        storage?: outputs.web.FunctionsDeploymentResponseStorage;
+        storage?: outputs.web.FunctionsDeploymentStorageResponse;
     }
 
     /**
      * Authentication method to access the storage account for deployment.
      */
-    export interface FunctionsDeploymentResponseAuthentication {
+    export interface FunctionsDeploymentStorageAuthenticationResponse {
         /**
          * Use this property for StorageAccountConnectionString. Set the name of the app setting that has the storage account connection string. Do not set a value for this property when using other authentication type.
          */
@@ -251558,11 +251588,11 @@ export namespace web {
     /**
      * Storage for deployed package used by the function app.
      */
-    export interface FunctionsDeploymentResponseStorage {
+    export interface FunctionsDeploymentStorageResponse {
         /**
          * Authentication method to access the storage account for deployment.
          */
-        authentication?: outputs.web.FunctionsDeploymentResponseAuthentication;
+        authentication?: outputs.web.FunctionsDeploymentStorageAuthenticationResponse;
         /**
          * Property to select Azure Storage type. Available options: blobContainer.
          */
@@ -251606,13 +251636,13 @@ export namespace web {
         /**
          * Scale and concurrency settings for the function app triggers.
          */
-        triggers?: outputs.web.FunctionsScaleAndConcurrencyResponseTriggers;
+        triggers?: outputs.web.FunctionsScaleAndConcurrencyTriggersResponse;
     }
 
     /**
      * Scale and concurrency settings for the HTTP trigger.
      */
-    export interface FunctionsScaleAndConcurrencyResponseHttp {
+    export interface FunctionsScaleAndConcurrencyTriggersHttpResponse {
         /**
          * The maximum number of concurrent HTTP trigger invocations per instance.
          */
@@ -251622,11 +251652,21 @@ export namespace web {
     /**
      * Scale and concurrency settings for the function app triggers.
      */
-    export interface FunctionsScaleAndConcurrencyResponseTriggers {
+    export interface FunctionsScaleAndConcurrencyTriggersResponse {
         /**
          * Scale and concurrency settings for the HTTP trigger.
          */
-        http?: outputs.web.FunctionsScaleAndConcurrencyResponseHttp;
+        http?: outputs.web.FunctionsScaleAndConcurrencyTriggersHttpResponse;
+    }
+
+    /**
+     * Function app site update strategy configuration for deployments and site config updates.
+     */
+    export interface FunctionsSiteUpdateStrategyResponse {
+        /**
+         * Function app site update strategy type. Available options: Recreate, RollingUpdate
+         */
+        type?: string;
     }
 
     /**
@@ -251752,7 +251792,7 @@ export namespace web {
     }
 
     /**
-     * The IIS handler mappings used to define which handler processes HTTP requests with certain extension. 
+     * The IIS handler mappings used to define which handler processes HTTP requests with certain extension.
      * For example, it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
      */
     export interface HandlerMappingResponse {
@@ -251865,7 +251905,7 @@ export namespace web {
      */
     export interface IdentifierResponse {
         /**
-         * Resource Id.
+         * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
          */
         id: string;
         /**
@@ -251873,11 +251913,15 @@ export namespace web {
          */
         kind?: string;
         /**
-         * Resource Name.
+         * The name of the resource
          */
         name: string;
         /**
-         * Resource type.
+         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+         */
+        systemData: outputs.web.SystemDataResponse;
+        /**
+         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
         type: string;
         /**
@@ -251930,6 +251974,34 @@ export namespace web {
     }
 
     /**
+     * Server farm install script configuration.
+     */
+    export interface InstallScriptResponse {
+        /**
+         * Name of the install script.
+         */
+        name?: string;
+        /**
+         * Source of the install script.
+         */
+        source?: outputs.web.InstallScriptSourceResponse;
+    }
+
+    /**
+     * Object to hold install script reference.
+     */
+    export interface InstallScriptSourceResponse {
+        /**
+         * Install script source URI where the install script file will be fetched from.
+         */
+        sourceUri?: string;
+        /**
+         * Type of the install script.
+         */
+        type?: string;
+    }
+
+    /**
      * IP security restriction on an app.
      */
     export interface IpSecurityRestrictionResponse {
@@ -251943,12 +252015,12 @@ export namespace web {
         description?: string;
         /**
          * IP restriction rule headers.
-         * X-Forwarded-Host (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-Host#Examples). 
+         * X-Forwarded-Host (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-Host#Examples).
          * The matching logic is ..
          * - If the property is null or empty (default), all hosts(or lack of) are allowed.
          * - A value is compared using ordinal-ignore-case (excluding port number).
          * - Subdomain wildcards are permitted but don't match the root domain. For example, *.contoso.com matches the subdomain foo.contoso.com
-         *  but not the root domain contoso.com or multi-level foo.bar.contoso.com
+         * but not the root domain contoso.com or multi-level foo.bar.contoso.com
          * - Unicode host names are allowed but are converted to Punycode for matching.
          *
          * X-Forwarded-For (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-For#Examples).
@@ -252009,6 +252081,20 @@ export namespace web {
          * The list of the allowed groups.
          */
         allowedGroups?: string[];
+    }
+
+    /**
+     * Object to hold key vault reference and the resolution status
+     */
+    export interface KeyVaultReferenceWithStatusResponse {
+        /**
+         * Reference status of the key vault secret.
+         */
+        referenceStatus?: string;
+        /**
+         * Key vault secret URI.
+         */
+        secretUri?: string;
     }
 
     /**
@@ -252331,8 +252417,8 @@ export namespace web {
          */
         changeIntervalInMinutes?: number;
         /**
-         * In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches \n<code>MinReroutePercentage</code> or 
-         * <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.\nCustom decision algorithm 
+         * In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches \n<code>MinReroutePercentage</code> or
+         * <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.\nCustom decision algorithm
          * can be provided in TiPCallback site extension which URL can be specified in <code>ChangeDecisionCallbackUrl</code>.
          */
         changeStep?: number;
@@ -252352,6 +252438,24 @@ export namespace web {
          * Percentage of the traffic which will be redirected to <code>ActionHostName</code>.
          */
         reroutePercentage?: number;
+    }
+
+    /**
+     * Server farm registry adapter configuration.
+     */
+    export interface RegistryAdapterResponse {
+        /**
+         * Key vault reference to the value that will be placed in the registry location
+         */
+        keyVaultSecretReference?: outputs.web.KeyVaultReferenceWithStatusResponse;
+        /**
+         * Registry key for the adapter.
+         */
+        registryKey?: string;
+        /**
+         * Type of the registry adapter.
+         */
+        type?: string;
     }
 
     /**
@@ -252489,6 +252593,16 @@ export namespace web {
          * The instance status.
          */
         status?: string;
+    }
+
+    /**
+     * Network settings for an app service plan.
+     */
+    export interface ServerFarmNetworkSettingsResponse {
+        /**
+         * Azure Resource Manager ID of the Virtual network and subnet to be joined by Regional VNET Integration. This must be of the form /subscriptions/{subscriptionName}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}
+         */
+        virtualNetworkSubnetId?: string;
     }
 
     /**
@@ -253192,6 +253306,32 @@ export namespace web {
     }
 
     /**
+     * Server farm storage mount configuration.
+     */
+    export interface StorageMountResponse {
+        /**
+         * KV reference to the credentials to connect to the share.
+         */
+        credentialsKeyVaultReference?: outputs.web.KeyVaultReferenceWithStatusResponse;
+        /**
+         * Path on worker where storage will be mounted.
+         */
+        destinationPath?: string;
+        /**
+         * Name of the storage mount.
+         */
+        name?: string;
+        /**
+         * Source of the fileshare/storage.
+         */
+        source?: string;
+        /**
+         * Type of the storage mount.
+         */
+        type?: string;
+    }
+
+    /**
      * Metadata pertaining to creation and last modification of the resource.
      */
     export interface SystemDataResponse {
@@ -253231,7 +253371,7 @@ export namespace web {
         azureBlobStorage?: outputs.web.BlobStorageTokenStoreResponse;
         /**
          * <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
-         *  The default is <code>false</code>.
+         * The default is <code>false</code>.
          */
         enabled?: boolean;
         /**
@@ -253357,7 +253497,7 @@ export namespace web {
          */
         endAddress?: string;
         /**
-         * Resource Id.
+         * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
          */
         id: string;
         /**
@@ -253365,7 +253505,7 @@ export namespace web {
          */
         kind?: string;
         /**
-         * Resource Name.
+         * The name of the resource
          */
         name: string;
         /**
@@ -253382,7 +253522,11 @@ export namespace web {
          */
         startAddress?: string;
         /**
-         * Resource type.
+         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+         */
+        systemData: outputs.web.SystemDataResponse;
+        /**
+         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
         type: string;
     }
@@ -253409,11 +253553,11 @@ export namespace web {
     /**
      * Additional workflow properties.
      */
-    export interface WorkflowEnvelopeResponseProperties {
+    export interface WorkflowEnvelopePropertiesResponse {
         /**
          * Gets or sets the files.
          */
-        files?: {[key: string]: any};
+        files?: any;
         /**
          * Gets or sets the state of the workflow.
          */

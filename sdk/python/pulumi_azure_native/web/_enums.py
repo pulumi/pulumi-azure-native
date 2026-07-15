@@ -34,19 +34,24 @@ __all__ = [
     'HostNameType',
     'HostType',
     'IPMode',
+    'InstallScriptType',
     'IpFilterTag',
     'LoadBalancingMode',
     'LogLevel',
     'ManagedPipelineMode',
     'ManagedServiceIdentityType',
+    'Method',
     'PublicCertificateLocation',
     'RedundancyMode',
+    'RegistryAdapterType',
     'RouteType',
     'RuntimeName',
     'ScmType',
     'SiteLoadBalancing',
+    'SiteUpdateStrategyType',
     'SslState',
     'StagingEnvironmentPolicy',
+    'StorageMountType',
     'StorageType',
     'SupportedTlsVersions',
     'TlsCipherSuites',
@@ -338,6 +343,15 @@ class IPMode(_builtins.str, Enum):
     I_PV4_AND_I_PV6 = "IPv4AndIPv6"
 
 
+@pulumi.type_token("azure-native:web:InstallScriptType")
+class InstallScriptType(_builtins.str, Enum):
+    """
+    Type of the install script.
+    """
+    REMOTE_AZURE_BLOB = "RemoteAzureBlob"
+    PLATFORM_STORAGE = "PlatformStorage"
+
+
 @pulumi.type_token("azure-native:web:IpFilterTag")
 class IpFilterTag(_builtins.str, Enum):
     """
@@ -391,6 +405,14 @@ class ManagedServiceIdentityType(_builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("azure-native:web:Method")
+class Method(_builtins.str, Enum):
+    """
+    The method that should be used to authenticate the user.
+    """
+    CLIENT_SECRET_POST = "ClientSecretPost"
+
+
 @pulumi.type_token("azure-native:web:PublicCertificateLocation")
 class PublicCertificateLocation(_builtins.str, Enum):
     """
@@ -411,6 +433,19 @@ class RedundancyMode(_builtins.str, Enum):
     FAILOVER = "Failover"
     ACTIVE_ACTIVE = "ActiveActive"
     GEO_REDUNDANT = "GeoRedundant"
+
+
+@pulumi.type_token("azure-native:web:RegistryAdapterType")
+class RegistryAdapterType(_builtins.str, Enum):
+    """
+    Type of the registry adapter.
+    """
+    BINARY = "Binary"
+    STRING = "String"
+    EXPAND_STRING = "Expand_String"
+    MULTI_STRING = "Multi_String"
+    D_WORD = "DWord"
+    Q_WORD = "QWord"
 
 
 @pulumi.type_token("azure-native:web:RouteType")
@@ -476,6 +511,23 @@ class SiteLoadBalancing(_builtins.str, Enum):
     LEAST_REQUESTS_WITH_TIE_BREAKER = "LeastRequestsWithTieBreaker"
 
 
+@pulumi.type_token("azure-native:web:SiteUpdateStrategyType")
+class SiteUpdateStrategyType(_builtins.str, Enum):
+    """
+    Function app site update strategy type. Available options: Recreate, RollingUpdate
+    """
+    RECREATE = "Recreate"
+    """
+    If the app is under load and a deployment or site state update occurs, all pods will be removed
+    and will need to be Recreated all at once. This is the default behavior.
+    """
+    ROLLING_UPDATE = "RollingUpdate"
+    """
+    If the app is under load and a deployment or site state update occurs, pods will be drained in
+    batches and gradually replaced, thus minimizing impact to throughput.
+    """
+
+
 @pulumi.type_token("azure-native:web:SslState")
 class SslState(_builtins.str, Enum):
     """
@@ -493,6 +545,16 @@ class StagingEnvironmentPolicy(_builtins.str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+@pulumi.type_token("azure-native:web:StorageMountType")
+class StorageMountType(_builtins.str, Enum):
+    """
+    Type of the storage mount.
+    """
+    AZURE_FILES = "AzureFiles"
+    LOCAL_STORAGE = "LocalStorage"
+    FILE_SHARE = "FileShare"
 
 
 @pulumi.type_token("azure-native:web:StorageType")

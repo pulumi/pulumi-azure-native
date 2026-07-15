@@ -27,7 +27,7 @@ class GetWebAppSiteContainerSlotResult:
     """
     Container of a site
     """
-    def __init__(__self__, auth_type=None, azure_api_version=None, created_time=None, environment_variables=None, id=None, image=None, inherit_app_settings_and_connection_strings=None, is_main=None, kind=None, last_modified_time=None, name=None, password_secret=None, start_up_command=None, target_port=None, type=None, user_managed_identity_client_id=None, user_name=None, volume_mounts=None):
+    def __init__(__self__, auth_type=None, azure_api_version=None, created_time=None, environment_variables=None, id=None, image=None, inherit_app_settings_and_connection_strings=None, is_main=None, kind=None, last_modified_time=None, name=None, password_secret=None, start_up_command=None, system_data=None, target_port=None, type=None, user_managed_identity_client_id=None, user_name=None, volume_mounts=None):
         if auth_type and not isinstance(auth_type, str):
             raise TypeError("Expected argument 'auth_type' to be a str")
         pulumi.set(__self__, "auth_type", auth_type)
@@ -67,6 +67,9 @@ class GetWebAppSiteContainerSlotResult:
         if start_up_command and not isinstance(start_up_command, str):
             raise TypeError("Expected argument 'start_up_command' to be a str")
         pulumi.set(__self__, "start_up_command", start_up_command)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if target_port and not isinstance(target_port, str):
             raise TypeError("Expected argument 'target_port' to be a str")
         pulumi.set(__self__, "target_port", target_port)
@@ -119,7 +122,7 @@ class GetWebAppSiteContainerSlotResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -167,7 +170,7 @@ class GetWebAppSiteContainerSlotResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource Name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -188,6 +191,14 @@ class GetWebAppSiteContainerSlotResult:
         return pulumi.get(self, "start_up_command")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter(name="targetPort")
     def target_port(self) -> Optional[_builtins.str]:
         """
@@ -199,7 +210,7 @@ class GetWebAppSiteContainerSlotResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -247,6 +258,7 @@ class AwaitableGetWebAppSiteContainerSlotResult(GetWebAppSiteContainerSlotResult
             name=self.name,
             password_secret=self.password_secret,
             start_up_command=self.start_up_command,
+            system_data=self.system_data,
             target_port=self.target_port,
             type=self.type,
             user_managed_identity_client_id=self.user_managed_identity_client_id,
@@ -260,16 +272,16 @@ def get_web_app_site_container_slot(container_name: Optional[_builtins.str] = No
                                     slot: Optional[_builtins.str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppSiteContainerSlotResult:
     """
-    Container of a site
+    Gets a site container of a site, or a deployment slot.
 
-    Uses Azure REST API version 2024-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str container_name: Site Container Name
     :param _builtins.str name: Name of the app.
-    :param _builtins.str resource_group_name: Name of the resource group to which the resource belongs.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str slot: Name of the deployment slot. If a slot is not specified, the API will get the Site Container for the production slot.
     """
     __args__ = dict()
@@ -294,6 +306,7 @@ def get_web_app_site_container_slot(container_name: Optional[_builtins.str] = No
         name=pulumi.get(__ret__, 'name'),
         password_secret=pulumi.get(__ret__, 'password_secret'),
         start_up_command=pulumi.get(__ret__, 'start_up_command'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         target_port=pulumi.get(__ret__, 'target_port'),
         type=pulumi.get(__ret__, 'type'),
         user_managed_identity_client_id=pulumi.get(__ret__, 'user_managed_identity_client_id'),
@@ -305,16 +318,16 @@ def get_web_app_site_container_slot_output(container_name: Optional[pulumi.Input
                                            slot: Optional[pulumi.Input[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppSiteContainerSlotResult]:
     """
-    Container of a site
+    Gets a site container of a site, or a deployment slot.
 
-    Uses Azure REST API version 2024-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str container_name: Site Container Name
     :param _builtins.str name: Name of the app.
-    :param _builtins.str resource_group_name: Name of the resource group to which the resource belongs.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str slot: Name of the deployment slot. If a slot is not specified, the API will get the Site Container for the production slot.
     """
     __args__ = dict()
@@ -338,6 +351,7 @@ def get_web_app_site_container_slot_output(container_name: Optional[pulumi.Input
         name=pulumi.get(__response__, 'name'),
         password_secret=pulumi.get(__response__, 'password_secret'),
         start_up_command=pulumi.get(__response__, 'start_up_command'),
+        system_data=pulumi.get(__response__, 'system_data'),
         target_port=pulumi.get(__response__, 'target_port'),
         type=pulumi.get(__response__, 'type'),
         user_managed_identity_client_id=pulumi.get(__response__, 'user_managed_identity_client_id'),

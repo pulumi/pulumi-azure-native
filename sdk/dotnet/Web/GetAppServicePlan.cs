@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Description for Get an App Service plan.
         /// 
-        /// Uses Azure REST API version 2024-11-01.
+        /// Uses Azure REST API version 2025-05-01.
         /// 
-        /// Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetAppServicePlanResult> InvokeAsync(GetAppServicePlanArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppServicePlanResult>("azure-native:web:getAppServicePlan", args ?? new GetAppServicePlanArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Description for Get an App Service plan.
         /// 
-        /// Uses Azure REST API version 2024-11-01.
+        /// Uses Azure REST API version 2025-05-01.
         /// 
-        /// Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAppServicePlanResult> Invoke(GetAppServicePlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppServicePlanResult>("azure-native:web:getAppServicePlan", args ?? new GetAppServicePlanInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Description for Get an App Service plan.
         /// 
-        /// Uses Azure REST API version 2024-11-01.
+        /// Uses Azure REST API version 2025-05-01.
         /// 
-        /// Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAppServicePlanResult> Invoke(GetAppServicePlanInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppServicePlanResult>("azure-native:web:getAppServicePlan", args ?? new GetAppServicePlanInvokeArgs(), options.WithDefaults());
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.Web
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// Name of the resource group to which the resource belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.Web
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Name of the resource group to which the resource belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -121,9 +121,21 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly bool? HyperV;
         /// <summary>
-        /// Resource Id.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Managed service identity.
+        /// </summary>
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        /// <summary>
+        /// Install scripts associated with this App Service plan.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.InstallScriptResponse> InstallScripts;
+        /// <summary>
+        /// Whether this server farm is in custom mode.
+        /// </summary>
+        public readonly bool? IsCustomMode;
         /// <summary>
         /// If &lt;code&gt;true&lt;/code&gt;, this App Service Plan owns spot instances.
         /// </summary>
@@ -141,7 +153,7 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly Outputs.KubeEnvironmentProfileResponse? KubeEnvironmentProfile;
         /// <summary>
-        /// Resource Location.
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
@@ -153,9 +165,13 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly int MaximumNumberOfWorkers;
         /// <summary>
-        /// Resource Name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// All network settings for the server farm.
+        /// </summary>
+        public readonly Outputs.ServerFarmNetworkSettingsResponse? Network;
         /// <summary>
         /// Number of apps assigned to this App Service plan.
         /// </summary>
@@ -170,9 +186,22 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly bool? PerSiteScaling;
         /// <summary>
+        /// Identity to use by platform for various features and integrations using managed identity.
+        /// </summary>
+        public readonly Outputs.DefaultIdentityResponse? PlanDefaultIdentity;
+        /// <summary>
         /// Provisioning state of the App Service Plan.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// If &lt;code&gt;true&lt;/code&gt;, RDP access is enabled for this App Service plan. Only applicable for IsCustomMode ASPs.
+        /// If &lt;code&gt;false&lt;/code&gt;, RDP access is disabled.
+        /// </summary>
+        public readonly bool? RdpEnabled;
+        /// <summary>
+        /// Registry adapters associated with this App Service plan.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RegistryAdapterResponse> RegistryAdapters;
         /// <summary>
         /// If Linux app service plan &lt;code&gt;true&lt;/code&gt;, &lt;code&gt;false&lt;/code&gt; otherwise.
         /// </summary>
@@ -194,9 +223,17 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly string Status;
         /// <summary>
+        /// Storage mounts associated with this App Service plan.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.StorageMountResponse> StorageMounts;
+        /// <summary>
         /// App Service plan subscription.
         /// </summary>
         public readonly string Subscription;
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -210,7 +247,7 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly int? TargetWorkerSizeId;
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -243,6 +280,12 @@ namespace Pulumi.AzureNative.Web
 
             string id,
 
+            Outputs.ManagedServiceIdentityResponse? identity,
+
+            ImmutableArray<Outputs.InstallScriptResponse> installScripts,
+
+            bool? isCustomMode,
+
             bool? isSpot,
 
             bool? isXenon,
@@ -259,13 +302,21 @@ namespace Pulumi.AzureNative.Web
 
             string name,
 
+            Outputs.ServerFarmNetworkSettingsResponse? network,
+
             int numberOfSites,
 
             int numberOfWorkers,
 
             bool? perSiteScaling,
 
+            Outputs.DefaultIdentityResponse? planDefaultIdentity,
+
             string provisioningState,
+
+            bool? rdpEnabled,
+
+            ImmutableArray<Outputs.RegistryAdapterResponse> registryAdapters,
 
             bool? reserved,
 
@@ -277,7 +328,11 @@ namespace Pulumi.AzureNative.Web
 
             string status,
 
+            ImmutableArray<Outputs.StorageMountResponse> storageMounts,
+
             string subscription,
+
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -300,6 +355,9 @@ namespace Pulumi.AzureNative.Web
             HostingEnvironmentProfile = hostingEnvironmentProfile;
             HyperV = hyperV;
             Id = id;
+            Identity = identity;
+            InstallScripts = installScripts;
+            IsCustomMode = isCustomMode;
             IsSpot = isSpot;
             IsXenon = isXenon;
             Kind = kind;
@@ -308,16 +366,22 @@ namespace Pulumi.AzureNative.Web
             MaximumElasticWorkerCount = maximumElasticWorkerCount;
             MaximumNumberOfWorkers = maximumNumberOfWorkers;
             Name = name;
+            Network = network;
             NumberOfSites = numberOfSites;
             NumberOfWorkers = numberOfWorkers;
             PerSiteScaling = perSiteScaling;
+            PlanDefaultIdentity = planDefaultIdentity;
             ProvisioningState = provisioningState;
+            RdpEnabled = rdpEnabled;
+            RegistryAdapters = registryAdapters;
             Reserved = reserved;
             ResourceGroup = resourceGroup;
             Sku = sku;
             SpotExpirationTime = spotExpirationTime;
             Status = status;
+            StorageMounts = storageMounts;
             Subscription = subscription;
+            SystemData = systemData;
             Tags = tags;
             TargetWorkerCount = targetWorkerCount;
             TargetWorkerSizeId = targetWorkerSizeId;

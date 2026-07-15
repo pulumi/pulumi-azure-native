@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetWebAppHybridConnectionResult',
@@ -26,7 +27,7 @@ class GetWebAppHybridConnectionResult:
     """
     Hybrid Connection contract. This is used to configure a Hybrid Connection.
     """
-    def __init__(__self__, azure_api_version=None, hostname=None, id=None, kind=None, name=None, port=None, relay_arm_uri=None, relay_name=None, send_key_name=None, send_key_value=None, service_bus_namespace=None, service_bus_suffix=None, type=None):
+    def __init__(__self__, azure_api_version=None, hostname=None, id=None, kind=None, name=None, port=None, relay_arm_uri=None, relay_name=None, send_key_name=None, send_key_value=None, service_bus_namespace=None, service_bus_suffix=None, system_data=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -63,6 +64,9 @@ class GetWebAppHybridConnectionResult:
         if service_bus_suffix and not isinstance(service_bus_suffix, str):
             raise TypeError("Expected argument 'service_bus_suffix' to be a str")
         pulumi.set(__self__, "service_bus_suffix", service_bus_suffix)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -87,7 +91,7 @@ class GetWebAppHybridConnectionResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -103,7 +107,7 @@ class GetWebAppHybridConnectionResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource Name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -165,10 +169,18 @@ class GetWebAppHybridConnectionResult:
         return pulumi.get(self, "service_bus_suffix")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -191,6 +203,7 @@ class AwaitableGetWebAppHybridConnectionResult(GetWebAppHybridConnectionResult):
             send_key_value=self.send_key_value,
             service_bus_namespace=self.service_bus_namespace,
             service_bus_suffix=self.service_bus_suffix,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -202,15 +215,15 @@ def get_web_app_hybrid_connection(name: Optional[_builtins.str] = None,
     """
     Description for Retrieves a specific Service Bus Hybrid Connection used by this Web App.
 
-    Uses Azure REST API version 2024-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str name: The name of the web app.
     :param _builtins.str namespace_name: The namespace for this hybrid connection.
     :param _builtins.str relay_name: The relay name for this hybrid connection.
-    :param _builtins.str resource_group_name: Name of the resource group to which the resource belongs.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -233,6 +246,7 @@ def get_web_app_hybrid_connection(name: Optional[_builtins.str] = None,
         send_key_value=pulumi.get(__ret__, 'send_key_value'),
         service_bus_namespace=pulumi.get(__ret__, 'service_bus_namespace'),
         service_bus_suffix=pulumi.get(__ret__, 'service_bus_suffix'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_web_app_hybrid_connection_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                                          namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -242,15 +256,15 @@ def get_web_app_hybrid_connection_output(name: Optional[pulumi.Input[_builtins.s
     """
     Description for Retrieves a specific Service Bus Hybrid Connection used by this Web App.
 
-    Uses Azure REST API version 2024-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str name: The name of the web app.
     :param _builtins.str namespace_name: The namespace for this hybrid connection.
     :param _builtins.str relay_name: The relay name for this hybrid connection.
-    :param _builtins.str resource_group_name: Name of the resource group to which the resource belongs.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -272,4 +286,5 @@ def get_web_app_hybrid_connection_output(name: Optional[pulumi.Input[_builtins.s
         send_key_value=pulumi.get(__response__, 'send_key_value'),
         service_bus_namespace=pulumi.get(__response__, 'service_bus_namespace'),
         service_bus_suffix=pulumi.get(__response__, 'service_bus_suffix'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

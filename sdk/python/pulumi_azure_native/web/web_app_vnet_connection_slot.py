@@ -33,14 +33,13 @@ class WebAppVnetConnectionSlotArgs:
         The set of arguments for constructing a WebAppVnetConnectionSlot resource.
 
         :param pulumi.Input[_builtins.str] name: Name of the app.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
-        :param pulumi.Input[_builtins.str] slot: Name of the deployment slot. If a slot is not specified, the API will add or update connections for the production slot.
-        :param pulumi.Input[_builtins.str] cert_blob: A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
-               Point-To-Site VPN connection.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] slot: Name of the deployment slot. If a slot is not specified, the API will get the named virtual network for the production slot.
+        :param pulumi.Input[_builtins.str] cert_blob: A certificate file (.cer) blob containing the public key of the private key used to authenticate a \\nPoint-To-Site VPN connection.
         :param pulumi.Input[_builtins.str] dns_servers: DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
         :param pulumi.Input[_builtins.bool] is_swift: Flag that is used to denote if this is VNET injection
         :param pulumi.Input[_builtins.str] kind: Kind of resource.
-        :param pulumi.Input[_builtins.str] vnet_name: Name of an existing Virtual Network.
+        :param pulumi.Input[_builtins.str] vnet_name: Name of the virtual network.
         :param pulumi.Input[_builtins.str] vnet_resource_id: The Virtual Network's resource ID.
         """
         pulumi.set(__self__, "name", name)
@@ -75,7 +74,7 @@ class WebAppVnetConnectionSlotArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the resource group to which the resource belongs.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -87,7 +86,7 @@ class WebAppVnetConnectionSlotArgs:
     @pulumi.getter
     def slot(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the deployment slot. If a slot is not specified, the API will add or update connections for the production slot.
+        Name of the deployment slot. If a slot is not specified, the API will get the named virtual network for the production slot.
         """
         return pulumi.get(self, "slot")
 
@@ -99,8 +98,7 @@ class WebAppVnetConnectionSlotArgs:
     @pulumi.getter(name="certBlob")
     def cert_blob(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
-        Point-To-Site VPN connection.
+        A certificate file (.cer) blob containing the public key of the private key used to authenticate a \\nPoint-To-Site VPN connection.
         """
         return pulumi.get(self, "cert_blob")
 
@@ -148,7 +146,7 @@ class WebAppVnetConnectionSlotArgs:
     @pulumi.getter(name="vnetName")
     def vnet_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Name of an existing Virtual Network.
+        Name of the virtual network.
         """
         return pulumi.get(self, "vnet_name")
 
@@ -188,22 +186,21 @@ class WebAppVnetConnectionSlot(pulumi.CustomResource):
         """
         Virtual Network information ARM resource.
 
-        Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
+        Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cert_blob: A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
-               Point-To-Site VPN connection.
+        :param pulumi.Input[_builtins.str] cert_blob: A certificate file (.cer) blob containing the public key of the private key used to authenticate a \\nPoint-To-Site VPN connection.
         :param pulumi.Input[_builtins.str] dns_servers: DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
         :param pulumi.Input[_builtins.bool] is_swift: Flag that is used to denote if this is VNET injection
         :param pulumi.Input[_builtins.str] kind: Kind of resource.
         :param pulumi.Input[_builtins.str] name: Name of the app.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
-        :param pulumi.Input[_builtins.str] slot: Name of the deployment slot. If a slot is not specified, the API will add or update connections for the production slot.
-        :param pulumi.Input[_builtins.str] vnet_name: Name of an existing Virtual Network.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] slot: Name of the deployment slot. If a slot is not specified, the API will get the named virtual network for the production slot.
+        :param pulumi.Input[_builtins.str] vnet_name: Name of the virtual network.
         :param pulumi.Input[_builtins.str] vnet_resource_id: The Virtual Network's resource ID.
         """
         ...
@@ -215,9 +212,9 @@ class WebAppVnetConnectionSlot(pulumi.CustomResource):
         """
         Virtual Network information ARM resource.
 
-        Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
+        Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -272,6 +269,7 @@ class WebAppVnetConnectionSlot(pulumi.CustomResource):
             __props__.__dict__["cert_thumbprint"] = None
             __props__.__dict__["resync_required"] = None
             __props__.__dict__["routes"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20150801:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20240401:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20241101:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20250301:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20250501:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20260301preview:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20260315:WebAppVnetConnectionSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -306,6 +304,7 @@ class WebAppVnetConnectionSlot(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["resync_required"] = None
         __props__.__dict__["routes"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["vnet_resource_id"] = None
         return WebAppVnetConnectionSlot(resource_name, opts=opts, __props__=__props__)
@@ -322,8 +321,7 @@ class WebAppVnetConnectionSlot(pulumi.CustomResource):
     @pulumi.getter(name="certBlob")
     def cert_blob(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
-        Point-To-Site VPN connection.
+        A certificate file (.cer) blob containing the public key of the private key used to authenticate a \\nPoint-To-Site VPN connection.
         """
         return pulumi.get(self, "cert_blob")
 
@@ -363,7 +361,7 @@ class WebAppVnetConnectionSlot(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource Name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -384,10 +382,18 @@ class WebAppVnetConnectionSlot(pulumi.CustomResource):
         return pulumi.get(self, "routes")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

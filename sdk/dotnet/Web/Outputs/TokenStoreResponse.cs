@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Web.Outputs
         public readonly Outputs.BlobStorageTokenStoreResponse? AzureBlobStorage;
         /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; to durably store platform-specific security tokens that are obtained during login flows; otherwise, &lt;code&gt;false&lt;/code&gt;.
-        ///  The default is &lt;code&gt;false&lt;/code&gt;.
+        /// The default is &lt;code&gt;false&lt;/code&gt;.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>

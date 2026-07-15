@@ -883,6 +883,37 @@ namespace Pulumi.AzureNative.Web
     }
 
     /// <summary>
+    /// Type of the install script.
+    /// </summary>
+    [EnumType]
+    public readonly struct InstallScriptType : IEquatable<InstallScriptType>
+    {
+        private readonly string _value;
+
+        private InstallScriptType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InstallScriptType RemoteAzureBlob { get; } = new InstallScriptType("RemoteAzureBlob");
+        public static InstallScriptType PlatformStorage { get; } = new InstallScriptType("PlatformStorage");
+
+        public static bool operator ==(InstallScriptType left, InstallScriptType right) => left.Equals(right);
+        public static bool operator !=(InstallScriptType left, InstallScriptType right) => !left.Equals(right);
+
+        public static explicit operator string(InstallScriptType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InstallScriptType other && Equals(other);
+        public bool Equals(InstallScriptType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Defines what this IP filter will be used for. This is to support IP filtering on proxies.
     /// </summary>
     [EnumType]
@@ -1046,6 +1077,36 @@ namespace Pulumi.AzureNative.Web
     }
 
     /// <summary>
+    /// The method that should be used to authenticate the user.
+    /// </summary>
+    [EnumType]
+    public readonly struct Method : IEquatable<Method>
+    {
+        private readonly string _value;
+
+        private Method(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Method ClientSecretPost { get; } = new Method("ClientSecretPost");
+
+        public static bool operator ==(Method left, Method right) => left.Equals(right);
+        public static bool operator !=(Method left, Method right) => !left.Equals(right);
+
+        public static explicit operator string(Method value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Method other && Equals(other);
+        public bool Equals(Method other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Public Certificate Location
     /// </summary>
     [EnumType]
@@ -1104,6 +1165,41 @@ namespace Pulumi.AzureNative.Web
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RedundancyMode other && Equals(other);
         public bool Equals(RedundancyMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of the registry adapter.
+    /// </summary>
+    [EnumType]
+    public readonly struct RegistryAdapterType : IEquatable<RegistryAdapterType>
+    {
+        private readonly string _value;
+
+        private RegistryAdapterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RegistryAdapterType Binary { get; } = new RegistryAdapterType("Binary");
+        public static RegistryAdapterType String { get; } = new RegistryAdapterType("String");
+        public static RegistryAdapterType Expand_String { get; } = new RegistryAdapterType("Expand_String");
+        public static RegistryAdapterType Multi_String { get; } = new RegistryAdapterType("Multi_String");
+        public static RegistryAdapterType DWord { get; } = new RegistryAdapterType("DWord");
+        public static RegistryAdapterType QWord { get; } = new RegistryAdapterType("QWord");
+
+        public static bool operator ==(RegistryAdapterType left, RegistryAdapterType right) => left.Equals(right);
+        public static bool operator !=(RegistryAdapterType left, RegistryAdapterType right) => !left.Equals(right);
+
+        public static explicit operator string(RegistryAdapterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RegistryAdapterType other && Equals(other);
+        public bool Equals(RegistryAdapterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1263,6 +1359,45 @@ namespace Pulumi.AzureNative.Web
     }
 
     /// <summary>
+    /// Function app site update strategy type. Available options: Recreate, RollingUpdate
+    /// </summary>
+    [EnumType]
+    public readonly struct SiteUpdateStrategyType : IEquatable<SiteUpdateStrategyType>
+    {
+        private readonly string _value;
+
+        private SiteUpdateStrategyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// If the app is under load and a deployment or site state update occurs, all pods will be removed
+        /// and will need to be Recreated all at once. This is the default behavior.
+        /// </summary>
+        public static SiteUpdateStrategyType Recreate { get; } = new SiteUpdateStrategyType("Recreate");
+        /// <summary>
+        /// If the app is under load and a deployment or site state update occurs, pods will be drained in
+        /// batches and gradually replaced, thus minimizing impact to throughput.
+        /// </summary>
+        public static SiteUpdateStrategyType RollingUpdate { get; } = new SiteUpdateStrategyType("RollingUpdate");
+
+        public static bool operator ==(SiteUpdateStrategyType left, SiteUpdateStrategyType right) => left.Equals(right);
+        public static bool operator !=(SiteUpdateStrategyType left, SiteUpdateStrategyType right) => !left.Equals(right);
+
+        public static explicit operator string(SiteUpdateStrategyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SiteUpdateStrategyType other && Equals(other);
+        public bool Equals(SiteUpdateStrategyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// SSL type.
     /// </summary>
     [EnumType]
@@ -1318,6 +1453,38 @@ namespace Pulumi.AzureNative.Web
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is StagingEnvironmentPolicy other && Equals(other);
         public bool Equals(StagingEnvironmentPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of the storage mount.
+    /// </summary>
+    [EnumType]
+    public readonly struct StorageMountType : IEquatable<StorageMountType>
+    {
+        private readonly string _value;
+
+        private StorageMountType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StorageMountType AzureFiles { get; } = new StorageMountType("AzureFiles");
+        public static StorageMountType LocalStorage { get; } = new StorageMountType("LocalStorage");
+        public static StorageMountType FileShare { get; } = new StorageMountType("FileShare");
+
+        public static bool operator ==(StorageMountType left, StorageMountType right) => left.Equals(right);
+        public static bool operator !=(StorageMountType left, StorageMountType right) => !left.Equals(right);
+
+        public static explicit operator string(StorageMountType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StorageMountType other && Equals(other);
+        public bool Equals(StorageMountType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

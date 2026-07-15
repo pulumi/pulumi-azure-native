@@ -2,14 +2,17 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
  *
- * Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
+ * Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
  *
- * Other available API versions: 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class WebAppSwiftVirtualNetworkConnectionSlot extends pulumi.CustomResource {
     /**
@@ -47,7 +50,7 @@ export class WebAppSwiftVirtualNetworkConnectionSlot extends pulumi.CustomResour
      */
     declare public readonly kind: pulumi.Output<string | undefined>;
     /**
-     * Resource Name.
+     * The name of the resource
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -59,7 +62,11 @@ export class WebAppSwiftVirtualNetworkConnectionSlot extends pulumi.CustomResour
      */
     declare public readonly swiftSupported: pulumi.Output<boolean | undefined>;
     /**
-     * Resource type.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.web.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
 
@@ -90,6 +97,7 @@ export class WebAppSwiftVirtualNetworkConnectionSlot extends pulumi.CustomResour
             resourceInputs["subnetResourceId"] = args?.subnetResourceId;
             resourceInputs["swiftSupported"] = args?.swiftSupported;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -97,6 +105,7 @@ export class WebAppSwiftVirtualNetworkConnectionSlot extends pulumi.CustomResour
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["subnetResourceId"] = undefined /*out*/;
             resourceInputs["swiftSupported"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -119,11 +128,11 @@ export interface WebAppSwiftVirtualNetworkConnectionSlotArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * Name of the resource group to which the resource belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Name of the deployment slot. If a slot is not specified, the API will add or update connections for the production slot.
+     * Name of the deployment slot. If a slot is not specified, the API will get a gateway for the production slot's Virtual Network.
      */
     slot: pulumi.Input<string>;
     /**

@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// </summary>
         public readonly string? EndAddress;
         /// <summary>
-        /// Resource Id.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// </summary>
         public readonly string? Kind;
         /// <summary>
-        /// Resource Name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -46,7 +46,11 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// </summary>
         public readonly string? StartAddress;
         /// <summary>
-        /// Resource type.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -64,6 +68,8 @@ namespace Pulumi.AzureNative.Web.Outputs
 
             string? startAddress,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             EndAddress = endAddress;
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNative.Web.Outputs
             Name = name;
             RouteType = routeType;
             StartAddress = startAddress;
+            SystemData = systemData;
             Type = type;
         }
     }

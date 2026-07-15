@@ -31,9 +31,9 @@ class WebAppSitePushSettingsSlotArgs:
         The set of arguments for constructing a WebAppSitePushSettingsSlot resource.
 
         :param pulumi.Input[_builtins.bool] is_push_enabled: Gets or sets a flag indicating whether the Push endpoint is enabled.
-        :param pulumi.Input[_builtins.str] name: Name of web app.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
-        :param pulumi.Input[_builtins.str] slot: Name of web app slot. If not specified then will default to production slot.
+        :param pulumi.Input[_builtins.str] name: Name of the app.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] slot: Name of the deployment slot. By default, this API returns the production slot.
         :param pulumi.Input[_builtins.str] dynamic_tags_json: Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
         :param pulumi.Input[_builtins.str] kind: Kind of resource.
         :param pulumi.Input[_builtins.str] tag_whitelist_json: Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
@@ -71,7 +71,7 @@ class WebAppSitePushSettingsSlotArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of web app.
+        Name of the app.
         """
         return pulumi.get(self, "name")
 
@@ -83,7 +83,7 @@ class WebAppSitePushSettingsSlotArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the resource group to which the resource belongs.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -95,7 +95,7 @@ class WebAppSitePushSettingsSlotArgs:
     @pulumi.getter
     def slot(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of web app slot. If not specified then will default to production slot.
+        Name of the deployment slot. By default, this API returns the production slot.
         """
         return pulumi.get(self, "slot")
 
@@ -173,9 +173,9 @@ class WebAppSitePushSettingsSlot(pulumi.CustomResource):
         """
         Push settings for the App.
 
-        Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
+        Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -183,9 +183,9 @@ class WebAppSitePushSettingsSlot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] dynamic_tags_json: Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
         :param pulumi.Input[_builtins.bool] is_push_enabled: Gets or sets a flag indicating whether the Push endpoint is enabled.
         :param pulumi.Input[_builtins.str] kind: Kind of resource.
-        :param pulumi.Input[_builtins.str] name: Name of web app.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
-        :param pulumi.Input[_builtins.str] slot: Name of web app slot. If not specified then will default to production slot.
+        :param pulumi.Input[_builtins.str] name: Name of the app.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] slot: Name of the deployment slot. By default, this API returns the production slot.
         :param pulumi.Input[_builtins.str] tag_whitelist_json: Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
         :param pulumi.Input[_builtins.str] tags_requiring_auth: Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
                Tags can consist of alphanumeric characters and the following:
@@ -201,9 +201,9 @@ class WebAppSitePushSettingsSlot(pulumi.CustomResource):
         """
         Push settings for the App.
 
-        Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
+        Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.

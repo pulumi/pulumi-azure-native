@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['AppServicePlanArgs', 'AppServicePlan']
@@ -28,6 +29,9 @@ class AppServicePlanArgs:
                  free_offer_expiration_time: Optional[pulumi.Input[_builtins.str]] = None,
                  hosting_environment_profile: Optional[pulumi.Input['HostingEnvironmentProfileArgs']] = None,
                  hyper_v: Optional[pulumi.Input[_builtins.bool]] = None,
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+                 install_scripts: Optional[pulumi.Input[Sequence[pulumi.Input['InstallScriptArgs']]]] = None,
+                 is_custom_mode: Optional[pulumi.Input[_builtins.bool]] = None,
                  is_spot: Optional[pulumi.Input[_builtins.bool]] = None,
                  is_xenon: Optional[pulumi.Input[_builtins.bool]] = None,
                  kind: Optional[pulumi.Input[_builtins.str]] = None,
@@ -35,10 +39,15 @@ class AppServicePlanArgs:
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  maximum_elastic_worker_count: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 network: Optional[pulumi.Input['ServerFarmNetworkSettingsArgs']] = None,
                  per_site_scaling: Optional[pulumi.Input[_builtins.bool]] = None,
+                 plan_default_identity: Optional[pulumi.Input['DefaultIdentityArgs']] = None,
+                 rdp_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 registry_adapters: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryAdapterArgs']]]] = None,
                  reserved: Optional[pulumi.Input[_builtins.bool]] = None,
                  sku: Optional[pulumi.Input['SkuDescriptionArgs']] = None,
                  spot_expiration_time: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['StorageMountArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  target_worker_count: Optional[pulumi.Input[_builtins.int]] = None,
                  target_worker_size_id: Optional[pulumi.Input[_builtins.int]] = None,
@@ -47,7 +56,7 @@ class AppServicePlanArgs:
         """
         The set of arguments for constructing a AppServicePlan resource.
 
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.bool] async_scaling_enabled: If <code>true</code>, this App Service Plan will attempt to scale asynchronously if there are insufficient workers to scale synchronously.
                If <code>false</code>, this App Service Plan will only attempt sync scaling.
         :param pulumi.Input[_builtins.bool] elastic_scale_enabled: ServerFarm supports ElasticScale. Apps in this plan will scale as if the ServerFarm was ElasticPremium sku
@@ -55,18 +64,27 @@ class AppServicePlanArgs:
         :param pulumi.Input[_builtins.str] free_offer_expiration_time: The time when the server farm free offer expires.
         :param pulumi.Input['HostingEnvironmentProfileArgs'] hosting_environment_profile: Specification for the App Service Environment to use for the App Service plan.
         :param pulumi.Input[_builtins.bool] hyper_v: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity.
+        :param pulumi.Input[Sequence[pulumi.Input['InstallScriptArgs']]] install_scripts: Install scripts associated with this App Service plan.
+        :param pulumi.Input[_builtins.bool] is_custom_mode: Whether this server farm is in custom mode.
         :param pulumi.Input[_builtins.bool] is_spot: If <code>true</code>, this App Service Plan owns spot instances.
         :param pulumi.Input[_builtins.bool] is_xenon: Obsolete: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
         :param pulumi.Input[_builtins.str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         :param pulumi.Input['KubeEnvironmentProfileArgs'] kube_environment_profile: Specification for the Kubernetes Environment to use for the App Service plan.
-        :param pulumi.Input[_builtins.str] location: Resource Location.
+        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.int] maximum_elastic_worker_count: Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan
         :param pulumi.Input[_builtins.str] name: Name of the App Service plan.
+        :param pulumi.Input['ServerFarmNetworkSettingsArgs'] network: All network settings for the server farm.
         :param pulumi.Input[_builtins.bool] per_site_scaling: If <code>true</code>, apps assigned to this App Service plan can be scaled independently.
                If <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.
+        :param pulumi.Input['DefaultIdentityArgs'] plan_default_identity: Identity to use by platform for various features and integrations using managed identity.
+        :param pulumi.Input[_builtins.bool] rdp_enabled: If <code>true</code>, RDP access is enabled for this App Service plan. Only applicable for IsCustomMode ASPs.
+               If <code>false</code>, RDP access is disabled.
+        :param pulumi.Input[Sequence[pulumi.Input['RegistryAdapterArgs']]] registry_adapters: Registry adapters associated with this App Service plan.
         :param pulumi.Input[_builtins.bool] reserved: If Linux app service plan <code>true</code>, <code>false</code> otherwise.
         :param pulumi.Input['SkuDescriptionArgs'] sku: Description of a SKU for a scalable resource.
         :param pulumi.Input[_builtins.str] spot_expiration_time: The time when the server farm expires. Valid only if it is a spot server farm.
+        :param pulumi.Input[Sequence[pulumi.Input['StorageMountArgs']]] storage_mounts: Storage mounts associated with this App Service plan.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.int] target_worker_count: Scaling worker count.
         :param pulumi.Input[_builtins.int] target_worker_size_id: Scaling worker size ID.
@@ -85,14 +103,16 @@ class AppServicePlanArgs:
             pulumi.set(__self__, "free_offer_expiration_time", free_offer_expiration_time)
         if hosting_environment_profile is not None:
             pulumi.set(__self__, "hosting_environment_profile", hosting_environment_profile)
-        if hyper_v is None:
-            hyper_v = False
         if hyper_v is not None:
             pulumi.set(__self__, "hyper_v", hyper_v)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if install_scripts is not None:
+            pulumi.set(__self__, "install_scripts", install_scripts)
+        if is_custom_mode is not None:
+            pulumi.set(__self__, "is_custom_mode", is_custom_mode)
         if is_spot is not None:
             pulumi.set(__self__, "is_spot", is_spot)
-        if is_xenon is None:
-            is_xenon = False
         if is_xenon is not None:
             pulumi.set(__self__, "is_xenon", is_xenon)
         if kind is not None:
@@ -105,18 +125,24 @@ class AppServicePlanArgs:
             pulumi.set(__self__, "maximum_elastic_worker_count", maximum_elastic_worker_count)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if per_site_scaling is None:
-            per_site_scaling = False
+        if network is not None:
+            pulumi.set(__self__, "network", network)
         if per_site_scaling is not None:
             pulumi.set(__self__, "per_site_scaling", per_site_scaling)
-        if reserved is None:
-            reserved = False
+        if plan_default_identity is not None:
+            pulumi.set(__self__, "plan_default_identity", plan_default_identity)
+        if rdp_enabled is not None:
+            pulumi.set(__self__, "rdp_enabled", rdp_enabled)
+        if registry_adapters is not None:
+            pulumi.set(__self__, "registry_adapters", registry_adapters)
         if reserved is not None:
             pulumi.set(__self__, "reserved", reserved)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if spot_expiration_time is not None:
             pulumi.set(__self__, "spot_expiration_time", spot_expiration_time)
+        if storage_mounts is not None:
+            pulumi.set(__self__, "storage_mounts", storage_mounts)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if target_worker_count is not None:
@@ -125,8 +151,6 @@ class AppServicePlanArgs:
             pulumi.set(__self__, "target_worker_size_id", target_worker_size_id)
         if worker_tier_name is not None:
             pulumi.set(__self__, "worker_tier_name", worker_tier_name)
-        if zone_redundant is None:
-            zone_redundant = False
         if zone_redundant is not None:
             pulumi.set(__self__, "zone_redundant", zone_redundant)
 
@@ -134,7 +158,7 @@ class AppServicePlanArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the resource group to which the resource belongs.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -216,6 +240,42 @@ class AppServicePlanArgs:
         pulumi.set(self, "hyper_v", value)
 
     @_builtins.property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+        """
+        Managed service identity.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="installScripts")
+    def install_scripts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstallScriptArgs']]]]:
+        """
+        Install scripts associated with this App Service plan.
+        """
+        return pulumi.get(self, "install_scripts")
+
+    @install_scripts.setter
+    def install_scripts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstallScriptArgs']]]]):
+        pulumi.set(self, "install_scripts", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isCustomMode")
+    def is_custom_mode(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether this server farm is in custom mode.
+        """
+        return pulumi.get(self, "is_custom_mode")
+
+    @is_custom_mode.setter
+    def is_custom_mode(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "is_custom_mode", value)
+
+    @_builtins.property
     @pulumi.getter(name="isSpot")
     def is_spot(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -267,7 +327,7 @@ class AppServicePlanArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Resource Location.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -300,6 +360,18 @@ class AppServicePlanArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter
+    def network(self) -> Optional[pulumi.Input['ServerFarmNetworkSettingsArgs']]:
+        """
+        All network settings for the server farm.
+        """
+        return pulumi.get(self, "network")
+
+    @network.setter
+    def network(self, value: Optional[pulumi.Input['ServerFarmNetworkSettingsArgs']]):
+        pulumi.set(self, "network", value)
+
+    @_builtins.property
     @pulumi.getter(name="perSiteScaling")
     def per_site_scaling(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -311,6 +383,43 @@ class AppServicePlanArgs:
     @per_site_scaling.setter
     def per_site_scaling(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "per_site_scaling", value)
+
+    @_builtins.property
+    @pulumi.getter(name="planDefaultIdentity")
+    def plan_default_identity(self) -> Optional[pulumi.Input['DefaultIdentityArgs']]:
+        """
+        Identity to use by platform for various features and integrations using managed identity.
+        """
+        return pulumi.get(self, "plan_default_identity")
+
+    @plan_default_identity.setter
+    def plan_default_identity(self, value: Optional[pulumi.Input['DefaultIdentityArgs']]):
+        pulumi.set(self, "plan_default_identity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rdpEnabled")
+    def rdp_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If <code>true</code>, RDP access is enabled for this App Service plan. Only applicable for IsCustomMode ASPs.
+        If <code>false</code>, RDP access is disabled.
+        """
+        return pulumi.get(self, "rdp_enabled")
+
+    @rdp_enabled.setter
+    def rdp_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "rdp_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="registryAdapters")
+    def registry_adapters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegistryAdapterArgs']]]]:
+        """
+        Registry adapters associated with this App Service plan.
+        """
+        return pulumi.get(self, "registry_adapters")
+
+    @registry_adapters.setter
+    def registry_adapters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryAdapterArgs']]]]):
+        pulumi.set(self, "registry_adapters", value)
 
     @_builtins.property
     @pulumi.getter
@@ -347,6 +456,18 @@ class AppServicePlanArgs:
     @spot_expiration_time.setter
     def spot_expiration_time(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "spot_expiration_time", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageMounts")
+    def storage_mounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StorageMountArgs']]]]:
+        """
+        Storage mounts associated with this App Service plan.
+        """
+        return pulumi.get(self, "storage_mounts")
+
+    @storage_mounts.setter
+    def storage_mounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StorageMountArgs']]]]):
+        pulumi.set(self, "storage_mounts", value)
 
     @_builtins.property
     @pulumi.getter
@@ -422,6 +543,9 @@ class AppServicePlan(pulumi.CustomResource):
                  free_offer_expiration_time: Optional[pulumi.Input[_builtins.str]] = None,
                  hosting_environment_profile: Optional[pulumi.Input[Union['HostingEnvironmentProfileArgs', 'HostingEnvironmentProfileArgsDict']]] = None,
                  hyper_v: Optional[pulumi.Input[_builtins.bool]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 install_scripts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstallScriptArgs', 'InstallScriptArgsDict']]]]] = None,
+                 is_custom_mode: Optional[pulumi.Input[_builtins.bool]] = None,
                  is_spot: Optional[pulumi.Input[_builtins.bool]] = None,
                  is_xenon: Optional[pulumi.Input[_builtins.bool]] = None,
                  kind: Optional[pulumi.Input[_builtins.str]] = None,
@@ -429,11 +553,16 @@ class AppServicePlan(pulumi.CustomResource):
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  maximum_elastic_worker_count: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 network: Optional[pulumi.Input[Union['ServerFarmNetworkSettingsArgs', 'ServerFarmNetworkSettingsArgsDict']]] = None,
                  per_site_scaling: Optional[pulumi.Input[_builtins.bool]] = None,
+                 plan_default_identity: Optional[pulumi.Input[Union['DefaultIdentityArgs', 'DefaultIdentityArgsDict']]] = None,
+                 rdp_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 registry_adapters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RegistryAdapterArgs', 'RegistryAdapterArgsDict']]]]] = None,
                  reserved: Optional[pulumi.Input[_builtins.bool]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  sku: Optional[pulumi.Input[Union['SkuDescriptionArgs', 'SkuDescriptionArgsDict']]] = None,
                  spot_expiration_time: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_mounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StorageMountArgs', 'StorageMountArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  target_worker_count: Optional[pulumi.Input[_builtins.int]] = None,
                  target_worker_size_id: Optional[pulumi.Input[_builtins.int]] = None,
@@ -443,9 +572,9 @@ class AppServicePlan(pulumi.CustomResource):
         """
         App Service plan.
 
-        Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
+        Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -457,19 +586,28 @@ class AppServicePlan(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] free_offer_expiration_time: The time when the server farm free offer expires.
         :param pulumi.Input[Union['HostingEnvironmentProfileArgs', 'HostingEnvironmentProfileArgsDict']] hosting_environment_profile: Specification for the App Service Environment to use for the App Service plan.
         :param pulumi.Input[_builtins.bool] hyper_v: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed service identity.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstallScriptArgs', 'InstallScriptArgsDict']]]] install_scripts: Install scripts associated with this App Service plan.
+        :param pulumi.Input[_builtins.bool] is_custom_mode: Whether this server farm is in custom mode.
         :param pulumi.Input[_builtins.bool] is_spot: If <code>true</code>, this App Service Plan owns spot instances.
         :param pulumi.Input[_builtins.bool] is_xenon: Obsolete: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
         :param pulumi.Input[_builtins.str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         :param pulumi.Input[Union['KubeEnvironmentProfileArgs', 'KubeEnvironmentProfileArgsDict']] kube_environment_profile: Specification for the Kubernetes Environment to use for the App Service plan.
-        :param pulumi.Input[_builtins.str] location: Resource Location.
+        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.int] maximum_elastic_worker_count: Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan
         :param pulumi.Input[_builtins.str] name: Name of the App Service plan.
+        :param pulumi.Input[Union['ServerFarmNetworkSettingsArgs', 'ServerFarmNetworkSettingsArgsDict']] network: All network settings for the server farm.
         :param pulumi.Input[_builtins.bool] per_site_scaling: If <code>true</code>, apps assigned to this App Service plan can be scaled independently.
                If <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.
+        :param pulumi.Input[Union['DefaultIdentityArgs', 'DefaultIdentityArgsDict']] plan_default_identity: Identity to use by platform for various features and integrations using managed identity.
+        :param pulumi.Input[_builtins.bool] rdp_enabled: If <code>true</code>, RDP access is enabled for this App Service plan. Only applicable for IsCustomMode ASPs.
+               If <code>false</code>, RDP access is disabled.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RegistryAdapterArgs', 'RegistryAdapterArgsDict']]]] registry_adapters: Registry adapters associated with this App Service plan.
         :param pulumi.Input[_builtins.bool] reserved: If Linux app service plan <code>true</code>, <code>false</code> otherwise.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['SkuDescriptionArgs', 'SkuDescriptionArgsDict']] sku: Description of a SKU for a scalable resource.
         :param pulumi.Input[_builtins.str] spot_expiration_time: The time when the server farm expires. Valid only if it is a spot server farm.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StorageMountArgs', 'StorageMountArgsDict']]]] storage_mounts: Storage mounts associated with this App Service plan.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.int] target_worker_count: Scaling worker count.
         :param pulumi.Input[_builtins.int] target_worker_size_id: Scaling worker size ID.
@@ -486,9 +624,9 @@ class AppServicePlan(pulumi.CustomResource):
         """
         App Service plan.
 
-        Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
+        Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -512,6 +650,9 @@ class AppServicePlan(pulumi.CustomResource):
                  free_offer_expiration_time: Optional[pulumi.Input[_builtins.str]] = None,
                  hosting_environment_profile: Optional[pulumi.Input[Union['HostingEnvironmentProfileArgs', 'HostingEnvironmentProfileArgsDict']]] = None,
                  hyper_v: Optional[pulumi.Input[_builtins.bool]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 install_scripts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstallScriptArgs', 'InstallScriptArgsDict']]]]] = None,
+                 is_custom_mode: Optional[pulumi.Input[_builtins.bool]] = None,
                  is_spot: Optional[pulumi.Input[_builtins.bool]] = None,
                  is_xenon: Optional[pulumi.Input[_builtins.bool]] = None,
                  kind: Optional[pulumi.Input[_builtins.str]] = None,
@@ -519,11 +660,16 @@ class AppServicePlan(pulumi.CustomResource):
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  maximum_elastic_worker_count: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 network: Optional[pulumi.Input[Union['ServerFarmNetworkSettingsArgs', 'ServerFarmNetworkSettingsArgsDict']]] = None,
                  per_site_scaling: Optional[pulumi.Input[_builtins.bool]] = None,
+                 plan_default_identity: Optional[pulumi.Input[Union['DefaultIdentityArgs', 'DefaultIdentityArgsDict']]] = None,
+                 rdp_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 registry_adapters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RegistryAdapterArgs', 'RegistryAdapterArgsDict']]]]] = None,
                  reserved: Optional[pulumi.Input[_builtins.bool]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  sku: Optional[pulumi.Input[Union['SkuDescriptionArgs', 'SkuDescriptionArgsDict']]] = None,
                  spot_expiration_time: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_mounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StorageMountArgs', 'StorageMountArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  target_worker_count: Optional[pulumi.Input[_builtins.int]] = None,
                  target_worker_size_id: Optional[pulumi.Input[_builtins.int]] = None,
@@ -543,35 +689,33 @@ class AppServicePlan(pulumi.CustomResource):
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["free_offer_expiration_time"] = free_offer_expiration_time
             __props__.__dict__["hosting_environment_profile"] = hosting_environment_profile
-            if hyper_v is None:
-                hyper_v = False
             __props__.__dict__["hyper_v"] = hyper_v
+            __props__.__dict__["identity"] = identity
+            __props__.__dict__["install_scripts"] = install_scripts
+            __props__.__dict__["is_custom_mode"] = is_custom_mode
             __props__.__dict__["is_spot"] = is_spot
-            if is_xenon is None:
-                is_xenon = False
             __props__.__dict__["is_xenon"] = is_xenon
             __props__.__dict__["kind"] = kind
             __props__.__dict__["kube_environment_profile"] = kube_environment_profile
             __props__.__dict__["location"] = location
             __props__.__dict__["maximum_elastic_worker_count"] = maximum_elastic_worker_count
             __props__.__dict__["name"] = name
-            if per_site_scaling is None:
-                per_site_scaling = False
+            __props__.__dict__["network"] = network
             __props__.__dict__["per_site_scaling"] = per_site_scaling
-            if reserved is None:
-                reserved = False
+            __props__.__dict__["plan_default_identity"] = plan_default_identity
+            __props__.__dict__["rdp_enabled"] = rdp_enabled
+            __props__.__dict__["registry_adapters"] = registry_adapters
             __props__.__dict__["reserved"] = reserved
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["sku"] = sku
             __props__.__dict__["spot_expiration_time"] = spot_expiration_time
+            __props__.__dict__["storage_mounts"] = storage_mounts
             __props__.__dict__["tags"] = tags
             __props__.__dict__["target_worker_count"] = target_worker_count
             __props__.__dict__["target_worker_size_id"] = target_worker_size_id
             __props__.__dict__["worker_tier_name"] = worker_tier_name
-            if zone_redundant is None:
-                zone_redundant = False
             __props__.__dict__["zone_redundant"] = zone_redundant
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["geo_region"] = None
@@ -582,6 +726,7 @@ class AppServicePlan(pulumi.CustomResource):
             __props__.__dict__["resource_group"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["subscription"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20150801:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20160901:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20180201:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20190801:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20200601:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20200901:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20201001:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20201201:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20210101:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20210115:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20210201:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20210301:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20220301:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20220901:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20230101:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20231201:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20240401:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20241101:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20250301:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20250501:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20260301preview:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20260315:AppServicePlan")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -615,6 +760,9 @@ class AppServicePlan(pulumi.CustomResource):
         __props__.__dict__["geo_region"] = None
         __props__.__dict__["hosting_environment_profile"] = None
         __props__.__dict__["hyper_v"] = None
+        __props__.__dict__["identity"] = None
+        __props__.__dict__["install_scripts"] = None
+        __props__.__dict__["is_custom_mode"] = None
         __props__.__dict__["is_spot"] = None
         __props__.__dict__["is_xenon"] = None
         __props__.__dict__["kind"] = None
@@ -623,16 +771,22 @@ class AppServicePlan(pulumi.CustomResource):
         __props__.__dict__["maximum_elastic_worker_count"] = None
         __props__.__dict__["maximum_number_of_workers"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["network"] = None
         __props__.__dict__["number_of_sites"] = None
         __props__.__dict__["number_of_workers"] = None
         __props__.__dict__["per_site_scaling"] = None
+        __props__.__dict__["plan_default_identity"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["rdp_enabled"] = None
+        __props__.__dict__["registry_adapters"] = None
         __props__.__dict__["reserved"] = None
         __props__.__dict__["resource_group"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["spot_expiration_time"] = None
         __props__.__dict__["status"] = None
+        __props__.__dict__["storage_mounts"] = None
         __props__.__dict__["subscription"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["target_worker_count"] = None
         __props__.__dict__["target_worker_size_id"] = None
@@ -707,6 +861,30 @@ class AppServicePlan(pulumi.CustomResource):
         return pulumi.get(self, "hyper_v")
 
     @_builtins.property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+        """
+        Managed service identity.
+        """
+        return pulumi.get(self, "identity")
+
+    @_builtins.property
+    @pulumi.getter(name="installScripts")
+    def install_scripts(self) -> pulumi.Output[Optional[Sequence['outputs.InstallScriptResponse']]]:
+        """
+        Install scripts associated with this App Service plan.
+        """
+        return pulumi.get(self, "install_scripts")
+
+    @_builtins.property
+    @pulumi.getter(name="isCustomMode")
+    def is_custom_mode(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether this server farm is in custom mode.
+        """
+        return pulumi.get(self, "is_custom_mode")
+
+    @_builtins.property
     @pulumi.getter(name="isSpot")
     def is_spot(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
@@ -742,7 +920,7 @@ class AppServicePlan(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource Location.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -766,9 +944,17 @@ class AppServicePlan(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource Name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def network(self) -> pulumi.Output[Optional['outputs.ServerFarmNetworkSettingsResponse']]:
+        """
+        All network settings for the server farm.
+        """
+        return pulumi.get(self, "network")
 
     @_builtins.property
     @pulumi.getter(name="numberOfSites")
@@ -796,12 +982,37 @@ class AppServicePlan(pulumi.CustomResource):
         return pulumi.get(self, "per_site_scaling")
 
     @_builtins.property
+    @pulumi.getter(name="planDefaultIdentity")
+    def plan_default_identity(self) -> pulumi.Output[Optional['outputs.DefaultIdentityResponse']]:
+        """
+        Identity to use by platform for various features and integrations using managed identity.
+        """
+        return pulumi.get(self, "plan_default_identity")
+
+    @_builtins.property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[_builtins.str]:
         """
         Provisioning state of the App Service Plan.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="rdpEnabled")
+    def rdp_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If <code>true</code>, RDP access is enabled for this App Service plan. Only applicable for IsCustomMode ASPs.
+        If <code>false</code>, RDP access is disabled.
+        """
+        return pulumi.get(self, "rdp_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="registryAdapters")
+    def registry_adapters(self) -> pulumi.Output[Optional[Sequence['outputs.RegistryAdapterResponse']]]:
+        """
+        Registry adapters associated with this App Service plan.
+        """
+        return pulumi.get(self, "registry_adapters")
 
     @_builtins.property
     @pulumi.getter
@@ -844,12 +1055,28 @@ class AppServicePlan(pulumi.CustomResource):
         return pulumi.get(self, "status")
 
     @_builtins.property
+    @pulumi.getter(name="storageMounts")
+    def storage_mounts(self) -> pulumi.Output[Optional[Sequence['outputs.StorageMountResponse']]]:
+        """
+        Storage mounts associated with this App Service plan.
+        """
+        return pulumi.get(self, "storage_mounts")
+
+    @_builtins.property
     @pulumi.getter
     def subscription(self) -> pulumi.Output[_builtins.str]:
         """
         App Service plan subscription.
         """
         return pulumi.get(self, "subscription")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @_builtins.property
     @pulumi.getter
@@ -879,7 +1106,7 @@ class AppServicePlan(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

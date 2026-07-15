@@ -43,7 +43,7 @@ class WebAppSiteContainerArgs:
         :param pulumi.Input[_builtins.str] image: Image Name
         :param pulumi.Input[_builtins.bool] is_main: <code>true</code> if the container is the main site container; <code>false</code> otherwise.
         :param pulumi.Input[_builtins.str] name: Name of the app.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['AuthType'] auth_type: Auth Type
         :param pulumi.Input[_builtins.str] container_name: Site Container Name
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]] environment_variables: List of environment variables
@@ -123,7 +123,7 @@ class WebAppSiteContainerArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the resource group to which the resource belongs.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -289,9 +289,9 @@ class WebAppSiteContainer(pulumi.CustomResource):
         """
         Container of a site
 
-        Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-12-01.
+        Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2023-12-01.
 
-        Other available API versions: 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -305,7 +305,7 @@ class WebAppSiteContainer(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] kind: Kind of resource.
         :param pulumi.Input[_builtins.str] name: Name of the app.
         :param pulumi.Input[_builtins.str] password_secret: Password Secret
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] start_up_command: StartUp Command
         :param pulumi.Input[_builtins.str] target_port: Target Port
         :param pulumi.Input[_builtins.str] user_managed_identity_client_id: UserManagedIdentity ClientId
@@ -321,9 +321,9 @@ class WebAppSiteContainer(pulumi.CustomResource):
         """
         Container of a site
 
-        Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-12-01.
+        Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2023-12-01.
 
-        Other available API versions: 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -391,6 +391,7 @@ class WebAppSiteContainer(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_time"] = None
             __props__.__dict__["last_modified_time"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20231201:WebAppSiteContainer"), pulumi.Alias(type_="azure-native:web/v20240401:WebAppSiteContainer"), pulumi.Alias(type_="azure-native:web/v20241101:WebAppSiteContainer"), pulumi.Alias(type_="azure-native:web/v20250301:WebAppSiteContainer"), pulumi.Alias(type_="azure-native:web/v20250501:WebAppSiteContainer"), pulumi.Alias(type_="azure-native:web/v20260301preview:WebAppSiteContainer"), pulumi.Alias(type_="azure-native:web/v20260315:WebAppSiteContainer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -428,6 +429,7 @@ class WebAppSiteContainer(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["password_secret"] = None
         __props__.__dict__["start_up_command"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["target_port"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["user_managed_identity_client_id"] = None
@@ -511,7 +513,7 @@ class WebAppSiteContainer(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource Name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -532,6 +534,14 @@ class WebAppSiteContainer(pulumi.CustomResource):
         return pulumi.get(self, "start_up_command")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter(name="targetPort")
     def target_port(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
@@ -543,7 +553,7 @@ class WebAppSiteContainer(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

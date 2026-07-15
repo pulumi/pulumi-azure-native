@@ -2,14 +2,17 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Hybrid Connection for an App Service app.
  *
- * Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
+ * Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
  *
- * Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class WebAppRelayServiceConnectionSlot extends pulumi.CustomResource {
     /**
@@ -51,14 +54,18 @@ export class WebAppRelayServiceConnectionSlot extends pulumi.CustomResource {
      */
     declare public readonly kind: pulumi.Output<string | undefined>;
     /**
-     * Resource Name.
+     * The name of the resource
      */
     declare public readonly name: pulumi.Output<string>;
     declare public readonly port: pulumi.Output<number | undefined>;
     declare public readonly resourceConnectionString: pulumi.Output<string | undefined>;
     declare public readonly resourceType: pulumi.Output<string | undefined>;
     /**
-     * Resource type.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.web.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
 
@@ -94,6 +101,7 @@ export class WebAppRelayServiceConnectionSlot extends pulumi.CustomResource {
             resourceInputs["resourceType"] = args?.resourceType;
             resourceInputs["slot"] = args?.slot;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -106,6 +114,7 @@ export class WebAppRelayServiceConnectionSlot extends pulumi.CustomResource {
             resourceInputs["port"] = undefined /*out*/;
             resourceInputs["resourceConnectionString"] = undefined /*out*/;
             resourceInputs["resourceType"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -134,12 +143,12 @@ export interface WebAppRelayServiceConnectionSlotArgs {
     port?: pulumi.Input<number>;
     resourceConnectionString?: pulumi.Input<string>;
     /**
-     * Name of the resource group to which the resource belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     resourceType?: pulumi.Input<string>;
     /**
-     * Name of the deployment slot. If a slot is not specified, the API will create or update a hybrid connection for the production slot.
+     * Name of the deployment slot. If a slot is not specified, the API will get a hybrid connection for the production slot.
      */
     slot: pulumi.Input<string>;
 }

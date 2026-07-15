@@ -34,8 +34,8 @@ class WebAppDiagnosticLogsConfigurationSlotArgs:
         The set of arguments for constructing a WebAppDiagnosticLogsConfigurationSlot resource.
 
         :param pulumi.Input[_builtins.str] name: Name of the app.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
-        :param pulumi.Input[_builtins.str] slot: Name of the deployment slot. If a slot is not specified, the API will update the logging configuration for the production slot.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] slot: Name of the deployment slot. If a slot is not specified, the API will get the logging configuration for the production slot.
         :param pulumi.Input['ApplicationLogsConfigArgs'] application_logs: Application logs configuration.
         :param pulumi.Input['EnabledConfigArgs'] detailed_error_messages: Detailed error messages configuration.
         :param pulumi.Input['EnabledConfigArgs'] failed_requests_tracing: Failed requests tracing configuration.
@@ -72,7 +72,7 @@ class WebAppDiagnosticLogsConfigurationSlotArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the resource group to which the resource belongs.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -84,7 +84,7 @@ class WebAppDiagnosticLogsConfigurationSlotArgs:
     @pulumi.getter
     def slot(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the deployment slot. If a slot is not specified, the API will update the logging configuration for the production slot.
+        Name of the deployment slot. If a slot is not specified, the API will get the logging configuration for the production slot.
         """
         return pulumi.get(self, "slot")
 
@@ -171,9 +171,9 @@ class WebAppDiagnosticLogsConfigurationSlot(pulumi.CustomResource):
         """
         Configuration of App Service site logs.
 
-        Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-12-01.
+        Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2023-12-01.
 
-        Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -184,8 +184,8 @@ class WebAppDiagnosticLogsConfigurationSlot(pulumi.CustomResource):
         :param pulumi.Input[Union['HttpLogsConfigArgs', 'HttpLogsConfigArgsDict']] http_logs: HTTP logs configuration.
         :param pulumi.Input[_builtins.str] kind: Kind of resource.
         :param pulumi.Input[_builtins.str] name: Name of the app.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
-        :param pulumi.Input[_builtins.str] slot: Name of the deployment slot. If a slot is not specified, the API will update the logging configuration for the production slot.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] slot: Name of the deployment slot. If a slot is not specified, the API will get the logging configuration for the production slot.
         """
         ...
     @overload
@@ -196,9 +196,9 @@ class WebAppDiagnosticLogsConfigurationSlot(pulumi.CustomResource):
         """
         Configuration of App Service site logs.
 
-        Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-12-01.
+        Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2023-12-01.
 
-        Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -248,6 +248,7 @@ class WebAppDiagnosticLogsConfigurationSlot(pulumi.CustomResource):
                 raise TypeError("Missing required property 'slot'")
             __props__.__dict__["slot"] = slot
             __props__.__dict__["azure_api_version"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20150801:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20240401:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20241101:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20250301:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20250501:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20260301preview:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20260315:WebAppDiagnosticLogsConfigurationSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -280,6 +281,7 @@ class WebAppDiagnosticLogsConfigurationSlot(pulumi.CustomResource):
         __props__.__dict__["http_logs"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return WebAppDiagnosticLogsConfigurationSlot(resource_name, opts=opts, __props__=__props__)
 
@@ -335,15 +337,23 @@ class WebAppDiagnosticLogsConfigurationSlot(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource Name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetStaticSiteLinkedBackendResult',
@@ -26,7 +27,7 @@ class GetStaticSiteLinkedBackendResult:
     """
     Static Site Linked Backend ARM resource.
     """
-    def __init__(__self__, azure_api_version=None, backend_resource_id=None, created_on=None, id=None, kind=None, name=None, provisioning_state=None, region=None, type=None):
+    def __init__(__self__, azure_api_version=None, backend_resource_id=None, created_on=None, id=None, kind=None, name=None, provisioning_state=None, region=None, system_data=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -51,6 +52,9 @@ class GetStaticSiteLinkedBackendResult:
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -83,7 +87,7 @@ class GetStaticSiteLinkedBackendResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -99,7 +103,7 @@ class GetStaticSiteLinkedBackendResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource Name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -120,10 +124,18 @@ class GetStaticSiteLinkedBackendResult:
         return pulumi.get(self, "region")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -142,6 +154,7 @@ class AwaitableGetStaticSiteLinkedBackendResult(GetStaticSiteLinkedBackendResult
             name=self.name,
             provisioning_state=self.provisioning_state,
             region=self.region,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -150,16 +163,16 @@ def get_static_site_linked_backend(linked_backend_name: Optional[_builtins.str] 
                                    resource_group_name: Optional[_builtins.str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStaticSiteLinkedBackendResult:
     """
-    Static Site Linked Backend ARM resource.
+    Returns the details of a linked backend linked to a static site by name
 
-    Uses Azure REST API version 2024-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str linked_backend_name: Name of the linked backend that should be retrieved
     :param _builtins.str name: Name of the static site
-    :param _builtins.str resource_group_name: Name of the resource group to which the resource belongs.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['linkedBackendName'] = linked_backend_name
@@ -177,22 +190,23 @@ def get_static_site_linked_backend(linked_backend_name: Optional[_builtins.str] 
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         region=pulumi.get(__ret__, 'region'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_static_site_linked_backend_output(linked_backend_name: Optional[pulumi.Input[_builtins.str]] = None,
                                           name: Optional[pulumi.Input[_builtins.str]] = None,
                                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStaticSiteLinkedBackendResult]:
     """
-    Static Site Linked Backend ARM resource.
+    Returns the details of a linked backend linked to a static site by name
 
-    Uses Azure REST API version 2024-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str linked_backend_name: Name of the linked backend that should be retrieved
     :param _builtins.str name: Name of the static site
-    :param _builtins.str resource_group_name: Name of the resource group to which the resource belongs.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['linkedBackendName'] = linked_backend_name
@@ -209,4 +223,5 @@ def get_static_site_linked_backend_output(linked_backend_name: Optional[pulumi.I
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         region=pulumi.get(__response__, 'region'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

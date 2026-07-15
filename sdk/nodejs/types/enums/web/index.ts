@@ -310,6 +310,16 @@ export const IPMode = {
  */
 export type IPMode = (typeof IPMode)[keyof typeof IPMode];
 
+export const InstallScriptType = {
+    RemoteAzureBlob: "RemoteAzureBlob",
+    PlatformStorage: "PlatformStorage",
+} as const;
+
+/**
+ * Type of the install script.
+ */
+export type InstallScriptType = (typeof InstallScriptType)[keyof typeof InstallScriptType];
+
 export const IpFilterTag = {
     Default: "Default",
     XffProxy: "XffProxy",
@@ -368,6 +378,15 @@ export const ManagedServiceIdentityType = {
  */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
+export const Method = {
+    ClientSecretPost: "ClientSecretPost",
+} as const;
+
+/**
+ * The method that should be used to authenticate the user.
+ */
+export type Method = (typeof Method)[keyof typeof Method];
+
 export const PublicCertificateLocation = {
     CurrentUserMy: "CurrentUserMy",
     LocalMachineMy: "LocalMachineMy",
@@ -391,6 +410,20 @@ export const RedundancyMode = {
  * Site redundancy mode
  */
 export type RedundancyMode = (typeof RedundancyMode)[keyof typeof RedundancyMode];
+
+export const RegistryAdapterType = {
+    Binary: "Binary",
+    String: "String",
+    Expand_String: "Expand_String",
+    Multi_String: "Multi_String",
+    DWord: "DWord",
+    QWord: "QWord",
+} as const;
+
+/**
+ * Type of the registry adapter.
+ */
+export type RegistryAdapterType = (typeof RegistryAdapterType)[keyof typeof RegistryAdapterType];
 
 export const RouteType = {
     DEFAULT: "DEFAULT",
@@ -459,6 +492,24 @@ export const SiteLoadBalancing = {
  */
 export type SiteLoadBalancing = (typeof SiteLoadBalancing)[keyof typeof SiteLoadBalancing];
 
+export const SiteUpdateStrategyType = {
+    /**
+     * If the app is under load and a deployment or site state update occurs, all pods will be removed
+     * and will need to be Recreated all at once. This is the default behavior.
+     */
+    Recreate: "Recreate",
+    /**
+     * If the app is under load and a deployment or site state update occurs, pods will be drained in
+     * batches and gradually replaced, thus minimizing impact to throughput.
+     */
+    RollingUpdate: "RollingUpdate",
+} as const;
+
+/**
+ * Function app site update strategy type. Available options: Recreate, RollingUpdate
+ */
+export type SiteUpdateStrategyType = (typeof SiteUpdateStrategyType)[keyof typeof SiteUpdateStrategyType];
+
 export const SslState = {
     Disabled: "Disabled",
     SniEnabled: "SniEnabled",
@@ -479,6 +530,17 @@ export const StagingEnvironmentPolicy = {
  * State indicating whether staging environments are allowed or not allowed for a static web app.
  */
 export type StagingEnvironmentPolicy = (typeof StagingEnvironmentPolicy)[keyof typeof StagingEnvironmentPolicy];
+
+export const StorageMountType = {
+    AzureFiles: "AzureFiles",
+    LocalStorage: "LocalStorage",
+    FileShare: "FileShare",
+} as const;
+
+/**
+ * Type of the storage mount.
+ */
+export type StorageMountType = (typeof StorageMountType)[keyof typeof StorageMountType];
 
 export const StorageType = {
     LocalNode: "LocalNode",

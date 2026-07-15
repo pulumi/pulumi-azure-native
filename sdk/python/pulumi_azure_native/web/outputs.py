@@ -76,6 +76,7 @@ __all__ = [
     'DatabaseBackupSettingResponse',
     'DatabaseConnectionOverviewResponse',
     'DefaultAuthorizationPolicyResponse',
+    'DefaultIdentityResponse',
     'EnabledConfigResponse',
     'EnvironmentVariableResponse',
     'ErrorEntityResponse',
@@ -92,12 +93,13 @@ __all__ = [
     'FunctionAppConfigResponse',
     'FunctionsAlwaysReadyConfigResponse',
     'FunctionsDeploymentResponse',
-    'FunctionsDeploymentResponseAuthentication',
-    'FunctionsDeploymentResponseStorage',
+    'FunctionsDeploymentStorageAuthenticationResponse',
+    'FunctionsDeploymentStorageResponse',
     'FunctionsRuntimeResponse',
     'FunctionsScaleAndConcurrencyResponse',
-    'FunctionsScaleAndConcurrencyResponseHttp',
-    'FunctionsScaleAndConcurrencyResponseTriggers',
+    'FunctionsScaleAndConcurrencyTriggersHttpResponse',
+    'FunctionsScaleAndConcurrencyTriggersResponse',
+    'FunctionsSiteUpdateStrategyResponse',
     'GitHubActionCodeConfigurationResponse',
     'GitHubActionConfigurationResponse',
     'GitHubActionContainerConfigurationResponse',
@@ -112,8 +114,11 @@ __all__ = [
     'HttpSettingsRoutesResponse',
     'IdentifierResponse',
     'IdentityProvidersResponse',
+    'InstallScriptResponse',
+    'InstallScriptSourceResponse',
     'IpSecurityRestrictionResponse',
     'JwtClaimChecksResponse',
+    'KeyVaultReferenceWithStatusResponse',
     'KubeEnvironmentProfileResponse',
     'LegacyMicrosoftAccountResponse',
     'LogAnalyticsConfigurationResponse',
@@ -131,11 +136,13 @@ __all__ = [
     'PrivateLinkConnectionStateResponse',
     'PushSettingsResponse',
     'RampUpRuleResponse',
+    'RegistryAdapterResponse',
     'RemotePrivateEndpointConnectionResponse',
     'RequestsBasedTriggerResponse',
     'ResourceConfigResponse',
     'ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse',
     'ServerFarmInstanceResponse',
+    'ServerFarmNetworkSettingsResponse',
     'SiteConfigResponse',
     'SiteDnsConfigResponse',
     'SiteLimitsResponse',
@@ -152,6 +159,7 @@ __all__ = [
     'StaticSiteUserProvidedFunctionAppResponse',
     'StatusCodesBasedTriggerResponse',
     'StatusCodesRangeBasedTriggerResponse',
+    'StorageMountResponse',
     'SystemDataResponse',
     'TokenStoreResponse',
     'TwitterRegistrationResponse',
@@ -162,7 +170,7 @@ __all__ = [
     'VirtualNetworkProfileResponse',
     'VnetRouteResponse',
     'VolumeMountResponse',
-    'WorkflowEnvelopeResponseProperties',
+    'WorkflowEnvelopePropertiesResponse',
     'WorkflowHealthResponse',
     'WorkflowTriggerListCallbackUrlQueriesResponse',
     'WsdlDefinitionResponse',
@@ -1399,6 +1407,8 @@ class AseV3NetworkingConfigurationResponse(dict):
             suggest = "internal_inbound_ip_addresses"
         elif key == "linuxOutboundIpAddresses":
             suggest = "linux_outbound_ip_addresses"
+        elif key == "systemData":
+            suggest = "system_data"
         elif key == "windowsOutboundIpAddresses":
             suggest = "windows_outbound_ip_addresses"
         elif key == "allowNewPrivateEndpointConnections":
@@ -1427,6 +1437,7 @@ class AseV3NetworkingConfigurationResponse(dict):
                  internal_inbound_ip_addresses: Sequence[_builtins.str],
                  linux_outbound_ip_addresses: Sequence[_builtins.str],
                  name: _builtins.str,
+                 system_data: 'outputs.SystemDataResponse',
                  type: _builtins.str,
                  windows_outbound_ip_addresses: Sequence[_builtins.str],
                  allow_new_private_endpoint_connections: Optional[_builtins.bool] = None,
@@ -1437,9 +1448,10 @@ class AseV3NetworkingConfigurationResponse(dict):
         """
         Full view of networking configuration for an ASE.
 
-        :param _builtins.str id: Resource Id.
-        :param _builtins.str name: Resource Name.
-        :param _builtins.str type: Resource type.
+        :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        :param _builtins.str name: The name of the resource
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param _builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param _builtins.bool allow_new_private_endpoint_connections: Property to enable and disable new private endpoint connection creation on ASE
         :param _builtins.bool ftp_enabled: Property to enable and disable FTP on ASEV3
         :param _builtins.str inbound_ip_address_override: Customer provided Inbound IP Address. Only able to be set on Ase create.
@@ -1451,6 +1463,7 @@ class AseV3NetworkingConfigurationResponse(dict):
         pulumi.set(__self__, "internal_inbound_ip_addresses", internal_inbound_ip_addresses)
         pulumi.set(__self__, "linux_outbound_ip_addresses", linux_outbound_ip_addresses)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "windows_outbound_ip_addresses", windows_outbound_ip_addresses)
         if allow_new_private_endpoint_connections is not None:
@@ -1473,7 +1486,7 @@ class AseV3NetworkingConfigurationResponse(dict):
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -1491,15 +1504,23 @@ class AseV3NetworkingConfigurationResponse(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource Name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -1974,7 +1995,7 @@ class AzureActiveDirectoryRegistrationResponse(dict):
         The configuration settings of the Azure Active Directory app registration.
 
         :param _builtins.str client_id: The Client ID of this relying party application, known as the client_id.
-               This setting is required for enabling OpenID Connection authentication with Azure Active Directory or 
+               This setting is required for enabling OpenID Connection authentication with Azure Active Directory or
                other 3rd party OpenID Connect providers.
                More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
         :param _builtins.str client_secret_certificate_issuer: An alternative to the client secret thumbprint, that is the issuer of a certificate used for signing purposes. This property acts as
@@ -2007,7 +2028,7 @@ class AzureActiveDirectoryRegistrationResponse(dict):
     def client_id(self) -> Optional[_builtins.str]:
         """
         The Client ID of this relying party application, known as the client_id.
-        This setting is required for enabling OpenID Connection authentication with Azure Active Directory or 
+        This setting is required for enabling OpenID Connection authentication with Azure Active Directory or
         other 3rd party OpenID Connect providers.
         More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
         """
@@ -2677,6 +2698,7 @@ class BackupItemResponse(dict):
                  size_in_bytes: _builtins.float,
                  status: _builtins.str,
                  storage_account_url: _builtins.str,
+                 system_data: 'outputs.SystemDataResponse',
                  type: _builtins.str,
                  website_size_in_bytes: _builtins.float,
                  kind: Optional[_builtins.str] = None):
@@ -2689,15 +2711,16 @@ class BackupItemResponse(dict):
         :param _builtins.str created: Timestamp of the backup creation.
         :param Sequence['DatabaseBackupSettingResponse'] databases: List of databases included in the backup.
         :param _builtins.str finished_time_stamp: Timestamp when this backup finished.
-        :param _builtins.str id: Resource Id.
+        :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         :param _builtins.str last_restore_time_stamp: Timestamp of a last restore operation which used this backup.
         :param _builtins.str log: Details regarding this backup. Might contain an error message.
-        :param _builtins.str name: Resource Name.
+        :param _builtins.str name: The name of the resource
         :param _builtins.bool scheduled: True if this backup has been created due to a schedule being triggered.
         :param _builtins.float size_in_bytes: Size of the backup in bytes.
         :param _builtins.str status: Backup status.
         :param _builtins.str storage_account_url: SAS URL for the storage account container which contains this backup.
-        :param _builtins.str type: Resource type.
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param _builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param _builtins.float website_size_in_bytes: Size of the original web app which has been backed up.
         :param _builtins.str kind: Kind of resource.
         """
@@ -2715,6 +2738,7 @@ class BackupItemResponse(dict):
         pulumi.set(__self__, "size_in_bytes", size_in_bytes)
         pulumi.set(__self__, "status", status)
         pulumi.set(__self__, "storage_account_url", storage_account_url)
+        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "website_size_in_bytes", website_size_in_bytes)
         if kind is not None:
@@ -2772,7 +2796,7 @@ class BackupItemResponse(dict):
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -2796,7 +2820,7 @@ class BackupItemResponse(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource Name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -2833,10 +2857,18 @@ class BackupItemResponse(dict):
         return pulumi.get(self, "storage_account_url")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -3782,7 +3814,7 @@ class CorsSettingsResponse(dict):
 
         :param Sequence[_builtins.str] allowed_origins: Gets or sets the list of origins that should be allowed to make cross-origin
                calls (for example: http://example.com:12345). Use "*" to allow all.
-        :param _builtins.bool support_credentials: Gets or sets whether CORS requests with credentials are allowed. See 
+        :param _builtins.bool support_credentials: Gets or sets whether CORS requests with credentials are allowed. See
                https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Requests_with_credentials
                for more details.
         """
@@ -3804,7 +3836,7 @@ class CorsSettingsResponse(dict):
     @pulumi.getter(name="supportCredentials")
     def support_credentials(self) -> Optional[_builtins.bool]:
         """
-        Gets or sets whether CORS requests with credentials are allowed. See 
+        Gets or sets whether CORS requests with credentials are allowed. See
         https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Requests_with_credentials
         for more details.
         """
@@ -4012,6 +4044,8 @@ class CustomDnsSuffixConfigurationResponse(dict):
             suggest = "provisioning_details"
         elif key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "systemData":
+            suggest = "system_data"
         elif key == "certificateUrl":
             suggest = "certificate_url"
         elif key == "dnsSuffix":
@@ -4035,6 +4069,7 @@ class CustomDnsSuffixConfigurationResponse(dict):
                  name: _builtins.str,
                  provisioning_details: _builtins.str,
                  provisioning_state: _builtins.str,
+                 system_data: 'outputs.SystemDataResponse',
                  type: _builtins.str,
                  certificate_url: Optional[_builtins.str] = None,
                  dns_suffix: Optional[_builtins.str] = None,
@@ -4043,9 +4078,10 @@ class CustomDnsSuffixConfigurationResponse(dict):
         """
         Full view of the custom domain suffix configuration for ASEv3.
 
-        :param _builtins.str id: Resource Id.
-        :param _builtins.str name: Resource Name.
-        :param _builtins.str type: Resource type.
+        :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        :param _builtins.str name: The name of the resource
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param _builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param _builtins.str certificate_url: The URL referencing the Azure Key Vault certificate secret that should be used as the default SSL/TLS certificate for sites with the custom domain suffix.
         :param _builtins.str dns_suffix: The default custom domain suffix to use for all sites deployed on the ASE.
         :param _builtins.str key_vault_reference_identity: The user-assigned identity to use for resolving the key vault certificate reference. If not specified, the system-assigned ASE identity will be used if available.
@@ -4055,6 +4091,7 @@ class CustomDnsSuffixConfigurationResponse(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "provisioning_details", provisioning_details)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if certificate_url is not None:
             pulumi.set(__self__, "certificate_url", certificate_url)
@@ -4069,7 +4106,7 @@ class CustomDnsSuffixConfigurationResponse(dict):
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -4077,7 +4114,7 @@ class CustomDnsSuffixConfigurationResponse(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource Name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -4092,10 +4129,18 @@ class CustomDnsSuffixConfigurationResponse(dict):
         return pulumi.get(self, "provisioning_state")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -4527,6 +4572,52 @@ class DefaultAuthorizationPolicyResponse(dict):
 
 
 @pulumi.output_type
+class DefaultIdentityResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityType":
+            suggest = "identity_type"
+        elif key == "userAssignedIdentityResourceId":
+            suggest = "user_assigned_identity_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DefaultIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DefaultIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DefaultIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity_type: Optional[_builtins.str] = None,
+                 user_assigned_identity_resource_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str identity_type: Type of managed service identity.
+        """
+        if identity_type is not None:
+            pulumi.set(__self__, "identity_type", identity_type)
+        if user_assigned_identity_resource_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_resource_id", user_assigned_identity_resource_id)
+
+    @_builtins.property
+    @pulumi.getter(name="identityType")
+    def identity_type(self) -> Optional[_builtins.str]:
+        """
+        Type of managed service identity.
+        """
+        return pulumi.get(self, "identity_type")
+
+    @_builtins.property
+    @pulumi.getter(name="userAssignedIdentityResourceId")
+    def user_assigned_identity_resource_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "user_assigned_identity_resource_id")
+
+
+@pulumi.output_type
 class EnabledConfigResponse(dict):
     """
     Enabled configuration.
@@ -4765,6 +4856,7 @@ class ExpressionResponse(dict):
         :param 'AzureResourceErrorInfoResponse' error: The azure resource error info.
         :param Sequence['ExpressionResponse'] subexpressions: The sub expressions.
         :param _builtins.str text: The text.
+        :param Any value: Anything
         """
         if error is not None:
             pulumi.set(__self__, "error", error)
@@ -4802,6 +4894,9 @@ class ExpressionResponse(dict):
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[Any]:
+        """
+        Anything
+        """
         return pulumi.get(self, "value")
 
 
@@ -4823,6 +4918,7 @@ class ExpressionRootResponse(dict):
         :param _builtins.str path: The path.
         :param Sequence['ExpressionResponse'] subexpressions: The sub expressions.
         :param _builtins.str text: The text.
+        :param Any value: Anything
         """
         if error is not None:
             pulumi.set(__self__, "error", error)
@@ -4870,6 +4966,9 @@ class ExpressionRootResponse(dict):
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[Any]:
+        """
+        Anything
+        """
         return pulumi.get(self, "value")
 
 
@@ -5200,6 +5299,8 @@ class FunctionAppConfigResponse(dict):
         suggest = None
         if key == "scaleAndConcurrency":
             suggest = "scale_and_concurrency"
+        elif key == "siteUpdateStrategy":
+            suggest = "site_update_strategy"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FunctionAppConfigResponse. Access the value via the '{suggest}' property getter instead.")
@@ -5215,13 +5316,15 @@ class FunctionAppConfigResponse(dict):
     def __init__(__self__, *,
                  deployment: Optional['outputs.FunctionsDeploymentResponse'] = None,
                  runtime: Optional['outputs.FunctionsRuntimeResponse'] = None,
-                 scale_and_concurrency: Optional['outputs.FunctionsScaleAndConcurrencyResponse'] = None):
+                 scale_and_concurrency: Optional['outputs.FunctionsScaleAndConcurrencyResponse'] = None,
+                 site_update_strategy: Optional['outputs.FunctionsSiteUpdateStrategyResponse'] = None):
         """
         Function app configuration.
 
         :param 'FunctionsDeploymentResponse' deployment: Function app deployment configuration.
         :param 'FunctionsRuntimeResponse' runtime: Function app runtime settings.
         :param 'FunctionsScaleAndConcurrencyResponse' scale_and_concurrency: Function app scale and concurrency settings.
+        :param 'FunctionsSiteUpdateStrategyResponse' site_update_strategy: Function app site update strategy configuration.
         """
         if deployment is not None:
             pulumi.set(__self__, "deployment", deployment)
@@ -5229,6 +5332,8 @@ class FunctionAppConfigResponse(dict):
             pulumi.set(__self__, "runtime", runtime)
         if scale_and_concurrency is not None:
             pulumi.set(__self__, "scale_and_concurrency", scale_and_concurrency)
+        if site_update_strategy is not None:
+            pulumi.set(__self__, "site_update_strategy", site_update_strategy)
 
     @_builtins.property
     @pulumi.getter
@@ -5253,6 +5358,14 @@ class FunctionAppConfigResponse(dict):
         Function app scale and concurrency settings.
         """
         return pulumi.get(self, "scale_and_concurrency")
+
+    @_builtins.property
+    @pulumi.getter(name="siteUpdateStrategy")
+    def site_update_strategy(self) -> Optional['outputs.FunctionsSiteUpdateStrategyResponse']:
+        """
+        Function app site update strategy configuration.
+        """
+        return pulumi.get(self, "site_update_strategy")
 
 
 @pulumi.output_type
@@ -5314,18 +5427,18 @@ class FunctionsDeploymentResponse(dict):
     Configuration section for the function app deployment.
     """
     def __init__(__self__, *,
-                 storage: Optional['outputs.FunctionsDeploymentResponseStorage'] = None):
+                 storage: Optional['outputs.FunctionsDeploymentStorageResponse'] = None):
         """
         Configuration section for the function app deployment.
 
-        :param 'FunctionsDeploymentResponseStorage' storage: Storage for deployed package used by the function app.
+        :param 'FunctionsDeploymentStorageResponse' storage: Storage for deployed package used by the function app.
         """
         if storage is not None:
             pulumi.set(__self__, "storage", storage)
 
     @_builtins.property
     @pulumi.getter
-    def storage(self) -> Optional['outputs.FunctionsDeploymentResponseStorage']:
+    def storage(self) -> Optional['outputs.FunctionsDeploymentStorageResponse']:
         """
         Storage for deployed package used by the function app.
         """
@@ -5333,7 +5446,7 @@ class FunctionsDeploymentResponse(dict):
 
 
 @pulumi.output_type
-class FunctionsDeploymentResponseAuthentication(dict):
+class FunctionsDeploymentStorageAuthenticationResponse(dict):
     """
     Authentication method to access the storage account for deployment.
     """
@@ -5346,14 +5459,14 @@ class FunctionsDeploymentResponseAuthentication(dict):
             suggest = "user_assigned_identity_resource_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FunctionsDeploymentResponseAuthentication. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in FunctionsDeploymentStorageAuthenticationResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        FunctionsDeploymentResponseAuthentication.__key_warning(key)
+        FunctionsDeploymentStorageAuthenticationResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        FunctionsDeploymentResponseAuthentication.__key_warning(key)
+        FunctionsDeploymentStorageAuthenticationResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -5400,18 +5513,18 @@ class FunctionsDeploymentResponseAuthentication(dict):
 
 
 @pulumi.output_type
-class FunctionsDeploymentResponseStorage(dict):
+class FunctionsDeploymentStorageResponse(dict):
     """
     Storage for deployed package used by the function app.
     """
     def __init__(__self__, *,
-                 authentication: Optional['outputs.FunctionsDeploymentResponseAuthentication'] = None,
+                 authentication: Optional['outputs.FunctionsDeploymentStorageAuthenticationResponse'] = None,
                  type: Optional[_builtins.str] = None,
                  value: Optional[_builtins.str] = None):
         """
         Storage for deployed package used by the function app.
 
-        :param 'FunctionsDeploymentResponseAuthentication' authentication: Authentication method to access the storage account for deployment.
+        :param 'FunctionsDeploymentStorageAuthenticationResponse' authentication: Authentication method to access the storage account for deployment.
         :param _builtins.str type: Property to select Azure Storage type. Available options: blobContainer.
         :param _builtins.str value: Property to set the URL for the selected Azure Storage type. Example: For blobContainer, the value could be https://<storageAccountName>.blob.core.windows.net/<containerName>.
         """
@@ -5424,7 +5537,7 @@ class FunctionsDeploymentResponseStorage(dict):
 
     @_builtins.property
     @pulumi.getter
-    def authentication(self) -> Optional['outputs.FunctionsDeploymentResponseAuthentication']:
+    def authentication(self) -> Optional['outputs.FunctionsDeploymentStorageAuthenticationResponse']:
         """
         Authentication method to access the storage account for deployment.
         """
@@ -5513,14 +5626,14 @@ class FunctionsScaleAndConcurrencyResponse(dict):
                  always_ready: Optional[Sequence['outputs.FunctionsAlwaysReadyConfigResponse']] = None,
                  instance_memory_mb: Optional[_builtins.int] = None,
                  maximum_instance_count: Optional[_builtins.int] = None,
-                 triggers: Optional['outputs.FunctionsScaleAndConcurrencyResponseTriggers'] = None):
+                 triggers: Optional['outputs.FunctionsScaleAndConcurrencyTriggersResponse'] = None):
         """
         Scale and concurrency settings for the function app.
 
         :param Sequence['FunctionsAlwaysReadyConfigResponse'] always_ready: 'Always Ready' configuration for the function app.
         :param _builtins.int instance_memory_mb: Set the amount of memory allocated to each instance of the function app in MB. CPU and network bandwidth are allocated proportionally.
         :param _builtins.int maximum_instance_count: The maximum number of instances for the function app.
-        :param 'FunctionsScaleAndConcurrencyResponseTriggers' triggers: Scale and concurrency settings for the function app triggers.
+        :param 'FunctionsScaleAndConcurrencyTriggersResponse' triggers: Scale and concurrency settings for the function app triggers.
         """
         if always_ready is not None:
             pulumi.set(__self__, "always_ready", always_ready)
@@ -5557,7 +5670,7 @@ class FunctionsScaleAndConcurrencyResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def triggers(self) -> Optional['outputs.FunctionsScaleAndConcurrencyResponseTriggers']:
+    def triggers(self) -> Optional['outputs.FunctionsScaleAndConcurrencyTriggersResponse']:
         """
         Scale and concurrency settings for the function app triggers.
         """
@@ -5565,7 +5678,7 @@ class FunctionsScaleAndConcurrencyResponse(dict):
 
 
 @pulumi.output_type
-class FunctionsScaleAndConcurrencyResponseHttp(dict):
+class FunctionsScaleAndConcurrencyTriggersHttpResponse(dict):
     """
     Scale and concurrency settings for the HTTP trigger.
     """
@@ -5576,14 +5689,14 @@ class FunctionsScaleAndConcurrencyResponseHttp(dict):
             suggest = "per_instance_concurrency"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FunctionsScaleAndConcurrencyResponseHttp. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in FunctionsScaleAndConcurrencyTriggersHttpResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        FunctionsScaleAndConcurrencyResponseHttp.__key_warning(key)
+        FunctionsScaleAndConcurrencyTriggersHttpResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        FunctionsScaleAndConcurrencyResponseHttp.__key_warning(key)
+        FunctionsScaleAndConcurrencyTriggersHttpResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -5606,27 +5719,51 @@ class FunctionsScaleAndConcurrencyResponseHttp(dict):
 
 
 @pulumi.output_type
-class FunctionsScaleAndConcurrencyResponseTriggers(dict):
+class FunctionsScaleAndConcurrencyTriggersResponse(dict):
     """
     Scale and concurrency settings for the function app triggers.
     """
     def __init__(__self__, *,
-                 http: Optional['outputs.FunctionsScaleAndConcurrencyResponseHttp'] = None):
+                 http: Optional['outputs.FunctionsScaleAndConcurrencyTriggersHttpResponse'] = None):
         """
         Scale and concurrency settings for the function app triggers.
 
-        :param 'FunctionsScaleAndConcurrencyResponseHttp' http: Scale and concurrency settings for the HTTP trigger.
+        :param 'FunctionsScaleAndConcurrencyTriggersHttpResponse' http: Scale and concurrency settings for the HTTP trigger.
         """
         if http is not None:
             pulumi.set(__self__, "http", http)
 
     @_builtins.property
     @pulumi.getter
-    def http(self) -> Optional['outputs.FunctionsScaleAndConcurrencyResponseHttp']:
+    def http(self) -> Optional['outputs.FunctionsScaleAndConcurrencyTriggersHttpResponse']:
         """
         Scale and concurrency settings for the HTTP trigger.
         """
         return pulumi.get(self, "http")
+
+
+@pulumi.output_type
+class FunctionsSiteUpdateStrategyResponse(dict):
+    """
+    Function app site update strategy configuration for deployments and site config updates.
+    """
+    def __init__(__self__, *,
+                 type: Optional[_builtins.str] = None):
+        """
+        Function app site update strategy configuration for deployments and site config updates.
+
+        :param _builtins.str type: Function app site update strategy type. Available options: Recreate, RollingUpdate
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        Function app site update strategy type. Available options: Recreate, RollingUpdate
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -6044,7 +6181,7 @@ class GoogleResponse(dict):
 @pulumi.output_type
 class HandlerMappingResponse(dict):
     """
-    The IIS handler mappings used to define which handler processes HTTP requests with certain extension. 
+    The IIS handler mappings used to define which handler processes HTTP requests with certain extension.
     For example, it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
     """
     @staticmethod
@@ -6069,7 +6206,7 @@ class HandlerMappingResponse(dict):
                  extension: Optional[_builtins.str] = None,
                  script_processor: Optional[_builtins.str] = None):
         """
-        The IIS handler mappings used to define which handler processes HTTP requests with certain extension. 
+        The IIS handler mappings used to define which handler processes HTTP requests with certain extension.
         For example, it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
 
         :param _builtins.str arguments: Command-line arguments to be passed to the script processor.
@@ -6432,20 +6569,23 @@ class IdentifierResponse(dict):
     def __init__(__self__, *,
                  id: _builtins.str,
                  name: _builtins.str,
+                 system_data: 'outputs.SystemDataResponse',
                  type: _builtins.str,
                  kind: Optional[_builtins.str] = None,
                  value: Optional[_builtins.str] = None):
         """
         A domain specific resource identifier.
 
-        :param _builtins.str id: Resource Id.
-        :param _builtins.str name: Resource Name.
-        :param _builtins.str type: Resource type.
+        :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        :param _builtins.str name: The name of the resource
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param _builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param _builtins.str kind: Kind of resource.
         :param _builtins.str value: String representation of the identity.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
@@ -6456,7 +6596,7 @@ class IdentifierResponse(dict):
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -6464,15 +6604,23 @@ class IdentifierResponse(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource Name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -6641,6 +6789,95 @@ class IdentityProvidersResponse(dict):
 
 
 @pulumi.output_type
+class InstallScriptResponse(dict):
+    """
+    Server farm install script configuration.
+    """
+    def __init__(__self__, *,
+                 name: Optional[_builtins.str] = None,
+                 source: Optional['outputs.InstallScriptSourceResponse'] = None):
+        """
+        Server farm install script configuration.
+
+        :param _builtins.str name: Name of the install script.
+        :param 'InstallScriptSourceResponse' source: Source of the install script.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        Name of the install script.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> Optional['outputs.InstallScriptSourceResponse']:
+        """
+        Source of the install script.
+        """
+        return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class InstallScriptSourceResponse(dict):
+    """
+    Object to hold install script reference.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceUri":
+            suggest = "source_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstallScriptSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstallScriptSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstallScriptSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source_uri: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None):
+        """
+        Object to hold install script reference.
+
+        :param _builtins.str source_uri: Install script source URI where the install script file will be fetched from.
+        :param _builtins.str type: Type of the install script.
+        """
+        if source_uri is not None:
+            pulumi.set(__self__, "source_uri", source_uri)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceUri")
+    def source_uri(self) -> Optional[_builtins.str]:
+        """
+        Install script source URI where the install script file will be fetched from.
+        """
+        return pulumi.get(self, "source_uri")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        Type of the install script.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class IpSecurityRestrictionResponse(dict):
     """
     IP security restriction on an app.
@@ -6688,12 +6925,12 @@ class IpSecurityRestrictionResponse(dict):
         :param _builtins.str action: Allow or Deny access for this IP range.
         :param _builtins.str description: IP restriction rule description.
         :param Mapping[str, Sequence[_builtins.str]] headers: IP restriction rule headers.
-               X-Forwarded-Host (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-Host#Examples). 
+               X-Forwarded-Host (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-Host#Examples).
                The matching logic is ..
                - If the property is null or empty (default), all hosts(or lack of) are allowed.
                - A value is compared using ordinal-ignore-case (excluding port number).
                - Subdomain wildcards are permitted but don't match the root domain. For example, *.contoso.com matches the subdomain foo.contoso.com
-                but not the root domain contoso.com or multi-level foo.bar.contoso.com
+               but not the root domain contoso.com or multi-level foo.bar.contoso.com
                - Unicode host names are allowed but are converted to Punycode for matching.
                
                X-Forwarded-For (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-For#Examples).
@@ -6759,12 +6996,12 @@ class IpSecurityRestrictionResponse(dict):
     def headers(self) -> Optional[Mapping[str, Sequence[_builtins.str]]]:
         """
         IP restriction rule headers.
-        X-Forwarded-Host (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-Host#Examples). 
+        X-Forwarded-Host (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-Host#Examples).
         The matching logic is ..
         - If the property is null or empty (default), all hosts(or lack of) are allowed.
         - A value is compared using ordinal-ignore-case (excluding port number).
         - Subdomain wildcards are permitted but don't match the root domain. For example, *.contoso.com matches the subdomain foo.contoso.com
-         but not the root domain contoso.com or multi-level foo.bar.contoso.com
+        but not the root domain contoso.com or multi-level foo.bar.contoso.com
         - Unicode host names are allowed but are converted to Punycode for matching.
 
         X-Forwarded-For (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-For#Examples).
@@ -6898,6 +7135,61 @@ class JwtClaimChecksResponse(dict):
         The list of the allowed groups.
         """
         return pulumi.get(self, "allowed_groups")
+
+
+@pulumi.output_type
+class KeyVaultReferenceWithStatusResponse(dict):
+    """
+    Object to hold key vault reference and the resolution status
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "referenceStatus":
+            suggest = "reference_status"
+        elif key == "secretUri":
+            suggest = "secret_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KeyVaultReferenceWithStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KeyVaultReferenceWithStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KeyVaultReferenceWithStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 reference_status: Optional[_builtins.str] = None,
+                 secret_uri: Optional[_builtins.str] = None):
+        """
+        Object to hold key vault reference and the resolution status
+
+        :param _builtins.str reference_status: Reference status of the key vault secret.
+        :param _builtins.str secret_uri: Key vault secret URI.
+        """
+        if reference_status is not None:
+            pulumi.set(__self__, "reference_status", reference_status)
+        if secret_uri is not None:
+            pulumi.set(__self__, "secret_uri", secret_uri)
+
+    @_builtins.property
+    @pulumi.getter(name="referenceStatus")
+    def reference_status(self) -> Optional[_builtins.str]:
+        """
+        Reference status of the key vault secret.
+        """
+        return pulumi.get(self, "reference_status")
+
+    @_builtins.property
+    @pulumi.getter(name="secretUri")
+    def secret_uri(self) -> Optional[_builtins.str]:
+        """
+        Key vault secret URI.
+        """
+        return pulumi.get(self, "secret_uri")
 
 
 @pulumi.output_type
@@ -7996,8 +8288,8 @@ class RampUpRuleResponse(dict):
         :param _builtins.str action_host_name: Hostname of a slot to which the traffic will be redirected if decided to. E.g. myapp-stage.azurewebsites.net.
         :param _builtins.str change_decision_callback_url: Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified.
         :param _builtins.int change_interval_in_minutes: Specifies interval in minutes to reevaluate ReroutePercentage.
-        :param _builtins.float change_step: In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches \\n<code>MinReroutePercentage</code> or 
-               <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.\\nCustom decision algorithm 
+        :param _builtins.float change_step: In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches \\n<code>MinReroutePercentage</code> or
+               <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.\\nCustom decision algorithm
                can be provided in TiPCallback site extension which URL can be specified in <code>ChangeDecisionCallbackUrl</code>.
         :param _builtins.float max_reroute_percentage: Specifies upper boundary below which ReroutePercentage will stay.
         :param _builtins.float min_reroute_percentage: Specifies lower boundary above which ReroutePercentage will stay.
@@ -8049,8 +8341,8 @@ class RampUpRuleResponse(dict):
     @pulumi.getter(name="changeStep")
     def change_step(self) -> Optional[_builtins.float]:
         """
-        In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches \\n<code>MinReroutePercentage</code> or 
-        <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.\\nCustom decision algorithm 
+        In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches \\n<code>MinReroutePercentage</code> or
+        <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.\\nCustom decision algorithm
         can be provided in TiPCallback site extension which URL can be specified in <code>ChangeDecisionCallbackUrl</code>.
         """
         return pulumi.get(self, "change_step")
@@ -8086,6 +8378,73 @@ class RampUpRuleResponse(dict):
         Percentage of the traffic which will be redirected to <code>ActionHostName</code>.
         """
         return pulumi.get(self, "reroute_percentage")
+
+
+@pulumi.output_type
+class RegistryAdapterResponse(dict):
+    """
+    Server farm registry adapter configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultSecretReference":
+            suggest = "key_vault_secret_reference"
+        elif key == "registryKey":
+            suggest = "registry_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistryAdapterResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistryAdapterResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistryAdapterResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_vault_secret_reference: Optional['outputs.KeyVaultReferenceWithStatusResponse'] = None,
+                 registry_key: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None):
+        """
+        Server farm registry adapter configuration.
+
+        :param 'KeyVaultReferenceWithStatusResponse' key_vault_secret_reference: Key vault reference to the value that will be placed in the registry location
+        :param _builtins.str registry_key: Registry key for the adapter.
+        :param _builtins.str type: Type of the registry adapter.
+        """
+        if key_vault_secret_reference is not None:
+            pulumi.set(__self__, "key_vault_secret_reference", key_vault_secret_reference)
+        if registry_key is not None:
+            pulumi.set(__self__, "registry_key", registry_key)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="keyVaultSecretReference")
+    def key_vault_secret_reference(self) -> Optional['outputs.KeyVaultReferenceWithStatusResponse']:
+        """
+        Key vault reference to the value that will be placed in the registry location
+        """
+        return pulumi.get(self, "key_vault_secret_reference")
+
+    @_builtins.property
+    @pulumi.getter(name="registryKey")
+    def registry_key(self) -> Optional[_builtins.str]:
+        """
+        Registry key for the adapter.
+        """
+        return pulumi.get(self, "registry_key")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        Type of the registry adapter.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -8506,6 +8865,47 @@ class ServerFarmInstanceResponse(dict):
         The instance status.
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class ServerFarmNetworkSettingsResponse(dict):
+    """
+    Network settings for an app service plan.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "virtualNetworkSubnetId":
+            suggest = "virtual_network_subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerFarmNetworkSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerFarmNetworkSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerFarmNetworkSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 virtual_network_subnet_id: Optional[_builtins.str] = None):
+        """
+        Network settings for an app service plan.
+
+        :param _builtins.str virtual_network_subnet_id: Azure Resource Manager ID of the Virtual network and subnet to be joined by Regional VNET Integration. This must be of the form /subscriptions/{subscriptionName}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}
+        """
+        if virtual_network_subnet_id is not None:
+            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+
+    @_builtins.property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> Optional[_builtins.str]:
+        """
+        Azure Resource Manager ID of the Virtual network and subnet to be joined by Regional VNET Integration. This must be of the form /subscriptions/{subscriptionName}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
 
 
 @pulumi.output_type
@@ -10909,6 +11309,97 @@ class StatusCodesRangeBasedTriggerResponse(dict):
 
 
 @pulumi.output_type
+class StorageMountResponse(dict):
+    """
+    Server farm storage mount configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "credentialsKeyVaultReference":
+            suggest = "credentials_key_vault_reference"
+        elif key == "destinationPath":
+            suggest = "destination_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageMountResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageMountResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageMountResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 credentials_key_vault_reference: Optional['outputs.KeyVaultReferenceWithStatusResponse'] = None,
+                 destination_path: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 source: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None):
+        """
+        Server farm storage mount configuration.
+
+        :param 'KeyVaultReferenceWithStatusResponse' credentials_key_vault_reference: KV reference to the credentials to connect to the share.
+        :param _builtins.str destination_path: Path on worker where storage will be mounted.
+        :param _builtins.str name: Name of the storage mount.
+        :param _builtins.str source: Source of the fileshare/storage.
+        :param _builtins.str type: Type of the storage mount.
+        """
+        if credentials_key_vault_reference is not None:
+            pulumi.set(__self__, "credentials_key_vault_reference", credentials_key_vault_reference)
+        if destination_path is not None:
+            pulumi.set(__self__, "destination_path", destination_path)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="credentialsKeyVaultReference")
+    def credentials_key_vault_reference(self) -> Optional['outputs.KeyVaultReferenceWithStatusResponse']:
+        """
+        KV reference to the credentials to connect to the share.
+        """
+        return pulumi.get(self, "credentials_key_vault_reference")
+
+    @_builtins.property
+    @pulumi.getter(name="destinationPath")
+    def destination_path(self) -> Optional[_builtins.str]:
+        """
+        Path on worker where storage will be mounted.
+        """
+        return pulumi.get(self, "destination_path")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        Name of the storage mount.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> Optional[_builtins.str]:
+        """
+        Source of the fileshare/storage.
+        """
+        return pulumi.get(self, "source")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        Type of the storage mount.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class SystemDataResponse(dict):
     """
     Metadata pertaining to creation and last modification of the resource.
@@ -11055,7 +11546,7 @@ class TokenStoreResponse(dict):
 
         :param 'BlobStorageTokenStoreResponse' azure_blob_storage: The configuration settings of the storage of the tokens if blob storage is used.
         :param _builtins.bool enabled: <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
-                The default is <code>false</code>.
+               The default is <code>false</code>.
         :param 'FileSystemTokenStoreResponse' file_system: The configuration settings of the storage of the tokens if a file system is used.
         :param _builtins.float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to
                call the token refresh API. The default is 72 hours.
@@ -11082,7 +11573,7 @@ class TokenStoreResponse(dict):
     def enabled(self) -> Optional[_builtins.bool]:
         """
         <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
-         The default is <code>false</code>.
+        The default is <code>false</code>.
         """
         return pulumi.get(self, "enabled")
 
@@ -11457,7 +11948,9 @@ class VnetRouteResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "endAddress":
+        if key == "systemData":
+            suggest = "system_data"
+        elif key == "endAddress":
             suggest = "end_address"
         elif key == "routeType":
             suggest = "route_type"
@@ -11478,6 +11971,7 @@ class VnetRouteResponse(dict):
     def __init__(__self__, *,
                  id: _builtins.str,
                  name: _builtins.str,
+                 system_data: 'outputs.SystemDataResponse',
                  type: _builtins.str,
                  end_address: Optional[_builtins.str] = None,
                  kind: Optional[_builtins.str] = None,
@@ -11486,9 +11980,10 @@ class VnetRouteResponse(dict):
         """
         Virtual Network route contract used to pass routing information for a Virtual Network.
 
-        :param _builtins.str id: Resource Id.
-        :param _builtins.str name: Resource Name.
-        :param _builtins.str type: Resource type.
+        :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        :param _builtins.str name: The name of the resource
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param _builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param _builtins.str end_address: The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
         :param _builtins.str kind: Kind of resource.
         :param _builtins.str route_type: The type of route this is:
@@ -11501,6 +11996,7 @@ class VnetRouteResponse(dict):
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if end_address is not None:
             pulumi.set(__self__, "end_address", end_address)
@@ -11515,7 +12011,7 @@ class VnetRouteResponse(dict):
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -11523,15 +12019,23 @@ class VnetRouteResponse(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource Name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -11648,18 +12152,18 @@ class VolumeMountResponse(dict):
 
 
 @pulumi.output_type
-class WorkflowEnvelopeResponseProperties(dict):
+class WorkflowEnvelopePropertiesResponse(dict):
     """
     Additional workflow properties.
     """
     def __init__(__self__, *,
-                 files: Optional[Mapping[str, Any]] = None,
+                 files: Optional[Any] = None,
                  flow_state: Optional[_builtins.str] = None,
                  health: Optional['outputs.WorkflowHealthResponse'] = None):
         """
         Additional workflow properties.
 
-        :param Mapping[str, Any] files: Gets or sets the files.
+        :param Any files: Gets or sets the files.
         :param _builtins.str flow_state: Gets or sets the state of the workflow.
         :param 'WorkflowHealthResponse' health: Gets or sets workflow health.
         """
@@ -11672,7 +12176,7 @@ class WorkflowEnvelopeResponseProperties(dict):
 
     @_builtins.property
     @pulumi.getter
-    def files(self) -> Optional[Mapping[str, Any]]:
+    def files(self) -> Optional[Any]:
         """
         Gets or sets the files.
         """

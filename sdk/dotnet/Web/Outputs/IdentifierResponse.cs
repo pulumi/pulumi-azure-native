@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.Web.Outputs
     public sealed class IdentifierResponse
     {
         /// <summary>
-        /// Resource Id.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -25,11 +25,15 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// </summary>
         public readonly string? Kind;
         /// <summary>
-        /// Resource Name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Resource type.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -45,6 +49,8 @@ namespace Pulumi.AzureNative.Web.Outputs
 
             string name,
 
+            Outputs.SystemDataResponse systemData,
+
             string type,
 
             string? value)
@@ -52,6 +58,7 @@ namespace Pulumi.AzureNative.Web.Outputs
             Id = id;
             Kind = kind;
             Name = name;
+            SystemData = systemData;
             Type = type;
             Value = value;
         }

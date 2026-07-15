@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.Inputs
     /// <summary>
     /// Scale and concurrency settings for the HTTP trigger.
     /// </summary>
-    public sealed class FunctionsScaleAndConcurrencyHttpArgs : global::Pulumi.ResourceArgs
+    public sealed class FunctionsScaleAndConcurrencyTriggersHttpArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum number of concurrent HTTP trigger invocations per instance.
@@ -21,9 +21,9 @@ namespace Pulumi.AzureNative.Web.Inputs
         [Input("perInstanceConcurrency")]
         public Input<int>? PerInstanceConcurrency { get; set; }
 
-        public FunctionsScaleAndConcurrencyHttpArgs()
+        public FunctionsScaleAndConcurrencyTriggersHttpArgs()
         {
         }
-        public static new FunctionsScaleAndConcurrencyHttpArgs Empty => new FunctionsScaleAndConcurrencyHttpArgs();
+        public static new FunctionsScaleAndConcurrencyTriggersHttpArgs Empty => new FunctionsScaleAndConcurrencyTriggersHttpArgs();
     }
 }

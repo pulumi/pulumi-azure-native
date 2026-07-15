@@ -27,7 +27,7 @@ class GetWebAppPrivateEndpointConnectionSlotResult:
     """
     Remote Private Endpoint Connection ARM resource.
     """
-    def __init__(__self__, azure_api_version=None, id=None, ip_addresses=None, kind=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, ip_addresses=None, kind=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, system_data=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -52,6 +52,9 @@ class GetWebAppPrivateEndpointConnectionSlotResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -68,7 +71,7 @@ class GetWebAppPrivateEndpointConnectionSlotResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -92,7 +95,7 @@ class GetWebAppPrivateEndpointConnectionSlotResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource Name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -118,10 +121,18 @@ class GetWebAppPrivateEndpointConnectionSlotResult:
         return pulumi.get(self, "provisioning_state")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -140,6 +151,7 @@ class AwaitableGetWebAppPrivateEndpointConnectionSlotResult(GetWebAppPrivateEndp
             private_endpoint=self.private_endpoint,
             private_link_service_connection_state=self.private_link_service_connection_state,
             provisioning_state=self.provisioning_state,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -151,14 +163,14 @@ def get_web_app_private_endpoint_connection_slot(name: Optional[_builtins.str] =
     """
     Description for Gets a private endpoint connection
 
-    Uses Azure REST API version 2024-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str name: Name of the site.
     :param _builtins.str private_endpoint_connection_name: Name of the private endpoint connection.
-    :param _builtins.str resource_group_name: Name of the resource group to which the resource belongs.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str slot: Name of the site deployment slot.
     """
     __args__ = dict()
@@ -178,6 +190,7 @@ def get_web_app_private_endpoint_connection_slot(name: Optional[_builtins.str] =
         private_endpoint=pulumi.get(__ret__, 'private_endpoint'),
         private_link_service_connection_state=pulumi.get(__ret__, 'private_link_service_connection_state'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_web_app_private_endpoint_connection_slot_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                                                         private_endpoint_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -187,14 +200,14 @@ def get_web_app_private_endpoint_connection_slot_output(name: Optional[pulumi.In
     """
     Description for Gets a private endpoint connection
 
-    Uses Azure REST API version 2024-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str name: Name of the site.
     :param _builtins.str private_endpoint_connection_name: Name of the private endpoint connection.
-    :param _builtins.str resource_group_name: Name of the resource group to which the resource belongs.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str slot: Name of the site deployment slot.
     """
     __args__ = dict()
@@ -213,4 +226,5 @@ def get_web_app_private_endpoint_connection_slot_output(name: Optional[pulumi.In
         private_endpoint=pulumi.get(__response__, 'private_endpoint'),
         private_link_service_connection_state=pulumi.get(__response__, 'private_link_service_connection_state'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

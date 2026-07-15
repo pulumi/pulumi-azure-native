@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = ['WebAppFtpAllowedSlotArgs', 'WebAppFtpAllowedSlot']
 
@@ -29,7 +30,7 @@ class WebAppFtpAllowedSlotArgs:
 
         :param pulumi.Input[_builtins.bool] allow: <code>true</code> to allow access to a publishing method; otherwise, <code>false</code>.
         :param pulumi.Input[_builtins.str] name: Name of the app.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] kind: Kind of resource.
         """
         pulumi.set(__self__, "allow", allow)
@@ -67,7 +68,7 @@ class WebAppFtpAllowedSlotArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the resource group to which the resource belongs.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -112,9 +113,9 @@ class WebAppFtpAllowedSlot(pulumi.CustomResource):
         """
         Publishing Credentials Policies parameters.
 
-        Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-12-01.
+        Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2023-12-01.
 
-        Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -122,7 +123,7 @@ class WebAppFtpAllowedSlot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] allow: <code>true</code> to allow access to a publishing method; otherwise, <code>false</code>.
         :param pulumi.Input[_builtins.str] kind: Kind of resource.
         :param pulumi.Input[_builtins.str] name: Name of the app.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
     @overload
@@ -133,9 +134,9 @@ class WebAppFtpAllowedSlot(pulumi.CustomResource):
         """
         Publishing Credentials Policies parameters.
 
-        Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-12-01.
+        Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2023-12-01.
 
-        Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -181,6 +182,7 @@ class WebAppFtpAllowedSlot(pulumi.CustomResource):
                 raise TypeError("Missing required property 'slot'")
             __props__.__dict__["slot"] = slot
             __props__.__dict__["azure_api_version"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20201201:WebAppFtpAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppFtpAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppFtpAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppFtpAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppFtpAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppFtpAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppFtpAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppFtpAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppFtpAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20240401:WebAppFtpAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20241101:WebAppFtpAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20250301:WebAppFtpAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20250501:WebAppFtpAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20260301preview:WebAppFtpAllowedSlot"), pulumi.Alias(type_="azure-native:web/v20260315:WebAppFtpAllowedSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -210,6 +212,7 @@ class WebAppFtpAllowedSlot(pulumi.CustomResource):
         __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return WebAppFtpAllowedSlot(resource_name, opts=opts, __props__=__props__)
 
@@ -241,15 +244,23 @@ class WebAppFtpAllowedSlot(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource Name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

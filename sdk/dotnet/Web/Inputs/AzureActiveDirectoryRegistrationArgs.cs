@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.Web.Inputs
     {
         /// <summary>
         /// The Client ID of this relying party application, known as the client_id.
-        /// This setting is required for enabling OpenID Connection authentication with Azure Active Directory or 
+        /// This setting is required for enabling OpenID Connection authentication with Azure Active Directory or
         /// other 3rd party OpenID Connect providers.
         /// More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
         /// </summary>

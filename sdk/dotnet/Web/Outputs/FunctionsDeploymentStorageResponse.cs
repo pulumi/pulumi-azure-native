@@ -14,12 +14,12 @@ namespace Pulumi.AzureNative.Web.Outputs
     /// Storage for deployed package used by the function app.
     /// </summary>
     [OutputType]
-    public sealed class FunctionsDeploymentResponseStorage
+    public sealed class FunctionsDeploymentStorageResponse
     {
         /// <summary>
         /// Authentication method to access the storage account for deployment.
         /// </summary>
-        public readonly Outputs.FunctionsDeploymentResponseAuthentication? Authentication;
+        public readonly Outputs.FunctionsDeploymentStorageAuthenticationResponse? Authentication;
         /// <summary>
         /// Property to select Azure Storage type. Available options: blobContainer.
         /// </summary>
@@ -30,8 +30,8 @@ namespace Pulumi.AzureNative.Web.Outputs
         public readonly string? Value;
 
         [OutputConstructor]
-        private FunctionsDeploymentResponseStorage(
-            Outputs.FunctionsDeploymentResponseAuthentication? authentication,
+        private FunctionsDeploymentStorageResponse(
+            Outputs.FunctionsDeploymentStorageAuthenticationResponse? authentication,
 
             string? type,
 

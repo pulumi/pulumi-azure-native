@@ -7,35 +7,39 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNative.Web.Inputs
+namespace Pulumi.AzureNative.Web.Outputs
 {
 
     /// <summary>
     /// Authentication method to access the storage account for deployment.
     /// </summary>
-    public sealed class FunctionsDeploymentAuthenticationArgs : global::Pulumi.ResourceArgs
+    [OutputType]
+    public sealed class FunctionsDeploymentStorageAuthenticationResponse
     {
         /// <summary>
         /// Use this property for StorageAccountConnectionString. Set the name of the app setting that has the storage account connection string. Do not set a value for this property when using other authentication type.
         /// </summary>
-        [Input("storageAccountConnectionStringName")]
-        public Input<string>? StorageAccountConnectionStringName { get; set; }
-
+        public readonly string? StorageAccountConnectionStringName;
         /// <summary>
         /// Property to select authentication type to access the selected storage account. Available options: SystemAssignedIdentity, UserAssignedIdentity, StorageAccountConnectionString.
         /// </summary>
-        [Input("type")]
-        public InputUnion<string, Pulumi.AzureNative.Web.AuthenticationType>? Type { get; set; }
-
+        public readonly string? Type;
         /// <summary>
         /// Use this property for UserAssignedIdentity. Set the resource ID of the identity. Do not set a value for this property when using other authentication type.
         /// </summary>
-        [Input("userAssignedIdentityResourceId")]
-        public Input<string>? UserAssignedIdentityResourceId { get; set; }
+        public readonly string? UserAssignedIdentityResourceId;
 
-        public FunctionsDeploymentAuthenticationArgs()
+        [OutputConstructor]
+        private FunctionsDeploymentStorageAuthenticationResponse(
+            string? storageAccountConnectionStringName,
+
+            string? type,
+
+            string? userAssignedIdentityResourceId)
         {
+            StorageAccountConnectionStringName = storageAccountConnectionStringName;
+            Type = type;
+            UserAssignedIdentityResourceId = userAssignedIdentityResourceId;
         }
-        public static new FunctionsDeploymentAuthenticationArgs Empty => new FunctionsDeploymentAuthenticationArgs();
     }
 }
