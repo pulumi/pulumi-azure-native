@@ -133,6 +133,14 @@ jobs:
         if: ${{ matrix.language != 'yaml' }}
         run: make build_${{ matrix.language }}
 
+      # Regression check for https://github.com/pulumi/pulumi-azure-native/issues/4763. `make build_go`
+      # above only tidies/builds the generated modules against themselves (via local `replace`
+      # directives), which can stay green even when the generated go.mod is broken for real consumers.
+      # This builds a throwaway module that requires the generated SDK the way a real user would.
+      - name: Verify Go SDK is consumable downstream
+        if: ${{ matrix.language == 'go' }}
+        run: make verify_go_sdk_consumable
+
       - name: Check worktree clean
         uses: pulumi/git-status-check-action@0d90c81496aa8d6a31d9c6a0d6297feea2f54057 # v2
         with:
