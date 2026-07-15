@@ -76,7 +76,7 @@ export class HubVirtualNetworkConnection extends pulumi.CustomResource {
     /**
      * The Routing Configuration indicating the associated and propagated route tables on this connection.
      */
-    declare public readonly routingConfiguration: pulumi.Output<outputs.network.RoutingConfigurationResponseV3 | undefined>;
+    declare public readonly routingConfiguration: pulumi.Output<outputs.network.RoutingConfigurationResponseV1 | undefined>;
 
     /**
      * Create a HubVirtualNetworkConnection resource with the given unique name, arguments, and options.
@@ -165,7 +165,7 @@ export interface HubVirtualNetworkConnectionArgs {
     /**
      * The Routing Configuration indicating the associated and propagated route tables on this connection.
      */
-    routingConfiguration?: pulumi.Input<inputs.network.RoutingConfigurationV3Args>;
+    routingConfiguration?: pulumi.Input<inputs.network.RoutingConfigurationV1Args>;
     /**
      * The name of the VirtualHub.
      */

@@ -147146,7 +147146,7 @@ export namespace network {
         /**
          * The Routing Configuration indicating the associated and propagated route tables on this connection.
          */
-        routingConfiguration?: pulumi.Input<inputs.network.RoutingConfigurationV2Args>;
+        routingConfiguration?: pulumi.Input<inputs.network.RoutingConfigurationV1Args>;
         /**
          * The routing weight associated to the connection.
          */
@@ -149062,7 +149062,7 @@ export namespace network {
         /**
          * The Routing Configuration indicating the associated and propagated route tables on this connection.
          */
-        routingConfiguration?: pulumi.Input<inputs.network.RoutingConfigurationV5Args>;
+        routingConfiguration?: pulumi.Input<inputs.network.RoutingConfigurationV1Args>;
         /**
          * The reference to the address space resource which represents Address space for P2S VpnClient.
          */
@@ -149667,76 +149667,6 @@ export namespace network {
     }
 
     /**
-     * The list of RouteTables to advertise the routes to.
-     */
-    export interface PropagatedRouteTableV2Args {
-        /**
-         * The list of resource ids of all the RouteTables.
-         */
-        ids?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[]>;
-        /**
-         * The list of labels.
-         */
-        labels?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    /**
-     * The list of RouteTables to advertise the routes to.
-     */
-    export interface PropagatedRouteTableV3Args {
-        /**
-         * The list of resource ids of all the RouteTables.
-         */
-        ids?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[]>;
-        /**
-         * The list of labels.
-         */
-        labels?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    /**
-     * The list of RouteTables to advertise the routes to.
-     */
-    export interface PropagatedRouteTableV5Args {
-        /**
-         * The list of resource ids of all the RouteTables.
-         */
-        ids?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[]>;
-        /**
-         * The list of labels.
-         */
-        labels?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    /**
-     * The list of RouteTables to advertise the routes to.
-     */
-    export interface PropagatedRouteTableV6Args {
-        /**
-         * The list of resource ids of all the RouteTables.
-         */
-        ids?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[]>;
-        /**
-         * The list of labels.
-         */
-        labels?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    /**
-     * The list of RouteTables to advertise the routes to.
-     */
-    export interface PropagatedRouteTableV7Args {
-        /**
-         * The list of resource ids of all the RouteTables.
-         */
-        ids?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[]>;
-        /**
-         * The list of labels.
-         */
-        labels?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    /**
      * Public IP address resource.
      */
     export interface PublicIPAddressArgs {
@@ -150217,136 +150147,6 @@ export namespace network {
          * The list of RouteTables to advertise the routes to.
          */
         propagatedRouteTables?: pulumi.Input<inputs.network.PropagatedRouteTableV1Args>;
-        /**
-         * List of routes that control routing from VirtualHub into a virtual network connection.
-         */
-        vnetRoutes?: pulumi.Input<inputs.network.VnetRouteArgs>;
-    }
-
-    /**
-     * Routing Configuration indicating the associated and propagated route tables for this connection.
-     */
-    export interface RoutingConfigurationV2Args {
-        /**
-         * The resource id RouteTable associated with this RoutingConfiguration.
-         */
-        associatedRouteTable?: pulumi.Input<inputs.network.SubResourceArgs>;
-        /**
-         * The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-         */
-        inboundRouteMap?: pulumi.Input<inputs.network.SubResourceArgs>;
-        /**
-         * The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-         */
-        outboundRouteMap?: pulumi.Input<inputs.network.SubResourceArgs>;
-        /**
-         * The list of RouteTables to advertise the routes to.
-         */
-        propagatedRouteTables?: pulumi.Input<inputs.network.PropagatedRouteTableV2Args>;
-        /**
-         * List of routes that control routing from VirtualHub into a virtual network connection.
-         */
-        vnetRoutes?: pulumi.Input<inputs.network.VnetRouteArgs>;
-    }
-
-    /**
-     * Routing Configuration indicating the associated and propagated route tables for this connection.
-     */
-    export interface RoutingConfigurationV3Args {
-        /**
-         * The resource id RouteTable associated with this RoutingConfiguration.
-         */
-        associatedRouteTable?: pulumi.Input<inputs.network.SubResourceArgs>;
-        /**
-         * The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-         */
-        inboundRouteMap?: pulumi.Input<inputs.network.SubResourceArgs>;
-        /**
-         * The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-         */
-        outboundRouteMap?: pulumi.Input<inputs.network.SubResourceArgs>;
-        /**
-         * The list of RouteTables to advertise the routes to.
-         */
-        propagatedRouteTables?: pulumi.Input<inputs.network.PropagatedRouteTableV3Args>;
-        /**
-         * List of routes that control routing from VirtualHub into a virtual network connection.
-         */
-        vnetRoutes?: pulumi.Input<inputs.network.VnetRouteArgs>;
-    }
-
-    /**
-     * Routing Configuration indicating the associated and propagated route tables for this connection.
-     */
-    export interface RoutingConfigurationV5Args {
-        /**
-         * The resource id RouteTable associated with this RoutingConfiguration.
-         */
-        associatedRouteTable?: pulumi.Input<inputs.network.SubResourceArgs>;
-        /**
-         * The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-         */
-        inboundRouteMap?: pulumi.Input<inputs.network.SubResourceArgs>;
-        /**
-         * The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-         */
-        outboundRouteMap?: pulumi.Input<inputs.network.SubResourceArgs>;
-        /**
-         * The list of RouteTables to advertise the routes to.
-         */
-        propagatedRouteTables?: pulumi.Input<inputs.network.PropagatedRouteTableV5Args>;
-        /**
-         * List of routes that control routing from VirtualHub into a virtual network connection.
-         */
-        vnetRoutes?: pulumi.Input<inputs.network.VnetRouteArgs>;
-    }
-
-    /**
-     * Routing Configuration indicating the associated and propagated route tables for this connection.
-     */
-    export interface RoutingConfigurationV6Args {
-        /**
-         * The resource id RouteTable associated with this RoutingConfiguration.
-         */
-        associatedRouteTable?: pulumi.Input<inputs.network.SubResourceArgs>;
-        /**
-         * The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-         */
-        inboundRouteMap?: pulumi.Input<inputs.network.SubResourceArgs>;
-        /**
-         * The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-         */
-        outboundRouteMap?: pulumi.Input<inputs.network.SubResourceArgs>;
-        /**
-         * The list of RouteTables to advertise the routes to.
-         */
-        propagatedRouteTables?: pulumi.Input<inputs.network.PropagatedRouteTableV6Args>;
-        /**
-         * List of routes that control routing from VirtualHub into a virtual network connection.
-         */
-        vnetRoutes?: pulumi.Input<inputs.network.VnetRouteArgs>;
-    }
-
-    /**
-     * Routing Configuration indicating the associated and propagated route tables for this connection.
-     */
-    export interface RoutingConfigurationV7Args {
-        /**
-         * The resource id RouteTable associated with this RoutingConfiguration.
-         */
-        associatedRouteTable?: pulumi.Input<inputs.network.SubResourceArgs>;
-        /**
-         * The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-         */
-        inboundRouteMap?: pulumi.Input<inputs.network.SubResourceArgs>;
-        /**
-         * The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-         */
-        outboundRouteMap?: pulumi.Input<inputs.network.SubResourceArgs>;
-        /**
-         * The list of RouteTables to advertise the routes to.
-         */
-        propagatedRouteTables?: pulumi.Input<inputs.network.PropagatedRouteTableV7Args>;
         /**
          * List of routes that control routing from VirtualHub into a virtual network connection.
          */
@@ -151680,7 +151480,7 @@ export namespace network {
         /**
          * The Routing Configuration indicating the associated and propagated route tables on this connection.
          */
-        routingConfiguration?: pulumi.Input<inputs.network.RoutingConfigurationV7Args>;
+        routingConfiguration?: pulumi.Input<inputs.network.RoutingConfigurationV1Args>;
         /**
          * Routing weight for vpn connection.
          */
@@ -181961,7 +181761,7 @@ export namespace web {
     export interface AzureActiveDirectoryRegistrationArgs {
         /**
          * The Client ID of this relying party application, known as the client_id.
-         * This setting is required for enabling OpenID Connection authentication with Azure Active Directory or 
+         * This setting is required for enabling OpenID Connection authentication with Azure Active Directory or
          * other 3rd party OpenID Connect providers.
          * More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
          */
@@ -182243,7 +182043,7 @@ export namespace web {
      */
     export interface CloningInfoArgs {
         /**
-         * Application setting overrides for cloned app. If specified, these settings override the settings cloned 
+         * Application setting overrides for cloned app. If specified, these settings override the settings cloned
          * from source app. Otherwise, application settings from source app are retained.
          */
         appSettingsOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -182273,8 +182073,8 @@ export namespace web {
          */
         overwrite?: pulumi.Input<boolean>;
         /**
-         * ARM resource ID of the source app. App resource ID is of the form 
-         * /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and 
+         * ARM resource ID of the source app. App resource ID is of the form
+         * /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and
          * /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName} for other slots.
          */
         sourceWebAppId: pulumi.Input<string>;
@@ -182283,7 +182083,7 @@ export namespace web {
          */
         sourceWebAppLocation?: pulumi.Input<string>;
         /**
-         * ARM resource ID of the Traffic Manager profile to use, if it exists. Traffic Manager resource ID is of the form 
+         * ARM resource ID of the Traffic Manager profile to use, if it exists. Traffic Manager resource ID is of the form
          * /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}.
          */
         trafficManagerProfileId?: pulumi.Input<string>;
@@ -182531,7 +182331,7 @@ export namespace web {
          */
         allowedOrigins?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Gets or sets whether CORS requests with credentials are allowed. See 
+         * Gets or sets whether CORS requests with credentials are allowed. See
          * https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Requests_with_credentials
          * for more details.
          */
@@ -182633,6 +182433,24 @@ export namespace web {
     }
 
     /**
+     * The configuration settings of the custom Open ID Connect provider.
+     */
+    export interface CustomOpenIdConnectProviderV1Args {
+        /**
+         * <code>false</code> if the custom Open ID provider provider should not be enabled; otherwise, <code>true</code>.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The configuration settings of the login flow of the custom Open ID Connect provider.
+         */
+        login?: pulumi.Input<inputs.web.OpenIdConnectLoginArgs>;
+        /**
+         * The configuration settings of the app registration for the custom Open ID Connect provider.
+         */
+        registration?: pulumi.Input<inputs.web.OpenIdConnectRegistrationV1Args>;
+    }
+
+    /**
      * App Dapr configuration.
      */
     export interface DaprConfigArgs {
@@ -182727,6 +182545,14 @@ export namespace web {
          * The configuration settings of the Azure Active Directory allowed principals.
          */
         allowedPrincipals?: pulumi.Input<inputs.web.AllowedPrincipalsArgs>;
+    }
+
+    export interface DefaultIdentityArgs {
+        /**
+         * Type of managed service identity.
+         */
+        identityType?: pulumi.Input<enums.web.ManagedServiceIdentityType>;
+        userAssignedIdentityResourceId?: pulumi.Input<string>;
     }
 
     /**
@@ -182881,6 +182707,10 @@ export namespace web {
          * Function app scale and concurrency settings.
          */
         scaleAndConcurrency?: pulumi.Input<inputs.web.FunctionsScaleAndConcurrencyArgs>;
+        /**
+         * Function app site update strategy configuration.
+         */
+        siteUpdateStrategy?: pulumi.Input<inputs.web.FunctionsSiteUpdateStrategyArgs>;
     }
 
     /**
@@ -182908,9 +182738,27 @@ export namespace web {
     }
 
     /**
+     * Storage for deployed package used by the function app.
+     */
+    export interface FunctionsDeploymentStorageArgs {
+        /**
+         * Authentication method to access the storage account for deployment.
+         */
+        authentication?: pulumi.Input<inputs.web.FunctionsDeploymentStorageAuthenticationArgs>;
+        /**
+         * Property to select Azure Storage type. Available options: blobContainer.
+         */
+        type?: pulumi.Input<string | enums.web.FunctionsDeploymentStorageType>;
+        /**
+         * Property to set the URL for the selected Azure Storage type. Example: For blobContainer, the value could be https://<storageAccountName>.blob.core.windows.net/<containerName>.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    /**
      * Authentication method to access the storage account for deployment.
      */
-    export interface FunctionsDeploymentAuthenticationArgs {
+    export interface FunctionsDeploymentStorageAuthenticationArgs {
         /**
          * Use this property for StorageAccountConnectionString. Set the name of the app setting that has the storage account connection string. Do not set a value for this property when using other authentication type.
          */
@@ -182923,24 +182771,6 @@ export namespace web {
          * Use this property for UserAssignedIdentity. Set the resource ID of the identity. Do not set a value for this property when using other authentication type.
          */
         userAssignedIdentityResourceId?: pulumi.Input<string>;
-    }
-
-    /**
-     * Storage for deployed package used by the function app.
-     */
-    export interface FunctionsDeploymentStorageArgs {
-        /**
-         * Authentication method to access the storage account for deployment.
-         */
-        authentication?: pulumi.Input<inputs.web.FunctionsDeploymentAuthenticationArgs>;
-        /**
-         * Property to select Azure Storage type. Available options: blobContainer.
-         */
-        type?: pulumi.Input<string | enums.web.FunctionsDeploymentStorageType>;
-        /**
-         * Property to set the URL for the selected Azure Storage type. Example: For blobContainer, the value could be https://<storageAccountName>.blob.core.windows.net/<containerName>.
-         */
-        value?: pulumi.Input<string>;
     }
 
     /**
@@ -182980,9 +182810,19 @@ export namespace web {
     }
 
     /**
+     * Scale and concurrency settings for the function app triggers.
+     */
+    export interface FunctionsScaleAndConcurrencyTriggersArgs {
+        /**
+         * Scale and concurrency settings for the HTTP trigger.
+         */
+        http?: pulumi.Input<inputs.web.FunctionsScaleAndConcurrencyTriggersHttpArgs>;
+    }
+
+    /**
      * Scale and concurrency settings for the HTTP trigger.
      */
-    export interface FunctionsScaleAndConcurrencyHttpArgs {
+    export interface FunctionsScaleAndConcurrencyTriggersHttpArgs {
         /**
          * The maximum number of concurrent HTTP trigger invocations per instance.
          */
@@ -182990,13 +182830,13 @@ export namespace web {
     }
 
     /**
-     * Scale and concurrency settings for the function app triggers.
+     * Function app site update strategy configuration for deployments and site config updates.
      */
-    export interface FunctionsScaleAndConcurrencyTriggersArgs {
+    export interface FunctionsSiteUpdateStrategyArgs {
         /**
-         * Scale and concurrency settings for the HTTP trigger.
+         * Function app site update strategy type. Available options: Recreate, RollingUpdate
          */
-        http?: pulumi.Input<inputs.web.FunctionsScaleAndConcurrencyHttpArgs>;
+        type?: pulumi.Input<string | enums.web.SiteUpdateStrategyType>;
     }
 
     /**
@@ -183122,7 +182962,7 @@ export namespace web {
     }
 
     /**
-     * The IIS handler mappings used to define which handler processes HTTP requests with certain extension. 
+     * The IIS handler mappings used to define which handler processes HTTP requests with certain extension.
      * For example, it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
      */
     export interface HandlerMappingArgs {
@@ -183266,6 +183106,77 @@ export namespace web {
     }
 
     /**
+     * The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
+     */
+    export interface IdentityProvidersV1Args {
+        /**
+         * The configuration settings of the Apple provider.
+         */
+        apple?: pulumi.Input<inputs.web.AppleArgs>;
+        /**
+         * The configuration settings of the Azure Active directory provider.
+         */
+        azureActiveDirectory?: pulumi.Input<inputs.web.AzureActiveDirectoryArgs>;
+        /**
+         * The configuration settings of the Azure Static Web Apps provider.
+         */
+        azureStaticWebApps?: pulumi.Input<inputs.web.AzureStaticWebAppsArgs>;
+        /**
+         * The map of the name of the alias of each custom Open ID Connect provider to the
+         * configuration settings of the custom Open ID Connect provider.
+         */
+        customOpenIdConnectProviders?: pulumi.Input<{[key: string]: pulumi.Input<inputs.web.CustomOpenIdConnectProviderV1Args>}>;
+        /**
+         * The configuration settings of the Facebook provider.
+         */
+        facebook?: pulumi.Input<inputs.web.FacebookArgs>;
+        /**
+         * The configuration settings of the GitHub provider.
+         */
+        gitHub?: pulumi.Input<inputs.web.GitHubArgs>;
+        /**
+         * The configuration settings of the Google provider.
+         */
+        google?: pulumi.Input<inputs.web.GoogleArgs>;
+        /**
+         * The configuration settings of the legacy Microsoft Account provider.
+         */
+        legacyMicrosoftAccount?: pulumi.Input<inputs.web.LegacyMicrosoftAccountArgs>;
+        /**
+         * The configuration settings of the Twitter provider.
+         */
+        twitter?: pulumi.Input<inputs.web.TwitterArgs>;
+    }
+
+    /**
+     * Server farm install script configuration.
+     */
+    export interface InstallScriptArgs {
+        /**
+         * Name of the install script.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Source of the install script.
+         */
+        source?: pulumi.Input<inputs.web.InstallScriptSourceArgs>;
+    }
+
+    /**
+     * Object to hold install script reference.
+     */
+    export interface InstallScriptSourceArgs {
+        /**
+         * Install script source URI where the install script file will be fetched from.
+         */
+        sourceUri?: pulumi.Input<string>;
+        /**
+         * Type of the install script.
+         */
+        type?: pulumi.Input<string | enums.web.InstallScriptType>;
+    }
+
+    /**
      * IP security restriction on an app.
      */
     export interface IpSecurityRestrictionArgs {
@@ -183279,12 +183190,12 @@ export namespace web {
         description?: pulumi.Input<string>;
         /**
          * IP restriction rule headers.
-         * X-Forwarded-Host (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-Host#Examples). 
+         * X-Forwarded-Host (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-Host#Examples).
          * The matching logic is ..
          * - If the property is null or empty (default), all hosts(or lack of) are allowed.
          * - A value is compared using ordinal-ignore-case (excluding port number).
          * - Subdomain wildcards are permitted but don't match the root domain. For example, *.contoso.com matches the subdomain foo.contoso.com
-         *  but not the root domain contoso.com or multi-level foo.bar.contoso.com
+         * but not the root domain contoso.com or multi-level foo.bar.contoso.com
          * - Unicode host names are allowed but are converted to Punycode for matching.
          *
          * X-Forwarded-For (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-For#Examples).
@@ -183345,6 +183256,20 @@ export namespace web {
          * The list of the allowed groups.
          */
         allowedGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * Object to hold key vault reference and the resolution status
+     */
+    export interface KeyVaultReferenceWithStatusArgs {
+        /**
+         * Reference status of the key vault secret.
+         */
+        referenceStatus?: pulumi.Input<string>;
+        /**
+         * Key vault secret URI.
+         */
+        secretUri?: pulumi.Input<string>;
     }
 
     /**
@@ -183493,6 +183418,20 @@ export namespace web {
     }
 
     /**
+     * The authentication client credentials of the custom Open ID Connect provider.
+     */
+    export interface OpenIdConnectClientCredentialV1Args {
+        /**
+         * The app setting that contains the client secret for the custom Open ID Connect provider.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+        /**
+         * The method that should be used to authenticate the user.
+         */
+        method?: pulumi.Input<enums.web.Method>;
+    }
+
+    /**
      * The configuration settings of the endpoints used for the custom Open ID Connect provider.
      */
     export interface OpenIdConnectConfigArgs {
@@ -183540,6 +183479,24 @@ export namespace web {
          * The authentication credentials of the custom Open ID Connect provider.
          */
         clientCredential?: pulumi.Input<inputs.web.OpenIdConnectClientCredentialArgs>;
+        /**
+         * The client id of the custom Open ID Connect provider.
+         */
+        clientId?: pulumi.Input<string>;
+        /**
+         * The configuration settings of the endpoints used for the custom Open ID Connect provider.
+         */
+        openIdConnectConfiguration?: pulumi.Input<inputs.web.OpenIdConnectConfigArgs>;
+    }
+
+    /**
+     * The configuration settings of the app registration for the custom Open ID Connect provider.
+     */
+    export interface OpenIdConnectRegistrationV1Args {
+        /**
+         * The authentication credentials of the custom Open ID Connect provider.
+         */
+        clientCredential?: pulumi.Input<inputs.web.OpenIdConnectClientCredentialV1Args>;
         /**
          * The client id of the custom Open ID Connect provider.
          */
@@ -183640,8 +183597,8 @@ export namespace web {
          */
         changeIntervalInMinutes?: pulumi.Input<number>;
         /**
-         * In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches \n<code>MinReroutePercentage</code> or 
-         * <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.\nCustom decision algorithm 
+         * In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches \n<code>MinReroutePercentage</code> or
+         * <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.\nCustom decision algorithm
          * can be provided in TiPCallback site extension which URL can be specified in <code>ChangeDecisionCallbackUrl</code>.
          */
         changeStep?: pulumi.Input<number>;
@@ -183661,6 +183618,24 @@ export namespace web {
          * Percentage of the traffic which will be redirected to <code>ActionHostName</code>.
          */
         reroutePercentage?: pulumi.Input<number>;
+    }
+
+    /**
+     * Server farm registry adapter configuration.
+     */
+    export interface RegistryAdapterArgs {
+        /**
+         * Key vault reference to the value that will be placed in the registry location
+         */
+        keyVaultSecretReference?: pulumi.Input<inputs.web.KeyVaultReferenceWithStatusArgs>;
+        /**
+         * Registry key for the adapter.
+         */
+        registryKey?: pulumi.Input<string>;
+        /**
+         * Type of the registry adapter.
+         */
+        type?: pulumi.Input<string | enums.web.RegistryAdapterType>;
     }
 
     /**
@@ -183689,6 +183664,16 @@ export namespace web {
          * Required memory, e.g. "1Gi"
          */
         memory?: pulumi.Input<string>;
+    }
+
+    /**
+     * Network settings for an app service plan.
+     */
+    export interface ServerFarmNetworkSettingsArgs {
+        /**
+         * Azure Resource Manager ID of the Virtual network and subnet to be joined by Regional VNET Integration. This must be of the form /subscriptions/{subscriptionName}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}
+         */
+        virtualNetworkSubnetId?: pulumi.Input<string>;
     }
 
     /**
@@ -184244,6 +184229,32 @@ export namespace web {
     }
 
     /**
+     * Server farm storage mount configuration.
+     */
+    export interface StorageMountArgs {
+        /**
+         * KV reference to the credentials to connect to the share.
+         */
+        credentialsKeyVaultReference?: pulumi.Input<inputs.web.KeyVaultReferenceWithStatusArgs>;
+        /**
+         * Path on worker where storage will be mounted.
+         */
+        destinationPath?: pulumi.Input<string>;
+        /**
+         * Name of the storage mount.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Source of the fileshare/storage.
+         */
+        source?: pulumi.Input<string>;
+        /**
+         * Type of the storage mount.
+         */
+        type?: pulumi.Input<string | enums.web.StorageMountType>;
+    }
+
+    /**
      * The configuration settings of the token store.
      */
     export interface TokenStoreArgs {
@@ -184253,7 +184264,7 @@ export namespace web {
         azureBlobStorage?: pulumi.Input<inputs.web.BlobStorageTokenStoreArgs>;
         /**
          * <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
-         *  The default is <code>false</code>.
+         * The default is <code>false</code>.
          */
         enabled?: pulumi.Input<boolean>;
         /**

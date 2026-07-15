@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// <summary>
         /// Scale and concurrency settings for the function app triggers.
         /// </summary>
-        public readonly Outputs.FunctionsScaleAndConcurrencyResponseTriggers? Triggers;
+        public readonly Outputs.FunctionsScaleAndConcurrencyTriggersResponse? Triggers;
 
         [OutputConstructor]
         private FunctionsScaleAndConcurrencyResponse(
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.Web.Outputs
 
             int? maximumInstanceCount,
 
-            Outputs.FunctionsScaleAndConcurrencyResponseTriggers? triggers)
+            Outputs.FunctionsScaleAndConcurrencyTriggersResponse? triggers)
         {
             AlwaysReady = alwaysReady;
             InstanceMemoryMB = instanceMemoryMB;

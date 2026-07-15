@@ -30,7 +30,6 @@ __all__ = [
     'AcmCertificateSummaryPropertiesResponse',
     'ActionConditionModelPropertiesResponse',
     'ActionDefinitionResponse',
-    'ActionDefinitionResponseV1',
     'ActionResponse',
     'ActiveModelResponse',
     'AddOnResponse',
@@ -270,7 +269,6 @@ __all__ = [
     'CriteriaResponse',
     'CsvResponse',
     'CustomActionResponse',
-    'CustomActionResponseV1',
     'CustomErrorResponseResponse',
     'CustomOriginConfigResponse',
     'DBClusterRoleResponse',
@@ -301,7 +299,6 @@ __all__ = [
     'DimensionResponse',
     'DimensionResponseV1',
     'DimensionResponseV2',
-    'DimensionResponseV3',
     'DiskResponse',
     'DistributionConfigResponse',
     'DockerVolumeConfigurationResponse',
@@ -660,7 +657,6 @@ __all__ = [
     'ProxyConfigurationResponse',
     'PublicAccessBlockConfigurationResponse',
     'PublishMetricActionResponse',
-    'PublishMetricActionResponseV1',
     'QueryLoggingConfigResponse',
     'QueueConfigurationResponse',
     'RRTypeEnumValueResponse',
@@ -1619,47 +1615,6 @@ class ActionDefinitionResponse(dict):
     @_builtins.property
     @pulumi.getter(name="publishMetricAction")
     def publish_metric_action(self) -> Optional['outputs.PublishMetricActionResponse']:
-        """
-        Property publishMetricAction
-        """
-        return pulumi.get(self, "publish_metric_action")
-
-
-@pulumi.output_type
-class ActionDefinitionResponseV1(dict):
-    """
-    Definition of ActionDefinition
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "publishMetricAction":
-            suggest = "publish_metric_action"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ActionDefinitionResponseV1. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ActionDefinitionResponseV1.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ActionDefinitionResponseV1.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 publish_metric_action: Optional['outputs.PublishMetricActionResponseV1'] = None):
-        """
-        Definition of ActionDefinition
-
-        :param 'PublishMetricActionResponseV1' publish_metric_action: Property publishMetricAction
-        """
-        if publish_metric_action is not None:
-            pulumi.set(__self__, "publish_metric_action", publish_metric_action)
-
-    @_builtins.property
-    @pulumi.getter(name="publishMetricAction")
-    def publish_metric_action(self) -> Optional['outputs.PublishMetricActionResponseV1']:
         """
         Property publishMetricAction
         """
@@ -33698,61 +33653,6 @@ class CustomActionResponse(dict):
 
 
 @pulumi.output_type
-class CustomActionResponseV1(dict):
-    """
-    Definition of CustomAction
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "actionDefinition":
-            suggest = "action_definition"
-        elif key == "actionName":
-            suggest = "action_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CustomActionResponseV1. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CustomActionResponseV1.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CustomActionResponseV1.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 action_definition: Optional['outputs.ActionDefinitionResponseV1'] = None,
-                 action_name: Optional[_builtins.str] = None):
-        """
-        Definition of CustomAction
-
-        :param 'ActionDefinitionResponseV1' action_definition: Property actionDefinition
-        :param _builtins.str action_name: Property actionName
-        """
-        if action_definition is not None:
-            pulumi.set(__self__, "action_definition", action_definition)
-        if action_name is not None:
-            pulumi.set(__self__, "action_name", action_name)
-
-    @_builtins.property
-    @pulumi.getter(name="actionDefinition")
-    def action_definition(self) -> Optional['outputs.ActionDefinitionResponseV1']:
-        """
-        Property actionDefinition
-        """
-        return pulumi.get(self, "action_definition")
-
-    @_builtins.property
-    @pulumi.getter(name="actionName")
-    def action_name(self) -> Optional[_builtins.str]:
-        """
-        Property actionName
-        """
-        return pulumi.get(self, "action_name")
-
-
-@pulumi.output_type
 class CustomErrorResponseResponse(dict):
     """
     Definition of CustomErrorResponse
@@ -35693,30 +35593,6 @@ class DimensionResponseV1(dict):
 
 @pulumi.output_type
 class DimensionResponseV2(dict):
-    """
-    Definition of Dimension
-    """
-    def __init__(__self__, *,
-                 value: Optional[_builtins.str] = None):
-        """
-        Definition of Dimension
-
-        :param _builtins.str value: Property value
-        """
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def value(self) -> Optional[_builtins.str]:
-        """
-        Property value
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class DimensionResponseV3(dict):
     """
     Definition of Dimension
     """
@@ -62813,30 +62689,6 @@ class PublishMetricActionResponse(dict):
 
 
 @pulumi.output_type
-class PublishMetricActionResponseV1(dict):
-    """
-    Definition of PublishMetricAction
-    """
-    def __init__(__self__, *,
-                 dimensions: Optional[Sequence['outputs.DimensionResponseV3']] = None):
-        """
-        Definition of PublishMetricAction
-
-        :param Sequence['DimensionResponseV3'] dimensions: Property dimensions
-        """
-        if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
-
-    @_builtins.property
-    @pulumi.getter
-    def dimensions(self) -> Optional[Sequence['outputs.DimensionResponseV3']]:
-        """
-        Property dimensions
-        """
-        return pulumi.get(self, "dimensions")
-
-
-@pulumi.output_type
 class QueryLoggingConfigResponse(dict):
     """
     Definition of QueryLoggingConfig
@@ -73059,12 +72911,12 @@ class StatelessRulesAndCustomActionsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 custom_actions: Optional[Sequence['outputs.CustomActionResponseV1']] = None,
+                 custom_actions: Optional[Sequence['outputs.CustomActionResponse']] = None,
                  stateless_rules: Optional[Sequence['outputs.StatelessRuleResponse']] = None):
         """
         Definition of StatelessRulesAndCustomActions
 
-        :param Sequence['CustomActionResponseV1'] custom_actions: Property customActions
+        :param Sequence['CustomActionResponse'] custom_actions: Property customActions
         :param Sequence['StatelessRuleResponse'] stateless_rules: Property statelessRules
         """
         if custom_actions is not None:
@@ -73074,7 +72926,7 @@ class StatelessRulesAndCustomActionsResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="customActions")
-    def custom_actions(self) -> Optional[Sequence['outputs.CustomActionResponseV1']]:
+    def custom_actions(self) -> Optional[Sequence['outputs.CustomActionResponse']]:
         """
         Property customActions
         """

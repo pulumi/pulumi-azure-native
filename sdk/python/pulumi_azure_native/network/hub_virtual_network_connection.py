@@ -31,7 +31,7 @@ class HubVirtualNetworkConnectionArgs:
                  id: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  remote_virtual_network: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 routing_configuration: Optional[pulumi.Input['RoutingConfigurationV3Args']] = None):
+                 routing_configuration: Optional[pulumi.Input['RoutingConfigurationV1Args']] = None):
         """
         The set of arguments for constructing a HubVirtualNetworkConnection resource.
 
@@ -44,7 +44,7 @@ class HubVirtualNetworkConnectionArgs:
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input['SubResourceArgs'] remote_virtual_network: Reference to the remote virtual network.
-        :param pulumi.Input['RoutingConfigurationV3Args'] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
+        :param pulumi.Input['RoutingConfigurationV1Args'] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "virtual_hub_name", virtual_hub_name)
@@ -175,14 +175,14 @@ class HubVirtualNetworkConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="routingConfiguration")
-    def routing_configuration(self) -> Optional[pulumi.Input['RoutingConfigurationV3Args']]:
+    def routing_configuration(self) -> Optional[pulumi.Input['RoutingConfigurationV1Args']]:
         """
         The Routing Configuration indicating the associated and propagated route tables on this connection.
         """
         return pulumi.get(self, "routing_configuration")
 
     @routing_configuration.setter
-    def routing_configuration(self, value: Optional[pulumi.Input['RoutingConfigurationV3Args']]):
+    def routing_configuration(self, value: Optional[pulumi.Input['RoutingConfigurationV1Args']]):
         pulumi.set(self, "routing_configuration", value)
 
 
@@ -200,7 +200,7 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  remote_virtual_network: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_configuration: Optional[pulumi.Input[Union['RoutingConfigurationV3Args', 'RoutingConfigurationV3ArgsDict']]] = None,
+                 routing_configuration: Optional[pulumi.Input[Union['RoutingConfigurationV1Args', 'RoutingConfigurationV1ArgsDict']]] = None,
                  virtual_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
@@ -221,7 +221,7 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] remote_virtual_network: Reference to the remote virtual network.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name of the HubVirtualNetworkConnection.
-        :param pulumi.Input[Union['RoutingConfigurationV3Args', 'RoutingConfigurationV3ArgsDict']] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
+        :param pulumi.Input[Union['RoutingConfigurationV1Args', 'RoutingConfigurationV1ArgsDict']] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
         :param pulumi.Input[_builtins.str] virtual_hub_name: The name of the VirtualHub.
         """
         ...
@@ -261,7 +261,7 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  remote_virtual_network: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_configuration: Optional[pulumi.Input[Union['RoutingConfigurationV3Args', 'RoutingConfigurationV3ArgsDict']]] = None,
+                 routing_configuration: Optional[pulumi.Input[Union['RoutingConfigurationV1Args', 'RoutingConfigurationV1ArgsDict']]] = None,
                  virtual_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -390,7 +390,7 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="routingConfiguration")
-    def routing_configuration(self) -> pulumi.Output[Optional['outputs.RoutingConfigurationResponseV3']]:
+    def routing_configuration(self) -> pulumi.Output[Optional['outputs.RoutingConfigurationResponseV1']]:
         """
         The Routing Configuration indicating the associated and propagated route tables on this connection.
         """

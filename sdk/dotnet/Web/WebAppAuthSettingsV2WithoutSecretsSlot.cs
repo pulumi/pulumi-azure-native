@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.Web
     /// <summary>
     /// Configuration settings for the Azure App Service Authentication / Authorization V2 feature.
     /// 
-    /// Uses Azure REST API version 2024-11-01.
+    /// Uses Azure REST API version 2025-05-01.
     /// 
-    /// Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppAuthSettingsV2WithoutSecretsSlot")]
     public partial class WebAppAuthSettingsV2WithoutSecretsSlot : global::Pulumi.CustomResource
@@ -44,7 +44,7 @@ namespace Pulumi.AzureNative.Web
         public Output<Outputs.IdentityProvidersResponse?> IdentityProviders { get; private set; } = null!;
 
         /// <summary>
-        /// Kind of resource.
+        /// Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         /// </summary>
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.Web
         public Output<Outputs.LoginResponse?> Login { get; private set; } = null!;
 
         /// <summary>
-        /// Resource Name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -68,7 +68,13 @@ namespace Pulumi.AzureNative.Web
         public Output<Outputs.AuthPlatformResponse?> Platform { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -158,10 +164,10 @@ namespace Pulumi.AzureNative.Web
         /// The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
         /// </summary>
         [Input("identityProviders")]
-        public Input<Inputs.IdentityProvidersArgs>? IdentityProviders { get; set; }
+        public Input<Inputs.IdentityProvidersV1Args>? IdentityProviders { get; set; }
 
         /// <summary>
-        /// Kind of resource.
+        /// Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
@@ -173,7 +179,7 @@ namespace Pulumi.AzureNative.Web
         public Input<Inputs.LoginArgs>? Login { get; set; }
 
         /// <summary>
-        /// Name of web app.
+        /// Name of the app.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -185,13 +191,13 @@ namespace Pulumi.AzureNative.Web
         public Input<Inputs.AuthPlatformArgs>? Platform { get; set; }
 
         /// <summary>
-        /// Name of the resource group to which the resource belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Name of web app slot. If not specified then will default to production slot.
+        /// Name of the deployment slot. If a slot is not specified, the API will get the settings for the production slot.
         /// </summary>
         [Input("slot", required: true)]
         public Input<string> Slot { get; set; } = null!;

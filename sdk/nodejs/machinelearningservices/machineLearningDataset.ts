@@ -46,7 +46,7 @@ export class MachineLearningDataset extends pulumi.CustomResource {
     /**
      * The identity of the resource.
      */
-    declare public /*out*/ readonly identity: pulumi.Output<outputs.machinelearningservices.IdentityResponseV1 | undefined>;
+    declare public /*out*/ readonly identity: pulumi.Output<outputs.machinelearningservices.IdentityResponse | undefined>;
     /**
      * Specifies the location of the resource.
      */

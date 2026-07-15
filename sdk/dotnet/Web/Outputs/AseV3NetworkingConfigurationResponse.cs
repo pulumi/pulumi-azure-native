@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// </summary>
         public readonly bool? FtpEnabled;
         /// <summary>
-        /// Resource Id.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.Web.Outputs
         public readonly string? Kind;
         public readonly ImmutableArray<string> LinuxOutboundIpAddresses;
         /// <summary>
-        /// Resource Name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -48,7 +48,11 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// </summary>
         public readonly bool? RemoteDebugEnabled;
         /// <summary>
-        /// Resource type.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         public readonly ImmutableArray<string> WindowsOutboundIpAddresses;
@@ -75,6 +79,8 @@ namespace Pulumi.AzureNative.Web.Outputs
 
             bool? remoteDebugEnabled,
 
+            Outputs.SystemDataResponse systemData,
+
             string type,
 
             ImmutableArray<string> windowsOutboundIpAddresses)
@@ -89,6 +95,7 @@ namespace Pulumi.AzureNative.Web.Outputs
             LinuxOutboundIpAddresses = linuxOutboundIpAddresses;
             Name = name;
             RemoteDebugEnabled = remoteDebugEnabled;
+            SystemData = systemData;
             Type = type;
             WindowsOutboundIpAddresses = windowsOutboundIpAddresses;
         }

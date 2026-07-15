@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = ['WebAppPremierAddOnArgs', 'WebAppPremierAddOn']
 
@@ -34,9 +35,9 @@ class WebAppPremierAddOnArgs:
         The set of arguments for constructing a WebAppPremierAddOn resource.
 
         :param pulumi.Input[_builtins.str] name: Name of the app.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
-        :param pulumi.Input[_builtins.str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
-        :param pulumi.Input[_builtins.str] location: Resource Location.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] kind: Kind of resource.
+        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] marketplace_offer: Premier add on Marketplace offer.
         :param pulumi.Input[_builtins.str] marketplace_publisher: Premier add on Marketplace publisher.
         :param pulumi.Input[_builtins.str] premier_add_on_name: Add-on name.
@@ -82,7 +83,7 @@ class WebAppPremierAddOnArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the resource group to which the resource belongs.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -94,7 +95,7 @@ class WebAppPremierAddOnArgs:
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
+        Kind of resource.
         """
         return pulumi.get(self, "kind")
 
@@ -106,7 +107,7 @@ class WebAppPremierAddOnArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Resource Location.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -220,21 +221,21 @@ class WebAppPremierAddOn(pulumi.CustomResource):
         """
         Premier add-on.
 
-        Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
+        Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
-        :param pulumi.Input[_builtins.str] location: Resource Location.
+        :param pulumi.Input[_builtins.str] kind: Kind of resource.
+        :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] marketplace_offer: Premier add on Marketplace offer.
         :param pulumi.Input[_builtins.str] marketplace_publisher: Premier add on Marketplace publisher.
         :param pulumi.Input[_builtins.str] name: Name of the app.
         :param pulumi.Input[_builtins.str] premier_add_on_name: Add-on name.
         :param pulumi.Input[_builtins.str] product: Premier add on Product.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] sku: Premier add on SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] vendor: Premier add on Vendor.
@@ -248,9 +249,9 @@ class WebAppPremierAddOn(pulumi.CustomResource):
         """
         Premier add-on.
 
-        Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
+        Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -304,6 +305,7 @@ class WebAppPremierAddOn(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vendor"] = vendor
             __props__.__dict__["azure_api_version"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20150801:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20240401:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20241101:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20250301:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20250501:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20260301preview:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20260315:WebAppPremierAddOn")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -337,6 +339,7 @@ class WebAppPremierAddOn(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["product"] = None
         __props__.__dict__["sku"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["vendor"] = None
@@ -354,7 +357,7 @@ class WebAppPremierAddOn(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
+        Kind of resource.
         """
         return pulumi.get(self, "kind")
 
@@ -362,7 +365,7 @@ class WebAppPremierAddOn(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource Location.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -386,7 +389,7 @@ class WebAppPremierAddOn(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource Name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -407,6 +410,14 @@ class WebAppPremierAddOn(pulumi.CustomResource):
         return pulumi.get(self, "sku")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
@@ -418,7 +429,7 @@ class WebAppPremierAddOn(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

@@ -34,7 +34,7 @@ class VpnConnectionInitArgs:
                  ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgs']]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  remote_vpn_site: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 routing_configuration: Optional[pulumi.Input['RoutingConfigurationV6Args']] = None,
+                 routing_configuration: Optional[pulumi.Input['RoutingConfigurationV1Args']] = None,
                  routing_weight: Optional[pulumi.Input[_builtins.int]] = None,
                  shared_key: Optional[pulumi.Input[_builtins.str]] = None,
                  traffic_selector_policies: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficSelectorPolicyArgs']]]] = None,
@@ -57,7 +57,7 @@ class VpnConnectionInitArgs:
         :param pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgs']]] ipsec_policies: The IPSec Policies to be considered by this connection.
         :param pulumi.Input[_builtins.str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input['SubResourceArgs'] remote_vpn_site: Id of the connected vpn site.
-        :param pulumi.Input['RoutingConfigurationV6Args'] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
+        :param pulumi.Input['RoutingConfigurationV1Args'] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
         :param pulumi.Input[_builtins.int] routing_weight: Routing weight for vpn connection.
         :param pulumi.Input[_builtins.str] shared_key: SharedKey for the vpn connection.
         :param pulumi.Input[Sequence[pulumi.Input['TrafficSelectorPolicyArgs']]] traffic_selector_policies: The Traffic Selector Policies to be considered by this connection.
@@ -251,14 +251,14 @@ class VpnConnectionInitArgs:
 
     @_builtins.property
     @pulumi.getter(name="routingConfiguration")
-    def routing_configuration(self) -> Optional[pulumi.Input['RoutingConfigurationV6Args']]:
+    def routing_configuration(self) -> Optional[pulumi.Input['RoutingConfigurationV1Args']]:
         """
         The Routing Configuration indicating the associated and propagated route tables on this connection.
         """
         return pulumi.get(self, "routing_configuration")
 
     @routing_configuration.setter
-    def routing_configuration(self, value: Optional[pulumi.Input['RoutingConfigurationV6Args']]):
+    def routing_configuration(self, value: Optional[pulumi.Input['RoutingConfigurationV1Args']]):
         pulumi.set(self, "routing_configuration", value)
 
     @_builtins.property
@@ -364,7 +364,7 @@ class VpnConnection(pulumi.CustomResource):
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  remote_vpn_site: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_configuration: Optional[pulumi.Input[Union['RoutingConfigurationV6Args', 'RoutingConfigurationV6ArgsDict']]] = None,
+                 routing_configuration: Optional[pulumi.Input[Union['RoutingConfigurationV1Args', 'RoutingConfigurationV1ArgsDict']]] = None,
                  routing_weight: Optional[pulumi.Input[_builtins.int]] = None,
                  shared_key: Optional[pulumi.Input[_builtins.str]] = None,
                  traffic_selector_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrafficSelectorPolicyArgs', 'TrafficSelectorPolicyArgsDict']]]]] = None,
@@ -395,7 +395,7 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] remote_vpn_site: Id of the connected vpn site.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name of the VpnGateway.
-        :param pulumi.Input[Union['RoutingConfigurationV6Args', 'RoutingConfigurationV6ArgsDict']] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
+        :param pulumi.Input[Union['RoutingConfigurationV1Args', 'RoutingConfigurationV1ArgsDict']] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
         :param pulumi.Input[_builtins.int] routing_weight: Routing weight for vpn connection.
         :param pulumi.Input[_builtins.str] shared_key: SharedKey for the vpn connection.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TrafficSelectorPolicyArgs', 'TrafficSelectorPolicyArgsDict']]]] traffic_selector_policies: The Traffic Selector Policies to be considered by this connection.
@@ -445,7 +445,7 @@ class VpnConnection(pulumi.CustomResource):
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  remote_vpn_site: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_configuration: Optional[pulumi.Input[Union['RoutingConfigurationV6Args', 'RoutingConfigurationV6ArgsDict']]] = None,
+                 routing_configuration: Optional[pulumi.Input[Union['RoutingConfigurationV1Args', 'RoutingConfigurationV1ArgsDict']]] = None,
                  routing_weight: Optional[pulumi.Input[_builtins.int]] = None,
                  shared_key: Optional[pulumi.Input[_builtins.str]] = None,
                  traffic_selector_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrafficSelectorPolicyArgs', 'TrafficSelectorPolicyArgsDict']]]]] = None,
@@ -654,7 +654,7 @@ class VpnConnection(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="routingConfiguration")
-    def routing_configuration(self) -> pulumi.Output[Optional['outputs.RoutingConfigurationResponseV6']]:
+    def routing_configuration(self) -> pulumi.Output[Optional['outputs.RoutingConfigurationResponseV1']]:
         """
         The Routing Configuration indicating the associated and propagated route tables on this connection.
         """

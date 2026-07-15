@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetWebAppSiteExtensionResult',
@@ -26,7 +27,7 @@ class GetWebAppSiteExtensionResult:
     """
     Site Extension Information.
     """
-    def __init__(__self__, authors=None, azure_api_version=None, comment=None, description=None, download_count=None, extension_id=None, extension_type=None, extension_url=None, feed_url=None, icon_url=None, id=None, installed_date_time=None, installer_command_line_params=None, kind=None, license_url=None, local_is_latest_version=None, local_path=None, name=None, project_url=None, provisioning_state=None, published_date_time=None, summary=None, title=None, type=None, version=None):
+    def __init__(__self__, authors=None, azure_api_version=None, comment=None, description=None, download_count=None, extension_id=None, extension_type=None, extension_url=None, feed_url=None, icon_url=None, id=None, installed_date_time=None, installer_command_line_params=None, kind=None, license_url=None, local_is_latest_version=None, local_path=None, name=None, project_url=None, provisioning_state=None, published_date_time=None, summary=None, system_data=None, title=None, type=None, version=None):
         if authors and not isinstance(authors, list):
             raise TypeError("Expected argument 'authors' to be a list")
         pulumi.set(__self__, "authors", authors)
@@ -93,6 +94,9 @@ class GetWebAppSiteExtensionResult:
         if summary and not isinstance(summary, str):
             raise TypeError("Expected argument 'summary' to be a str")
         pulumi.set(__self__, "summary", summary)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if title and not isinstance(title, str):
             raise TypeError("Expected argument 'title' to be a str")
         pulumi.set(__self__, "title", title)
@@ -187,7 +191,7 @@ class GetWebAppSiteExtensionResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -243,7 +247,7 @@ class GetWebAppSiteExtensionResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource Name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -280,6 +284,14 @@ class GetWebAppSiteExtensionResult:
         return pulumi.get(self, "summary")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def title(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "title")
@@ -288,7 +300,7 @@ class GetWebAppSiteExtensionResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -329,6 +341,7 @@ class AwaitableGetWebAppSiteExtensionResult(GetWebAppSiteExtensionResult):
             provisioning_state=self.provisioning_state,
             published_date_time=self.published_date_time,
             summary=self.summary,
+            system_data=self.system_data,
             title=self.title,
             type=self.type,
             version=self.version)
@@ -341,13 +354,13 @@ def get_web_app_site_extension(name: Optional[_builtins.str] = None,
     """
     Description for Get site extension information by its ID for a web site, or a deployment slot.
 
-    Uses Azure REST API version 2024-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str name: Site name.
-    :param _builtins.str resource_group_name: Name of the resource group to which the resource belongs.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str site_extension_id: Site extension name.
     """
     __args__ = dict()
@@ -380,6 +393,7 @@ def get_web_app_site_extension(name: Optional[_builtins.str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         published_date_time=pulumi.get(__ret__, 'published_date_time'),
         summary=pulumi.get(__ret__, 'summary'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         title=pulumi.get(__ret__, 'title'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
@@ -390,13 +404,13 @@ def get_web_app_site_extension_output(name: Optional[pulumi.Input[_builtins.str]
     """
     Description for Get site extension information by its ID for a web site, or a deployment slot.
 
-    Uses Azure REST API version 2024-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str name: Site name.
-    :param _builtins.str resource_group_name: Name of the resource group to which the resource belongs.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str site_extension_id: Site extension name.
     """
     __args__ = dict()
@@ -428,6 +442,7 @@ def get_web_app_site_extension_output(name: Optional[pulumi.Input[_builtins.str]
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         published_date_time=pulumi.get(__response__, 'published_date_time'),
         summary=pulumi.get(__response__, 'summary'),
+        system_data=pulumi.get(__response__, 'system_data'),
         title=pulumi.get(__response__, 'title'),
         type=pulumi.get(__response__, 'type'),
         version=pulumi.get(__response__, 'version')))

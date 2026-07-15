@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.Web
     /// <summary>
     /// Container of a site
     /// 
-    /// Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-12-01.
+    /// Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2023-12-01.
     /// 
-    /// Other available API versions: 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppSiteContainerSlot")]
     public partial class WebAppSiteContainerSlot : global::Pulumi.CustomResource
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNative.Web
         public Output<string> LastModifiedTime { get; private set; } = null!;
 
         /// <summary>
-        /// Resource Name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -92,13 +92,19 @@ namespace Pulumi.AzureNative.Web
         public Output<string?> StartUpCommand { get; private set; } = null!;
 
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Target Port
         /// </summary>
         [Output("targetPort")]
         public Output<string?> TargetPort { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -237,13 +243,13 @@ namespace Pulumi.AzureNative.Web
         public Input<string>? PasswordSecret { get; set; }
 
         /// <summary>
-        /// Name of the resource group to which the resource belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the deployment slot. If a slot is not specified, the API will create the container for the production slot.
+        /// Name of the deployment slot. If a slot is not specified, the API will get the Site Container for the production slot.
         /// </summary>
         [Input("slot", required: true)]
         public Input<string> Slot { get; set; } = null!;

@@ -27,7 +27,7 @@ class GetWebAppVnetConnectionResult:
     """
     Virtual Network information ARM resource.
     """
-    def __init__(__self__, azure_api_version=None, cert_blob=None, cert_thumbprint=None, dns_servers=None, id=None, is_swift=None, kind=None, name=None, resync_required=None, routes=None, type=None, vnet_resource_id=None):
+    def __init__(__self__, azure_api_version=None, cert_blob=None, cert_thumbprint=None, dns_servers=None, id=None, is_swift=None, kind=None, name=None, resync_required=None, routes=None, system_data=None, type=None, vnet_resource_id=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -58,6 +58,9 @@ class GetWebAppVnetConnectionResult:
         if routes and not isinstance(routes, list):
             raise TypeError("Expected argument 'routes' to be a list")
         pulumi.set(__self__, "routes", routes)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -77,8 +80,7 @@ class GetWebAppVnetConnectionResult:
     @pulumi.getter(name="certBlob")
     def cert_blob(self) -> Optional[_builtins.str]:
         """
-        A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
-        Point-To-Site VPN connection.
+        A certificate file (.cer) blob containing the public key of the private key used to authenticate a \\nPoint-To-Site VPN connection.
         """
         return pulumi.get(self, "cert_blob")
 
@@ -102,7 +104,7 @@ class GetWebAppVnetConnectionResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -126,7 +128,7 @@ class GetWebAppVnetConnectionResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource Name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -147,10 +149,18 @@ class GetWebAppVnetConnectionResult:
         return pulumi.get(self, "routes")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -179,6 +189,7 @@ class AwaitableGetWebAppVnetConnectionResult(GetWebAppVnetConnectionResult):
             name=self.name,
             resync_required=self.resync_required,
             routes=self.routes,
+            system_data=self.system_data,
             type=self.type,
             vnet_resource_id=self.vnet_resource_id)
 
@@ -190,13 +201,13 @@ def get_web_app_vnet_connection(name: Optional[_builtins.str] = None,
     """
     Description for Gets a virtual network the app (or deployment slot) is connected to by name.
 
-    Uses Azure REST API version 2024-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str name: Name of the app.
-    :param _builtins.str resource_group_name: Name of the resource group to which the resource belongs.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str vnet_name: Name of the virtual network.
     """
     __args__ = dict()
@@ -217,6 +228,7 @@ def get_web_app_vnet_connection(name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         resync_required=pulumi.get(__ret__, 'resync_required'),
         routes=pulumi.get(__ret__, 'routes'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         vnet_resource_id=pulumi.get(__ret__, 'vnet_resource_id'))
 def get_web_app_vnet_connection_output(name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -226,13 +238,13 @@ def get_web_app_vnet_connection_output(name: Optional[pulumi.Input[_builtins.str
     """
     Description for Gets a virtual network the app (or deployment slot) is connected to by name.
 
-    Uses Azure REST API version 2024-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str name: Name of the app.
-    :param _builtins.str resource_group_name: Name of the resource group to which the resource belongs.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str vnet_name: Name of the virtual network.
     """
     __args__ = dict()
@@ -252,5 +264,6 @@ def get_web_app_vnet_connection_output(name: Optional[pulumi.Input[_builtins.str
         name=pulumi.get(__response__, 'name'),
         resync_required=pulumi.get(__response__, 'resync_required'),
         routes=pulumi.get(__response__, 'routes'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type'),
         vnet_resource_id=pulumi.get(__response__, 'vnet_resource_id')))

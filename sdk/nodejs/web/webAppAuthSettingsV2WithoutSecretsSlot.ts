@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Configuration settings for the Azure App Service Authentication / Authorization V2 feature.
  *
- * Uses Azure REST API version 2024-11-01.
+ * Uses Azure REST API version 2025-05-01.
  *
- * Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class WebAppAuthSettingsV2WithoutSecretsSlot extends pulumi.CustomResource {
     /**
@@ -58,7 +58,7 @@ export class WebAppAuthSettingsV2WithoutSecretsSlot extends pulumi.CustomResourc
      */
     declare public readonly identityProviders: pulumi.Output<outputs.web.IdentityProvidersResponse | undefined>;
     /**
-     * Kind of resource.
+     * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
     declare public readonly kind: pulumi.Output<string | undefined>;
     /**
@@ -66,7 +66,7 @@ export class WebAppAuthSettingsV2WithoutSecretsSlot extends pulumi.CustomResourc
      */
     declare public readonly login: pulumi.Output<outputs.web.LoginResponse | undefined>;
     /**
-     * Resource Name.
+     * The name of the resource
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -74,7 +74,11 @@ export class WebAppAuthSettingsV2WithoutSecretsSlot extends pulumi.CustomResourc
      */
     declare public readonly platform: pulumi.Output<outputs.web.AuthPlatformResponse | undefined>;
     /**
-     * Resource type.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.web.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
 
@@ -108,6 +112,7 @@ export class WebAppAuthSettingsV2WithoutSecretsSlot extends pulumi.CustomResourc
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["slot"] = args?.slot;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -118,6 +123,7 @@ export class WebAppAuthSettingsV2WithoutSecretsSlot extends pulumi.CustomResourc
             resourceInputs["login"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["platform"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -142,9 +148,9 @@ export interface WebAppAuthSettingsV2WithoutSecretsSlotArgs {
     /**
      * The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
      */
-    identityProviders?: pulumi.Input<inputs.web.IdentityProvidersArgs>;
+    identityProviders?: pulumi.Input<inputs.web.IdentityProvidersV1Args>;
     /**
-     * Kind of resource.
+     * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
     kind?: pulumi.Input<string>;
     /**
@@ -152,7 +158,7 @@ export interface WebAppAuthSettingsV2WithoutSecretsSlotArgs {
      */
     login?: pulumi.Input<inputs.web.LoginArgs>;
     /**
-     * Name of web app.
+     * Name of the app.
      */
     name: pulumi.Input<string>;
     /**
@@ -160,11 +166,11 @@ export interface WebAppAuthSettingsV2WithoutSecretsSlotArgs {
      */
     platform?: pulumi.Input<inputs.web.AuthPlatformArgs>;
     /**
-     * Name of the resource group to which the resource belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Name of web app slot. If not specified then will default to production slot.
+     * Name of the deployment slot. If a slot is not specified, the API will get the settings for the production slot.
      */
     slot: pulumi.Input<string>;
 }

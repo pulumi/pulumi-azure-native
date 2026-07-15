@@ -91,7 +91,7 @@ namespace Pulumi.AzureNative.Migrate.Outputs
         /// Gets or sets the duration for which the VMs are up in the on-premises
         /// environment.
         /// </summary>
-        public readonly Outputs.VmUptimeResponseV2? VmUptime;
+        public readonly Outputs.VmUptimeResponseV1? VmUptime;
 
         [OutputConstructor]
         private MachineAssessmentSettingsResponse(
@@ -129,7 +129,7 @@ namespace Pulumi.AzureNative.Migrate.Outputs
 
             string? sizingCriterion,
 
-            Outputs.VmUptimeResponseV2? vmUptime)
+            Outputs.VmUptimeResponseV1? vmUptime)
         {
             AzureDiskTypes = azureDiskTypes;
             AzureHybridUseBenefit = azureHybridUseBenefit;

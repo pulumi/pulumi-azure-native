@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Web.Inputs
         /// Authentication method to access the storage account for deployment.
         /// </summary>
         [Input("authentication")]
-        public Input<Inputs.FunctionsDeploymentAuthenticationArgs>? Authentication { get; set; }
+        public Input<Inputs.FunctionsDeploymentStorageAuthenticationArgs>? Authentication { get; set; }
 
         /// <summary>
         /// Property to select Azure Storage type. Available options: blobContainer.

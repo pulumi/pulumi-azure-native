@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.Web
     /// <summary>
     /// Virtual Network information ARM resource.
     /// 
-    /// Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
+    /// Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
     /// 
-    /// Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppVnetConnectionSlot")]
     public partial class WebAppVnetConnectionSlot : global::Pulumi.CustomResource
@@ -26,8 +26,7 @@ namespace Pulumi.AzureNative.Web
         public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
-        /// A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
-        /// Point-To-Site VPN connection.
+        /// A certificate file (.cer) blob containing the public key of the private key used to authenticate a \nPoint-To-Site VPN connection.
         /// </summary>
         [Output("certBlob")]
         public Output<string?> CertBlob { get; private set; } = null!;
@@ -57,7 +56,7 @@ namespace Pulumi.AzureNative.Web
         public Output<string?> Kind { get; private set; } = null!;
 
         /// <summary>
-        /// Resource Name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -75,7 +74,13 @@ namespace Pulumi.AzureNative.Web
         public Output<ImmutableArray<Outputs.VnetRouteResponse>> Routes { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -158,8 +163,7 @@ namespace Pulumi.AzureNative.Web
     public sealed class WebAppVnetConnectionSlotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
-        /// Point-To-Site VPN connection.
+        /// A certificate file (.cer) blob containing the public key of the private key used to authenticate a \nPoint-To-Site VPN connection.
         /// </summary>
         [Input("certBlob")]
         public Input<string>? CertBlob { get; set; }
@@ -189,19 +193,19 @@ namespace Pulumi.AzureNative.Web
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Name of the resource group to which the resource belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the deployment slot. If a slot is not specified, the API will add or update connections for the production slot.
+        /// Name of the deployment slot. If a slot is not specified, the API will get the named virtual network for the production slot.
         /// </summary>
         [Input("slot", required: true)]
         public Input<string> Slot { get; set; } = null!;
 
         /// <summary>
-        /// Name of an existing Virtual Network.
+        /// Name of the virtual network.
         /// </summary>
         [Input("vnetName")]
         public Input<string>? VnetName { get; set; }

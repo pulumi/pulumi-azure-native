@@ -28,6 +28,9 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// The text.
         /// </summary>
         public readonly string? Text;
+        /// <summary>
+        /// Anything
+        /// </summary>
         public readonly object? Value;
 
         [OutputConstructor]

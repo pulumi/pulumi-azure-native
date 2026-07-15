@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = ['StaticSiteUserProvidedFunctionAppForStaticSiteArgs', 'StaticSiteUserProvidedFunctionAppForStaticSite']
 
@@ -30,8 +31,8 @@ class StaticSiteUserProvidedFunctionAppForStaticSiteArgs:
         The set of arguments for constructing a StaticSiteUserProvidedFunctionAppForStaticSite resource.
 
         :param pulumi.Input[_builtins.str] name: Name of the static site.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
-        :param pulumi.Input[_builtins.str] function_app_name: Name of the function app to register with the static site.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] function_app_name: Name of the function app registered with the static site.
         :param pulumi.Input[_builtins.str] function_app_region: The region of the function app registered with the static site
         :param pulumi.Input[_builtins.str] function_app_resource_id: The resource id of the function app registered with the static site
         :param pulumi.Input[_builtins.bool] is_forced: Specify <code>true</code> to force the update of the auth configuration on the function app even if an AzureStaticWebApps provider is already configured on the function app. The default is <code>false</code>.
@@ -66,7 +67,7 @@ class StaticSiteUserProvidedFunctionAppForStaticSiteArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the resource group to which the resource belongs.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -78,7 +79,7 @@ class StaticSiteUserProvidedFunctionAppForStaticSiteArgs:
     @pulumi.getter(name="functionAppName")
     def function_app_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Name of the function app to register with the static site.
+        Name of the function app registered with the static site.
         """
         return pulumi.get(self, "function_app_name")
 
@@ -152,20 +153,20 @@ class StaticSiteUserProvidedFunctionAppForStaticSite(pulumi.CustomResource):
         """
         Static Site User Provided Function App ARM resource.
 
-        Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
+        Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] function_app_name: Name of the function app to register with the static site.
+        :param pulumi.Input[_builtins.str] function_app_name: Name of the function app registered with the static site.
         :param pulumi.Input[_builtins.str] function_app_region: The region of the function app registered with the static site
         :param pulumi.Input[_builtins.str] function_app_resource_id: The resource id of the function app registered with the static site
         :param pulumi.Input[_builtins.bool] is_forced: Specify <code>true</code> to force the update of the auth configuration on the function app even if an AzureStaticWebApps provider is already configured on the function app. The default is <code>false</code>.
         :param pulumi.Input[_builtins.str] kind: Kind of resource.
         :param pulumi.Input[_builtins.str] name: Name of the static site.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
     @overload
@@ -176,9 +177,9 @@ class StaticSiteUserProvidedFunctionAppForStaticSite(pulumi.CustomResource):
         """
         Static Site User Provided Function App ARM resource.
 
-        Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
+        Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -225,6 +226,7 @@ class StaticSiteUserProvidedFunctionAppForStaticSite(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_on"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20201201:StaticSiteUserProvidedFunctionAppForStaticSite"), pulumi.Alias(type_="azure-native:web/v20210101:StaticSiteUserProvidedFunctionAppForStaticSite"), pulumi.Alias(type_="azure-native:web/v20210115:StaticSiteUserProvidedFunctionAppForStaticSite"), pulumi.Alias(type_="azure-native:web/v20210201:StaticSiteUserProvidedFunctionAppForStaticSite"), pulumi.Alias(type_="azure-native:web/v20210301:StaticSiteUserProvidedFunctionAppForStaticSite"), pulumi.Alias(type_="azure-native:web/v20220301:StaticSiteUserProvidedFunctionAppForStaticSite"), pulumi.Alias(type_="azure-native:web/v20220901:StaticSiteUserProvidedFunctionAppForStaticSite"), pulumi.Alias(type_="azure-native:web/v20230101:StaticSiteUserProvidedFunctionAppForStaticSite"), pulumi.Alias(type_="azure-native:web/v20231201:StaticSiteUserProvidedFunctionAppForStaticSite"), pulumi.Alias(type_="azure-native:web/v20240401:StaticSiteUserProvidedFunctionAppForStaticSite"), pulumi.Alias(type_="azure-native:web/v20241101:StaticSiteUserProvidedFunctionAppForStaticSite"), pulumi.Alias(type_="azure-native:web/v20250301:StaticSiteUserProvidedFunctionAppForStaticSite"), pulumi.Alias(type_="azure-native:web/v20250501:StaticSiteUserProvidedFunctionAppForStaticSite"), pulumi.Alias(type_="azure-native:web/v20260301preview:StaticSiteUserProvidedFunctionAppForStaticSite"), pulumi.Alias(type_="azure-native:web/v20260315:StaticSiteUserProvidedFunctionAppForStaticSite")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -256,6 +258,7 @@ class StaticSiteUserProvidedFunctionAppForStaticSite(pulumi.CustomResource):
         __props__.__dict__["function_app_resource_id"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return StaticSiteUserProvidedFunctionAppForStaticSite(resource_name, opts=opts, __props__=__props__)
 
@@ -303,15 +306,23 @@ class StaticSiteUserProvidedFunctionAppForStaticSite(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource Name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

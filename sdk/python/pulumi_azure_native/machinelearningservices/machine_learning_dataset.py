@@ -286,7 +286,7 @@ class MachineLearningDataset(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.IdentityResponseV1']]:
+    def identity(self) -> pulumi.Output[Optional['outputs.IdentityResponse']]:
         """
         The identity of the resource.
         """

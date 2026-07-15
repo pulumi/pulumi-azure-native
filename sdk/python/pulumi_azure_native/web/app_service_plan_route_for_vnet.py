@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = ['AppServicePlanRouteForVnetArgs', 'AppServicePlanRouteForVnet']
@@ -32,7 +33,7 @@ class AppServicePlanRouteForVnetArgs:
         The set of arguments for constructing a AppServicePlanRouteForVnet resource.
 
         :param pulumi.Input[_builtins.str] name: Name of the App Service plan.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] vnet_name: Name of the Virtual Network.
         :param pulumi.Input[_builtins.str] end_address: The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
         :param pulumi.Input[_builtins.str] kind: Kind of resource.
@@ -75,7 +76,7 @@ class AppServicePlanRouteForVnetArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the resource group to which the resource belongs.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -179,9 +180,9 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
         """
         Virtual Network route contract used to pass routing information for a Virtual Network.
 
-        Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
+        Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -189,7 +190,7 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] end_address: The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
         :param pulumi.Input[_builtins.str] kind: Kind of resource.
         :param pulumi.Input[_builtins.str] name: Name of the App Service plan.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] route_name: Name of the Virtual Network route.
         :param pulumi.Input[Union[_builtins.str, 'RouteType']] route_type: The type of route this is:
                DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
@@ -209,9 +210,9 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
         """
         Virtual Network route contract used to pass routing information for a Virtual Network.
 
-        Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
+        Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -261,6 +262,7 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vnet_name'")
             __props__.__dict__["vnet_name"] = vnet_name
             __props__.__dict__["azure_api_version"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20150801:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20160901:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20180201:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20190801:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20200601:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20200901:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20201001:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20201201:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20210101:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20210115:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20210201:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20210301:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20220301:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20220901:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20230101:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20231201:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20240401:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20241101:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20250301:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20250501:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20260301preview:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20260315:AppServicePlanRouteForVnet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -292,6 +294,7 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["route_type"] = None
         __props__.__dict__["start_address"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return AppServicePlanRouteForVnet(resource_name, opts=opts, __props__=__props__)
 
@@ -323,7 +326,7 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource Name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -349,10 +352,18 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
         return pulumi.get(self, "start_address")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

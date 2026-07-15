@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetWebAppRelayServiceConnectionSlotResult',
@@ -26,7 +27,7 @@ class GetWebAppRelayServiceConnectionSlotResult:
     """
     Hybrid Connection for an App Service app.
     """
-    def __init__(__self__, azure_api_version=None, biztalk_uri=None, entity_connection_string=None, entity_name=None, hostname=None, id=None, kind=None, name=None, port=None, resource_connection_string=None, resource_type=None, type=None):
+    def __init__(__self__, azure_api_version=None, biztalk_uri=None, entity_connection_string=None, entity_name=None, hostname=None, id=None, kind=None, name=None, port=None, resource_connection_string=None, resource_type=None, system_data=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -60,6 +61,9 @@ class GetWebAppRelayServiceConnectionSlotResult:
         if resource_type and not isinstance(resource_type, str):
             raise TypeError("Expected argument 'resource_type' to be a str")
         pulumi.set(__self__, "resource_type", resource_type)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -96,7 +100,7 @@ class GetWebAppRelayServiceConnectionSlotResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -112,7 +116,7 @@ class GetWebAppRelayServiceConnectionSlotResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource Name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -132,10 +136,18 @@ class GetWebAppRelayServiceConnectionSlotResult:
         return pulumi.get(self, "resource_type")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -157,6 +169,7 @@ class AwaitableGetWebAppRelayServiceConnectionSlotResult(GetWebAppRelayServiceCo
             port=self.port,
             resource_connection_string=self.resource_connection_string,
             resource_type=self.resource_type,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -168,14 +181,14 @@ def get_web_app_relay_service_connection_slot(entity_name: Optional[_builtins.st
     """
     Description for Gets a hybrid connection configuration by its name.
 
-    Uses Azure REST API version 2024-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str entity_name: Name of the hybrid connection.
     :param _builtins.str name: Name of the app.
-    :param _builtins.str resource_group_name: Name of the resource group to which the resource belongs.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str slot: Name of the deployment slot. If a slot is not specified, the API will get a hybrid connection for the production slot.
     """
     __args__ = dict()
@@ -198,6 +211,7 @@ def get_web_app_relay_service_connection_slot(entity_name: Optional[_builtins.st
         port=pulumi.get(__ret__, 'port'),
         resource_connection_string=pulumi.get(__ret__, 'resource_connection_string'),
         resource_type=pulumi.get(__ret__, 'resource_type'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_web_app_relay_service_connection_slot_output(entity_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                      name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -207,14 +221,14 @@ def get_web_app_relay_service_connection_slot_output(entity_name: Optional[pulum
     """
     Description for Gets a hybrid connection configuration by its name.
 
-    Uses Azure REST API version 2024-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str entity_name: Name of the hybrid connection.
     :param _builtins.str name: Name of the app.
-    :param _builtins.str resource_group_name: Name of the resource group to which the resource belongs.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str slot: Name of the deployment slot. If a slot is not specified, the API will get a hybrid connection for the production slot.
     """
     __args__ = dict()
@@ -236,4 +250,5 @@ def get_web_app_relay_service_connection_slot_output(entity_name: Optional[pulum
         port=pulumi.get(__response__, 'port'),
         resource_connection_string=pulumi.get(__response__, 'resource_connection_string'),
         resource_type=pulumi.get(__response__, 'resource_type'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

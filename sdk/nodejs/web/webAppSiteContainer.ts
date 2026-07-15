@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Container of a site
  *
- * Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-12-01.
+ * Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2023-12-01.
  *
- * Other available API versions: 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class WebAppSiteContainer extends pulumi.CustomResource {
     /**
@@ -78,7 +78,7 @@ export class WebAppSiteContainer extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
     /**
-     * Resource Name.
+     * The name of the resource
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -90,11 +90,15 @@ export class WebAppSiteContainer extends pulumi.CustomResource {
      */
     declare public readonly startUpCommand: pulumi.Output<string | undefined>;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.web.SystemDataResponse>;
+    /**
      * Target Port
      */
     declare public readonly targetPort: pulumi.Output<string | undefined>;
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
@@ -151,6 +155,7 @@ export class WebAppSiteContainer extends pulumi.CustomResource {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["authType"] = undefined /*out*/;
@@ -165,6 +170,7 @@ export class WebAppSiteContainer extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["passwordSecret"] = undefined /*out*/;
             resourceInputs["startUpCommand"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["targetPort"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["userManagedIdentityClientId"] = undefined /*out*/;
@@ -219,7 +225,7 @@ export interface WebAppSiteContainerArgs {
      */
     passwordSecret?: pulumi.Input<string>;
     /**
-     * Name of the resource group to which the resource belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

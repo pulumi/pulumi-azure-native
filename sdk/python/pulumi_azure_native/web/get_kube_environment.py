@@ -27,7 +27,7 @@ class GetKubeEnvironmentResult:
     """
     A Kubernetes cluster specialized for web workloads by Azure App Service
     """
-    def __init__(__self__, aks_resource_id=None, app_logs_configuration=None, arc_configuration=None, azure_api_version=None, container_apps_configuration=None, default_domain=None, deployment_errors=None, environment_type=None, extended_location=None, id=None, internal_load_balancer_enabled=None, kind=None, location=None, name=None, provisioning_state=None, static_ip=None, tags=None, type=None):
+    def __init__(__self__, aks_resource_id=None, app_logs_configuration=None, arc_configuration=None, azure_api_version=None, container_apps_configuration=None, default_domain=None, deployment_errors=None, environment_type=None, extended_location=None, id=None, internal_load_balancer_enabled=None, kind=None, location=None, name=None, provisioning_state=None, static_ip=None, system_data=None, tags=None, type=None):
         if aks_resource_id and not isinstance(aks_resource_id, str):
             raise TypeError("Expected argument 'aks_resource_id' to be a str")
         pulumi.set(__self__, "aks_resource_id", aks_resource_id)
@@ -76,6 +76,9 @@ class GetKubeEnvironmentResult:
         if static_ip and not isinstance(static_ip, str):
             raise TypeError("Expected argument 'static_ip' to be a str")
         pulumi.set(__self__, "static_ip", static_ip)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -160,7 +163,7 @@ class GetKubeEnvironmentResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -176,7 +179,7 @@ class GetKubeEnvironmentResult:
     @pulumi.getter
     def kind(self) -> Optional[_builtins.str]:
         """
-        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
+        Kind of resource.
         """
         return pulumi.get(self, "kind")
 
@@ -184,7 +187,7 @@ class GetKubeEnvironmentResult:
     @pulumi.getter
     def location(self) -> _builtins.str:
         """
-        Resource Location.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -192,7 +195,7 @@ class GetKubeEnvironmentResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource Name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -213,6 +216,14 @@ class GetKubeEnvironmentResult:
         return pulumi.get(self, "static_ip")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
         """
@@ -224,7 +235,7 @@ class GetKubeEnvironmentResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -251,6 +262,7 @@ class AwaitableGetKubeEnvironmentResult(GetKubeEnvironmentResult):
             name=self.name,
             provisioning_state=self.provisioning_state,
             static_ip=self.static_ip,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -261,13 +273,13 @@ def get_kube_environment(name: Optional[_builtins.str] = None,
     """
     Description for Get the properties of a Kubernetes Environment.
 
-    Uses Azure REST API version 2024-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str name: Name of the Kubernetes Environment.
-    :param _builtins.str resource_group_name: Name of the resource group to which the resource belongs.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -292,6 +304,7 @@ def get_kube_environment(name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         static_ip=pulumi.get(__ret__, 'static_ip'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_kube_environment_output(name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -300,13 +313,13 @@ def get_kube_environment_output(name: Optional[pulumi.Input[_builtins.str]] = No
     """
     Description for Get the properties of a Kubernetes Environment.
 
-    Uses Azure REST API version 2024-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str name: Name of the Kubernetes Environment.
-    :param _builtins.str resource_group_name: Name of the resource group to which the resource belongs.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -330,5 +343,6 @@ def get_kube_environment_output(name: Optional[pulumi.Input[_builtins.str]] = No
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         static_ip=pulumi.get(__response__, 'static_ip'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

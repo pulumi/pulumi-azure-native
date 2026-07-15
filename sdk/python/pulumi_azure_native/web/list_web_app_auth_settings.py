@@ -175,7 +175,7 @@ class ListWebAppAuthSettingsResult:
     @pulumi.getter(name="allowedAudiences")
     def allowed_audiences(self) -> Optional[Sequence[_builtins.str]]:
         """
-        Allowed audience values to consider when validating JSON Web Tokens issued by 
+        Allowed audience values to consider when validating JSON Web Tokens issued by
         Azure Active Directory. Note that the <code>ClientID</code> value is always considered an
         allowed audience, regardless of this setting.
         """
@@ -205,7 +205,7 @@ class ListWebAppAuthSettingsResult:
     def client_id(self) -> Optional[_builtins.str]:
         """
         The Client ID of this relying party application, known as the client_id.
-        This setting is required for enabling OpenID Connection authentication with Azure Active Directory or 
+        This setting is required for enabling OpenID Connection authentication with Azure Active Directory or
         other 3rd party OpenID Connect providers.
         More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
         """
@@ -364,7 +364,7 @@ class ListWebAppAuthSettingsResult:
     @pulumi.getter(name="googleClientSecretSettingName")
     def google_client_secret_setting_name(self) -> Optional[_builtins.str]:
         """
-        The app setting name that contains the client secret associated with 
+        The app setting name that contains the client secret associated with
         the Google web application.
         """
         return pulumi.get(self, "google_client_secret_setting_name")
@@ -485,7 +485,7 @@ class ListWebAppAuthSettingsResult:
     def token_store_enabled(self) -> Optional[_builtins.bool]:
         """
         <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
-         The default is <code>false</code>.
+        The default is <code>false</code>.
         """
         return pulumi.get(self, "token_store_enabled")
 
@@ -599,13 +599,13 @@ def list_web_app_auth_settings(name: Optional[_builtins.str] = None,
     """
     Description for Gets the Authentication/Authorization settings of an app.
 
-    Uses Azure REST API version 2024-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str name: Name of the app.
-    :param _builtins.str resource_group_name: Name of the resource group to which the resource belongs.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -662,13 +662,13 @@ def list_web_app_auth_settings_output(name: Optional[pulumi.Input[_builtins.str]
     """
     Description for Gets the Authentication/Authorization settings of an app.
 
-    Uses Azure REST API version 2024-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str name: Name of the app.
-    :param _builtins.str resource_group_name: Name of the resource group to which the resource belongs.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['name'] = name

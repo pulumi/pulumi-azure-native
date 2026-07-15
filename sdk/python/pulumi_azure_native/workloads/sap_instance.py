@@ -254,7 +254,7 @@ class SapInstance(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def errors(self) -> pulumi.Output['outputs.SAPMigrateErrorResponseV1']:
+    def errors(self) -> pulumi.Output['outputs.SAPMigrateErrorResponse']:
         """
         Defines the errors related to SAP Instance resource.
         """

@@ -12,31 +12,31 @@ namespace Pulumi.AzureNative.Web
     public static class GetWebAppAuthSettingsV2WithoutSecretsSlot
     {
         /// <summary>
-        /// Configuration settings for the Azure App Service Authentication / Authorization V2 feature.
+        /// Gets site's Authentication / Authorization settings for apps via the V2 format
         /// 
-        /// Uses Azure REST API version 2024-11-01.
+        /// Uses Azure REST API version 2025-05-01.
         /// 
-        /// Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetWebAppAuthSettingsV2WithoutSecretsSlotResult> InvokeAsync(GetWebAppAuthSettingsV2WithoutSecretsSlotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppAuthSettingsV2WithoutSecretsSlotResult>("azure-native:web:getWebAppAuthSettingsV2WithoutSecretsSlot", args ?? new GetWebAppAuthSettingsV2WithoutSecretsSlotArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Configuration settings for the Azure App Service Authentication / Authorization V2 feature.
+        /// Gets site's Authentication / Authorization settings for apps via the V2 format
         /// 
-        /// Uses Azure REST API version 2024-11-01.
+        /// Uses Azure REST API version 2025-05-01.
         /// 
-        /// Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWebAppAuthSettingsV2WithoutSecretsSlotResult> Invoke(GetWebAppAuthSettingsV2WithoutSecretsSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppAuthSettingsV2WithoutSecretsSlotResult>("azure-native:web:getWebAppAuthSettingsV2WithoutSecretsSlot", args ?? new GetWebAppAuthSettingsV2WithoutSecretsSlotInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Configuration settings for the Azure App Service Authentication / Authorization V2 feature.
+        /// Gets site's Authentication / Authorization settings for apps via the V2 format
         /// 
-        /// Uses Azure REST API version 2024-11-01.
+        /// Uses Azure REST API version 2025-05-01.
         /// 
-        /// Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWebAppAuthSettingsV2WithoutSecretsSlotResult> Invoke(GetWebAppAuthSettingsV2WithoutSecretsSlotInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppAuthSettingsV2WithoutSecretsSlotResult>("azure-native:web:getWebAppAuthSettingsV2WithoutSecretsSlot", args ?? new GetWebAppAuthSettingsV2WithoutSecretsSlotInvokeArgs(), options.WithDefaults());
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.Web
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// Name of the resource group to which the resource belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNative.Web
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Name of the resource group to which the resource belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly Outputs.HttpSettingsResponse? HttpSettings;
         /// <summary>
-        /// Resource Id.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly Outputs.IdentityProvidersResponse? IdentityProviders;
         /// <summary>
-        /// Kind of resource.
+        /// Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         /// </summary>
         public readonly string? Kind;
         /// <summary>
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly Outputs.LoginResponse? Login;
         /// <summary>
-        /// Resource Name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -136,7 +136,11 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly Outputs.AuthPlatformResponse? Platform;
         /// <summary>
-        /// Resource type.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -160,6 +164,8 @@ namespace Pulumi.AzureNative.Web
 
             Outputs.AuthPlatformResponse? platform,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             AzureApiVersion = azureApiVersion;
@@ -171,6 +177,7 @@ namespace Pulumi.AzureNative.Web
             Login = login;
             Name = name;
             Platform = platform;
+            SystemData = systemData;
             Type = type;
         }
     }

@@ -79,7 +79,7 @@ namespace Pulumi.AzureNative.Network.Inputs
         /// The Routing Configuration indicating the associated and propagated route tables on this connection.
         /// </summary>
         [Input("routingConfiguration")]
-        public Input<Inputs.RoutingConfigurationV7Args>? RoutingConfiguration { get; set; }
+        public Input<Inputs.RoutingConfigurationV1Args>? RoutingConfiguration { get; set; }
 
         /// <summary>
         /// Routing weight for vpn connection.

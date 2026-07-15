@@ -170,9 +170,6 @@ __all__ = [
     'ConfigurationGroupResponse',
     'ConfigurationGroupResponseV1',
     'ConfigurationGroupResponseV2',
-    'ConfigurationGroupResponseV3',
-    'ConfigurationGroupResponseV4',
-    'ConfigurationGroupResponseV5',
     'ConnectionMonitorDestinationResponse',
     'ConnectionMonitorEndpointFilterItemResponse',
     'ConnectionMonitorEndpointFilterResponse',
@@ -192,7 +189,6 @@ __all__ = [
     'ConnectionPolicyPropertiesResponse',
     'ConnectivityGroupItemResponse',
     'ConnectivityGroupItemResponseV1',
-    'ConnectivityGroupItemResponseV2',
     'ContainerNetworkInterfaceConfigurationResponse',
     'ContainerNetworkInterfaceIpConfigurationResponse',
     'ContainerNetworkInterfaceResponse',
@@ -329,8 +325,6 @@ __all__ = [
     'NetworkManagerRoutingGroupItemResponse',
     'NetworkManagerSecurityGroupItemResponse',
     'NetworkManagerSecurityGroupItemResponseV1',
-    'NetworkManagerSecurityGroupItemResponseV2',
-    'NetworkManagerSecurityGroupItemResponseV3',
     'NetworkRuleConditionResponse',
     'NetworkRuleResponse',
     'NetworkSecurityGroupResponse',
@@ -344,8 +338,6 @@ __all__ = [
     'OutboundRuleResponse',
     'OwaspCrsExclusionEntryResponse',
     'P2SConnectionConfigurationResponse',
-    'P2SConnectionConfigurationResponseV1',
-    'P2SConnectionConfigurationResponseV2',
     'P2SVpnGatewayResponse',
     'P2SVpnServerConfigRadiusClientRootCertificateResponse',
     'P2SVpnServerConfigRadiusServerRootCertificateResponse',
@@ -376,13 +368,6 @@ __all__ = [
     'ProbeResponse',
     'PropagatedRouteTableResponse',
     'PropagatedRouteTableResponseV1',
-    'PropagatedRouteTableResponseV2',
-    'PropagatedRouteTableResponseV3',
-    'PropagatedRouteTableResponseV5',
-    'PropagatedRouteTableResponseV6',
-    'PropagatedRouteTableResponseV7',
-    'PropagatedRouteTableResponseV8',
-    'PropagatedRouteTableResponseV9',
     'PublicIPAddressDnsSettingsResponse',
     'PublicIPAddressDnsSettingsResponseV1',
     'PublicIPAddressResponse',
@@ -414,13 +399,6 @@ __all__ = [
     'RouteTargetAddressPropertiesFormatResponse',
     'RoutingConfigurationResponse',
     'RoutingConfigurationResponseV1',
-    'RoutingConfigurationResponseV2',
-    'RoutingConfigurationResponseV3',
-    'RoutingConfigurationResponseV5',
-    'RoutingConfigurationResponseV6',
-    'RoutingConfigurationResponseV7',
-    'RoutingConfigurationResponseV8',
-    'RoutingConfigurationResponseV9',
     'RoutingPolicyResponse',
     'RoutingRuleNextHopResponse',
     'RoutingRuleRouteDestinationResponse',
@@ -443,13 +421,6 @@ __all__ = [
     'StaticRouteResponse',
     'StaticRoutesConfigResponse',
     'StaticRoutesConfigResponseV1',
-    'StaticRoutesConfigResponseV2',
-    'StaticRoutesConfigResponseV3',
-    'StaticRoutesConfigResponseV5',
-    'StaticRoutesConfigResponseV6',
-    'StaticRoutesConfigResponseV7',
-    'StaticRoutesConfigResponseV8',
-    'StaticRoutesConfigResponseV9',
     'SubResourceResponse',
     'SubgroupProfileResponse',
     'SubgroupResponse',
@@ -492,13 +463,6 @@ __all__ = [
     'VirtualRouterAutoScaleConfigurationResponse',
     'VnetRouteResponse',
     'VnetRouteResponseV1',
-    'VnetRouteResponseV2',
-    'VnetRouteResponseV3',
-    'VnetRouteResponseV5',
-    'VnetRouteResponseV6',
-    'VnetRouteResponseV7',
-    'VnetRouteResponseV8',
-    'VnetRouteResponseV9',
     'VngClientConnectionConfigurationResponse',
     'VpnClientConfigurationResponse',
     'VpnClientConnectionHealthDetailResponse',
@@ -1226,7 +1190,7 @@ class ActiveDefaultSecurityAdminRuleResponseV1(dict):
                  region: Optional[_builtins.str] = None,
                  rule_collection_applies_to_groups: Optional[Sequence['outputs.NetworkManagerSecurityGroupItemResponse']] = None,
                  rule_collection_description: Optional[_builtins.str] = None,
-                 rule_groups: Optional[Sequence['outputs.ConfigurationGroupResponseV2']] = None):
+                 rule_groups: Optional[Sequence['outputs.ConfigurationGroupResponseV1']] = None):
         """
         Network default admin rule.
 
@@ -1250,7 +1214,7 @@ class ActiveDefaultSecurityAdminRuleResponseV1(dict):
         :param _builtins.str region: Deployment region.
         :param Sequence['NetworkManagerSecurityGroupItemResponse'] rule_collection_applies_to_groups: Groups for rule collection
         :param _builtins.str rule_collection_description: A description of the rule collection.
-        :param Sequence['ConfigurationGroupResponseV2'] rule_groups: Effective configuration groups.
+        :param Sequence['ConfigurationGroupResponseV1'] rule_groups: Effective configuration groups.
         """
         pulumi.set(__self__, "access", access)
         pulumi.set(__self__, "description", description)
@@ -1436,7 +1400,7 @@ class ActiveDefaultSecurityAdminRuleResponseV1(dict):
 
     @_builtins.property
     @pulumi.getter(name="ruleGroups")
-    def rule_groups(self) -> Optional[Sequence['outputs.ConfigurationGroupResponseV2']]:
+    def rule_groups(self) -> Optional[Sequence['outputs.ConfigurationGroupResponseV1']]:
         """
         Effective configuration groups.
         """
@@ -1465,7 +1429,7 @@ class ActiveDefaultSecurityUserRuleResponse(dict):
                  flag: Optional[_builtins.str] = None,
                  id: Optional[_builtins.str] = None,
                  region: Optional[_builtins.str] = None,
-                 rule_collection_applies_to_groups: Optional[Sequence['outputs.NetworkManagerSecurityGroupItemResponseV2']] = None,
+                 rule_collection_applies_to_groups: Optional[Sequence['outputs.NetworkManagerSecurityGroupItemResponseV1']] = None,
                  rule_collection_description: Optional[_builtins.str] = None,
                  rule_collection_display_name: Optional[_builtins.str] = None,
                  rule_groups: Optional[Sequence['outputs.ConfigurationGroupResponse']] = None):
@@ -1489,7 +1453,7 @@ class ActiveDefaultSecurityUserRuleResponse(dict):
         :param _builtins.str flag: Default rule flag.
         :param _builtins.str id: Resource ID.
         :param _builtins.str region: Deployment region.
-        :param Sequence['NetworkManagerSecurityGroupItemResponseV2'] rule_collection_applies_to_groups: Groups for rule collection
+        :param Sequence['NetworkManagerSecurityGroupItemResponseV1'] rule_collection_applies_to_groups: Groups for rule collection
         :param _builtins.str rule_collection_description: A description of the rule collection.
         :param _builtins.str rule_collection_display_name: A display name of the rule collection.
         :param Sequence['ConfigurationGroupResponse'] rule_groups: Effective configuration groups.
@@ -1656,7 +1620,7 @@ class ActiveDefaultSecurityUserRuleResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="ruleCollectionAppliesToGroups")
-    def rule_collection_applies_to_groups(self) -> Optional[Sequence['outputs.NetworkManagerSecurityGroupItemResponseV2']]:
+    def rule_collection_applies_to_groups(self) -> Optional[Sequence['outputs.NetworkManagerSecurityGroupItemResponseV1']]:
         """
         Groups for rule collection
         """
@@ -1709,7 +1673,7 @@ class ActiveDefaultSecurityUserRuleResponseV1(dict):
                  region: Optional[_builtins.str] = None,
                  rule_collection_applies_to_groups: Optional[Sequence['outputs.NetworkManagerSecurityGroupItemResponse']] = None,
                  rule_collection_description: Optional[_builtins.str] = None,
-                 rule_groups: Optional[Sequence['outputs.ConfigurationGroupResponseV3']] = None):
+                 rule_groups: Optional[Sequence['outputs.ConfigurationGroupResponseV2']] = None):
         """
         Network security default user rule.
 
@@ -1730,7 +1694,7 @@ class ActiveDefaultSecurityUserRuleResponseV1(dict):
         :param _builtins.str region: Deployment region.
         :param Sequence['NetworkManagerSecurityGroupItemResponse'] rule_collection_applies_to_groups: Groups for rule collection
         :param _builtins.str rule_collection_description: A description of the rule collection.
-        :param Sequence['ConfigurationGroupResponseV3'] rule_groups: Effective configuration groups.
+        :param Sequence['ConfigurationGroupResponseV2'] rule_groups: Effective configuration groups.
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
@@ -1889,7 +1853,7 @@ class ActiveDefaultSecurityUserRuleResponseV1(dict):
 
     @_builtins.property
     @pulumi.getter(name="ruleGroups")
-    def rule_groups(self) -> Optional[Sequence['outputs.ConfigurationGroupResponseV3']]:
+    def rule_groups(self) -> Optional[Sequence['outputs.ConfigurationGroupResponseV2']]:
         """
         Effective configuration groups.
         """
@@ -19795,76 +19759,6 @@ class ConfigurationGroupResponseV2(dict):
     The network configuration group resource
     """
     def __init__(__self__, *,
-                 provisioning_state: _builtins.str,
-                 resource_guid: _builtins.str,
-                 description: Optional[_builtins.str] = None,
-                 id: Optional[_builtins.str] = None,
-                 member_type: Optional[_builtins.str] = None):
-        """
-        The network configuration group resource
-
-        :param _builtins.str provisioning_state: The provisioning state of the scope assignment resource.
-        :param _builtins.str resource_guid: Unique identifier for this resource.
-        :param _builtins.str description: A description of the network group.
-        :param _builtins.str id: Network group ID.
-        :param _builtins.str member_type: The type of the group member.
-        """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "resource_guid", resource_guid)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if member_type is not None:
-            pulumi.set(__self__, "member_type", member_type)
-
-    @_builtins.property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> _builtins.str:
-        """
-        The provisioning state of the scope assignment resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @_builtins.property
-    @pulumi.getter(name="resourceGuid")
-    def resource_guid(self) -> _builtins.str:
-        """
-        Unique identifier for this resource.
-        """
-        return pulumi.get(self, "resource_guid")
-
-    @_builtins.property
-    @pulumi.getter
-    def description(self) -> Optional[_builtins.str]:
-        """
-        A description of the network group.
-        """
-        return pulumi.get(self, "description")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> Optional[_builtins.str]:
-        """
-        Network group ID.
-        """
-        return pulumi.get(self, "id")
-
-    @_builtins.property
-    @pulumi.getter(name="memberType")
-    def member_type(self) -> Optional[_builtins.str]:
-        """
-        The type of the group member.
-        """
-        return pulumi.get(self, "member_type")
-
-
-@pulumi.output_type
-class ConfigurationGroupResponseV3(dict):
-    """
-    The network configuration group resource
-    """
-    def __init__(__self__, *,
                  member_type: _builtins.str,
                  provisioning_state: _builtins.str,
                  description: Optional[_builtins.str] = None,
@@ -19915,146 +19809,6 @@ class ConfigurationGroupResponseV3(dict):
         Resource ID.
         """
         return pulumi.get(self, "id")
-
-
-@pulumi.output_type
-class ConfigurationGroupResponseV4(dict):
-    """
-    The network configuration group resource
-    """
-    def __init__(__self__, *,
-                 provisioning_state: _builtins.str,
-                 resource_guid: _builtins.str,
-                 description: Optional[_builtins.str] = None,
-                 id: Optional[_builtins.str] = None,
-                 member_type: Optional[_builtins.str] = None):
-        """
-        The network configuration group resource
-
-        :param _builtins.str provisioning_state: The provisioning state of the scope assignment resource.
-        :param _builtins.str resource_guid: Unique identifier for this resource.
-        :param _builtins.str description: A description of the network group.
-        :param _builtins.str id: Network group ID.
-        :param _builtins.str member_type: The type of the group member.
-        """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "resource_guid", resource_guid)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if member_type is not None:
-            pulumi.set(__self__, "member_type", member_type)
-
-    @_builtins.property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> _builtins.str:
-        """
-        The provisioning state of the scope assignment resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @_builtins.property
-    @pulumi.getter(name="resourceGuid")
-    def resource_guid(self) -> _builtins.str:
-        """
-        Unique identifier for this resource.
-        """
-        return pulumi.get(self, "resource_guid")
-
-    @_builtins.property
-    @pulumi.getter
-    def description(self) -> Optional[_builtins.str]:
-        """
-        A description of the network group.
-        """
-        return pulumi.get(self, "description")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> Optional[_builtins.str]:
-        """
-        Network group ID.
-        """
-        return pulumi.get(self, "id")
-
-    @_builtins.property
-    @pulumi.getter(name="memberType")
-    def member_type(self) -> Optional[_builtins.str]:
-        """
-        The type of the group member.
-        """
-        return pulumi.get(self, "member_type")
-
-
-@pulumi.output_type
-class ConfigurationGroupResponseV5(dict):
-    """
-    The network configuration group resource
-    """
-    def __init__(__self__, *,
-                 provisioning_state: _builtins.str,
-                 resource_guid: _builtins.str,
-                 description: Optional[_builtins.str] = None,
-                 id: Optional[_builtins.str] = None,
-                 member_type: Optional[_builtins.str] = None):
-        """
-        The network configuration group resource
-
-        :param _builtins.str provisioning_state: The provisioning state of the scope assignment resource.
-        :param _builtins.str resource_guid: Unique identifier for this resource.
-        :param _builtins.str description: A description of the network group.
-        :param _builtins.str id: Network group ID.
-        :param _builtins.str member_type: The type of the group member.
-        """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "resource_guid", resource_guid)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if member_type is not None:
-            pulumi.set(__self__, "member_type", member_type)
-
-    @_builtins.property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> _builtins.str:
-        """
-        The provisioning state of the scope assignment resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @_builtins.property
-    @pulumi.getter(name="resourceGuid")
-    def resource_guid(self) -> _builtins.str:
-        """
-        Unique identifier for this resource.
-        """
-        return pulumi.get(self, "resource_guid")
-
-    @_builtins.property
-    @pulumi.getter
-    def description(self) -> Optional[_builtins.str]:
-        """
-        A description of the network group.
-        """
-        return pulumi.get(self, "description")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> Optional[_builtins.str]:
-        """
-        Network group ID.
-        """
-        return pulumi.get(self, "id")
-
-    @_builtins.property
-    @pulumi.getter(name="memberType")
-    def member_type(self) -> Optional[_builtins.str]:
-        """
-        The type of the group member.
-        """
-        return pulumi.get(self, "member_type")
 
 
 @pulumi.output_type
@@ -21270,61 +21024,6 @@ class ConnectivityGroupItemResponseV1(dict):
 
 
 @pulumi.output_type
-class ConnectivityGroupItemResponseV2(dict):
-    def __init__(__self__, *,
-                 group_connectivity: Optional[_builtins.str] = None,
-                 is_global: Optional[_builtins.str] = None,
-                 network_group_id: Optional[_builtins.str] = None,
-                 use_hub_gateway: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str group_connectivity: Group connectivity type.
-        :param _builtins.str is_global: Flag if global is supported.
-        :param _builtins.str network_group_id: Network group Id.
-        :param _builtins.str use_hub_gateway: Flag if need to use hub gateway.
-        """
-        if group_connectivity is not None:
-            pulumi.set(__self__, "group_connectivity", group_connectivity)
-        if is_global is not None:
-            pulumi.set(__self__, "is_global", is_global)
-        if network_group_id is not None:
-            pulumi.set(__self__, "network_group_id", network_group_id)
-        if use_hub_gateway is not None:
-            pulumi.set(__self__, "use_hub_gateway", use_hub_gateway)
-
-    @_builtins.property
-    @pulumi.getter(name="groupConnectivity")
-    def group_connectivity(self) -> Optional[_builtins.str]:
-        """
-        Group connectivity type.
-        """
-        return pulumi.get(self, "group_connectivity")
-
-    @_builtins.property
-    @pulumi.getter(name="isGlobal")
-    def is_global(self) -> Optional[_builtins.str]:
-        """
-        Flag if global is supported.
-        """
-        return pulumi.get(self, "is_global")
-
-    @_builtins.property
-    @pulumi.getter(name="networkGroupId")
-    def network_group_id(self) -> Optional[_builtins.str]:
-        """
-        Network group Id.
-        """
-        return pulumi.get(self, "network_group_id")
-
-    @_builtins.property
-    @pulumi.getter(name="useHubGateway")
-    def use_hub_gateway(self) -> Optional[_builtins.str]:
-        """
-        Flag if need to use hub gateway.
-        """
-        return pulumi.get(self, "use_hub_gateway")
-
-
-@pulumi.output_type
 class ContainerNetworkInterfaceConfigurationResponse(dict):
     """
     Container network interface configuration child resource.
@@ -22421,7 +22120,7 @@ class EffectiveConnectivityConfigurationResponse(dict):
     def __init__(__self__, *,
                  connectivity_topology: _builtins.str,
                  provisioning_state: _builtins.str,
-                 applies_to_groups: Optional[Sequence['outputs.ConnectivityGroupItemResponseV2']] = None,
+                 applies_to_groups: Optional[Sequence['outputs.ConnectivityGroupItemResponseV1']] = None,
                  configuration_groups: Optional[Sequence['outputs.ConfigurationGroupResponse']] = None,
                  delete_existing_peering: Optional[_builtins.str] = None,
                  description: Optional[_builtins.str] = None,
@@ -22434,7 +22133,7 @@ class EffectiveConnectivityConfigurationResponse(dict):
 
         :param _builtins.str connectivity_topology: Connectivity topology type.
         :param _builtins.str provisioning_state: The provisioning state of the connectivity configuration resource.
-        :param Sequence['ConnectivityGroupItemResponseV2'] applies_to_groups: Groups for configuration
+        :param Sequence['ConnectivityGroupItemResponseV1'] applies_to_groups: Groups for configuration
         :param Sequence['ConfigurationGroupResponse'] configuration_groups: Effective configuration groups.
         :param _builtins.str delete_existing_peering: Flag if need to remove current existing peerings.
         :param _builtins.str description: A description of the connectivity configuration.
@@ -22480,7 +22179,7 @@ class EffectiveConnectivityConfigurationResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="appliesToGroups")
-    def applies_to_groups(self) -> Optional[Sequence['outputs.ConnectivityGroupItemResponseV2']]:
+    def applies_to_groups(self) -> Optional[Sequence['outputs.ConnectivityGroupItemResponseV1']]:
         """
         Groups for configuration
         """
@@ -22553,7 +22252,7 @@ class EffectiveConnectivityConfigurationResponseV1(dict):
                  connectivity_topology: _builtins.str,
                  provisioning_state: _builtins.str,
                  resource_guid: _builtins.str,
-                 configuration_groups: Optional[Sequence['outputs.ConfigurationGroupResponseV4']] = None,
+                 configuration_groups: Optional[Sequence['outputs.ConfigurationGroupResponseV1']] = None,
                  delete_existing_peering: Optional[_builtins.str] = None,
                  description: Optional[_builtins.str] = None,
                  hubs: Optional[Sequence['outputs.HubResponse']] = None,
@@ -22566,7 +22265,7 @@ class EffectiveConnectivityConfigurationResponseV1(dict):
         :param _builtins.str connectivity_topology: Connectivity topology type.
         :param _builtins.str provisioning_state: The provisioning state of the connectivity configuration resource.
         :param _builtins.str resource_guid: Unique identifier for this resource.
-        :param Sequence['ConfigurationGroupResponseV4'] configuration_groups: Effective configuration groups.
+        :param Sequence['ConfigurationGroupResponseV1'] configuration_groups: Effective configuration groups.
         :param _builtins.str delete_existing_peering: Flag if need to remove current existing peerings.
         :param _builtins.str description: A description of the connectivity configuration.
         :param Sequence['HubResponse'] hubs: List of hubItems
@@ -22624,7 +22323,7 @@ class EffectiveConnectivityConfigurationResponseV1(dict):
 
     @_builtins.property
     @pulumi.getter(name="configurationGroups")
-    def configuration_groups(self) -> Optional[Sequence['outputs.ConfigurationGroupResponseV4']]:
+    def configuration_groups(self) -> Optional[Sequence['outputs.ConfigurationGroupResponseV1']]:
         """
         Effective configuration groups.
         """
@@ -22693,7 +22392,7 @@ class EffectiveDefaultSecurityAdminRuleResponse(dict):
                  configuration_display_name: Optional[_builtins.str] = None,
                  flag: Optional[_builtins.str] = None,
                  id: Optional[_builtins.str] = None,
-                 rule_collection_applies_to_groups: Optional[Sequence['outputs.NetworkManagerSecurityGroupItemResponseV3']] = None,
+                 rule_collection_applies_to_groups: Optional[Sequence['outputs.NetworkManagerSecurityGroupItemResponseV1']] = None,
                  rule_collection_description: Optional[_builtins.str] = None,
                  rule_collection_display_name: Optional[_builtins.str] = None,
                  rule_groups: Optional[Sequence['outputs.ConfigurationGroupResponse']] = None):
@@ -22717,7 +22416,7 @@ class EffectiveDefaultSecurityAdminRuleResponse(dict):
         :param _builtins.str configuration_display_name: A display name of the security admin configuration.
         :param _builtins.str flag: Default rule flag.
         :param _builtins.str id: Resource ID.
-        :param Sequence['NetworkManagerSecurityGroupItemResponseV3'] rule_collection_applies_to_groups: Groups for rule collection
+        :param Sequence['NetworkManagerSecurityGroupItemResponseV1'] rule_collection_applies_to_groups: Groups for rule collection
         :param _builtins.str rule_collection_description: A description of the rule collection.
         :param _builtins.str rule_collection_display_name: A display name of the rule collection.
         :param Sequence['ConfigurationGroupResponse'] rule_groups: Effective configuration groups.
@@ -22882,7 +22581,7 @@ class EffectiveDefaultSecurityAdminRuleResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="ruleCollectionAppliesToGroups")
-    def rule_collection_applies_to_groups(self) -> Optional[Sequence['outputs.NetworkManagerSecurityGroupItemResponseV3']]:
+    def rule_collection_applies_to_groups(self) -> Optional[Sequence['outputs.NetworkManagerSecurityGroupItemResponseV1']]:
         """
         Groups for rule collection
         """
@@ -22936,7 +22635,7 @@ class EffectiveDefaultSecurityAdminRuleResponseV1(dict):
                  id: Optional[_builtins.str] = None,
                  rule_collection_applies_to_groups: Optional[Sequence['outputs.NetworkManagerSecurityGroupItemResponse']] = None,
                  rule_collection_description: Optional[_builtins.str] = None,
-                 rule_groups: Optional[Sequence['outputs.ConfigurationGroupResponseV5']] = None):
+                 rule_groups: Optional[Sequence['outputs.ConfigurationGroupResponseV1']] = None):
         """
         Network default admin rule.
 
@@ -22958,7 +22657,7 @@ class EffectiveDefaultSecurityAdminRuleResponseV1(dict):
         :param _builtins.str id: Resource ID.
         :param Sequence['NetworkManagerSecurityGroupItemResponse'] rule_collection_applies_to_groups: Groups for rule collection
         :param _builtins.str rule_collection_description: A description of the rule collection.
-        :param Sequence['ConfigurationGroupResponseV5'] rule_groups: Effective configuration groups.
+        :param Sequence['ConfigurationGroupResponseV1'] rule_groups: Effective configuration groups.
         """
         pulumi.set(__self__, "access", access)
         pulumi.set(__self__, "description", description)
@@ -23124,7 +22823,7 @@ class EffectiveDefaultSecurityAdminRuleResponseV1(dict):
 
     @_builtins.property
     @pulumi.getter(name="ruleGroups")
-    def rule_groups(self) -> Optional[Sequence['outputs.ConfigurationGroupResponseV5']]:
+    def rule_groups(self) -> Optional[Sequence['outputs.ConfigurationGroupResponseV1']]:
         """
         Effective configuration groups.
         """
@@ -25068,7 +24767,7 @@ class ExpressRouteConnectionResponse(dict):
                  enable_private_link_fast_path: Optional[_builtins.bool] = None,
                  express_route_gateway_bypass: Optional[_builtins.bool] = None,
                  id: Optional[_builtins.str] = None,
-                 routing_configuration: Optional['outputs.RoutingConfigurationResponseV2'] = None,
+                 routing_configuration: Optional['outputs.RoutingConfigurationResponseV1'] = None,
                  routing_weight: Optional[_builtins.int] = None):
         """
         ExpressRouteConnection resource.
@@ -25081,7 +24780,7 @@ class ExpressRouteConnectionResponse(dict):
         :param _builtins.bool enable_private_link_fast_path: Bypass the ExpressRoute gateway when accessing private-links. ExpressRoute FastPath (expressRouteGatewayBypass) must be enabled.
         :param _builtins.bool express_route_gateway_bypass: Enable FastPath to vWan Firewall hub.
         :param _builtins.str id: Resource ID.
-        :param 'RoutingConfigurationResponseV2' routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
+        :param 'RoutingConfigurationResponseV1' routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
         :param _builtins.int routing_weight: The routing weight associated to the connection.
         """
         pulumi.set(__self__, "express_route_circuit_peering", express_route_circuit_peering)
@@ -25168,7 +24867,7 @@ class ExpressRouteConnectionResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="routingConfiguration")
-    def routing_configuration(self) -> Optional['outputs.RoutingConfigurationResponseV2']:
+    def routing_configuration(self) -> Optional['outputs.RoutingConfigurationResponseV1']:
         """
         The Routing Configuration indicating the associated and propagated route tables on this connection.
         """
@@ -34137,54 +33836,6 @@ class NetworkManagerSecurityGroupItemResponseV1(dict):
 
 
 @pulumi.output_type
-class NetworkManagerSecurityGroupItemResponseV2(dict):
-    """
-    Network manager security group item.
-    """
-    def __init__(__self__, *,
-                 network_group_id: Optional[_builtins.str] = None):
-        """
-        Network manager security group item.
-
-        :param _builtins.str network_group_id: Network manager group Id.
-        """
-        if network_group_id is not None:
-            pulumi.set(__self__, "network_group_id", network_group_id)
-
-    @_builtins.property
-    @pulumi.getter(name="networkGroupId")
-    def network_group_id(self) -> Optional[_builtins.str]:
-        """
-        Network manager group Id.
-        """
-        return pulumi.get(self, "network_group_id")
-
-
-@pulumi.output_type
-class NetworkManagerSecurityGroupItemResponseV3(dict):
-    """
-    Network manager security group item.
-    """
-    def __init__(__self__, *,
-                 network_group_id: Optional[_builtins.str] = None):
-        """
-        Network manager security group item.
-
-        :param _builtins.str network_group_id: Network manager group Id.
-        """
-        if network_group_id is not None:
-            pulumi.set(__self__, "network_group_id", network_group_id)
-
-    @_builtins.property
-    @pulumi.getter(name="networkGroupId")
-    def network_group_id(self) -> Optional[_builtins.str]:
-        """
-        Network manager group Id.
-        """
-        return pulumi.get(self, "network_group_id")
-
-
-@pulumi.output_type
 class NetworkRuleConditionResponse(dict):
     """
     Rule condition of type network.
@@ -35497,7 +35148,7 @@ class P2SConnectionConfigurationResponse(dict):
                  enable_internet_security: Optional[_builtins.bool] = None,
                  id: Optional[_builtins.str] = None,
                  name: Optional[_builtins.str] = None,
-                 routing_configuration: Optional['outputs.RoutingConfigurationResponseV5'] = None,
+                 routing_configuration: Optional['outputs.RoutingConfigurationResponseV1'] = None,
                  vpn_client_address_pool: Optional['outputs.AddressSpaceResponse'] = None):
         """
         P2SConnectionConfiguration Resource.
@@ -35509,7 +35160,7 @@ class P2SConnectionConfigurationResponse(dict):
         :param _builtins.bool enable_internet_security: Flag indicating whether the enable internet security flag is turned on for the P2S Connections or not.
         :param _builtins.str id: Resource ID.
         :param _builtins.str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param 'RoutingConfigurationResponseV5' routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
+        :param 'RoutingConfigurationResponseV1' routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
         :param 'AddressSpaceResponse' vpn_client_address_pool: The reference to the address space resource which represents Address space for P2S VpnClient.
         """
         pulumi.set(__self__, "configuration_policy_group_associations", configuration_policy_group_associations)
@@ -35585,266 +35236,7 @@ class P2SConnectionConfigurationResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="routingConfiguration")
-    def routing_configuration(self) -> Optional['outputs.RoutingConfigurationResponseV5']:
-        """
-        The Routing Configuration indicating the associated and propagated route tables on this connection.
-        """
-        return pulumi.get(self, "routing_configuration")
-
-    @_builtins.property
-    @pulumi.getter(name="vpnClientAddressPool")
-    def vpn_client_address_pool(self) -> Optional['outputs.AddressSpaceResponse']:
-        """
-        The reference to the address space resource which represents Address space for P2S VpnClient.
-        """
-        return pulumi.get(self, "vpn_client_address_pool")
-
-
-@pulumi.output_type
-class P2SConnectionConfigurationResponseV1(dict):
-    """
-    P2SConnectionConfiguration Resource.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "configurationPolicyGroupAssociations":
-            suggest = "configuration_policy_group_associations"
-        elif key == "previousConfigurationPolicyGroupAssociations":
-            suggest = "previous_configuration_policy_group_associations"
-        elif key == "provisioningState":
-            suggest = "provisioning_state"
-        elif key == "enableInternetSecurity":
-            suggest = "enable_internet_security"
-        elif key == "routingConfiguration":
-            suggest = "routing_configuration"
-        elif key == "vpnClientAddressPool":
-            suggest = "vpn_client_address_pool"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in P2SConnectionConfigurationResponseV1. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        P2SConnectionConfigurationResponseV1.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        P2SConnectionConfigurationResponseV1.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 configuration_policy_group_associations: Sequence['outputs.SubResourceResponse'],
-                 etag: _builtins.str,
-                 previous_configuration_policy_group_associations: Sequence['outputs.VpnServerConfigurationPolicyGroupResponse'],
-                 provisioning_state: _builtins.str,
-                 enable_internet_security: Optional[_builtins.bool] = None,
-                 id: Optional[_builtins.str] = None,
-                 name: Optional[_builtins.str] = None,
-                 routing_configuration: Optional['outputs.RoutingConfigurationResponseV8'] = None,
-                 vpn_client_address_pool: Optional['outputs.AddressSpaceResponse'] = None):
-        """
-        P2SConnectionConfiguration Resource.
-
-        :param Sequence['SubResourceResponse'] configuration_policy_group_associations: List of Configuration Policy Groups that this P2SConnectionConfiguration is attached to.
-        :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
-        :param Sequence['VpnServerConfigurationPolicyGroupResponse'] previous_configuration_policy_group_associations: List of previous Configuration Policy Groups that this P2SConnectionConfiguration was attached to.
-        :param _builtins.str provisioning_state: The provisioning state of the P2SConnectionConfiguration resource.
-        :param _builtins.bool enable_internet_security: Flag indicating whether the enable internet security flag is turned on for the P2S Connections or not.
-        :param _builtins.str id: Resource ID.
-        :param _builtins.str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param 'RoutingConfigurationResponseV8' routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
-        :param 'AddressSpaceResponse' vpn_client_address_pool: The reference to the address space resource which represents Address space for P2S VpnClient.
-        """
-        pulumi.set(__self__, "configuration_policy_group_associations", configuration_policy_group_associations)
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "previous_configuration_policy_group_associations", previous_configuration_policy_group_associations)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if enable_internet_security is not None:
-            pulumi.set(__self__, "enable_internet_security", enable_internet_security)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if routing_configuration is not None:
-            pulumi.set(__self__, "routing_configuration", routing_configuration)
-        if vpn_client_address_pool is not None:
-            pulumi.set(__self__, "vpn_client_address_pool", vpn_client_address_pool)
-
-    @_builtins.property
-    @pulumi.getter(name="configurationPolicyGroupAssociations")
-    def configuration_policy_group_associations(self) -> Sequence['outputs.SubResourceResponse']:
-        """
-        List of Configuration Policy Groups that this P2SConnectionConfiguration is attached to.
-        """
-        return pulumi.get(self, "configuration_policy_group_associations")
-
-    @_builtins.property
-    @pulumi.getter
-    def etag(self) -> _builtins.str:
-        """
-        A unique read-only string that changes whenever the resource is updated.
-        """
-        return pulumi.get(self, "etag")
-
-    @_builtins.property
-    @pulumi.getter(name="previousConfigurationPolicyGroupAssociations")
-    def previous_configuration_policy_group_associations(self) -> Sequence['outputs.VpnServerConfigurationPolicyGroupResponse']:
-        """
-        List of previous Configuration Policy Groups that this P2SConnectionConfiguration was attached to.
-        """
-        return pulumi.get(self, "previous_configuration_policy_group_associations")
-
-    @_builtins.property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> _builtins.str:
-        """
-        The provisioning state of the P2SConnectionConfiguration resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @_builtins.property
-    @pulumi.getter(name="enableInternetSecurity")
-    def enable_internet_security(self) -> Optional[_builtins.bool]:
-        """
-        Flag indicating whether the enable internet security flag is turned on for the P2S Connections or not.
-        """
-        return pulumi.get(self, "enable_internet_security")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> Optional[_builtins.str]:
-        """
-        Resource ID.
-        """
-        return pulumi.get(self, "id")
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[_builtins.str]:
-        """
-        The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        """
-        return pulumi.get(self, "name")
-
-    @_builtins.property
-    @pulumi.getter(name="routingConfiguration")
-    def routing_configuration(self) -> Optional['outputs.RoutingConfigurationResponseV8']:
-        """
-        The Routing Configuration indicating the associated and propagated route tables on this connection.
-        """
-        return pulumi.get(self, "routing_configuration")
-
-    @_builtins.property
-    @pulumi.getter(name="vpnClientAddressPool")
-    def vpn_client_address_pool(self) -> Optional['outputs.AddressSpaceResponse']:
-        """
-        The reference to the address space resource which represents Address space for P2S VpnClient.
-        """
-        return pulumi.get(self, "vpn_client_address_pool")
-
-
-@pulumi.output_type
-class P2SConnectionConfigurationResponseV2(dict):
-    """
-    P2SConnectionConfiguration Resource.
-    """
-    def __init__(__self__, *,
-                 configuration_policy_group_associations: Sequence['outputs.SubResourceResponse'],
-                 etag: _builtins.str,
-                 previous_configuration_policy_group_associations: Sequence['outputs.VpnServerConfigurationPolicyGroupResponse'],
-                 provisioning_state: _builtins.str,
-                 enable_internet_security: Optional[_builtins.bool] = None,
-                 id: Optional[_builtins.str] = None,
-                 name: Optional[_builtins.str] = None,
-                 routing_configuration: Optional['outputs.RoutingConfigurationResponseV9'] = None,
-                 vpn_client_address_pool: Optional['outputs.AddressSpaceResponse'] = None):
-        """
-        P2SConnectionConfiguration Resource.
-
-        :param Sequence['SubResourceResponse'] configuration_policy_group_associations: List of Configuration Policy Groups that this P2SConnectionConfiguration is attached to.
-        :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
-        :param Sequence['VpnServerConfigurationPolicyGroupResponse'] previous_configuration_policy_group_associations: List of previous Configuration Policy Groups that this P2SConnectionConfiguration was attached to.
-        :param _builtins.str provisioning_state: The provisioning state of the P2SConnectionConfiguration resource.
-        :param _builtins.bool enable_internet_security: Flag indicating whether the enable internet security flag is turned on for the P2S Connections or not.
-        :param _builtins.str id: Resource ID.
-        :param _builtins.str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param 'RoutingConfigurationResponseV9' routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
-        :param 'AddressSpaceResponse' vpn_client_address_pool: The reference to the address space resource which represents Address space for P2S VpnClient.
-        """
-        pulumi.set(__self__, "configuration_policy_group_associations", configuration_policy_group_associations)
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "previous_configuration_policy_group_associations", previous_configuration_policy_group_associations)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if enable_internet_security is not None:
-            pulumi.set(__self__, "enable_internet_security", enable_internet_security)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if routing_configuration is not None:
-            pulumi.set(__self__, "routing_configuration", routing_configuration)
-        if vpn_client_address_pool is not None:
-            pulumi.set(__self__, "vpn_client_address_pool", vpn_client_address_pool)
-
-    @_builtins.property
-    @pulumi.getter(name="configurationPolicyGroupAssociations")
-    def configuration_policy_group_associations(self) -> Sequence['outputs.SubResourceResponse']:
-        """
-        List of Configuration Policy Groups that this P2SConnectionConfiguration is attached to.
-        """
-        return pulumi.get(self, "configuration_policy_group_associations")
-
-    @_builtins.property
-    @pulumi.getter
-    def etag(self) -> _builtins.str:
-        """
-        A unique read-only string that changes whenever the resource is updated.
-        """
-        return pulumi.get(self, "etag")
-
-    @_builtins.property
-    @pulumi.getter(name="previousConfigurationPolicyGroupAssociations")
-    def previous_configuration_policy_group_associations(self) -> Sequence['outputs.VpnServerConfigurationPolicyGroupResponse']:
-        """
-        List of previous Configuration Policy Groups that this P2SConnectionConfiguration was attached to.
-        """
-        return pulumi.get(self, "previous_configuration_policy_group_associations")
-
-    @_builtins.property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> _builtins.str:
-        """
-        The provisioning state of the P2SConnectionConfiguration resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @_builtins.property
-    @pulumi.getter(name="enableInternetSecurity")
-    def enable_internet_security(self) -> Optional[_builtins.bool]:
-        """
-        Flag indicating whether the enable internet security flag is turned on for the P2S Connections or not.
-        """
-        return pulumi.get(self, "enable_internet_security")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> Optional[_builtins.str]:
-        """
-        Resource ID.
-        """
-        return pulumi.get(self, "id")
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[_builtins.str]:
-        """
-        The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        """
-        return pulumi.get(self, "name")
-
-    @_builtins.property
-    @pulumi.getter(name="routingConfiguration")
-    def routing_configuration(self) -> Optional['outputs.RoutingConfigurationResponseV9']:
+    def routing_configuration(self) -> Optional['outputs.RoutingConfigurationResponseV1']:
         """
         The Routing Configuration indicating the associated and propagated route tables on this connection.
         """
@@ -35905,7 +35297,7 @@ class P2SVpnGatewayResponse(dict):
                  custom_dns_servers: Optional[Sequence[_builtins.str]] = None,
                  id: Optional[_builtins.str] = None,
                  is_routing_preference_internet: Optional[_builtins.bool] = None,
-                 p2_s_connection_configurations: Optional[Sequence['outputs.P2SConnectionConfigurationResponseV1']] = None,
+                 p2_s_connection_configurations: Optional[Sequence['outputs.P2SConnectionConfigurationResponse']] = None,
                  tags: Optional[Mapping[str, _builtins.str]] = None,
                  virtual_hub: Optional['outputs.SubResourceResponse'] = None,
                  vpn_gateway_scale_unit: Optional[_builtins.int] = None,
@@ -35922,7 +35314,7 @@ class P2SVpnGatewayResponse(dict):
         :param Sequence[_builtins.str] custom_dns_servers: List of all customer specified DNS servers IP addresses.
         :param _builtins.str id: Resource ID.
         :param _builtins.bool is_routing_preference_internet: Enable Routing Preference property for the Public IP Interface of the P2SVpnGateway.
-        :param Sequence['P2SConnectionConfigurationResponseV1'] p2_s_connection_configurations: List of all p2s connection configurations of the gateway.
+        :param Sequence['P2SConnectionConfigurationResponse'] p2_s_connection_configurations: List of all p2s connection configurations of the gateway.
         :param Mapping[str, _builtins.str] tags: Resource tags.
         :param 'SubResourceResponse' virtual_hub: The VirtualHub to which the gateway belongs.
         :param _builtins.int vpn_gateway_scale_unit: The scale unit for this p2s vpn gateway.
@@ -36025,7 +35417,7 @@ class P2SVpnGatewayResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="p2SConnectionConfigurations")
-    def p2_s_connection_configurations(self) -> Optional[Sequence['outputs.P2SConnectionConfigurationResponseV1']]:
+    def p2_s_connection_configurations(self) -> Optional[Sequence['outputs.P2SConnectionConfigurationResponse']]:
         """
         List of all p2s connection configurations of the gateway.
         """
@@ -39077,258 +38469,6 @@ class PropagatedRouteTableResponseV1(dict):
 
 
 @pulumi.output_type
-class PropagatedRouteTableResponseV2(dict):
-    """
-    The list of RouteTables to advertise the routes to.
-    """
-    def __init__(__self__, *,
-                 ids: Optional[Sequence['outputs.SubResourceResponse']] = None,
-                 labels: Optional[Sequence[_builtins.str]] = None):
-        """
-        The list of RouteTables to advertise the routes to.
-
-        :param Sequence['SubResourceResponse'] ids: The list of resource ids of all the RouteTables.
-        :param Sequence[_builtins.str] labels: The list of labels.
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-        if labels is not None:
-            pulumi.set(__self__, "labels", labels)
-
-    @_builtins.property
-    @pulumi.getter
-    def ids(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
-        """
-        The list of resource ids of all the RouteTables.
-        """
-        return pulumi.get(self, "ids")
-
-    @_builtins.property
-    @pulumi.getter
-    def labels(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        The list of labels.
-        """
-        return pulumi.get(self, "labels")
-
-
-@pulumi.output_type
-class PropagatedRouteTableResponseV3(dict):
-    """
-    The list of RouteTables to advertise the routes to.
-    """
-    def __init__(__self__, *,
-                 ids: Optional[Sequence['outputs.SubResourceResponse']] = None,
-                 labels: Optional[Sequence[_builtins.str]] = None):
-        """
-        The list of RouteTables to advertise the routes to.
-
-        :param Sequence['SubResourceResponse'] ids: The list of resource ids of all the RouteTables.
-        :param Sequence[_builtins.str] labels: The list of labels.
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-        if labels is not None:
-            pulumi.set(__self__, "labels", labels)
-
-    @_builtins.property
-    @pulumi.getter
-    def ids(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
-        """
-        The list of resource ids of all the RouteTables.
-        """
-        return pulumi.get(self, "ids")
-
-    @_builtins.property
-    @pulumi.getter
-    def labels(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        The list of labels.
-        """
-        return pulumi.get(self, "labels")
-
-
-@pulumi.output_type
-class PropagatedRouteTableResponseV5(dict):
-    """
-    The list of RouteTables to advertise the routes to.
-    """
-    def __init__(__self__, *,
-                 ids: Optional[Sequence['outputs.SubResourceResponse']] = None,
-                 labels: Optional[Sequence[_builtins.str]] = None):
-        """
-        The list of RouteTables to advertise the routes to.
-
-        :param Sequence['SubResourceResponse'] ids: The list of resource ids of all the RouteTables.
-        :param Sequence[_builtins.str] labels: The list of labels.
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-        if labels is not None:
-            pulumi.set(__self__, "labels", labels)
-
-    @_builtins.property
-    @pulumi.getter
-    def ids(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
-        """
-        The list of resource ids of all the RouteTables.
-        """
-        return pulumi.get(self, "ids")
-
-    @_builtins.property
-    @pulumi.getter
-    def labels(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        The list of labels.
-        """
-        return pulumi.get(self, "labels")
-
-
-@pulumi.output_type
-class PropagatedRouteTableResponseV6(dict):
-    """
-    The list of RouteTables to advertise the routes to.
-    """
-    def __init__(__self__, *,
-                 ids: Optional[Sequence['outputs.SubResourceResponse']] = None,
-                 labels: Optional[Sequence[_builtins.str]] = None):
-        """
-        The list of RouteTables to advertise the routes to.
-
-        :param Sequence['SubResourceResponse'] ids: The list of resource ids of all the RouteTables.
-        :param Sequence[_builtins.str] labels: The list of labels.
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-        if labels is not None:
-            pulumi.set(__self__, "labels", labels)
-
-    @_builtins.property
-    @pulumi.getter
-    def ids(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
-        """
-        The list of resource ids of all the RouteTables.
-        """
-        return pulumi.get(self, "ids")
-
-    @_builtins.property
-    @pulumi.getter
-    def labels(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        The list of labels.
-        """
-        return pulumi.get(self, "labels")
-
-
-@pulumi.output_type
-class PropagatedRouteTableResponseV7(dict):
-    """
-    The list of RouteTables to advertise the routes to.
-    """
-    def __init__(__self__, *,
-                 ids: Optional[Sequence['outputs.SubResourceResponse']] = None,
-                 labels: Optional[Sequence[_builtins.str]] = None):
-        """
-        The list of RouteTables to advertise the routes to.
-
-        :param Sequence['SubResourceResponse'] ids: The list of resource ids of all the RouteTables.
-        :param Sequence[_builtins.str] labels: The list of labels.
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-        if labels is not None:
-            pulumi.set(__self__, "labels", labels)
-
-    @_builtins.property
-    @pulumi.getter
-    def ids(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
-        """
-        The list of resource ids of all the RouteTables.
-        """
-        return pulumi.get(self, "ids")
-
-    @_builtins.property
-    @pulumi.getter
-    def labels(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        The list of labels.
-        """
-        return pulumi.get(self, "labels")
-
-
-@pulumi.output_type
-class PropagatedRouteTableResponseV8(dict):
-    """
-    The list of RouteTables to advertise the routes to.
-    """
-    def __init__(__self__, *,
-                 ids: Optional[Sequence['outputs.SubResourceResponse']] = None,
-                 labels: Optional[Sequence[_builtins.str]] = None):
-        """
-        The list of RouteTables to advertise the routes to.
-
-        :param Sequence['SubResourceResponse'] ids: The list of resource ids of all the RouteTables.
-        :param Sequence[_builtins.str] labels: The list of labels.
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-        if labels is not None:
-            pulumi.set(__self__, "labels", labels)
-
-    @_builtins.property
-    @pulumi.getter
-    def ids(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
-        """
-        The list of resource ids of all the RouteTables.
-        """
-        return pulumi.get(self, "ids")
-
-    @_builtins.property
-    @pulumi.getter
-    def labels(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        The list of labels.
-        """
-        return pulumi.get(self, "labels")
-
-
-@pulumi.output_type
-class PropagatedRouteTableResponseV9(dict):
-    """
-    The list of RouteTables to advertise the routes to.
-    """
-    def __init__(__self__, *,
-                 ids: Optional[Sequence['outputs.SubResourceResponse']] = None,
-                 labels: Optional[Sequence[_builtins.str]] = None):
-        """
-        The list of RouteTables to advertise the routes to.
-
-        :param Sequence['SubResourceResponse'] ids: The list of resource ids of all the RouteTables.
-        :param Sequence[_builtins.str] labels: The list of labels.
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-        if labels is not None:
-            pulumi.set(__self__, "labels", labels)
-
-    @_builtins.property
-    @pulumi.getter
-    def ids(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
-        """
-        The list of resource ids of all the RouteTables.
-        """
-        return pulumi.get(self, "ids")
-
-    @_builtins.property
-    @pulumi.getter
-    def labels(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        The list of labels.
-        """
-        return pulumi.get(self, "labels")
-
-
-@pulumi.output_type
 class PublicIPAddressDnsSettingsResponse(dict):
     """
     Contains FQDN of the DNS record associated with the public IP address.
@@ -42232,660 +41372,6 @@ class RoutingConfigurationResponseV1(dict):
 
 
 @pulumi.output_type
-class RoutingConfigurationResponseV2(dict):
-    """
-    Routing Configuration indicating the associated and propagated route tables for this connection.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "associatedRouteTable":
-            suggest = "associated_route_table"
-        elif key == "inboundRouteMap":
-            suggest = "inbound_route_map"
-        elif key == "outboundRouteMap":
-            suggest = "outbound_route_map"
-        elif key == "propagatedRouteTables":
-            suggest = "propagated_route_tables"
-        elif key == "vnetRoutes":
-            suggest = "vnet_routes"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RoutingConfigurationResponseV2. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RoutingConfigurationResponseV2.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RoutingConfigurationResponseV2.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 associated_route_table: Optional['outputs.SubResourceResponse'] = None,
-                 inbound_route_map: Optional['outputs.SubResourceResponse'] = None,
-                 outbound_route_map: Optional['outputs.SubResourceResponse'] = None,
-                 propagated_route_tables: Optional['outputs.PropagatedRouteTableResponseV2'] = None,
-                 vnet_routes: Optional['outputs.VnetRouteResponseV2'] = None):
-        """
-        Routing Configuration indicating the associated and propagated route tables for this connection.
-
-        :param 'SubResourceResponse' associated_route_table: The resource id RouteTable associated with this RoutingConfiguration.
-        :param 'SubResourceResponse' inbound_route_map: The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-        :param 'SubResourceResponse' outbound_route_map: The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-        :param 'PropagatedRouteTableResponseV2' propagated_route_tables: The list of RouteTables to advertise the routes to.
-        :param 'VnetRouteResponseV2' vnet_routes: List of routes that control routing from VirtualHub into a virtual network connection.
-        """
-        if associated_route_table is not None:
-            pulumi.set(__self__, "associated_route_table", associated_route_table)
-        if inbound_route_map is not None:
-            pulumi.set(__self__, "inbound_route_map", inbound_route_map)
-        if outbound_route_map is not None:
-            pulumi.set(__self__, "outbound_route_map", outbound_route_map)
-        if propagated_route_tables is not None:
-            pulumi.set(__self__, "propagated_route_tables", propagated_route_tables)
-        if vnet_routes is not None:
-            pulumi.set(__self__, "vnet_routes", vnet_routes)
-
-    @_builtins.property
-    @pulumi.getter(name="associatedRouteTable")
-    def associated_route_table(self) -> Optional['outputs.SubResourceResponse']:
-        """
-        The resource id RouteTable associated with this RoutingConfiguration.
-        """
-        return pulumi.get(self, "associated_route_table")
-
-    @_builtins.property
-    @pulumi.getter(name="inboundRouteMap")
-    def inbound_route_map(self) -> Optional['outputs.SubResourceResponse']:
-        """
-        The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-        """
-        return pulumi.get(self, "inbound_route_map")
-
-    @_builtins.property
-    @pulumi.getter(name="outboundRouteMap")
-    def outbound_route_map(self) -> Optional['outputs.SubResourceResponse']:
-        """
-        The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-        """
-        return pulumi.get(self, "outbound_route_map")
-
-    @_builtins.property
-    @pulumi.getter(name="propagatedRouteTables")
-    def propagated_route_tables(self) -> Optional['outputs.PropagatedRouteTableResponseV2']:
-        """
-        The list of RouteTables to advertise the routes to.
-        """
-        return pulumi.get(self, "propagated_route_tables")
-
-    @_builtins.property
-    @pulumi.getter(name="vnetRoutes")
-    def vnet_routes(self) -> Optional['outputs.VnetRouteResponseV2']:
-        """
-        List of routes that control routing from VirtualHub into a virtual network connection.
-        """
-        return pulumi.get(self, "vnet_routes")
-
-
-@pulumi.output_type
-class RoutingConfigurationResponseV3(dict):
-    """
-    Routing Configuration indicating the associated and propagated route tables for this connection.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "associatedRouteTable":
-            suggest = "associated_route_table"
-        elif key == "inboundRouteMap":
-            suggest = "inbound_route_map"
-        elif key == "outboundRouteMap":
-            suggest = "outbound_route_map"
-        elif key == "propagatedRouteTables":
-            suggest = "propagated_route_tables"
-        elif key == "vnetRoutes":
-            suggest = "vnet_routes"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RoutingConfigurationResponseV3. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RoutingConfigurationResponseV3.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RoutingConfigurationResponseV3.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 associated_route_table: Optional['outputs.SubResourceResponse'] = None,
-                 inbound_route_map: Optional['outputs.SubResourceResponse'] = None,
-                 outbound_route_map: Optional['outputs.SubResourceResponse'] = None,
-                 propagated_route_tables: Optional['outputs.PropagatedRouteTableResponseV3'] = None,
-                 vnet_routes: Optional['outputs.VnetRouteResponseV3'] = None):
-        """
-        Routing Configuration indicating the associated and propagated route tables for this connection.
-
-        :param 'SubResourceResponse' associated_route_table: The resource id RouteTable associated with this RoutingConfiguration.
-        :param 'SubResourceResponse' inbound_route_map: The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-        :param 'SubResourceResponse' outbound_route_map: The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-        :param 'PropagatedRouteTableResponseV3' propagated_route_tables: The list of RouteTables to advertise the routes to.
-        :param 'VnetRouteResponseV3' vnet_routes: List of routes that control routing from VirtualHub into a virtual network connection.
-        """
-        if associated_route_table is not None:
-            pulumi.set(__self__, "associated_route_table", associated_route_table)
-        if inbound_route_map is not None:
-            pulumi.set(__self__, "inbound_route_map", inbound_route_map)
-        if outbound_route_map is not None:
-            pulumi.set(__self__, "outbound_route_map", outbound_route_map)
-        if propagated_route_tables is not None:
-            pulumi.set(__self__, "propagated_route_tables", propagated_route_tables)
-        if vnet_routes is not None:
-            pulumi.set(__self__, "vnet_routes", vnet_routes)
-
-    @_builtins.property
-    @pulumi.getter(name="associatedRouteTable")
-    def associated_route_table(self) -> Optional['outputs.SubResourceResponse']:
-        """
-        The resource id RouteTable associated with this RoutingConfiguration.
-        """
-        return pulumi.get(self, "associated_route_table")
-
-    @_builtins.property
-    @pulumi.getter(name="inboundRouteMap")
-    def inbound_route_map(self) -> Optional['outputs.SubResourceResponse']:
-        """
-        The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-        """
-        return pulumi.get(self, "inbound_route_map")
-
-    @_builtins.property
-    @pulumi.getter(name="outboundRouteMap")
-    def outbound_route_map(self) -> Optional['outputs.SubResourceResponse']:
-        """
-        The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-        """
-        return pulumi.get(self, "outbound_route_map")
-
-    @_builtins.property
-    @pulumi.getter(name="propagatedRouteTables")
-    def propagated_route_tables(self) -> Optional['outputs.PropagatedRouteTableResponseV3']:
-        """
-        The list of RouteTables to advertise the routes to.
-        """
-        return pulumi.get(self, "propagated_route_tables")
-
-    @_builtins.property
-    @pulumi.getter(name="vnetRoutes")
-    def vnet_routes(self) -> Optional['outputs.VnetRouteResponseV3']:
-        """
-        List of routes that control routing from VirtualHub into a virtual network connection.
-        """
-        return pulumi.get(self, "vnet_routes")
-
-
-@pulumi.output_type
-class RoutingConfigurationResponseV5(dict):
-    """
-    Routing Configuration indicating the associated and propagated route tables for this connection.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "associatedRouteTable":
-            suggest = "associated_route_table"
-        elif key == "inboundRouteMap":
-            suggest = "inbound_route_map"
-        elif key == "outboundRouteMap":
-            suggest = "outbound_route_map"
-        elif key == "propagatedRouteTables":
-            suggest = "propagated_route_tables"
-        elif key == "vnetRoutes":
-            suggest = "vnet_routes"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RoutingConfigurationResponseV5. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RoutingConfigurationResponseV5.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RoutingConfigurationResponseV5.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 associated_route_table: Optional['outputs.SubResourceResponse'] = None,
-                 inbound_route_map: Optional['outputs.SubResourceResponse'] = None,
-                 outbound_route_map: Optional['outputs.SubResourceResponse'] = None,
-                 propagated_route_tables: Optional['outputs.PropagatedRouteTableResponseV5'] = None,
-                 vnet_routes: Optional['outputs.VnetRouteResponseV5'] = None):
-        """
-        Routing Configuration indicating the associated and propagated route tables for this connection.
-
-        :param 'SubResourceResponse' associated_route_table: The resource id RouteTable associated with this RoutingConfiguration.
-        :param 'SubResourceResponse' inbound_route_map: The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-        :param 'SubResourceResponse' outbound_route_map: The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-        :param 'PropagatedRouteTableResponseV5' propagated_route_tables: The list of RouteTables to advertise the routes to.
-        :param 'VnetRouteResponseV5' vnet_routes: List of routes that control routing from VirtualHub into a virtual network connection.
-        """
-        if associated_route_table is not None:
-            pulumi.set(__self__, "associated_route_table", associated_route_table)
-        if inbound_route_map is not None:
-            pulumi.set(__self__, "inbound_route_map", inbound_route_map)
-        if outbound_route_map is not None:
-            pulumi.set(__self__, "outbound_route_map", outbound_route_map)
-        if propagated_route_tables is not None:
-            pulumi.set(__self__, "propagated_route_tables", propagated_route_tables)
-        if vnet_routes is not None:
-            pulumi.set(__self__, "vnet_routes", vnet_routes)
-
-    @_builtins.property
-    @pulumi.getter(name="associatedRouteTable")
-    def associated_route_table(self) -> Optional['outputs.SubResourceResponse']:
-        """
-        The resource id RouteTable associated with this RoutingConfiguration.
-        """
-        return pulumi.get(self, "associated_route_table")
-
-    @_builtins.property
-    @pulumi.getter(name="inboundRouteMap")
-    def inbound_route_map(self) -> Optional['outputs.SubResourceResponse']:
-        """
-        The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-        """
-        return pulumi.get(self, "inbound_route_map")
-
-    @_builtins.property
-    @pulumi.getter(name="outboundRouteMap")
-    def outbound_route_map(self) -> Optional['outputs.SubResourceResponse']:
-        """
-        The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-        """
-        return pulumi.get(self, "outbound_route_map")
-
-    @_builtins.property
-    @pulumi.getter(name="propagatedRouteTables")
-    def propagated_route_tables(self) -> Optional['outputs.PropagatedRouteTableResponseV5']:
-        """
-        The list of RouteTables to advertise the routes to.
-        """
-        return pulumi.get(self, "propagated_route_tables")
-
-    @_builtins.property
-    @pulumi.getter(name="vnetRoutes")
-    def vnet_routes(self) -> Optional['outputs.VnetRouteResponseV5']:
-        """
-        List of routes that control routing from VirtualHub into a virtual network connection.
-        """
-        return pulumi.get(self, "vnet_routes")
-
-
-@pulumi.output_type
-class RoutingConfigurationResponseV6(dict):
-    """
-    Routing Configuration indicating the associated and propagated route tables for this connection.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "associatedRouteTable":
-            suggest = "associated_route_table"
-        elif key == "inboundRouteMap":
-            suggest = "inbound_route_map"
-        elif key == "outboundRouteMap":
-            suggest = "outbound_route_map"
-        elif key == "propagatedRouteTables":
-            suggest = "propagated_route_tables"
-        elif key == "vnetRoutes":
-            suggest = "vnet_routes"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RoutingConfigurationResponseV6. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RoutingConfigurationResponseV6.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RoutingConfigurationResponseV6.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 associated_route_table: Optional['outputs.SubResourceResponse'] = None,
-                 inbound_route_map: Optional['outputs.SubResourceResponse'] = None,
-                 outbound_route_map: Optional['outputs.SubResourceResponse'] = None,
-                 propagated_route_tables: Optional['outputs.PropagatedRouteTableResponseV6'] = None,
-                 vnet_routes: Optional['outputs.VnetRouteResponseV6'] = None):
-        """
-        Routing Configuration indicating the associated and propagated route tables for this connection.
-
-        :param 'SubResourceResponse' associated_route_table: The resource id RouteTable associated with this RoutingConfiguration.
-        :param 'SubResourceResponse' inbound_route_map: The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-        :param 'SubResourceResponse' outbound_route_map: The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-        :param 'PropagatedRouteTableResponseV6' propagated_route_tables: The list of RouteTables to advertise the routes to.
-        :param 'VnetRouteResponseV6' vnet_routes: List of routes that control routing from VirtualHub into a virtual network connection.
-        """
-        if associated_route_table is not None:
-            pulumi.set(__self__, "associated_route_table", associated_route_table)
-        if inbound_route_map is not None:
-            pulumi.set(__self__, "inbound_route_map", inbound_route_map)
-        if outbound_route_map is not None:
-            pulumi.set(__self__, "outbound_route_map", outbound_route_map)
-        if propagated_route_tables is not None:
-            pulumi.set(__self__, "propagated_route_tables", propagated_route_tables)
-        if vnet_routes is not None:
-            pulumi.set(__self__, "vnet_routes", vnet_routes)
-
-    @_builtins.property
-    @pulumi.getter(name="associatedRouteTable")
-    def associated_route_table(self) -> Optional['outputs.SubResourceResponse']:
-        """
-        The resource id RouteTable associated with this RoutingConfiguration.
-        """
-        return pulumi.get(self, "associated_route_table")
-
-    @_builtins.property
-    @pulumi.getter(name="inboundRouteMap")
-    def inbound_route_map(self) -> Optional['outputs.SubResourceResponse']:
-        """
-        The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-        """
-        return pulumi.get(self, "inbound_route_map")
-
-    @_builtins.property
-    @pulumi.getter(name="outboundRouteMap")
-    def outbound_route_map(self) -> Optional['outputs.SubResourceResponse']:
-        """
-        The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-        """
-        return pulumi.get(self, "outbound_route_map")
-
-    @_builtins.property
-    @pulumi.getter(name="propagatedRouteTables")
-    def propagated_route_tables(self) -> Optional['outputs.PropagatedRouteTableResponseV6']:
-        """
-        The list of RouteTables to advertise the routes to.
-        """
-        return pulumi.get(self, "propagated_route_tables")
-
-    @_builtins.property
-    @pulumi.getter(name="vnetRoutes")
-    def vnet_routes(self) -> Optional['outputs.VnetRouteResponseV6']:
-        """
-        List of routes that control routing from VirtualHub into a virtual network connection.
-        """
-        return pulumi.get(self, "vnet_routes")
-
-
-@pulumi.output_type
-class RoutingConfigurationResponseV7(dict):
-    """
-    Routing Configuration indicating the associated and propagated route tables for this connection.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "associatedRouteTable":
-            suggest = "associated_route_table"
-        elif key == "inboundRouteMap":
-            suggest = "inbound_route_map"
-        elif key == "outboundRouteMap":
-            suggest = "outbound_route_map"
-        elif key == "propagatedRouteTables":
-            suggest = "propagated_route_tables"
-        elif key == "vnetRoutes":
-            suggest = "vnet_routes"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RoutingConfigurationResponseV7. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RoutingConfigurationResponseV7.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RoutingConfigurationResponseV7.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 associated_route_table: Optional['outputs.SubResourceResponse'] = None,
-                 inbound_route_map: Optional['outputs.SubResourceResponse'] = None,
-                 outbound_route_map: Optional['outputs.SubResourceResponse'] = None,
-                 propagated_route_tables: Optional['outputs.PropagatedRouteTableResponseV7'] = None,
-                 vnet_routes: Optional['outputs.VnetRouteResponseV7'] = None):
-        """
-        Routing Configuration indicating the associated and propagated route tables for this connection.
-
-        :param 'SubResourceResponse' associated_route_table: The resource id RouteTable associated with this RoutingConfiguration.
-        :param 'SubResourceResponse' inbound_route_map: The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-        :param 'SubResourceResponse' outbound_route_map: The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-        :param 'PropagatedRouteTableResponseV7' propagated_route_tables: The list of RouteTables to advertise the routes to.
-        :param 'VnetRouteResponseV7' vnet_routes: List of routes that control routing from VirtualHub into a virtual network connection.
-        """
-        if associated_route_table is not None:
-            pulumi.set(__self__, "associated_route_table", associated_route_table)
-        if inbound_route_map is not None:
-            pulumi.set(__self__, "inbound_route_map", inbound_route_map)
-        if outbound_route_map is not None:
-            pulumi.set(__self__, "outbound_route_map", outbound_route_map)
-        if propagated_route_tables is not None:
-            pulumi.set(__self__, "propagated_route_tables", propagated_route_tables)
-        if vnet_routes is not None:
-            pulumi.set(__self__, "vnet_routes", vnet_routes)
-
-    @_builtins.property
-    @pulumi.getter(name="associatedRouteTable")
-    def associated_route_table(self) -> Optional['outputs.SubResourceResponse']:
-        """
-        The resource id RouteTable associated with this RoutingConfiguration.
-        """
-        return pulumi.get(self, "associated_route_table")
-
-    @_builtins.property
-    @pulumi.getter(name="inboundRouteMap")
-    def inbound_route_map(self) -> Optional['outputs.SubResourceResponse']:
-        """
-        The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-        """
-        return pulumi.get(self, "inbound_route_map")
-
-    @_builtins.property
-    @pulumi.getter(name="outboundRouteMap")
-    def outbound_route_map(self) -> Optional['outputs.SubResourceResponse']:
-        """
-        The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-        """
-        return pulumi.get(self, "outbound_route_map")
-
-    @_builtins.property
-    @pulumi.getter(name="propagatedRouteTables")
-    def propagated_route_tables(self) -> Optional['outputs.PropagatedRouteTableResponseV7']:
-        """
-        The list of RouteTables to advertise the routes to.
-        """
-        return pulumi.get(self, "propagated_route_tables")
-
-    @_builtins.property
-    @pulumi.getter(name="vnetRoutes")
-    def vnet_routes(self) -> Optional['outputs.VnetRouteResponseV7']:
-        """
-        List of routes that control routing from VirtualHub into a virtual network connection.
-        """
-        return pulumi.get(self, "vnet_routes")
-
-
-@pulumi.output_type
-class RoutingConfigurationResponseV8(dict):
-    """
-    Routing Configuration indicating the associated and propagated route tables for this connection.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "associatedRouteTable":
-            suggest = "associated_route_table"
-        elif key == "inboundRouteMap":
-            suggest = "inbound_route_map"
-        elif key == "outboundRouteMap":
-            suggest = "outbound_route_map"
-        elif key == "propagatedRouteTables":
-            suggest = "propagated_route_tables"
-        elif key == "vnetRoutes":
-            suggest = "vnet_routes"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RoutingConfigurationResponseV8. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RoutingConfigurationResponseV8.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RoutingConfigurationResponseV8.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 associated_route_table: Optional['outputs.SubResourceResponse'] = None,
-                 inbound_route_map: Optional['outputs.SubResourceResponse'] = None,
-                 outbound_route_map: Optional['outputs.SubResourceResponse'] = None,
-                 propagated_route_tables: Optional['outputs.PropagatedRouteTableResponseV8'] = None,
-                 vnet_routes: Optional['outputs.VnetRouteResponseV8'] = None):
-        """
-        Routing Configuration indicating the associated and propagated route tables for this connection.
-
-        :param 'SubResourceResponse' associated_route_table: The resource id RouteTable associated with this RoutingConfiguration.
-        :param 'SubResourceResponse' inbound_route_map: The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-        :param 'SubResourceResponse' outbound_route_map: The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-        :param 'PropagatedRouteTableResponseV8' propagated_route_tables: The list of RouteTables to advertise the routes to.
-        :param 'VnetRouteResponseV8' vnet_routes: List of routes that control routing from VirtualHub into a virtual network connection.
-        """
-        if associated_route_table is not None:
-            pulumi.set(__self__, "associated_route_table", associated_route_table)
-        if inbound_route_map is not None:
-            pulumi.set(__self__, "inbound_route_map", inbound_route_map)
-        if outbound_route_map is not None:
-            pulumi.set(__self__, "outbound_route_map", outbound_route_map)
-        if propagated_route_tables is not None:
-            pulumi.set(__self__, "propagated_route_tables", propagated_route_tables)
-        if vnet_routes is not None:
-            pulumi.set(__self__, "vnet_routes", vnet_routes)
-
-    @_builtins.property
-    @pulumi.getter(name="associatedRouteTable")
-    def associated_route_table(self) -> Optional['outputs.SubResourceResponse']:
-        """
-        The resource id RouteTable associated with this RoutingConfiguration.
-        """
-        return pulumi.get(self, "associated_route_table")
-
-    @_builtins.property
-    @pulumi.getter(name="inboundRouteMap")
-    def inbound_route_map(self) -> Optional['outputs.SubResourceResponse']:
-        """
-        The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-        """
-        return pulumi.get(self, "inbound_route_map")
-
-    @_builtins.property
-    @pulumi.getter(name="outboundRouteMap")
-    def outbound_route_map(self) -> Optional['outputs.SubResourceResponse']:
-        """
-        The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-        """
-        return pulumi.get(self, "outbound_route_map")
-
-    @_builtins.property
-    @pulumi.getter(name="propagatedRouteTables")
-    def propagated_route_tables(self) -> Optional['outputs.PropagatedRouteTableResponseV8']:
-        """
-        The list of RouteTables to advertise the routes to.
-        """
-        return pulumi.get(self, "propagated_route_tables")
-
-    @_builtins.property
-    @pulumi.getter(name="vnetRoutes")
-    def vnet_routes(self) -> Optional['outputs.VnetRouteResponseV8']:
-        """
-        List of routes that control routing from VirtualHub into a virtual network connection.
-        """
-        return pulumi.get(self, "vnet_routes")
-
-
-@pulumi.output_type
-class RoutingConfigurationResponseV9(dict):
-    """
-    Routing Configuration indicating the associated and propagated route tables for this connection.
-    """
-    def __init__(__self__, *,
-                 associated_route_table: Optional['outputs.SubResourceResponse'] = None,
-                 inbound_route_map: Optional['outputs.SubResourceResponse'] = None,
-                 outbound_route_map: Optional['outputs.SubResourceResponse'] = None,
-                 propagated_route_tables: Optional['outputs.PropagatedRouteTableResponseV9'] = None,
-                 vnet_routes: Optional['outputs.VnetRouteResponseV9'] = None):
-        """
-        Routing Configuration indicating the associated and propagated route tables for this connection.
-
-        :param 'SubResourceResponse' associated_route_table: The resource id RouteTable associated with this RoutingConfiguration.
-        :param 'SubResourceResponse' inbound_route_map: The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-        :param 'SubResourceResponse' outbound_route_map: The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-        :param 'PropagatedRouteTableResponseV9' propagated_route_tables: The list of RouteTables to advertise the routes to.
-        :param 'VnetRouteResponseV9' vnet_routes: List of routes that control routing from VirtualHub into a virtual network connection.
-        """
-        if associated_route_table is not None:
-            pulumi.set(__self__, "associated_route_table", associated_route_table)
-        if inbound_route_map is not None:
-            pulumi.set(__self__, "inbound_route_map", inbound_route_map)
-        if outbound_route_map is not None:
-            pulumi.set(__self__, "outbound_route_map", outbound_route_map)
-        if propagated_route_tables is not None:
-            pulumi.set(__self__, "propagated_route_tables", propagated_route_tables)
-        if vnet_routes is not None:
-            pulumi.set(__self__, "vnet_routes", vnet_routes)
-
-    @_builtins.property
-    @pulumi.getter(name="associatedRouteTable")
-    def associated_route_table(self) -> Optional['outputs.SubResourceResponse']:
-        """
-        The resource id RouteTable associated with this RoutingConfiguration.
-        """
-        return pulumi.get(self, "associated_route_table")
-
-    @_builtins.property
-    @pulumi.getter(name="inboundRouteMap")
-    def inbound_route_map(self) -> Optional['outputs.SubResourceResponse']:
-        """
-        The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-        """
-        return pulumi.get(self, "inbound_route_map")
-
-    @_builtins.property
-    @pulumi.getter(name="outboundRouteMap")
-    def outbound_route_map(self) -> Optional['outputs.SubResourceResponse']:
-        """
-        The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-        """
-        return pulumi.get(self, "outbound_route_map")
-
-    @_builtins.property
-    @pulumi.getter(name="propagatedRouteTables")
-    def propagated_route_tables(self) -> Optional['outputs.PropagatedRouteTableResponseV9']:
-        """
-        The list of RouteTables to advertise the routes to.
-        """
-        return pulumi.get(self, "propagated_route_tables")
-
-    @_builtins.property
-    @pulumi.getter(name="vnetRoutes")
-    def vnet_routes(self) -> Optional['outputs.VnetRouteResponseV9']:
-        """
-        List of routes that control routing from VirtualHub into a virtual network connection.
-        """
-        return pulumi.get(self, "vnet_routes")
-
-
-@pulumi.output_type
 class RoutingPolicyResponse(dict):
     """
     The routing policy object used in a RoutingIntent resource.
@@ -45087,365 +43573,6 @@ class StaticRoutesConfigResponseV1(dict):
         StaticRoutesConfigResponseV1.__key_warning(key)
         return super().get(key, default)
 
-    def __init__(__self__, *,
-                 propagate_static_routes: _builtins.bool,
-                 vnet_local_route_override_criteria: Optional[_builtins.str] = None):
-        """
-        Configuration for static routes on this HubVnetConnectionConfiguration for static routes on this HubVnetConnection.
-
-        :param _builtins.bool propagate_static_routes: Boolean indicating whether static routes on this connection are automatically propagate to route tables which this connection propagates to.
-        :param _builtins.str vnet_local_route_override_criteria: Parameter determining whether NVA in spoke vnet is bypassed for traffic with destination in spoke.
-        """
-        pulumi.set(__self__, "propagate_static_routes", propagate_static_routes)
-        if vnet_local_route_override_criteria is not None:
-            pulumi.set(__self__, "vnet_local_route_override_criteria", vnet_local_route_override_criteria)
-
-    @_builtins.property
-    @pulumi.getter(name="propagateStaticRoutes")
-    def propagate_static_routes(self) -> _builtins.bool:
-        """
-        Boolean indicating whether static routes on this connection are automatically propagate to route tables which this connection propagates to.
-        """
-        return pulumi.get(self, "propagate_static_routes")
-
-    @_builtins.property
-    @pulumi.getter(name="vnetLocalRouteOverrideCriteria")
-    def vnet_local_route_override_criteria(self) -> Optional[_builtins.str]:
-        """
-        Parameter determining whether NVA in spoke vnet is bypassed for traffic with destination in spoke.
-        """
-        return pulumi.get(self, "vnet_local_route_override_criteria")
-
-
-@pulumi.output_type
-class StaticRoutesConfigResponseV2(dict):
-    """
-    Configuration for static routes on this HubVnetConnectionConfiguration for static routes on this HubVnetConnection.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "propagateStaticRoutes":
-            suggest = "propagate_static_routes"
-        elif key == "vnetLocalRouteOverrideCriteria":
-            suggest = "vnet_local_route_override_criteria"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StaticRoutesConfigResponseV2. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        StaticRoutesConfigResponseV2.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        StaticRoutesConfigResponseV2.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 propagate_static_routes: _builtins.bool,
-                 vnet_local_route_override_criteria: Optional[_builtins.str] = None):
-        """
-        Configuration for static routes on this HubVnetConnectionConfiguration for static routes on this HubVnetConnection.
-
-        :param _builtins.bool propagate_static_routes: Boolean indicating whether static routes on this connection are automatically propagate to route tables which this connection propagates to.
-        :param _builtins.str vnet_local_route_override_criteria: Parameter determining whether NVA in spoke vnet is bypassed for traffic with destination in spoke.
-        """
-        pulumi.set(__self__, "propagate_static_routes", propagate_static_routes)
-        if vnet_local_route_override_criteria is not None:
-            pulumi.set(__self__, "vnet_local_route_override_criteria", vnet_local_route_override_criteria)
-
-    @_builtins.property
-    @pulumi.getter(name="propagateStaticRoutes")
-    def propagate_static_routes(self) -> _builtins.bool:
-        """
-        Boolean indicating whether static routes on this connection are automatically propagate to route tables which this connection propagates to.
-        """
-        return pulumi.get(self, "propagate_static_routes")
-
-    @_builtins.property
-    @pulumi.getter(name="vnetLocalRouteOverrideCriteria")
-    def vnet_local_route_override_criteria(self) -> Optional[_builtins.str]:
-        """
-        Parameter determining whether NVA in spoke vnet is bypassed for traffic with destination in spoke.
-        """
-        return pulumi.get(self, "vnet_local_route_override_criteria")
-
-
-@pulumi.output_type
-class StaticRoutesConfigResponseV3(dict):
-    """
-    Configuration for static routes on this HubVnetConnectionConfiguration for static routes on this HubVnetConnection.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "propagateStaticRoutes":
-            suggest = "propagate_static_routes"
-        elif key == "vnetLocalRouteOverrideCriteria":
-            suggest = "vnet_local_route_override_criteria"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StaticRoutesConfigResponseV3. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        StaticRoutesConfigResponseV3.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        StaticRoutesConfigResponseV3.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 propagate_static_routes: _builtins.bool,
-                 vnet_local_route_override_criteria: Optional[_builtins.str] = None):
-        """
-        Configuration for static routes on this HubVnetConnectionConfiguration for static routes on this HubVnetConnection.
-
-        :param _builtins.bool propagate_static_routes: Boolean indicating whether static routes on this connection are automatically propagate to route tables which this connection propagates to.
-        :param _builtins.str vnet_local_route_override_criteria: Parameter determining whether NVA in spoke vnet is bypassed for traffic with destination in spoke.
-        """
-        pulumi.set(__self__, "propagate_static_routes", propagate_static_routes)
-        if vnet_local_route_override_criteria is not None:
-            pulumi.set(__self__, "vnet_local_route_override_criteria", vnet_local_route_override_criteria)
-
-    @_builtins.property
-    @pulumi.getter(name="propagateStaticRoutes")
-    def propagate_static_routes(self) -> _builtins.bool:
-        """
-        Boolean indicating whether static routes on this connection are automatically propagate to route tables which this connection propagates to.
-        """
-        return pulumi.get(self, "propagate_static_routes")
-
-    @_builtins.property
-    @pulumi.getter(name="vnetLocalRouteOverrideCriteria")
-    def vnet_local_route_override_criteria(self) -> Optional[_builtins.str]:
-        """
-        Parameter determining whether NVA in spoke vnet is bypassed for traffic with destination in spoke.
-        """
-        return pulumi.get(self, "vnet_local_route_override_criteria")
-
-
-@pulumi.output_type
-class StaticRoutesConfigResponseV5(dict):
-    """
-    Configuration for static routes on this HubVnetConnectionConfiguration for static routes on this HubVnetConnection.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "propagateStaticRoutes":
-            suggest = "propagate_static_routes"
-        elif key == "vnetLocalRouteOverrideCriteria":
-            suggest = "vnet_local_route_override_criteria"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StaticRoutesConfigResponseV5. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        StaticRoutesConfigResponseV5.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        StaticRoutesConfigResponseV5.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 propagate_static_routes: _builtins.bool,
-                 vnet_local_route_override_criteria: Optional[_builtins.str] = None):
-        """
-        Configuration for static routes on this HubVnetConnectionConfiguration for static routes on this HubVnetConnection.
-
-        :param _builtins.bool propagate_static_routes: Boolean indicating whether static routes on this connection are automatically propagate to route tables which this connection propagates to.
-        :param _builtins.str vnet_local_route_override_criteria: Parameter determining whether NVA in spoke vnet is bypassed for traffic with destination in spoke.
-        """
-        pulumi.set(__self__, "propagate_static_routes", propagate_static_routes)
-        if vnet_local_route_override_criteria is not None:
-            pulumi.set(__self__, "vnet_local_route_override_criteria", vnet_local_route_override_criteria)
-
-    @_builtins.property
-    @pulumi.getter(name="propagateStaticRoutes")
-    def propagate_static_routes(self) -> _builtins.bool:
-        """
-        Boolean indicating whether static routes on this connection are automatically propagate to route tables which this connection propagates to.
-        """
-        return pulumi.get(self, "propagate_static_routes")
-
-    @_builtins.property
-    @pulumi.getter(name="vnetLocalRouteOverrideCriteria")
-    def vnet_local_route_override_criteria(self) -> Optional[_builtins.str]:
-        """
-        Parameter determining whether NVA in spoke vnet is bypassed for traffic with destination in spoke.
-        """
-        return pulumi.get(self, "vnet_local_route_override_criteria")
-
-
-@pulumi.output_type
-class StaticRoutesConfigResponseV6(dict):
-    """
-    Configuration for static routes on this HubVnetConnectionConfiguration for static routes on this HubVnetConnection.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "propagateStaticRoutes":
-            suggest = "propagate_static_routes"
-        elif key == "vnetLocalRouteOverrideCriteria":
-            suggest = "vnet_local_route_override_criteria"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StaticRoutesConfigResponseV6. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        StaticRoutesConfigResponseV6.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        StaticRoutesConfigResponseV6.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 propagate_static_routes: _builtins.bool,
-                 vnet_local_route_override_criteria: Optional[_builtins.str] = None):
-        """
-        Configuration for static routes on this HubVnetConnectionConfiguration for static routes on this HubVnetConnection.
-
-        :param _builtins.bool propagate_static_routes: Boolean indicating whether static routes on this connection are automatically propagate to route tables which this connection propagates to.
-        :param _builtins.str vnet_local_route_override_criteria: Parameter determining whether NVA in spoke vnet is bypassed for traffic with destination in spoke.
-        """
-        pulumi.set(__self__, "propagate_static_routes", propagate_static_routes)
-        if vnet_local_route_override_criteria is not None:
-            pulumi.set(__self__, "vnet_local_route_override_criteria", vnet_local_route_override_criteria)
-
-    @_builtins.property
-    @pulumi.getter(name="propagateStaticRoutes")
-    def propagate_static_routes(self) -> _builtins.bool:
-        """
-        Boolean indicating whether static routes on this connection are automatically propagate to route tables which this connection propagates to.
-        """
-        return pulumi.get(self, "propagate_static_routes")
-
-    @_builtins.property
-    @pulumi.getter(name="vnetLocalRouteOverrideCriteria")
-    def vnet_local_route_override_criteria(self) -> Optional[_builtins.str]:
-        """
-        Parameter determining whether NVA in spoke vnet is bypassed for traffic with destination in spoke.
-        """
-        return pulumi.get(self, "vnet_local_route_override_criteria")
-
-
-@pulumi.output_type
-class StaticRoutesConfigResponseV7(dict):
-    """
-    Configuration for static routes on this HubVnetConnectionConfiguration for static routes on this HubVnetConnection.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "propagateStaticRoutes":
-            suggest = "propagate_static_routes"
-        elif key == "vnetLocalRouteOverrideCriteria":
-            suggest = "vnet_local_route_override_criteria"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StaticRoutesConfigResponseV7. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        StaticRoutesConfigResponseV7.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        StaticRoutesConfigResponseV7.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 propagate_static_routes: _builtins.bool,
-                 vnet_local_route_override_criteria: Optional[_builtins.str] = None):
-        """
-        Configuration for static routes on this HubVnetConnectionConfiguration for static routes on this HubVnetConnection.
-
-        :param _builtins.bool propagate_static_routes: Boolean indicating whether static routes on this connection are automatically propagate to route tables which this connection propagates to.
-        :param _builtins.str vnet_local_route_override_criteria: Parameter determining whether NVA in spoke vnet is bypassed for traffic with destination in spoke.
-        """
-        pulumi.set(__self__, "propagate_static_routes", propagate_static_routes)
-        if vnet_local_route_override_criteria is not None:
-            pulumi.set(__self__, "vnet_local_route_override_criteria", vnet_local_route_override_criteria)
-
-    @_builtins.property
-    @pulumi.getter(name="propagateStaticRoutes")
-    def propagate_static_routes(self) -> _builtins.bool:
-        """
-        Boolean indicating whether static routes on this connection are automatically propagate to route tables which this connection propagates to.
-        """
-        return pulumi.get(self, "propagate_static_routes")
-
-    @_builtins.property
-    @pulumi.getter(name="vnetLocalRouteOverrideCriteria")
-    def vnet_local_route_override_criteria(self) -> Optional[_builtins.str]:
-        """
-        Parameter determining whether NVA in spoke vnet is bypassed for traffic with destination in spoke.
-        """
-        return pulumi.get(self, "vnet_local_route_override_criteria")
-
-
-@pulumi.output_type
-class StaticRoutesConfigResponseV8(dict):
-    """
-    Configuration for static routes on this HubVnetConnectionConfiguration for static routes on this HubVnetConnection.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "propagateStaticRoutes":
-            suggest = "propagate_static_routes"
-        elif key == "vnetLocalRouteOverrideCriteria":
-            suggest = "vnet_local_route_override_criteria"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StaticRoutesConfigResponseV8. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        StaticRoutesConfigResponseV8.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        StaticRoutesConfigResponseV8.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 propagate_static_routes: _builtins.bool,
-                 vnet_local_route_override_criteria: Optional[_builtins.str] = None):
-        """
-        Configuration for static routes on this HubVnetConnectionConfiguration for static routes on this HubVnetConnection.
-
-        :param _builtins.bool propagate_static_routes: Boolean indicating whether static routes on this connection are automatically propagate to route tables which this connection propagates to.
-        :param _builtins.str vnet_local_route_override_criteria: Parameter determining whether NVA in spoke vnet is bypassed for traffic with destination in spoke.
-        """
-        pulumi.set(__self__, "propagate_static_routes", propagate_static_routes)
-        if vnet_local_route_override_criteria is not None:
-            pulumi.set(__self__, "vnet_local_route_override_criteria", vnet_local_route_override_criteria)
-
-    @_builtins.property
-    @pulumi.getter(name="propagateStaticRoutes")
-    def propagate_static_routes(self) -> _builtins.bool:
-        """
-        Boolean indicating whether static routes on this connection are automatically propagate to route tables which this connection propagates to.
-        """
-        return pulumi.get(self, "propagate_static_routes")
-
-    @_builtins.property
-    @pulumi.getter(name="vnetLocalRouteOverrideCriteria")
-    def vnet_local_route_override_criteria(self) -> Optional[_builtins.str]:
-        """
-        Parameter determining whether NVA in spoke vnet is bypassed for traffic with destination in spoke.
-        """
-        return pulumi.get(self, "vnet_local_route_override_criteria")
-
-
-@pulumi.output_type
-class StaticRoutesConfigResponseV9(dict):
-    """
-    Configuration for static routes on this HubVnetConnectionConfiguration for static routes on this HubVnetConnection.
-    """
     def __init__(__self__, *,
                  propagate_static_routes: _builtins.bool,
                  vnet_local_route_override_criteria: Optional[_builtins.str] = None):
@@ -49644,461 +47771,6 @@ class VnetRouteResponseV1(dict):
 
 
 @pulumi.output_type
-class VnetRouteResponseV2(dict):
-    """
-    List of routes that control routing from VirtualHub into a virtual network connection.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "bgpConnections":
-            suggest = "bgp_connections"
-        elif key == "staticRoutes":
-            suggest = "static_routes"
-        elif key == "staticRoutesConfig":
-            suggest = "static_routes_config"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VnetRouteResponseV2. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VnetRouteResponseV2.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VnetRouteResponseV2.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 bgp_connections: Sequence['outputs.SubResourceResponse'],
-                 static_routes: Optional[Sequence['outputs.StaticRouteResponse']] = None,
-                 static_routes_config: Optional['outputs.StaticRoutesConfigResponseV2'] = None):
-        """
-        List of routes that control routing from VirtualHub into a virtual network connection.
-
-        :param Sequence['SubResourceResponse'] bgp_connections: The list of references to HubBgpConnection objects.
-        :param Sequence['StaticRouteResponse'] static_routes: List of all Static Routes.
-        :param 'StaticRoutesConfigResponseV2' static_routes_config: Configuration for static routes on this HubVnetConnection.
-        """
-        pulumi.set(__self__, "bgp_connections", bgp_connections)
-        if static_routes is not None:
-            pulumi.set(__self__, "static_routes", static_routes)
-        if static_routes_config is not None:
-            pulumi.set(__self__, "static_routes_config", static_routes_config)
-
-    @_builtins.property
-    @pulumi.getter(name="bgpConnections")
-    def bgp_connections(self) -> Sequence['outputs.SubResourceResponse']:
-        """
-        The list of references to HubBgpConnection objects.
-        """
-        return pulumi.get(self, "bgp_connections")
-
-    @_builtins.property
-    @pulumi.getter(name="staticRoutes")
-    def static_routes(self) -> Optional[Sequence['outputs.StaticRouteResponse']]:
-        """
-        List of all Static Routes.
-        """
-        return pulumi.get(self, "static_routes")
-
-    @_builtins.property
-    @pulumi.getter(name="staticRoutesConfig")
-    def static_routes_config(self) -> Optional['outputs.StaticRoutesConfigResponseV2']:
-        """
-        Configuration for static routes on this HubVnetConnection.
-        """
-        return pulumi.get(self, "static_routes_config")
-
-
-@pulumi.output_type
-class VnetRouteResponseV3(dict):
-    """
-    List of routes that control routing from VirtualHub into a virtual network connection.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "bgpConnections":
-            suggest = "bgp_connections"
-        elif key == "staticRoutes":
-            suggest = "static_routes"
-        elif key == "staticRoutesConfig":
-            suggest = "static_routes_config"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VnetRouteResponseV3. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VnetRouteResponseV3.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VnetRouteResponseV3.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 bgp_connections: Sequence['outputs.SubResourceResponse'],
-                 static_routes: Optional[Sequence['outputs.StaticRouteResponse']] = None,
-                 static_routes_config: Optional['outputs.StaticRoutesConfigResponseV3'] = None):
-        """
-        List of routes that control routing from VirtualHub into a virtual network connection.
-
-        :param Sequence['SubResourceResponse'] bgp_connections: The list of references to HubBgpConnection objects.
-        :param Sequence['StaticRouteResponse'] static_routes: List of all Static Routes.
-        :param 'StaticRoutesConfigResponseV3' static_routes_config: Configuration for static routes on this HubVnetConnection.
-        """
-        pulumi.set(__self__, "bgp_connections", bgp_connections)
-        if static_routes is not None:
-            pulumi.set(__self__, "static_routes", static_routes)
-        if static_routes_config is not None:
-            pulumi.set(__self__, "static_routes_config", static_routes_config)
-
-    @_builtins.property
-    @pulumi.getter(name="bgpConnections")
-    def bgp_connections(self) -> Sequence['outputs.SubResourceResponse']:
-        """
-        The list of references to HubBgpConnection objects.
-        """
-        return pulumi.get(self, "bgp_connections")
-
-    @_builtins.property
-    @pulumi.getter(name="staticRoutes")
-    def static_routes(self) -> Optional[Sequence['outputs.StaticRouteResponse']]:
-        """
-        List of all Static Routes.
-        """
-        return pulumi.get(self, "static_routes")
-
-    @_builtins.property
-    @pulumi.getter(name="staticRoutesConfig")
-    def static_routes_config(self) -> Optional['outputs.StaticRoutesConfigResponseV3']:
-        """
-        Configuration for static routes on this HubVnetConnection.
-        """
-        return pulumi.get(self, "static_routes_config")
-
-
-@pulumi.output_type
-class VnetRouteResponseV5(dict):
-    """
-    List of routes that control routing from VirtualHub into a virtual network connection.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "bgpConnections":
-            suggest = "bgp_connections"
-        elif key == "staticRoutes":
-            suggest = "static_routes"
-        elif key == "staticRoutesConfig":
-            suggest = "static_routes_config"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VnetRouteResponseV5. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VnetRouteResponseV5.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VnetRouteResponseV5.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 bgp_connections: Sequence['outputs.SubResourceResponse'],
-                 static_routes: Optional[Sequence['outputs.StaticRouteResponse']] = None,
-                 static_routes_config: Optional['outputs.StaticRoutesConfigResponseV5'] = None):
-        """
-        List of routes that control routing from VirtualHub into a virtual network connection.
-
-        :param Sequence['SubResourceResponse'] bgp_connections: The list of references to HubBgpConnection objects.
-        :param Sequence['StaticRouteResponse'] static_routes: List of all Static Routes.
-        :param 'StaticRoutesConfigResponseV5' static_routes_config: Configuration for static routes on this HubVnetConnection.
-        """
-        pulumi.set(__self__, "bgp_connections", bgp_connections)
-        if static_routes is not None:
-            pulumi.set(__self__, "static_routes", static_routes)
-        if static_routes_config is not None:
-            pulumi.set(__self__, "static_routes_config", static_routes_config)
-
-    @_builtins.property
-    @pulumi.getter(name="bgpConnections")
-    def bgp_connections(self) -> Sequence['outputs.SubResourceResponse']:
-        """
-        The list of references to HubBgpConnection objects.
-        """
-        return pulumi.get(self, "bgp_connections")
-
-    @_builtins.property
-    @pulumi.getter(name="staticRoutes")
-    def static_routes(self) -> Optional[Sequence['outputs.StaticRouteResponse']]:
-        """
-        List of all Static Routes.
-        """
-        return pulumi.get(self, "static_routes")
-
-    @_builtins.property
-    @pulumi.getter(name="staticRoutesConfig")
-    def static_routes_config(self) -> Optional['outputs.StaticRoutesConfigResponseV5']:
-        """
-        Configuration for static routes on this HubVnetConnection.
-        """
-        return pulumi.get(self, "static_routes_config")
-
-
-@pulumi.output_type
-class VnetRouteResponseV6(dict):
-    """
-    List of routes that control routing from VirtualHub into a virtual network connection.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "bgpConnections":
-            suggest = "bgp_connections"
-        elif key == "staticRoutes":
-            suggest = "static_routes"
-        elif key == "staticRoutesConfig":
-            suggest = "static_routes_config"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VnetRouteResponseV6. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VnetRouteResponseV6.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VnetRouteResponseV6.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 bgp_connections: Sequence['outputs.SubResourceResponse'],
-                 static_routes: Optional[Sequence['outputs.StaticRouteResponse']] = None,
-                 static_routes_config: Optional['outputs.StaticRoutesConfigResponseV6'] = None):
-        """
-        List of routes that control routing from VirtualHub into a virtual network connection.
-
-        :param Sequence['SubResourceResponse'] bgp_connections: The list of references to HubBgpConnection objects.
-        :param Sequence['StaticRouteResponse'] static_routes: List of all Static Routes.
-        :param 'StaticRoutesConfigResponseV6' static_routes_config: Configuration for static routes on this HubVnetConnection.
-        """
-        pulumi.set(__self__, "bgp_connections", bgp_connections)
-        if static_routes is not None:
-            pulumi.set(__self__, "static_routes", static_routes)
-        if static_routes_config is not None:
-            pulumi.set(__self__, "static_routes_config", static_routes_config)
-
-    @_builtins.property
-    @pulumi.getter(name="bgpConnections")
-    def bgp_connections(self) -> Sequence['outputs.SubResourceResponse']:
-        """
-        The list of references to HubBgpConnection objects.
-        """
-        return pulumi.get(self, "bgp_connections")
-
-    @_builtins.property
-    @pulumi.getter(name="staticRoutes")
-    def static_routes(self) -> Optional[Sequence['outputs.StaticRouteResponse']]:
-        """
-        List of all Static Routes.
-        """
-        return pulumi.get(self, "static_routes")
-
-    @_builtins.property
-    @pulumi.getter(name="staticRoutesConfig")
-    def static_routes_config(self) -> Optional['outputs.StaticRoutesConfigResponseV6']:
-        """
-        Configuration for static routes on this HubVnetConnection.
-        """
-        return pulumi.get(self, "static_routes_config")
-
-
-@pulumi.output_type
-class VnetRouteResponseV7(dict):
-    """
-    List of routes that control routing from VirtualHub into a virtual network connection.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "bgpConnections":
-            suggest = "bgp_connections"
-        elif key == "staticRoutes":
-            suggest = "static_routes"
-        elif key == "staticRoutesConfig":
-            suggest = "static_routes_config"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VnetRouteResponseV7. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VnetRouteResponseV7.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VnetRouteResponseV7.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 bgp_connections: Sequence['outputs.SubResourceResponse'],
-                 static_routes: Optional[Sequence['outputs.StaticRouteResponse']] = None,
-                 static_routes_config: Optional['outputs.StaticRoutesConfigResponseV7'] = None):
-        """
-        List of routes that control routing from VirtualHub into a virtual network connection.
-
-        :param Sequence['SubResourceResponse'] bgp_connections: The list of references to HubBgpConnection objects.
-        :param Sequence['StaticRouteResponse'] static_routes: List of all Static Routes.
-        :param 'StaticRoutesConfigResponseV7' static_routes_config: Configuration for static routes on this HubVnetConnection.
-        """
-        pulumi.set(__self__, "bgp_connections", bgp_connections)
-        if static_routes is not None:
-            pulumi.set(__self__, "static_routes", static_routes)
-        if static_routes_config is not None:
-            pulumi.set(__self__, "static_routes_config", static_routes_config)
-
-    @_builtins.property
-    @pulumi.getter(name="bgpConnections")
-    def bgp_connections(self) -> Sequence['outputs.SubResourceResponse']:
-        """
-        The list of references to HubBgpConnection objects.
-        """
-        return pulumi.get(self, "bgp_connections")
-
-    @_builtins.property
-    @pulumi.getter(name="staticRoutes")
-    def static_routes(self) -> Optional[Sequence['outputs.StaticRouteResponse']]:
-        """
-        List of all Static Routes.
-        """
-        return pulumi.get(self, "static_routes")
-
-    @_builtins.property
-    @pulumi.getter(name="staticRoutesConfig")
-    def static_routes_config(self) -> Optional['outputs.StaticRoutesConfigResponseV7']:
-        """
-        Configuration for static routes on this HubVnetConnection.
-        """
-        return pulumi.get(self, "static_routes_config")
-
-
-@pulumi.output_type
-class VnetRouteResponseV8(dict):
-    """
-    List of routes that control routing from VirtualHub into a virtual network connection.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "bgpConnections":
-            suggest = "bgp_connections"
-        elif key == "staticRoutes":
-            suggest = "static_routes"
-        elif key == "staticRoutesConfig":
-            suggest = "static_routes_config"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VnetRouteResponseV8. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VnetRouteResponseV8.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VnetRouteResponseV8.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 bgp_connections: Sequence['outputs.SubResourceResponse'],
-                 static_routes: Optional[Sequence['outputs.StaticRouteResponse']] = None,
-                 static_routes_config: Optional['outputs.StaticRoutesConfigResponseV8'] = None):
-        """
-        List of routes that control routing from VirtualHub into a virtual network connection.
-
-        :param Sequence['SubResourceResponse'] bgp_connections: The list of references to HubBgpConnection objects.
-        :param Sequence['StaticRouteResponse'] static_routes: List of all Static Routes.
-        :param 'StaticRoutesConfigResponseV8' static_routes_config: Configuration for static routes on this HubVnetConnection.
-        """
-        pulumi.set(__self__, "bgp_connections", bgp_connections)
-        if static_routes is not None:
-            pulumi.set(__self__, "static_routes", static_routes)
-        if static_routes_config is not None:
-            pulumi.set(__self__, "static_routes_config", static_routes_config)
-
-    @_builtins.property
-    @pulumi.getter(name="bgpConnections")
-    def bgp_connections(self) -> Sequence['outputs.SubResourceResponse']:
-        """
-        The list of references to HubBgpConnection objects.
-        """
-        return pulumi.get(self, "bgp_connections")
-
-    @_builtins.property
-    @pulumi.getter(name="staticRoutes")
-    def static_routes(self) -> Optional[Sequence['outputs.StaticRouteResponse']]:
-        """
-        List of all Static Routes.
-        """
-        return pulumi.get(self, "static_routes")
-
-    @_builtins.property
-    @pulumi.getter(name="staticRoutesConfig")
-    def static_routes_config(self) -> Optional['outputs.StaticRoutesConfigResponseV8']:
-        """
-        Configuration for static routes on this HubVnetConnection.
-        """
-        return pulumi.get(self, "static_routes_config")
-
-
-@pulumi.output_type
-class VnetRouteResponseV9(dict):
-    """
-    List of routes that control routing from VirtualHub into a virtual network connection.
-    """
-    def __init__(__self__, *,
-                 bgp_connections: Sequence['outputs.SubResourceResponse'],
-                 static_routes: Optional[Sequence['outputs.StaticRouteResponse']] = None,
-                 static_routes_config: Optional['outputs.StaticRoutesConfigResponseV9'] = None):
-        """
-        List of routes that control routing from VirtualHub into a virtual network connection.
-
-        :param Sequence['SubResourceResponse'] bgp_connections: The list of references to HubBgpConnection objects.
-        :param Sequence['StaticRouteResponse'] static_routes: List of all Static Routes.
-        :param 'StaticRoutesConfigResponseV9' static_routes_config: Configuration for static routes on this HubVnetConnection.
-        """
-        pulumi.set(__self__, "bgp_connections", bgp_connections)
-        if static_routes is not None:
-            pulumi.set(__self__, "static_routes", static_routes)
-        if static_routes_config is not None:
-            pulumi.set(__self__, "static_routes_config", static_routes_config)
-
-    @_builtins.property
-    @pulumi.getter(name="bgpConnections")
-    def bgp_connections(self) -> Sequence['outputs.SubResourceResponse']:
-        """
-        The list of references to HubBgpConnection objects.
-        """
-        return pulumi.get(self, "bgp_connections")
-
-    @_builtins.property
-    @pulumi.getter(name="staticRoutes")
-    def static_routes(self) -> Optional[Sequence['outputs.StaticRouteResponse']]:
-        """
-        List of all Static Routes.
-        """
-        return pulumi.get(self, "static_routes")
-
-    @_builtins.property
-    @pulumi.getter(name="staticRoutesConfig")
-    def static_routes_config(self) -> Optional['outputs.StaticRoutesConfigResponseV9']:
-        """
-        Configuration for static routes on this HubVnetConnection.
-        """
-        return pulumi.get(self, "static_routes_config")
-
-
-@pulumi.output_type
 class VngClientConnectionConfigurationResponse(dict):
     """
     A vpn client connection configuration for client connection configuration.
@@ -50881,7 +48553,7 @@ class VpnConnectionResponse(dict):
                  ipsec_policies: Optional[Sequence['outputs.IpsecPolicyResponse']] = None,
                  name: Optional[_builtins.str] = None,
                  remote_vpn_site: Optional['outputs.SubResourceResponse'] = None,
-                 routing_configuration: Optional['outputs.RoutingConfigurationResponseV7'] = None,
+                 routing_configuration: Optional['outputs.RoutingConfigurationResponseV1'] = None,
                  routing_weight: Optional[_builtins.int] = None,
                  shared_key: Optional[_builtins.str] = None,
                  traffic_selector_policies: Optional[Sequence['outputs.TrafficSelectorPolicyResponse']] = None,
@@ -50906,7 +48578,7 @@ class VpnConnectionResponse(dict):
         :param Sequence['IpsecPolicyResponse'] ipsec_policies: The IPSec Policies to be considered by this connection.
         :param _builtins.str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param 'SubResourceResponse' remote_vpn_site: Id of the connected vpn site.
-        :param 'RoutingConfigurationResponseV7' routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
+        :param 'RoutingConfigurationResponseV1' routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
         :param _builtins.int routing_weight: Routing weight for vpn connection.
         :param _builtins.str shared_key: SharedKey for the vpn connection.
         :param Sequence['TrafficSelectorPolicyResponse'] traffic_selector_policies: The Traffic Selector Policies to be considered by this connection.
@@ -51069,7 +48741,7 @@ class VpnConnectionResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="routingConfiguration")
-    def routing_configuration(self) -> Optional['outputs.RoutingConfigurationResponseV7']:
+    def routing_configuration(self) -> Optional['outputs.RoutingConfigurationResponseV1']:
         """
         The Routing Configuration indicating the associated and propagated route tables on this connection.
         """

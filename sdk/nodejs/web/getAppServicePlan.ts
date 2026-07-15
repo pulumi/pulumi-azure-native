@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Description for Get an App Service plan.
  *
- * Uses Azure REST API version 2024-11-01.
+ * Uses Azure REST API version 2025-05-01.
  *
- * Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getAppServicePlan(args: GetAppServicePlanArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServicePlanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -28,7 +28,7 @@ export interface GetAppServicePlanArgs {
      */
     name: string;
     /**
-     * Name of the resource group to which the resource belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -71,9 +71,21 @@ export interface GetAppServicePlanResult {
      */
     readonly hyperV?: boolean;
     /**
-     * Resource Id.
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
+    /**
+     * Managed service identity.
+     */
+    readonly identity?: outputs.web.ManagedServiceIdentityResponse;
+    /**
+     * Install scripts associated with this App Service plan.
+     */
+    readonly installScripts?: outputs.web.InstallScriptResponse[];
+    /**
+     * Whether this server farm is in custom mode.
+     */
+    readonly isCustomMode?: boolean;
     /**
      * If <code>true</code>, this App Service Plan owns spot instances.
      */
@@ -91,7 +103,7 @@ export interface GetAppServicePlanResult {
      */
     readonly kubeEnvironmentProfile?: outputs.web.KubeEnvironmentProfileResponse;
     /**
-     * Resource Location.
+     * The geo-location where the resource lives
      */
     readonly location: string;
     /**
@@ -103,9 +115,13 @@ export interface GetAppServicePlanResult {
      */
     readonly maximumNumberOfWorkers: number;
     /**
-     * Resource Name.
+     * The name of the resource
      */
     readonly name: string;
+    /**
+     * All network settings for the server farm.
+     */
+    readonly network?: outputs.web.ServerFarmNetworkSettingsResponse;
     /**
      * Number of apps assigned to this App Service plan.
      */
@@ -120,9 +136,22 @@ export interface GetAppServicePlanResult {
      */
     readonly perSiteScaling?: boolean;
     /**
+     * Identity to use by platform for various features and integrations using managed identity.
+     */
+    readonly planDefaultIdentity?: outputs.web.DefaultIdentityResponse;
+    /**
      * Provisioning state of the App Service Plan.
      */
     readonly provisioningState: string;
+    /**
+     * If <code>true</code>, RDP access is enabled for this App Service plan. Only applicable for IsCustomMode ASPs.
+     * If <code>false</code>, RDP access is disabled.
+     */
+    readonly rdpEnabled?: boolean;
+    /**
+     * Registry adapters associated with this App Service plan.
+     */
+    readonly registryAdapters?: outputs.web.RegistryAdapterResponse[];
     /**
      * If Linux app service plan <code>true</code>, <code>false</code> otherwise.
      */
@@ -144,9 +173,17 @@ export interface GetAppServicePlanResult {
      */
     readonly status: string;
     /**
+     * Storage mounts associated with this App Service plan.
+     */
+    readonly storageMounts?: outputs.web.StorageMountResponse[];
+    /**
      * App Service plan subscription.
      */
     readonly subscription: string;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.web.SystemDataResponse;
     /**
      * Resource tags.
      */
@@ -160,7 +197,7 @@ export interface GetAppServicePlanResult {
      */
     readonly targetWorkerSizeId?: number;
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -176,9 +213,9 @@ export interface GetAppServicePlanResult {
 /**
  * Description for Get an App Service plan.
  *
- * Uses Azure REST API version 2024-11-01.
+ * Uses Azure REST API version 2025-05-01.
  *
- * Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getAppServicePlanOutput(args: GetAppServicePlanOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAppServicePlanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -194,7 +231,7 @@ export interface GetAppServicePlanOutputArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * Name of the resource group to which the resource belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

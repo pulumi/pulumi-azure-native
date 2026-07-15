@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// </summary>
         public readonly string? DnsSuffix;
         /// <summary>
-        /// Resource Id.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -37,13 +37,17 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// </summary>
         public readonly string? Kind;
         /// <summary>
-        /// Resource Name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         public readonly string ProvisioningDetails;
         public readonly string ProvisioningState;
         /// <summary>
-        /// Resource type.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -65,6 +69,8 @@ namespace Pulumi.AzureNative.Web.Outputs
 
             string provisioningState,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             CertificateUrl = certificateUrl;
@@ -75,6 +81,7 @@ namespace Pulumi.AzureNative.Web.Outputs
             Name = name;
             ProvisioningDetails = provisioningDetails;
             ProvisioningState = provisioningState;
+            SystemData = systemData;
             Type = type;
         }
     }

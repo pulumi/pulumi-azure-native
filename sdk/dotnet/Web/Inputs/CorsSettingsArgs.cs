@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.Web.Inputs
         }
 
         /// <summary>
-        /// Gets or sets whether CORS requests with credentials are allowed. See 
+        /// Gets or sets whether CORS requests with credentials are allowed. See
         /// https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Requests_with_credentials
         /// for more details.
         /// </summary>

@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * App Service plan.
  *
- * Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
+ * Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
  *
- * Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class AppServicePlan extends pulumi.CustomResource {
     /**
@@ -75,6 +75,18 @@ export class AppServicePlan extends pulumi.CustomResource {
      */
     declare public readonly hyperV: pulumi.Output<boolean | undefined>;
     /**
+     * Managed service identity.
+     */
+    declare public readonly identity: pulumi.Output<outputs.web.ManagedServiceIdentityResponse | undefined>;
+    /**
+     * Install scripts associated with this App Service plan.
+     */
+    declare public readonly installScripts: pulumi.Output<outputs.web.InstallScriptResponse[] | undefined>;
+    /**
+     * Whether this server farm is in custom mode.
+     */
+    declare public readonly isCustomMode: pulumi.Output<boolean | undefined>;
+    /**
      * If <code>true</code>, this App Service Plan owns spot instances.
      */
     declare public readonly isSpot: pulumi.Output<boolean | undefined>;
@@ -91,7 +103,7 @@ export class AppServicePlan extends pulumi.CustomResource {
      */
     declare public readonly kubeEnvironmentProfile: pulumi.Output<outputs.web.KubeEnvironmentProfileResponse | undefined>;
     /**
-     * Resource Location.
+     * The geo-location where the resource lives
      */
     declare public readonly location: pulumi.Output<string>;
     /**
@@ -103,9 +115,13 @@ export class AppServicePlan extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly maximumNumberOfWorkers: pulumi.Output<number>;
     /**
-     * Resource Name.
+     * The name of the resource
      */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * All network settings for the server farm.
+     */
+    declare public readonly network: pulumi.Output<outputs.web.ServerFarmNetworkSettingsResponse | undefined>;
     /**
      * Number of apps assigned to this App Service plan.
      */
@@ -120,9 +136,22 @@ export class AppServicePlan extends pulumi.CustomResource {
      */
     declare public readonly perSiteScaling: pulumi.Output<boolean | undefined>;
     /**
+     * Identity to use by platform for various features and integrations using managed identity.
+     */
+    declare public readonly planDefaultIdentity: pulumi.Output<outputs.web.DefaultIdentityResponse | undefined>;
+    /**
      * Provisioning state of the App Service Plan.
      */
     declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
+    /**
+     * If <code>true</code>, RDP access is enabled for this App Service plan. Only applicable for IsCustomMode ASPs.
+     * If <code>false</code>, RDP access is disabled.
+     */
+    declare public readonly rdpEnabled: pulumi.Output<boolean | undefined>;
+    /**
+     * Registry adapters associated with this App Service plan.
+     */
+    declare public readonly registryAdapters: pulumi.Output<outputs.web.RegistryAdapterResponse[] | undefined>;
     /**
      * If Linux app service plan <code>true</code>, <code>false</code> otherwise.
      */
@@ -144,9 +173,17 @@ export class AppServicePlan extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
+     * Storage mounts associated with this App Service plan.
+     */
+    declare public readonly storageMounts: pulumi.Output<outputs.web.StorageMountResponse[] | undefined>;
+    /**
      * App Service plan subscription.
      */
     declare public /*out*/ readonly subscription: pulumi.Output<string>;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.web.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -160,7 +197,7 @@ export class AppServicePlan extends pulumi.CustomResource {
      */
     declare public readonly targetWorkerSizeId: pulumi.Output<number | undefined>;
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
@@ -192,24 +229,32 @@ export class AppServicePlan extends pulumi.CustomResource {
             resourceInputs["extendedLocation"] = args?.extendedLocation;
             resourceInputs["freeOfferExpirationTime"] = args?.freeOfferExpirationTime;
             resourceInputs["hostingEnvironmentProfile"] = args?.hostingEnvironmentProfile;
-            resourceInputs["hyperV"] = (args?.hyperV) ?? false;
+            resourceInputs["hyperV"] = args?.hyperV;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["installScripts"] = args?.installScripts;
+            resourceInputs["isCustomMode"] = args?.isCustomMode;
             resourceInputs["isSpot"] = args?.isSpot;
-            resourceInputs["isXenon"] = (args?.isXenon) ?? false;
+            resourceInputs["isXenon"] = args?.isXenon;
             resourceInputs["kind"] = args?.kind;
             resourceInputs["kubeEnvironmentProfile"] = args?.kubeEnvironmentProfile;
             resourceInputs["location"] = args?.location;
             resourceInputs["maximumElasticWorkerCount"] = args?.maximumElasticWorkerCount;
             resourceInputs["name"] = args?.name;
-            resourceInputs["perSiteScaling"] = (args?.perSiteScaling) ?? false;
-            resourceInputs["reserved"] = (args?.reserved) ?? false;
+            resourceInputs["network"] = args?.network;
+            resourceInputs["perSiteScaling"] = args?.perSiteScaling;
+            resourceInputs["planDefaultIdentity"] = args?.planDefaultIdentity;
+            resourceInputs["rdpEnabled"] = args?.rdpEnabled;
+            resourceInputs["registryAdapters"] = args?.registryAdapters;
+            resourceInputs["reserved"] = args?.reserved;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["sku"] = args?.sku;
             resourceInputs["spotExpirationTime"] = args?.spotExpirationTime;
+            resourceInputs["storageMounts"] = args?.storageMounts;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["targetWorkerCount"] = args?.targetWorkerCount;
             resourceInputs["targetWorkerSizeId"] = args?.targetWorkerSizeId;
             resourceInputs["workerTierName"] = args?.workerTierName;
-            resourceInputs["zoneRedundant"] = (args?.zoneRedundant) ?? false;
+            resourceInputs["zoneRedundant"] = args?.zoneRedundant;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["geoRegion"] = undefined /*out*/;
             resourceInputs["maximumNumberOfWorkers"] = undefined /*out*/;
@@ -219,6 +264,7 @@ export class AppServicePlan extends pulumi.CustomResource {
             resourceInputs["resourceGroup"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["subscription"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["asyncScalingEnabled"] = undefined /*out*/;
@@ -229,6 +275,9 @@ export class AppServicePlan extends pulumi.CustomResource {
             resourceInputs["geoRegion"] = undefined /*out*/;
             resourceInputs["hostingEnvironmentProfile"] = undefined /*out*/;
             resourceInputs["hyperV"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["installScripts"] = undefined /*out*/;
+            resourceInputs["isCustomMode"] = undefined /*out*/;
             resourceInputs["isSpot"] = undefined /*out*/;
             resourceInputs["isXenon"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
@@ -237,16 +286,22 @@ export class AppServicePlan extends pulumi.CustomResource {
             resourceInputs["maximumElasticWorkerCount"] = undefined /*out*/;
             resourceInputs["maximumNumberOfWorkers"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["network"] = undefined /*out*/;
             resourceInputs["numberOfSites"] = undefined /*out*/;
             resourceInputs["numberOfWorkers"] = undefined /*out*/;
             resourceInputs["perSiteScaling"] = undefined /*out*/;
+            resourceInputs["planDefaultIdentity"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["rdpEnabled"] = undefined /*out*/;
+            resourceInputs["registryAdapters"] = undefined /*out*/;
             resourceInputs["reserved"] = undefined /*out*/;
             resourceInputs["resourceGroup"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["spotExpirationTime"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["storageMounts"] = undefined /*out*/;
             resourceInputs["subscription"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["targetWorkerCount"] = undefined /*out*/;
             resourceInputs["targetWorkerSizeId"] = undefined /*out*/;
@@ -291,6 +346,18 @@ export interface AppServicePlanArgs {
      */
     hyperV?: pulumi.Input<boolean>;
     /**
+     * Managed service identity.
+     */
+    identity?: pulumi.Input<inputs.web.ManagedServiceIdentityArgs>;
+    /**
+     * Install scripts associated with this App Service plan.
+     */
+    installScripts?: pulumi.Input<pulumi.Input<inputs.web.InstallScriptArgs>[]>;
+    /**
+     * Whether this server farm is in custom mode.
+     */
+    isCustomMode?: pulumi.Input<boolean>;
+    /**
      * If <code>true</code>, this App Service Plan owns spot instances.
      */
     isSpot?: pulumi.Input<boolean>;
@@ -307,7 +374,7 @@ export interface AppServicePlanArgs {
      */
     kubeEnvironmentProfile?: pulumi.Input<inputs.web.KubeEnvironmentProfileArgs>;
     /**
-     * Resource Location.
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
@@ -319,16 +386,33 @@ export interface AppServicePlanArgs {
      */
     name?: pulumi.Input<string>;
     /**
+     * All network settings for the server farm.
+     */
+    network?: pulumi.Input<inputs.web.ServerFarmNetworkSettingsArgs>;
+    /**
      * If <code>true</code>, apps assigned to this App Service plan can be scaled independently.
      * If <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.
      */
     perSiteScaling?: pulumi.Input<boolean>;
     /**
+     * Identity to use by platform for various features and integrations using managed identity.
+     */
+    planDefaultIdentity?: pulumi.Input<inputs.web.DefaultIdentityArgs>;
+    /**
+     * If <code>true</code>, RDP access is enabled for this App Service plan. Only applicable for IsCustomMode ASPs.
+     * If <code>false</code>, RDP access is disabled.
+     */
+    rdpEnabled?: pulumi.Input<boolean>;
+    /**
+     * Registry adapters associated with this App Service plan.
+     */
+    registryAdapters?: pulumi.Input<pulumi.Input<inputs.web.RegistryAdapterArgs>[]>;
+    /**
      * If Linux app service plan <code>true</code>, <code>false</code> otherwise.
      */
     reserved?: pulumi.Input<boolean>;
     /**
-     * Name of the resource group to which the resource belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -339,6 +423,10 @@ export interface AppServicePlanArgs {
      * The time when the server farm expires. Valid only if it is a spot server farm.
      */
     spotExpirationTime?: pulumi.Input<string>;
+    /**
+     * Storage mounts associated with this App Service plan.
+     */
+    storageMounts?: pulumi.Input<pulumi.Input<inputs.web.StorageMountArgs>[]>;
     /**
      * Resource tags.
      */

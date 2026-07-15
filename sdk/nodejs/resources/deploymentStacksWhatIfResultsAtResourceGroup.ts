@@ -54,7 +54,7 @@ export class DeploymentStacksWhatIfResultsAtResourceGroup extends pulumi.CustomR
     /**
      * The resource-specific properties for this resource.
      */
-    declare public readonly properties: pulumi.Output<outputs.resources.DeploymentStacksWhatIfResultPropertiesResponseV1>;
+    declare public readonly properties: pulumi.Output<outputs.resources.DeploymentStacksWhatIfResultPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

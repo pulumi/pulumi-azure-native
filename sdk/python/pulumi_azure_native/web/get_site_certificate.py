@@ -27,7 +27,7 @@ class GetSiteCertificateResult:
     """
     SSL certificate for an app.
     """
-    def __init__(__self__, azure_api_version=None, canonical_name=None, cer_blob=None, domain_validation_method=None, expiration_date=None, friendly_name=None, host_names=None, hosting_environment_profile=None, id=None, issue_date=None, issuer=None, key_vault_id=None, key_vault_secret_name=None, key_vault_secret_status=None, kind=None, location=None, name=None, password=None, pfx_blob=None, public_key_hash=None, self_link=None, server_farm_id=None, site_name=None, subject_name=None, tags=None, thumbprint=None, type=None, valid=None):
+    def __init__(__self__, azure_api_version=None, canonical_name=None, cer_blob=None, domain_validation_method=None, expiration_date=None, friendly_name=None, host_names=None, hosting_environment_profile=None, id=None, issue_date=None, issuer=None, key_vault_id=None, key_vault_secret_name=None, key_vault_secret_status=None, kind=None, location=None, name=None, password=None, pfx_blob=None, public_key_hash=None, self_link=None, server_farm_id=None, site_name=None, subject_name=None, system_data=None, tags=None, thumbprint=None, type=None, valid=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -100,6 +100,9 @@ class GetSiteCertificateResult:
         if subject_name and not isinstance(subject_name, str):
             raise TypeError("Expected argument 'subject_name' to be a str")
         pulumi.set(__self__, "subject_name", subject_name)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -181,7 +184,7 @@ class GetSiteCertificateResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -237,7 +240,7 @@ class GetSiteCertificateResult:
     @pulumi.getter
     def location(self) -> _builtins.str:
         """
-        Resource Location.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -245,7 +248,7 @@ class GetSiteCertificateResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource Name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -306,6 +309,14 @@ class GetSiteCertificateResult:
         return pulumi.get(self, "subject_name")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
         """
@@ -325,7 +336,7 @@ class GetSiteCertificateResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -368,6 +379,7 @@ class AwaitableGetSiteCertificateResult(GetSiteCertificateResult):
             server_farm_id=self.server_farm_id,
             site_name=self.site_name,
             subject_name=self.subject_name,
+            system_data=self.system_data,
             tags=self.tags,
             thumbprint=self.thumbprint,
             type=self.type,
@@ -379,11 +391,11 @@ def get_site_certificate(certificate_name: Optional[_builtins.str] = None,
                          resource_group_name: Optional[_builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSiteCertificateResult:
     """
-    SSL certificate for an app.
+    Get a certificate belonging to a given site.
 
-    Uses Azure REST API version 2024-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str certificate_name: Name of the certificate.
@@ -422,6 +434,7 @@ def get_site_certificate(certificate_name: Optional[_builtins.str] = None,
         server_farm_id=pulumi.get(__ret__, 'server_farm_id'),
         site_name=pulumi.get(__ret__, 'site_name'),
         subject_name=pulumi.get(__ret__, 'subject_name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         thumbprint=pulumi.get(__ret__, 'thumbprint'),
         type=pulumi.get(__ret__, 'type'),
@@ -431,11 +444,11 @@ def get_site_certificate_output(certificate_name: Optional[pulumi.Input[_builtin
                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSiteCertificateResult]:
     """
-    SSL certificate for an app.
+    Get a certificate belonging to a given site.
 
-    Uses Azure REST API version 2024-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str certificate_name: Name of the certificate.
@@ -473,6 +486,7 @@ def get_site_certificate_output(certificate_name: Optional[pulumi.Input[_builtin
         server_farm_id=pulumi.get(__response__, 'server_farm_id'),
         site_name=pulumi.get(__response__, 'site_name'),
         subject_name=pulumi.get(__response__, 'subject_name'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         thumbprint=pulumi.get(__response__, 'thumbprint'),
         type=pulumi.get(__response__, 'type'),

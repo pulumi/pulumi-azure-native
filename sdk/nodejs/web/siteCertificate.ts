@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * SSL certificate for an app.
  *
- * Uses Azure REST API version 2024-11-01.
+ * Uses Azure REST API version 2025-05-01.
  *
- * Other available API versions: 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class SiteCertificate extends pulumi.CustomResource {
     /**
@@ -98,11 +98,11 @@ export class SiteCertificate extends pulumi.CustomResource {
      */
     declare public readonly kind: pulumi.Output<string | undefined>;
     /**
-     * Resource Location.
+     * The geo-location where the resource lives
      */
     declare public readonly location: pulumi.Output<string>;
     /**
-     * Resource Name.
+     * The name of the resource
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -134,6 +134,10 @@ export class SiteCertificate extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly subjectName: pulumi.Output<string>;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.web.SystemDataResponse>;
+    /**
      * Resource tags.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
@@ -142,7 +146,7 @@ export class SiteCertificate extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly thumbprint: pulumi.Output<string>;
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
@@ -193,6 +197,7 @@ export class SiteCertificate extends pulumi.CustomResource {
             resourceInputs["selfLink"] = undefined /*out*/;
             resourceInputs["siteName"] = undefined /*out*/;
             resourceInputs["subjectName"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["thumbprint"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["valid"] = undefined /*out*/;
@@ -220,6 +225,7 @@ export class SiteCertificate extends pulumi.CustomResource {
             resourceInputs["serverFarmId"] = undefined /*out*/;
             resourceInputs["siteName"] = undefined /*out*/;
             resourceInputs["subjectName"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["thumbprint"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -265,7 +271,7 @@ export interface SiteCertificateArgs {
      */
     kind?: pulumi.Input<string>;
     /**
-     * Resource Location.
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**

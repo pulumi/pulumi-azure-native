@@ -28,6 +28,10 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// Function app scale and concurrency settings.
         /// </summary>
         public readonly Outputs.FunctionsScaleAndConcurrencyResponse? ScaleAndConcurrency;
+        /// <summary>
+        /// Function app site update strategy configuration.
+        /// </summary>
+        public readonly Outputs.FunctionsSiteUpdateStrategyResponse? SiteUpdateStrategy;
 
         [OutputConstructor]
         private FunctionAppConfigResponse(
@@ -35,11 +39,14 @@ namespace Pulumi.AzureNative.Web.Outputs
 
             Outputs.FunctionsRuntimeResponse? runtime,
 
-            Outputs.FunctionsScaleAndConcurrencyResponse? scaleAndConcurrency)
+            Outputs.FunctionsScaleAndConcurrencyResponse? scaleAndConcurrency,
+
+            Outputs.FunctionsSiteUpdateStrategyResponse? siteUpdateStrategy)
         {
             Deployment = deployment;
             Runtime = runtime;
             ScaleAndConcurrency = scaleAndConcurrency;
+            SiteUpdateStrategy = siteUpdateStrategy;
         }
     }
 }

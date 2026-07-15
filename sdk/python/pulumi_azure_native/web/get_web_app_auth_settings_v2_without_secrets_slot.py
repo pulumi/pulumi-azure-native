@@ -27,7 +27,7 @@ class GetWebAppAuthSettingsV2WithoutSecretsSlotResult:
     """
     Configuration settings for the Azure App Service Authentication / Authorization V2 feature.
     """
-    def __init__(__self__, azure_api_version=None, global_validation=None, http_settings=None, id=None, identity_providers=None, kind=None, login=None, name=None, platform=None, type=None):
+    def __init__(__self__, azure_api_version=None, global_validation=None, http_settings=None, id=None, identity_providers=None, kind=None, login=None, name=None, platform=None, system_data=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -55,6 +55,9 @@ class GetWebAppAuthSettingsV2WithoutSecretsSlotResult:
         if platform and not isinstance(platform, dict):
             raise TypeError("Expected argument 'platform' to be a dict")
         pulumi.set(__self__, "platform", platform)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -87,7 +90,7 @@ class GetWebAppAuthSettingsV2WithoutSecretsSlotResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -103,7 +106,7 @@ class GetWebAppAuthSettingsV2WithoutSecretsSlotResult:
     @pulumi.getter
     def kind(self) -> Optional[_builtins.str]:
         """
-        Kind of resource.
+        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 
@@ -119,7 +122,7 @@ class GetWebAppAuthSettingsV2WithoutSecretsSlotResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource Name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -132,10 +135,18 @@ class GetWebAppAuthSettingsV2WithoutSecretsSlotResult:
         return pulumi.get(self, "platform")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -155,6 +166,7 @@ class AwaitableGetWebAppAuthSettingsV2WithoutSecretsSlotResult(GetWebAppAuthSett
             login=self.login,
             name=self.name,
             platform=self.platform,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -163,15 +175,15 @@ def get_web_app_auth_settings_v2_without_secrets_slot(name: Optional[_builtins.s
                                                       slot: Optional[_builtins.str] = None,
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppAuthSettingsV2WithoutSecretsSlotResult:
     """
-    Configuration settings for the Azure App Service Authentication / Authorization V2 feature.
+    Gets site's Authentication / Authorization settings for apps via the V2 format
 
-    Uses Azure REST API version 2024-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str name: Name of the app.
-    :param _builtins.str resource_group_name: Name of the resource group to which the resource belongs.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str slot: Name of the deployment slot. If a slot is not specified, the API will get the settings for the production slot.
     """
     __args__ = dict()
@@ -191,21 +203,22 @@ def get_web_app_auth_settings_v2_without_secrets_slot(name: Optional[_builtins.s
         login=pulumi.get(__ret__, 'login'),
         name=pulumi.get(__ret__, 'name'),
         platform=pulumi.get(__ret__, 'platform'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_web_app_auth_settings_v2_without_secrets_slot_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                              slot: Optional[pulumi.Input[_builtins.str]] = None,
                                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppAuthSettingsV2WithoutSecretsSlotResult]:
     """
-    Configuration settings for the Azure App Service Authentication / Authorization V2 feature.
+    Gets site's Authentication / Authorization settings for apps via the V2 format
 
-    Uses Azure REST API version 2024-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str name: Name of the app.
-    :param _builtins.str resource_group_name: Name of the resource group to which the resource belongs.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str slot: Name of the deployment slot. If a slot is not specified, the API will get the settings for the production slot.
     """
     __args__ = dict()
@@ -224,4 +237,5 @@ def get_web_app_auth_settings_v2_without_secrets_slot_output(name: Optional[pulu
         login=pulumi.get(__response__, 'login'),
         name=pulumi.get(__response__, 'name'),
         platform=pulumi.get(__response__, 'platform'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

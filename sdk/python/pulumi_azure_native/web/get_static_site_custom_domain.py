@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetStaticSiteCustomDomainResult',
@@ -26,7 +27,7 @@ class GetStaticSiteCustomDomainResult:
     """
     Static Site Custom Domain Overview ARM resource.
     """
-    def __init__(__self__, azure_api_version=None, created_on=None, domain_name=None, error_message=None, id=None, kind=None, name=None, status=None, type=None, validation_token=None):
+    def __init__(__self__, azure_api_version=None, created_on=None, domain_name=None, error_message=None, id=None, kind=None, name=None, status=None, system_data=None, type=None, validation_token=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -51,6 +52,9 @@ class GetStaticSiteCustomDomainResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -91,7 +95,7 @@ class GetStaticSiteCustomDomainResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource Id.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -107,7 +111,7 @@ class GetStaticSiteCustomDomainResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Resource Name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -120,10 +124,18 @@ class GetStaticSiteCustomDomainResult:
         return pulumi.get(self, "status")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -150,6 +162,7 @@ class AwaitableGetStaticSiteCustomDomainResult(GetStaticSiteCustomDomainResult):
             kind=self.kind,
             name=self.name,
             status=self.status,
+            system_data=self.system_data,
             type=self.type,
             validation_token=self.validation_token)
 
@@ -161,14 +174,14 @@ def get_static_site_custom_domain(domain_name: Optional[_builtins.str] = None,
     """
     Description for Gets an existing custom domain for a particular static site.
 
-    Uses Azure REST API version 2024-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str domain_name: The custom domain name.
-    :param _builtins.str name: Name of the static site resource to search in.
-    :param _builtins.str resource_group_name: Name of the resource group to which the resource belongs.
+    :param _builtins.str name: Name of the static site.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['domainName'] = domain_name
@@ -186,6 +199,7 @@ def get_static_site_custom_domain(domain_name: Optional[_builtins.str] = None,
         kind=pulumi.get(__ret__, 'kind'),
         name=pulumi.get(__ret__, 'name'),
         status=pulumi.get(__ret__, 'status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         validation_token=pulumi.get(__ret__, 'validation_token'))
 def get_static_site_custom_domain_output(domain_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -195,14 +209,14 @@ def get_static_site_custom_domain_output(domain_name: Optional[pulumi.Input[_bui
     """
     Description for Gets an existing custom domain for a particular static site.
 
-    Uses Azure REST API version 2024-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2024-11-01, 2025-03-01, 2026-03-01-preview, 2026-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str domain_name: The custom domain name.
-    :param _builtins.str name: Name of the static site resource to search in.
-    :param _builtins.str resource_group_name: Name of the resource group to which the resource belongs.
+    :param _builtins.str name: Name of the static site.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['domainName'] = domain_name
@@ -219,5 +233,6 @@ def get_static_site_custom_domain_output(domain_name: Optional[pulumi.Input[_bui
         kind=pulumi.get(__response__, 'kind'),
         name=pulumi.get(__response__, 'name'),
         status=pulumi.get(__response__, 'status'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type'),
         validation_token=pulumi.get(__response__, 'validation_token')))

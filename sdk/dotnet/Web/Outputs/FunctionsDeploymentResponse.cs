@@ -19,10 +19,10 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// <summary>
         /// Storage for deployed package used by the function app.
         /// </summary>
-        public readonly Outputs.FunctionsDeploymentResponseStorage? Storage;
+        public readonly Outputs.FunctionsDeploymentStorageResponse? Storage;
 
         [OutputConstructor]
-        private FunctionsDeploymentResponse(Outputs.FunctionsDeploymentResponseStorage? storage)
+        private FunctionsDeploymentResponse(Outputs.FunctionsDeploymentStorageResponse? storage)
         {
             Storage = storage;
         }

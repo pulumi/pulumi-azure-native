@@ -102,7 +102,7 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         /// <summary>
         /// Set of export policy rules
         /// </summary>
-        public readonly Outputs.VolumePropertiesResponseExportPolicyV1? ExportPolicy;
+        public readonly Outputs.VolumePropertiesResponseExportPolicy? ExportPolicy;
         /// <summary>
         /// Flag indicating whether file access logs are enabled for the volume, based on active diagnostic settings present on the volume.
         /// </summary>
@@ -303,7 +303,7 @@ namespace Pulumi.AzureNative.NetApp.Outputs
 
             string? encryptionKeySource,
 
-            Outputs.VolumePropertiesResponseExportPolicyV1? exportPolicy,
+            Outputs.VolumePropertiesResponseExportPolicy? exportPolicy,
 
             string fileAccessLogs,
 

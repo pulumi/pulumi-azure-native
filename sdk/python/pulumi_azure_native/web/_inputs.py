@@ -120,6 +120,8 @@ __all__ = [
     'CustomApiPropertiesDefinitionArgsDict',
     'CustomDnsSuffixConfigurationArgs',
     'CustomDnsSuffixConfigurationArgsDict',
+    'CustomOpenIdConnectProviderV1Args',
+    'CustomOpenIdConnectProviderV1ArgsDict',
     'CustomOpenIdConnectProviderArgs',
     'CustomOpenIdConnectProviderArgsDict',
     'DaprConfigArgs',
@@ -130,6 +132,8 @@ __all__ = [
     'DatabaseBackupSettingArgsDict',
     'DefaultAuthorizationPolicyArgs',
     'DefaultAuthorizationPolicyArgsDict',
+    'DefaultIdentityArgs',
+    'DefaultIdentityArgsDict',
     'EnabledConfigArgs',
     'EnabledConfigArgsDict',
     'EnvironmentVariableArgs',
@@ -154,20 +158,22 @@ __all__ = [
     'FunctionAppConfigArgsDict',
     'FunctionsAlwaysReadyConfigArgs',
     'FunctionsAlwaysReadyConfigArgsDict',
-    'FunctionsDeploymentAuthenticationArgs',
-    'FunctionsDeploymentAuthenticationArgsDict',
+    'FunctionsDeploymentStorageAuthenticationArgs',
+    'FunctionsDeploymentStorageAuthenticationArgsDict',
     'FunctionsDeploymentStorageArgs',
     'FunctionsDeploymentStorageArgsDict',
     'FunctionsDeploymentArgs',
     'FunctionsDeploymentArgsDict',
     'FunctionsRuntimeArgs',
     'FunctionsRuntimeArgsDict',
-    'FunctionsScaleAndConcurrencyHttpArgs',
-    'FunctionsScaleAndConcurrencyHttpArgsDict',
+    'FunctionsScaleAndConcurrencyTriggersHttpArgs',
+    'FunctionsScaleAndConcurrencyTriggersHttpArgsDict',
     'FunctionsScaleAndConcurrencyTriggersArgs',
     'FunctionsScaleAndConcurrencyTriggersArgsDict',
     'FunctionsScaleAndConcurrencyArgs',
     'FunctionsScaleAndConcurrencyArgsDict',
+    'FunctionsSiteUpdateStrategyArgs',
+    'FunctionsSiteUpdateStrategyArgsDict',
     'GitHubActionCodeConfigurationArgs',
     'GitHubActionCodeConfigurationArgsDict',
     'GitHubActionConfigurationArgs',
@@ -192,12 +198,20 @@ __all__ = [
     'HttpSettingsRoutesArgsDict',
     'HttpSettingsArgs',
     'HttpSettingsArgsDict',
+    'IdentityProvidersV1Args',
+    'IdentityProvidersV1ArgsDict',
     'IdentityProvidersArgs',
     'IdentityProvidersArgsDict',
+    'InstallScriptSourceArgs',
+    'InstallScriptSourceArgsDict',
+    'InstallScriptArgs',
+    'InstallScriptArgsDict',
     'IpSecurityRestrictionArgs',
     'IpSecurityRestrictionArgsDict',
     'JwtClaimChecksArgs',
     'JwtClaimChecksArgsDict',
+    'KeyVaultReferenceWithStatusArgs',
+    'KeyVaultReferenceWithStatusArgsDict',
     'KubeEnvironmentProfileArgs',
     'KubeEnvironmentProfileArgsDict',
     'LegacyMicrosoftAccountArgs',
@@ -216,12 +230,16 @@ __all__ = [
     'NameValuePairArgsDict',
     'NonceArgs',
     'NonceArgsDict',
+    'OpenIdConnectClientCredentialV1Args',
+    'OpenIdConnectClientCredentialV1ArgsDict',
     'OpenIdConnectClientCredentialArgs',
     'OpenIdConnectClientCredentialArgsDict',
     'OpenIdConnectConfigArgs',
     'OpenIdConnectConfigArgsDict',
     'OpenIdConnectLoginArgs',
     'OpenIdConnectLoginArgsDict',
+    'OpenIdConnectRegistrationV1Args',
+    'OpenIdConnectRegistrationV1ArgsDict',
     'OpenIdConnectRegistrationArgs',
     'OpenIdConnectRegistrationArgsDict',
     'OutboundVnetRoutingArgs',
@@ -232,10 +250,14 @@ __all__ = [
     'PushSettingsArgsDict',
     'RampUpRuleArgs',
     'RampUpRuleArgsDict',
+    'RegistryAdapterArgs',
+    'RegistryAdapterArgsDict',
     'RequestsBasedTriggerArgs',
     'RequestsBasedTriggerArgsDict',
     'ResourceConfigArgs',
     'ResourceConfigArgsDict',
+    'ServerFarmNetworkSettingsArgs',
+    'ServerFarmNetworkSettingsArgsDict',
     'SiteConfigArgs',
     'SiteConfigArgsDict',
     'SiteDnsConfigArgs',
@@ -256,6 +278,8 @@ __all__ = [
     'StatusCodesBasedTriggerArgsDict',
     'StatusCodesRangeBasedTriggerArgs',
     'StatusCodesRangeBasedTriggerArgsDict',
+    'StorageMountArgs',
+    'StorageMountArgsDict',
     'TokenStoreArgs',
     'TokenStoreArgsDict',
     'TwitterRegistrationArgs',
@@ -2121,7 +2145,7 @@ class AzureActiveDirectoryRegistrationArgsDict(TypedDict):
     client_id: NotRequired[pulumi.Input[_builtins.str]]
     """
     The Client ID of this relying party application, known as the client_id.
-    This setting is required for enabling OpenID Connection authentication with Azure Active Directory or 
+    This setting is required for enabling OpenID Connection authentication with Azure Active Directory or
     other 3rd party OpenID Connect providers.
     More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
     """
@@ -2165,7 +2189,7 @@ class AzureActiveDirectoryRegistrationArgs:
         The configuration settings of the Azure Active Directory app registration.
 
         :param pulumi.Input[_builtins.str] client_id: The Client ID of this relying party application, known as the client_id.
-               This setting is required for enabling OpenID Connection authentication with Azure Active Directory or 
+               This setting is required for enabling OpenID Connection authentication with Azure Active Directory or
                other 3rd party OpenID Connect providers.
                More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
         :param pulumi.Input[_builtins.str] client_secret_certificate_issuer: An alternative to the client secret thumbprint, that is the issuer of a certificate used for signing purposes. This property acts as
@@ -2198,7 +2222,7 @@ class AzureActiveDirectoryRegistrationArgs:
     def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The Client ID of this relying party application, known as the client_id.
-        This setting is required for enabling OpenID Connection authentication with Azure Active Directory or 
+        This setting is required for enabling OpenID Connection authentication with Azure Active Directory or
         other 3rd party OpenID Connect providers.
         More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
         """
@@ -3308,13 +3332,13 @@ class CloningInfoArgsDict(TypedDict):
     """
     source_web_app_id: pulumi.Input[_builtins.str]
     """
-    ARM resource ID of the source app. App resource ID is of the form 
-    /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and 
+    ARM resource ID of the source app. App resource ID is of the form
+    /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and
     /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName} for other slots.
     """
     app_settings_overrides: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
     """
-    Application setting overrides for cloned app. If specified, these settings override the settings cloned 
+    Application setting overrides for cloned app. If specified, these settings override the settings cloned
     from source app. Otherwise, application settings from source app are retained.
     """
     clone_custom_host_names: NotRequired[pulumi.Input[_builtins.bool]]
@@ -3348,7 +3372,7 @@ class CloningInfoArgsDict(TypedDict):
     """
     traffic_manager_profile_id: NotRequired[pulumi.Input[_builtins.str]]
     """
-    ARM resource ID of the Traffic Manager profile to use, if it exists. Traffic Manager resource ID is of the form 
+    ARM resource ID of the Traffic Manager profile to use, if it exists. Traffic Manager resource ID is of the form
     /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}.
     """
     traffic_manager_profile_name: NotRequired[pulumi.Input[_builtins.str]]
@@ -3373,10 +3397,10 @@ class CloningInfoArgs:
         """
         Information needed for cloning operation.
 
-        :param pulumi.Input[_builtins.str] source_web_app_id: ARM resource ID of the source app. App resource ID is of the form 
-               /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and 
+        :param pulumi.Input[_builtins.str] source_web_app_id: ARM resource ID of the source app. App resource ID is of the form
+               /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and
                /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName} for other slots.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings_overrides: Application setting overrides for cloned app. If specified, these settings override the settings cloned 
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings_overrides: Application setting overrides for cloned app. If specified, these settings override the settings cloned
                from source app. Otherwise, application settings from source app are retained.
         :param pulumi.Input[_builtins.bool] clone_custom_host_names: <code>true</code> to clone custom hostnames from source app; otherwise, <code>false</code>.
         :param pulumi.Input[_builtins.bool] clone_source_control: <code>true</code> to clone source control from source app; otherwise, <code>false</code>.
@@ -3386,7 +3410,7 @@ class CloningInfoArgs:
         :param pulumi.Input[_builtins.str] hosting_environment: App Service Environment.
         :param pulumi.Input[_builtins.bool] overwrite: <code>true</code> to overwrite destination app; otherwise, <code>false</code>.
         :param pulumi.Input[_builtins.str] source_web_app_location: Location of source app ex: West US or North Europe
-        :param pulumi.Input[_builtins.str] traffic_manager_profile_id: ARM resource ID of the Traffic Manager profile to use, if it exists. Traffic Manager resource ID is of the form 
+        :param pulumi.Input[_builtins.str] traffic_manager_profile_id: ARM resource ID of the Traffic Manager profile to use, if it exists. Traffic Manager resource ID is of the form
                /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}.
         :param pulumi.Input[_builtins.str] traffic_manager_profile_name: Name of Traffic Manager profile to create. This is only needed if Traffic Manager profile does not already exist.
         """
@@ -3416,8 +3440,8 @@ class CloningInfoArgs:
     @pulumi.getter(name="sourceWebAppId")
     def source_web_app_id(self) -> pulumi.Input[_builtins.str]:
         """
-        ARM resource ID of the source app. App resource ID is of the form 
-        /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and 
+        ARM resource ID of the source app. App resource ID is of the form
+        /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and
         /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName} for other slots.
         """
         return pulumi.get(self, "source_web_app_id")
@@ -3430,7 +3454,7 @@ class CloningInfoArgs:
     @pulumi.getter(name="appSettingsOverrides")
     def app_settings_overrides(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        Application setting overrides for cloned app. If specified, these settings override the settings cloned 
+        Application setting overrides for cloned app. If specified, these settings override the settings cloned
         from source app. Otherwise, application settings from source app are retained.
         """
         return pulumi.get(self, "app_settings_overrides")
@@ -3528,7 +3552,7 @@ class CloningInfoArgs:
     @pulumi.getter(name="trafficManagerProfileId")
     def traffic_manager_profile_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        ARM resource ID of the Traffic Manager profile to use, if it exists. Traffic Manager resource ID is of the form 
+        ARM resource ID of the Traffic Manager profile to use, if it exists. Traffic Manager resource ID is of the form
         /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}.
         """
         return pulumi.get(self, "traffic_manager_profile_id")
@@ -4449,7 +4473,7 @@ class CorsSettingsArgsDict(TypedDict):
     """
     support_credentials: NotRequired[pulumi.Input[_builtins.bool]]
     """
-    Gets or sets whether CORS requests with credentials are allowed. See 
+    Gets or sets whether CORS requests with credentials are allowed. See
     https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Requests_with_credentials
     for more details.
     """
@@ -4464,7 +4488,7 @@ class CorsSettingsArgs:
 
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_origins: Gets or sets the list of origins that should be allowed to make cross-origin
                calls (for example: http://example.com:12345). Use "*" to allow all.
-        :param pulumi.Input[_builtins.bool] support_credentials: Gets or sets whether CORS requests with credentials are allowed. See 
+        :param pulumi.Input[_builtins.bool] support_credentials: Gets or sets whether CORS requests with credentials are allowed. See
                https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Requests_with_credentials
                for more details.
         """
@@ -4490,7 +4514,7 @@ class CorsSettingsArgs:
     @pulumi.getter(name="supportCredentials")
     def support_credentials(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Gets or sets whether CORS requests with credentials are allowed. See 
+        Gets or sets whether CORS requests with credentials are allowed. See
         https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Requests_with_credentials
         for more details.
         """
@@ -4847,6 +4871,80 @@ class CustomDnsSuffixConfigurationArgs:
     @kind.setter
     def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "kind", value)
+
+
+class CustomOpenIdConnectProviderV1ArgsDict(TypedDict):
+    """
+    The configuration settings of the custom Open ID Connect provider.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    <code>false</code> if the custom Open ID provider provider should not be enabled; otherwise, <code>true</code>.
+    """
+    login: NotRequired[pulumi.Input['OpenIdConnectLoginArgsDict']]
+    """
+    The configuration settings of the login flow of the custom Open ID Connect provider.
+    """
+    registration: NotRequired[pulumi.Input['OpenIdConnectRegistrationV1ArgsDict']]
+    """
+    The configuration settings of the app registration for the custom Open ID Connect provider.
+    """
+
+@pulumi.input_type
+class CustomOpenIdConnectProviderV1Args:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 login: Optional[pulumi.Input['OpenIdConnectLoginArgs']] = None,
+                 registration: Optional[pulumi.Input['OpenIdConnectRegistrationV1Args']] = None):
+        """
+        The configuration settings of the custom Open ID Connect provider.
+
+        :param pulumi.Input[_builtins.bool] enabled: <code>false</code> if the custom Open ID provider provider should not be enabled; otherwise, <code>true</code>.
+        :param pulumi.Input['OpenIdConnectLoginArgs'] login: The configuration settings of the login flow of the custom Open ID Connect provider.
+        :param pulumi.Input['OpenIdConnectRegistrationV1Args'] registration: The configuration settings of the app registration for the custom Open ID Connect provider.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if login is not None:
+            pulumi.set(__self__, "login", login)
+        if registration is not None:
+            pulumi.set(__self__, "registration", registration)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        <code>false</code> if the custom Open ID provider provider should not be enabled; otherwise, <code>true</code>.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def login(self) -> Optional[pulumi.Input['OpenIdConnectLoginArgs']]:
+        """
+        The configuration settings of the login flow of the custom Open ID Connect provider.
+        """
+        return pulumi.get(self, "login")
+
+    @login.setter
+    def login(self, value: Optional[pulumi.Input['OpenIdConnectLoginArgs']]):
+        pulumi.set(self, "login", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def registration(self) -> Optional[pulumi.Input['OpenIdConnectRegistrationV1Args']]:
+        """
+        The configuration settings of the app registration for the custom Open ID Connect provider.
+        """
+        return pulumi.get(self, "registration")
+
+    @registration.setter
+    def registration(self, value: Optional[pulumi.Input['OpenIdConnectRegistrationV1Args']]):
+        pulumi.set(self, "registration", value)
 
 
 class CustomOpenIdConnectProviderArgsDict(TypedDict):
@@ -5309,6 +5407,48 @@ class DefaultAuthorizationPolicyArgs:
     @allowed_principals.setter
     def allowed_principals(self, value: Optional[pulumi.Input['AllowedPrincipalsArgs']]):
         pulumi.set(self, "allowed_principals", value)
+
+
+class DefaultIdentityArgsDict(TypedDict):
+    identity_type: NotRequired[pulumi.Input['ManagedServiceIdentityType']]
+    """
+    Type of managed service identity.
+    """
+    user_assigned_identity_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class DefaultIdentityArgs:
+    def __init__(__self__, *,
+                 identity_type: Optional[pulumi.Input['ManagedServiceIdentityType']] = None,
+                 user_assigned_identity_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input['ManagedServiceIdentityType'] identity_type: Type of managed service identity.
+        """
+        if identity_type is not None:
+            pulumi.set(__self__, "identity_type", identity_type)
+        if user_assigned_identity_resource_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_resource_id", user_assigned_identity_resource_id)
+
+    @_builtins.property
+    @pulumi.getter(name="identityType")
+    def identity_type(self) -> Optional[pulumi.Input['ManagedServiceIdentityType']]:
+        """
+        Type of managed service identity.
+        """
+        return pulumi.get(self, "identity_type")
+
+    @identity_type.setter
+    def identity_type(self, value: Optional[pulumi.Input['ManagedServiceIdentityType']]):
+        pulumi.set(self, "identity_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userAssignedIdentityResourceId")
+    def user_assigned_identity_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "user_assigned_identity_resource_id")
+
+    @user_assigned_identity_resource_id.setter
+    def user_assigned_identity_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "user_assigned_identity_resource_id", value)
 
 
 class EnabledConfigArgsDict(TypedDict):
@@ -5820,19 +5960,25 @@ class FunctionAppConfigArgsDict(TypedDict):
     """
     Function app scale and concurrency settings.
     """
+    site_update_strategy: NotRequired[pulumi.Input['FunctionsSiteUpdateStrategyArgsDict']]
+    """
+    Function app site update strategy configuration.
+    """
 
 @pulumi.input_type
 class FunctionAppConfigArgs:
     def __init__(__self__, *,
                  deployment: Optional[pulumi.Input['FunctionsDeploymentArgs']] = None,
                  runtime: Optional[pulumi.Input['FunctionsRuntimeArgs']] = None,
-                 scale_and_concurrency: Optional[pulumi.Input['FunctionsScaleAndConcurrencyArgs']] = None):
+                 scale_and_concurrency: Optional[pulumi.Input['FunctionsScaleAndConcurrencyArgs']] = None,
+                 site_update_strategy: Optional[pulumi.Input['FunctionsSiteUpdateStrategyArgs']] = None):
         """
         Function app configuration.
 
         :param pulumi.Input['FunctionsDeploymentArgs'] deployment: Function app deployment configuration.
         :param pulumi.Input['FunctionsRuntimeArgs'] runtime: Function app runtime settings.
         :param pulumi.Input['FunctionsScaleAndConcurrencyArgs'] scale_and_concurrency: Function app scale and concurrency settings.
+        :param pulumi.Input['FunctionsSiteUpdateStrategyArgs'] site_update_strategy: Function app site update strategy configuration.
         """
         if deployment is not None:
             pulumi.set(__self__, "deployment", deployment)
@@ -5840,6 +5986,8 @@ class FunctionAppConfigArgs:
             pulumi.set(__self__, "runtime", runtime)
         if scale_and_concurrency is not None:
             pulumi.set(__self__, "scale_and_concurrency", scale_and_concurrency)
+        if site_update_strategy is not None:
+            pulumi.set(__self__, "site_update_strategy", site_update_strategy)
 
     @_builtins.property
     @pulumi.getter
@@ -5876,6 +6024,18 @@ class FunctionAppConfigArgs:
     @scale_and_concurrency.setter
     def scale_and_concurrency(self, value: Optional[pulumi.Input['FunctionsScaleAndConcurrencyArgs']]):
         pulumi.set(self, "scale_and_concurrency", value)
+
+    @_builtins.property
+    @pulumi.getter(name="siteUpdateStrategy")
+    def site_update_strategy(self) -> Optional[pulumi.Input['FunctionsSiteUpdateStrategyArgs']]:
+        """
+        Function app site update strategy configuration.
+        """
+        return pulumi.get(self, "site_update_strategy")
+
+    @site_update_strategy.setter
+    def site_update_strategy(self, value: Optional[pulumi.Input['FunctionsSiteUpdateStrategyArgs']]):
+        pulumi.set(self, "site_update_strategy", value)
 
 
 class FunctionsAlwaysReadyConfigArgsDict(TypedDict):
@@ -5932,7 +6092,7 @@ class FunctionsAlwaysReadyConfigArgs:
         pulumi.set(self, "name", value)
 
 
-class FunctionsDeploymentAuthenticationArgsDict(TypedDict):
+class FunctionsDeploymentStorageAuthenticationArgsDict(TypedDict):
     """
     Authentication method to access the storage account for deployment.
     """
@@ -5950,7 +6110,7 @@ class FunctionsDeploymentAuthenticationArgsDict(TypedDict):
     """
 
 @pulumi.input_type
-class FunctionsDeploymentAuthenticationArgs:
+class FunctionsDeploymentStorageAuthenticationArgs:
     def __init__(__self__, *,
                  storage_account_connection_string_name: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[Union[_builtins.str, 'AuthenticationType']]] = None,
@@ -6010,7 +6170,7 @@ class FunctionsDeploymentStorageArgsDict(TypedDict):
     """
     Storage for deployed package used by the function app.
     """
-    authentication: NotRequired[pulumi.Input['FunctionsDeploymentAuthenticationArgsDict']]
+    authentication: NotRequired[pulumi.Input['FunctionsDeploymentStorageAuthenticationArgsDict']]
     """
     Authentication method to access the storage account for deployment.
     """
@@ -6026,13 +6186,13 @@ class FunctionsDeploymentStorageArgsDict(TypedDict):
 @pulumi.input_type
 class FunctionsDeploymentStorageArgs:
     def __init__(__self__, *,
-                 authentication: Optional[pulumi.Input['FunctionsDeploymentAuthenticationArgs']] = None,
+                 authentication: Optional[pulumi.Input['FunctionsDeploymentStorageAuthenticationArgs']] = None,
                  type: Optional[pulumi.Input[Union[_builtins.str, 'FunctionsDeploymentStorageType']]] = None,
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Storage for deployed package used by the function app.
 
-        :param pulumi.Input['FunctionsDeploymentAuthenticationArgs'] authentication: Authentication method to access the storage account for deployment.
+        :param pulumi.Input['FunctionsDeploymentStorageAuthenticationArgs'] authentication: Authentication method to access the storage account for deployment.
         :param pulumi.Input[Union[_builtins.str, 'FunctionsDeploymentStorageType']] type: Property to select Azure Storage type. Available options: blobContainer.
         :param pulumi.Input[_builtins.str] value: Property to set the URL for the selected Azure Storage type. Example: For blobContainer, the value could be https://<storageAccountName>.blob.core.windows.net/<containerName>.
         """
@@ -6045,14 +6205,14 @@ class FunctionsDeploymentStorageArgs:
 
     @_builtins.property
     @pulumi.getter
-    def authentication(self) -> Optional[pulumi.Input['FunctionsDeploymentAuthenticationArgs']]:
+    def authentication(self) -> Optional[pulumi.Input['FunctionsDeploymentStorageAuthenticationArgs']]:
         """
         Authentication method to access the storage account for deployment.
         """
         return pulumi.get(self, "authentication")
 
     @authentication.setter
-    def authentication(self, value: Optional[pulumi.Input['FunctionsDeploymentAuthenticationArgs']]):
+    def authentication(self, value: Optional[pulumi.Input['FunctionsDeploymentStorageAuthenticationArgs']]):
         pulumi.set(self, "authentication", value)
 
     @_builtins.property
@@ -6168,7 +6328,7 @@ class FunctionsRuntimeArgs:
         pulumi.set(self, "version", value)
 
 
-class FunctionsScaleAndConcurrencyHttpArgsDict(TypedDict):
+class FunctionsScaleAndConcurrencyTriggersHttpArgsDict(TypedDict):
     """
     Scale and concurrency settings for the HTTP trigger.
     """
@@ -6178,7 +6338,7 @@ class FunctionsScaleAndConcurrencyHttpArgsDict(TypedDict):
     """
 
 @pulumi.input_type
-class FunctionsScaleAndConcurrencyHttpArgs:
+class FunctionsScaleAndConcurrencyTriggersHttpArgs:
     def __init__(__self__, *,
                  per_instance_concurrency: Optional[pulumi.Input[_builtins.int]] = None):
         """
@@ -6206,7 +6366,7 @@ class FunctionsScaleAndConcurrencyTriggersArgsDict(TypedDict):
     """
     Scale and concurrency settings for the function app triggers.
     """
-    http: NotRequired[pulumi.Input['FunctionsScaleAndConcurrencyHttpArgsDict']]
+    http: NotRequired[pulumi.Input['FunctionsScaleAndConcurrencyTriggersHttpArgsDict']]
     """
     Scale and concurrency settings for the HTTP trigger.
     """
@@ -6214,25 +6374,25 @@ class FunctionsScaleAndConcurrencyTriggersArgsDict(TypedDict):
 @pulumi.input_type
 class FunctionsScaleAndConcurrencyTriggersArgs:
     def __init__(__self__, *,
-                 http: Optional[pulumi.Input['FunctionsScaleAndConcurrencyHttpArgs']] = None):
+                 http: Optional[pulumi.Input['FunctionsScaleAndConcurrencyTriggersHttpArgs']] = None):
         """
         Scale and concurrency settings for the function app triggers.
 
-        :param pulumi.Input['FunctionsScaleAndConcurrencyHttpArgs'] http: Scale and concurrency settings for the HTTP trigger.
+        :param pulumi.Input['FunctionsScaleAndConcurrencyTriggersHttpArgs'] http: Scale and concurrency settings for the HTTP trigger.
         """
         if http is not None:
             pulumi.set(__self__, "http", http)
 
     @_builtins.property
     @pulumi.getter
-    def http(self) -> Optional[pulumi.Input['FunctionsScaleAndConcurrencyHttpArgs']]:
+    def http(self) -> Optional[pulumi.Input['FunctionsScaleAndConcurrencyTriggersHttpArgs']]:
         """
         Scale and concurrency settings for the HTTP trigger.
         """
         return pulumi.get(self, "http")
 
     @http.setter
-    def http(self, value: Optional[pulumi.Input['FunctionsScaleAndConcurrencyHttpArgs']]):
+    def http(self, value: Optional[pulumi.Input['FunctionsScaleAndConcurrencyTriggersHttpArgs']]):
         pulumi.set(self, "http", value)
 
 
@@ -6328,6 +6488,40 @@ class FunctionsScaleAndConcurrencyArgs:
     @triggers.setter
     def triggers(self, value: Optional[pulumi.Input['FunctionsScaleAndConcurrencyTriggersArgs']]):
         pulumi.set(self, "triggers", value)
+
+
+class FunctionsSiteUpdateStrategyArgsDict(TypedDict):
+    """
+    Function app site update strategy configuration for deployments and site config updates.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'SiteUpdateStrategyType']]]
+    """
+    Function app site update strategy type. Available options: Recreate, RollingUpdate
+    """
+
+@pulumi.input_type
+class FunctionsSiteUpdateStrategyArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[Union[_builtins.str, 'SiteUpdateStrategyType']]] = None):
+        """
+        Function app site update strategy configuration for deployments and site config updates.
+
+        :param pulumi.Input[Union[_builtins.str, 'SiteUpdateStrategyType']] type: Function app site update strategy type. Available options: Recreate, RollingUpdate
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SiteUpdateStrategyType']]]:
+        """
+        Function app site update strategy type. Available options: Recreate, RollingUpdate
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SiteUpdateStrategyType']]]):
+        pulumi.set(self, "type", value)
 
 
 class GitHubActionCodeConfigurationArgsDict(TypedDict):
@@ -6842,7 +7036,7 @@ class GoogleArgs:
 
 class HandlerMappingArgsDict(TypedDict):
     """
-    The IIS handler mappings used to define which handler processes HTTP requests with certain extension. 
+    The IIS handler mappings used to define which handler processes HTTP requests with certain extension.
     For example, it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
     """
     arguments: NotRequired[pulumi.Input[_builtins.str]]
@@ -6865,7 +7059,7 @@ class HandlerMappingArgs:
                  extension: Optional[pulumi.Input[_builtins.str]] = None,
                  script_processor: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        The IIS handler mappings used to define which handler processes HTTP requests with certain extension. 
+        The IIS handler mappings used to define which handler processes HTTP requests with certain extension.
         For example, it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
 
         :param pulumi.Input[_builtins.str] arguments: Command-line arguments to be passed to the script processor.
@@ -7246,6 +7440,203 @@ class HttpSettingsArgs:
         pulumi.set(self, "routes", value)
 
 
+class IdentityProvidersV1ArgsDict(TypedDict):
+    """
+    The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
+    """
+    apple: NotRequired[pulumi.Input['AppleArgsDict']]
+    """
+    The configuration settings of the Apple provider.
+    """
+    azure_active_directory: NotRequired[pulumi.Input['AzureActiveDirectoryArgsDict']]
+    """
+    The configuration settings of the Azure Active directory provider.
+    """
+    azure_static_web_apps: NotRequired[pulumi.Input['AzureStaticWebAppsArgsDict']]
+    """
+    The configuration settings of the Azure Static Web Apps provider.
+    """
+    custom_open_id_connect_providers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['CustomOpenIdConnectProviderV1ArgsDict']]]]
+    """
+    The map of the name of the alias of each custom Open ID Connect provider to the
+    configuration settings of the custom Open ID Connect provider.
+    """
+    facebook: NotRequired[pulumi.Input['FacebookArgsDict']]
+    """
+    The configuration settings of the Facebook provider.
+    """
+    git_hub: NotRequired[pulumi.Input['GitHubArgsDict']]
+    """
+    The configuration settings of the GitHub provider.
+    """
+    google: NotRequired[pulumi.Input['GoogleArgsDict']]
+    """
+    The configuration settings of the Google provider.
+    """
+    legacy_microsoft_account: NotRequired[pulumi.Input['LegacyMicrosoftAccountArgsDict']]
+    """
+    The configuration settings of the legacy Microsoft Account provider.
+    """
+    twitter: NotRequired[pulumi.Input['TwitterArgsDict']]
+    """
+    The configuration settings of the Twitter provider.
+    """
+
+@pulumi.input_type
+class IdentityProvidersV1Args:
+    def __init__(__self__, *,
+                 apple: Optional[pulumi.Input['AppleArgs']] = None,
+                 azure_active_directory: Optional[pulumi.Input['AzureActiveDirectoryArgs']] = None,
+                 azure_static_web_apps: Optional[pulumi.Input['AzureStaticWebAppsArgs']] = None,
+                 custom_open_id_connect_providers: Optional[pulumi.Input[Mapping[str, pulumi.Input['CustomOpenIdConnectProviderV1Args']]]] = None,
+                 facebook: Optional[pulumi.Input['FacebookArgs']] = None,
+                 git_hub: Optional[pulumi.Input['GitHubArgs']] = None,
+                 google: Optional[pulumi.Input['GoogleArgs']] = None,
+                 legacy_microsoft_account: Optional[pulumi.Input['LegacyMicrosoftAccountArgs']] = None,
+                 twitter: Optional[pulumi.Input['TwitterArgs']] = None):
+        """
+        The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
+
+        :param pulumi.Input['AppleArgs'] apple: The configuration settings of the Apple provider.
+        :param pulumi.Input['AzureActiveDirectoryArgs'] azure_active_directory: The configuration settings of the Azure Active directory provider.
+        :param pulumi.Input['AzureStaticWebAppsArgs'] azure_static_web_apps: The configuration settings of the Azure Static Web Apps provider.
+        :param pulumi.Input[Mapping[str, pulumi.Input['CustomOpenIdConnectProviderV1Args']]] custom_open_id_connect_providers: The map of the name of the alias of each custom Open ID Connect provider to the
+               configuration settings of the custom Open ID Connect provider.
+        :param pulumi.Input['FacebookArgs'] facebook: The configuration settings of the Facebook provider.
+        :param pulumi.Input['GitHubArgs'] git_hub: The configuration settings of the GitHub provider.
+        :param pulumi.Input['GoogleArgs'] google: The configuration settings of the Google provider.
+        :param pulumi.Input['LegacyMicrosoftAccountArgs'] legacy_microsoft_account: The configuration settings of the legacy Microsoft Account provider.
+        :param pulumi.Input['TwitterArgs'] twitter: The configuration settings of the Twitter provider.
+        """
+        if apple is not None:
+            pulumi.set(__self__, "apple", apple)
+        if azure_active_directory is not None:
+            pulumi.set(__self__, "azure_active_directory", azure_active_directory)
+        if azure_static_web_apps is not None:
+            pulumi.set(__self__, "azure_static_web_apps", azure_static_web_apps)
+        if custom_open_id_connect_providers is not None:
+            pulumi.set(__self__, "custom_open_id_connect_providers", custom_open_id_connect_providers)
+        if facebook is not None:
+            pulumi.set(__self__, "facebook", facebook)
+        if git_hub is not None:
+            pulumi.set(__self__, "git_hub", git_hub)
+        if google is not None:
+            pulumi.set(__self__, "google", google)
+        if legacy_microsoft_account is not None:
+            pulumi.set(__self__, "legacy_microsoft_account", legacy_microsoft_account)
+        if twitter is not None:
+            pulumi.set(__self__, "twitter", twitter)
+
+    @_builtins.property
+    @pulumi.getter
+    def apple(self) -> Optional[pulumi.Input['AppleArgs']]:
+        """
+        The configuration settings of the Apple provider.
+        """
+        return pulumi.get(self, "apple")
+
+    @apple.setter
+    def apple(self, value: Optional[pulumi.Input['AppleArgs']]):
+        pulumi.set(self, "apple", value)
+
+    @_builtins.property
+    @pulumi.getter(name="azureActiveDirectory")
+    def azure_active_directory(self) -> Optional[pulumi.Input['AzureActiveDirectoryArgs']]:
+        """
+        The configuration settings of the Azure Active directory provider.
+        """
+        return pulumi.get(self, "azure_active_directory")
+
+    @azure_active_directory.setter
+    def azure_active_directory(self, value: Optional[pulumi.Input['AzureActiveDirectoryArgs']]):
+        pulumi.set(self, "azure_active_directory", value)
+
+    @_builtins.property
+    @pulumi.getter(name="azureStaticWebApps")
+    def azure_static_web_apps(self) -> Optional[pulumi.Input['AzureStaticWebAppsArgs']]:
+        """
+        The configuration settings of the Azure Static Web Apps provider.
+        """
+        return pulumi.get(self, "azure_static_web_apps")
+
+    @azure_static_web_apps.setter
+    def azure_static_web_apps(self, value: Optional[pulumi.Input['AzureStaticWebAppsArgs']]):
+        pulumi.set(self, "azure_static_web_apps", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customOpenIdConnectProviders")
+    def custom_open_id_connect_providers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['CustomOpenIdConnectProviderV1Args']]]]:
+        """
+        The map of the name of the alias of each custom Open ID Connect provider to the
+        configuration settings of the custom Open ID Connect provider.
+        """
+        return pulumi.get(self, "custom_open_id_connect_providers")
+
+    @custom_open_id_connect_providers.setter
+    def custom_open_id_connect_providers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['CustomOpenIdConnectProviderV1Args']]]]):
+        pulumi.set(self, "custom_open_id_connect_providers", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def facebook(self) -> Optional[pulumi.Input['FacebookArgs']]:
+        """
+        The configuration settings of the Facebook provider.
+        """
+        return pulumi.get(self, "facebook")
+
+    @facebook.setter
+    def facebook(self, value: Optional[pulumi.Input['FacebookArgs']]):
+        pulumi.set(self, "facebook", value)
+
+    @_builtins.property
+    @pulumi.getter(name="gitHub")
+    def git_hub(self) -> Optional[pulumi.Input['GitHubArgs']]:
+        """
+        The configuration settings of the GitHub provider.
+        """
+        return pulumi.get(self, "git_hub")
+
+    @git_hub.setter
+    def git_hub(self, value: Optional[pulumi.Input['GitHubArgs']]):
+        pulumi.set(self, "git_hub", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def google(self) -> Optional[pulumi.Input['GoogleArgs']]:
+        """
+        The configuration settings of the Google provider.
+        """
+        return pulumi.get(self, "google")
+
+    @google.setter
+    def google(self, value: Optional[pulumi.Input['GoogleArgs']]):
+        pulumi.set(self, "google", value)
+
+    @_builtins.property
+    @pulumi.getter(name="legacyMicrosoftAccount")
+    def legacy_microsoft_account(self) -> Optional[pulumi.Input['LegacyMicrosoftAccountArgs']]:
+        """
+        The configuration settings of the legacy Microsoft Account provider.
+        """
+        return pulumi.get(self, "legacy_microsoft_account")
+
+    @legacy_microsoft_account.setter
+    def legacy_microsoft_account(self, value: Optional[pulumi.Input['LegacyMicrosoftAccountArgs']]):
+        pulumi.set(self, "legacy_microsoft_account", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def twitter(self) -> Optional[pulumi.Input['TwitterArgs']]:
+        """
+        The configuration settings of the Twitter provider.
+        """
+        return pulumi.get(self, "twitter")
+
+    @twitter.setter
+    def twitter(self, value: Optional[pulumi.Input['TwitterArgs']]):
+        pulumi.set(self, "twitter", value)
+
+
 class IdentityProvidersArgsDict(TypedDict):
     """
     The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
@@ -7443,6 +7834,114 @@ class IdentityProvidersArgs:
         pulumi.set(self, "twitter", value)
 
 
+class InstallScriptSourceArgsDict(TypedDict):
+    """
+    Object to hold install script reference.
+    """
+    source_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Install script source URI where the install script file will be fetched from.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'InstallScriptType']]]
+    """
+    Type of the install script.
+    """
+
+@pulumi.input_type
+class InstallScriptSourceArgs:
+    def __init__(__self__, *,
+                 source_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[Union[_builtins.str, 'InstallScriptType']]] = None):
+        """
+        Object to hold install script reference.
+
+        :param pulumi.Input[_builtins.str] source_uri: Install script source URI where the install script file will be fetched from.
+        :param pulumi.Input[Union[_builtins.str, 'InstallScriptType']] type: Type of the install script.
+        """
+        if source_uri is not None:
+            pulumi.set(__self__, "source_uri", source_uri)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceUri")
+    def source_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Install script source URI where the install script file will be fetched from.
+        """
+        return pulumi.get(self, "source_uri")
+
+    @source_uri.setter
+    def source_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "source_uri", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'InstallScriptType']]]:
+        """
+        Type of the install script.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'InstallScriptType']]]):
+        pulumi.set(self, "type", value)
+
+
+class InstallScriptArgsDict(TypedDict):
+    """
+    Server farm install script configuration.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the install script.
+    """
+    source: NotRequired[pulumi.Input['InstallScriptSourceArgsDict']]
+    """
+    Source of the install script.
+    """
+
+@pulumi.input_type
+class InstallScriptArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 source: Optional[pulumi.Input['InstallScriptSourceArgs']] = None):
+        """
+        Server farm install script configuration.
+
+        :param pulumi.Input[_builtins.str] name: Name of the install script.
+        :param pulumi.Input['InstallScriptSourceArgs'] source: Source of the install script.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name of the install script.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input['InstallScriptSourceArgs']]:
+        """
+        Source of the install script.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input['InstallScriptSourceArgs']]):
+        pulumi.set(self, "source", value)
+
+
 class IpSecurityRestrictionArgsDict(TypedDict):
     """
     IP security restriction on an app.
@@ -7458,12 +7957,12 @@ class IpSecurityRestrictionArgsDict(TypedDict):
     headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]
     """
     IP restriction rule headers.
-    X-Forwarded-Host (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-Host#Examples). 
+    X-Forwarded-Host (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-Host#Examples).
     The matching logic is ..
     - If the property is null or empty (default), all hosts(or lack of) are allowed.
     - A value is compared using ordinal-ignore-case (excluding port number).
     - Subdomain wildcards are permitted but don't match the root domain. For example, *.contoso.com matches the subdomain foo.contoso.com
-     but not the root domain contoso.com or multi-level foo.bar.contoso.com
+    but not the root domain contoso.com or multi-level foo.bar.contoso.com
     - Unicode host names are allowed but are converted to Punycode for matching.
 
     X-Forwarded-For (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-For#Examples).
@@ -7530,12 +8029,12 @@ class IpSecurityRestrictionArgs:
         :param pulumi.Input[_builtins.str] action: Allow or Deny access for this IP range.
         :param pulumi.Input[_builtins.str] description: IP restriction rule description.
         :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]] headers: IP restriction rule headers.
-               X-Forwarded-Host (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-Host#Examples). 
+               X-Forwarded-Host (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-Host#Examples).
                The matching logic is ..
                - If the property is null or empty (default), all hosts(or lack of) are allowed.
                - A value is compared using ordinal-ignore-case (excluding port number).
                - Subdomain wildcards are permitted but don't match the root domain. For example, *.contoso.com matches the subdomain foo.contoso.com
-                but not the root domain contoso.com or multi-level foo.bar.contoso.com
+               but not the root domain contoso.com or multi-level foo.bar.contoso.com
                - Unicode host names are allowed but are converted to Punycode for matching.
                
                X-Forwarded-For (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-For#Examples).
@@ -7609,12 +8108,12 @@ class IpSecurityRestrictionArgs:
     def headers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]:
         """
         IP restriction rule headers.
-        X-Forwarded-Host (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-Host#Examples). 
+        X-Forwarded-Host (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-Host#Examples).
         The matching logic is ..
         - If the property is null or empty (default), all hosts(or lack of) are allowed.
         - A value is compared using ordinal-ignore-case (excluding port number).
         - Subdomain wildcards are permitted but don't match the root domain. For example, *.contoso.com matches the subdomain foo.contoso.com
-         but not the root domain contoso.com or multi-level foo.bar.contoso.com
+        but not the root domain contoso.com or multi-level foo.bar.contoso.com
         - Unicode host names are allowed but are converted to Punycode for matching.
 
         X-Forwarded-For (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-For#Examples).
@@ -7783,6 +8282,60 @@ class JwtClaimChecksArgs:
     @allowed_groups.setter
     def allowed_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_groups", value)
+
+
+class KeyVaultReferenceWithStatusArgsDict(TypedDict):
+    """
+    Object to hold key vault reference and the resolution status
+    """
+    reference_status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Reference status of the key vault secret.
+    """
+    secret_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Key vault secret URI.
+    """
+
+@pulumi.input_type
+class KeyVaultReferenceWithStatusArgs:
+    def __init__(__self__, *,
+                 reference_status: Optional[pulumi.Input[_builtins.str]] = None,
+                 secret_uri: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Object to hold key vault reference and the resolution status
+
+        :param pulumi.Input[_builtins.str] reference_status: Reference status of the key vault secret.
+        :param pulumi.Input[_builtins.str] secret_uri: Key vault secret URI.
+        """
+        if reference_status is not None:
+            pulumi.set(__self__, "reference_status", reference_status)
+        if secret_uri is not None:
+            pulumi.set(__self__, "secret_uri", secret_uri)
+
+    @_builtins.property
+    @pulumi.getter(name="referenceStatus")
+    def reference_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Reference status of the key vault secret.
+        """
+        return pulumi.get(self, "reference_status")
+
+    @reference_status.setter
+    def reference_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "reference_status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretUri")
+    def secret_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Key vault secret URI.
+        """
+        return pulumi.get(self, "secret_uri")
+
+    @secret_uri.setter
+    def secret_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "secret_uri", value)
 
 
 class KubeEnvironmentProfileArgsDict(TypedDict):
@@ -8316,6 +8869,60 @@ class NonceArgs:
         pulumi.set(self, "validate_nonce", value)
 
 
+class OpenIdConnectClientCredentialV1ArgsDict(TypedDict):
+    """
+    The authentication client credentials of the custom Open ID Connect provider.
+    """
+    client_secret_setting_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The app setting that contains the client secret for the custom Open ID Connect provider.
+    """
+    method: NotRequired[pulumi.Input['Method']]
+    """
+    The method that should be used to authenticate the user.
+    """
+
+@pulumi.input_type
+class OpenIdConnectClientCredentialV1Args:
+    def __init__(__self__, *,
+                 client_secret_setting_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 method: Optional[pulumi.Input['Method']] = None):
+        """
+        The authentication client credentials of the custom Open ID Connect provider.
+
+        :param pulumi.Input[_builtins.str] client_secret_setting_name: The app setting that contains the client secret for the custom Open ID Connect provider.
+        :param pulumi.Input['Method'] method: The method that should be used to authenticate the user.
+        """
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if method is not None:
+            pulumi.set(__self__, "method", method)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The app setting that contains the client secret for the custom Open ID Connect provider.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def method(self) -> Optional[pulumi.Input['Method']]:
+        """
+        The method that should be used to authenticate the user.
+        """
+        return pulumi.get(self, "method")
+
+    @method.setter
+    def method(self, value: Optional[pulumi.Input['Method']]):
+        pulumi.set(self, "method", value)
+
+
 class OpenIdConnectClientCredentialArgsDict(TypedDict):
     """
     The authentication client credentials of the custom Open ID Connect provider.
@@ -8536,6 +9143,80 @@ class OpenIdConnectLoginArgs:
     @scopes.setter
     def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "scopes", value)
+
+
+class OpenIdConnectRegistrationV1ArgsDict(TypedDict):
+    """
+    The configuration settings of the app registration for the custom Open ID Connect provider.
+    """
+    client_credential: NotRequired[pulumi.Input['OpenIdConnectClientCredentialV1ArgsDict']]
+    """
+    The authentication credentials of the custom Open ID Connect provider.
+    """
+    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The client id of the custom Open ID Connect provider.
+    """
+    open_id_connect_configuration: NotRequired[pulumi.Input['OpenIdConnectConfigArgsDict']]
+    """
+    The configuration settings of the endpoints used for the custom Open ID Connect provider.
+    """
+
+@pulumi.input_type
+class OpenIdConnectRegistrationV1Args:
+    def __init__(__self__, *,
+                 client_credential: Optional[pulumi.Input['OpenIdConnectClientCredentialV1Args']] = None,
+                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 open_id_connect_configuration: Optional[pulumi.Input['OpenIdConnectConfigArgs']] = None):
+        """
+        The configuration settings of the app registration for the custom Open ID Connect provider.
+
+        :param pulumi.Input['OpenIdConnectClientCredentialV1Args'] client_credential: The authentication credentials of the custom Open ID Connect provider.
+        :param pulumi.Input[_builtins.str] client_id: The client id of the custom Open ID Connect provider.
+        :param pulumi.Input['OpenIdConnectConfigArgs'] open_id_connect_configuration: The configuration settings of the endpoints used for the custom Open ID Connect provider.
+        """
+        if client_credential is not None:
+            pulumi.set(__self__, "client_credential", client_credential)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if open_id_connect_configuration is not None:
+            pulumi.set(__self__, "open_id_connect_configuration", open_id_connect_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="clientCredential")
+    def client_credential(self) -> Optional[pulumi.Input['OpenIdConnectClientCredentialV1Args']]:
+        """
+        The authentication credentials of the custom Open ID Connect provider.
+        """
+        return pulumi.get(self, "client_credential")
+
+    @client_credential.setter
+    def client_credential(self, value: Optional[pulumi.Input['OpenIdConnectClientCredentialV1Args']]):
+        pulumi.set(self, "client_credential", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The client id of the custom Open ID Connect provider.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "client_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="openIdConnectConfiguration")
+    def open_id_connect_configuration(self) -> Optional[pulumi.Input['OpenIdConnectConfigArgs']]:
+        """
+        The configuration settings of the endpoints used for the custom Open ID Connect provider.
+        """
+        return pulumi.get(self, "open_id_connect_configuration")
+
+    @open_id_connect_configuration.setter
+    def open_id_connect_configuration(self, value: Optional[pulumi.Input['OpenIdConnectConfigArgs']]):
+        pulumi.set(self, "open_id_connect_configuration", value)
 
 
 class OpenIdConnectRegistrationArgsDict(TypedDict):
@@ -8940,8 +9621,8 @@ class RampUpRuleArgsDict(TypedDict):
     """
     change_step: NotRequired[pulumi.Input[_builtins.float]]
     """
-    In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches \\n<code>MinReroutePercentage</code> or 
-    <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.\\nCustom decision algorithm 
+    In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches \\n<code>MinReroutePercentage</code> or
+    <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.\\nCustom decision algorithm
     can be provided in TiPCallback site extension which URL can be specified in <code>ChangeDecisionCallbackUrl</code>.
     """
     max_reroute_percentage: NotRequired[pulumi.Input[_builtins.float]]
@@ -8978,8 +9659,8 @@ class RampUpRuleArgs:
         :param pulumi.Input[_builtins.str] action_host_name: Hostname of a slot to which the traffic will be redirected if decided to. E.g. myapp-stage.azurewebsites.net.
         :param pulumi.Input[_builtins.str] change_decision_callback_url: Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified.
         :param pulumi.Input[_builtins.int] change_interval_in_minutes: Specifies interval in minutes to reevaluate ReroutePercentage.
-        :param pulumi.Input[_builtins.float] change_step: In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches \\n<code>MinReroutePercentage</code> or 
-               <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.\\nCustom decision algorithm 
+        :param pulumi.Input[_builtins.float] change_step: In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches \\n<code>MinReroutePercentage</code> or
+               <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.\\nCustom decision algorithm
                can be provided in TiPCallback site extension which URL can be specified in <code>ChangeDecisionCallbackUrl</code>.
         :param pulumi.Input[_builtins.float] max_reroute_percentage: Specifies upper boundary below which ReroutePercentage will stay.
         :param pulumi.Input[_builtins.float] min_reroute_percentage: Specifies lower boundary above which ReroutePercentage will stay.
@@ -9043,8 +9724,8 @@ class RampUpRuleArgs:
     @pulumi.getter(name="changeStep")
     def change_step(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
-        In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches \\n<code>MinReroutePercentage</code> or 
-        <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.\\nCustom decision algorithm 
+        In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches \\n<code>MinReroutePercentage</code> or
+        <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.\\nCustom decision algorithm
         can be provided in TiPCallback site extension which URL can be specified in <code>ChangeDecisionCallbackUrl</code>.
         """
         return pulumi.get(self, "change_step")
@@ -9100,6 +9781,80 @@ class RampUpRuleArgs:
     @reroute_percentage.setter
     def reroute_percentage(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "reroute_percentage", value)
+
+
+class RegistryAdapterArgsDict(TypedDict):
+    """
+    Server farm registry adapter configuration.
+    """
+    key_vault_secret_reference: NotRequired[pulumi.Input['KeyVaultReferenceWithStatusArgsDict']]
+    """
+    Key vault reference to the value that will be placed in the registry location
+    """
+    registry_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Registry key for the adapter.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'RegistryAdapterType']]]
+    """
+    Type of the registry adapter.
+    """
+
+@pulumi.input_type
+class RegistryAdapterArgs:
+    def __init__(__self__, *,
+                 key_vault_secret_reference: Optional[pulumi.Input['KeyVaultReferenceWithStatusArgs']] = None,
+                 registry_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[Union[_builtins.str, 'RegistryAdapterType']]] = None):
+        """
+        Server farm registry adapter configuration.
+
+        :param pulumi.Input['KeyVaultReferenceWithStatusArgs'] key_vault_secret_reference: Key vault reference to the value that will be placed in the registry location
+        :param pulumi.Input[_builtins.str] registry_key: Registry key for the adapter.
+        :param pulumi.Input[Union[_builtins.str, 'RegistryAdapterType']] type: Type of the registry adapter.
+        """
+        if key_vault_secret_reference is not None:
+            pulumi.set(__self__, "key_vault_secret_reference", key_vault_secret_reference)
+        if registry_key is not None:
+            pulumi.set(__self__, "registry_key", registry_key)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="keyVaultSecretReference")
+    def key_vault_secret_reference(self) -> Optional[pulumi.Input['KeyVaultReferenceWithStatusArgs']]:
+        """
+        Key vault reference to the value that will be placed in the registry location
+        """
+        return pulumi.get(self, "key_vault_secret_reference")
+
+    @key_vault_secret_reference.setter
+    def key_vault_secret_reference(self, value: Optional[pulumi.Input['KeyVaultReferenceWithStatusArgs']]):
+        pulumi.set(self, "key_vault_secret_reference", value)
+
+    @_builtins.property
+    @pulumi.getter(name="registryKey")
+    def registry_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Registry key for the adapter.
+        """
+        return pulumi.get(self, "registry_key")
+
+    @registry_key.setter
+    def registry_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "registry_key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RegistryAdapterType']]]:
+        """
+        Type of the registry adapter.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RegistryAdapterType']]]):
+        pulumi.set(self, "type", value)
 
 
 class RequestsBasedTriggerArgsDict(TypedDict):
@@ -9208,6 +9963,40 @@ class ResourceConfigArgs:
     @memory.setter
     def memory(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "memory", value)
+
+
+class ServerFarmNetworkSettingsArgsDict(TypedDict):
+    """
+    Network settings for an app service plan.
+    """
+    virtual_network_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure Resource Manager ID of the Virtual network and subnet to be joined by Regional VNET Integration. This must be of the form /subscriptions/{subscriptionName}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}
+    """
+
+@pulumi.input_type
+class ServerFarmNetworkSettingsArgs:
+    def __init__(__self__, *,
+                 virtual_network_subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Network settings for an app service plan.
+
+        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: Azure Resource Manager ID of the Virtual network and subnet to be joined by Regional VNET Integration. This must be of the form /subscriptions/{subscriptionName}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}
+        """
+        if virtual_network_subnet_id is not None:
+            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+
+    @_builtins.property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Azure Resource Manager ID of the Virtual network and subnet to be joined by Regional VNET Integration. This must be of the form /subscriptions/{subscriptionName}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
+
+    @virtual_network_subnet_id.setter
+    def virtual_network_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "virtual_network_subnet_id", value)
 
 
 class SiteConfigArgsDict(TypedDict):
@@ -11764,6 +12553,120 @@ class StatusCodesRangeBasedTriggerArgs:
         pulumi.set(self, "time_interval", value)
 
 
+class StorageMountArgsDict(TypedDict):
+    """
+    Server farm storage mount configuration.
+    """
+    credentials_key_vault_reference: NotRequired[pulumi.Input['KeyVaultReferenceWithStatusArgsDict']]
+    """
+    KV reference to the credentials to connect to the share.
+    """
+    destination_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Path on worker where storage will be mounted.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the storage mount.
+    """
+    source: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Source of the fileshare/storage.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'StorageMountType']]]
+    """
+    Type of the storage mount.
+    """
+
+@pulumi.input_type
+class StorageMountArgs:
+    def __init__(__self__, *,
+                 credentials_key_vault_reference: Optional[pulumi.Input['KeyVaultReferenceWithStatusArgs']] = None,
+                 destination_path: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 source: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[Union[_builtins.str, 'StorageMountType']]] = None):
+        """
+        Server farm storage mount configuration.
+
+        :param pulumi.Input['KeyVaultReferenceWithStatusArgs'] credentials_key_vault_reference: KV reference to the credentials to connect to the share.
+        :param pulumi.Input[_builtins.str] destination_path: Path on worker where storage will be mounted.
+        :param pulumi.Input[_builtins.str] name: Name of the storage mount.
+        :param pulumi.Input[_builtins.str] source: Source of the fileshare/storage.
+        :param pulumi.Input[Union[_builtins.str, 'StorageMountType']] type: Type of the storage mount.
+        """
+        if credentials_key_vault_reference is not None:
+            pulumi.set(__self__, "credentials_key_vault_reference", credentials_key_vault_reference)
+        if destination_path is not None:
+            pulumi.set(__self__, "destination_path", destination_path)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="credentialsKeyVaultReference")
+    def credentials_key_vault_reference(self) -> Optional[pulumi.Input['KeyVaultReferenceWithStatusArgs']]:
+        """
+        KV reference to the credentials to connect to the share.
+        """
+        return pulumi.get(self, "credentials_key_vault_reference")
+
+    @credentials_key_vault_reference.setter
+    def credentials_key_vault_reference(self, value: Optional[pulumi.Input['KeyVaultReferenceWithStatusArgs']]):
+        pulumi.set(self, "credentials_key_vault_reference", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationPath")
+    def destination_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Path on worker where storage will be mounted.
+        """
+        return pulumi.get(self, "destination_path")
+
+    @destination_path.setter
+    def destination_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "destination_path", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name of the storage mount.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Source of the fileshare/storage.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "source", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'StorageMountType']]]:
+        """
+        Type of the storage mount.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'StorageMountType']]]):
+        pulumi.set(self, "type", value)
+
+
 class TokenStoreArgsDict(TypedDict):
     """
     The configuration settings of the token store.
@@ -11775,7 +12678,7 @@ class TokenStoreArgsDict(TypedDict):
     enabled: NotRequired[pulumi.Input[_builtins.bool]]
     """
     <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
-     The default is <code>false</code>.
+    The default is <code>false</code>.
     """
     file_system: NotRequired[pulumi.Input['FileSystemTokenStoreArgsDict']]
     """
@@ -11799,7 +12702,7 @@ class TokenStoreArgs:
 
         :param pulumi.Input['BlobStorageTokenStoreArgs'] azure_blob_storage: The configuration settings of the storage of the tokens if blob storage is used.
         :param pulumi.Input[_builtins.bool] enabled: <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
-                The default is <code>false</code>.
+               The default is <code>false</code>.
         :param pulumi.Input['FileSystemTokenStoreArgs'] file_system: The configuration settings of the storage of the tokens if a file system is used.
         :param pulumi.Input[_builtins.float] token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to
                call the token refresh API. The default is 72 hours.
@@ -11830,7 +12733,7 @@ class TokenStoreArgs:
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
-         The default is <code>false</code>.
+        The default is <code>false</code>.
         """
         return pulumi.get(self, "enabled")
 
