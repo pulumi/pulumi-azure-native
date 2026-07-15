@@ -73,27 +73,31 @@ func tokenModuleVersion(token string) string {
 	return moduleVersion(mod)
 }
 
-func (m *moduleGenerator) disambiguateTypeToken(token string) (string, error) {
+func (m *moduleGenerator) disambiguateTypeToken(token string, spec pschema.ComplexTypeSpec) (string, error) {
 	// first try to to disambiguate by using the version of the module
 	if version := tokenModuleVersion(token); version != "" {
 		newToken := fmt.Sprintf("%s_V%s", token, strings.TrimPrefix(version, "v"))
-		if _, seen := m.pkg.Types[newToken]; !seen {
+		if existing, seen := m.pkg.Types[newToken]; !seen || propertiesEqual(existing, spec) {
 			return newToken, nil
 		}
 	}
 
-	// then try to disambiguate by adding a numeric suffix
+	// then try to disambiguate by adding a numeric suffix. If an already disambiguated
+	// variant (e.g. TypeV1) is exactly the same shape as the type at hand, reuse it instead
+	// of always minting a fresh suffix - otherwise two distinct resources that each diverge
+	// from the base type in the exact same way end up with two different generated types
+	// that are actually identical. Equality (not mergeTypes' more permissive unioning) is
+	// used deliberately here, so genuinely different variants elsewhere in the schema keep
+	// getting their own distinct tokens as before.
 	numericSuffix, original := extractNumericSuffix(token)
-	for true {
+	for {
 		newToken := fmt.Sprintf("%sV%d", original, numericSuffix+1)
-		if _, seen := m.pkg.Types[newToken]; !seen {
-			// newToken hasn't been used yet
+		existing, seen := m.pkg.Types[newToken]
+		if !seen || propertiesEqual(existing, spec) {
 			return newToken, nil
 		}
 		numericSuffix++
 	}
-
-	return token, nil
 }
 
 // propertiesEqual checks if the properties of two ComplexTypeSpecs are equal.
@@ -268,7 +272,7 @@ Example of a relative ID: $self/frontEndConfigurations/my-frontend.`
 			if existing, has := m.pkg.Types[tok]; has && strings.HasSuffix(tok, "Response") && isOutput {
 				if !propertiesEqual(existing, spec) {
 					// then disambiguate the token by adding a numeric suffix.
-					tok, err = m.disambiguateTypeToken(tok)
+					tok, err = m.disambiguateTypeToken(tok, spec)
 					if err != nil {
 						return nil, fmt.Errorf("failed to disambiguate type token %q: %w", tok, err)
 					}
@@ -284,9 +288,17 @@ Example of a relative ID: $self/frontEndConfigurations/my-frontend.`
 					// for example if the type token is module:ResponseType and a type of that token
 					// already exists, then we should try to rename it with a numeric suffix
 					// so that it becomes module:ResponseTypeV1, module:ResponseTypeV2, etc.
-					tok, err = m.disambiguateTypeToken(tok)
+					tok, err = m.disambiguateTypeToken(tok, spec)
 					if err != nil {
 						return nil, fmt.Errorf("failed to disambiguate type token %q: %w", tok, err)
+					}
+					// disambiguateTypeToken may have picked an existing, structurally
+					// identical variant (e.g. TypeV1) to reuse rather than an unused
+					// token. Merge into it so we don't drop any of its properties.
+					if existing, has := m.pkg.Types[tok]; has {
+						if merged, err := mergeTypes(spec, existing, isOutput); err == nil {
+							spec = *merged
+						}
 					}
 				}
 			}
