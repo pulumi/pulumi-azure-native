@@ -144,6 +144,11 @@ func shouldRetryConflict(resp *http.Response) bool {
 			if responseErr.ErrorCode == "TransientError" {
 				return true
 			}
+
+			// for resources of type azure-native:resources:TagAtScope
+			if responseErr.ErrorCode == "ConflictingConcurrentWriteNotAllowed" {
+				return true
+			}
 		}
 	}
 	return false
