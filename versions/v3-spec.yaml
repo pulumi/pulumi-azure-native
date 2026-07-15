@@ -1832,7 +1832,7 @@ VideoIndexer:
 VirtualMachineImages:
     tracking: "2024-02-01"
 Web:
-    tracking: "2024-11-01"
+    tracking: "2025-05-01"
     additions:
         AiGateway: 2026-03-01-preview
         Connection: "2016-06-01"
