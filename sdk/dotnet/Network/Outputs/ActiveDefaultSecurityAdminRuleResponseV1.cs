@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// <summary>
         /// Effective configuration groups.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ConfigurationGroupResponseV2> RuleGroups;
+        public readonly ImmutableArray<Outputs.ConfigurationGroupResponseV1> RuleGroups;
         /// <summary>
         /// The source port ranges.
         /// </summary>
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string? ruleCollectionDescription,
 
-            ImmutableArray<Outputs.ConfigurationGroupResponseV2> ruleGroups,
+            ImmutableArray<Outputs.ConfigurationGroupResponseV1> ruleGroups,
 
             ImmutableArray<string> sourcePortRanges,
 

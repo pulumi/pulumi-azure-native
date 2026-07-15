@@ -14990,16 +14990,6 @@ export namespace awsconnector {
     }
 
     /**
-     * Definition of ActionDefinition
-     */
-    export interface ActionDefinitionResponseV1 {
-        /**
-         * Property publishMetricAction
-         */
-        publishMetricAction?: outputs.awsconnector.PublishMetricActionResponseV1;
-    }
-
-    /**
      * Definition of Action
      */
     export interface ActionResponse {
@@ -24371,20 +24361,6 @@ export namespace awsconnector {
     }
 
     /**
-     * Definition of CustomAction
-     */
-    export interface CustomActionResponseV1 {
-        /**
-         * Property actionDefinition
-         */
-        actionDefinition?: outputs.awsconnector.ActionDefinitionResponseV1;
-        /**
-         * Property actionName
-         */
-        actionName?: string;
-    }
-
-    /**
      * Definition of CustomErrorResponse
      */
     export interface CustomErrorResponseResponse {
@@ -24989,16 +24965,6 @@ export namespace awsconnector {
      * Definition of Dimension
      */
     export interface DimensionResponseV2 {
-        /**
-         * Property value
-         */
-        value?: string;
-    }
-
-    /**
-     * Definition of Dimension
-     */
-    export interface DimensionResponseV3 {
         /**
          * Property value
          */
@@ -32954,16 +32920,6 @@ export namespace awsconnector {
     }
 
     /**
-     * Definition of PublishMetricAction
-     */
-    export interface PublishMetricActionResponseV1 {
-        /**
-         * Property dimensions
-         */
-        dimensions?: outputs.awsconnector.DimensionResponseV3[];
-    }
-
-    /**
      * Definition of QueryLoggingConfig
      */
     export interface QueryLoggingConfigResponse {
@@ -35946,7 +35902,7 @@ export namespace awsconnector {
         /**
          * Property customActions
          */
-        customActions?: outputs.awsconnector.CustomActionResponseV1[];
+        customActions?: outputs.awsconnector.CustomActionResponse[];
         /**
          * Property statelessRules
          */
@@ -72552,28 +72508,6 @@ export namespace containerinstance {
     }
 
     /**
-     * The properties of the Azure File volume. Azure File shares are mounted as volumes.
-     */
-    export interface AzureFileVolumeResponseV2 {
-        /**
-         * The flag indicating whether the Azure File shared mounted as a volume is read-only.
-         */
-        readOnly?: boolean;
-        /**
-         * The name of the Azure File share to be mounted as a volume.
-         */
-        shareName: string;
-        /**
-         * The storage account access key used to access the Azure File share.
-         */
-        storageAccountKey?: string;
-        /**
-         * The name of the storage account that contains the Azure File share.
-         */
-        storageAccountName: string;
-    }
-
-    /**
      * The properties for confidential container group
      */
     export interface ConfidentialComputePropertiesResponse {
@@ -72904,60 +72838,6 @@ export namespace containerinstance {
     }
 
     /**
-     * A container instance.
-     */
-    export interface ContainerResponseV2 {
-        /**
-         * The commands to execute within the container instance in exec form.
-         */
-        command?: string[];
-        /**
-         * The config map.
-         */
-        configMap?: outputs.containerinstance.ConfigMapResponse;
-        /**
-         * The environment variables to set in the container instance.
-         */
-        environmentVariables?: outputs.containerinstance.EnvironmentVariableResponseV2[];
-        /**
-         * The name of the image used to create the container instance.
-         */
-        image?: string;
-        /**
-         * The instance view of the container instance. Only valid in response.
-         */
-        instanceView: outputs.containerinstance.ContainerPropertiesResponseInstanceView;
-        /**
-         * The liveness probe.
-         */
-        livenessProbe?: outputs.containerinstance.ContainerProbeResponse;
-        /**
-         * The user-provided name of the container instance.
-         */
-        name: string;
-        /**
-         * The exposed ports on the container instance.
-         */
-        ports?: outputs.containerinstance.ContainerPortResponse[];
-        /**
-         * The readiness probe.
-         */
-        readinessProbe?: outputs.containerinstance.ContainerProbeResponse;
-        /**
-         * The resource requirements of the container instance.
-         */
-        resources?: outputs.containerinstance.ResourceRequirementsResponse;
-        /**
-         * The container security properties.
-         */
-        securityContext?: outputs.containerinstance.SecurityContextDefinitionResponse;
-        /**
-         * The volume mounts available to the container instance.
-         */
-        volumeMounts?: outputs.containerinstance.VolumeMountResponse[];
-    }
-
-    /**
      * The container instance state.
      */
     export interface ContainerStateResponse {
@@ -73104,24 +72984,6 @@ export namespace containerinstance {
      * The environment variable to set within the container instance.
      */
     export interface EnvironmentVariableResponseV1 {
-        /**
-         * The name of the environment variable.
-         */
-        name: string;
-        /**
-         * The value of the secure environment variable.
-         */
-        secureValue?: string;
-        /**
-         * The value of the environment variable.
-         */
-        value?: string;
-    }
-
-    /**
-     * The environment variable to set within the container instance.
-     */
-    export interface EnvironmentVariableResponseV2 {
         /**
          * The name of the environment variable.
          */
@@ -73285,32 +73147,6 @@ export namespace containerinstance {
      * Image registry credential.
      */
     export interface ImageRegistryCredentialResponseV1 {
-        /**
-         * The identity for the private registry.
-         */
-        identity?: string;
-        /**
-         * The identity URL for the private registry.
-         */
-        identityUrl?: string;
-        /**
-         * The password for the private registry.
-         */
-        password?: string;
-        /**
-         * The Docker image registry server without a protocol such as "http" and "https".
-         */
-        server: string;
-        /**
-         * The username for the private registry.
-         */
-        username?: string;
-    }
-
-    /**
-     * Image registry credential.
-     */
-    export interface ImageRegistryCredentialResponseV2 {
         /**
          * The identity for the private registry.
          */
@@ -73835,32 +73671,6 @@ export namespace containerinstance {
          * The Azure File volume.
          */
         azureFile?: outputs.containerinstance.AzureFileVolumeResponseV1;
-        /**
-         * The empty directory volume.
-         */
-        emptyDir?: any;
-        /**
-         * The git repo volume.
-         */
-        gitRepo?: outputs.containerinstance.GitRepoVolumeResponse;
-        /**
-         * The name of the volume.
-         */
-        name: string;
-        /**
-         * The secret volume.
-         */
-        secret?: {[key: string]: string};
-    }
-
-    /**
-     * The properties of the volume.
-     */
-    export interface VolumeResponseV2 {
-        /**
-         * The Azure File volume.
-         */
-        azureFile?: outputs.containerinstance.AzureFileVolumeResponseV2;
         /**
          * The empty directory volume.
          */
@@ -80264,37 +80074,6 @@ export namespace cosmosdb {
     }
 
     /**
-     * The configuration of the partition key to be used for partitioning data into multiple partitions
-     */
-    export interface ContainerPartitionKeyResponseV2 {
-        /**
-         * Indicates the kind of algorithm used for partitioning. For MultiHash, multiple partition keys (upto three maximum) are supported for container create
-         */
-        kind?: string;
-        /**
-         * List of paths using which data within the container can be partitioned
-         */
-        paths?: string[];
-        /**
-         * Indicates if the container is using a system generated partition key
-         */
-        systemKey: boolean;
-        /**
-         * Indicates the version of the partition key definition
-         */
-        version?: number;
-    }
-    /**
-     * containerPartitionKeyResponseV2ProvideDefaults sets the appropriate defaults for ContainerPartitionKeyResponseV2
-     */
-    export function containerPartitionKeyResponseV2ProvideDefaults(val: ContainerPartitionKeyResponseV2): ContainerPartitionKeyResponseV2 {
-        return {
-            ...val,
-            kind: (val.kind) ?? "Hash",
-        };
-    }
-
-    /**
      * The object representing continuous mode backup policy.
      */
     export interface ContinuousModeBackupPolicyResponse {
@@ -81042,53 +80821,6 @@ export namespace cosmosdb {
     }
 
     /**
-     * Cosmos DB indexing policy
-     */
-    export interface IndexingPolicyResponseV2 {
-        /**
-         * Indicates if the indexing policy is automatic
-         */
-        automatic?: boolean;
-        /**
-         * List of composite path list
-         */
-        compositeIndexes?: outputs.cosmosdb.CompositePathResponse[][];
-        /**
-         * List of paths to exclude from indexing
-         */
-        excludedPaths?: outputs.cosmosdb.ExcludedPathResponse[];
-        /**
-         * List of paths to include in the full text indexing
-         */
-        fullTextIndexes?: outputs.cosmosdb.FullTextIndexPathResponse[];
-        /**
-         * List of paths to include in the indexing
-         */
-        includedPaths?: outputs.cosmosdb.IncludedPathResponse[];
-        /**
-         * Indicates the indexing mode.
-         */
-        indexingMode?: string;
-        /**
-         * List of spatial specifics
-         */
-        spatialIndexes?: outputs.cosmosdb.SpatialSpecResponse[];
-        /**
-         * List of paths to include in the vector indexing
-         */
-        vectorIndexes?: outputs.cosmosdb.VectorIndexResponse[];
-    }
-    /**
-     * indexingPolicyResponseV2ProvideDefaults sets the appropriate defaults for IndexingPolicyResponseV2
-     */
-    export function indexingPolicyResponseV2ProvideDefaults(val: IndexingPolicyResponseV2): IndexingPolicyResponseV2 {
-        return {
-            ...val,
-            indexingMode: (val.indexingMode) ?? "consistent",
-        };
-    }
-
-    /**
      * IpAddressOrRange object
      */
     export interface IpAddressOrRangeResponse {
@@ -81678,11 +81410,11 @@ export namespace cosmosdb {
         /**
          * The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
          */
-        indexingPolicy?: outputs.cosmosdb.IndexingPolicyResponseV2;
+        indexingPolicy?: outputs.cosmosdb.IndexingPolicyResponseV1;
         /**
          * The configuration of the partition key to be used for partitioning data into multiple partitions
          */
-        partitionKey?: outputs.cosmosdb.ContainerPartitionKeyResponseV2;
+        partitionKey?: outputs.cosmosdb.ContainerPartitionKeyResponseV1;
         /**
          * Parameters to indicate the information about the restore
          */
@@ -81711,8 +81443,8 @@ export namespace cosmosdb {
         return {
             ...val,
             conflictResolutionPolicy: (val.conflictResolutionPolicy ? outputs.cosmosdb.conflictResolutionPolicyResponseProvideDefaults(val.conflictResolutionPolicy) : undefined),
-            indexingPolicy: (val.indexingPolicy ? outputs.cosmosdb.indexingPolicyResponseV2ProvideDefaults(val.indexingPolicy) : undefined),
-            partitionKey: (val.partitionKey ? outputs.cosmosdb.containerPartitionKeyResponseV2ProvideDefaults(val.partitionKey) : undefined),
+            indexingPolicy: (val.indexingPolicy ? outputs.cosmosdb.indexingPolicyResponseV1ProvideDefaults(val.indexingPolicy) : undefined),
+            partitionKey: (val.partitionKey ? outputs.cosmosdb.containerPartitionKeyResponseV1ProvideDefaults(val.partitionKey) : undefined),
         };
     }
 
@@ -165526,84 +165258,6 @@ export namespace machinelearningservices {
     }
 
     /**
-     * Environment version details.
-     */
-    export interface EnvironmentVersionPropertiesResponseV1 {
-        /**
-         * AutoRebuild setting for the derived image
-         */
-        autoRebuild?: string;
-        /**
-         * Configuration settings for Docker build context.
-         */
-        build?: outputs.machinelearningservices.BuildContextResponse;
-        /**
-         * Standard configuration file used by Conda that lets you install any kind of package, including Python, R, and C/C++ packages.
-         * <see href="https://repo2docker.readthedocs.io/en/latest/config_files.html#environment-yml-install-a-conda-environment" />
-         */
-        condaFile?: string;
-        /**
-         * The asset description text.
-         */
-        description?: string;
-        /**
-         * Environment type is either user managed or curated by the Azure ML service
-         * <see href="https://docs.microsoft.com/en-us/azure/machine-learning/resource-curated-environments" />
-         */
-        environmentType: string;
-        /**
-         * Name of the image that will be used for the environment.
-         * <seealso href="https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-custom-docker-image#use-a-custom-base-image" />
-         */
-        image?: string;
-        /**
-         * Defines configuration specific to inference.
-         */
-        inferenceConfig?: outputs.machinelearningservices.InferenceContainerPropertiesResponseV2;
-        /**
-         * If the name version are system generated (anonymous registration).
-         */
-        isAnonymous?: boolean;
-        /**
-         * Is the asset archived?
-         */
-        isArchived?: boolean;
-        /**
-         * The type of operating system.
-         */
-        osType?: string;
-        /**
-         * The asset property dictionary.
-         */
-        properties?: {[key: string]: string};
-        /**
-         * Provisioning state for the environment version.
-         */
-        provisioningState: string;
-        /**
-         * Stage in the environment lifecycle assigned to this environment
-         */
-        stage?: string;
-        /**
-         * Tag dictionary. Tags can be added, removed, and updated.
-         */
-        tags?: {[key: string]: string};
-    }
-    /**
-     * environmentVersionPropertiesResponseV1ProvideDefaults sets the appropriate defaults for EnvironmentVersionPropertiesResponseV1
-     */
-    export function environmentVersionPropertiesResponseV1ProvideDefaults(val: EnvironmentVersionPropertiesResponseV1): EnvironmentVersionPropertiesResponseV1 {
-        return {
-            ...val,
-            autoRebuild: (val.autoRebuild) ?? "Disabled",
-            build: (val.build ? outputs.machinelearningservices.buildContextResponseProvideDefaults(val.build) : undefined),
-            isAnonymous: (val.isAnonymous) ?? false,
-            isArchived: (val.isArchived) ?? false,
-            osType: (val.osType) ?? "Linux",
-        };
-    }
-
-    /**
      * The resource management error additional info.
      */
     export interface ErrorAdditionalInfoResponse {
@@ -166553,50 +166207,6 @@ export namespace machinelearningservices {
          * The user assigned identities associated with the resource.
          */
         userAssignedIdentities?: {[key: string]: outputs.machinelearningservices.UserAssignedIdentityResponseV1};
-    }
-
-    /**
-     * Identity for the resource.
-     */
-    export interface IdentityResponseV1 {
-        /**
-         * The principal ID of resource identity.
-         */
-        principalId: string;
-        /**
-         * The tenant ID of resource.
-         */
-        tenantId: string;
-        /**
-         * The identity type.
-         */
-        type?: string;
-        /**
-         * The user assigned identities associated with the resource.
-         */
-        userAssignedIdentities?: {[key: string]: outputs.machinelearningservices.UserAssignedIdentityResponseV2};
-    }
-
-    /**
-     * Identity for the resource.
-     */
-    export interface IdentityResponseV2 {
-        /**
-         * The principal ID of resource identity.
-         */
-        principalId: string;
-        /**
-         * The tenant ID of resource.
-         */
-        tenantId: string;
-        /**
-         * The identity type.
-         */
-        type?: string;
-        /**
-         * The user assigned identities associated with the resource.
-         */
-        userAssignedIdentities?: {[key: string]: outputs.machinelearningservices.UserAssignedIdentityResponseV3};
     }
 
     /**
@@ -167764,25 +167374,6 @@ export namespace machinelearningservices {
     }
 
     export interface InferenceContainerPropertiesResponseV1 {
-        /**
-         * The route to check the liveness of the inference server container.
-         */
-        livenessRoute?: outputs.machinelearningservices.RouteResponse;
-        /**
-         * The route to check the readiness of the inference server container.
-         */
-        readinessRoute?: outputs.machinelearningservices.RouteResponse;
-        /**
-         * The port to send the scoring requests to, within the inference server container.
-         */
-        scoringRoute?: outputs.machinelearningservices.RouteResponse;
-        /**
-         * The route to check the startup of the application in the container.
-         */
-        startupRoute?: outputs.machinelearningservices.RouteResponse;
-    }
-
-    export interface InferenceContainerPropertiesResponseV2 {
         /**
          * The route to check the liveness of the inference server container.
          */
@@ -171241,20 +170832,6 @@ export namespace machinelearningservices {
         tier?: string;
     }
 
-    /**
-     * Sku of the resource
-     */
-    export interface SkuResponseV2 {
-        /**
-         * Name of the sku
-         */
-        name?: string;
-        /**
-         * Tier of the sku like Basic or Enterprise
-         */
-        tier?: string;
-    }
-
     export interface SparkJobPythonEntryResponse {
         /**
          * [Required] Relative python file path for job entry point.
@@ -172642,42 +172219,6 @@ export namespace machinelearningservices {
      * User Assigned Identity
      */
     export interface UserAssignedIdentityResponseV1 {
-        /**
-         * The clientId(aka appId) of the user assigned identity.
-         */
-        clientId: string;
-        /**
-         * The principal ID of the user assigned identity.
-         */
-        principalId: string;
-        /**
-         * The tenant ID of the user assigned identity.
-         */
-        tenantId: string;
-    }
-
-    /**
-     * User Assigned Identity
-     */
-    export interface UserAssignedIdentityResponseV2 {
-        /**
-         * The clientId(aka appId) of the user assigned identity.
-         */
-        clientId: string;
-        /**
-         * The principal ID of the user assigned identity.
-         */
-        principalId: string;
-        /**
-         * The tenant ID of the user assigned identity.
-         */
-        tenantId: string;
-    }
-
-    /**
-     * User Assigned Identity
-     */
-    export interface UserAssignedIdentityResponseV3 {
         /**
          * The clientId(aka appId) of the user assigned identity.
          */
@@ -178862,7 +178403,7 @@ export namespace migrate {
          * Gets or sets the duration for which the VMs are up in the on-premises
          * environment.
          */
-        vmUptime?: outputs.migrate.VmUptimeResponseV2;
+        vmUptime?: outputs.migrate.VmUptimeResponseV1;
     }
 
     /**
@@ -180944,20 +180485,6 @@ export namespace migrate {
      * Details on the total up-time for the VM.
      */
     export interface VmUptimeResponseV1 {
-        /**
-         * Number of days in a month for VM uptime.
-         */
-        daysPerMonth?: number;
-        /**
-         * Number of hours per day for VM uptime.
-         */
-        hoursPerDay?: number;
-    }
-
-    /**
-     * Details on the total up-time for the VM.
-     */
-    export interface VmUptimeResponseV2 {
         /**
          * Number of days in a month for VM uptime.
          */
@@ -187500,88 +187027,6 @@ export namespace netapp {
     }
 
     /**
-     * Volume Export Policy Rule
-     */
-    export interface ExportPolicyRuleResponseV2 {
-        /**
-         * Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
-         */
-        allowedClients?: string;
-        /**
-         * This parameter specifies who is authorized to change the ownership of a file. restricted - Only root user can change the ownership of the file. unrestricted - Non-root users can change ownership of files that they own.
-         */
-        chownMode?: string;
-        /**
-         * Allows CIFS protocol
-         */
-        cifs?: boolean;
-        /**
-         * Has root access to volume
-         */
-        hasRootAccess?: boolean;
-        /**
-         * Kerberos5 Read only access. To be use with swagger version 2020-05-01 or later
-         */
-        kerberos5ReadOnly?: boolean;
-        /**
-         * Kerberos5 Read and write access. To be use with swagger version 2020-05-01 or later
-         */
-        kerberos5ReadWrite?: boolean;
-        /**
-         * Kerberos5i Read only access. To be use with swagger version 2020-05-01 or later
-         */
-        kerberos5iReadOnly?: boolean;
-        /**
-         * Kerberos5i Read and write access. To be use with swagger version 2020-05-01 or later
-         */
-        kerberos5iReadWrite?: boolean;
-        /**
-         * Kerberos5p Read only access. To be use with swagger version 2020-05-01 or later
-         */
-        kerberos5pReadOnly?: boolean;
-        /**
-         * Kerberos5p Read and write access. To be use with swagger version 2020-05-01 or later
-         */
-        kerberos5pReadWrite?: boolean;
-        /**
-         * Allows NFSv3 protocol. Enable only for NFSv3 type volumes
-         */
-        nfsv3?: boolean;
-        /**
-         * Allows NFSv4.1 protocol. Enable only for NFSv4.1 type volumes
-         */
-        nfsv41?: boolean;
-        /**
-         * Order index
-         */
-        ruleIndex?: number;
-        /**
-         * Read only access
-         */
-        unixReadOnly?: boolean;
-        /**
-         * Read and write access
-         */
-        unixReadWrite?: boolean;
-    }
-    /**
-     * exportPolicyRuleResponseV2ProvideDefaults sets the appropriate defaults for ExportPolicyRuleResponseV2
-     */
-    export function exportPolicyRuleResponseV2ProvideDefaults(val: ExportPolicyRuleResponseV2): ExportPolicyRuleResponseV2 {
-        return {
-            ...val,
-            chownMode: (val.chownMode) ?? "Restricted",
-            hasRootAccess: (val.hasRootAccess) ?? true,
-            kerberos5ReadOnly: (val.kerberos5ReadOnly) ?? false,
-            kerberos5ReadWrite: (val.kerberos5ReadWrite) ?? false,
-            kerberos5iReadOnly: (val.kerberos5iReadOnly) ?? false,
-            kerberos5iReadWrite: (val.kerberos5iReadWrite) ?? false,
-            kerberos5pReadOnly: (val.kerberos5pReadOnly) ?? false,
-            kerberos5pReadWrite: (val.kerberos5pReadWrite) ?? false,
-        };
-    }
-
-    /**
      * File System user having access to volume data. For Unix, this is the user's uid and gid. For Windows, this is the user's username. Note that the Unix and Windows user details are mutually exclusive, meaning one or other must be supplied, but not both.
      */
     export interface FileSystemUserResponse {
@@ -188155,7 +187600,7 @@ export namespace netapp {
         /**
          * Set of export policy rules
          */
-        exportPolicy?: outputs.netapp.VolumePropertiesResponseExportPolicyV1;
+        exportPolicy?: outputs.netapp.VolumePropertiesResponseExportPolicy;
         /**
          * Flag indicating whether file access logs are enabled for the volume, based on active diagnostic settings present on the volume.
          */
@@ -188369,16 +187814,6 @@ export namespace netapp {
          * Export policy rule
          */
         rules?: outputs.netapp.ExportPolicyRuleResponseV1[];
-    }
-
-    /**
-     * Set of export policy rules
-     */
-    export interface VolumePropertiesResponseExportPolicyV1 {
-        /**
-         * Export policy rule
-         */
-        rules?: outputs.netapp.ExportPolicyRuleResponseV2[];
     }
 
     /**
@@ -188745,7 +188180,7 @@ export namespace network {
         /**
          * Effective configuration groups.
          */
-        ruleGroups?: outputs.network.ConfigurationGroupResponseV2[];
+        ruleGroups?: outputs.network.ConfigurationGroupResponseV1[];
         /**
          * The source port ranges.
          */
@@ -188820,7 +188255,7 @@ export namespace network {
         /**
          * Groups for rule collection
          */
-        ruleCollectionAppliesToGroups?: outputs.network.NetworkManagerSecurityGroupItemResponseV2[];
+        ruleCollectionAppliesToGroups?: outputs.network.NetworkManagerSecurityGroupItemResponseV1[];
         /**
          * A description of the rule collection.
          */
@@ -188907,7 +188342,7 @@ export namespace network {
         /**
          * Effective configuration groups.
          */
-        ruleGroups?: outputs.network.ConfigurationGroupResponseV3[];
+        ruleGroups?: outputs.network.ConfigurationGroupResponseV2[];
         /**
          * The source port ranges.
          */
@@ -194533,32 +193968,6 @@ export namespace network {
          */
         description?: string;
         /**
-         * Network group ID.
-         */
-        id?: string;
-        /**
-         * The type of the group member.
-         */
-        memberType?: string;
-        /**
-         * The provisioning state of the scope assignment resource.
-         */
-        provisioningState: string;
-        /**
-         * Unique identifier for this resource.
-         */
-        resourceGuid: string;
-    }
-
-    /**
-     * The network configuration group resource
-     */
-    export interface ConfigurationGroupResponseV3 {
-        /**
-         * A description of the network group.
-         */
-        description?: string;
-        /**
          * Resource ID.
          */
         id?: string;
@@ -194570,58 +193979,6 @@ export namespace network {
          * The provisioning state of the scope assignment resource.
          */
         provisioningState: string;
-    }
-
-    /**
-     * The network configuration group resource
-     */
-    export interface ConfigurationGroupResponseV4 {
-        /**
-         * A description of the network group.
-         */
-        description?: string;
-        /**
-         * Network group ID.
-         */
-        id?: string;
-        /**
-         * The type of the group member.
-         */
-        memberType?: string;
-        /**
-         * The provisioning state of the scope assignment resource.
-         */
-        provisioningState: string;
-        /**
-         * Unique identifier for this resource.
-         */
-        resourceGuid: string;
-    }
-
-    /**
-     * The network configuration group resource
-     */
-    export interface ConfigurationGroupResponseV5 {
-        /**
-         * A description of the network group.
-         */
-        description?: string;
-        /**
-         * Network group ID.
-         */
-        id?: string;
-        /**
-         * The type of the group member.
-         */
-        memberType?: string;
-        /**
-         * The provisioning state of the scope assignment resource.
-         */
-        provisioningState: string;
-        /**
-         * Unique identifier for this resource.
-         */
-        resourceGuid: string;
     }
 
     /**
@@ -194983,25 +194340,6 @@ export namespace network {
         useHubGateway?: string;
     }
 
-    export interface ConnectivityGroupItemResponseV2 {
-        /**
-         * Group connectivity type.
-         */
-        groupConnectivity?: string;
-        /**
-         * Flag if global is supported.
-         */
-        isGlobal?: string;
-        /**
-         * Network group Id.
-         */
-        networkGroupId?: string;
-        /**
-         * Flag if need to use hub gateway.
-         */
-        useHubGateway?: string;
-    }
-
     /**
      * Container network interface configuration child resource.
      */
@@ -195319,7 +194657,7 @@ export namespace network {
         /**
          * Groups for configuration
          */
-        appliesToGroups?: outputs.network.ConnectivityGroupItemResponseV2[];
+        appliesToGroups?: outputs.network.ConnectivityGroupItemResponseV1[];
         /**
          * Effective configuration groups.
          */
@@ -195369,7 +194707,7 @@ export namespace network {
         /**
          * Effective configuration groups.
          */
-        configurationGroups?: outputs.network.ConfigurationGroupResponseV4[];
+        configurationGroups?: outputs.network.ConfigurationGroupResponseV1[];
         /**
          * Connectivity topology type.
          */
@@ -195468,7 +194806,7 @@ export namespace network {
         /**
          * Groups for rule collection
          */
-        ruleCollectionAppliesToGroups?: outputs.network.NetworkManagerSecurityGroupItemResponseV3[];
+        ruleCollectionAppliesToGroups?: outputs.network.NetworkManagerSecurityGroupItemResponseV1[];
         /**
          * A description of the rule collection.
          */
@@ -195559,7 +194897,7 @@ export namespace network {
         /**
          * Effective configuration groups.
          */
-        ruleGroups?: outputs.network.ConfigurationGroupResponseV5[];
+        ruleGroups?: outputs.network.ConfigurationGroupResponseV1[];
         /**
          * The source port ranges.
          */
@@ -196195,7 +195533,7 @@ export namespace network {
         /**
          * The Routing Configuration indicating the associated and propagated route tables on this connection.
          */
-        routingConfiguration?: outputs.network.RoutingConfigurationResponseV2;
+        routingConfiguration?: outputs.network.RoutingConfigurationResponseV1;
         /**
          * The routing weight associated to the connection.
          */
@@ -198999,26 +198337,6 @@ export namespace network {
     }
 
     /**
-     * Network manager security group item.
-     */
-    export interface NetworkManagerSecurityGroupItemResponseV2 {
-        /**
-         * Network manager group Id.
-         */
-        networkGroupId?: string;
-    }
-
-    /**
-     * Network manager security group item.
-     */
-    export interface NetworkManagerSecurityGroupItemResponseV3 {
-        /**
-         * Network manager group Id.
-         */
-        networkGroupId?: string;
-    }
-
-    /**
      * Rule condition of type network.
      */
     export interface NetworkRuleConditionResponse {
@@ -199424,91 +198742,7 @@ export namespace network {
         /**
          * The Routing Configuration indicating the associated and propagated route tables on this connection.
          */
-        routingConfiguration?: outputs.network.RoutingConfigurationResponseV5;
-        /**
-         * The reference to the address space resource which represents Address space for P2S VpnClient.
-         */
-        vpnClientAddressPool?: outputs.network.AddressSpaceResponse;
-    }
-
-    /**
-     * P2SConnectionConfiguration Resource.
-     */
-    export interface P2SConnectionConfigurationResponseV1 {
-        /**
-         * List of Configuration Policy Groups that this P2SConnectionConfiguration is attached to.
-         */
-        configurationPolicyGroupAssociations: outputs.network.SubResourceResponse[];
-        /**
-         * Flag indicating whether the enable internet security flag is turned on for the P2S Connections or not.
-         */
-        enableInternetSecurity?: boolean;
-        /**
-         * A unique read-only string that changes whenever the resource is updated.
-         */
-        etag: string;
-        /**
-         * Resource ID.
-         */
-        id?: string;
-        /**
-         * The name of the resource that is unique within a resource group. This name can be used to access the resource.
-         */
-        name?: string;
-        /**
-         * List of previous Configuration Policy Groups that this P2SConnectionConfiguration was attached to.
-         */
-        previousConfigurationPolicyGroupAssociations: outputs.network.VpnServerConfigurationPolicyGroupResponse[];
-        /**
-         * The provisioning state of the P2SConnectionConfiguration resource.
-         */
-        provisioningState: string;
-        /**
-         * The Routing Configuration indicating the associated and propagated route tables on this connection.
-         */
-        routingConfiguration?: outputs.network.RoutingConfigurationResponseV8;
-        /**
-         * The reference to the address space resource which represents Address space for P2S VpnClient.
-         */
-        vpnClientAddressPool?: outputs.network.AddressSpaceResponse;
-    }
-
-    /**
-     * P2SConnectionConfiguration Resource.
-     */
-    export interface P2SConnectionConfigurationResponseV2 {
-        /**
-         * List of Configuration Policy Groups that this P2SConnectionConfiguration is attached to.
-         */
-        configurationPolicyGroupAssociations: outputs.network.SubResourceResponse[];
-        /**
-         * Flag indicating whether the enable internet security flag is turned on for the P2S Connections or not.
-         */
-        enableInternetSecurity?: boolean;
-        /**
-         * A unique read-only string that changes whenever the resource is updated.
-         */
-        etag: string;
-        /**
-         * Resource ID.
-         */
-        id?: string;
-        /**
-         * The name of the resource that is unique within a resource group. This name can be used to access the resource.
-         */
-        name?: string;
-        /**
-         * List of previous Configuration Policy Groups that this P2SConnectionConfiguration was attached to.
-         */
-        previousConfigurationPolicyGroupAssociations: outputs.network.VpnServerConfigurationPolicyGroupResponse[];
-        /**
-         * The provisioning state of the P2SConnectionConfiguration resource.
-         */
-        provisioningState: string;
-        /**
-         * The Routing Configuration indicating the associated and propagated route tables on this connection.
-         */
-        routingConfiguration?: outputs.network.RoutingConfigurationResponseV9;
+        routingConfiguration?: outputs.network.RoutingConfigurationResponseV1;
         /**
          * The reference to the address space resource which represents Address space for P2S VpnClient.
          */
@@ -199546,7 +198780,7 @@ export namespace network {
         /**
          * List of all p2s connection configurations of the gateway.
          */
-        p2SConnectionConfigurations?: outputs.network.P2SConnectionConfigurationResponseV1[];
+        p2SConnectionConfigurations?: outputs.network.P2SConnectionConfigurationResponse[];
         /**
          * The provisioning state of the P2S VPN gateway resource.
          */
@@ -200531,104 +199765,6 @@ export namespace network {
     }
 
     /**
-     * The list of RouteTables to advertise the routes to.
-     */
-    export interface PropagatedRouteTableResponseV2 {
-        /**
-         * The list of resource ids of all the RouteTables.
-         */
-        ids?: outputs.network.SubResourceResponse[];
-        /**
-         * The list of labels.
-         */
-        labels?: string[];
-    }
-
-    /**
-     * The list of RouteTables to advertise the routes to.
-     */
-    export interface PropagatedRouteTableResponseV3 {
-        /**
-         * The list of resource ids of all the RouteTables.
-         */
-        ids?: outputs.network.SubResourceResponse[];
-        /**
-         * The list of labels.
-         */
-        labels?: string[];
-    }
-
-    /**
-     * The list of RouteTables to advertise the routes to.
-     */
-    export interface PropagatedRouteTableResponseV5 {
-        /**
-         * The list of resource ids of all the RouteTables.
-         */
-        ids?: outputs.network.SubResourceResponse[];
-        /**
-         * The list of labels.
-         */
-        labels?: string[];
-    }
-
-    /**
-     * The list of RouteTables to advertise the routes to.
-     */
-    export interface PropagatedRouteTableResponseV6 {
-        /**
-         * The list of resource ids of all the RouteTables.
-         */
-        ids?: outputs.network.SubResourceResponse[];
-        /**
-         * The list of labels.
-         */
-        labels?: string[];
-    }
-
-    /**
-     * The list of RouteTables to advertise the routes to.
-     */
-    export interface PropagatedRouteTableResponseV7 {
-        /**
-         * The list of resource ids of all the RouteTables.
-         */
-        ids?: outputs.network.SubResourceResponse[];
-        /**
-         * The list of labels.
-         */
-        labels?: string[];
-    }
-
-    /**
-     * The list of RouteTables to advertise the routes to.
-     */
-    export interface PropagatedRouteTableResponseV8 {
-        /**
-         * The list of resource ids of all the RouteTables.
-         */
-        ids?: outputs.network.SubResourceResponse[];
-        /**
-         * The list of labels.
-         */
-        labels?: string[];
-    }
-
-    /**
-     * The list of RouteTables to advertise the routes to.
-     */
-    export interface PropagatedRouteTableResponseV9 {
-        /**
-         * The list of resource ids of all the RouteTables.
-         */
-        ids?: outputs.network.SubResourceResponse[];
-        /**
-         * The list of labels.
-         */
-        labels?: string[];
-    }
-
-    /**
      * Contains FQDN of the DNS record associated with the public IP address.
      */
     export interface PublicIPAddressDnsSettingsResponse {
@@ -201539,188 +200675,6 @@ export namespace network {
     }
 
     /**
-     * Routing Configuration indicating the associated and propagated route tables for this connection.
-     */
-    export interface RoutingConfigurationResponseV2 {
-        /**
-         * The resource id RouteTable associated with this RoutingConfiguration.
-         */
-        associatedRouteTable?: outputs.network.SubResourceResponse;
-        /**
-         * The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-         */
-        inboundRouteMap?: outputs.network.SubResourceResponse;
-        /**
-         * The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-         */
-        outboundRouteMap?: outputs.network.SubResourceResponse;
-        /**
-         * The list of RouteTables to advertise the routes to.
-         */
-        propagatedRouteTables?: outputs.network.PropagatedRouteTableResponseV2;
-        /**
-         * List of routes that control routing from VirtualHub into a virtual network connection.
-         */
-        vnetRoutes?: outputs.network.VnetRouteResponseV2;
-    }
-
-    /**
-     * Routing Configuration indicating the associated and propagated route tables for this connection.
-     */
-    export interface RoutingConfigurationResponseV3 {
-        /**
-         * The resource id RouteTable associated with this RoutingConfiguration.
-         */
-        associatedRouteTable?: outputs.network.SubResourceResponse;
-        /**
-         * The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-         */
-        inboundRouteMap?: outputs.network.SubResourceResponse;
-        /**
-         * The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-         */
-        outboundRouteMap?: outputs.network.SubResourceResponse;
-        /**
-         * The list of RouteTables to advertise the routes to.
-         */
-        propagatedRouteTables?: outputs.network.PropagatedRouteTableResponseV3;
-        /**
-         * List of routes that control routing from VirtualHub into a virtual network connection.
-         */
-        vnetRoutes?: outputs.network.VnetRouteResponseV3;
-    }
-
-    /**
-     * Routing Configuration indicating the associated and propagated route tables for this connection.
-     */
-    export interface RoutingConfigurationResponseV5 {
-        /**
-         * The resource id RouteTable associated with this RoutingConfiguration.
-         */
-        associatedRouteTable?: outputs.network.SubResourceResponse;
-        /**
-         * The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-         */
-        inboundRouteMap?: outputs.network.SubResourceResponse;
-        /**
-         * The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-         */
-        outboundRouteMap?: outputs.network.SubResourceResponse;
-        /**
-         * The list of RouteTables to advertise the routes to.
-         */
-        propagatedRouteTables?: outputs.network.PropagatedRouteTableResponseV5;
-        /**
-         * List of routes that control routing from VirtualHub into a virtual network connection.
-         */
-        vnetRoutes?: outputs.network.VnetRouteResponseV5;
-    }
-
-    /**
-     * Routing Configuration indicating the associated and propagated route tables for this connection.
-     */
-    export interface RoutingConfigurationResponseV6 {
-        /**
-         * The resource id RouteTable associated with this RoutingConfiguration.
-         */
-        associatedRouteTable?: outputs.network.SubResourceResponse;
-        /**
-         * The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-         */
-        inboundRouteMap?: outputs.network.SubResourceResponse;
-        /**
-         * The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-         */
-        outboundRouteMap?: outputs.network.SubResourceResponse;
-        /**
-         * The list of RouteTables to advertise the routes to.
-         */
-        propagatedRouteTables?: outputs.network.PropagatedRouteTableResponseV6;
-        /**
-         * List of routes that control routing from VirtualHub into a virtual network connection.
-         */
-        vnetRoutes?: outputs.network.VnetRouteResponseV6;
-    }
-
-    /**
-     * Routing Configuration indicating the associated and propagated route tables for this connection.
-     */
-    export interface RoutingConfigurationResponseV7 {
-        /**
-         * The resource id RouteTable associated with this RoutingConfiguration.
-         */
-        associatedRouteTable?: outputs.network.SubResourceResponse;
-        /**
-         * The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-         */
-        inboundRouteMap?: outputs.network.SubResourceResponse;
-        /**
-         * The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-         */
-        outboundRouteMap?: outputs.network.SubResourceResponse;
-        /**
-         * The list of RouteTables to advertise the routes to.
-         */
-        propagatedRouteTables?: outputs.network.PropagatedRouteTableResponseV7;
-        /**
-         * List of routes that control routing from VirtualHub into a virtual network connection.
-         */
-        vnetRoutes?: outputs.network.VnetRouteResponseV7;
-    }
-
-    /**
-     * Routing Configuration indicating the associated and propagated route tables for this connection.
-     */
-    export interface RoutingConfigurationResponseV8 {
-        /**
-         * The resource id RouteTable associated with this RoutingConfiguration.
-         */
-        associatedRouteTable?: outputs.network.SubResourceResponse;
-        /**
-         * The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-         */
-        inboundRouteMap?: outputs.network.SubResourceResponse;
-        /**
-         * The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-         */
-        outboundRouteMap?: outputs.network.SubResourceResponse;
-        /**
-         * The list of RouteTables to advertise the routes to.
-         */
-        propagatedRouteTables?: outputs.network.PropagatedRouteTableResponseV8;
-        /**
-         * List of routes that control routing from VirtualHub into a virtual network connection.
-         */
-        vnetRoutes?: outputs.network.VnetRouteResponseV8;
-    }
-
-    /**
-     * Routing Configuration indicating the associated and propagated route tables for this connection.
-     */
-    export interface RoutingConfigurationResponseV9 {
-        /**
-         * The resource id RouteTable associated with this RoutingConfiguration.
-         */
-        associatedRouteTable?: outputs.network.SubResourceResponse;
-        /**
-         * The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-         */
-        inboundRouteMap?: outputs.network.SubResourceResponse;
-        /**
-         * The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-         */
-        outboundRouteMap?: outputs.network.SubResourceResponse;
-        /**
-         * The list of RouteTables to advertise the routes to.
-         */
-        propagatedRouteTables?: outputs.network.PropagatedRouteTableResponseV9;
-        /**
-         * List of routes that control routing from VirtualHub into a virtual network connection.
-         */
-        vnetRoutes?: outputs.network.VnetRouteResponseV9;
-    }
-
-    /**
      * The routing policy object used in a RoutingIntent resource.
      */
     export interface RoutingPolicyResponse {
@@ -202389,104 +201343,6 @@ export namespace network {
      * Configuration for static routes on this HubVnetConnectionConfiguration for static routes on this HubVnetConnection.
      */
     export interface StaticRoutesConfigResponseV1 {
-        /**
-         * Boolean indicating whether static routes on this connection are automatically propagate to route tables which this connection propagates to.
-         */
-        propagateStaticRoutes: boolean;
-        /**
-         * Parameter determining whether NVA in spoke vnet is bypassed for traffic with destination in spoke.
-         */
-        vnetLocalRouteOverrideCriteria?: string;
-    }
-
-    /**
-     * Configuration for static routes on this HubVnetConnectionConfiguration for static routes on this HubVnetConnection.
-     */
-    export interface StaticRoutesConfigResponseV2 {
-        /**
-         * Boolean indicating whether static routes on this connection are automatically propagate to route tables which this connection propagates to.
-         */
-        propagateStaticRoutes: boolean;
-        /**
-         * Parameter determining whether NVA in spoke vnet is bypassed for traffic with destination in spoke.
-         */
-        vnetLocalRouteOverrideCriteria?: string;
-    }
-
-    /**
-     * Configuration for static routes on this HubVnetConnectionConfiguration for static routes on this HubVnetConnection.
-     */
-    export interface StaticRoutesConfigResponseV3 {
-        /**
-         * Boolean indicating whether static routes on this connection are automatically propagate to route tables which this connection propagates to.
-         */
-        propagateStaticRoutes: boolean;
-        /**
-         * Parameter determining whether NVA in spoke vnet is bypassed for traffic with destination in spoke.
-         */
-        vnetLocalRouteOverrideCriteria?: string;
-    }
-
-    /**
-     * Configuration for static routes on this HubVnetConnectionConfiguration for static routes on this HubVnetConnection.
-     */
-    export interface StaticRoutesConfigResponseV5 {
-        /**
-         * Boolean indicating whether static routes on this connection are automatically propagate to route tables which this connection propagates to.
-         */
-        propagateStaticRoutes: boolean;
-        /**
-         * Parameter determining whether NVA in spoke vnet is bypassed for traffic with destination in spoke.
-         */
-        vnetLocalRouteOverrideCriteria?: string;
-    }
-
-    /**
-     * Configuration for static routes on this HubVnetConnectionConfiguration for static routes on this HubVnetConnection.
-     */
-    export interface StaticRoutesConfigResponseV6 {
-        /**
-         * Boolean indicating whether static routes on this connection are automatically propagate to route tables which this connection propagates to.
-         */
-        propagateStaticRoutes: boolean;
-        /**
-         * Parameter determining whether NVA in spoke vnet is bypassed for traffic with destination in spoke.
-         */
-        vnetLocalRouteOverrideCriteria?: string;
-    }
-
-    /**
-     * Configuration for static routes on this HubVnetConnectionConfiguration for static routes on this HubVnetConnection.
-     */
-    export interface StaticRoutesConfigResponseV7 {
-        /**
-         * Boolean indicating whether static routes on this connection are automatically propagate to route tables which this connection propagates to.
-         */
-        propagateStaticRoutes: boolean;
-        /**
-         * Parameter determining whether NVA in spoke vnet is bypassed for traffic with destination in spoke.
-         */
-        vnetLocalRouteOverrideCriteria?: string;
-    }
-
-    /**
-     * Configuration for static routes on this HubVnetConnectionConfiguration for static routes on this HubVnetConnection.
-     */
-    export interface StaticRoutesConfigResponseV8 {
-        /**
-         * Boolean indicating whether static routes on this connection are automatically propagate to route tables which this connection propagates to.
-         */
-        propagateStaticRoutes: boolean;
-        /**
-         * Parameter determining whether NVA in spoke vnet is bypassed for traffic with destination in spoke.
-         */
-        vnetLocalRouteOverrideCriteria?: string;
-    }
-
-    /**
-     * Configuration for static routes on this HubVnetConnectionConfiguration for static routes on this HubVnetConnection.
-     */
-    export interface StaticRoutesConfigResponseV9 {
         /**
          * Boolean indicating whether static routes on this connection are automatically propagate to route tables which this connection propagates to.
          */
@@ -203760,132 +202616,6 @@ export namespace network {
     }
 
     /**
-     * List of routes that control routing from VirtualHub into a virtual network connection.
-     */
-    export interface VnetRouteResponseV2 {
-        /**
-         * The list of references to HubBgpConnection objects.
-         */
-        bgpConnections: outputs.network.SubResourceResponse[];
-        /**
-         * List of all Static Routes.
-         */
-        staticRoutes?: outputs.network.StaticRouteResponse[];
-        /**
-         * Configuration for static routes on this HubVnetConnection.
-         */
-        staticRoutesConfig?: outputs.network.StaticRoutesConfigResponseV2;
-    }
-
-    /**
-     * List of routes that control routing from VirtualHub into a virtual network connection.
-     */
-    export interface VnetRouteResponseV3 {
-        /**
-         * The list of references to HubBgpConnection objects.
-         */
-        bgpConnections: outputs.network.SubResourceResponse[];
-        /**
-         * List of all Static Routes.
-         */
-        staticRoutes?: outputs.network.StaticRouteResponse[];
-        /**
-         * Configuration for static routes on this HubVnetConnection.
-         */
-        staticRoutesConfig?: outputs.network.StaticRoutesConfigResponseV3;
-    }
-
-    /**
-     * List of routes that control routing from VirtualHub into a virtual network connection.
-     */
-    export interface VnetRouteResponseV5 {
-        /**
-         * The list of references to HubBgpConnection objects.
-         */
-        bgpConnections: outputs.network.SubResourceResponse[];
-        /**
-         * List of all Static Routes.
-         */
-        staticRoutes?: outputs.network.StaticRouteResponse[];
-        /**
-         * Configuration for static routes on this HubVnetConnection.
-         */
-        staticRoutesConfig?: outputs.network.StaticRoutesConfigResponseV5;
-    }
-
-    /**
-     * List of routes that control routing from VirtualHub into a virtual network connection.
-     */
-    export interface VnetRouteResponseV6 {
-        /**
-         * The list of references to HubBgpConnection objects.
-         */
-        bgpConnections: outputs.network.SubResourceResponse[];
-        /**
-         * List of all Static Routes.
-         */
-        staticRoutes?: outputs.network.StaticRouteResponse[];
-        /**
-         * Configuration for static routes on this HubVnetConnection.
-         */
-        staticRoutesConfig?: outputs.network.StaticRoutesConfigResponseV6;
-    }
-
-    /**
-     * List of routes that control routing from VirtualHub into a virtual network connection.
-     */
-    export interface VnetRouteResponseV7 {
-        /**
-         * The list of references to HubBgpConnection objects.
-         */
-        bgpConnections: outputs.network.SubResourceResponse[];
-        /**
-         * List of all Static Routes.
-         */
-        staticRoutes?: outputs.network.StaticRouteResponse[];
-        /**
-         * Configuration for static routes on this HubVnetConnection.
-         */
-        staticRoutesConfig?: outputs.network.StaticRoutesConfigResponseV7;
-    }
-
-    /**
-     * List of routes that control routing from VirtualHub into a virtual network connection.
-     */
-    export interface VnetRouteResponseV8 {
-        /**
-         * The list of references to HubBgpConnection objects.
-         */
-        bgpConnections: outputs.network.SubResourceResponse[];
-        /**
-         * List of all Static Routes.
-         */
-        staticRoutes?: outputs.network.StaticRouteResponse[];
-        /**
-         * Configuration for static routes on this HubVnetConnection.
-         */
-        staticRoutesConfig?: outputs.network.StaticRoutesConfigResponseV8;
-    }
-
-    /**
-     * List of routes that control routing from VirtualHub into a virtual network connection.
-     */
-    export interface VnetRouteResponseV9 {
-        /**
-         * The list of references to HubBgpConnection objects.
-         */
-        bgpConnections: outputs.network.SubResourceResponse[];
-        /**
-         * List of all Static Routes.
-         */
-        staticRoutes?: outputs.network.StaticRouteResponse[];
-        /**
-         * Configuration for static routes on this HubVnetConnection.
-         */
-        staticRoutesConfig?: outputs.network.StaticRoutesConfigResponseV9;
-    }
-
-    /**
      * A vpn client connection configuration for client connection configuration.
      */
     export interface VngClientConnectionConfigurationResponse {
@@ -204164,7 +202894,7 @@ export namespace network {
         /**
          * The Routing Configuration indicating the associated and propagated route tables on this connection.
          */
-        routingConfiguration?: outputs.network.RoutingConfigurationResponseV7;
+        routingConfiguration?: outputs.network.RoutingConfigurationResponseV1;
         /**
          * Routing weight for vpn connection.
          */
@@ -225129,50 +223859,6 @@ export namespace resources {
         resourcesWithoutDeleteSupport?: string;
     }
 
-    /**
-     * Defines the behavior of resources that are no longer managed after the stack is updated or deleted.
-     */
-    export interface ActionOnUnmanageResponseV2 {
-        /**
-         * Specifies an action for a newly unmanaged resource management group.
-         */
-        managementGroups?: string;
-        /**
-         * Specifies an action for a newly unmanaged resource group.
-         */
-        resourceGroups?: string;
-        /**
-         * Specifies an action for a newly unmanaged resource.
-         */
-        resources: string;
-        /**
-         * Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
-         */
-        resourcesWithoutDeleteSupport?: string;
-    }
-
-    /**
-     * Defines the behavior of resources that are no longer managed after the stack is updated or deleted.
-     */
-    export interface ActionOnUnmanageResponseV3 {
-        /**
-         * Specifies an action for a newly unmanaged resource management group.
-         */
-        managementGroups?: string;
-        /**
-         * Specifies an action for a newly unmanaged resource group.
-         */
-        resourceGroups?: string;
-        /**
-         * Specifies an action for a newly unmanaged resource.
-         */
-        resources: string;
-        /**
-         * Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
-         */
-        resourcesWithoutDeleteSupport?: string;
-    }
-
     export interface AliasPathMetadataResponse {
         /**
          * The attributes of the token that the alias path is referring to.
@@ -225735,146 +224421,6 @@ export namespace resources {
          * Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
          */
         actionOnUnmanage: outputs.resources.ActionOnUnmanageResponseV1;
-        /**
-         * All of the changes predicted by the deployment stack what-if operation.
-         */
-        changes: outputs.resources.DeploymentStacksWhatIfChangeResponse;
-        /**
-         * The correlation id of the last Deployment stack upsert or delete operation. It is in GUID format and is used for tracing.
-         */
-        correlationId: string;
-        /**
-         * The debug setting of the deployment.
-         */
-        debugSetting?: outputs.resources.DeploymentStacksDebugSettingResponse;
-        /**
-         * Defines how resources deployed by the stack are locked.
-         */
-        denySettings: outputs.resources.DenySettingsResponse;
-        /**
-         * The scope at which the initial deployment should be created. If a scope is not specified, it will default to the scope of the deployment stack. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroupId}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}').
-         */
-        deploymentScope?: string;
-        /**
-         * The timestamp for when the deployment stack was last modified. This can be used to determine if the what-if data is still current.
-         */
-        deploymentStackLastModified: string;
-        /**
-         * The deployment stack id to use as the basis for comparison.
-         */
-        deploymentStackResourceId: string;
-        /**
-         * Deployment stack description. Max length of 4096 characters.
-         */
-        description?: string;
-        /**
-         * List of resource diagnostics detected by What-If operation.
-         */
-        diagnostics: outputs.resources.DeploymentStacksDiagnosticResponse[];
-        /**
-         * The error detail.
-         */
-        error: outputs.resources.ErrorDetailResponse;
-        /**
-         * Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
-         */
-        parameters?: {[key: string]: outputs.resources.DeploymentParameterResponse};
-        /**
-         * The URI of parameters file. Use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
-         */
-        parametersLink?: outputs.resources.DeploymentStacksParametersLinkResponse;
-        /**
-         * State of the deployment stack.
-         */
-        provisioningState: string;
-        /**
-         * The interval to persist the deployment stack what-if result in ISO 8601 format.
-         */
-        retentionInterval: string;
-        /**
-         * The validation level of the deployment stack
-         */
-        validationLevel?: string;
-    }
-
-    /**
-     * DeploymentStack WhatIfResult Properties
-     */
-    export interface DeploymentStacksWhatIfResultPropertiesResponseV1 {
-        /**
-         * Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
-         */
-        actionOnUnmanage: outputs.resources.ActionOnUnmanageResponseV2;
-        /**
-         * All of the changes predicted by the deployment stack what-if operation.
-         */
-        changes: outputs.resources.DeploymentStacksWhatIfChangeResponse;
-        /**
-         * The correlation id of the last Deployment stack upsert or delete operation. It is in GUID format and is used for tracing.
-         */
-        correlationId: string;
-        /**
-         * The debug setting of the deployment.
-         */
-        debugSetting?: outputs.resources.DeploymentStacksDebugSettingResponse;
-        /**
-         * Defines how resources deployed by the stack are locked.
-         */
-        denySettings: outputs.resources.DenySettingsResponse;
-        /**
-         * The scope at which the initial deployment should be created. If a scope is not specified, it will default to the scope of the deployment stack. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroupId}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}').
-         */
-        deploymentScope?: string;
-        /**
-         * The timestamp for when the deployment stack was last modified. This can be used to determine if the what-if data is still current.
-         */
-        deploymentStackLastModified: string;
-        /**
-         * The deployment stack id to use as the basis for comparison.
-         */
-        deploymentStackResourceId: string;
-        /**
-         * Deployment stack description. Max length of 4096 characters.
-         */
-        description?: string;
-        /**
-         * List of resource diagnostics detected by What-If operation.
-         */
-        diagnostics: outputs.resources.DeploymentStacksDiagnosticResponse[];
-        /**
-         * The error detail.
-         */
-        error: outputs.resources.ErrorDetailResponse;
-        /**
-         * Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
-         */
-        parameters?: {[key: string]: outputs.resources.DeploymentParameterResponse};
-        /**
-         * The URI of parameters file. Use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
-         */
-        parametersLink?: outputs.resources.DeploymentStacksParametersLinkResponse;
-        /**
-         * State of the deployment stack.
-         */
-        provisioningState: string;
-        /**
-         * The interval to persist the deployment stack what-if result in ISO 8601 format.
-         */
-        retentionInterval: string;
-        /**
-         * The validation level of the deployment stack
-         */
-        validationLevel?: string;
-    }
-
-    /**
-     * DeploymentStack WhatIfResult Properties
-     */
-    export interface DeploymentStacksWhatIfResultPropertiesResponseV2 {
-        /**
-         * Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
-         */
-        actionOnUnmanage: outputs.resources.ActionOnUnmanageResponseV3;
         /**
          * All of the changes predicted by the deployment stack what-if operation.
          */
@@ -255210,50 +253756,6 @@ export namespace workloads {
     }
 
     /**
-     * Error definition.
-     */
-    export interface ErrorDefinitionResponseV2 {
-        /**
-         * Service specific error code which serves as the substatus for the HTTP error code.
-         */
-        code: string;
-        /**
-         * Internal error details.
-         */
-        details: outputs.workloads.ErrorDefinitionResponse[];
-        /**
-         * Description of the error.
-         */
-        message: string;
-        /**
-         * Description of the recommendation.
-         */
-        recommendation: string;
-    }
-
-    /**
-     * Error definition.
-     */
-    export interface ErrorDefinitionResponseV3 {
-        /**
-         * Service specific error code which serves as the substatus for the HTTP error code.
-         */
-        code: string;
-        /**
-         * Internal error details.
-         */
-        details: outputs.workloads.ErrorDefinitionResponse[];
-        /**
-         * Description of the error.
-         */
-        message: string;
-        /**
-         * Description of the recommendation.
-         */
-        recommendation: string;
-    }
-
-    /**
      * The error detail.
      */
     export interface ErrorDetailResponse {
@@ -256097,50 +254599,6 @@ export namespace workloads {
          * Internal error details.
          */
         details: outputs.workloads.ErrorDefinitionResponseV1[];
-        /**
-         * Description of the error.
-         */
-        message: string;
-        /**
-         * Description of the recommendation.
-         */
-        recommendation: string;
-    }
-
-    /**
-     * An error response from the SAP migrate resources.
-     */
-    export interface SAPMigrateErrorResponseV1 {
-        /**
-         * Service specific error code which serves as the substatus for the HTTP error code.
-         */
-        code: string;
-        /**
-         * Internal error details.
-         */
-        details: outputs.workloads.ErrorDefinitionResponseV2[];
-        /**
-         * Description of the error.
-         */
-        message: string;
-        /**
-         * Description of the recommendation.
-         */
-        recommendation: string;
-    }
-
-    /**
-     * An error response from the SAP migrate resources.
-     */
-    export interface SAPMigrateErrorResponseV2 {
-        /**
-         * Service specific error code which serves as the substatus for the HTTP error code.
-         */
-        code: string;
-        /**
-         * Internal error details.
-         */
-        details: outputs.workloads.ErrorDefinitionResponseV3[];
         /**
          * Description of the error.
          */

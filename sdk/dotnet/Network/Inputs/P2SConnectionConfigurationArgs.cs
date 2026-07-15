@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.Network.Inputs
         /// The Routing Configuration indicating the associated and propagated route tables on this connection.
         /// </summary>
         [Input("routingConfiguration")]
-        public Input<Inputs.RoutingConfigurationV5Args>? RoutingConfiguration { get; set; }
+        public Input<Inputs.RoutingConfigurationV1Args>? RoutingConfiguration { get; set; }
 
         /// <summary>
         /// The reference to the address space resource which represents Address space for P2S VpnClient.

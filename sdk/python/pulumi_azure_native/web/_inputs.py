@@ -122,8 +122,6 @@ __all__ = [
     'CustomDnsSuffixConfigurationArgsDict',
     'CustomOpenIdConnectProviderV1Args',
     'CustomOpenIdConnectProviderV1ArgsDict',
-    'CustomOpenIdConnectProviderV2Args',
-    'CustomOpenIdConnectProviderV2ArgsDict',
     'CustomOpenIdConnectProviderArgs',
     'CustomOpenIdConnectProviderArgsDict',
     'DaprConfigArgs',
@@ -202,8 +200,6 @@ __all__ = [
     'HttpSettingsArgsDict',
     'IdentityProvidersV1Args',
     'IdentityProvidersV1ArgsDict',
-    'IdentityProvidersV2Args',
-    'IdentityProvidersV2ArgsDict',
     'IdentityProvidersArgs',
     'IdentityProvidersArgsDict',
     'InstallScriptSourceArgs',
@@ -236,8 +232,6 @@ __all__ = [
     'NonceArgsDict',
     'OpenIdConnectClientCredentialV1Args',
     'OpenIdConnectClientCredentialV1ArgsDict',
-    'OpenIdConnectClientCredentialV2Args',
-    'OpenIdConnectClientCredentialV2ArgsDict',
     'OpenIdConnectClientCredentialArgs',
     'OpenIdConnectClientCredentialArgsDict',
     'OpenIdConnectConfigArgs',
@@ -246,8 +240,6 @@ __all__ = [
     'OpenIdConnectLoginArgsDict',
     'OpenIdConnectRegistrationV1Args',
     'OpenIdConnectRegistrationV1ArgsDict',
-    'OpenIdConnectRegistrationV2Args',
-    'OpenIdConnectRegistrationV2ArgsDict',
     'OpenIdConnectRegistrationArgs',
     'OpenIdConnectRegistrationArgsDict',
     'OutboundVnetRoutingArgs',
@@ -4955,80 +4947,6 @@ class CustomOpenIdConnectProviderV1Args:
         pulumi.set(self, "registration", value)
 
 
-class CustomOpenIdConnectProviderV2ArgsDict(TypedDict):
-    """
-    The configuration settings of the custom Open ID Connect provider.
-    """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    <code>false</code> if the custom Open ID provider provider should not be enabled; otherwise, <code>true</code>.
-    """
-    login: NotRequired[pulumi.Input['OpenIdConnectLoginArgsDict']]
-    """
-    The configuration settings of the login flow of the custom Open ID Connect provider.
-    """
-    registration: NotRequired[pulumi.Input['OpenIdConnectRegistrationV2ArgsDict']]
-    """
-    The configuration settings of the app registration for the custom Open ID Connect provider.
-    """
-
-@pulumi.input_type
-class CustomOpenIdConnectProviderV2Args:
-    def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 login: Optional[pulumi.Input['OpenIdConnectLoginArgs']] = None,
-                 registration: Optional[pulumi.Input['OpenIdConnectRegistrationV2Args']] = None):
-        """
-        The configuration settings of the custom Open ID Connect provider.
-
-        :param pulumi.Input[_builtins.bool] enabled: <code>false</code> if the custom Open ID provider provider should not be enabled; otherwise, <code>true</code>.
-        :param pulumi.Input['OpenIdConnectLoginArgs'] login: The configuration settings of the login flow of the custom Open ID Connect provider.
-        :param pulumi.Input['OpenIdConnectRegistrationV2Args'] registration: The configuration settings of the app registration for the custom Open ID Connect provider.
-        """
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-        if login is not None:
-            pulumi.set(__self__, "login", login)
-        if registration is not None:
-            pulumi.set(__self__, "registration", registration)
-
-    @_builtins.property
-    @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        <code>false</code> if the custom Open ID provider provider should not be enabled; otherwise, <code>true</code>.
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enabled", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def login(self) -> Optional[pulumi.Input['OpenIdConnectLoginArgs']]:
-        """
-        The configuration settings of the login flow of the custom Open ID Connect provider.
-        """
-        return pulumi.get(self, "login")
-
-    @login.setter
-    def login(self, value: Optional[pulumi.Input['OpenIdConnectLoginArgs']]):
-        pulumi.set(self, "login", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def registration(self) -> Optional[pulumi.Input['OpenIdConnectRegistrationV2Args']]:
-        """
-        The configuration settings of the app registration for the custom Open ID Connect provider.
-        """
-        return pulumi.get(self, "registration")
-
-    @registration.setter
-    def registration(self, value: Optional[pulumi.Input['OpenIdConnectRegistrationV2Args']]):
-        pulumi.set(self, "registration", value)
-
-
 class CustomOpenIdConnectProviderArgsDict(TypedDict):
     """
     The configuration settings of the custom Open ID Connect provider.
@@ -7719,203 +7637,6 @@ class IdentityProvidersV1Args:
         pulumi.set(self, "twitter", value)
 
 
-class IdentityProvidersV2ArgsDict(TypedDict):
-    """
-    The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
-    """
-    apple: NotRequired[pulumi.Input['AppleArgsDict']]
-    """
-    The configuration settings of the Apple provider.
-    """
-    azure_active_directory: NotRequired[pulumi.Input['AzureActiveDirectoryArgsDict']]
-    """
-    The configuration settings of the Azure Active directory provider.
-    """
-    azure_static_web_apps: NotRequired[pulumi.Input['AzureStaticWebAppsArgsDict']]
-    """
-    The configuration settings of the Azure Static Web Apps provider.
-    """
-    custom_open_id_connect_providers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['CustomOpenIdConnectProviderV2ArgsDict']]]]
-    """
-    The map of the name of the alias of each custom Open ID Connect provider to the
-    configuration settings of the custom Open ID Connect provider.
-    """
-    facebook: NotRequired[pulumi.Input['FacebookArgsDict']]
-    """
-    The configuration settings of the Facebook provider.
-    """
-    git_hub: NotRequired[pulumi.Input['GitHubArgsDict']]
-    """
-    The configuration settings of the GitHub provider.
-    """
-    google: NotRequired[pulumi.Input['GoogleArgsDict']]
-    """
-    The configuration settings of the Google provider.
-    """
-    legacy_microsoft_account: NotRequired[pulumi.Input['LegacyMicrosoftAccountArgsDict']]
-    """
-    The configuration settings of the legacy Microsoft Account provider.
-    """
-    twitter: NotRequired[pulumi.Input['TwitterArgsDict']]
-    """
-    The configuration settings of the Twitter provider.
-    """
-
-@pulumi.input_type
-class IdentityProvidersV2Args:
-    def __init__(__self__, *,
-                 apple: Optional[pulumi.Input['AppleArgs']] = None,
-                 azure_active_directory: Optional[pulumi.Input['AzureActiveDirectoryArgs']] = None,
-                 azure_static_web_apps: Optional[pulumi.Input['AzureStaticWebAppsArgs']] = None,
-                 custom_open_id_connect_providers: Optional[pulumi.Input[Mapping[str, pulumi.Input['CustomOpenIdConnectProviderV2Args']]]] = None,
-                 facebook: Optional[pulumi.Input['FacebookArgs']] = None,
-                 git_hub: Optional[pulumi.Input['GitHubArgs']] = None,
-                 google: Optional[pulumi.Input['GoogleArgs']] = None,
-                 legacy_microsoft_account: Optional[pulumi.Input['LegacyMicrosoftAccountArgs']] = None,
-                 twitter: Optional[pulumi.Input['TwitterArgs']] = None):
-        """
-        The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
-
-        :param pulumi.Input['AppleArgs'] apple: The configuration settings of the Apple provider.
-        :param pulumi.Input['AzureActiveDirectoryArgs'] azure_active_directory: The configuration settings of the Azure Active directory provider.
-        :param pulumi.Input['AzureStaticWebAppsArgs'] azure_static_web_apps: The configuration settings of the Azure Static Web Apps provider.
-        :param pulumi.Input[Mapping[str, pulumi.Input['CustomOpenIdConnectProviderV2Args']]] custom_open_id_connect_providers: The map of the name of the alias of each custom Open ID Connect provider to the
-               configuration settings of the custom Open ID Connect provider.
-        :param pulumi.Input['FacebookArgs'] facebook: The configuration settings of the Facebook provider.
-        :param pulumi.Input['GitHubArgs'] git_hub: The configuration settings of the GitHub provider.
-        :param pulumi.Input['GoogleArgs'] google: The configuration settings of the Google provider.
-        :param pulumi.Input['LegacyMicrosoftAccountArgs'] legacy_microsoft_account: The configuration settings of the legacy Microsoft Account provider.
-        :param pulumi.Input['TwitterArgs'] twitter: The configuration settings of the Twitter provider.
-        """
-        if apple is not None:
-            pulumi.set(__self__, "apple", apple)
-        if azure_active_directory is not None:
-            pulumi.set(__self__, "azure_active_directory", azure_active_directory)
-        if azure_static_web_apps is not None:
-            pulumi.set(__self__, "azure_static_web_apps", azure_static_web_apps)
-        if custom_open_id_connect_providers is not None:
-            pulumi.set(__self__, "custom_open_id_connect_providers", custom_open_id_connect_providers)
-        if facebook is not None:
-            pulumi.set(__self__, "facebook", facebook)
-        if git_hub is not None:
-            pulumi.set(__self__, "git_hub", git_hub)
-        if google is not None:
-            pulumi.set(__self__, "google", google)
-        if legacy_microsoft_account is not None:
-            pulumi.set(__self__, "legacy_microsoft_account", legacy_microsoft_account)
-        if twitter is not None:
-            pulumi.set(__self__, "twitter", twitter)
-
-    @_builtins.property
-    @pulumi.getter
-    def apple(self) -> Optional[pulumi.Input['AppleArgs']]:
-        """
-        The configuration settings of the Apple provider.
-        """
-        return pulumi.get(self, "apple")
-
-    @apple.setter
-    def apple(self, value: Optional[pulumi.Input['AppleArgs']]):
-        pulumi.set(self, "apple", value)
-
-    @_builtins.property
-    @pulumi.getter(name="azureActiveDirectory")
-    def azure_active_directory(self) -> Optional[pulumi.Input['AzureActiveDirectoryArgs']]:
-        """
-        The configuration settings of the Azure Active directory provider.
-        """
-        return pulumi.get(self, "azure_active_directory")
-
-    @azure_active_directory.setter
-    def azure_active_directory(self, value: Optional[pulumi.Input['AzureActiveDirectoryArgs']]):
-        pulumi.set(self, "azure_active_directory", value)
-
-    @_builtins.property
-    @pulumi.getter(name="azureStaticWebApps")
-    def azure_static_web_apps(self) -> Optional[pulumi.Input['AzureStaticWebAppsArgs']]:
-        """
-        The configuration settings of the Azure Static Web Apps provider.
-        """
-        return pulumi.get(self, "azure_static_web_apps")
-
-    @azure_static_web_apps.setter
-    def azure_static_web_apps(self, value: Optional[pulumi.Input['AzureStaticWebAppsArgs']]):
-        pulumi.set(self, "azure_static_web_apps", value)
-
-    @_builtins.property
-    @pulumi.getter(name="customOpenIdConnectProviders")
-    def custom_open_id_connect_providers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['CustomOpenIdConnectProviderV2Args']]]]:
-        """
-        The map of the name of the alias of each custom Open ID Connect provider to the
-        configuration settings of the custom Open ID Connect provider.
-        """
-        return pulumi.get(self, "custom_open_id_connect_providers")
-
-    @custom_open_id_connect_providers.setter
-    def custom_open_id_connect_providers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['CustomOpenIdConnectProviderV2Args']]]]):
-        pulumi.set(self, "custom_open_id_connect_providers", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def facebook(self) -> Optional[pulumi.Input['FacebookArgs']]:
-        """
-        The configuration settings of the Facebook provider.
-        """
-        return pulumi.get(self, "facebook")
-
-    @facebook.setter
-    def facebook(self, value: Optional[pulumi.Input['FacebookArgs']]):
-        pulumi.set(self, "facebook", value)
-
-    @_builtins.property
-    @pulumi.getter(name="gitHub")
-    def git_hub(self) -> Optional[pulumi.Input['GitHubArgs']]:
-        """
-        The configuration settings of the GitHub provider.
-        """
-        return pulumi.get(self, "git_hub")
-
-    @git_hub.setter
-    def git_hub(self, value: Optional[pulumi.Input['GitHubArgs']]):
-        pulumi.set(self, "git_hub", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def google(self) -> Optional[pulumi.Input['GoogleArgs']]:
-        """
-        The configuration settings of the Google provider.
-        """
-        return pulumi.get(self, "google")
-
-    @google.setter
-    def google(self, value: Optional[pulumi.Input['GoogleArgs']]):
-        pulumi.set(self, "google", value)
-
-    @_builtins.property
-    @pulumi.getter(name="legacyMicrosoftAccount")
-    def legacy_microsoft_account(self) -> Optional[pulumi.Input['LegacyMicrosoftAccountArgs']]:
-        """
-        The configuration settings of the legacy Microsoft Account provider.
-        """
-        return pulumi.get(self, "legacy_microsoft_account")
-
-    @legacy_microsoft_account.setter
-    def legacy_microsoft_account(self, value: Optional[pulumi.Input['LegacyMicrosoftAccountArgs']]):
-        pulumi.set(self, "legacy_microsoft_account", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def twitter(self) -> Optional[pulumi.Input['TwitterArgs']]:
-        """
-        The configuration settings of the Twitter provider.
-        """
-        return pulumi.get(self, "twitter")
-
-    @twitter.setter
-    def twitter(self, value: Optional[pulumi.Input['TwitterArgs']]):
-        pulumi.set(self, "twitter", value)
-
-
 class IdentityProvidersArgsDict(TypedDict):
     """
     The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
@@ -9202,60 +8923,6 @@ class OpenIdConnectClientCredentialV1Args:
         pulumi.set(self, "method", value)
 
 
-class OpenIdConnectClientCredentialV2ArgsDict(TypedDict):
-    """
-    The authentication client credentials of the custom Open ID Connect provider.
-    """
-    client_secret_setting_name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The app setting that contains the client secret for the custom Open ID Connect provider.
-    """
-    method: NotRequired[pulumi.Input['Method']]
-    """
-    The method that should be used to authenticate the user.
-    """
-
-@pulumi.input_type
-class OpenIdConnectClientCredentialV2Args:
-    def __init__(__self__, *,
-                 client_secret_setting_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 method: Optional[pulumi.Input['Method']] = None):
-        """
-        The authentication client credentials of the custom Open ID Connect provider.
-
-        :param pulumi.Input[_builtins.str] client_secret_setting_name: The app setting that contains the client secret for the custom Open ID Connect provider.
-        :param pulumi.Input['Method'] method: The method that should be used to authenticate the user.
-        """
-        if client_secret_setting_name is not None:
-            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
-        if method is not None:
-            pulumi.set(__self__, "method", method)
-
-    @_builtins.property
-    @pulumi.getter(name="clientSecretSettingName")
-    def client_secret_setting_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The app setting that contains the client secret for the custom Open ID Connect provider.
-        """
-        return pulumi.get(self, "client_secret_setting_name")
-
-    @client_secret_setting_name.setter
-    def client_secret_setting_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "client_secret_setting_name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def method(self) -> Optional[pulumi.Input['Method']]:
-        """
-        The method that should be used to authenticate the user.
-        """
-        return pulumi.get(self, "method")
-
-    @method.setter
-    def method(self, value: Optional[pulumi.Input['Method']]):
-        pulumi.set(self, "method", value)
-
-
 class OpenIdConnectClientCredentialArgsDict(TypedDict):
     """
     The authentication client credentials of the custom Open ID Connect provider.
@@ -9525,80 +9192,6 @@ class OpenIdConnectRegistrationV1Args:
 
     @client_credential.setter
     def client_credential(self, value: Optional[pulumi.Input['OpenIdConnectClientCredentialV1Args']]):
-        pulumi.set(self, "client_credential", value)
-
-    @_builtins.property
-    @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The client id of the custom Open ID Connect provider.
-        """
-        return pulumi.get(self, "client_id")
-
-    @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "client_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="openIdConnectConfiguration")
-    def open_id_connect_configuration(self) -> Optional[pulumi.Input['OpenIdConnectConfigArgs']]:
-        """
-        The configuration settings of the endpoints used for the custom Open ID Connect provider.
-        """
-        return pulumi.get(self, "open_id_connect_configuration")
-
-    @open_id_connect_configuration.setter
-    def open_id_connect_configuration(self, value: Optional[pulumi.Input['OpenIdConnectConfigArgs']]):
-        pulumi.set(self, "open_id_connect_configuration", value)
-
-
-class OpenIdConnectRegistrationV2ArgsDict(TypedDict):
-    """
-    The configuration settings of the app registration for the custom Open ID Connect provider.
-    """
-    client_credential: NotRequired[pulumi.Input['OpenIdConnectClientCredentialV2ArgsDict']]
-    """
-    The authentication credentials of the custom Open ID Connect provider.
-    """
-    client_id: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The client id of the custom Open ID Connect provider.
-    """
-    open_id_connect_configuration: NotRequired[pulumi.Input['OpenIdConnectConfigArgsDict']]
-    """
-    The configuration settings of the endpoints used for the custom Open ID Connect provider.
-    """
-
-@pulumi.input_type
-class OpenIdConnectRegistrationV2Args:
-    def __init__(__self__, *,
-                 client_credential: Optional[pulumi.Input['OpenIdConnectClientCredentialV2Args']] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 open_id_connect_configuration: Optional[pulumi.Input['OpenIdConnectConfigArgs']] = None):
-        """
-        The configuration settings of the app registration for the custom Open ID Connect provider.
-
-        :param pulumi.Input['OpenIdConnectClientCredentialV2Args'] client_credential: The authentication credentials of the custom Open ID Connect provider.
-        :param pulumi.Input[_builtins.str] client_id: The client id of the custom Open ID Connect provider.
-        :param pulumi.Input['OpenIdConnectConfigArgs'] open_id_connect_configuration: The configuration settings of the endpoints used for the custom Open ID Connect provider.
-        """
-        if client_credential is not None:
-            pulumi.set(__self__, "client_credential", client_credential)
-        if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
-        if open_id_connect_configuration is not None:
-            pulumi.set(__self__, "open_id_connect_configuration", open_id_connect_configuration)
-
-    @_builtins.property
-    @pulumi.getter(name="clientCredential")
-    def client_credential(self) -> Optional[pulumi.Input['OpenIdConnectClientCredentialV2Args']]:
-        """
-        The authentication credentials of the custom Open ID Connect provider.
-        """
-        return pulumi.get(self, "client_credential")
-
-    @client_credential.setter
-    def client_credential(self, value: Optional[pulumi.Input['OpenIdConnectClientCredentialV2Args']]):
         pulumi.set(self, "client_credential", value)
 
     @_builtins.property

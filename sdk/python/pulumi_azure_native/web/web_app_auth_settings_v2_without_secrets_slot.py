@@ -27,7 +27,7 @@ class WebAppAuthSettingsV2WithoutSecretsSlotArgs:
                  slot: pulumi.Input[_builtins.str],
                  global_validation: Optional[pulumi.Input['GlobalValidationArgs']] = None,
                  http_settings: Optional[pulumi.Input['HttpSettingsArgs']] = None,
-                 identity_providers: Optional[pulumi.Input['IdentityProvidersV2Args']] = None,
+                 identity_providers: Optional[pulumi.Input['IdentityProvidersV1Args']] = None,
                  kind: Optional[pulumi.Input[_builtins.str]] = None,
                  login: Optional[pulumi.Input['LoginArgs']] = None,
                  platform: Optional[pulumi.Input['AuthPlatformArgs']] = None):
@@ -39,7 +39,7 @@ class WebAppAuthSettingsV2WithoutSecretsSlotArgs:
         :param pulumi.Input[_builtins.str] slot: Name of the deployment slot. If a slot is not specified, the API will get the settings for the production slot.
         :param pulumi.Input['GlobalValidationArgs'] global_validation: The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
         :param pulumi.Input['HttpSettingsArgs'] http_settings: The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
-        :param pulumi.Input['IdentityProvidersV2Args'] identity_providers: The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
+        :param pulumi.Input['IdentityProvidersV1Args'] identity_providers: The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
         :param pulumi.Input[_builtins.str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         :param pulumi.Input['LoginArgs'] login: The configuration settings of the login flow of users using App Service Authentication/Authorization.
         :param pulumi.Input['AuthPlatformArgs'] platform: The configuration settings of the platform of App Service Authentication/Authorization.
@@ -122,14 +122,14 @@ class WebAppAuthSettingsV2WithoutSecretsSlotArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityProviders")
-    def identity_providers(self) -> Optional[pulumi.Input['IdentityProvidersV2Args']]:
+    def identity_providers(self) -> Optional[pulumi.Input['IdentityProvidersV1Args']]:
         """
         The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
         """
         return pulumi.get(self, "identity_providers")
 
     @identity_providers.setter
-    def identity_providers(self, value: Optional[pulumi.Input['IdentityProvidersV2Args']]):
+    def identity_providers(self, value: Optional[pulumi.Input['IdentityProvidersV1Args']]):
         pulumi.set(self, "identity_providers", value)
 
     @_builtins.property
@@ -177,7 +177,7 @@ class WebAppAuthSettingsV2WithoutSecretsSlot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  global_validation: Optional[pulumi.Input[Union['GlobalValidationArgs', 'GlobalValidationArgsDict']]] = None,
                  http_settings: Optional[pulumi.Input[Union['HttpSettingsArgs', 'HttpSettingsArgsDict']]] = None,
-                 identity_providers: Optional[pulumi.Input[Union['IdentityProvidersV2Args', 'IdentityProvidersV2ArgsDict']]] = None,
+                 identity_providers: Optional[pulumi.Input[Union['IdentityProvidersV1Args', 'IdentityProvidersV1ArgsDict']]] = None,
                  kind: Optional[pulumi.Input[_builtins.str]] = None,
                  login: Optional[pulumi.Input[Union['LoginArgs', 'LoginArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -197,7 +197,7 @@ class WebAppAuthSettingsV2WithoutSecretsSlot(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['GlobalValidationArgs', 'GlobalValidationArgsDict']] global_validation: The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
         :param pulumi.Input[Union['HttpSettingsArgs', 'HttpSettingsArgsDict']] http_settings: The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
-        :param pulumi.Input[Union['IdentityProvidersV2Args', 'IdentityProvidersV2ArgsDict']] identity_providers: The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
+        :param pulumi.Input[Union['IdentityProvidersV1Args', 'IdentityProvidersV1ArgsDict']] identity_providers: The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
         :param pulumi.Input[_builtins.str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         :param pulumi.Input[Union['LoginArgs', 'LoginArgsDict']] login: The configuration settings of the login flow of users using App Service Authentication/Authorization.
         :param pulumi.Input[_builtins.str] name: Name of the app.
@@ -236,7 +236,7 @@ class WebAppAuthSettingsV2WithoutSecretsSlot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  global_validation: Optional[pulumi.Input[Union['GlobalValidationArgs', 'GlobalValidationArgsDict']]] = None,
                  http_settings: Optional[pulumi.Input[Union['HttpSettingsArgs', 'HttpSettingsArgsDict']]] = None,
-                 identity_providers: Optional[pulumi.Input[Union['IdentityProvidersV2Args', 'IdentityProvidersV2ArgsDict']]] = None,
+                 identity_providers: Optional[pulumi.Input[Union['IdentityProvidersV1Args', 'IdentityProvidersV1ArgsDict']]] = None,
                  kind: Optional[pulumi.Input[_builtins.str]] = None,
                  login: Optional[pulumi.Input[Union['LoginArgs', 'LoginArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,

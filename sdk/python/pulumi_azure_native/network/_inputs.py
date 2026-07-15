@@ -498,16 +498,6 @@ __all__ = [
     'ProbeArgsDict',
     'PropagatedRouteTableV1Args',
     'PropagatedRouteTableV1ArgsDict',
-    'PropagatedRouteTableV2Args',
-    'PropagatedRouteTableV2ArgsDict',
-    'PropagatedRouteTableV3Args',
-    'PropagatedRouteTableV3ArgsDict',
-    'PropagatedRouteTableV5Args',
-    'PropagatedRouteTableV5ArgsDict',
-    'PropagatedRouteTableV6Args',
-    'PropagatedRouteTableV6ArgsDict',
-    'PropagatedRouteTableV7Args',
-    'PropagatedRouteTableV7ArgsDict',
     'PropagatedRouteTableArgs',
     'PropagatedRouteTableArgsDict',
     'PublicIPAddressDnsSettingsArgs',
@@ -546,16 +536,6 @@ __all__ = [
     'RouteArgsDict',
     'RoutingConfigurationV1Args',
     'RoutingConfigurationV1ArgsDict',
-    'RoutingConfigurationV2Args',
-    'RoutingConfigurationV2ArgsDict',
-    'RoutingConfigurationV3Args',
-    'RoutingConfigurationV3ArgsDict',
-    'RoutingConfigurationV5Args',
-    'RoutingConfigurationV5ArgsDict',
-    'RoutingConfigurationV6Args',
-    'RoutingConfigurationV6ArgsDict',
-    'RoutingConfigurationV7Args',
-    'RoutingConfigurationV7ArgsDict',
     'RoutingConfigurationArgs',
     'RoutingConfigurationArgsDict',
     'RoutingPolicyArgs',
@@ -14438,7 +14418,7 @@ class ExpressRouteConnectionArgsDict(TypedDict):
     """
     Resource ID.
     """
-    routing_configuration: NotRequired[pulumi.Input['RoutingConfigurationV2ArgsDict']]
+    routing_configuration: NotRequired[pulumi.Input['RoutingConfigurationV1ArgsDict']]
     """
     The Routing Configuration indicating the associated and propagated route tables on this connection.
     """
@@ -14457,7 +14437,7 @@ class ExpressRouteConnectionArgs:
                  enable_private_link_fast_path: Optional[pulumi.Input[_builtins.bool]] = None,
                  express_route_gateway_bypass: Optional[pulumi.Input[_builtins.bool]] = None,
                  id: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_configuration: Optional[pulumi.Input['RoutingConfigurationV2Args']] = None,
+                 routing_configuration: Optional[pulumi.Input['RoutingConfigurationV1Args']] = None,
                  routing_weight: Optional[pulumi.Input[_builtins.int]] = None):
         """
         ExpressRouteConnection resource.
@@ -14469,7 +14449,7 @@ class ExpressRouteConnectionArgs:
         :param pulumi.Input[_builtins.bool] enable_private_link_fast_path: Bypass the ExpressRoute gateway when accessing private-links. ExpressRoute FastPath (expressRouteGatewayBypass) must be enabled.
         :param pulumi.Input[_builtins.bool] express_route_gateway_bypass: Enable FastPath to vWan Firewall hub.
         :param pulumi.Input[_builtins.str] id: Resource ID.
-        :param pulumi.Input['RoutingConfigurationV2Args'] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
+        :param pulumi.Input['RoutingConfigurationV1Args'] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
         :param pulumi.Input[_builtins.int] routing_weight: The routing weight associated to the connection.
         """
         pulumi.set(__self__, "express_route_circuit_peering", express_route_circuit_peering)
@@ -14575,14 +14555,14 @@ class ExpressRouteConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="routingConfiguration")
-    def routing_configuration(self) -> Optional[pulumi.Input['RoutingConfigurationV2Args']]:
+    def routing_configuration(self) -> Optional[pulumi.Input['RoutingConfigurationV1Args']]:
         """
         The Routing Configuration indicating the associated and propagated route tables on this connection.
         """
         return pulumi.get(self, "routing_configuration")
 
     @routing_configuration.setter
-    def routing_configuration(self, value: Optional[pulumi.Input['RoutingConfigurationV2Args']]):
+    def routing_configuration(self, value: Optional[pulumi.Input['RoutingConfigurationV1Args']]):
         pulumi.set(self, "routing_configuration", value)
 
     @_builtins.property
@@ -22317,7 +22297,7 @@ class P2SConnectionConfigurationArgsDict(TypedDict):
     """
     The name of the resource that is unique within a resource group. This name can be used to access the resource.
     """
-    routing_configuration: NotRequired[pulumi.Input['RoutingConfigurationV5ArgsDict']]
+    routing_configuration: NotRequired[pulumi.Input['RoutingConfigurationV1ArgsDict']]
     """
     The Routing Configuration indicating the associated and propagated route tables on this connection.
     """
@@ -22332,7 +22312,7 @@ class P2SConnectionConfigurationArgs:
                  enable_internet_security: Optional[pulumi.Input[_builtins.bool]] = None,
                  id: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_configuration: Optional[pulumi.Input['RoutingConfigurationV5Args']] = None,
+                 routing_configuration: Optional[pulumi.Input['RoutingConfigurationV1Args']] = None,
                  vpn_client_address_pool: Optional[pulumi.Input['AddressSpaceArgs']] = None):
         """
         P2SConnectionConfiguration Resource.
@@ -22340,7 +22320,7 @@ class P2SConnectionConfigurationArgs:
         :param pulumi.Input[_builtins.bool] enable_internet_security: Flag indicating whether the enable internet security flag is turned on for the P2S Connections or not.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param pulumi.Input['RoutingConfigurationV5Args'] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
+        :param pulumi.Input['RoutingConfigurationV1Args'] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
         :param pulumi.Input['AddressSpaceArgs'] vpn_client_address_pool: The reference to the address space resource which represents Address space for P2S VpnClient.
         """
         if enable_internet_security is not None:
@@ -22392,14 +22372,14 @@ class P2SConnectionConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="routingConfiguration")
-    def routing_configuration(self) -> Optional[pulumi.Input['RoutingConfigurationV5Args']]:
+    def routing_configuration(self) -> Optional[pulumi.Input['RoutingConfigurationV1Args']]:
         """
         The Routing Configuration indicating the associated and propagated route tables on this connection.
         """
         return pulumi.get(self, "routing_configuration")
 
     @routing_configuration.setter
-    def routing_configuration(self, value: Optional[pulumi.Input['RoutingConfigurationV5Args']]):
+    def routing_configuration(self, value: Optional[pulumi.Input['RoutingConfigurationV1Args']]):
         pulumi.set(self, "routing_configuration", value)
 
     @_builtins.property
@@ -24791,276 +24771,6 @@ class PropagatedRouteTableV1Args:
         pulumi.set(self, "labels", value)
 
 
-class PropagatedRouteTableV2ArgsDict(TypedDict):
-    """
-    The list of RouteTables to advertise the routes to.
-    """
-    ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
-    """
-    The list of resource ids of all the RouteTables.
-    """
-    labels: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    """
-    The list of labels.
-    """
-
-@pulumi.input_type
-class PropagatedRouteTableV2Args:
-    def __init__(__self__, *,
-                 ids: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        The list of RouteTables to advertise the routes to.
-
-        :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] ids: The list of resource ids of all the RouteTables.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] labels: The list of labels.
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-        if labels is not None:
-            pulumi.set(__self__, "labels", labels)
-
-    @_builtins.property
-    @pulumi.getter
-    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]:
-        """
-        The list of resource ids of all the RouteTables.
-        """
-        return pulumi.get(self, "ids")
-
-    @ids.setter
-    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
-        pulumi.set(self, "ids", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The list of labels.
-        """
-        return pulumi.get(self, "labels")
-
-    @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "labels", value)
-
-
-class PropagatedRouteTableV3ArgsDict(TypedDict):
-    """
-    The list of RouteTables to advertise the routes to.
-    """
-    ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
-    """
-    The list of resource ids of all the RouteTables.
-    """
-    labels: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    """
-    The list of labels.
-    """
-
-@pulumi.input_type
-class PropagatedRouteTableV3Args:
-    def __init__(__self__, *,
-                 ids: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        The list of RouteTables to advertise the routes to.
-
-        :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] ids: The list of resource ids of all the RouteTables.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] labels: The list of labels.
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-        if labels is not None:
-            pulumi.set(__self__, "labels", labels)
-
-    @_builtins.property
-    @pulumi.getter
-    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]:
-        """
-        The list of resource ids of all the RouteTables.
-        """
-        return pulumi.get(self, "ids")
-
-    @ids.setter
-    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
-        pulumi.set(self, "ids", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The list of labels.
-        """
-        return pulumi.get(self, "labels")
-
-    @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "labels", value)
-
-
-class PropagatedRouteTableV5ArgsDict(TypedDict):
-    """
-    The list of RouteTables to advertise the routes to.
-    """
-    ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
-    """
-    The list of resource ids of all the RouteTables.
-    """
-    labels: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    """
-    The list of labels.
-    """
-
-@pulumi.input_type
-class PropagatedRouteTableV5Args:
-    def __init__(__self__, *,
-                 ids: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        The list of RouteTables to advertise the routes to.
-
-        :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] ids: The list of resource ids of all the RouteTables.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] labels: The list of labels.
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-        if labels is not None:
-            pulumi.set(__self__, "labels", labels)
-
-    @_builtins.property
-    @pulumi.getter
-    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]:
-        """
-        The list of resource ids of all the RouteTables.
-        """
-        return pulumi.get(self, "ids")
-
-    @ids.setter
-    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
-        pulumi.set(self, "ids", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The list of labels.
-        """
-        return pulumi.get(self, "labels")
-
-    @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "labels", value)
-
-
-class PropagatedRouteTableV6ArgsDict(TypedDict):
-    """
-    The list of RouteTables to advertise the routes to.
-    """
-    ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
-    """
-    The list of resource ids of all the RouteTables.
-    """
-    labels: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    """
-    The list of labels.
-    """
-
-@pulumi.input_type
-class PropagatedRouteTableV6Args:
-    def __init__(__self__, *,
-                 ids: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        The list of RouteTables to advertise the routes to.
-
-        :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] ids: The list of resource ids of all the RouteTables.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] labels: The list of labels.
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-        if labels is not None:
-            pulumi.set(__self__, "labels", labels)
-
-    @_builtins.property
-    @pulumi.getter
-    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]:
-        """
-        The list of resource ids of all the RouteTables.
-        """
-        return pulumi.get(self, "ids")
-
-    @ids.setter
-    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
-        pulumi.set(self, "ids", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The list of labels.
-        """
-        return pulumi.get(self, "labels")
-
-    @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "labels", value)
-
-
-class PropagatedRouteTableV7ArgsDict(TypedDict):
-    """
-    The list of RouteTables to advertise the routes to.
-    """
-    ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
-    """
-    The list of resource ids of all the RouteTables.
-    """
-    labels: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    """
-    The list of labels.
-    """
-
-@pulumi.input_type
-class PropagatedRouteTableV7Args:
-    def __init__(__self__, *,
-                 ids: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        The list of RouteTables to advertise the routes to.
-
-        :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] ids: The list of resource ids of all the RouteTables.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] labels: The list of labels.
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-        if labels is not None:
-            pulumi.set(__self__, "labels", labels)
-
-    @_builtins.property
-    @pulumi.getter
-    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]:
-        """
-        The list of resource ids of all the RouteTables.
-        """
-        return pulumi.get(self, "ids")
-
-    @ids.setter
-    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
-        pulumi.set(self, "ids", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The list of labels.
-        """
-        return pulumi.get(self, "labels")
-
-    @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "labels", value)
-
-
 class PropagatedRouteTableArgsDict(TypedDict):
     """
     The list of RouteTables to advertise the routes to.
@@ -27033,576 +26743,6 @@ class RoutingConfigurationV1Args:
 
     @propagated_route_tables.setter
     def propagated_route_tables(self, value: Optional[pulumi.Input['PropagatedRouteTableV1Args']]):
-        pulumi.set(self, "propagated_route_tables", value)
-
-    @_builtins.property
-    @pulumi.getter(name="vnetRoutes")
-    def vnet_routes(self) -> Optional[pulumi.Input['VnetRouteArgs']]:
-        """
-        List of routes that control routing from VirtualHub into a virtual network connection.
-        """
-        return pulumi.get(self, "vnet_routes")
-
-    @vnet_routes.setter
-    def vnet_routes(self, value: Optional[pulumi.Input['VnetRouteArgs']]):
-        pulumi.set(self, "vnet_routes", value)
-
-
-class RoutingConfigurationV2ArgsDict(TypedDict):
-    """
-    Routing Configuration indicating the associated and propagated route tables for this connection.
-    """
-    associated_route_table: NotRequired[pulumi.Input['SubResourceArgsDict']]
-    """
-    The resource id RouteTable associated with this RoutingConfiguration.
-    """
-    inbound_route_map: NotRequired[pulumi.Input['SubResourceArgsDict']]
-    """
-    The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-    """
-    outbound_route_map: NotRequired[pulumi.Input['SubResourceArgsDict']]
-    """
-    The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-    """
-    propagated_route_tables: NotRequired[pulumi.Input['PropagatedRouteTableV2ArgsDict']]
-    """
-    The list of RouteTables to advertise the routes to.
-    """
-    vnet_routes: NotRequired[pulumi.Input['VnetRouteArgsDict']]
-    """
-    List of routes that control routing from VirtualHub into a virtual network connection.
-    """
-
-@pulumi.input_type
-class RoutingConfigurationV2Args:
-    def __init__(__self__, *,
-                 associated_route_table: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 inbound_route_map: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 outbound_route_map: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 propagated_route_tables: Optional[pulumi.Input['PropagatedRouteTableV2Args']] = None,
-                 vnet_routes: Optional[pulumi.Input['VnetRouteArgs']] = None):
-        """
-        Routing Configuration indicating the associated and propagated route tables for this connection.
-
-        :param pulumi.Input['SubResourceArgs'] associated_route_table: The resource id RouteTable associated with this RoutingConfiguration.
-        :param pulumi.Input['SubResourceArgs'] inbound_route_map: The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-        :param pulumi.Input['SubResourceArgs'] outbound_route_map: The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-        :param pulumi.Input['PropagatedRouteTableV2Args'] propagated_route_tables: The list of RouteTables to advertise the routes to.
-        :param pulumi.Input['VnetRouteArgs'] vnet_routes: List of routes that control routing from VirtualHub into a virtual network connection.
-        """
-        if associated_route_table is not None:
-            pulumi.set(__self__, "associated_route_table", associated_route_table)
-        if inbound_route_map is not None:
-            pulumi.set(__self__, "inbound_route_map", inbound_route_map)
-        if outbound_route_map is not None:
-            pulumi.set(__self__, "outbound_route_map", outbound_route_map)
-        if propagated_route_tables is not None:
-            pulumi.set(__self__, "propagated_route_tables", propagated_route_tables)
-        if vnet_routes is not None:
-            pulumi.set(__self__, "vnet_routes", vnet_routes)
-
-    @_builtins.property
-    @pulumi.getter(name="associatedRouteTable")
-    def associated_route_table(self) -> Optional[pulumi.Input['SubResourceArgs']]:
-        """
-        The resource id RouteTable associated with this RoutingConfiguration.
-        """
-        return pulumi.get(self, "associated_route_table")
-
-    @associated_route_table.setter
-    def associated_route_table(self, value: Optional[pulumi.Input['SubResourceArgs']]):
-        pulumi.set(self, "associated_route_table", value)
-
-    @_builtins.property
-    @pulumi.getter(name="inboundRouteMap")
-    def inbound_route_map(self) -> Optional[pulumi.Input['SubResourceArgs']]:
-        """
-        The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-        """
-        return pulumi.get(self, "inbound_route_map")
-
-    @inbound_route_map.setter
-    def inbound_route_map(self, value: Optional[pulumi.Input['SubResourceArgs']]):
-        pulumi.set(self, "inbound_route_map", value)
-
-    @_builtins.property
-    @pulumi.getter(name="outboundRouteMap")
-    def outbound_route_map(self) -> Optional[pulumi.Input['SubResourceArgs']]:
-        """
-        The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-        """
-        return pulumi.get(self, "outbound_route_map")
-
-    @outbound_route_map.setter
-    def outbound_route_map(self, value: Optional[pulumi.Input['SubResourceArgs']]):
-        pulumi.set(self, "outbound_route_map", value)
-
-    @_builtins.property
-    @pulumi.getter(name="propagatedRouteTables")
-    def propagated_route_tables(self) -> Optional[pulumi.Input['PropagatedRouteTableV2Args']]:
-        """
-        The list of RouteTables to advertise the routes to.
-        """
-        return pulumi.get(self, "propagated_route_tables")
-
-    @propagated_route_tables.setter
-    def propagated_route_tables(self, value: Optional[pulumi.Input['PropagatedRouteTableV2Args']]):
-        pulumi.set(self, "propagated_route_tables", value)
-
-    @_builtins.property
-    @pulumi.getter(name="vnetRoutes")
-    def vnet_routes(self) -> Optional[pulumi.Input['VnetRouteArgs']]:
-        """
-        List of routes that control routing from VirtualHub into a virtual network connection.
-        """
-        return pulumi.get(self, "vnet_routes")
-
-    @vnet_routes.setter
-    def vnet_routes(self, value: Optional[pulumi.Input['VnetRouteArgs']]):
-        pulumi.set(self, "vnet_routes", value)
-
-
-class RoutingConfigurationV3ArgsDict(TypedDict):
-    """
-    Routing Configuration indicating the associated and propagated route tables for this connection.
-    """
-    associated_route_table: NotRequired[pulumi.Input['SubResourceArgsDict']]
-    """
-    The resource id RouteTable associated with this RoutingConfiguration.
-    """
-    inbound_route_map: NotRequired[pulumi.Input['SubResourceArgsDict']]
-    """
-    The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-    """
-    outbound_route_map: NotRequired[pulumi.Input['SubResourceArgsDict']]
-    """
-    The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-    """
-    propagated_route_tables: NotRequired[pulumi.Input['PropagatedRouteTableV3ArgsDict']]
-    """
-    The list of RouteTables to advertise the routes to.
-    """
-    vnet_routes: NotRequired[pulumi.Input['VnetRouteArgsDict']]
-    """
-    List of routes that control routing from VirtualHub into a virtual network connection.
-    """
-
-@pulumi.input_type
-class RoutingConfigurationV3Args:
-    def __init__(__self__, *,
-                 associated_route_table: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 inbound_route_map: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 outbound_route_map: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 propagated_route_tables: Optional[pulumi.Input['PropagatedRouteTableV3Args']] = None,
-                 vnet_routes: Optional[pulumi.Input['VnetRouteArgs']] = None):
-        """
-        Routing Configuration indicating the associated and propagated route tables for this connection.
-
-        :param pulumi.Input['SubResourceArgs'] associated_route_table: The resource id RouteTable associated with this RoutingConfiguration.
-        :param pulumi.Input['SubResourceArgs'] inbound_route_map: The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-        :param pulumi.Input['SubResourceArgs'] outbound_route_map: The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-        :param pulumi.Input['PropagatedRouteTableV3Args'] propagated_route_tables: The list of RouteTables to advertise the routes to.
-        :param pulumi.Input['VnetRouteArgs'] vnet_routes: List of routes that control routing from VirtualHub into a virtual network connection.
-        """
-        if associated_route_table is not None:
-            pulumi.set(__self__, "associated_route_table", associated_route_table)
-        if inbound_route_map is not None:
-            pulumi.set(__self__, "inbound_route_map", inbound_route_map)
-        if outbound_route_map is not None:
-            pulumi.set(__self__, "outbound_route_map", outbound_route_map)
-        if propagated_route_tables is not None:
-            pulumi.set(__self__, "propagated_route_tables", propagated_route_tables)
-        if vnet_routes is not None:
-            pulumi.set(__self__, "vnet_routes", vnet_routes)
-
-    @_builtins.property
-    @pulumi.getter(name="associatedRouteTable")
-    def associated_route_table(self) -> Optional[pulumi.Input['SubResourceArgs']]:
-        """
-        The resource id RouteTable associated with this RoutingConfiguration.
-        """
-        return pulumi.get(self, "associated_route_table")
-
-    @associated_route_table.setter
-    def associated_route_table(self, value: Optional[pulumi.Input['SubResourceArgs']]):
-        pulumi.set(self, "associated_route_table", value)
-
-    @_builtins.property
-    @pulumi.getter(name="inboundRouteMap")
-    def inbound_route_map(self) -> Optional[pulumi.Input['SubResourceArgs']]:
-        """
-        The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-        """
-        return pulumi.get(self, "inbound_route_map")
-
-    @inbound_route_map.setter
-    def inbound_route_map(self, value: Optional[pulumi.Input['SubResourceArgs']]):
-        pulumi.set(self, "inbound_route_map", value)
-
-    @_builtins.property
-    @pulumi.getter(name="outboundRouteMap")
-    def outbound_route_map(self) -> Optional[pulumi.Input['SubResourceArgs']]:
-        """
-        The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-        """
-        return pulumi.get(self, "outbound_route_map")
-
-    @outbound_route_map.setter
-    def outbound_route_map(self, value: Optional[pulumi.Input['SubResourceArgs']]):
-        pulumi.set(self, "outbound_route_map", value)
-
-    @_builtins.property
-    @pulumi.getter(name="propagatedRouteTables")
-    def propagated_route_tables(self) -> Optional[pulumi.Input['PropagatedRouteTableV3Args']]:
-        """
-        The list of RouteTables to advertise the routes to.
-        """
-        return pulumi.get(self, "propagated_route_tables")
-
-    @propagated_route_tables.setter
-    def propagated_route_tables(self, value: Optional[pulumi.Input['PropagatedRouteTableV3Args']]):
-        pulumi.set(self, "propagated_route_tables", value)
-
-    @_builtins.property
-    @pulumi.getter(name="vnetRoutes")
-    def vnet_routes(self) -> Optional[pulumi.Input['VnetRouteArgs']]:
-        """
-        List of routes that control routing from VirtualHub into a virtual network connection.
-        """
-        return pulumi.get(self, "vnet_routes")
-
-    @vnet_routes.setter
-    def vnet_routes(self, value: Optional[pulumi.Input['VnetRouteArgs']]):
-        pulumi.set(self, "vnet_routes", value)
-
-
-class RoutingConfigurationV5ArgsDict(TypedDict):
-    """
-    Routing Configuration indicating the associated and propagated route tables for this connection.
-    """
-    associated_route_table: NotRequired[pulumi.Input['SubResourceArgsDict']]
-    """
-    The resource id RouteTable associated with this RoutingConfiguration.
-    """
-    inbound_route_map: NotRequired[pulumi.Input['SubResourceArgsDict']]
-    """
-    The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-    """
-    outbound_route_map: NotRequired[pulumi.Input['SubResourceArgsDict']]
-    """
-    The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-    """
-    propagated_route_tables: NotRequired[pulumi.Input['PropagatedRouteTableV5ArgsDict']]
-    """
-    The list of RouteTables to advertise the routes to.
-    """
-    vnet_routes: NotRequired[pulumi.Input['VnetRouteArgsDict']]
-    """
-    List of routes that control routing from VirtualHub into a virtual network connection.
-    """
-
-@pulumi.input_type
-class RoutingConfigurationV5Args:
-    def __init__(__self__, *,
-                 associated_route_table: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 inbound_route_map: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 outbound_route_map: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 propagated_route_tables: Optional[pulumi.Input['PropagatedRouteTableV5Args']] = None,
-                 vnet_routes: Optional[pulumi.Input['VnetRouteArgs']] = None):
-        """
-        Routing Configuration indicating the associated and propagated route tables for this connection.
-
-        :param pulumi.Input['SubResourceArgs'] associated_route_table: The resource id RouteTable associated with this RoutingConfiguration.
-        :param pulumi.Input['SubResourceArgs'] inbound_route_map: The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-        :param pulumi.Input['SubResourceArgs'] outbound_route_map: The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-        :param pulumi.Input['PropagatedRouteTableV5Args'] propagated_route_tables: The list of RouteTables to advertise the routes to.
-        :param pulumi.Input['VnetRouteArgs'] vnet_routes: List of routes that control routing from VirtualHub into a virtual network connection.
-        """
-        if associated_route_table is not None:
-            pulumi.set(__self__, "associated_route_table", associated_route_table)
-        if inbound_route_map is not None:
-            pulumi.set(__self__, "inbound_route_map", inbound_route_map)
-        if outbound_route_map is not None:
-            pulumi.set(__self__, "outbound_route_map", outbound_route_map)
-        if propagated_route_tables is not None:
-            pulumi.set(__self__, "propagated_route_tables", propagated_route_tables)
-        if vnet_routes is not None:
-            pulumi.set(__self__, "vnet_routes", vnet_routes)
-
-    @_builtins.property
-    @pulumi.getter(name="associatedRouteTable")
-    def associated_route_table(self) -> Optional[pulumi.Input['SubResourceArgs']]:
-        """
-        The resource id RouteTable associated with this RoutingConfiguration.
-        """
-        return pulumi.get(self, "associated_route_table")
-
-    @associated_route_table.setter
-    def associated_route_table(self, value: Optional[pulumi.Input['SubResourceArgs']]):
-        pulumi.set(self, "associated_route_table", value)
-
-    @_builtins.property
-    @pulumi.getter(name="inboundRouteMap")
-    def inbound_route_map(self) -> Optional[pulumi.Input['SubResourceArgs']]:
-        """
-        The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-        """
-        return pulumi.get(self, "inbound_route_map")
-
-    @inbound_route_map.setter
-    def inbound_route_map(self, value: Optional[pulumi.Input['SubResourceArgs']]):
-        pulumi.set(self, "inbound_route_map", value)
-
-    @_builtins.property
-    @pulumi.getter(name="outboundRouteMap")
-    def outbound_route_map(self) -> Optional[pulumi.Input['SubResourceArgs']]:
-        """
-        The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-        """
-        return pulumi.get(self, "outbound_route_map")
-
-    @outbound_route_map.setter
-    def outbound_route_map(self, value: Optional[pulumi.Input['SubResourceArgs']]):
-        pulumi.set(self, "outbound_route_map", value)
-
-    @_builtins.property
-    @pulumi.getter(name="propagatedRouteTables")
-    def propagated_route_tables(self) -> Optional[pulumi.Input['PropagatedRouteTableV5Args']]:
-        """
-        The list of RouteTables to advertise the routes to.
-        """
-        return pulumi.get(self, "propagated_route_tables")
-
-    @propagated_route_tables.setter
-    def propagated_route_tables(self, value: Optional[pulumi.Input['PropagatedRouteTableV5Args']]):
-        pulumi.set(self, "propagated_route_tables", value)
-
-    @_builtins.property
-    @pulumi.getter(name="vnetRoutes")
-    def vnet_routes(self) -> Optional[pulumi.Input['VnetRouteArgs']]:
-        """
-        List of routes that control routing from VirtualHub into a virtual network connection.
-        """
-        return pulumi.get(self, "vnet_routes")
-
-    @vnet_routes.setter
-    def vnet_routes(self, value: Optional[pulumi.Input['VnetRouteArgs']]):
-        pulumi.set(self, "vnet_routes", value)
-
-
-class RoutingConfigurationV6ArgsDict(TypedDict):
-    """
-    Routing Configuration indicating the associated and propagated route tables for this connection.
-    """
-    associated_route_table: NotRequired[pulumi.Input['SubResourceArgsDict']]
-    """
-    The resource id RouteTable associated with this RoutingConfiguration.
-    """
-    inbound_route_map: NotRequired[pulumi.Input['SubResourceArgsDict']]
-    """
-    The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-    """
-    outbound_route_map: NotRequired[pulumi.Input['SubResourceArgsDict']]
-    """
-    The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-    """
-    propagated_route_tables: NotRequired[pulumi.Input['PropagatedRouteTableV6ArgsDict']]
-    """
-    The list of RouteTables to advertise the routes to.
-    """
-    vnet_routes: NotRequired[pulumi.Input['VnetRouteArgsDict']]
-    """
-    List of routes that control routing from VirtualHub into a virtual network connection.
-    """
-
-@pulumi.input_type
-class RoutingConfigurationV6Args:
-    def __init__(__self__, *,
-                 associated_route_table: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 inbound_route_map: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 outbound_route_map: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 propagated_route_tables: Optional[pulumi.Input['PropagatedRouteTableV6Args']] = None,
-                 vnet_routes: Optional[pulumi.Input['VnetRouteArgs']] = None):
-        """
-        Routing Configuration indicating the associated and propagated route tables for this connection.
-
-        :param pulumi.Input['SubResourceArgs'] associated_route_table: The resource id RouteTable associated with this RoutingConfiguration.
-        :param pulumi.Input['SubResourceArgs'] inbound_route_map: The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-        :param pulumi.Input['SubResourceArgs'] outbound_route_map: The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-        :param pulumi.Input['PropagatedRouteTableV6Args'] propagated_route_tables: The list of RouteTables to advertise the routes to.
-        :param pulumi.Input['VnetRouteArgs'] vnet_routes: List of routes that control routing from VirtualHub into a virtual network connection.
-        """
-        if associated_route_table is not None:
-            pulumi.set(__self__, "associated_route_table", associated_route_table)
-        if inbound_route_map is not None:
-            pulumi.set(__self__, "inbound_route_map", inbound_route_map)
-        if outbound_route_map is not None:
-            pulumi.set(__self__, "outbound_route_map", outbound_route_map)
-        if propagated_route_tables is not None:
-            pulumi.set(__self__, "propagated_route_tables", propagated_route_tables)
-        if vnet_routes is not None:
-            pulumi.set(__self__, "vnet_routes", vnet_routes)
-
-    @_builtins.property
-    @pulumi.getter(name="associatedRouteTable")
-    def associated_route_table(self) -> Optional[pulumi.Input['SubResourceArgs']]:
-        """
-        The resource id RouteTable associated with this RoutingConfiguration.
-        """
-        return pulumi.get(self, "associated_route_table")
-
-    @associated_route_table.setter
-    def associated_route_table(self, value: Optional[pulumi.Input['SubResourceArgs']]):
-        pulumi.set(self, "associated_route_table", value)
-
-    @_builtins.property
-    @pulumi.getter(name="inboundRouteMap")
-    def inbound_route_map(self) -> Optional[pulumi.Input['SubResourceArgs']]:
-        """
-        The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-        """
-        return pulumi.get(self, "inbound_route_map")
-
-    @inbound_route_map.setter
-    def inbound_route_map(self, value: Optional[pulumi.Input['SubResourceArgs']]):
-        pulumi.set(self, "inbound_route_map", value)
-
-    @_builtins.property
-    @pulumi.getter(name="outboundRouteMap")
-    def outbound_route_map(self) -> Optional[pulumi.Input['SubResourceArgs']]:
-        """
-        The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-        """
-        return pulumi.get(self, "outbound_route_map")
-
-    @outbound_route_map.setter
-    def outbound_route_map(self, value: Optional[pulumi.Input['SubResourceArgs']]):
-        pulumi.set(self, "outbound_route_map", value)
-
-    @_builtins.property
-    @pulumi.getter(name="propagatedRouteTables")
-    def propagated_route_tables(self) -> Optional[pulumi.Input['PropagatedRouteTableV6Args']]:
-        """
-        The list of RouteTables to advertise the routes to.
-        """
-        return pulumi.get(self, "propagated_route_tables")
-
-    @propagated_route_tables.setter
-    def propagated_route_tables(self, value: Optional[pulumi.Input['PropagatedRouteTableV6Args']]):
-        pulumi.set(self, "propagated_route_tables", value)
-
-    @_builtins.property
-    @pulumi.getter(name="vnetRoutes")
-    def vnet_routes(self) -> Optional[pulumi.Input['VnetRouteArgs']]:
-        """
-        List of routes that control routing from VirtualHub into a virtual network connection.
-        """
-        return pulumi.get(self, "vnet_routes")
-
-    @vnet_routes.setter
-    def vnet_routes(self, value: Optional[pulumi.Input['VnetRouteArgs']]):
-        pulumi.set(self, "vnet_routes", value)
-
-
-class RoutingConfigurationV7ArgsDict(TypedDict):
-    """
-    Routing Configuration indicating the associated and propagated route tables for this connection.
-    """
-    associated_route_table: NotRequired[pulumi.Input['SubResourceArgsDict']]
-    """
-    The resource id RouteTable associated with this RoutingConfiguration.
-    """
-    inbound_route_map: NotRequired[pulumi.Input['SubResourceArgsDict']]
-    """
-    The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-    """
-    outbound_route_map: NotRequired[pulumi.Input['SubResourceArgsDict']]
-    """
-    The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-    """
-    propagated_route_tables: NotRequired[pulumi.Input['PropagatedRouteTableV7ArgsDict']]
-    """
-    The list of RouteTables to advertise the routes to.
-    """
-    vnet_routes: NotRequired[pulumi.Input['VnetRouteArgsDict']]
-    """
-    List of routes that control routing from VirtualHub into a virtual network connection.
-    """
-
-@pulumi.input_type
-class RoutingConfigurationV7Args:
-    def __init__(__self__, *,
-                 associated_route_table: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 inbound_route_map: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 outbound_route_map: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 propagated_route_tables: Optional[pulumi.Input['PropagatedRouteTableV7Args']] = None,
-                 vnet_routes: Optional[pulumi.Input['VnetRouteArgs']] = None):
-        """
-        Routing Configuration indicating the associated and propagated route tables for this connection.
-
-        :param pulumi.Input['SubResourceArgs'] associated_route_table: The resource id RouteTable associated with this RoutingConfiguration.
-        :param pulumi.Input['SubResourceArgs'] inbound_route_map: The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-        :param pulumi.Input['SubResourceArgs'] outbound_route_map: The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-        :param pulumi.Input['PropagatedRouteTableV7Args'] propagated_route_tables: The list of RouteTables to advertise the routes to.
-        :param pulumi.Input['VnetRouteArgs'] vnet_routes: List of routes that control routing from VirtualHub into a virtual network connection.
-        """
-        if associated_route_table is not None:
-            pulumi.set(__self__, "associated_route_table", associated_route_table)
-        if inbound_route_map is not None:
-            pulumi.set(__self__, "inbound_route_map", inbound_route_map)
-        if outbound_route_map is not None:
-            pulumi.set(__self__, "outbound_route_map", outbound_route_map)
-        if propagated_route_tables is not None:
-            pulumi.set(__self__, "propagated_route_tables", propagated_route_tables)
-        if vnet_routes is not None:
-            pulumi.set(__self__, "vnet_routes", vnet_routes)
-
-    @_builtins.property
-    @pulumi.getter(name="associatedRouteTable")
-    def associated_route_table(self) -> Optional[pulumi.Input['SubResourceArgs']]:
-        """
-        The resource id RouteTable associated with this RoutingConfiguration.
-        """
-        return pulumi.get(self, "associated_route_table")
-
-    @associated_route_table.setter
-    def associated_route_table(self, value: Optional[pulumi.Input['SubResourceArgs']]):
-        pulumi.set(self, "associated_route_table", value)
-
-    @_builtins.property
-    @pulumi.getter(name="inboundRouteMap")
-    def inbound_route_map(self) -> Optional[pulumi.Input['SubResourceArgs']]:
-        """
-        The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-        """
-        return pulumi.get(self, "inbound_route_map")
-
-    @inbound_route_map.setter
-    def inbound_route_map(self, value: Optional[pulumi.Input['SubResourceArgs']]):
-        pulumi.set(self, "inbound_route_map", value)
-
-    @_builtins.property
-    @pulumi.getter(name="outboundRouteMap")
-    def outbound_route_map(self) -> Optional[pulumi.Input['SubResourceArgs']]:
-        """
-        The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-        """
-        return pulumi.get(self, "outbound_route_map")
-
-    @outbound_route_map.setter
-    def outbound_route_map(self, value: Optional[pulumi.Input['SubResourceArgs']]):
-        pulumi.set(self, "outbound_route_map", value)
-
-    @_builtins.property
-    @pulumi.getter(name="propagatedRouteTables")
-    def propagated_route_tables(self) -> Optional[pulumi.Input['PropagatedRouteTableV7Args']]:
-        """
-        The list of RouteTables to advertise the routes to.
-        """
-        return pulumi.get(self, "propagated_route_tables")
-
-    @propagated_route_tables.setter
-    def propagated_route_tables(self, value: Optional[pulumi.Input['PropagatedRouteTableV7Args']]):
         pulumi.set(self, "propagated_route_tables", value)
 
     @_builtins.property
@@ -33124,7 +32264,7 @@ class VpnConnectionArgsDict(TypedDict):
     """
     Id of the connected vpn site.
     """
-    routing_configuration: NotRequired[pulumi.Input['RoutingConfigurationV7ArgsDict']]
+    routing_configuration: NotRequired[pulumi.Input['RoutingConfigurationV1ArgsDict']]
     """
     The Routing Configuration indicating the associated and propagated route tables on this connection.
     """
@@ -33169,7 +32309,7 @@ class VpnConnectionArgs:
                  ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgs']]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  remote_vpn_site: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 routing_configuration: Optional[pulumi.Input['RoutingConfigurationV7Args']] = None,
+                 routing_configuration: Optional[pulumi.Input['RoutingConfigurationV1Args']] = None,
                  routing_weight: Optional[pulumi.Input[_builtins.int]] = None,
                  shared_key: Optional[pulumi.Input[_builtins.str]] = None,
                  traffic_selector_policies: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficSelectorPolicyArgs']]]] = None,
@@ -33189,7 +32329,7 @@ class VpnConnectionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgs']]] ipsec_policies: The IPSec Policies to be considered by this connection.
         :param pulumi.Input[_builtins.str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input['SubResourceArgs'] remote_vpn_site: Id of the connected vpn site.
-        :param pulumi.Input['RoutingConfigurationV7Args'] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
+        :param pulumi.Input['RoutingConfigurationV1Args'] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
         :param pulumi.Input[_builtins.int] routing_weight: Routing weight for vpn connection.
         :param pulumi.Input[_builtins.str] shared_key: SharedKey for the vpn connection.
         :param pulumi.Input[Sequence[pulumi.Input['TrafficSelectorPolicyArgs']]] traffic_selector_policies: The Traffic Selector Policies to be considered by this connection.
@@ -33343,14 +32483,14 @@ class VpnConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="routingConfiguration")
-    def routing_configuration(self) -> Optional[pulumi.Input['RoutingConfigurationV7Args']]:
+    def routing_configuration(self) -> Optional[pulumi.Input['RoutingConfigurationV1Args']]:
         """
         The Routing Configuration indicating the associated and propagated route tables on this connection.
         """
         return pulumi.get(self, "routing_configuration")
 
     @routing_configuration.setter
-    def routing_configuration(self, value: Optional[pulumi.Input['RoutingConfigurationV7Args']]):
+    def routing_configuration(self, value: Optional[pulumi.Input['RoutingConfigurationV1Args']]):
         pulumi.set(self, "routing_configuration", value)
 
     @_builtins.property

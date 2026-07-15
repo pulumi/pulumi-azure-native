@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.Network
         /// The Routing Configuration indicating the associated and propagated route tables on this connection.
         /// </summary>
         [Output("routingConfiguration")]
-        public Output<Outputs.RoutingConfigurationResponseV3?> RoutingConfiguration { get; private set; } = null!;
+        public Output<Outputs.RoutingConfigurationResponseV1?> RoutingConfiguration { get; private set; } = null!;
 
 
         /// <summary>
@@ -202,7 +202,7 @@ namespace Pulumi.AzureNative.Network
         /// The Routing Configuration indicating the associated and propagated route tables on this connection.
         /// </summary>
         [Input("routingConfiguration")]
-        public Input<Inputs.RoutingConfigurationV3Args>? RoutingConfiguration { get; set; }
+        public Input<Inputs.RoutingConfigurationV1Args>? RoutingConfiguration { get; set; }
 
         /// <summary>
         /// The name of the VirtualHub.

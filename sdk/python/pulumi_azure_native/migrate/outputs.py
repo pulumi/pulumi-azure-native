@@ -183,7 +183,6 @@ __all__ = [
     'VirtualizationSoftwareSettingsResponse',
     'VmUptimeResponse',
     'VmUptimeResponseV1',
-    'VmUptimeResponseV2',
     'WavePropertiesResponse',
     'WebAppAssessmentSettingsResponse',
     'WebAppAssessmentV3PropertiesResponse',
@@ -8159,7 +8158,7 @@ class MachineAssessmentSettingsResponse(dict):
                  savings_settings: Optional['outputs.SavingsSettingsResponse'] = None,
                  scaling_factor: Optional[_builtins.float] = None,
                  sizing_criterion: Optional[_builtins.str] = None,
-                 vm_uptime: Optional['outputs.VmUptimeResponseV2'] = None):
+                 vm_uptime: Optional['outputs.VmUptimeResponseV1'] = None):
         """
         Properties of an assessment.
 
@@ -8183,7 +8182,7 @@ class MachineAssessmentSettingsResponse(dict):
         :param _builtins.float scaling_factor: Percentage of buffer that user wants on performance metrics when recommending
                Azure sizes.
         :param _builtins.str sizing_criterion: Assessment sizing criterion.
-        :param 'VmUptimeResponseV2' vm_uptime: Gets or sets the duration for which the VMs are up in the on-premises
+        :param 'VmUptimeResponseV1' vm_uptime: Gets or sets the duration for which the VMs are up in the on-premises
                environment.
         """
         if azure_disk_types is not None:
@@ -8364,7 +8363,7 @@ class MachineAssessmentSettingsResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="vmUptime")
-    def vm_uptime(self) -> Optional['outputs.VmUptimeResponseV2']:
+    def vm_uptime(self) -> Optional['outputs.VmUptimeResponseV1']:
         """
         Gets or sets the duration for which the VMs are up in the on-premises
         environment.
@@ -15862,61 +15861,6 @@ class VmUptimeResponseV1(dict):
 
     def get(self, key: str, default = None) -> Any:
         VmUptimeResponseV1.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 days_per_month: Optional[_builtins.int] = None,
-                 hours_per_day: Optional[_builtins.int] = None):
-        """
-        Details on the total up-time for the VM.
-
-        :param _builtins.int days_per_month: Number of days in a month for VM uptime.
-        :param _builtins.int hours_per_day: Number of hours per day for VM uptime.
-        """
-        if days_per_month is not None:
-            pulumi.set(__self__, "days_per_month", days_per_month)
-        if hours_per_day is not None:
-            pulumi.set(__self__, "hours_per_day", hours_per_day)
-
-    @_builtins.property
-    @pulumi.getter(name="daysPerMonth")
-    def days_per_month(self) -> Optional[_builtins.int]:
-        """
-        Number of days in a month for VM uptime.
-        """
-        return pulumi.get(self, "days_per_month")
-
-    @_builtins.property
-    @pulumi.getter(name="hoursPerDay")
-    def hours_per_day(self) -> Optional[_builtins.int]:
-        """
-        Number of hours per day for VM uptime.
-        """
-        return pulumi.get(self, "hours_per_day")
-
-
-@pulumi.output_type
-class VmUptimeResponseV2(dict):
-    """
-    Details on the total up-time for the VM.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "daysPerMonth":
-            suggest = "days_per_month"
-        elif key == "hoursPerDay":
-            suggest = "hours_per_day"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VmUptimeResponseV2. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VmUptimeResponseV2.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VmUptimeResponseV2.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

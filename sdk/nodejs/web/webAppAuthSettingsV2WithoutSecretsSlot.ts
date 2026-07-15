@@ -148,7 +148,7 @@ export interface WebAppAuthSettingsV2WithoutSecretsSlotArgs {
     /**
      * The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
      */
-    identityProviders?: pulumi.Input<inputs.web.IdentityProvidersV2Args>;
+    identityProviders?: pulumi.Input<inputs.web.IdentityProvidersV1Args>;
     /**
      * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */

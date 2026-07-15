@@ -147146,7 +147146,7 @@ export namespace network {
         /**
          * The Routing Configuration indicating the associated and propagated route tables on this connection.
          */
-        routingConfiguration?: pulumi.Input<inputs.network.RoutingConfigurationV2Args>;
+        routingConfiguration?: pulumi.Input<inputs.network.RoutingConfigurationV1Args>;
         /**
          * The routing weight associated to the connection.
          */
@@ -149062,7 +149062,7 @@ export namespace network {
         /**
          * The Routing Configuration indicating the associated and propagated route tables on this connection.
          */
-        routingConfiguration?: pulumi.Input<inputs.network.RoutingConfigurationV5Args>;
+        routingConfiguration?: pulumi.Input<inputs.network.RoutingConfigurationV1Args>;
         /**
          * The reference to the address space resource which represents Address space for P2S VpnClient.
          */
@@ -149667,76 +149667,6 @@ export namespace network {
     }
 
     /**
-     * The list of RouteTables to advertise the routes to.
-     */
-    export interface PropagatedRouteTableV2Args {
-        /**
-         * The list of resource ids of all the RouteTables.
-         */
-        ids?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[]>;
-        /**
-         * The list of labels.
-         */
-        labels?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    /**
-     * The list of RouteTables to advertise the routes to.
-     */
-    export interface PropagatedRouteTableV3Args {
-        /**
-         * The list of resource ids of all the RouteTables.
-         */
-        ids?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[]>;
-        /**
-         * The list of labels.
-         */
-        labels?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    /**
-     * The list of RouteTables to advertise the routes to.
-     */
-    export interface PropagatedRouteTableV5Args {
-        /**
-         * The list of resource ids of all the RouteTables.
-         */
-        ids?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[]>;
-        /**
-         * The list of labels.
-         */
-        labels?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    /**
-     * The list of RouteTables to advertise the routes to.
-     */
-    export interface PropagatedRouteTableV6Args {
-        /**
-         * The list of resource ids of all the RouteTables.
-         */
-        ids?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[]>;
-        /**
-         * The list of labels.
-         */
-        labels?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    /**
-     * The list of RouteTables to advertise the routes to.
-     */
-    export interface PropagatedRouteTableV7Args {
-        /**
-         * The list of resource ids of all the RouteTables.
-         */
-        ids?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[]>;
-        /**
-         * The list of labels.
-         */
-        labels?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    /**
      * Public IP address resource.
      */
     export interface PublicIPAddressArgs {
@@ -150217,136 +150147,6 @@ export namespace network {
          * The list of RouteTables to advertise the routes to.
          */
         propagatedRouteTables?: pulumi.Input<inputs.network.PropagatedRouteTableV1Args>;
-        /**
-         * List of routes that control routing from VirtualHub into a virtual network connection.
-         */
-        vnetRoutes?: pulumi.Input<inputs.network.VnetRouteArgs>;
-    }
-
-    /**
-     * Routing Configuration indicating the associated and propagated route tables for this connection.
-     */
-    export interface RoutingConfigurationV2Args {
-        /**
-         * The resource id RouteTable associated with this RoutingConfiguration.
-         */
-        associatedRouteTable?: pulumi.Input<inputs.network.SubResourceArgs>;
-        /**
-         * The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-         */
-        inboundRouteMap?: pulumi.Input<inputs.network.SubResourceArgs>;
-        /**
-         * The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-         */
-        outboundRouteMap?: pulumi.Input<inputs.network.SubResourceArgs>;
-        /**
-         * The list of RouteTables to advertise the routes to.
-         */
-        propagatedRouteTables?: pulumi.Input<inputs.network.PropagatedRouteTableV2Args>;
-        /**
-         * List of routes that control routing from VirtualHub into a virtual network connection.
-         */
-        vnetRoutes?: pulumi.Input<inputs.network.VnetRouteArgs>;
-    }
-
-    /**
-     * Routing Configuration indicating the associated and propagated route tables for this connection.
-     */
-    export interface RoutingConfigurationV3Args {
-        /**
-         * The resource id RouteTable associated with this RoutingConfiguration.
-         */
-        associatedRouteTable?: pulumi.Input<inputs.network.SubResourceArgs>;
-        /**
-         * The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-         */
-        inboundRouteMap?: pulumi.Input<inputs.network.SubResourceArgs>;
-        /**
-         * The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-         */
-        outboundRouteMap?: pulumi.Input<inputs.network.SubResourceArgs>;
-        /**
-         * The list of RouteTables to advertise the routes to.
-         */
-        propagatedRouteTables?: pulumi.Input<inputs.network.PropagatedRouteTableV3Args>;
-        /**
-         * List of routes that control routing from VirtualHub into a virtual network connection.
-         */
-        vnetRoutes?: pulumi.Input<inputs.network.VnetRouteArgs>;
-    }
-
-    /**
-     * Routing Configuration indicating the associated and propagated route tables for this connection.
-     */
-    export interface RoutingConfigurationV5Args {
-        /**
-         * The resource id RouteTable associated with this RoutingConfiguration.
-         */
-        associatedRouteTable?: pulumi.Input<inputs.network.SubResourceArgs>;
-        /**
-         * The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-         */
-        inboundRouteMap?: pulumi.Input<inputs.network.SubResourceArgs>;
-        /**
-         * The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-         */
-        outboundRouteMap?: pulumi.Input<inputs.network.SubResourceArgs>;
-        /**
-         * The list of RouteTables to advertise the routes to.
-         */
-        propagatedRouteTables?: pulumi.Input<inputs.network.PropagatedRouteTableV5Args>;
-        /**
-         * List of routes that control routing from VirtualHub into a virtual network connection.
-         */
-        vnetRoutes?: pulumi.Input<inputs.network.VnetRouteArgs>;
-    }
-
-    /**
-     * Routing Configuration indicating the associated and propagated route tables for this connection.
-     */
-    export interface RoutingConfigurationV6Args {
-        /**
-         * The resource id RouteTable associated with this RoutingConfiguration.
-         */
-        associatedRouteTable?: pulumi.Input<inputs.network.SubResourceArgs>;
-        /**
-         * The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-         */
-        inboundRouteMap?: pulumi.Input<inputs.network.SubResourceArgs>;
-        /**
-         * The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-         */
-        outboundRouteMap?: pulumi.Input<inputs.network.SubResourceArgs>;
-        /**
-         * The list of RouteTables to advertise the routes to.
-         */
-        propagatedRouteTables?: pulumi.Input<inputs.network.PropagatedRouteTableV6Args>;
-        /**
-         * List of routes that control routing from VirtualHub into a virtual network connection.
-         */
-        vnetRoutes?: pulumi.Input<inputs.network.VnetRouteArgs>;
-    }
-
-    /**
-     * Routing Configuration indicating the associated and propagated route tables for this connection.
-     */
-    export interface RoutingConfigurationV7Args {
-        /**
-         * The resource id RouteTable associated with this RoutingConfiguration.
-         */
-        associatedRouteTable?: pulumi.Input<inputs.network.SubResourceArgs>;
-        /**
-         * The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-         */
-        inboundRouteMap?: pulumi.Input<inputs.network.SubResourceArgs>;
-        /**
-         * The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-         */
-        outboundRouteMap?: pulumi.Input<inputs.network.SubResourceArgs>;
-        /**
-         * The list of RouteTables to advertise the routes to.
-         */
-        propagatedRouteTables?: pulumi.Input<inputs.network.PropagatedRouteTableV7Args>;
         /**
          * List of routes that control routing from VirtualHub into a virtual network connection.
          */
@@ -151680,7 +151480,7 @@ export namespace network {
         /**
          * The Routing Configuration indicating the associated and propagated route tables on this connection.
          */
-        routingConfiguration?: pulumi.Input<inputs.network.RoutingConfigurationV7Args>;
+        routingConfiguration?: pulumi.Input<inputs.network.RoutingConfigurationV1Args>;
         /**
          * Routing weight for vpn connection.
          */
@@ -182651,24 +182451,6 @@ export namespace web {
     }
 
     /**
-     * The configuration settings of the custom Open ID Connect provider.
-     */
-    export interface CustomOpenIdConnectProviderV2Args {
-        /**
-         * <code>false</code> if the custom Open ID provider provider should not be enabled; otherwise, <code>true</code>.
-         */
-        enabled?: pulumi.Input<boolean>;
-        /**
-         * The configuration settings of the login flow of the custom Open ID Connect provider.
-         */
-        login?: pulumi.Input<inputs.web.OpenIdConnectLoginArgs>;
-        /**
-         * The configuration settings of the app registration for the custom Open ID Connect provider.
-         */
-        registration?: pulumi.Input<inputs.web.OpenIdConnectRegistrationV2Args>;
-    }
-
-    /**
      * App Dapr configuration.
      */
     export interface DaprConfigArgs {
@@ -183367,49 +183149,6 @@ export namespace web {
     }
 
     /**
-     * The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
-     */
-    export interface IdentityProvidersV2Args {
-        /**
-         * The configuration settings of the Apple provider.
-         */
-        apple?: pulumi.Input<inputs.web.AppleArgs>;
-        /**
-         * The configuration settings of the Azure Active directory provider.
-         */
-        azureActiveDirectory?: pulumi.Input<inputs.web.AzureActiveDirectoryArgs>;
-        /**
-         * The configuration settings of the Azure Static Web Apps provider.
-         */
-        azureStaticWebApps?: pulumi.Input<inputs.web.AzureStaticWebAppsArgs>;
-        /**
-         * The map of the name of the alias of each custom Open ID Connect provider to the
-         * configuration settings of the custom Open ID Connect provider.
-         */
-        customOpenIdConnectProviders?: pulumi.Input<{[key: string]: pulumi.Input<inputs.web.CustomOpenIdConnectProviderV2Args>}>;
-        /**
-         * The configuration settings of the Facebook provider.
-         */
-        facebook?: pulumi.Input<inputs.web.FacebookArgs>;
-        /**
-         * The configuration settings of the GitHub provider.
-         */
-        gitHub?: pulumi.Input<inputs.web.GitHubArgs>;
-        /**
-         * The configuration settings of the Google provider.
-         */
-        google?: pulumi.Input<inputs.web.GoogleArgs>;
-        /**
-         * The configuration settings of the legacy Microsoft Account provider.
-         */
-        legacyMicrosoftAccount?: pulumi.Input<inputs.web.LegacyMicrosoftAccountArgs>;
-        /**
-         * The configuration settings of the Twitter provider.
-         */
-        twitter?: pulumi.Input<inputs.web.TwitterArgs>;
-    }
-
-    /**
      * Server farm install script configuration.
      */
     export interface InstallScriptArgs {
@@ -183693,20 +183432,6 @@ export namespace web {
     }
 
     /**
-     * The authentication client credentials of the custom Open ID Connect provider.
-     */
-    export interface OpenIdConnectClientCredentialV2Args {
-        /**
-         * The app setting that contains the client secret for the custom Open ID Connect provider.
-         */
-        clientSecretSettingName?: pulumi.Input<string>;
-        /**
-         * The method that should be used to authenticate the user.
-         */
-        method?: pulumi.Input<enums.web.Method>;
-    }
-
-    /**
      * The configuration settings of the endpoints used for the custom Open ID Connect provider.
      */
     export interface OpenIdConnectConfigArgs {
@@ -183772,24 +183497,6 @@ export namespace web {
          * The authentication credentials of the custom Open ID Connect provider.
          */
         clientCredential?: pulumi.Input<inputs.web.OpenIdConnectClientCredentialV1Args>;
-        /**
-         * The client id of the custom Open ID Connect provider.
-         */
-        clientId?: pulumi.Input<string>;
-        /**
-         * The configuration settings of the endpoints used for the custom Open ID Connect provider.
-         */
-        openIdConnectConfiguration?: pulumi.Input<inputs.web.OpenIdConnectConfigArgs>;
-    }
-
-    /**
-     * The configuration settings of the app registration for the custom Open ID Connect provider.
-     */
-    export interface OpenIdConnectRegistrationV2Args {
-        /**
-         * The authentication credentials of the custom Open ID Connect provider.
-         */
-        clientCredential?: pulumi.Input<inputs.web.OpenIdConnectClientCredentialV2Args>;
         /**
          * The client id of the custom Open ID Connect provider.
          */

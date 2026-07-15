@@ -164,7 +164,7 @@ namespace Pulumi.AzureNative.Web
         /// The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
         /// </summary>
         [Input("identityProviders")]
-        public Input<Inputs.IdentityProvidersV2Args>? IdentityProviders { get; set; }
+        public Input<Inputs.IdentityProvidersV1Args>? IdentityProviders { get; set; }
 
         /// <summary>
         /// Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.

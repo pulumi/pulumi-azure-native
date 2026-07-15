@@ -52,7 +52,7 @@ export class RegistryEnvironmentVersion extends pulumi.CustomResource {
     /**
      * [Required] Additional attributes of the entity.
      */
-    declare public readonly properties: pulumi.Output<outputs.machinelearningservices.EnvironmentVersionPropertiesResponseV1>;
+    declare public readonly properties: pulumi.Output<outputs.machinelearningservices.EnvironmentVersionPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

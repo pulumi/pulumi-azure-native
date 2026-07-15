@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// <summary>
         /// Groups for configuration
         /// </summary>
-        public readonly ImmutableArray<Outputs.ConnectivityGroupItemResponseV2> AppliesToGroups;
+        public readonly ImmutableArray<Outputs.ConnectivityGroupItemResponseV1> AppliesToGroups;
         /// <summary>
         /// Effective configuration groups.
         /// </summary>
@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.Network.Outputs
 
         [OutputConstructor]
         private EffectiveConnectivityConfigurationResponse(
-            ImmutableArray<Outputs.ConnectivityGroupItemResponseV2> appliesToGroups,
+            ImmutableArray<Outputs.ConnectivityGroupItemResponseV1> appliesToGroups,
 
             ImmutableArray<Outputs.ConfigurationGroupResponse> configurationGroups,
 

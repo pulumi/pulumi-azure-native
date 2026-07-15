@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
         /// <summary>
         /// Property customActions
         /// </summary>
-        public readonly ImmutableArray<Outputs.CustomActionResponseV1> CustomActions;
+        public readonly ImmutableArray<Outputs.CustomActionResponse> CustomActions;
         /// <summary>
         /// Property statelessRules
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
 
         [OutputConstructor]
         private StatelessRulesAndCustomActionsResponse(
-            ImmutableArray<Outputs.CustomActionResponseV1> customActions,
+            ImmutableArray<Outputs.CustomActionResponse> customActions,
 
             ImmutableArray<Outputs.StatelessRuleResponse> statelessRules)
         {

@@ -39,7 +39,7 @@ namespace Pulumi.AzureNative.Resources
         /// The resource-specific properties for this resource.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.DeploymentStacksWhatIfResultPropertiesResponseV2> Properties { get; private set; } = null!;
+        public Output<Outputs.DeploymentStacksWhatIfResultPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
