@@ -1840,8 +1840,6 @@ Web:
         CustomApi: "2016-06-01"
         WebAppAuthSettingsV2: "2021-02-01"
         WebAppAuthSettingsV2Slot: "2021-02-01"
-        getAppServicePlanServerFarmRdpPassword: "2025-03-01"
-        listAppServicePlanServerFarmInstanceDetails: "2025-03-01"
         listConnectionConsentLinks: "2016-06-01"
         listConnectionKeys: 2015-08-01-preview
         listCustomApiWsdlInterfaces: "2016-06-01"
