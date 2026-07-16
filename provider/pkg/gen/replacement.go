@@ -40,17 +40,20 @@ var forceNewMap = map[openapi.ModuleName]map[string]codegen.StringSet{
 			// Create-only, no update path exists at all in the AKS API:
 			"serviceCidr",
 			"serviceCidrs",
+			"podCidrs",
 			"dnsServiceIP",
 			"networkMode",
 			// `az aks update` accepts these, but only along a specific one-way migration
-			// (e.g. CNI -> CNI Overlay, azure -> cilium dataplane), not arbitrary edits.
-			// Force-new to stay conservative and avoid https://github.com/pulumi/pulumi-azure-native/issues/959.
+			// (e.g. CNI -> CNI Overlay, azure -> cilium dataplane, single-stack -> dual-stack),
+			// not arbitrary edits. Force-new to stay conservative and avoid
+			// https://github.com/pulumi/pulumi-azure-native/issues/959.
 			"networkPlugin",
 			"networkPluginMode",
 			"podCidr",
 			"networkDataplane",
 			"networkPolicy",
 			"outboundType",
+			"ipFamilies",
 			// AgentPoolNetworkProfile is a type shared with the standalone AgentPool resource (see
 			// below); nodePublicIPTags is create-only there too (no `az aks nodepool update`
 			// equivalent, unlike allowedHostPorts/applicationSecurityGroups). Listed here as well
