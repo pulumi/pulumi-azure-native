@@ -31,13 +31,39 @@ var forceNewMap = map[openapi.ModuleName]map[string]codegen.StringSet{
 			"fqdnSubdomain",
 			"linuxProfile",
 			"location",
-			"networkProfile",
 			"nodeResourceGroup",
 			"windowsProfile",
+			// networkProfile (see https://github.com/pulumi/pulumi-azure-native/issues/4756):
+			// only the sub-properties below force a replacement. The rest of networkProfile
+			// (e.g. advancedNetworking, loadBalancerProfile, natGatewayProfile, loadBalancerSku)
+			// can be updated in place per `az aks update`.
+			// Create-only, no update path exists at all in the AKS API:
+			"serviceCidr",
+			"serviceCidrs",
+			"dnsServiceIP",
+			"networkMode",
+			// `az aks update` accepts these, but only along a specific one-way migration
+			// (e.g. CNI -> CNI Overlay, azure -> cilium dataplane), not arbitrary edits.
+			// Force-new to stay conservative and avoid https://github.com/pulumi/pulumi-azure-native/issues/959.
+			"networkPlugin",
+			"networkPluginMode",
+			"podCidr",
+			"networkDataplane",
+			"networkPolicy",
+			"outboundType",
+			// AgentPoolNetworkProfile is a type shared with the standalone AgentPool resource (see
+			// below); nodePublicIPTags is create-only there too (no `az aks nodepool update`
+			// equivalent, unlike allowedHostPorts/applicationSecurityGroups). Listed here as well
+			// since the type is generated once and whichever resource's pass generates it first
+			// determines its ForceNew flags for both.
+			"nodePublicIPTags",
 		),
 		"AgentPool": codegen.NewStringSet(
 			"gpuInstanceProfile",
 			"vmSize",
+			// networkProfile.nodePublicIPTags is create-only: no `az aks nodepool update` equivalent
+			// exists (unlike allowedHostPorts/applicationSecurityGroups, which are freely updatable).
+			"nodePublicIPTags",
 		),
 	},
 	"DocumentDB": {

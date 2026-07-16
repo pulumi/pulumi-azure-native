@@ -443,6 +443,46 @@ func TestUpgradeAksApiVersion_2_90_0(t *testing.T) {
 		optproviderupgrade.NewSourcePath(filepath.Join("test-programs", "upgrade-aks-api-version", "v3")))
 }
 
+// TestManagedClusterNetworkProfileForceNewOnlyImmutableFields is a regression test for issue #4756:
+// ManagedCluster.networkProfile used to be marked ForceNew as a whole object, so changing any
+// sub-property under it forced a full AKS cluster replacement, even sub-properties that AKS supports
+// updating in place (e.g. advancedNetworking/ACNS via `az aks update --enable-acns`).
+//
+// This only previews (rather than applies) the replacement scenario, since actually replacing a real
+// AKS cluster is slow and unnecessary to validate: the change under test is purely in the provider's
+// Diff logic (which properties get classified as forcing a replacement), not in the mechanics of
+// applying a replacement, which are unaffected.
+func TestManagedClusterNetworkProfileForceNewOnlyImmutableFields(t *testing.T) {
+	t.Parallel()
+	pt := newPulumiTest(t, "aks-networkprofile-forcenew")
+	defer func() {
+		pt.Destroy(t)
+	}()
+
+	// Baseline: dnsServiceIP=10.0.0.10, advancedNetworking.enabled=false.
+	pt.Up(t)
+
+	// Changing only advancedNetworking (freely updatable per `az aks update`) should update in place.
+	pt.SetConfig(t, "advancedNetworkingEnabled", "true")
+	mutablePreview := pt.Preview(t)
+	assertpreview.HasNoReplacements(t, mutablePreview)
+	mutableSummary := changesummary.ChangeSummary(mutablePreview.ChangeSummary)
+	assert.Greater(t, mutableSummary[apitype.OpUpdate], 0,
+		"expected an in-place update when only advancedNetworking changes")
+
+	// Revert advancedNetworking so only dnsServiceIP (genuinely immutable, no `az aks update`
+	// equivalent) differs from the deployed baseline. That alone must force a replacement.
+	pt.SetConfig(t, "advancedNetworkingEnabled", "false")
+	pt.SetConfig(t, "dnsServiceIP", "10.0.1.10")
+	immutablePreview := pt.Preview(t)
+	immutableSummary := changesummary.ChangeSummary(immutablePreview.ChangeSummary)
+	replacementOps := immutableSummary[apitype.OpReplace] +
+		immutableSummary[apitype.OpCreateReplacement] +
+		immutableSummary[apitype.OpDeleteReplaced]
+	assert.Greater(t, replacementOps, 0,
+		"expected a replacement when changing the immutable dnsServiceIP sub-property")
+}
+
 func upgradeTest(t *testing.T, testProgramDir string, upgradeFromVersion string, opts ...optproviderupgrade.PreviewProviderUpgradeOpt) {
 	t.Helper()
 	if testing.Short() {

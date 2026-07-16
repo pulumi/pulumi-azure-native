@@ -413,8 +413,7 @@
   "networkProfile": {
    "$ref": "#/types/azure-native:containerservice:ContainerServiceNetworkProfile",
    "description": "The network configuration profile.",
-   "type": "object",
-   "willReplaceOnChanges": true
+   "type": "object"
   },
   "nodeProvisioningProfile": {
    "$ref": "#/types/azure-native:containerservice:ManagedClusterNodeProvisioningProfile",
@@ -1040,7 +1039,6 @@
       "containers": [
        "properties"
       ],
-      "forceNew": true,
       "type": "object"
      },
      "nodeProvisioningProfile": {

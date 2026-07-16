@@ -642,6 +642,81 @@ var emptyTypes resources.TypeLookupFunc = func(t string) (*resources.AzureAPITyp
 	return nil, false, nil
 }
 
+// TestManagedClusterNetworkProfileOnlyForceNewsImmutableSubProperties is a regression test for
+// https://github.com/pulumi/pulumi-azure-native/issues/4756: ManagedCluster.networkProfile used to be
+// marked ForceNew as a whole object, so any change under it (e.g. toggling advancedNetworking, which AKS
+// supports updating in place via `az aks update`) forced a full cluster replacement. Only specific
+// sub-properties of ContainerServiceNetworkProfile that are genuinely immutable in the AKS API (e.g.
+// serviceCidr) should force a replacement; the rest should diff as a plain in-place update.
+func TestManagedClusterNetworkProfileOnlyForceNewsImmutableSubProperties(t *testing.T) {
+	res := resources.AzureAPIResource{
+		PutParameters: []resources.AzureAPIParameter{
+			{
+				Location: "body",
+				Name:     "bodyProperties",
+				Body: &resources.AzureAPIType{
+					Properties: map[string]resources.AzureAPIProperty{
+						"networkProfile": {Ref: "#/types/ContainerServiceNetworkProfile"},
+					},
+				},
+			},
+		},
+	}
+
+	lookupType := func(t string) (*resources.AzureAPIType, bool, error) {
+		return &resources.AzureAPIType{
+			Properties: map[string]resources.AzureAPIProperty{
+				"advancedNetworking": {},
+				"serviceCidr":        {ForceNew: true},
+			},
+		}, true, nil
+	}
+
+	t.Run("changing advancedNetworking only updates in place", func(t *testing.T) {
+		diff := resource.ObjectDiff{
+			Updates: map[resource.PropertyKey]resource.ValueDiff{
+				"networkProfile": {
+					Object: &resource.ObjectDiff{
+						Updates: map[resource.PropertyKey]resource.ValueDiff{
+							"advancedNetworking": {
+								Old: resource.PropertyValue{V: false},
+								New: resource.PropertyValue{V: true},
+							},
+						},
+					},
+				},
+			},
+		}
+		expected := map[string]*rpc.PropertyDiff{
+			"networkProfile.advancedNetworking": {Kind: rpc.PropertyDiff_UPDATE},
+		}
+		actual := calculateDetailedDiff(&res, lookupType, &diff)
+		assert.Equal(t, expected, actual)
+	})
+
+	t.Run("changing serviceCidr forces a replacement", func(t *testing.T) {
+		diff := resource.ObjectDiff{
+			Updates: map[resource.PropertyKey]resource.ValueDiff{
+				"networkProfile": {
+					Object: &resource.ObjectDiff{
+						Updates: map[resource.PropertyKey]resource.ValueDiff{
+							"serviceCidr": {
+								Old: resource.PropertyValue{V: "10.0.0.0/16"},
+								New: resource.PropertyValue{V: "10.1.0.0/16"},
+							},
+						},
+					},
+				},
+			},
+		}
+		expected := map[string]*rpc.PropertyDiff{
+			"networkProfile.serviceCidr": {Kind: rpc.PropertyDiff_UPDATE_REPLACE},
+		}
+		actual := calculateDetailedDiff(&res, lookupType, &diff)
+		assert.Equal(t, expected, actual)
+	})
+}
+
 func TestChangesAndReplacements_AddedPropertyCausesDiff(t *testing.T) {
 	changes, replacements := calculateChangesAndReplacementsForOneAddedProperty(t, "newvalue", nil)
 	assert.Len(t, changes, 1)
