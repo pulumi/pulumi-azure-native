@@ -16,16 +16,6 @@ endif
 
 JAVA_GEN        := pulumi-java-gen
 
-# Seed version for google.golang.org/genproto used before `go mod tidy` runs on the generated Go SDK.
-# The genproto module was split into google.golang.org/genproto/googleapis/{api,rpc} - any version of
-# genproto older than the split still ships those packages too, and if `go mod tidy` ever picks the
-# pre-split module for one of them (which it can do non-deterministically, since the SDK's go.mod/go.sum
-# are regenerated from scratch on every release with no prior lockfile to anchor the resolution), every
-# downstream consumer's own `go mod tidy` fails with "ambiguous import" errors. Pinning to a version of
-# genproto published after the split guarantees `go mod tidy` only ever resolves the split modules. See
-# https://github.com/pulumi/pulumi-azure-native/issues/4763.
-GENPROTO_POST_SPLIT_PIN := v0.0.0-20240213162025-012b6fc9bca9
-
 GOOS ?= $(shell go env GOOS)
 GOARCH ?= $(shell go env GOARCH)
 GOEXE ?= $(shell go env GOEXE)
@@ -386,8 +376,6 @@ export FAKE_MODULE
 	rm -rf $$(find sdk/pulumi-azure-native-sdk -mindepth 1 -maxdepth 1 ! -name ".git")
 	bin/$(CODEGEN) go $(PROVIDER_VERSION) $(CODEGEN_SCHEMA)
 	echo "Go version.txt: $$(cat sdk/pulumi-azure-native-sdk/version.txt)"
-	@# Seed a post-split genproto version before tidying - see GENPROTO_POST_SPLIT_PIN above.
-	find sdk/pulumi-azure-native-sdk -type d -maxdepth 1 -exec sh -c "cd \"{}\" && go mod edit -require=google.golang.org/genproto@$(GENPROTO_POST_SPLIT_PIN)" \;
 	@# Tidy up all go.mod files
 	find sdk/pulumi-azure-native-sdk -type d -maxdepth 1 -exec sh -c "cd \"{}\" && go mod tidy" \;
 	@touch $@
