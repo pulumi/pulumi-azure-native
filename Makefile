@@ -121,6 +121,9 @@ install_sdks: install_dotnet_sdk install_nodejs_sdk
 .PHONY: prepublish_go
 prepublish_go: .make/prepublish_go
 
+.PHONY: verify_go_sdk_consumable
+verify_go_sdk_consumable: .make/verify_go_sdk_consumable
+
 .PHONY: update_submodules
 update_submodules:
 	@for submodule in $$(git submodule status | awk {'print $$2'}); do \
@@ -424,6 +427,27 @@ export FAKE_MODULE
 
 .make/build_go: .make/generate_go_local
 	find sdk/pulumi-azure-native-sdk -type d -maxdepth 1 -exec sh -c "cd \"{}\" && go build" \;
+	@touch $@
+
+# Regression check for https://github.com/pulumi/pulumi-azure-native/issues/4763: `go mod tidy`/`go build`
+# inside sdk/pulumi-azure-native-sdk only ever tidy each module against itself, using local `replace`
+# directives to sibling directories in this checkout. That can stay green even when the generated
+# go.mod is broken for real consumers, because a downstream user's own `go mod tidy` combines their
+# go.mod's requirements (which include their own, possibly newer, direct requirement on
+# github.com/pulumi/pulumi/sdk/v3) with ours - and that combination is what can trigger "ambiguous
+# import" errors (e.g. from the google.golang.org/genproto module split) that never show up when we
+# tidy our module in isolation. This target simulates that external consumer: a throwaway module that
+# requires the generated SDK (via local replace, since it isn't published yet) with no go.sum of its
+# own, and makes sure `go mod tidy` and `go build` succeed the way they would for a real user.
+.make/verify_go_sdk_consumable: .make/generate_go_local
+	rm -rf .make/go-sdk-consumer-check
+	mkdir -p .make/go-sdk-consumer-check
+	cd .make/go-sdk-consumer-check && go mod init go-sdk-consumer-check
+	echo 'replace github.com/pulumi/pulumi-azure-native-sdk/resources/v3 => $(WORKING_DIR)/sdk/pulumi-azure-native-sdk/resources' >> .make/go-sdk-consumer-check/go.mod
+	echo 'replace github.com/pulumi/pulumi-azure-native-sdk/v3 => $(WORKING_DIR)/sdk/pulumi-azure-native-sdk' >> .make/go-sdk-consumer-check/go.mod
+	cp .github/scripts/go-sdk-consumer-check-main.go .make/go-sdk-consumer-check/main.go
+	cd .make/go-sdk-consumer-check && go mod tidy && go build ./...
+	rm -rf .make/go-sdk-consumer-check
 	@touch $@
 
 # Used by install* targets
