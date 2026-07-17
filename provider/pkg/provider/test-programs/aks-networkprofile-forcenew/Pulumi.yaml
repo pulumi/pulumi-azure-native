@@ -1,0 +1,49 @@
+name: aks-networkprofile-forcenew
+runtime: yaml
+description: |
+  Regression test for issue #4756: ManagedCluster.networkProfile used to be marked ForceNew as a
+  whole object, so any change under it forced a full AKS cluster replacement. This program lets the
+  test toggle two networkProfile sub-properties independently via config:
+
+  - dnsServiceIP: genuinely immutable in the AKS API (no equivalent `az aks update` parameter exists),
+    so changing it must force a ManagedCluster replacement.
+  - advancedNetworkingEnabled: freely updatable in place via `az aks update --enable-acns`, so changing
+    it must NOT force a replacement.
+
+config:
+  dnsServiceIP:
+    type: string
+    default: "10.0.0.10"
+  advancedNetworkingEnabled:
+    type: boolean
+    default: false
+
+resources:
+  rg:
+    type: azure-native:resources:ResourceGroup
+    properties:
+      location: eastus
+
+  cluster:
+    type: azure-native:containerservice:ManagedCluster
+    properties:
+      location: ${rg.location}
+      resourceGroupName: ${rg.name}
+      identity:
+        type: SystemAssigned
+      dnsPrefix: test-aks-4756
+      agentPoolProfiles:
+        - name: agentpool
+          count: 1
+          vmSize: Standard_DS2_v2
+          mode: System
+      networkProfile:
+        networkPlugin: azure
+        serviceCidr: 10.0.0.0/16
+        dnsServiceIP: ${dnsServiceIP}
+        advancedNetworking:
+          enabled: ${advancedNetworkingEnabled}
+
+outputs:
+  clusterId: ${cluster.id}
+  resourceGroupName: ${rg.name}
