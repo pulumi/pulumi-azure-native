@@ -5521,23 +5521,23 @@ DatabaseWatcher:
         RpNamespace: Microsoft.DatabaseWatcher
 Databricks:
     AccessConnector:
-        ApiVersion: "2024-05-01"
-        SpecFilePath: specification/databricks/resource-manager/Microsoft.Databricks/Databricks/stable/2024-05-01/accessconnector.json
+        ApiVersion: "2026-01-01"
+        SpecFilePath: specification/databricks/resource-manager/Microsoft.Databricks/Databricks/stable/2026-01-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Databricks/accessConnectors/{connectorName}
         RpNamespace: Microsoft.Databricks
     PrivateEndpointConnection:
-        ApiVersion: "2024-05-01"
-        SpecFilePath: specification/databricks/resource-manager/Microsoft.Databricks/Databricks/stable/2024-05-01/databricks.json
+        ApiVersion: "2026-01-01"
+        SpecFilePath: specification/databricks/resource-manager/Microsoft.Databricks/Databricks/stable/2026-01-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Databricks/workspaces/{workspaceName}/privateEndpointConnections/{privateEndpointConnectionName}
         RpNamespace: Microsoft.Databricks
     VNetPeering:
-        ApiVersion: "2024-05-01"
-        SpecFilePath: specification/databricks/resource-manager/Microsoft.Databricks/Databricks/stable/2024-05-01/vnetpeering.json
+        ApiVersion: "2026-01-01"
+        SpecFilePath: specification/databricks/resource-manager/Microsoft.Databricks/Databricks/stable/2026-01-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Databricks/workspaces/{workspaceName}/virtualNetworkPeerings/{peeringName}
         RpNamespace: Microsoft.Databricks
     Workspace:
-        ApiVersion: "2024-05-01"
-        SpecFilePath: specification/databricks/resource-manager/Microsoft.Databricks/Databricks/stable/2024-05-01/databricks.json
+        ApiVersion: "2026-01-01"
+        SpecFilePath: specification/databricks/resource-manager/Microsoft.Databricks/Databricks/stable/2026-01-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Databricks/workspaces/{workspaceName}
         RpNamespace: Microsoft.Databricks
 Datadog:

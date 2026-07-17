@@ -17,13 +17,13 @@ namespace Pulumi.AzureNative.Databricks.Outputs
     public sealed class ManagedDiskEncryptionResponse
     {
         /// <summary>
-        /// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
+        /// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault. Not allowed in Serverless ComputeMode workspace.
         /// </summary>
         public readonly string KeySource;
         /// <summary>
         /// Key Vault input properties for encryption.
         /// </summary>
-        public readonly Outputs.ManagedDiskEncryptionResponseKeyVaultProperties KeyVaultProperties;
+        public readonly Outputs.ManagedDiskEncryptionKeyVaultPropertiesResponse KeyVaultProperties;
         /// <summary>
         /// Indicate whether the latest key version should be automatically used for Managed Disk Encryption.
         /// </summary>
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.Databricks.Outputs
         private ManagedDiskEncryptionResponse(
             string keySource,
 
-            Outputs.ManagedDiskEncryptionResponseKeyVaultProperties keyVaultProperties,
+            Outputs.ManagedDiskEncryptionKeyVaultPropertiesResponse keyVaultProperties,
 
             bool? rotationToLatestKeyVersionEnabled)
         {

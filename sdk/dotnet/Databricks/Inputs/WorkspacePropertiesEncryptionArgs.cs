@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Databricks.Inputs
 {
 
     /// <summary>
-    /// Encryption properties for databricks workspace
+    /// Encryption properties for databricks workspace. Supported in both Serverless and Hybrid ComputeMode workspace.
     /// </summary>
     public sealed class WorkspacePropertiesEncryptionArgs : global::Pulumi.ResourceArgs
     {

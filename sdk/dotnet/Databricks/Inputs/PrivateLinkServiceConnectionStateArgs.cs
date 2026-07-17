@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Databricks.Inputs
 {
 
     /// <summary>
-    /// The current state of a private endpoint connection
+    /// The current state of a private endpoint connection.
     /// </summary>
     public sealed class PrivateLinkServiceConnectionStateArgs : global::Pulumi.ResourceArgs
     {

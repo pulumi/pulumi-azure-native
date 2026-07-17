@@ -22,15 +22,16 @@ __all__ = ['WorkspaceArgs', 'Workspace']
 @pulumi.input_type
 class WorkspaceArgs:
     def __init__(__self__, *,
-                 managed_resource_group_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  access_connector: Optional[pulumi.Input['WorkspacePropertiesAccessConnectorArgs']] = None,
                  authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceProviderAuthorizationArgs']]]] = None,
+                 compute_mode: Optional[pulumi.Input[Union[_builtins.str, 'ComputeMode']]] = None,
                  default_catalog: Optional[pulumi.Input['DefaultCatalogPropertiesArgs']] = None,
                  default_storage_firewall: Optional[pulumi.Input[Union[_builtins.str, 'DefaultStorageFirewall']]] = None,
                  encryption: Optional[pulumi.Input['WorkspacePropertiesEncryptionArgs']] = None,
                  enhanced_security_compliance: Optional[pulumi.Input['EnhancedSecurityComplianceDefinitionArgs']] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_resource_group_id: Optional[pulumi.Input[_builtins.str]] = None,
                  parameters: Optional[pulumi.Input['WorkspaceCustomParametersArgs']] = None,
                  public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
                  required_nsg_rules: Optional[pulumi.Input[Union[_builtins.str, 'RequiredNsgRules']]] = None,
@@ -41,29 +42,31 @@ class WorkspaceArgs:
         """
         The set of arguments for constructing a Workspace resource.
 
-        :param pulumi.Input[_builtins.str] managed_resource_group_id: The managed resource group Id.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['WorkspacePropertiesAccessConnectorArgs'] access_connector: Access Connector Resource that is going to be associated with Databricks Workspace
+        :param pulumi.Input['WorkspacePropertiesAccessConnectorArgs'] access_connector: Access Connector Resource that is going to be associated with Databricks Workspace. Not allowed in Serverless ComputeMode workspace.
         :param pulumi.Input[Sequence[pulumi.Input['WorkspaceProviderAuthorizationArgs']]] authorizations: The workspace provider authorizations.
-        :param pulumi.Input['DefaultCatalogPropertiesArgs'] default_catalog: Properties for Default Catalog configuration during workspace creation.
-        :param pulumi.Input[Union[_builtins.str, 'DefaultStorageFirewall']] default_storage_firewall: Gets or Sets Default Storage Firewall configuration information
-        :param pulumi.Input['WorkspacePropertiesEncryptionArgs'] encryption: Encryption properties for databricks workspace
-        :param pulumi.Input['EnhancedSecurityComplianceDefinitionArgs'] enhanced_security_compliance: Contains settings related to the Enhanced Security and Compliance Add-On.
+        :param pulumi.Input[Union[_builtins.str, 'ComputeMode']] compute_mode: The workspace compute mode. Required on create, cannot be changed. Possible values include: 'Serverless', 'Hybrid'
+        :param pulumi.Input['DefaultCatalogPropertiesArgs'] default_catalog: Properties for Default Catalog configuration during workspace creation. Not allowed in Serverless ComputeMode workspace.
+        :param pulumi.Input[Union[_builtins.str, 'DefaultStorageFirewall']] default_storage_firewall: Gets or Sets Default Storage Firewall configuration information. Not allowed in Serverless ComputeMode workspace.
+        :param pulumi.Input['WorkspacePropertiesEncryptionArgs'] encryption: Encryption properties for databricks workspace. Supported in both Serverless and Hybrid ComputeMode workspace.
+        :param pulumi.Input['EnhancedSecurityComplianceDefinitionArgs'] enhanced_security_compliance: Contains settings related to the Enhanced Security and Compliance Add-On. Supported in both Serverless and Hybrid ComputeMode workspace.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] managed_resource_group_id: The managed resource group Id. Required in Hybrid ComputeMode workspace. Not allowed in Serverless ComputeMode workspace.
         :param pulumi.Input['WorkspaceCustomParametersArgs'] parameters: The workspace's custom parameters.
-        :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] public_network_access: The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
-        :param pulumi.Input[Union[_builtins.str, 'RequiredNsgRules']] required_nsg_rules: Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
+        :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] public_network_access: The network access type for accessing workspace. Set value to disabled to access workspace only via private link. Used to configure front-end only private link for Serverless ComputeMode workspace.
+        :param pulumi.Input[Union[_builtins.str, 'RequiredNsgRules']] required_nsg_rules: Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only. Not allowed in Serverless ComputeMode workspace.
         :param pulumi.Input['SkuArgs'] sku: The SKU of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] ui_definition_uri: The blob URI where the UI definition file is located.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         """
-        pulumi.set(__self__, "managed_resource_group_id", managed_resource_group_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if access_connector is not None:
             pulumi.set(__self__, "access_connector", access_connector)
         if authorizations is not None:
             pulumi.set(__self__, "authorizations", authorizations)
+        if compute_mode is not None:
+            pulumi.set(__self__, "compute_mode", compute_mode)
         if default_catalog is not None:
             pulumi.set(__self__, "default_catalog", default_catalog)
         if default_storage_firewall is not None:
@@ -74,6 +77,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "enhanced_security_compliance", enhanced_security_compliance)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if managed_resource_group_id is not None:
+            pulumi.set(__self__, "managed_resource_group_id", managed_resource_group_id)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if public_network_access is not None:
@@ -88,18 +93,6 @@ class WorkspaceArgs:
             pulumi.set(__self__, "ui_definition_uri", ui_definition_uri)
         if workspace_name is not None:
             pulumi.set(__self__, "workspace_name", workspace_name)
-
-    @_builtins.property
-    @pulumi.getter(name="managedResourceGroupId")
-    def managed_resource_group_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The managed resource group Id.
-        """
-        return pulumi.get(self, "managed_resource_group_id")
-
-    @managed_resource_group_id.setter
-    def managed_resource_group_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "managed_resource_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -117,7 +110,7 @@ class WorkspaceArgs:
     @pulumi.getter(name="accessConnector")
     def access_connector(self) -> Optional[pulumi.Input['WorkspacePropertiesAccessConnectorArgs']]:
         """
-        Access Connector Resource that is going to be associated with Databricks Workspace
+        Access Connector Resource that is going to be associated with Databricks Workspace. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "access_connector")
 
@@ -138,10 +131,22 @@ class WorkspaceArgs:
         pulumi.set(self, "authorizations", value)
 
     @_builtins.property
+    @pulumi.getter(name="computeMode")
+    def compute_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ComputeMode']]]:
+        """
+        The workspace compute mode. Required on create, cannot be changed. Possible values include: 'Serverless', 'Hybrid'
+        """
+        return pulumi.get(self, "compute_mode")
+
+    @compute_mode.setter
+    def compute_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ComputeMode']]]):
+        pulumi.set(self, "compute_mode", value)
+
+    @_builtins.property
     @pulumi.getter(name="defaultCatalog")
     def default_catalog(self) -> Optional[pulumi.Input['DefaultCatalogPropertiesArgs']]:
         """
-        Properties for Default Catalog configuration during workspace creation.
+        Properties for Default Catalog configuration during workspace creation. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "default_catalog")
 
@@ -153,7 +158,7 @@ class WorkspaceArgs:
     @pulumi.getter(name="defaultStorageFirewall")
     def default_storage_firewall(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DefaultStorageFirewall']]]:
         """
-        Gets or Sets Default Storage Firewall configuration information
+        Gets or Sets Default Storage Firewall configuration information. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "default_storage_firewall")
 
@@ -165,7 +170,7 @@ class WorkspaceArgs:
     @pulumi.getter
     def encryption(self) -> Optional[pulumi.Input['WorkspacePropertiesEncryptionArgs']]:
         """
-        Encryption properties for databricks workspace
+        Encryption properties for databricks workspace. Supported in both Serverless and Hybrid ComputeMode workspace.
         """
         return pulumi.get(self, "encryption")
 
@@ -177,7 +182,7 @@ class WorkspaceArgs:
     @pulumi.getter(name="enhancedSecurityCompliance")
     def enhanced_security_compliance(self) -> Optional[pulumi.Input['EnhancedSecurityComplianceDefinitionArgs']]:
         """
-        Contains settings related to the Enhanced Security and Compliance Add-On.
+        Contains settings related to the Enhanced Security and Compliance Add-On. Supported in both Serverless and Hybrid ComputeMode workspace.
         """
         return pulumi.get(self, "enhanced_security_compliance")
 
@@ -198,6 +203,18 @@ class WorkspaceArgs:
         pulumi.set(self, "location", value)
 
     @_builtins.property
+    @pulumi.getter(name="managedResourceGroupId")
+    def managed_resource_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The managed resource group Id. Required in Hybrid ComputeMode workspace. Not allowed in Serverless ComputeMode workspace.
+        """
+        return pulumi.get(self, "managed_resource_group_id")
+
+    @managed_resource_group_id.setter
+    def managed_resource_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "managed_resource_group_id", value)
+
+    @_builtins.property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input['WorkspaceCustomParametersArgs']]:
         """
@@ -213,7 +230,7 @@ class WorkspaceArgs:
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]:
         """
-        The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
+        The network access type for accessing workspace. Set value to disabled to access workspace only via private link. Used to configure front-end only private link for Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "public_network_access")
 
@@ -225,7 +242,7 @@ class WorkspaceArgs:
     @pulumi.getter(name="requiredNsgRules")
     def required_nsg_rules(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RequiredNsgRules']]]:
         """
-        Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
+        Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "required_nsg_rules")
 
@@ -290,6 +307,7 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_connector: Optional[pulumi.Input[Union['WorkspacePropertiesAccessConnectorArgs', 'WorkspacePropertiesAccessConnectorArgsDict']]] = None,
                  authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceProviderAuthorizationArgs', 'WorkspaceProviderAuthorizationArgsDict']]]]] = None,
+                 compute_mode: Optional[pulumi.Input[Union[_builtins.str, 'ComputeMode']]] = None,
                  default_catalog: Optional[pulumi.Input[Union['DefaultCatalogPropertiesArgs', 'DefaultCatalogPropertiesArgsDict']]] = None,
                  default_storage_firewall: Optional[pulumi.Input[Union[_builtins.str, 'DefaultStorageFirewall']]] = None,
                  encryption: Optional[pulumi.Input[Union['WorkspacePropertiesEncryptionArgs', 'WorkspacePropertiesEncryptionArgsDict']]] = None,
@@ -308,24 +326,25 @@ class Workspace(pulumi.CustomResource):
         """
         Information about workspace.
 
-        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
+        Uses Azure REST API version 2026-01-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-        Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-09-01-preview, 2025-03-01-preview, 2025-08-01-preview, 2025-10-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-05-01, 2024-09-01-preview, 2025-03-01-preview, 2025-08-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['WorkspacePropertiesAccessConnectorArgs', 'WorkspacePropertiesAccessConnectorArgsDict']] access_connector: Access Connector Resource that is going to be associated with Databricks Workspace
+        :param pulumi.Input[Union['WorkspacePropertiesAccessConnectorArgs', 'WorkspacePropertiesAccessConnectorArgsDict']] access_connector: Access Connector Resource that is going to be associated with Databricks Workspace. Not allowed in Serverless ComputeMode workspace.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceProviderAuthorizationArgs', 'WorkspaceProviderAuthorizationArgsDict']]]] authorizations: The workspace provider authorizations.
-        :param pulumi.Input[Union['DefaultCatalogPropertiesArgs', 'DefaultCatalogPropertiesArgsDict']] default_catalog: Properties for Default Catalog configuration during workspace creation.
-        :param pulumi.Input[Union[_builtins.str, 'DefaultStorageFirewall']] default_storage_firewall: Gets or Sets Default Storage Firewall configuration information
-        :param pulumi.Input[Union['WorkspacePropertiesEncryptionArgs', 'WorkspacePropertiesEncryptionArgsDict']] encryption: Encryption properties for databricks workspace
-        :param pulumi.Input[Union['EnhancedSecurityComplianceDefinitionArgs', 'EnhancedSecurityComplianceDefinitionArgsDict']] enhanced_security_compliance: Contains settings related to the Enhanced Security and Compliance Add-On.
+        :param pulumi.Input[Union[_builtins.str, 'ComputeMode']] compute_mode: The workspace compute mode. Required on create, cannot be changed. Possible values include: 'Serverless', 'Hybrid'
+        :param pulumi.Input[Union['DefaultCatalogPropertiesArgs', 'DefaultCatalogPropertiesArgsDict']] default_catalog: Properties for Default Catalog configuration during workspace creation. Not allowed in Serverless ComputeMode workspace.
+        :param pulumi.Input[Union[_builtins.str, 'DefaultStorageFirewall']] default_storage_firewall: Gets or Sets Default Storage Firewall configuration information. Not allowed in Serverless ComputeMode workspace.
+        :param pulumi.Input[Union['WorkspacePropertiesEncryptionArgs', 'WorkspacePropertiesEncryptionArgsDict']] encryption: Encryption properties for databricks workspace. Supported in both Serverless and Hybrid ComputeMode workspace.
+        :param pulumi.Input[Union['EnhancedSecurityComplianceDefinitionArgs', 'EnhancedSecurityComplianceDefinitionArgsDict']] enhanced_security_compliance: Contains settings related to the Enhanced Security and Compliance Add-On. Supported in both Serverless and Hybrid ComputeMode workspace.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[_builtins.str] managed_resource_group_id: The managed resource group Id.
+        :param pulumi.Input[_builtins.str] managed_resource_group_id: The managed resource group Id. Required in Hybrid ComputeMode workspace. Not allowed in Serverless ComputeMode workspace.
         :param pulumi.Input[Union['WorkspaceCustomParametersArgs', 'WorkspaceCustomParametersArgsDict']] parameters: The workspace's custom parameters.
-        :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] public_network_access: The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
-        :param pulumi.Input[Union[_builtins.str, 'RequiredNsgRules']] required_nsg_rules: Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
+        :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] public_network_access: The network access type for accessing workspace. Set value to disabled to access workspace only via private link. Used to configure front-end only private link for Serverless ComputeMode workspace.
+        :param pulumi.Input[Union[_builtins.str, 'RequiredNsgRules']] required_nsg_rules: Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only. Not allowed in Serverless ComputeMode workspace.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The SKU of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
@@ -341,9 +360,9 @@ class Workspace(pulumi.CustomResource):
         """
         Information about workspace.
 
-        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
+        Uses Azure REST API version 2026-01-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-        Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-09-01-preview, 2025-03-01-preview, 2025-08-01-preview, 2025-10-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-05-01, 2024-09-01-preview, 2025-03-01-preview, 2025-08-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -363,6 +382,7 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_connector: Optional[pulumi.Input[Union['WorkspacePropertiesAccessConnectorArgs', 'WorkspacePropertiesAccessConnectorArgsDict']]] = None,
                  authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceProviderAuthorizationArgs', 'WorkspaceProviderAuthorizationArgsDict']]]]] = None,
+                 compute_mode: Optional[pulumi.Input[Union[_builtins.str, 'ComputeMode']]] = None,
                  default_catalog: Optional[pulumi.Input[Union['DefaultCatalogPropertiesArgs', 'DefaultCatalogPropertiesArgsDict']]] = None,
                  default_storage_firewall: Optional[pulumi.Input[Union[_builtins.str, 'DefaultStorageFirewall']]] = None,
                  encryption: Optional[pulumi.Input[Union['WorkspacePropertiesEncryptionArgs', 'WorkspacePropertiesEncryptionArgsDict']]] = None,
@@ -388,13 +408,12 @@ class Workspace(pulumi.CustomResource):
 
             __props__.__dict__["access_connector"] = access_connector
             __props__.__dict__["authorizations"] = authorizations
+            __props__.__dict__["compute_mode"] = compute_mode
             __props__.__dict__["default_catalog"] = default_catalog
             __props__.__dict__["default_storage_firewall"] = default_storage_firewall
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["enhanced_security_compliance"] = enhanced_security_compliance
             __props__.__dict__["location"] = location
-            if managed_resource_group_id is None and not opts.urn:
-                raise TypeError("Missing required property 'managed_resource_group_id'")
             __props__.__dict__["managed_resource_group_id"] = managed_resource_group_id
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["public_network_access"] = public_network_access
@@ -448,6 +467,7 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["access_connector"] = None
         __props__.__dict__["authorizations"] = None
         __props__.__dict__["azure_api_version"] = None
+        __props__.__dict__["compute_mode"] = None
         __props__.__dict__["created_by"] = None
         __props__.__dict__["created_date_time"] = None
         __props__.__dict__["default_catalog"] = None
@@ -478,9 +498,9 @@ class Workspace(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="accessConnector")
-    def access_connector(self) -> pulumi.Output[Optional['outputs.WorkspacePropertiesResponseAccessConnector']]:
+    def access_connector(self) -> pulumi.Output[Optional['outputs.WorkspacePropertiesAccessConnectorResponse']]:
         """
-        Access Connector Resource that is going to be associated with Databricks Workspace
+        Access Connector Resource that is going to be associated with Databricks Workspace. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "access_connector")
 
@@ -499,6 +519,14 @@ class Workspace(pulumi.CustomResource):
         The Azure API version of the resource.
         """
         return pulumi.get(self, "azure_api_version")
+
+    @_builtins.property
+    @pulumi.getter(name="computeMode")
+    def compute_mode(self) -> pulumi.Output[_builtins.str]:
+        """
+        The workspace compute mode. Required on create, cannot be changed. Possible values include: 'Serverless', 'Hybrid'
+        """
+        return pulumi.get(self, "compute_mode")
 
     @_builtins.property
     @pulumi.getter(name="createdBy")
@@ -520,7 +548,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="defaultCatalog")
     def default_catalog(self) -> pulumi.Output[Optional['outputs.DefaultCatalogPropertiesResponse']]:
         """
-        Properties for Default Catalog configuration during workspace creation.
+        Properties for Default Catalog configuration during workspace creation. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "default_catalog")
 
@@ -528,7 +556,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="defaultStorageFirewall")
     def default_storage_firewall(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Gets or Sets Default Storage Firewall configuration information
+        Gets or Sets Default Storage Firewall configuration information. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "default_storage_firewall")
 
@@ -536,15 +564,15 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="diskEncryptionSetId")
     def disk_encryption_set_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The resource Id of the managed disk encryption set.
+        The resource Id of the managed disk encryption set. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "disk_encryption_set_id")
 
     @_builtins.property
     @pulumi.getter
-    def encryption(self) -> pulumi.Output[Optional['outputs.WorkspacePropertiesResponseEncryption']]:
+    def encryption(self) -> pulumi.Output[Optional['outputs.WorkspacePropertiesEncryptionResponse']]:
         """
-        Encryption properties for databricks workspace
+        Encryption properties for databricks workspace. Supported in both Serverless and Hybrid ComputeMode workspace.
         """
         return pulumi.get(self, "encryption")
 
@@ -552,7 +580,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="enhancedSecurityCompliance")
     def enhanced_security_compliance(self) -> pulumi.Output[Optional['outputs.EnhancedSecurityComplianceDefinitionResponse']]:
         """
-        Contains settings related to the Enhanced Security and Compliance Add-On.
+        Contains settings related to the Enhanced Security and Compliance Add-On. Supported in both Serverless and Hybrid ComputeMode workspace.
         """
         return pulumi.get(self, "enhanced_security_compliance")
 
@@ -560,7 +588,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="isUcEnabled")
     def is_uc_enabled(self) -> pulumi.Output[_builtins.bool]:
         """
-        Indicates whether unity catalog enabled for the workspace or not.
+        Indicates whether unity catalog enabled for the workspace or not. Set as true in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "is_uc_enabled")
 
@@ -576,15 +604,15 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="managedDiskIdentity")
     def managed_disk_identity(self) -> pulumi.Output[Optional['outputs.ManagedIdentityConfigurationResponse']]:
         """
-        The details of Managed Identity of Disk Encryption Set used for Managed Disk Encryption
+        The details of Managed Identity of Disk Encryption Set used for Managed Disk Encryption. Only returned in Hybrid ComputeMode workspace.
         """
         return pulumi.get(self, "managed_disk_identity")
 
     @_builtins.property
     @pulumi.getter(name="managedResourceGroupId")
-    def managed_resource_group_id(self) -> pulumi.Output[_builtins.str]:
+    def managed_resource_group_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The managed resource group Id.
+        The managed resource group Id. Required in Hybrid ComputeMode workspace. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "managed_resource_group_id")
 
@@ -608,7 +636,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="privateEndpointConnections")
     def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponse']]:
         """
-        Private endpoint connections created on the workspace
+        Private endpoint connections created on the workspace. Supported in both Serverless and Hybrid ComputeMode workspace.
         """
         return pulumi.get(self, "private_endpoint_connections")
 
@@ -624,7 +652,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
+        The network access type for accessing workspace. Set value to disabled to access workspace only via private link. Used to configure front-end only private link for Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "public_network_access")
 
@@ -632,7 +660,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="requiredNsgRules")
     def required_nsg_rules(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
+        Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "required_nsg_rules")
 
@@ -648,7 +676,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="storageAccountIdentity")
     def storage_account_identity(self) -> pulumi.Output[Optional['outputs.ManagedIdentityConfigurationResponse']]:
         """
-        The details of Managed Identity of Storage Account
+        The details of Managed Identity of Storage Account. Only returned in Hybrid ComputeMode workspace.
         """
         return pulumi.get(self, "storage_account_identity")
 
@@ -656,7 +684,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system metadata relating to this resource
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -672,7 +700,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

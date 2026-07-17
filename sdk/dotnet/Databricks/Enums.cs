@@ -17,7 +17,13 @@ namespace Pulumi.AzureNative.Databricks
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Enabled
+        /// </summary>
         public static AutomaticClusterUpdateValue Enabled { get; } = new AutomaticClusterUpdateValue("Enabled");
+        /// <summary>
+        /// Disabled
+        /// </summary>
         public static AutomaticClusterUpdateValue Disabled { get; } = new AutomaticClusterUpdateValue("Disabled");
 
         public static bool operator ==(AutomaticClusterUpdateValue left, AutomaticClusterUpdateValue right) => left.Equals(right);
@@ -45,7 +51,13 @@ namespace Pulumi.AzureNative.Databricks
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Enabled
+        /// </summary>
         public static ComplianceSecurityProfileValue Enabled { get; } = new ComplianceSecurityProfileValue("Enabled");
+        /// <summary>
+        /// Disabled
+        /// </summary>
         public static ComplianceSecurityProfileValue Disabled { get; } = new ComplianceSecurityProfileValue("Disabled");
 
         public static bool operator ==(ComplianceSecurityProfileValue left, ComplianceSecurityProfileValue right) => left.Equals(right);
@@ -79,6 +91,13 @@ namespace Pulumi.AzureNative.Databricks
         public static ComplianceStandard NONE { get; } = new ComplianceStandard("NONE");
         public static ComplianceStandard HIPAA { get; } = new ComplianceStandard("HIPAA");
         public static ComplianceStandard PCI_DSS { get; } = new ComplianceStandard("PCI_DSS");
+        public static ComplianceStandard CYBER_ESSENTIAL_PLUS { get; } = new ComplianceStandard("CYBER_ESSENTIAL_PLUS");
+        public static ComplianceStandard FEDRAMP_HIGH { get; } = new ComplianceStandard("FEDRAMP_HIGH");
+        public static ComplianceStandard CANADA_PROTECTED_B { get; } = new ComplianceStandard("CANADA_PROTECTED_B");
+        public static ComplianceStandard IRAP_PROTECTED { get; } = new ComplianceStandard("IRAP_PROTECTED");
+        public static ComplianceStandard ISMAP { get; } = new ComplianceStandard("ISMAP");
+        public static ComplianceStandard HITRUST { get; } = new ComplianceStandard("HITRUST");
+        public static ComplianceStandard K_FSI { get; } = new ComplianceStandard("K_FSI");
 
         public static bool operator ==(ComplianceStandard left, ComplianceStandard right) => left.Equals(right);
         public static bool operator !=(ComplianceStandard left, ComplianceStandard right) => !left.Equals(right);
@@ -96,7 +115,85 @@ namespace Pulumi.AzureNative.Databricks
     }
 
     /// <summary>
-    /// Gets or Sets Default Storage Firewall configuration information
+    /// The workspace compute mode. Required on create, cannot be changed. Possible values include: 'Serverless', 'Hybrid'
+    /// </summary>
+    [EnumType]
+    public readonly struct ComputeMode : IEquatable<ComputeMode>
+    {
+        private readonly string _value;
+
+        private ComputeMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Serverless
+        /// </summary>
+        public static ComputeMode Serverless { get; } = new ComputeMode("Serverless");
+        /// <summary>
+        /// Hybrid
+        /// </summary>
+        public static ComputeMode Hybrid { get; } = new ComputeMode("Hybrid");
+
+        public static bool operator ==(ComputeMode left, ComputeMode right) => left.Equals(right);
+        public static bool operator !=(ComputeMode left, ComputeMode right) => !left.Equals(right);
+
+        public static explicit operator string(ComputeMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ComputeMode other && Equals(other);
+        public bool Equals(ComputeMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of variable that this is
+    /// </summary>
+    [EnumType]
+    public readonly struct CustomParameterType : IEquatable<CustomParameterType>
+    {
+        private readonly string _value;
+
+        private CustomParameterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Bool
+        /// </summary>
+        public static CustomParameterType Bool { get; } = new CustomParameterType("Bool");
+        /// <summary>
+        /// Object
+        /// </summary>
+        public static CustomParameterType Object { get; } = new CustomParameterType("Object");
+        /// <summary>
+        /// String
+        /// </summary>
+        public static CustomParameterType String { get; } = new CustomParameterType("String");
+
+        public static bool operator ==(CustomParameterType left, CustomParameterType right) => left.Equals(right);
+        public static bool operator !=(CustomParameterType left, CustomParameterType right) => !left.Equals(right);
+
+        public static explicit operator string(CustomParameterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CustomParameterType other && Equals(other);
+        public bool Equals(CustomParameterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Gets or Sets Default Storage Firewall configuration information. Not allowed in Serverless ComputeMode workspace.
     /// </summary>
     [EnumType]
     public readonly struct DefaultStorageFirewall : IEquatable<DefaultStorageFirewall>
@@ -108,7 +205,13 @@ namespace Pulumi.AzureNative.Databricks
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Disabled
+        /// </summary>
         public static DefaultStorageFirewall Disabled { get; } = new DefaultStorageFirewall("Disabled");
+        /// <summary>
+        /// Enabled
+        /// </summary>
         public static DefaultStorageFirewall Enabled { get; } = new DefaultStorageFirewall("Enabled");
 
         public static bool operator ==(DefaultStorageFirewall left, DefaultStorageFirewall right) => left.Equals(right);
@@ -139,6 +242,9 @@ namespace Pulumi.AzureNative.Databricks
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Microsoft.Keyvault
+        /// </summary>
         public static EncryptionKeySource Microsoft_Keyvault { get; } = new EncryptionKeySource("Microsoft.Keyvault");
 
         public static bool operator ==(EncryptionKeySource left, EncryptionKeySource right) => left.Equals(right);
@@ -166,7 +272,13 @@ namespace Pulumi.AzureNative.Databricks
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Enabled
+        /// </summary>
         public static EnhancedSecurityMonitoringValue Enabled { get; } = new EnhancedSecurityMonitoringValue("Enabled");
+        /// <summary>
+        /// Disabled
+        /// </summary>
         public static EnhancedSecurityMonitoringValue Disabled { get; } = new EnhancedSecurityMonitoringValue("Disabled");
 
         public static bool operator ==(EnhancedSecurityMonitoringValue left, EnhancedSecurityMonitoringValue right) => left.Equals(right);
@@ -197,7 +309,13 @@ namespace Pulumi.AzureNative.Databricks
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// SystemAssigned
+        /// </summary>
         public static IdentityType SystemAssigned { get; } = new IdentityType("SystemAssigned");
+        /// <summary>
+        /// UserAssigned
+        /// </summary>
         public static IdentityType UserAssigned { get; } = new IdentityType("UserAssigned");
 
         public static bool operator ==(IdentityType left, IdentityType right) => left.Equals(right);
@@ -228,7 +346,13 @@ namespace Pulumi.AzureNative.Databricks
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// HiveMetastore
+        /// </summary>
         public static InitialType HiveMetastore { get; } = new InitialType("HiveMetastore");
+        /// <summary>
+        /// UnityCatalog
+        /// </summary>
         public static InitialType UnityCatalog { get; } = new InitialType("UnityCatalog");
 
         public static bool operator ==(InitialType left, InitialType right) => left.Equals(right);
@@ -259,7 +383,13 @@ namespace Pulumi.AzureNative.Databricks
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Default
+        /// </summary>
         public static KeySource Default { get; } = new KeySource("Default");
+        /// <summary>
+        /// Microsoft.Keyvault
+        /// </summary>
         public static KeySource Microsoft_Keyvault { get; } = new KeySource("Microsoft.Keyvault");
 
         public static bool operator ==(KeySource left, KeySource right) => left.Equals(right);
@@ -323,9 +453,21 @@ namespace Pulumi.AzureNative.Databricks
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Pending
+        /// </summary>
         public static PrivateLinkServiceConnectionStatus Pending { get; } = new PrivateLinkServiceConnectionStatus("Pending");
+        /// <summary>
+        /// Approved
+        /// </summary>
         public static PrivateLinkServiceConnectionStatus Approved { get; } = new PrivateLinkServiceConnectionStatus("Approved");
+        /// <summary>
+        /// Rejected
+        /// </summary>
         public static PrivateLinkServiceConnectionStatus Rejected { get; } = new PrivateLinkServiceConnectionStatus("Rejected");
+        /// <summary>
+        /// Disconnected
+        /// </summary>
         public static PrivateLinkServiceConnectionStatus Disconnected { get; } = new PrivateLinkServiceConnectionStatus("Disconnected");
 
         public static bool operator ==(PrivateLinkServiceConnectionStatus left, PrivateLinkServiceConnectionStatus right) => left.Equals(right);
@@ -344,7 +486,7 @@ namespace Pulumi.AzureNative.Databricks
     }
 
     /// <summary>
-    /// The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
+    /// The network access type for accessing workspace. Set value to disabled to access workspace only via private link. Used to configure front-end only private link for Serverless ComputeMode workspace.
     /// </summary>
     [EnumType]
     public readonly struct PublicNetworkAccess : IEquatable<PublicNetworkAccess>
@@ -356,7 +498,13 @@ namespace Pulumi.AzureNative.Databricks
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Enabled
+        /// </summary>
         public static PublicNetworkAccess Enabled { get; } = new PublicNetworkAccess("Enabled");
+        /// <summary>
+        /// Disabled
+        /// </summary>
         public static PublicNetworkAccess Disabled { get; } = new PublicNetworkAccess("Disabled");
 
         public static bool operator ==(PublicNetworkAccess left, PublicNetworkAccess right) => left.Equals(right);
@@ -375,7 +523,7 @@ namespace Pulumi.AzureNative.Databricks
     }
 
     /// <summary>
-    /// Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
+    /// Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only. Not allowed in Serverless ComputeMode workspace.
     /// </summary>
     [EnumType]
     public readonly struct RequiredNsgRules : IEquatable<RequiredNsgRules>
@@ -387,8 +535,17 @@ namespace Pulumi.AzureNative.Databricks
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// AllRules
+        /// </summary>
         public static RequiredNsgRules AllRules { get; } = new RequiredNsgRules("AllRules");
+        /// <summary>
+        /// NoAzureDatabricksRules
+        /// </summary>
         public static RequiredNsgRules NoAzureDatabricksRules { get; } = new RequiredNsgRules("NoAzureDatabricksRules");
+        /// <summary>
+        /// NoAzureServiceRules
+        /// </summary>
         public static RequiredNsgRules NoAzureServiceRules { get; } = new RequiredNsgRules("NoAzureServiceRules");
 
         public static bool operator ==(RequiredNsgRules left, RequiredNsgRules right) => left.Equals(right);

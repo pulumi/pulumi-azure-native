@@ -27,7 +27,7 @@ class GetVNetPeeringResult:
     """
     Peerings in a VirtualNetwork resource
     """
-    def __init__(__self__, allow_forwarded_traffic=None, allow_gateway_transit=None, allow_virtual_network_access=None, azure_api_version=None, databricks_address_space=None, databricks_virtual_network=None, id=None, name=None, peering_state=None, provisioning_state=None, remote_address_space=None, remote_virtual_network=None, type=None, use_remote_gateways=None):
+    def __init__(__self__, allow_forwarded_traffic=None, allow_gateway_transit=None, allow_virtual_network_access=None, azure_api_version=None, databricks_address_space=None, databricks_virtual_network=None, id=None, name=None, peering_state=None, provisioning_state=None, remote_address_space=None, remote_virtual_network=None, system_data=None, type=None, use_remote_gateways=None):
         if allow_forwarded_traffic and not isinstance(allow_forwarded_traffic, bool):
             raise TypeError("Expected argument 'allow_forwarded_traffic' to be a bool")
         pulumi.set(__self__, "allow_forwarded_traffic", allow_forwarded_traffic)
@@ -64,6 +64,9 @@ class GetVNetPeeringResult:
         if remote_virtual_network and not isinstance(remote_virtual_network, dict):
             raise TypeError("Expected argument 'remote_virtual_network' to be a dict")
         pulumi.set(__self__, "remote_virtual_network", remote_virtual_network)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -113,9 +116,9 @@ class GetVNetPeeringResult:
 
     @_builtins.property
     @pulumi.getter(name="databricksVirtualNetwork")
-    def databricks_virtual_network(self) -> Optional['outputs.VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork']:
+    def databricks_virtual_network(self) -> Optional['outputs.VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkResponse']:
         """
-         The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+        The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
         """
         return pulumi.get(self, "databricks_virtual_network")
 
@@ -123,7 +126,7 @@ class GetVNetPeeringResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -131,7 +134,7 @@ class GetVNetPeeringResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Name of the virtual network peering resource
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -161,17 +164,25 @@ class GetVNetPeeringResult:
 
     @_builtins.property
     @pulumi.getter(name="remoteVirtualNetwork")
-    def remote_virtual_network(self) -> 'outputs.VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork':
+    def remote_virtual_network(self) -> 'outputs.VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkResponse':
         """
-         The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+        The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
         """
         return pulumi.get(self, "remote_virtual_network")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        type of the virtual network peering resource
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -202,6 +213,7 @@ class AwaitableGetVNetPeeringResult(GetVNetPeeringResult):
             provisioning_state=self.provisioning_state,
             remote_address_space=self.remote_address_space,
             remote_virtual_network=self.remote_virtual_network,
+            system_data=self.system_data,
             type=self.type,
             use_remote_gateways=self.use_remote_gateways)
 
@@ -213,9 +225,9 @@ def get_v_net_peering(peering_name: Optional[_builtins.str] = None,
     """
     Gets the workspace vNet Peering.
 
-    Uses Azure REST API version 2024-05-01.
+    Uses Azure REST API version 2026-01-01.
 
-    Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-09-01-preview, 2025-03-01-preview, 2025-08-01-preview, 2025-10-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-05-01, 2024-09-01-preview, 2025-03-01-preview, 2025-08-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str peering_name: The name of the workspace vNet peering.
@@ -242,6 +254,7 @@ def get_v_net_peering(peering_name: Optional[_builtins.str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         remote_address_space=pulumi.get(__ret__, 'remote_address_space'),
         remote_virtual_network=pulumi.get(__ret__, 'remote_virtual_network'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         use_remote_gateways=pulumi.get(__ret__, 'use_remote_gateways'))
 def get_v_net_peering_output(peering_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -251,9 +264,9 @@ def get_v_net_peering_output(peering_name: Optional[pulumi.Input[_builtins.str]]
     """
     Gets the workspace vNet Peering.
 
-    Uses Azure REST API version 2024-05-01.
+    Uses Azure REST API version 2026-01-01.
 
-    Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-09-01-preview, 2025-03-01-preview, 2025-08-01-preview, 2025-10-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-05-01, 2024-09-01-preview, 2025-03-01-preview, 2025-08-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str peering_name: The name of the workspace vNet peering.
@@ -279,5 +292,6 @@ def get_v_net_peering_output(peering_name: Optional[pulumi.Input[_builtins.str]]
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         remote_address_space=pulumi.get(__response__, 'remote_address_space'),
         remote_virtual_network=pulumi.get(__response__, 'remote_virtual_network'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type'),
         use_remote_gateways=pulumi.get(__response__, 'use_remote_gateways')))

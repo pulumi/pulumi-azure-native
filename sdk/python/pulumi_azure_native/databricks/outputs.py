@@ -25,12 +25,12 @@ __all__ = [
     'DefaultCatalogPropertiesResponse',
     'EncryptionEntitiesDefinitionResponse',
     'EncryptionResponse',
+    'EncryptionV2KeyVaultPropertiesResponse',
     'EncryptionV2Response',
-    'EncryptionV2ResponseKeyVaultProperties',
     'EnhancedSecurityComplianceDefinitionResponse',
     'EnhancedSecurityMonitoringDefinitionResponse',
+    'ManagedDiskEncryptionKeyVaultPropertiesResponse',
     'ManagedDiskEncryptionResponse',
-    'ManagedDiskEncryptionResponseKeyVaultProperties',
     'ManagedIdentityConfigurationResponse',
     'ManagedServiceIdentityResponse',
     'PrivateEndpointConnectionPropertiesResponse',
@@ -40,16 +40,16 @@ __all__ = [
     'SkuResponse',
     'SystemDataResponse',
     'UserAssignedIdentityResponse',
-    'VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork',
-    'VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork',
+    'VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkResponse',
+    'VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkResponse',
     'WorkspaceCustomBooleanParameterResponse',
     'WorkspaceCustomObjectParameterResponse',
     'WorkspaceCustomParametersResponse',
     'WorkspaceCustomStringParameterResponse',
     'WorkspaceEncryptionParameterResponse',
     'WorkspaceNoPublicIPBooleanParameterResponse',
-    'WorkspacePropertiesResponseAccessConnector',
-    'WorkspacePropertiesResponseEncryption',
+    'WorkspacePropertiesAccessConnectorResponse',
+    'WorkspacePropertiesEncryptionResponse',
     'WorkspaceProviderAuthorizationResponse',
 ]
 
@@ -275,7 +275,7 @@ class CreatedByResponse(dict):
 @pulumi.output_type
 class DefaultCatalogPropertiesResponse(dict):
     """
-    These properties lets user specify default catalog properties during workspace creation.
+    These properties lets user specify default catalog properties during workspace creation. Not allowed in Serverless ComputeMode workspace.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -300,7 +300,7 @@ class DefaultCatalogPropertiesResponse(dict):
                  initial_name: Optional[_builtins.str] = None,
                  initial_type: Optional[_builtins.str] = None):
         """
-        These properties lets user specify default catalog properties during workspace creation.
+        These properties lets user specify default catalog properties during workspace creation. Not allowed in Serverless ComputeMode workspace.
 
         :param _builtins.str initial_name: Specifies the initial Name of default catalog. If not specified, the name of the workspace will be used.
         :param _builtins.str initial_type: Defines the initial type of the default catalog. Possible values (case-insensitive):  HiveMetastore, UnityCatalog
@@ -359,8 +359,8 @@ class EncryptionEntitiesDefinitionResponse(dict):
         """
         Encryption entities for databricks workspace resource.
 
-        :param 'ManagedDiskEncryptionResponse' managed_disk: Encryption properties for the databricks managed disks.
-        :param 'EncryptionV2Response' managed_services: Encryption properties for the databricks managed services.
+        :param 'ManagedDiskEncryptionResponse' managed_disk: Encryption properties for the databricks managed disks. Not allowed in Serverless ComputeMode workspace.
+        :param 'EncryptionV2Response' managed_services: Encryption properties for the databricks managed services. Supported in both Serverless and Hybrid ComputeMode.
         """
         if managed_disk is not None:
             pulumi.set(__self__, "managed_disk", managed_disk)
@@ -371,7 +371,7 @@ class EncryptionEntitiesDefinitionResponse(dict):
     @pulumi.getter(name="managedDisk")
     def managed_disk(self) -> Optional['outputs.ManagedDiskEncryptionResponse']:
         """
-        Encryption properties for the databricks managed disks.
+        Encryption properties for the databricks managed disks. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "managed_disk")
 
@@ -379,7 +379,7 @@ class EncryptionEntitiesDefinitionResponse(dict):
     @pulumi.getter(name="managedServices")
     def managed_services(self) -> Optional['outputs.EncryptionV2Response']:
         """
-        Encryption properties for the databricks managed services.
+        Encryption properties for the databricks managed services. Supported in both Serverless and Hybrid ComputeMode.
         """
         return pulumi.get(self, "managed_services")
 
@@ -470,61 +470,7 @@ class EncryptionResponse(dict):
 
 
 @pulumi.output_type
-class EncryptionV2Response(dict):
-    """
-    The object that contains details of encryption used on the workspace.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "keySource":
-            suggest = "key_source"
-        elif key == "keyVaultProperties":
-            suggest = "key_vault_properties"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EncryptionV2Response. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        EncryptionV2Response.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        EncryptionV2Response.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 key_source: _builtins.str,
-                 key_vault_properties: Optional['outputs.EncryptionV2ResponseKeyVaultProperties'] = None):
-        """
-        The object that contains details of encryption used on the workspace.
-
-        :param _builtins.str key_source: The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
-        :param 'EncryptionV2ResponseKeyVaultProperties' key_vault_properties: Key Vault input properties for encryption.
-        """
-        pulumi.set(__self__, "key_source", key_source)
-        if key_vault_properties is not None:
-            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
-
-    @_builtins.property
-    @pulumi.getter(name="keySource")
-    def key_source(self) -> _builtins.str:
-        """
-        The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
-        """
-        return pulumi.get(self, "key_source")
-
-    @_builtins.property
-    @pulumi.getter(name="keyVaultProperties")
-    def key_vault_properties(self) -> Optional['outputs.EncryptionV2ResponseKeyVaultProperties']:
-        """
-        Key Vault input properties for encryption.
-        """
-        return pulumi.get(self, "key_vault_properties")
-
-
-@pulumi.output_type
-class EncryptionV2ResponseKeyVaultProperties(dict):
+class EncryptionV2KeyVaultPropertiesResponse(dict):
     """
     Key Vault input properties for encryption.
     """
@@ -539,14 +485,14 @@ class EncryptionV2ResponseKeyVaultProperties(dict):
             suggest = "key_version"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EncryptionV2ResponseKeyVaultProperties. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in EncryptionV2KeyVaultPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        EncryptionV2ResponseKeyVaultProperties.__key_warning(key)
+        EncryptionV2KeyVaultPropertiesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        EncryptionV2ResponseKeyVaultProperties.__key_warning(key)
+        EncryptionV2KeyVaultPropertiesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -587,6 +533,60 @@ class EncryptionV2ResponseKeyVaultProperties(dict):
         The version of KeyVault key.
         """
         return pulumi.get(self, "key_version")
+
+
+@pulumi.output_type
+class EncryptionV2Response(dict):
+    """
+    The object that contains details of encryption used on the workspace.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keySource":
+            suggest = "key_source"
+        elif key == "keyVaultProperties":
+            suggest = "key_vault_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EncryptionV2Response. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EncryptionV2Response.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EncryptionV2Response.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_source: _builtins.str,
+                 key_vault_properties: Optional['outputs.EncryptionV2KeyVaultPropertiesResponse'] = None):
+        """
+        The object that contains details of encryption used on the workspace.
+
+        :param _builtins.str key_source: The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
+        :param 'EncryptionV2KeyVaultPropertiesResponse' key_vault_properties: Key Vault input properties for encryption.
+        """
+        pulumi.set(__self__, "key_source", key_source)
+        if key_vault_properties is not None:
+            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+
+    @_builtins.property
+    @pulumi.getter(name="keySource")
+    def key_source(self) -> _builtins.str:
+        """
+        The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
+        """
+        return pulumi.get(self, "key_source")
+
+    @_builtins.property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> Optional['outputs.EncryptionV2KeyVaultPropertiesResponse']:
+        """
+        Key Vault input properties for encryption.
+        """
+        return pulumi.get(self, "key_vault_properties")
 
 
 @pulumi.output_type
@@ -678,74 +678,7 @@ class EnhancedSecurityMonitoringDefinitionResponse(dict):
 
 
 @pulumi.output_type
-class ManagedDiskEncryptionResponse(dict):
-    """
-    The object that contains details of encryption used on the workspace.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "keySource":
-            suggest = "key_source"
-        elif key == "keyVaultProperties":
-            suggest = "key_vault_properties"
-        elif key == "rotationToLatestKeyVersionEnabled":
-            suggest = "rotation_to_latest_key_version_enabled"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ManagedDiskEncryptionResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ManagedDiskEncryptionResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ManagedDiskEncryptionResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 key_source: _builtins.str,
-                 key_vault_properties: 'outputs.ManagedDiskEncryptionResponseKeyVaultProperties',
-                 rotation_to_latest_key_version_enabled: Optional[_builtins.bool] = None):
-        """
-        The object that contains details of encryption used on the workspace.
-
-        :param _builtins.str key_source: The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
-        :param 'ManagedDiskEncryptionResponseKeyVaultProperties' key_vault_properties: Key Vault input properties for encryption.
-        :param _builtins.bool rotation_to_latest_key_version_enabled: Indicate whether the latest key version should be automatically used for Managed Disk Encryption.
-        """
-        pulumi.set(__self__, "key_source", key_source)
-        pulumi.set(__self__, "key_vault_properties", key_vault_properties)
-        if rotation_to_latest_key_version_enabled is not None:
-            pulumi.set(__self__, "rotation_to_latest_key_version_enabled", rotation_to_latest_key_version_enabled)
-
-    @_builtins.property
-    @pulumi.getter(name="keySource")
-    def key_source(self) -> _builtins.str:
-        """
-        The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
-        """
-        return pulumi.get(self, "key_source")
-
-    @_builtins.property
-    @pulumi.getter(name="keyVaultProperties")
-    def key_vault_properties(self) -> 'outputs.ManagedDiskEncryptionResponseKeyVaultProperties':
-        """
-        Key Vault input properties for encryption.
-        """
-        return pulumi.get(self, "key_vault_properties")
-
-    @_builtins.property
-    @pulumi.getter(name="rotationToLatestKeyVersionEnabled")
-    def rotation_to_latest_key_version_enabled(self) -> Optional[_builtins.bool]:
-        """
-        Indicate whether the latest key version should be automatically used for Managed Disk Encryption.
-        """
-        return pulumi.get(self, "rotation_to_latest_key_version_enabled")
-
-
-@pulumi.output_type
-class ManagedDiskEncryptionResponseKeyVaultProperties(dict):
+class ManagedDiskEncryptionKeyVaultPropertiesResponse(dict):
     """
     Key Vault input properties for encryption.
     """
@@ -760,14 +693,14 @@ class ManagedDiskEncryptionResponseKeyVaultProperties(dict):
             suggest = "key_version"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ManagedDiskEncryptionResponseKeyVaultProperties. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ManagedDiskEncryptionKeyVaultPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ManagedDiskEncryptionResponseKeyVaultProperties.__key_warning(key)
+        ManagedDiskEncryptionKeyVaultPropertiesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ManagedDiskEncryptionResponseKeyVaultProperties.__key_warning(key)
+        ManagedDiskEncryptionKeyVaultPropertiesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -808,6 +741,73 @@ class ManagedDiskEncryptionResponseKeyVaultProperties(dict):
         The version of KeyVault key.
         """
         return pulumi.get(self, "key_version")
+
+
+@pulumi.output_type
+class ManagedDiskEncryptionResponse(dict):
+    """
+    The object that contains details of encryption used on the workspace.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keySource":
+            suggest = "key_source"
+        elif key == "keyVaultProperties":
+            suggest = "key_vault_properties"
+        elif key == "rotationToLatestKeyVersionEnabled":
+            suggest = "rotation_to_latest_key_version_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedDiskEncryptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedDiskEncryptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedDiskEncryptionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_source: _builtins.str,
+                 key_vault_properties: 'outputs.ManagedDiskEncryptionKeyVaultPropertiesResponse',
+                 rotation_to_latest_key_version_enabled: Optional[_builtins.bool] = None):
+        """
+        The object that contains details of encryption used on the workspace.
+
+        :param _builtins.str key_source: The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault. Not allowed in Serverless ComputeMode workspace.
+        :param 'ManagedDiskEncryptionKeyVaultPropertiesResponse' key_vault_properties: Key Vault input properties for encryption.
+        :param _builtins.bool rotation_to_latest_key_version_enabled: Indicate whether the latest key version should be automatically used for Managed Disk Encryption.
+        """
+        pulumi.set(__self__, "key_source", key_source)
+        pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+        if rotation_to_latest_key_version_enabled is not None:
+            pulumi.set(__self__, "rotation_to_latest_key_version_enabled", rotation_to_latest_key_version_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="keySource")
+    def key_source(self) -> _builtins.str:
+        """
+        The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault. Not allowed in Serverless ComputeMode workspace.
+        """
+        return pulumi.get(self, "key_source")
+
+    @_builtins.property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> 'outputs.ManagedDiskEncryptionKeyVaultPropertiesResponse':
+        """
+        Key Vault input properties for encryption.
+        """
+        return pulumi.get(self, "key_vault_properties")
+
+    @_builtins.property
+    @pulumi.getter(name="rotationToLatestKeyVersionEnabled")
+    def rotation_to_latest_key_version_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Indicate whether the latest key version should be automatically used for Managed Disk Encryption.
+        """
+        return pulumi.get(self, "rotation_to_latest_key_version_enabled")
 
 
 @pulumi.output_type
@@ -955,7 +955,7 @@ class ManagedServiceIdentityResponse(dict):
 @pulumi.output_type
 class PrivateEndpointConnectionPropertiesResponse(dict):
     """
-    The properties of a private endpoint connection
+    The properties of a private endpoint connection.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -986,7 +986,7 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
                  group_ids: Optional[Sequence[_builtins.str]] = None,
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
-        The properties of a private endpoint connection
+        The properties of a private endpoint connection.
 
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Private endpoint connection state
         :param _builtins.str provisioning_state: Provisioning state of the private endpoint connection.
@@ -1036,31 +1036,51 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
 @pulumi.output_type
 class PrivateEndpointConnectionResponse(dict):
     """
-    The private endpoint connection of a workspace
+    The private endpoint connection of a workspace.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "systemData":
+            suggest = "system_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: _builtins.str,
                  name: _builtins.str,
                  properties: 'outputs.PrivateEndpointConnectionPropertiesResponse',
+                 system_data: 'outputs.SystemDataResponse',
                  type: _builtins.str):
         """
-        The private endpoint connection of a workspace
+        The private endpoint connection of a workspace.
 
-        :param _builtins.str id: The resource identifier.
-        :param _builtins.str name: The resource name.
+        :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        :param _builtins.str name: The name of the resource
         :param 'PrivateEndpointConnectionPropertiesResponse' properties: The private endpoint connection properties.
-        :param _builtins.str type: The resource type.
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param _builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The resource identifier.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -1068,7 +1088,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -1081,10 +1101,18 @@ class PrivateEndpointConnectionResponse(dict):
         return pulumi.get(self, "properties")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -1092,12 +1120,12 @@ class PrivateEndpointConnectionResponse(dict):
 @pulumi.output_type
 class PrivateEndpointResponse(dict):
     """
-    The private endpoint property of a private endpoint connection
+    The private endpoint property of a private endpoint connection.
     """
     def __init__(__self__, *,
                  id: _builtins.str):
         """
-        The private endpoint property of a private endpoint connection
+        The private endpoint property of a private endpoint connection.
 
         :param _builtins.str id: The resource identifier.
         """
@@ -1115,7 +1143,7 @@ class PrivateEndpointResponse(dict):
 @pulumi.output_type
 class PrivateLinkServiceConnectionStateResponse(dict):
     """
-    The current state of a private endpoint connection
+    The current state of a private endpoint connection.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1139,7 +1167,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  actions_required: Optional[_builtins.str] = None,
                  description: Optional[_builtins.str] = None):
         """
-        The current state of a private endpoint connection
+        The current state of a private endpoint connection.
 
         :param _builtins.str status: The status of a private endpoint connection
         :param _builtins.str actions_required: Actions required for a private endpoint connection
@@ -1376,14 +1404,14 @@ class UserAssignedIdentityResponse(dict):
 
 
 @pulumi.output_type
-class VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork(dict):
+class VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkResponse(dict):
     """
-     The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+    The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
     """
     def __init__(__self__, *,
                  id: Optional[_builtins.str] = None):
         """
-         The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+        The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
 
         :param _builtins.str id: The Id of the databricks virtual network.
         """
@@ -1400,14 +1428,14 @@ class VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork(dict
 
 
 @pulumi.output_type
-class VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork(dict):
+class VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkResponse(dict):
     """
-     The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+    The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
     """
     def __init__(__self__, *,
                  id: Optional[_builtins.str] = None):
         """
-         The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+        The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
 
         :param _builtins.str id: The Id of the remote virtual network.
         """
@@ -1429,24 +1457,17 @@ class WorkspaceCustomBooleanParameterResponse(dict):
     The value which should be used for this field.
     """
     def __init__(__self__, *,
-                 type: _builtins.str,
-                 value: _builtins.bool):
+                 value: _builtins.bool,
+                 type: Optional[_builtins.str] = None):
         """
         The value which should be used for this field.
 
-        :param _builtins.str type: The type of variable that this is
         :param _builtins.bool value: The value which should be used for this field.
+        :param _builtins.str type: The type of variable that this is
         """
-        pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> _builtins.str:
-        """
-        The type of variable that this is
-        """
-        return pulumi.get(self, "type")
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
@@ -1456,6 +1477,14 @@ class WorkspaceCustomBooleanParameterResponse(dict):
         """
         return pulumi.get(self, "value")
 
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        The type of variable that this is
+        """
+        return pulumi.get(self, "type")
+
 
 @pulumi.output_type
 class WorkspaceCustomObjectParameterResponse(dict):
@@ -1463,24 +1492,17 @@ class WorkspaceCustomObjectParameterResponse(dict):
     The value which should be used for this field.
     """
     def __init__(__self__, *,
-                 type: _builtins.str,
-                 value: Any):
+                 value: Any,
+                 type: Optional[_builtins.str] = None):
         """
         The value which should be used for this field.
 
-        :param _builtins.str type: The type of variable that this is
         :param Any value: The value which should be used for this field.
+        :param _builtins.str type: The type of variable that this is
         """
-        pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> _builtins.str:
-        """
-        The type of variable that this is
-        """
-        return pulumi.get(self, "type")
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
@@ -1490,11 +1512,19 @@ class WorkspaceCustomObjectParameterResponse(dict):
         """
         return pulumi.get(self, "value")
 
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        The type of variable that this is
+        """
+        return pulumi.get(self, "type")
+
 
 @pulumi.output_type
 class WorkspaceCustomParametersResponse(dict):
     """
-    Custom Parameters used for Cluster Creation.
+    Custom Parameters used for Workspace Creation. Not allowed in Serverless ComputeMode workspace.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1559,24 +1589,24 @@ class WorkspaceCustomParametersResponse(dict):
                  storage_account_sku_name: Optional['outputs.WorkspaceCustomStringParameterResponse'] = None,
                  vnet_address_prefix: Optional['outputs.WorkspaceCustomStringParameterResponse'] = None):
         """
-        Custom Parameters used for Cluster Creation.
+        Custom Parameters used for Workspace Creation. Not allowed in Serverless ComputeMode workspace.
 
-        :param 'WorkspaceCustomObjectParameterResponse' resource_tags: Tags applied to resources under Managed resource group. These can be updated by updating tags at workspace level.
-        :param 'WorkspaceCustomStringParameterResponse' aml_workspace_id: The ID of a Azure Machine Learning workspace to link with Databricks workspace
-        :param 'WorkspaceCustomStringParameterResponse' custom_private_subnet_name: The name of the Private Subnet within the Virtual Network
-        :param 'WorkspaceCustomStringParameterResponse' custom_public_subnet_name: The name of a Public Subnet within the Virtual Network
-        :param 'WorkspaceCustomStringParameterResponse' custom_virtual_network_id: The ID of a Virtual Network where this Databricks Cluster should be created
-        :param 'WorkspaceNoPublicIPBooleanParameterResponse' enable_no_public_ip: Boolean indicating whether the public IP should be disabled. Default value is true
-        :param 'WorkspaceEncryptionParameterResponse' encryption: Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.
-        :param 'WorkspaceCustomStringParameterResponse' load_balancer_backend_pool_name: Name of the outbound Load Balancer Backend Pool for Secure Cluster Connectivity (No Public IP).
-        :param 'WorkspaceCustomStringParameterResponse' load_balancer_id: Resource URI of Outbound Load balancer for Secure Cluster Connectivity (No Public IP) workspace.
-        :param 'WorkspaceCustomStringParameterResponse' nat_gateway_name: Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets.
-        :param 'WorkspaceCustomBooleanParameterResponse' prepare_encryption: Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
-        :param 'WorkspaceCustomStringParameterResponse' public_ip_name: Name of the Public IP for No Public IP workspace with managed vNet.
-        :param 'WorkspaceCustomBooleanParameterResponse' require_infrastructure_encryption: A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
-        :param 'WorkspaceCustomStringParameterResponse' storage_account_name: Default DBFS storage account name.
-        :param 'WorkspaceCustomStringParameterResponse' storage_account_sku_name: Storage account SKU name, ex: Standard_GRS, Standard_LRS. Refer https://aka.ms/storageskus for valid inputs.
-        :param 'WorkspaceCustomStringParameterResponse' vnet_address_prefix: Address prefix for Managed virtual network. Default value for this input is 10.139.
+        :param 'WorkspaceCustomObjectParameterResponse' resource_tags: Tags applied to resources under Managed resource group. These can be updated by updating tags at workspace level. Not allowed in Serverless ComputeMode workspace.
+        :param 'WorkspaceCustomStringParameterResponse' aml_workspace_id: The ID of a Azure Machine Learning workspace to link with Databricks workspace. Not allowed in Serverless ComputeMode workspace.
+        :param 'WorkspaceCustomStringParameterResponse' custom_private_subnet_name: The name of the Private Subnet within the Virtual Network. Not allowed in Serverless ComputeMode workspace.
+        :param 'WorkspaceCustomStringParameterResponse' custom_public_subnet_name: The name of a Public Subnet within the Virtual Network. Not allowed in Serverless ComputeMode workspace.
+        :param 'WorkspaceCustomStringParameterResponse' custom_virtual_network_id: The ID of a Virtual Network where this Databricks Cluster should be created. Not allowed in Serverless ComputeMode workspace.
+        :param 'WorkspaceNoPublicIPBooleanParameterResponse' enable_no_public_ip: Boolean indicating whether the public IP should be disabled. Default value is true. Not allowed in Serverless ComputeMode workspace.
+        :param 'WorkspaceEncryptionParameterResponse' encryption: Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.Not allowed in Serverless ComputeMode workspace.
+        :param 'WorkspaceCustomStringParameterResponse' load_balancer_backend_pool_name: Name of the outbound Load Balancer Backend Pool for Secure Cluster Connectivity (No Public IP). Not allowed in Serverless ComputeMode workspace.
+        :param 'WorkspaceCustomStringParameterResponse' load_balancer_id: Resource URI of Outbound Load balancer for Secure Cluster Connectivity (No Public IP) workspace. Not allowed in Serverless ComputeMode workspace.
+        :param 'WorkspaceCustomStringParameterResponse' nat_gateway_name: Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets. Not allowed in Serverless ComputeMode workspace.
+        :param 'WorkspaceCustomBooleanParameterResponse' prepare_encryption: Prepare the workspace for encryption. Enables the Managed Identity for managed storage account. Not allowed in Serverless ComputeMode workspace.
+        :param 'WorkspaceCustomStringParameterResponse' public_ip_name: Name of the Public IP for No Public IP workspace with managed vNet. Not allowed in Serverless ComputeMode workspace.
+        :param 'WorkspaceCustomBooleanParameterResponse' require_infrastructure_encryption: A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest. Not allowed in Serverless ComputeMode workspace.
+        :param 'WorkspaceCustomStringParameterResponse' storage_account_name: Default DBFS storage account name. Not allowed in Serverless ComputeMode workspace.
+        :param 'WorkspaceCustomStringParameterResponse' storage_account_sku_name: Storage account SKU name, ex: Standard_GRS, Standard_LRS. Refer https://aka.ms/storageskus for valid inputs. Not allowed in Serverless ComputeMode workspace.
+        :param 'WorkspaceCustomStringParameterResponse' vnet_address_prefix: Address prefix for Managed virtual network. Default value for this input is 10.139. Not allowed in Serverless ComputeMode workspace.
         """
         pulumi.set(__self__, "resource_tags", resource_tags)
         if aml_workspace_id is not None:
@@ -1614,7 +1644,7 @@ class WorkspaceCustomParametersResponse(dict):
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> 'outputs.WorkspaceCustomObjectParameterResponse':
         """
-        Tags applied to resources under Managed resource group. These can be updated by updating tags at workspace level.
+        Tags applied to resources under Managed resource group. These can be updated by updating tags at workspace level. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "resource_tags")
 
@@ -1622,7 +1652,7 @@ class WorkspaceCustomParametersResponse(dict):
     @pulumi.getter(name="amlWorkspaceId")
     def aml_workspace_id(self) -> Optional['outputs.WorkspaceCustomStringParameterResponse']:
         """
-        The ID of a Azure Machine Learning workspace to link with Databricks workspace
+        The ID of a Azure Machine Learning workspace to link with Databricks workspace. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "aml_workspace_id")
 
@@ -1630,7 +1660,7 @@ class WorkspaceCustomParametersResponse(dict):
     @pulumi.getter(name="customPrivateSubnetName")
     def custom_private_subnet_name(self) -> Optional['outputs.WorkspaceCustomStringParameterResponse']:
         """
-        The name of the Private Subnet within the Virtual Network
+        The name of the Private Subnet within the Virtual Network. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "custom_private_subnet_name")
 
@@ -1638,7 +1668,7 @@ class WorkspaceCustomParametersResponse(dict):
     @pulumi.getter(name="customPublicSubnetName")
     def custom_public_subnet_name(self) -> Optional['outputs.WorkspaceCustomStringParameterResponse']:
         """
-        The name of a Public Subnet within the Virtual Network
+        The name of a Public Subnet within the Virtual Network. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "custom_public_subnet_name")
 
@@ -1646,7 +1676,7 @@ class WorkspaceCustomParametersResponse(dict):
     @pulumi.getter(name="customVirtualNetworkId")
     def custom_virtual_network_id(self) -> Optional['outputs.WorkspaceCustomStringParameterResponse']:
         """
-        The ID of a Virtual Network where this Databricks Cluster should be created
+        The ID of a Virtual Network where this Databricks Cluster should be created. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "custom_virtual_network_id")
 
@@ -1654,7 +1684,7 @@ class WorkspaceCustomParametersResponse(dict):
     @pulumi.getter(name="enableNoPublicIp")
     def enable_no_public_ip(self) -> Optional['outputs.WorkspaceNoPublicIPBooleanParameterResponse']:
         """
-        Boolean indicating whether the public IP should be disabled. Default value is true
+        Boolean indicating whether the public IP should be disabled. Default value is true. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "enable_no_public_ip")
 
@@ -1662,7 +1692,7 @@ class WorkspaceCustomParametersResponse(dict):
     @pulumi.getter
     def encryption(self) -> Optional['outputs.WorkspaceEncryptionParameterResponse']:
         """
-        Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.
+        Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "encryption")
 
@@ -1670,7 +1700,7 @@ class WorkspaceCustomParametersResponse(dict):
     @pulumi.getter(name="loadBalancerBackendPoolName")
     def load_balancer_backend_pool_name(self) -> Optional['outputs.WorkspaceCustomStringParameterResponse']:
         """
-        Name of the outbound Load Balancer Backend Pool for Secure Cluster Connectivity (No Public IP).
+        Name of the outbound Load Balancer Backend Pool for Secure Cluster Connectivity (No Public IP). Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "load_balancer_backend_pool_name")
 
@@ -1678,7 +1708,7 @@ class WorkspaceCustomParametersResponse(dict):
     @pulumi.getter(name="loadBalancerId")
     def load_balancer_id(self) -> Optional['outputs.WorkspaceCustomStringParameterResponse']:
         """
-        Resource URI of Outbound Load balancer for Secure Cluster Connectivity (No Public IP) workspace.
+        Resource URI of Outbound Load balancer for Secure Cluster Connectivity (No Public IP) workspace. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "load_balancer_id")
 
@@ -1686,7 +1716,7 @@ class WorkspaceCustomParametersResponse(dict):
     @pulumi.getter(name="natGatewayName")
     def nat_gateway_name(self) -> Optional['outputs.WorkspaceCustomStringParameterResponse']:
         """
-        Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets.
+        Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "nat_gateway_name")
 
@@ -1694,7 +1724,7 @@ class WorkspaceCustomParametersResponse(dict):
     @pulumi.getter(name="prepareEncryption")
     def prepare_encryption(self) -> Optional['outputs.WorkspaceCustomBooleanParameterResponse']:
         """
-        Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
+        Prepare the workspace for encryption. Enables the Managed Identity for managed storage account. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "prepare_encryption")
 
@@ -1702,7 +1732,7 @@ class WorkspaceCustomParametersResponse(dict):
     @pulumi.getter(name="publicIpName")
     def public_ip_name(self) -> Optional['outputs.WorkspaceCustomStringParameterResponse']:
         """
-        Name of the Public IP for No Public IP workspace with managed vNet.
+        Name of the Public IP for No Public IP workspace with managed vNet. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "public_ip_name")
 
@@ -1710,7 +1740,7 @@ class WorkspaceCustomParametersResponse(dict):
     @pulumi.getter(name="requireInfrastructureEncryption")
     def require_infrastructure_encryption(self) -> Optional['outputs.WorkspaceCustomBooleanParameterResponse']:
         """
-        A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
+        A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "require_infrastructure_encryption")
 
@@ -1718,7 +1748,7 @@ class WorkspaceCustomParametersResponse(dict):
     @pulumi.getter(name="storageAccountName")
     def storage_account_name(self) -> Optional['outputs.WorkspaceCustomStringParameterResponse']:
         """
-        Default DBFS storage account name.
+        Default DBFS storage account name. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "storage_account_name")
 
@@ -1726,7 +1756,7 @@ class WorkspaceCustomParametersResponse(dict):
     @pulumi.getter(name="storageAccountSkuName")
     def storage_account_sku_name(self) -> Optional['outputs.WorkspaceCustomStringParameterResponse']:
         """
-        Storage account SKU name, ex: Standard_GRS, Standard_LRS. Refer https://aka.ms/storageskus for valid inputs.
+        Storage account SKU name, ex: Standard_GRS, Standard_LRS. Refer https://aka.ms/storageskus for valid inputs. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "storage_account_sku_name")
 
@@ -1734,7 +1764,7 @@ class WorkspaceCustomParametersResponse(dict):
     @pulumi.getter(name="vnetAddressPrefix")
     def vnet_address_prefix(self) -> Optional['outputs.WorkspaceCustomStringParameterResponse']:
         """
-        Address prefix for Managed virtual network. Default value for this input is 10.139.
+        Address prefix for Managed virtual network. Default value for this input is 10.139. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "vnet_address_prefix")
 
@@ -1745,24 +1775,17 @@ class WorkspaceCustomStringParameterResponse(dict):
     The Value.
     """
     def __init__(__self__, *,
-                 type: _builtins.str,
-                 value: _builtins.str):
+                 value: _builtins.str,
+                 type: Optional[_builtins.str] = None):
         """
         The Value.
 
-        :param _builtins.str type: The type of variable that this is
         :param _builtins.str value: The value which should be used for this field.
+        :param _builtins.str type: The type of variable that this is
         """
-        pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> _builtins.str:
-        """
-        The type of variable that this is
-        """
-        return pulumi.get(self, "type")
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
@@ -1772,6 +1795,14 @@ class WorkspaceCustomStringParameterResponse(dict):
         """
         return pulumi.get(self, "value")
 
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        The type of variable that this is
+        """
+        return pulumi.get(self, "type")
+
 
 @pulumi.output_type
 class WorkspaceEncryptionParameterResponse(dict):
@@ -1779,7 +1810,7 @@ class WorkspaceEncryptionParameterResponse(dict):
     The object that contains details of encryption used on the workspace.
     """
     def __init__(__self__, *,
-                 type: _builtins.str,
+                 type: Optional[_builtins.str] = None,
                  value: Optional['outputs.EncryptionResponse'] = None):
         """
         The object that contains details of encryption used on the workspace.
@@ -1787,13 +1818,14 @@ class WorkspaceEncryptionParameterResponse(dict):
         :param _builtins.str type: The type of variable that this is
         :param 'EncryptionResponse' value: The value which should be used for this field.
         """
-        pulumi.set(__self__, "type", type)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
         if value is not None:
             pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> _builtins.str:
+    def type(self) -> Optional[_builtins.str]:
         """
         The type of variable that this is
         """
@@ -1814,24 +1846,17 @@ class WorkspaceNoPublicIPBooleanParameterResponse(dict):
     The value which should be used for this field.
     """
     def __init__(__self__, *,
-                 type: _builtins.str,
-                 value: _builtins.bool):
+                 value: _builtins.bool,
+                 type: Optional[_builtins.str] = None):
         """
         The value which should be used for this field.
 
-        :param _builtins.str type: The type of variable that this is
         :param _builtins.bool value: The value which should be used for this field.
+        :param _builtins.str type: The type of variable that this is
         """
-        pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> _builtins.str:
-        """
-        The type of variable that this is
-        """
-        return pulumi.get(self, "type")
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
@@ -1841,11 +1866,19 @@ class WorkspaceNoPublicIPBooleanParameterResponse(dict):
         """
         return pulumi.get(self, "value")
 
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        The type of variable that this is
+        """
+        return pulumi.get(self, "type")
+
 
 @pulumi.output_type
-class WorkspacePropertiesResponseAccessConnector(dict):
+class WorkspacePropertiesAccessConnectorResponse(dict):
     """
-    Access Connector Resource that is going to be associated with Databricks Workspace
+    Access Connector Resource that is going to be associated with Databricks Workspace. Not allowed in Serverless ComputeMode workspace.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1856,14 +1889,14 @@ class WorkspacePropertiesResponseAccessConnector(dict):
             suggest = "user_assigned_identity_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WorkspacePropertiesResponseAccessConnector. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WorkspacePropertiesAccessConnectorResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WorkspacePropertiesResponseAccessConnector.__key_warning(key)
+        WorkspacePropertiesAccessConnectorResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WorkspacePropertiesResponseAccessConnector.__key_warning(key)
+        WorkspacePropertiesAccessConnectorResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1871,7 +1904,7 @@ class WorkspacePropertiesResponseAccessConnector(dict):
                  identity_type: _builtins.str,
                  user_assigned_identity_id: Optional[_builtins.str] = None):
         """
-        Access Connector Resource that is going to be associated with Databricks Workspace
+        Access Connector Resource that is going to be associated with Databricks Workspace. Not allowed in Serverless ComputeMode workspace.
 
         :param _builtins.str id: The resource ID of Azure Databricks Access Connector Resource.
         :param _builtins.str identity_type: The identity type of the Access Connector Resource.
@@ -1908,14 +1941,14 @@ class WorkspacePropertiesResponseAccessConnector(dict):
 
 
 @pulumi.output_type
-class WorkspacePropertiesResponseEncryption(dict):
+class WorkspacePropertiesEncryptionResponse(dict):
     """
-    Encryption properties for databricks workspace
+    Encryption properties for databricks workspace. Supported in both Serverless and Hybrid ComputeMode workspace.
     """
     def __init__(__self__, *,
                  entities: 'outputs.EncryptionEntitiesDefinitionResponse'):
         """
-        Encryption properties for databricks workspace
+        Encryption properties for databricks workspace. Supported in both Serverless and Hybrid ComputeMode workspace.
 
         :param 'EncryptionEntitiesDefinitionResponse' entities: Encryption entities definition for the workspace.
         """

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Databricks.Outputs
         /// <summary>
         /// The type of variable that this is
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
         /// <summary>
         /// The value which should be used for this field.
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Databricks.Outputs
 
         [OutputConstructor]
         private WorkspaceCustomObjectParameterResponse(
-            string type,
+            string? type,
 
             object value)
         {

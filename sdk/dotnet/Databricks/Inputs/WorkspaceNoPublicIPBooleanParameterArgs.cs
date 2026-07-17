@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Databricks.Inputs
     public sealed class WorkspaceNoPublicIPBooleanParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The type of variable that this is
+        /// </summary>
+        [Input("type")]
+        public InputUnion<string, Pulumi.AzureNative.Databricks.CustomParameterType>? Type { get; set; }
+
+        /// <summary>
         /// The value which should be used for this field.
         /// </summary>
         [Input("value", required: true)]

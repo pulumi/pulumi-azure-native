@@ -87579,7 +87579,7 @@ export namespace databricks {
     }
 
     /**
-     * These properties lets user specify default catalog properties during workspace creation.
+     * These properties lets user specify default catalog properties during workspace creation. Not allowed in Serverless ComputeMode workspace.
      */
     export interface DefaultCatalogPropertiesResponse {
         /**
@@ -87606,11 +87606,11 @@ export namespace databricks {
      */
     export interface EncryptionEntitiesDefinitionResponse {
         /**
-         * Encryption properties for the databricks managed disks.
+         * Encryption properties for the databricks managed disks. Not allowed in Serverless ComputeMode workspace.
          */
         managedDisk?: outputs.databricks.ManagedDiskEncryptionResponse;
         /**
-         * Encryption properties for the databricks managed services.
+         * Encryption properties for the databricks managed services. Supported in both Serverless and Hybrid ComputeMode.
          */
         managedServices?: outputs.databricks.EncryptionV2Response;
     }
@@ -87647,23 +87647,9 @@ export namespace databricks {
     }
 
     /**
-     * The object that contains details of encryption used on the workspace.
-     */
-    export interface EncryptionV2Response {
-        /**
-         * The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
-         */
-        keySource: string;
-        /**
-         * Key Vault input properties for encryption.
-         */
-        keyVaultProperties?: outputs.databricks.EncryptionV2ResponseKeyVaultProperties;
-    }
-
-    /**
      * Key Vault input properties for encryption.
      */
-    export interface EncryptionV2ResponseKeyVaultProperties {
+    export interface EncryptionV2KeyVaultPropertiesResponse {
         /**
          * The name of KeyVault key.
          */
@@ -87676,6 +87662,20 @@ export namespace databricks {
          * The version of KeyVault key.
          */
         keyVersion: string;
+    }
+
+    /**
+     * The object that contains details of encryption used on the workspace.
+     */
+    export interface EncryptionV2Response {
+        /**
+         * The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
+         */
+        keySource: string;
+        /**
+         * Key Vault input properties for encryption.
+         */
+        keyVaultProperties?: outputs.databricks.EncryptionV2KeyVaultPropertiesResponse;
     }
 
     /**
@@ -87704,27 +87704,9 @@ export namespace databricks {
     }
 
     /**
-     * The object that contains details of encryption used on the workspace.
-     */
-    export interface ManagedDiskEncryptionResponse {
-        /**
-         * The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
-         */
-        keySource: string;
-        /**
-         * Key Vault input properties for encryption.
-         */
-        keyVaultProperties: outputs.databricks.ManagedDiskEncryptionResponseKeyVaultProperties;
-        /**
-         * Indicate whether the latest key version should be automatically used for Managed Disk Encryption.
-         */
-        rotationToLatestKeyVersionEnabled?: boolean;
-    }
-
-    /**
      * Key Vault input properties for encryption.
      */
-    export interface ManagedDiskEncryptionResponseKeyVaultProperties {
+    export interface ManagedDiskEncryptionKeyVaultPropertiesResponse {
         /**
          * The name of KeyVault key.
          */
@@ -87737,6 +87719,24 @@ export namespace databricks {
          * The version of KeyVault key.
          */
         keyVersion: string;
+    }
+
+    /**
+     * The object that contains details of encryption used on the workspace.
+     */
+    export interface ManagedDiskEncryptionResponse {
+        /**
+         * The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault. Not allowed in Serverless ComputeMode workspace.
+         */
+        keySource: string;
+        /**
+         * Key Vault input properties for encryption.
+         */
+        keyVaultProperties: outputs.databricks.ManagedDiskEncryptionKeyVaultPropertiesResponse;
+        /**
+         * Indicate whether the latest key version should be automatically used for Managed Disk Encryption.
+         */
+        rotationToLatestKeyVersionEnabled?: boolean;
     }
 
     /**
@@ -87780,7 +87780,7 @@ export namespace databricks {
     }
 
     /**
-     * The properties of a private endpoint connection
+     * The properties of a private endpoint connection.
      */
     export interface PrivateEndpointConnectionPropertiesResponse {
         /**
@@ -87802,15 +87802,15 @@ export namespace databricks {
     }
 
     /**
-     * The private endpoint connection of a workspace
+     * The private endpoint connection of a workspace.
      */
     export interface PrivateEndpointConnectionResponse {
         /**
-         * The resource identifier.
+         * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
          */
         id: string;
         /**
-         * The resource name.
+         * The name of the resource
          */
         name: string;
         /**
@@ -87818,13 +87818,17 @@ export namespace databricks {
          */
         properties: outputs.databricks.PrivateEndpointConnectionPropertiesResponse;
         /**
-         * The resource type.
+         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+         */
+        systemData: outputs.databricks.SystemDataResponse;
+        /**
+         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
         type: string;
     }
 
     /**
-     * The private endpoint property of a private endpoint connection
+     * The private endpoint property of a private endpoint connection.
      */
     export interface PrivateEndpointResponse {
         /**
@@ -87834,7 +87838,7 @@ export namespace databricks {
     }
 
     /**
-     * The current state of a private endpoint connection
+     * The current state of a private endpoint connection.
      */
     export interface PrivateLinkServiceConnectionStateResponse {
         /**
@@ -87910,9 +87914,9 @@ export namespace databricks {
     }
 
     /**
-     *  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+     * The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
      */
-    export interface VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork {
+    export interface VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkResponse {
         /**
          * The Id of the databricks virtual network.
          */
@@ -87920,9 +87924,9 @@ export namespace databricks {
     }
 
     /**
-     *  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+     * The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
      */
-    export interface VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork {
+    export interface VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkResponse {
         /**
          * The Id of the remote virtual network.
          */
@@ -87936,7 +87940,7 @@ export namespace databricks {
         /**
          * The type of variable that this is
          */
-        type: string;
+        type?: string;
         /**
          * The value which should be used for this field.
          */
@@ -87950,7 +87954,7 @@ export namespace databricks {
         /**
          * The type of variable that this is
          */
-        type: string;
+        type?: string;
         /**
          * The value which should be used for this field.
          */
@@ -87958,71 +87962,71 @@ export namespace databricks {
     }
 
     /**
-     * Custom Parameters used for Cluster Creation.
+     * Custom Parameters used for Workspace Creation. Not allowed in Serverless ComputeMode workspace.
      */
     export interface WorkspaceCustomParametersResponse {
         /**
-         * The ID of a Azure Machine Learning workspace to link with Databricks workspace
+         * The ID of a Azure Machine Learning workspace to link with Databricks workspace. Not allowed in Serverless ComputeMode workspace.
          */
         amlWorkspaceId?: outputs.databricks.WorkspaceCustomStringParameterResponse;
         /**
-         * The name of the Private Subnet within the Virtual Network
+         * The name of the Private Subnet within the Virtual Network. Not allowed in Serverless ComputeMode workspace.
          */
         customPrivateSubnetName?: outputs.databricks.WorkspaceCustomStringParameterResponse;
         /**
-         * The name of a Public Subnet within the Virtual Network
+         * The name of a Public Subnet within the Virtual Network. Not allowed in Serverless ComputeMode workspace.
          */
         customPublicSubnetName?: outputs.databricks.WorkspaceCustomStringParameterResponse;
         /**
-         * The ID of a Virtual Network where this Databricks Cluster should be created
+         * The ID of a Virtual Network where this Databricks Cluster should be created. Not allowed in Serverless ComputeMode workspace.
          */
         customVirtualNetworkId?: outputs.databricks.WorkspaceCustomStringParameterResponse;
         /**
-         * Boolean indicating whether the public IP should be disabled. Default value is true
+         * Boolean indicating whether the public IP should be disabled. Default value is true. Not allowed in Serverless ComputeMode workspace.
          */
         enableNoPublicIp?: outputs.databricks.WorkspaceNoPublicIPBooleanParameterResponse;
         /**
-         * Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.
+         * Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.Not allowed in Serverless ComputeMode workspace.
          */
         encryption?: outputs.databricks.WorkspaceEncryptionParameterResponse;
         /**
-         * Name of the outbound Load Balancer Backend Pool for Secure Cluster Connectivity (No Public IP).
+         * Name of the outbound Load Balancer Backend Pool for Secure Cluster Connectivity (No Public IP). Not allowed in Serverless ComputeMode workspace.
          */
         loadBalancerBackendPoolName?: outputs.databricks.WorkspaceCustomStringParameterResponse;
         /**
-         * Resource URI of Outbound Load balancer for Secure Cluster Connectivity (No Public IP) workspace.
+         * Resource URI of Outbound Load balancer for Secure Cluster Connectivity (No Public IP) workspace. Not allowed in Serverless ComputeMode workspace.
          */
         loadBalancerId?: outputs.databricks.WorkspaceCustomStringParameterResponse;
         /**
-         * Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets.
+         * Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets. Not allowed in Serverless ComputeMode workspace.
          */
         natGatewayName?: outputs.databricks.WorkspaceCustomStringParameterResponse;
         /**
-         * Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
+         * Prepare the workspace for encryption. Enables the Managed Identity for managed storage account. Not allowed in Serverless ComputeMode workspace.
          */
         prepareEncryption?: outputs.databricks.WorkspaceCustomBooleanParameterResponse;
         /**
-         * Name of the Public IP for No Public IP workspace with managed vNet.
+         * Name of the Public IP for No Public IP workspace with managed vNet. Not allowed in Serverless ComputeMode workspace.
          */
         publicIpName?: outputs.databricks.WorkspaceCustomStringParameterResponse;
         /**
-         * A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
+         * A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest. Not allowed in Serverless ComputeMode workspace.
          */
         requireInfrastructureEncryption?: outputs.databricks.WorkspaceCustomBooleanParameterResponse;
         /**
-         * Tags applied to resources under Managed resource group. These can be updated by updating tags at workspace level.
+         * Tags applied to resources under Managed resource group. These can be updated by updating tags at workspace level. Not allowed in Serverless ComputeMode workspace.
          */
         resourceTags: outputs.databricks.WorkspaceCustomObjectParameterResponse;
         /**
-         * Default DBFS storage account name.
+         * Default DBFS storage account name. Not allowed in Serverless ComputeMode workspace.
          */
         storageAccountName?: outputs.databricks.WorkspaceCustomStringParameterResponse;
         /**
-         * Storage account SKU name, ex: Standard_GRS, Standard_LRS. Refer https://aka.ms/storageskus for valid inputs.
+         * Storage account SKU name, ex: Standard_GRS, Standard_LRS. Refer https://aka.ms/storageskus for valid inputs. Not allowed in Serverless ComputeMode workspace.
          */
         storageAccountSkuName?: outputs.databricks.WorkspaceCustomStringParameterResponse;
         /**
-         * Address prefix for Managed virtual network. Default value for this input is 10.139.
+         * Address prefix for Managed virtual network. Default value for this input is 10.139. Not allowed in Serverless ComputeMode workspace.
          */
         vnetAddressPrefix?: outputs.databricks.WorkspaceCustomStringParameterResponse;
     }
@@ -88043,7 +88047,7 @@ export namespace databricks {
         /**
          * The type of variable that this is
          */
-        type: string;
+        type?: string;
         /**
          * The value which should be used for this field.
          */
@@ -88057,7 +88061,7 @@ export namespace databricks {
         /**
          * The type of variable that this is
          */
-        type: string;
+        type?: string;
         /**
          * The value which should be used for this field.
          */
@@ -88080,7 +88084,7 @@ export namespace databricks {
         /**
          * The type of variable that this is
          */
-        type: string;
+        type?: string;
         /**
          * The value which should be used for this field.
          */
@@ -88088,9 +88092,9 @@ export namespace databricks {
     }
 
     /**
-     * Access Connector Resource that is going to be associated with Databricks Workspace
+     * Access Connector Resource that is going to be associated with Databricks Workspace. Not allowed in Serverless ComputeMode workspace.
      */
-    export interface WorkspacePropertiesResponseAccessConnector {
+    export interface WorkspacePropertiesAccessConnectorResponse {
         /**
          * The resource ID of Azure Databricks Access Connector Resource.
          */
@@ -88106,9 +88110,9 @@ export namespace databricks {
     }
 
     /**
-     * Encryption properties for databricks workspace
+     * Encryption properties for databricks workspace. Supported in both Serverless and Hybrid ComputeMode workspace.
      */
-    export interface WorkspacePropertiesResponseEncryption {
+    export interface WorkspacePropertiesEncryptionResponse {
         /**
          * Encryption entities definition for the workspace.
          */

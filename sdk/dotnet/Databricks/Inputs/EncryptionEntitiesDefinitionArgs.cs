@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Databricks.Inputs
     public sealed class EncryptionEntitiesDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Encryption properties for the databricks managed disks.
+        /// Encryption properties for the databricks managed disks. Not allowed in Serverless ComputeMode workspace.
         /// </summary>
         [Input("managedDisk")]
         public Input<Inputs.ManagedDiskEncryptionArgs>? ManagedDisk { get; set; }
 
         /// <summary>
-        /// Encryption properties for the databricks managed services.
+        /// Encryption properties for the databricks managed services. Supported in both Serverless and Hybrid ComputeMode.
         /// </summary>
         [Input("managedServices")]
         public Input<Inputs.EncryptionV2Args>? ManagedServices { get; set; }

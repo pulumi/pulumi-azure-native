@@ -483,6 +483,61 @@ func TestManagedClusterNetworkProfileForceNewOnlyImmutableFields(t *testing.T) {
 		"expected a replacement when changing the immutable dnsServiceIP sub-property")
 }
 
+// TestDatabricksWorkspaceComputeModeDefault is a regression test for issue #4766: Databricks
+// Workspace's computeMode became a required input in API version 2026-01-01. Confirmed live
+// against Azure (raw ARM REST PUT, an ARM template deployment, and reading a workspace created
+// via an older API version that predates the property) that omitting computeMode on create is
+// accepted and Azure backfills "Hybrid" server-side, so the provider keeps it as an optional
+// input (see notRequiredInputsMap in provider/pkg/gen/replacement.go) instead of a required one.
+//
+// This also verifies that changing computeMode away from its backfilled value forces a
+// replacement, since the API documents it as "Required on create, cannot be changed" (see
+// forceNewMap in the same file). Like TestManagedClusterNetworkProfileForceNewOnlyImmutableFields
+// above, the replacement step only previews (never applies) since actually replacing a
+// Databricks workspace is slow and unnecessary to validate the Diff logic under test.
+//
+// NOTE: explicitly (re-)specifying computeMode="Hybrid" after adopting the backfilled default
+// currently still shows up as a one-time input diff (the provider diffs old-vs-new *inputs*, not
+// against the live server value, and this affects Read/refresh too -- not just Diff/preview).
+// Suppressing that spurious diff is being tracked as separate follow-up work since it's a
+// broader pattern that shows up for other optional/server-defaulted properties too, not just this
+// one; this test only asserts the parts of the issue #4766 fix that are actually in scope here:
+// the create succeeds without computeMode, Azure backfills "Hybrid", and re-pinning it to that
+// same value never forces a replacement.
+func TestDatabricksWorkspaceComputeModeDefault(t *testing.T) {
+	t.Parallel()
+	pt := newPulumiTest(t, "databricks-computemode/step1")
+	defer func() {
+		pt.Destroy(t)
+	}()
+
+	// step1: create a workspace without setting computeMode at all.
+	up := pt.Up(t)
+	computeMode, ok := up.Outputs["computeMode"].Value.(string)
+	require.True(t, ok, "expected computeMode output to be a string")
+	assert.Equal(t, "Hybrid", computeMode, "expected Azure to backfill computeMode to Hybrid when omitted")
+	// Refresh should succeed without error, but may report the computeMode input being adopted
+	// into state as a one-time change -- see the NOTE above, not asserted here.
+	pt.Refresh(t)
+
+	// step2: explicitly set computeMode to "Hybrid" -- the value Azure already backfilled. This
+	// may still show up as a one-time update (see NOTE above), but must never be a replacement.
+	pt.UpdateSource(t, "test-programs", "databricks-computemode", "step2")
+	hybridPreview := pt.Preview(t)
+	assertpreview.HasNoReplacements(t, hybridPreview)
+
+	// step3: change computeMode to "Serverless". Per the API docs this is immutable after
+	// create, so this must force a replacement. Preview only -- see comment above.
+	pt.UpdateSource(t, "test-programs", "databricks-computemode", "step3")
+	serverlessPreview := pt.Preview(t)
+	serverlessSummary := changesummary.ChangeSummary(serverlessPreview.ChangeSummary)
+	replacementOpsServerless := serverlessSummary[apitype.OpReplace] +
+		serverlessSummary[apitype.OpCreateReplacement] +
+		serverlessSummary[apitype.OpDeleteReplaced]
+	assert.Greater(t, replacementOpsServerless, 0,
+		"expected a replacement when changing computeMode from Hybrid to Serverless")
+}
+
 func upgradeTest(t *testing.T, testProgramDir string, upgradeFromVersion string, opts ...optproviderupgrade.PreviewProviderUpgradeOpt) {
 	t.Helper()
 	if testing.Short() {

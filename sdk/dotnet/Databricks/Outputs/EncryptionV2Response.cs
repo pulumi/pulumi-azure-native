@@ -23,13 +23,13 @@ namespace Pulumi.AzureNative.Databricks.Outputs
         /// <summary>
         /// Key Vault input properties for encryption.
         /// </summary>
-        public readonly Outputs.EncryptionV2ResponseKeyVaultProperties? KeyVaultProperties;
+        public readonly Outputs.EncryptionV2KeyVaultPropertiesResponse? KeyVaultProperties;
 
         [OutputConstructor]
         private EncryptionV2Response(
             string keySource,
 
-            Outputs.EncryptionV2ResponseKeyVaultProperties? keyVaultProperties)
+            Outputs.EncryptionV2KeyVaultPropertiesResponse? keyVaultProperties)
         {
             KeySource = keySource;
             KeyVaultProperties = keyVaultProperties;

@@ -11,17 +11,17 @@ namespace Pulumi.AzureNative.Databricks.Outputs
 {
 
     /// <summary>
-    /// The private endpoint connection of a workspace
+    /// The private endpoint connection of a workspace.
     /// </summary>
     [OutputType]
     public sealed class PrivateEndpointConnectionResponse
     {
         /// <summary>
-        /// The resource identifier.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -29,7 +29,11 @@ namespace Pulumi.AzureNative.Databricks.Outputs
         /// </summary>
         public readonly Outputs.PrivateEndpointConnectionPropertiesResponse Properties;
         /// <summary>
-        /// The resource type.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -41,11 +45,14 @@ namespace Pulumi.AzureNative.Databricks.Outputs
 
             Outputs.PrivateEndpointConnectionPropertiesResponse properties,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Id = id;
             Name = name;
             Properties = properties;
+            SystemData = systemData;
             Type = type;
         }
     }

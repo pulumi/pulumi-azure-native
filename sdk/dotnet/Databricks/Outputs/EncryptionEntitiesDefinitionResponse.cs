@@ -17,11 +17,11 @@ namespace Pulumi.AzureNative.Databricks.Outputs
     public sealed class EncryptionEntitiesDefinitionResponse
     {
         /// <summary>
-        /// Encryption properties for the databricks managed disks.
+        /// Encryption properties for the databricks managed disks. Not allowed in Serverless ComputeMode workspace.
         /// </summary>
         public readonly Outputs.ManagedDiskEncryptionResponse? ManagedDisk;
         /// <summary>
-        /// Encryption properties for the databricks managed services.
+        /// Encryption properties for the databricks managed services. Supported in both Serverless and Hybrid ComputeMode.
         /// </summary>
         public readonly Outputs.EncryptionV2Response? ManagedServices;
 

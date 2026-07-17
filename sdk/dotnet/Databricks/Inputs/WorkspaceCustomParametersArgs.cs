@@ -11,96 +11,96 @@ namespace Pulumi.AzureNative.Databricks.Inputs
 {
 
     /// <summary>
-    /// Custom Parameters used for Cluster Creation.
+    /// Custom Parameters used for Workspace Creation. Not allowed in Serverless ComputeMode workspace.
     /// </summary>
     public sealed class WorkspaceCustomParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of a Azure Machine Learning workspace to link with Databricks workspace
+        /// The ID of a Azure Machine Learning workspace to link with Databricks workspace. Not allowed in Serverless ComputeMode workspace.
         /// </summary>
         [Input("amlWorkspaceId")]
         public Input<Inputs.WorkspaceCustomStringParameterArgs>? AmlWorkspaceId { get; set; }
 
         /// <summary>
-        /// The name of the Private Subnet within the Virtual Network
+        /// The name of the Private Subnet within the Virtual Network. Not allowed in Serverless ComputeMode workspace.
         /// </summary>
         [Input("customPrivateSubnetName")]
         public Input<Inputs.WorkspaceCustomStringParameterArgs>? CustomPrivateSubnetName { get; set; }
 
         /// <summary>
-        /// The name of a Public Subnet within the Virtual Network
+        /// The name of a Public Subnet within the Virtual Network. Not allowed in Serverless ComputeMode workspace.
         /// </summary>
         [Input("customPublicSubnetName")]
         public Input<Inputs.WorkspaceCustomStringParameterArgs>? CustomPublicSubnetName { get; set; }
 
         /// <summary>
-        /// The ID of a Virtual Network where this Databricks Cluster should be created
+        /// The ID of a Virtual Network where this Databricks Cluster should be created. Not allowed in Serverless ComputeMode workspace.
         /// </summary>
         [Input("customVirtualNetworkId")]
         public Input<Inputs.WorkspaceCustomStringParameterArgs>? CustomVirtualNetworkId { get; set; }
 
         /// <summary>
-        /// Boolean indicating whether the public IP should be disabled. Default value is true
+        /// Boolean indicating whether the public IP should be disabled. Default value is true. Not allowed in Serverless ComputeMode workspace.
         /// </summary>
         [Input("enableNoPublicIp")]
         public Input<Inputs.WorkspaceNoPublicIPBooleanParameterArgs>? EnableNoPublicIp { get; set; }
 
         /// <summary>
-        /// Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.
+        /// Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.Not allowed in Serverless ComputeMode workspace.
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.WorkspaceEncryptionParameterArgs>? Encryption { get; set; }
 
         /// <summary>
-        /// Name of the outbound Load Balancer Backend Pool for Secure Cluster Connectivity (No Public IP).
+        /// Name of the outbound Load Balancer Backend Pool for Secure Cluster Connectivity (No Public IP). Not allowed in Serverless ComputeMode workspace.
         /// </summary>
         [Input("loadBalancerBackendPoolName")]
         public Input<Inputs.WorkspaceCustomStringParameterArgs>? LoadBalancerBackendPoolName { get; set; }
 
         /// <summary>
-        /// Resource URI of Outbound Load balancer for Secure Cluster Connectivity (No Public IP) workspace.
+        /// Resource URI of Outbound Load balancer for Secure Cluster Connectivity (No Public IP) workspace. Not allowed in Serverless ComputeMode workspace.
         /// </summary>
         [Input("loadBalancerId")]
         public Input<Inputs.WorkspaceCustomStringParameterArgs>? LoadBalancerId { get; set; }
 
         /// <summary>
-        /// Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets.
+        /// Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets. Not allowed in Serverless ComputeMode workspace.
         /// </summary>
         [Input("natGatewayName")]
         public Input<Inputs.WorkspaceCustomStringParameterArgs>? NatGatewayName { get; set; }
 
         /// <summary>
-        /// Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
+        /// Prepare the workspace for encryption. Enables the Managed Identity for managed storage account. Not allowed in Serverless ComputeMode workspace.
         /// </summary>
         [Input("prepareEncryption")]
         public Input<Inputs.WorkspaceCustomBooleanParameterArgs>? PrepareEncryption { get; set; }
 
         /// <summary>
-        /// Name of the Public IP for No Public IP workspace with managed vNet.
+        /// Name of the Public IP for No Public IP workspace with managed vNet. Not allowed in Serverless ComputeMode workspace.
         /// </summary>
         [Input("publicIpName")]
         public Input<Inputs.WorkspaceCustomStringParameterArgs>? PublicIpName { get; set; }
 
         /// <summary>
-        /// A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
+        /// A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest. Not allowed in Serverless ComputeMode workspace.
         /// </summary>
         [Input("requireInfrastructureEncryption")]
         public Input<Inputs.WorkspaceCustomBooleanParameterArgs>? RequireInfrastructureEncryption { get; set; }
 
         /// <summary>
-        /// Default DBFS storage account name.
+        /// Default DBFS storage account name. Not allowed in Serverless ComputeMode workspace.
         /// </summary>
         [Input("storageAccountName")]
         public Input<Inputs.WorkspaceCustomStringParameterArgs>? StorageAccountName { get; set; }
 
         /// <summary>
-        /// Storage account SKU name, ex: Standard_GRS, Standard_LRS. Refer https://aka.ms/storageskus for valid inputs.
+        /// Storage account SKU name, ex: Standard_GRS, Standard_LRS. Refer https://aka.ms/storageskus for valid inputs. Not allowed in Serverless ComputeMode workspace.
         /// </summary>
         [Input("storageAccountSkuName")]
         public Input<Inputs.WorkspaceCustomStringParameterArgs>? StorageAccountSkuName { get; set; }
 
         /// <summary>
-        /// Address prefix for Managed virtual network. Default value for this input is 10.139.
+        /// Address prefix for Managed virtual network. Default value for this input is 10.139. Not allowed in Serverless ComputeMode workspace.
         /// </summary>
         [Input("vnetAddressPrefix")]
         public Input<Inputs.WorkspaceCustomStringParameterArgs>? VnetAddressPrefix { get; set; }

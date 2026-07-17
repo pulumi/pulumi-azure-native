@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Databricks.Inputs
     public sealed class ManagedDiskEncryptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
+        /// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault. Not allowed in Serverless ComputeMode workspace.
         /// </summary>
         [Input("keySource", required: true)]
         public InputUnion<string, Pulumi.AzureNative.Databricks.EncryptionKeySource> KeySource { get; set; } = null!;

@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Information about workspace.
  *
- * Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
+ * Uses Azure REST API version 2026-01-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
  *
- * Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-09-01-preview, 2025-03-01-preview, 2025-08-01-preview, 2025-10-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-05-01, 2024-09-01-preview, 2025-03-01-preview, 2025-08-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Workspace extends pulumi.CustomResource {
     /**
@@ -42,9 +42,9 @@ export class Workspace extends pulumi.CustomResource {
     }
 
     /**
-     * Access Connector Resource that is going to be associated with Databricks Workspace
+     * Access Connector Resource that is going to be associated with Databricks Workspace. Not allowed in Serverless ComputeMode workspace.
      */
-    declare public readonly accessConnector: pulumi.Output<outputs.databricks.WorkspacePropertiesResponseAccessConnector | undefined>;
+    declare public readonly accessConnector: pulumi.Output<outputs.databricks.WorkspacePropertiesAccessConnectorResponse | undefined>;
     /**
      * The workspace provider authorizations.
      */
@@ -54,6 +54,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
+     * The workspace compute mode. Required on create, cannot be changed. Possible values include: 'Serverless', 'Hybrid'
+     */
+    declare public readonly computeMode: pulumi.Output<string>;
+    /**
      * Indicates the Object ID, PUID and Application ID of entity that created the workspace.
      */
     declare public /*out*/ readonly createdBy: pulumi.Output<outputs.databricks.CreatedByResponse | undefined>;
@@ -62,27 +66,27 @@ export class Workspace extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly createdDateTime: pulumi.Output<string>;
     /**
-     * Properties for Default Catalog configuration during workspace creation.
+     * Properties for Default Catalog configuration during workspace creation. Not allowed in Serverless ComputeMode workspace.
      */
     declare public readonly defaultCatalog: pulumi.Output<outputs.databricks.DefaultCatalogPropertiesResponse | undefined>;
     /**
-     * Gets or Sets Default Storage Firewall configuration information
+     * Gets or Sets Default Storage Firewall configuration information. Not allowed in Serverless ComputeMode workspace.
      */
     declare public readonly defaultStorageFirewall: pulumi.Output<string | undefined>;
     /**
-     * The resource Id of the managed disk encryption set.
+     * The resource Id of the managed disk encryption set. Not allowed in Serverless ComputeMode workspace.
      */
     declare public /*out*/ readonly diskEncryptionSetId: pulumi.Output<string>;
     /**
-     * Encryption properties for databricks workspace
+     * Encryption properties for databricks workspace. Supported in both Serverless and Hybrid ComputeMode workspace.
      */
-    declare public readonly encryption: pulumi.Output<outputs.databricks.WorkspacePropertiesResponseEncryption | undefined>;
+    declare public readonly encryption: pulumi.Output<outputs.databricks.WorkspacePropertiesEncryptionResponse | undefined>;
     /**
-     * Contains settings related to the Enhanced Security and Compliance Add-On.
+     * Contains settings related to the Enhanced Security and Compliance Add-On. Supported in both Serverless and Hybrid ComputeMode workspace.
      */
     declare public readonly enhancedSecurityCompliance: pulumi.Output<outputs.databricks.EnhancedSecurityComplianceDefinitionResponse | undefined>;
     /**
-     * Indicates whether unity catalog enabled for the workspace or not.
+     * Indicates whether unity catalog enabled for the workspace or not. Set as true in Serverless ComputeMode workspace.
      */
     declare public /*out*/ readonly isUcEnabled: pulumi.Output<boolean>;
     /**
@@ -90,13 +94,13 @@ export class Workspace extends pulumi.CustomResource {
      */
     declare public readonly location: pulumi.Output<string>;
     /**
-     * The details of Managed Identity of Disk Encryption Set used for Managed Disk Encryption
+     * The details of Managed Identity of Disk Encryption Set used for Managed Disk Encryption. Only returned in Hybrid ComputeMode workspace.
      */
     declare public /*out*/ readonly managedDiskIdentity: pulumi.Output<outputs.databricks.ManagedIdentityConfigurationResponse | undefined>;
     /**
-     * The managed resource group Id.
+     * The managed resource group Id. Required in Hybrid ComputeMode workspace. Not allowed in Serverless ComputeMode workspace.
      */
-    declare public readonly managedResourceGroupId: pulumi.Output<string>;
+    declare public readonly managedResourceGroupId: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
@@ -106,7 +110,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     declare public readonly parameters: pulumi.Output<outputs.databricks.WorkspaceCustomParametersResponse | undefined>;
     /**
-     * Private endpoint connections created on the workspace
+     * Private endpoint connections created on the workspace. Supported in both Serverless and Hybrid ComputeMode workspace.
      */
     declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.databricks.PrivateEndpointConnectionResponse[]>;
     /**
@@ -114,11 +118,11 @@ export class Workspace extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
-     * The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
+     * The network access type for accessing workspace. Set value to disabled to access workspace only via private link. Used to configure front-end only private link for Serverless ComputeMode workspace.
      */
     declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
-     * Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
+     * Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only. Not allowed in Serverless ComputeMode workspace.
      */
     declare public readonly requiredNsgRules: pulumi.Output<string | undefined>;
     /**
@@ -126,11 +130,11 @@ export class Workspace extends pulumi.CustomResource {
      */
     declare public readonly sku: pulumi.Output<outputs.databricks.SkuResponse | undefined>;
     /**
-     * The details of Managed Identity of Storage Account
+     * The details of Managed Identity of Storage Account. Only returned in Hybrid ComputeMode workspace.
      */
     declare public /*out*/ readonly storageAccountIdentity: pulumi.Output<outputs.databricks.ManagedIdentityConfigurationResponse | undefined>;
     /**
-     * The system metadata relating to this resource
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     declare public /*out*/ readonly systemData: pulumi.Output<outputs.databricks.SystemDataResponse>;
     /**
@@ -138,7 +142,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
@@ -169,14 +173,12 @@ export class Workspace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.managedResourceGroupId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'managedResourceGroupId'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["accessConnector"] = args?.accessConnector;
             resourceInputs["authorizations"] = args?.authorizations;
+            resourceInputs["computeMode"] = args?.computeMode;
             resourceInputs["defaultCatalog"] = args ? (args.defaultCatalog ? pulumi.output(args.defaultCatalog).apply(inputs.databricks.defaultCatalogPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["defaultStorageFirewall"] = args?.defaultStorageFirewall;
             resourceInputs["encryption"] = args?.encryption;
@@ -210,6 +212,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["accessConnector"] = undefined /*out*/;
             resourceInputs["authorizations"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["computeMode"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["createdDateTime"] = undefined /*out*/;
             resourceInputs["defaultCatalog"] = undefined /*out*/;
@@ -249,7 +252,7 @@ export class Workspace extends pulumi.CustomResource {
  */
 export interface WorkspaceArgs {
     /**
-     * Access Connector Resource that is going to be associated with Databricks Workspace
+     * Access Connector Resource that is going to be associated with Databricks Workspace. Not allowed in Serverless ComputeMode workspace.
      */
     accessConnector?: pulumi.Input<inputs.databricks.WorkspacePropertiesAccessConnectorArgs>;
     /**
@@ -257,19 +260,23 @@ export interface WorkspaceArgs {
      */
     authorizations?: pulumi.Input<pulumi.Input<inputs.databricks.WorkspaceProviderAuthorizationArgs>[]>;
     /**
-     * Properties for Default Catalog configuration during workspace creation.
+     * The workspace compute mode. Required on create, cannot be changed. Possible values include: 'Serverless', 'Hybrid'
+     */
+    computeMode?: pulumi.Input<string | enums.databricks.ComputeMode>;
+    /**
+     * Properties for Default Catalog configuration during workspace creation. Not allowed in Serverless ComputeMode workspace.
      */
     defaultCatalog?: pulumi.Input<inputs.databricks.DefaultCatalogPropertiesArgs>;
     /**
-     * Gets or Sets Default Storage Firewall configuration information
+     * Gets or Sets Default Storage Firewall configuration information. Not allowed in Serverless ComputeMode workspace.
      */
     defaultStorageFirewall?: pulumi.Input<string | enums.databricks.DefaultStorageFirewall>;
     /**
-     * Encryption properties for databricks workspace
+     * Encryption properties for databricks workspace. Supported in both Serverless and Hybrid ComputeMode workspace.
      */
     encryption?: pulumi.Input<inputs.databricks.WorkspacePropertiesEncryptionArgs>;
     /**
-     * Contains settings related to the Enhanced Security and Compliance Add-On.
+     * Contains settings related to the Enhanced Security and Compliance Add-On. Supported in both Serverless and Hybrid ComputeMode workspace.
      */
     enhancedSecurityCompliance?: pulumi.Input<inputs.databricks.EnhancedSecurityComplianceDefinitionArgs>;
     /**
@@ -277,19 +284,19 @@ export interface WorkspaceArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The managed resource group Id.
+     * The managed resource group Id. Required in Hybrid ComputeMode workspace. Not allowed in Serverless ComputeMode workspace.
      */
-    managedResourceGroupId: pulumi.Input<string>;
+    managedResourceGroupId?: pulumi.Input<string>;
     /**
      * The workspace's custom parameters.
      */
     parameters?: pulumi.Input<inputs.databricks.WorkspaceCustomParametersArgs>;
     /**
-     * The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
+     * The network access type for accessing workspace. Set value to disabled to access workspace only via private link. Used to configure front-end only private link for Serverless ComputeMode workspace.
      */
     publicNetworkAccess?: pulumi.Input<string | enums.databricks.PublicNetworkAccess>;
     /**
-     * Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
+     * Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only. Not allowed in Serverless ComputeMode workspace.
      */
     requiredNsgRules?: pulumi.Input<string | enums.databricks.RequiredNsgRules>;
     /**

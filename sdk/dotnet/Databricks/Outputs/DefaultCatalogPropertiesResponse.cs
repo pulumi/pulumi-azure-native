@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Databricks.Outputs
 {
 
     /// <summary>
-    /// These properties lets user specify default catalog properties during workspace creation.
+    /// These properties lets user specify default catalog properties during workspace creation. Not allowed in Serverless ComputeMode workspace.
     /// </summary>
     [OutputType]
     public sealed class DefaultCatalogPropertiesResponse
