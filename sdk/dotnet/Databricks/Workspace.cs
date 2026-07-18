@@ -12,18 +12,18 @@ namespace Pulumi.AzureNative.Databricks
     /// <summary>
     /// Information about workspace.
     /// 
-    /// Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
+    /// Uses Azure REST API version 2026-01-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
     /// 
-    /// Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-09-01-preview, 2025-03-01-preview, 2025-08-01-preview, 2025-10-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-05-01, 2024-09-01-preview, 2025-03-01-preview, 2025-08-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:databricks:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Access Connector Resource that is going to be associated with Databricks Workspace
+        /// Access Connector Resource that is going to be associated with Databricks Workspace. Not allowed in Serverless ComputeMode workspace.
         /// </summary>
         [Output("accessConnector")]
-        public Output<Outputs.WorkspacePropertiesResponseAccessConnector?> AccessConnector { get; private set; } = null!;
+        public Output<Outputs.WorkspacePropertiesAccessConnectorResponse?> AccessConnector { get; private set; } = null!;
 
         /// <summary>
         /// The workspace provider authorizations.
@@ -38,6 +38,12 @@ namespace Pulumi.AzureNative.Databricks
         public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
+        /// The workspace compute mode. Required on create, cannot be changed. Possible values include: 'Serverless', 'Hybrid'
+        /// </summary>
+        [Output("computeMode")]
+        public Output<string> ComputeMode { get; private set; } = null!;
+
+        /// <summary>
         /// Indicates the Object ID, PUID and Application ID of entity that created the workspace.
         /// </summary>
         [Output("createdBy")]
@@ -50,37 +56,37 @@ namespace Pulumi.AzureNative.Databricks
         public Output<string> CreatedDateTime { get; private set; } = null!;
 
         /// <summary>
-        /// Properties for Default Catalog configuration during workspace creation.
+        /// Properties for Default Catalog configuration during workspace creation. Not allowed in Serverless ComputeMode workspace.
         /// </summary>
         [Output("defaultCatalog")]
         public Output<Outputs.DefaultCatalogPropertiesResponse?> DefaultCatalog { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or Sets Default Storage Firewall configuration information
+        /// Gets or Sets Default Storage Firewall configuration information. Not allowed in Serverless ComputeMode workspace.
         /// </summary>
         [Output("defaultStorageFirewall")]
         public Output<string?> DefaultStorageFirewall { get; private set; } = null!;
 
         /// <summary>
-        /// The resource Id of the managed disk encryption set.
+        /// The resource Id of the managed disk encryption set. Not allowed in Serverless ComputeMode workspace.
         /// </summary>
         [Output("diskEncryptionSetId")]
         public Output<string> DiskEncryptionSetId { get; private set; } = null!;
 
         /// <summary>
-        /// Encryption properties for databricks workspace
+        /// Encryption properties for databricks workspace. Supported in both Serverless and Hybrid ComputeMode workspace.
         /// </summary>
         [Output("encryption")]
-        public Output<Outputs.WorkspacePropertiesResponseEncryption?> Encryption { get; private set; } = null!;
+        public Output<Outputs.WorkspacePropertiesEncryptionResponse?> Encryption { get; private set; } = null!;
 
         /// <summary>
-        /// Contains settings related to the Enhanced Security and Compliance Add-On.
+        /// Contains settings related to the Enhanced Security and Compliance Add-On. Supported in both Serverless and Hybrid ComputeMode workspace.
         /// </summary>
         [Output("enhancedSecurityCompliance")]
         public Output<Outputs.EnhancedSecurityComplianceDefinitionResponse?> EnhancedSecurityCompliance { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether unity catalog enabled for the workspace or not.
+        /// Indicates whether unity catalog enabled for the workspace or not. Set as true in Serverless ComputeMode workspace.
         /// </summary>
         [Output("isUcEnabled")]
         public Output<bool> IsUcEnabled { get; private set; } = null!;
@@ -92,16 +98,16 @@ namespace Pulumi.AzureNative.Databricks
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The details of Managed Identity of Disk Encryption Set used for Managed Disk Encryption
+        /// The details of Managed Identity of Disk Encryption Set used for Managed Disk Encryption. Only returned in Hybrid ComputeMode workspace.
         /// </summary>
         [Output("managedDiskIdentity")]
         public Output<Outputs.ManagedIdentityConfigurationResponse?> ManagedDiskIdentity { get; private set; } = null!;
 
         /// <summary>
-        /// The managed resource group Id.
+        /// The managed resource group Id. Required in Hybrid ComputeMode workspace. Not allowed in Serverless ComputeMode workspace.
         /// </summary>
         [Output("managedResourceGroupId")]
-        public Output<string> ManagedResourceGroupId { get; private set; } = null!;
+        public Output<string?> ManagedResourceGroupId { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -116,7 +122,7 @@ namespace Pulumi.AzureNative.Databricks
         public Output<Outputs.WorkspaceCustomParametersResponse?> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// Private endpoint connections created on the workspace
+        /// Private endpoint connections created on the workspace. Supported in both Serverless and Hybrid ComputeMode workspace.
         /// </summary>
         [Output("privateEndpointConnections")]
         public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
@@ -128,13 +134,13 @@ namespace Pulumi.AzureNative.Databricks
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
+        /// The network access type for accessing workspace. Set value to disabled to access workspace only via private link. Used to configure front-end only private link for Serverless ComputeMode workspace.
         /// </summary>
         [Output("publicNetworkAccess")]
         public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
+        /// Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only. Not allowed in Serverless ComputeMode workspace.
         /// </summary>
         [Output("requiredNsgRules")]
         public Output<string?> RequiredNsgRules { get; private set; } = null!;
@@ -146,13 +152,13 @@ namespace Pulumi.AzureNative.Databricks
         public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// The details of Managed Identity of Storage Account
+        /// The details of Managed Identity of Storage Account. Only returned in Hybrid ComputeMode workspace.
         /// </summary>
         [Output("storageAccountIdentity")]
         public Output<Outputs.ManagedIdentityConfigurationResponse?> StorageAccountIdentity { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to this resource
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -164,7 +170,7 @@ namespace Pulumi.AzureNative.Databricks
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -253,7 +259,7 @@ namespace Pulumi.AzureNative.Databricks
     public sealed class WorkspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Access Connector Resource that is going to be associated with Databricks Workspace
+        /// Access Connector Resource that is going to be associated with Databricks Workspace. Not allowed in Serverless ComputeMode workspace.
         /// </summary>
         [Input("accessConnector")]
         public Input<Inputs.WorkspacePropertiesAccessConnectorArgs>? AccessConnector { get; set; }
@@ -271,25 +277,31 @@ namespace Pulumi.AzureNative.Databricks
         }
 
         /// <summary>
-        /// Properties for Default Catalog configuration during workspace creation.
+        /// The workspace compute mode. Required on create, cannot be changed. Possible values include: 'Serverless', 'Hybrid'
+        /// </summary>
+        [Input("computeMode")]
+        public InputUnion<string, Pulumi.AzureNative.Databricks.ComputeMode>? ComputeMode { get; set; }
+
+        /// <summary>
+        /// Properties for Default Catalog configuration during workspace creation. Not allowed in Serverless ComputeMode workspace.
         /// </summary>
         [Input("defaultCatalog")]
         public Input<Inputs.DefaultCatalogPropertiesArgs>? DefaultCatalog { get; set; }
 
         /// <summary>
-        /// Gets or Sets Default Storage Firewall configuration information
+        /// Gets or Sets Default Storage Firewall configuration information. Not allowed in Serverless ComputeMode workspace.
         /// </summary>
         [Input("defaultStorageFirewall")]
         public InputUnion<string, Pulumi.AzureNative.Databricks.DefaultStorageFirewall>? DefaultStorageFirewall { get; set; }
 
         /// <summary>
-        /// Encryption properties for databricks workspace
+        /// Encryption properties for databricks workspace. Supported in both Serverless and Hybrid ComputeMode workspace.
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.WorkspacePropertiesEncryptionArgs>? Encryption { get; set; }
 
         /// <summary>
-        /// Contains settings related to the Enhanced Security and Compliance Add-On.
+        /// Contains settings related to the Enhanced Security and Compliance Add-On. Supported in both Serverless and Hybrid ComputeMode workspace.
         /// </summary>
         [Input("enhancedSecurityCompliance")]
         public Input<Inputs.EnhancedSecurityComplianceDefinitionArgs>? EnhancedSecurityCompliance { get; set; }
@@ -301,10 +313,10 @@ namespace Pulumi.AzureNative.Databricks
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The managed resource group Id.
+        /// The managed resource group Id. Required in Hybrid ComputeMode workspace. Not allowed in Serverless ComputeMode workspace.
         /// </summary>
-        [Input("managedResourceGroupId", required: true)]
-        public Input<string> ManagedResourceGroupId { get; set; } = null!;
+        [Input("managedResourceGroupId")]
+        public Input<string>? ManagedResourceGroupId { get; set; }
 
         /// <summary>
         /// The workspace's custom parameters.
@@ -313,13 +325,13 @@ namespace Pulumi.AzureNative.Databricks
         public Input<Inputs.WorkspaceCustomParametersArgs>? Parameters { get; set; }
 
         /// <summary>
-        /// The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
+        /// The network access type for accessing workspace. Set value to disabled to access workspace only via private link. Used to configure front-end only private link for Serverless ComputeMode workspace.
         /// </summary>
         [Input("publicNetworkAccess")]
         public InputUnion<string, Pulumi.AzureNative.Databricks.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
+        /// Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only. Not allowed in Serverless ComputeMode workspace.
         /// </summary>
         [Input("requiredNsgRules")]
         public InputUnion<string, Pulumi.AzureNative.Databricks.RequiredNsgRules>? RequiredNsgRules { get; set; }

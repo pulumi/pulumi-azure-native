@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Databricks.Outputs
 {
 
     /// <summary>
-    /// The properties of a private endpoint connection
+    /// The properties of a private endpoint connection.
     /// </summary>
     [OutputType]
     public sealed class PrivateEndpointConnectionPropertiesResponse

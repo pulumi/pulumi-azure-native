@@ -1,0 +1,30 @@
+name: databricks-computemode
+runtime: yaml
+description: |
+  Regression test for issue #4766: Databricks Workspace's computeMode became a required
+  input in API version 2026-01-01, but the live Azure API accepts it being omitted on
+  create and backfills "Hybrid" server-side (confirmed via raw ARM REST PUT, an ARM
+  template deployment, and reading a workspace created via an older API version that
+  predates the property). This is step1: create a workspace without setting computeMode
+  at all.
+
+variables:
+  clientConfig:
+    fn::invoke:
+      function: azure-native:authorization:getClientConfig
+
+resources:
+  rg:
+    type: azure-native:resources:ResourceGroup
+
+  workspace:
+    type: azure-native:databricks:Workspace
+    properties:
+      resourceGroupName: ${rg.name}
+      location: ${rg.location}
+      sku:
+        name: premium
+      managedResourceGroupId: "/subscriptions/${clientConfig.subscriptionId}/resourceGroups/${rg.name}-managed"
+
+outputs:
+  computeMode: ${workspace.computeMode}

@@ -275,6 +275,12 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, variants
 
 	for _, name := range resolvedSchema.Required {
 		if prop, ok := result.properties[name]; ok {
+			// notRequiredInputsMap only overrides required-ness on the input side; outputs keep
+			// reporting the property as required, since Azure always returns it once the
+			// resource exists (e.g. it backfills a default when the input was omitted).
+			if !variants.isOutput && m.notRequired(name) {
+				continue
+			}
 			if prop.SdkName != "" {
 				result.requiredSpecs.Add(prop.SdkName)
 			} else {
@@ -569,6 +575,30 @@ func (m *moduleGenerator) forceNew(schema *openapi.Schema, propertyName string, 
 	}
 
 	return noForceNew
+}
+
+// enumOverride returns the EnumOverride for propertyName on the resource currently being
+// generated, per enumOverrideMap, if one applies.
+func (m *moduleGenerator) enumOverride(propertyName string) (EnumOverride, bool) {
+	if resourceMap, ok := enumOverrideMap[m.moduleName]; ok {
+		if properties, ok := resourceMap[m.resourceName]; ok {
+			override, ok := properties[propertyName]
+			return override, ok
+		}
+	}
+	return EnumOverride{}, false
+}
+
+// notRequired returns true if propertyName should be treated as optional on the input side of
+// the resource currently being generated, despite being marked required in the OpenAPI spec, per
+// notRequiredInputsMap.
+func (m *moduleGenerator) notRequired(propertyName string) bool {
+	if resourceMap, ok := notRequiredInputsMap[m.moduleName]; ok {
+		if properties, ok := resourceMap[m.resourceName]; ok {
+			return properties.Has(propertyName)
+		}
+	}
+	return false
 }
 
 // propChangeForcesRecreate returns two booleans.

@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Peerings in a VirtualNetwork resource
  *
- * Uses Azure REST API version 2024-05-01.
+ * Uses Azure REST API version 2026-01-01.
  *
- * Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-09-01-preview, 2025-03-01-preview, 2025-08-01-preview, 2025-10-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-05-01, 2024-09-01-preview, 2025-03-01-preview, 2025-08-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class VNetPeering extends pulumi.CustomResource {
     /**
@@ -62,11 +62,11 @@ export class VNetPeering extends pulumi.CustomResource {
      */
     declare public readonly databricksAddressSpace: pulumi.Output<outputs.databricks.AddressSpaceResponse | undefined>;
     /**
-     *  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+     * The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
      */
-    declare public readonly databricksVirtualNetwork: pulumi.Output<outputs.databricks.VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork | undefined>;
+    declare public readonly databricksVirtualNetwork: pulumi.Output<outputs.databricks.VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkResponse | undefined>;
     /**
-     * Name of the virtual network peering resource
+     * The name of the resource
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
@@ -82,11 +82,15 @@ export class VNetPeering extends pulumi.CustomResource {
      */
     declare public readonly remoteAddressSpace: pulumi.Output<outputs.databricks.AddressSpaceResponse | undefined>;
     /**
-     *  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+     * The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
      */
-    declare public readonly remoteVirtualNetwork: pulumi.Output<outputs.databricks.VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork>;
+    declare public readonly remoteVirtualNetwork: pulumi.Output<outputs.databricks.VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkResponse>;
     /**
-     * type of the virtual network peering resource
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.databricks.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
@@ -129,6 +133,7 @@ export class VNetPeering extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["peeringState"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["allowForwardedTraffic"] = undefined /*out*/;
@@ -142,6 +147,7 @@ export class VNetPeering extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["remoteAddressSpace"] = undefined /*out*/;
             resourceInputs["remoteVirtualNetwork"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["useRemoteGateways"] = undefined /*out*/;
         }
@@ -173,7 +179,7 @@ export interface VNetPeeringArgs {
      */
     databricksAddressSpace?: pulumi.Input<inputs.databricks.AddressSpaceArgs>;
     /**
-     *  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+     * The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
      */
     databricksVirtualNetwork?: pulumi.Input<inputs.databricks.VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs>;
     /**
@@ -185,7 +191,7 @@ export interface VNetPeeringArgs {
      */
     remoteAddressSpace?: pulumi.Input<inputs.databricks.AddressSpaceArgs>;
     /**
-     *  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+     * The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
      */
     remoteVirtualNetwork: pulumi.Input<inputs.databricks.VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs>;
     /**

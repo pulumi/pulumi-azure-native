@@ -629,13 +629,7 @@
   "DatabaseWatcher": [
     "2025-01-02"
   ],
-  "Databricks": [
-    "2024-09-01-preview",
-    "2025-03-01-preview",
-    "2025-08-01-preview",
-    "2025-10-01-preview",
-    "2026-01-01"
-  ],
+  "Databricks": [],
   "Datadog": [
     "2024-03-01",
     "2025-01-07",

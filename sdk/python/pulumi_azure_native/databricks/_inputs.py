@@ -179,7 +179,7 @@ class ComplianceSecurityProfileDefinitionArgs:
 
 class DefaultCatalogPropertiesArgsDict(TypedDict):
     """
-    These properties lets user specify default catalog properties during workspace creation.
+    These properties lets user specify default catalog properties during workspace creation. Not allowed in Serverless ComputeMode workspace.
     """
     initial_name: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -196,7 +196,7 @@ class DefaultCatalogPropertiesArgs:
                  initial_name: Optional[pulumi.Input[_builtins.str]] = None,
                  initial_type: Optional[pulumi.Input[Union[_builtins.str, 'InitialType']]] = None):
         """
-        These properties lets user specify default catalog properties during workspace creation.
+        These properties lets user specify default catalog properties during workspace creation. Not allowed in Serverless ComputeMode workspace.
 
         :param pulumi.Input[_builtins.str] initial_name: Specifies the initial Name of default catalog. If not specified, the name of the workspace will be used.
         :param pulumi.Input[Union[_builtins.str, 'InitialType']] initial_type: Defines the initial type of the default catalog. Possible values (case-insensitive):  HiveMetastore, UnityCatalog
@@ -239,11 +239,11 @@ class EncryptionEntitiesDefinitionArgsDict(TypedDict):
     """
     managed_disk: NotRequired[pulumi.Input['ManagedDiskEncryptionArgsDict']]
     """
-    Encryption properties for the databricks managed disks.
+    Encryption properties for the databricks managed disks. Not allowed in Serverless ComputeMode workspace.
     """
     managed_services: NotRequired[pulumi.Input['EncryptionV2ArgsDict']]
     """
-    Encryption properties for the databricks managed services.
+    Encryption properties for the databricks managed services. Supported in both Serverless and Hybrid ComputeMode.
     """
 
 @pulumi.input_type
@@ -254,8 +254,8 @@ class EncryptionEntitiesDefinitionArgs:
         """
         Encryption entities for databricks workspace resource.
 
-        :param pulumi.Input['ManagedDiskEncryptionArgs'] managed_disk: Encryption properties for the databricks managed disks.
-        :param pulumi.Input['EncryptionV2Args'] managed_services: Encryption properties for the databricks managed services.
+        :param pulumi.Input['ManagedDiskEncryptionArgs'] managed_disk: Encryption properties for the databricks managed disks. Not allowed in Serverless ComputeMode workspace.
+        :param pulumi.Input['EncryptionV2Args'] managed_services: Encryption properties for the databricks managed services. Supported in both Serverless and Hybrid ComputeMode.
         """
         if managed_disk is not None:
             pulumi.set(__self__, "managed_disk", managed_disk)
@@ -266,7 +266,7 @@ class EncryptionEntitiesDefinitionArgs:
     @pulumi.getter(name="managedDisk")
     def managed_disk(self) -> Optional[pulumi.Input['ManagedDiskEncryptionArgs']]:
         """
-        Encryption properties for the databricks managed disks.
+        Encryption properties for the databricks managed disks. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "managed_disk")
 
@@ -278,7 +278,7 @@ class EncryptionEntitiesDefinitionArgs:
     @pulumi.getter(name="managedServices")
     def managed_services(self) -> Optional[pulumi.Input['EncryptionV2Args']]:
         """
-        Encryption properties for the databricks managed services.
+        Encryption properties for the databricks managed services. Supported in both Serverless and Hybrid ComputeMode.
         """
         return pulumi.get(self, "managed_services")
 
@@ -684,7 +684,7 @@ class ManagedDiskEncryptionArgsDict(TypedDict):
     """
     key_source: pulumi.Input[Union[_builtins.str, 'EncryptionKeySource']]
     """
-    The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
+    The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault. Not allowed in Serverless ComputeMode workspace.
     """
     key_vault_properties: pulumi.Input['ManagedDiskEncryptionKeyVaultPropertiesArgsDict']
     """
@@ -704,7 +704,7 @@ class ManagedDiskEncryptionArgs:
         """
         The object that contains details of encryption used on the workspace.
 
-        :param pulumi.Input[Union[_builtins.str, 'EncryptionKeySource']] key_source: The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
+        :param pulumi.Input[Union[_builtins.str, 'EncryptionKeySource']] key_source: The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault. Not allowed in Serverless ComputeMode workspace.
         :param pulumi.Input['ManagedDiskEncryptionKeyVaultPropertiesArgs'] key_vault_properties: Key Vault input properties for encryption.
         :param pulumi.Input[_builtins.bool] rotation_to_latest_key_version_enabled: Indicate whether the latest key version should be automatically used for Managed Disk Encryption.
         """
@@ -717,7 +717,7 @@ class ManagedDiskEncryptionArgs:
     @pulumi.getter(name="keySource")
     def key_source(self) -> pulumi.Input[Union[_builtins.str, 'EncryptionKeySource']]:
         """
-        The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
+        The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "key_source")
 
@@ -805,7 +805,7 @@ class ManagedServiceIdentityArgs:
 
 class PrivateEndpointConnectionPropertiesArgsDict(TypedDict):
     """
-    The properties of a private endpoint connection
+    The properties of a private endpoint connection.
     """
     private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']
     """
@@ -822,7 +822,7 @@ class PrivateEndpointConnectionPropertiesArgs:
                  private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs'],
                  group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
-        The properties of a private endpoint connection
+        The properties of a private endpoint connection.
 
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: Private endpoint connection state
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_ids: GroupIds from the private link service resource.
@@ -858,7 +858,7 @@ class PrivateEndpointConnectionPropertiesArgs:
 
 class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
     """
-    The current state of a private endpoint connection
+    The current state of a private endpoint connection.
     """
     status: pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceConnectionStatus']]
     """
@@ -880,7 +880,7 @@ class PrivateLinkServiceConnectionStateArgs:
                  actions_required: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        The current state of a private endpoint connection
+        The current state of a private endpoint connection.
 
         :param pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceConnectionStatus']] status: The status of a private endpoint connection
         :param pulumi.Input[_builtins.str] actions_required: Actions required for a private endpoint connection
@@ -984,7 +984,7 @@ class SkuArgs:
 
 class VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgsDict(TypedDict):
     """
-     The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+    The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
     """
     id: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -996,7 +996,7 @@ class VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[_builtins.str]] = None):
         """
-         The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+        The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
 
         :param pulumi.Input[_builtins.str] id: The Id of the databricks virtual network.
         """
@@ -1018,7 +1018,7 @@ class VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs:
 
 class VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgsDict(TypedDict):
     """
-     The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+    The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
     """
     id: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -1030,7 +1030,7 @@ class VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[_builtins.str]] = None):
         """
-         The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+        The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
 
         :param pulumi.Input[_builtins.str] id: The Id of the remote virtual network.
         """
@@ -1058,17 +1058,25 @@ class WorkspaceCustomBooleanParameterArgsDict(TypedDict):
     """
     The value which should be used for this field.
     """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'CustomParameterType']]]
+    """
+    The type of variable that this is
+    """
 
 @pulumi.input_type
 class WorkspaceCustomBooleanParameterArgs:
     def __init__(__self__, *,
-                 value: pulumi.Input[_builtins.bool]):
+                 value: pulumi.Input[_builtins.bool],
+                 type: Optional[pulumi.Input[Union[_builtins.str, 'CustomParameterType']]] = None):
         """
         The value which should be used for this field.
 
         :param pulumi.Input[_builtins.bool] value: The value which should be used for this field.
+        :param pulumi.Input[Union[_builtins.str, 'CustomParameterType']] type: The type of variable that this is
         """
         pulumi.set(__self__, "value", value)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
@@ -1082,70 +1090,82 @@ class WorkspaceCustomBooleanParameterArgs:
     def value(self, value: pulumi.Input[_builtins.bool]):
         pulumi.set(self, "value", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CustomParameterType']]]:
+        """
+        The type of variable that this is
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CustomParameterType']]]):
+        pulumi.set(self, "type", value)
+
 
 class WorkspaceCustomParametersArgsDict(TypedDict):
     """
-    Custom Parameters used for Cluster Creation.
+    Custom Parameters used for Workspace Creation. Not allowed in Serverless ComputeMode workspace.
     """
     aml_workspace_id: NotRequired[pulumi.Input['WorkspaceCustomStringParameterArgsDict']]
     """
-    The ID of a Azure Machine Learning workspace to link with Databricks workspace
+    The ID of a Azure Machine Learning workspace to link with Databricks workspace. Not allowed in Serverless ComputeMode workspace.
     """
     custom_private_subnet_name: NotRequired[pulumi.Input['WorkspaceCustomStringParameterArgsDict']]
     """
-    The name of the Private Subnet within the Virtual Network
+    The name of the Private Subnet within the Virtual Network. Not allowed in Serverless ComputeMode workspace.
     """
     custom_public_subnet_name: NotRequired[pulumi.Input['WorkspaceCustomStringParameterArgsDict']]
     """
-    The name of a Public Subnet within the Virtual Network
+    The name of a Public Subnet within the Virtual Network. Not allowed in Serverless ComputeMode workspace.
     """
     custom_virtual_network_id: NotRequired[pulumi.Input['WorkspaceCustomStringParameterArgsDict']]
     """
-    The ID of a Virtual Network where this Databricks Cluster should be created
+    The ID of a Virtual Network where this Databricks Cluster should be created. Not allowed in Serverless ComputeMode workspace.
     """
     enable_no_public_ip: NotRequired[pulumi.Input['WorkspaceNoPublicIPBooleanParameterArgsDict']]
     """
-    Boolean indicating whether the public IP should be disabled. Default value is true
+    Boolean indicating whether the public IP should be disabled. Default value is true. Not allowed in Serverless ComputeMode workspace.
     """
     encryption: NotRequired[pulumi.Input['WorkspaceEncryptionParameterArgsDict']]
     """
-    Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.
+    Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.Not allowed in Serverless ComputeMode workspace.
     """
     load_balancer_backend_pool_name: NotRequired[pulumi.Input['WorkspaceCustomStringParameterArgsDict']]
     """
-    Name of the outbound Load Balancer Backend Pool for Secure Cluster Connectivity (No Public IP).
+    Name of the outbound Load Balancer Backend Pool for Secure Cluster Connectivity (No Public IP). Not allowed in Serverless ComputeMode workspace.
     """
     load_balancer_id: NotRequired[pulumi.Input['WorkspaceCustomStringParameterArgsDict']]
     """
-    Resource URI of Outbound Load balancer for Secure Cluster Connectivity (No Public IP) workspace.
+    Resource URI of Outbound Load balancer for Secure Cluster Connectivity (No Public IP) workspace. Not allowed in Serverless ComputeMode workspace.
     """
     nat_gateway_name: NotRequired[pulumi.Input['WorkspaceCustomStringParameterArgsDict']]
     """
-    Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets.
+    Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets. Not allowed in Serverless ComputeMode workspace.
     """
     prepare_encryption: NotRequired[pulumi.Input['WorkspaceCustomBooleanParameterArgsDict']]
     """
-    Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
+    Prepare the workspace for encryption. Enables the Managed Identity for managed storage account. Not allowed in Serverless ComputeMode workspace.
     """
     public_ip_name: NotRequired[pulumi.Input['WorkspaceCustomStringParameterArgsDict']]
     """
-    Name of the Public IP for No Public IP workspace with managed vNet.
+    Name of the Public IP for No Public IP workspace with managed vNet. Not allowed in Serverless ComputeMode workspace.
     """
     require_infrastructure_encryption: NotRequired[pulumi.Input['WorkspaceCustomBooleanParameterArgsDict']]
     """
-    A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
+    A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest. Not allowed in Serverless ComputeMode workspace.
     """
     storage_account_name: NotRequired[pulumi.Input['WorkspaceCustomStringParameterArgsDict']]
     """
-    Default DBFS storage account name.
+    Default DBFS storage account name. Not allowed in Serverless ComputeMode workspace.
     """
     storage_account_sku_name: NotRequired[pulumi.Input['WorkspaceCustomStringParameterArgsDict']]
     """
-    Storage account SKU name, ex: Standard_GRS, Standard_LRS. Refer https://aka.ms/storageskus for valid inputs.
+    Storage account SKU name, ex: Standard_GRS, Standard_LRS. Refer https://aka.ms/storageskus for valid inputs. Not allowed in Serverless ComputeMode workspace.
     """
     vnet_address_prefix: NotRequired[pulumi.Input['WorkspaceCustomStringParameterArgsDict']]
     """
-    Address prefix for Managed virtual network. Default value for this input is 10.139.
+    Address prefix for Managed virtual network. Default value for this input is 10.139. Not allowed in Serverless ComputeMode workspace.
     """
 
 @pulumi.input_type
@@ -1167,23 +1187,23 @@ class WorkspaceCustomParametersArgs:
                  storage_account_sku_name: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']] = None,
                  vnet_address_prefix: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']] = None):
         """
-        Custom Parameters used for Cluster Creation.
+        Custom Parameters used for Workspace Creation. Not allowed in Serverless ComputeMode workspace.
 
-        :param pulumi.Input['WorkspaceCustomStringParameterArgs'] aml_workspace_id: The ID of a Azure Machine Learning workspace to link with Databricks workspace
-        :param pulumi.Input['WorkspaceCustomStringParameterArgs'] custom_private_subnet_name: The name of the Private Subnet within the Virtual Network
-        :param pulumi.Input['WorkspaceCustomStringParameterArgs'] custom_public_subnet_name: The name of a Public Subnet within the Virtual Network
-        :param pulumi.Input['WorkspaceCustomStringParameterArgs'] custom_virtual_network_id: The ID of a Virtual Network where this Databricks Cluster should be created
-        :param pulumi.Input['WorkspaceNoPublicIPBooleanParameterArgs'] enable_no_public_ip: Boolean indicating whether the public IP should be disabled. Default value is true
-        :param pulumi.Input['WorkspaceEncryptionParameterArgs'] encryption: Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.
-        :param pulumi.Input['WorkspaceCustomStringParameterArgs'] load_balancer_backend_pool_name: Name of the outbound Load Balancer Backend Pool for Secure Cluster Connectivity (No Public IP).
-        :param pulumi.Input['WorkspaceCustomStringParameterArgs'] load_balancer_id: Resource URI of Outbound Load balancer for Secure Cluster Connectivity (No Public IP) workspace.
-        :param pulumi.Input['WorkspaceCustomStringParameterArgs'] nat_gateway_name: Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets.
-        :param pulumi.Input['WorkspaceCustomBooleanParameterArgs'] prepare_encryption: Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
-        :param pulumi.Input['WorkspaceCustomStringParameterArgs'] public_ip_name: Name of the Public IP for No Public IP workspace with managed vNet.
-        :param pulumi.Input['WorkspaceCustomBooleanParameterArgs'] require_infrastructure_encryption: A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
-        :param pulumi.Input['WorkspaceCustomStringParameterArgs'] storage_account_name: Default DBFS storage account name.
-        :param pulumi.Input['WorkspaceCustomStringParameterArgs'] storage_account_sku_name: Storage account SKU name, ex: Standard_GRS, Standard_LRS. Refer https://aka.ms/storageskus for valid inputs.
-        :param pulumi.Input['WorkspaceCustomStringParameterArgs'] vnet_address_prefix: Address prefix for Managed virtual network. Default value for this input is 10.139.
+        :param pulumi.Input['WorkspaceCustomStringParameterArgs'] aml_workspace_id: The ID of a Azure Machine Learning workspace to link with Databricks workspace. Not allowed in Serverless ComputeMode workspace.
+        :param pulumi.Input['WorkspaceCustomStringParameterArgs'] custom_private_subnet_name: The name of the Private Subnet within the Virtual Network. Not allowed in Serverless ComputeMode workspace.
+        :param pulumi.Input['WorkspaceCustomStringParameterArgs'] custom_public_subnet_name: The name of a Public Subnet within the Virtual Network. Not allowed in Serverless ComputeMode workspace.
+        :param pulumi.Input['WorkspaceCustomStringParameterArgs'] custom_virtual_network_id: The ID of a Virtual Network where this Databricks Cluster should be created. Not allowed in Serverless ComputeMode workspace.
+        :param pulumi.Input['WorkspaceNoPublicIPBooleanParameterArgs'] enable_no_public_ip: Boolean indicating whether the public IP should be disabled. Default value is true. Not allowed in Serverless ComputeMode workspace.
+        :param pulumi.Input['WorkspaceEncryptionParameterArgs'] encryption: Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.Not allowed in Serverless ComputeMode workspace.
+        :param pulumi.Input['WorkspaceCustomStringParameterArgs'] load_balancer_backend_pool_name: Name of the outbound Load Balancer Backend Pool for Secure Cluster Connectivity (No Public IP). Not allowed in Serverless ComputeMode workspace.
+        :param pulumi.Input['WorkspaceCustomStringParameterArgs'] load_balancer_id: Resource URI of Outbound Load balancer for Secure Cluster Connectivity (No Public IP) workspace. Not allowed in Serverless ComputeMode workspace.
+        :param pulumi.Input['WorkspaceCustomStringParameterArgs'] nat_gateway_name: Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets. Not allowed in Serverless ComputeMode workspace.
+        :param pulumi.Input['WorkspaceCustomBooleanParameterArgs'] prepare_encryption: Prepare the workspace for encryption. Enables the Managed Identity for managed storage account. Not allowed in Serverless ComputeMode workspace.
+        :param pulumi.Input['WorkspaceCustomStringParameterArgs'] public_ip_name: Name of the Public IP for No Public IP workspace with managed vNet. Not allowed in Serverless ComputeMode workspace.
+        :param pulumi.Input['WorkspaceCustomBooleanParameterArgs'] require_infrastructure_encryption: A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest. Not allowed in Serverless ComputeMode workspace.
+        :param pulumi.Input['WorkspaceCustomStringParameterArgs'] storage_account_name: Default DBFS storage account name. Not allowed in Serverless ComputeMode workspace.
+        :param pulumi.Input['WorkspaceCustomStringParameterArgs'] storage_account_sku_name: Storage account SKU name, ex: Standard_GRS, Standard_LRS. Refer https://aka.ms/storageskus for valid inputs. Not allowed in Serverless ComputeMode workspace.
+        :param pulumi.Input['WorkspaceCustomStringParameterArgs'] vnet_address_prefix: Address prefix for Managed virtual network. Default value for this input is 10.139. Not allowed in Serverless ComputeMode workspace.
         """
         if aml_workspace_id is not None:
             pulumi.set(__self__, "aml_workspace_id", aml_workspace_id)
@@ -1220,7 +1240,7 @@ class WorkspaceCustomParametersArgs:
     @pulumi.getter(name="amlWorkspaceId")
     def aml_workspace_id(self) -> Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]:
         """
-        The ID of a Azure Machine Learning workspace to link with Databricks workspace
+        The ID of a Azure Machine Learning workspace to link with Databricks workspace. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "aml_workspace_id")
 
@@ -1232,7 +1252,7 @@ class WorkspaceCustomParametersArgs:
     @pulumi.getter(name="customPrivateSubnetName")
     def custom_private_subnet_name(self) -> Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]:
         """
-        The name of the Private Subnet within the Virtual Network
+        The name of the Private Subnet within the Virtual Network. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "custom_private_subnet_name")
 
@@ -1244,7 +1264,7 @@ class WorkspaceCustomParametersArgs:
     @pulumi.getter(name="customPublicSubnetName")
     def custom_public_subnet_name(self) -> Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]:
         """
-        The name of a Public Subnet within the Virtual Network
+        The name of a Public Subnet within the Virtual Network. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "custom_public_subnet_name")
 
@@ -1256,7 +1276,7 @@ class WorkspaceCustomParametersArgs:
     @pulumi.getter(name="customVirtualNetworkId")
     def custom_virtual_network_id(self) -> Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]:
         """
-        The ID of a Virtual Network where this Databricks Cluster should be created
+        The ID of a Virtual Network where this Databricks Cluster should be created. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "custom_virtual_network_id")
 
@@ -1268,7 +1288,7 @@ class WorkspaceCustomParametersArgs:
     @pulumi.getter(name="enableNoPublicIp")
     def enable_no_public_ip(self) -> Optional[pulumi.Input['WorkspaceNoPublicIPBooleanParameterArgs']]:
         """
-        Boolean indicating whether the public IP should be disabled. Default value is true
+        Boolean indicating whether the public IP should be disabled. Default value is true. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "enable_no_public_ip")
 
@@ -1280,7 +1300,7 @@ class WorkspaceCustomParametersArgs:
     @pulumi.getter
     def encryption(self) -> Optional[pulumi.Input['WorkspaceEncryptionParameterArgs']]:
         """
-        Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.
+        Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "encryption")
 
@@ -1292,7 +1312,7 @@ class WorkspaceCustomParametersArgs:
     @pulumi.getter(name="loadBalancerBackendPoolName")
     def load_balancer_backend_pool_name(self) -> Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]:
         """
-        Name of the outbound Load Balancer Backend Pool for Secure Cluster Connectivity (No Public IP).
+        Name of the outbound Load Balancer Backend Pool for Secure Cluster Connectivity (No Public IP). Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "load_balancer_backend_pool_name")
 
@@ -1304,7 +1324,7 @@ class WorkspaceCustomParametersArgs:
     @pulumi.getter(name="loadBalancerId")
     def load_balancer_id(self) -> Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]:
         """
-        Resource URI of Outbound Load balancer for Secure Cluster Connectivity (No Public IP) workspace.
+        Resource URI of Outbound Load balancer for Secure Cluster Connectivity (No Public IP) workspace. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "load_balancer_id")
 
@@ -1316,7 +1336,7 @@ class WorkspaceCustomParametersArgs:
     @pulumi.getter(name="natGatewayName")
     def nat_gateway_name(self) -> Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]:
         """
-        Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets.
+        Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "nat_gateway_name")
 
@@ -1328,7 +1348,7 @@ class WorkspaceCustomParametersArgs:
     @pulumi.getter(name="prepareEncryption")
     def prepare_encryption(self) -> Optional[pulumi.Input['WorkspaceCustomBooleanParameterArgs']]:
         """
-        Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
+        Prepare the workspace for encryption. Enables the Managed Identity for managed storage account. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "prepare_encryption")
 
@@ -1340,7 +1360,7 @@ class WorkspaceCustomParametersArgs:
     @pulumi.getter(name="publicIpName")
     def public_ip_name(self) -> Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]:
         """
-        Name of the Public IP for No Public IP workspace with managed vNet.
+        Name of the Public IP for No Public IP workspace with managed vNet. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "public_ip_name")
 
@@ -1352,7 +1372,7 @@ class WorkspaceCustomParametersArgs:
     @pulumi.getter(name="requireInfrastructureEncryption")
     def require_infrastructure_encryption(self) -> Optional[pulumi.Input['WorkspaceCustomBooleanParameterArgs']]:
         """
-        A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
+        A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "require_infrastructure_encryption")
 
@@ -1364,7 +1384,7 @@ class WorkspaceCustomParametersArgs:
     @pulumi.getter(name="storageAccountName")
     def storage_account_name(self) -> Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]:
         """
-        Default DBFS storage account name.
+        Default DBFS storage account name. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "storage_account_name")
 
@@ -1376,7 +1396,7 @@ class WorkspaceCustomParametersArgs:
     @pulumi.getter(name="storageAccountSkuName")
     def storage_account_sku_name(self) -> Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]:
         """
-        Storage account SKU name, ex: Standard_GRS, Standard_LRS. Refer https://aka.ms/storageskus for valid inputs.
+        Storage account SKU name, ex: Standard_GRS, Standard_LRS. Refer https://aka.ms/storageskus for valid inputs. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "storage_account_sku_name")
 
@@ -1388,7 +1408,7 @@ class WorkspaceCustomParametersArgs:
     @pulumi.getter(name="vnetAddressPrefix")
     def vnet_address_prefix(self) -> Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]:
         """
-        Address prefix for Managed virtual network. Default value for this input is 10.139.
+        Address prefix for Managed virtual network. Default value for this input is 10.139. Not allowed in Serverless ComputeMode workspace.
         """
         return pulumi.get(self, "vnet_address_prefix")
 
@@ -1405,17 +1425,25 @@ class WorkspaceCustomStringParameterArgsDict(TypedDict):
     """
     The value which should be used for this field.
     """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'CustomParameterType']]]
+    """
+    The type of variable that this is
+    """
 
 @pulumi.input_type
 class WorkspaceCustomStringParameterArgs:
     def __init__(__self__, *,
-                 value: pulumi.Input[_builtins.str]):
+                 value: pulumi.Input[_builtins.str],
+                 type: Optional[pulumi.Input[Union[_builtins.str, 'CustomParameterType']]] = None):
         """
         The Value.
 
         :param pulumi.Input[_builtins.str] value: The value which should be used for this field.
+        :param pulumi.Input[Union[_builtins.str, 'CustomParameterType']] type: The type of variable that this is
         """
         pulumi.set(__self__, "value", value)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
@@ -1429,10 +1457,26 @@ class WorkspaceCustomStringParameterArgs:
     def value(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "value", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CustomParameterType']]]:
+        """
+        The type of variable that this is
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CustomParameterType']]]):
+        pulumi.set(self, "type", value)
+
 
 class WorkspaceEncryptionParameterArgsDict(TypedDict):
     """
     The object that contains details of encryption used on the workspace.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'CustomParameterType']]]
+    """
+    The type of variable that this is
     """
     value: NotRequired[pulumi.Input['EncryptionArgsDict']]
     """
@@ -1442,14 +1486,30 @@ class WorkspaceEncryptionParameterArgsDict(TypedDict):
 @pulumi.input_type
 class WorkspaceEncryptionParameterArgs:
     def __init__(__self__, *,
+                 type: Optional[pulumi.Input[Union[_builtins.str, 'CustomParameterType']]] = None,
                  value: Optional[pulumi.Input['EncryptionArgs']] = None):
         """
         The object that contains details of encryption used on the workspace.
 
+        :param pulumi.Input[Union[_builtins.str, 'CustomParameterType']] type: The type of variable that this is
         :param pulumi.Input['EncryptionArgs'] value: The value which should be used for this field.
         """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
         if value is not None:
             pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CustomParameterType']]]:
+        """
+        The type of variable that this is
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CustomParameterType']]]):
+        pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
@@ -1472,17 +1532,25 @@ class WorkspaceNoPublicIPBooleanParameterArgsDict(TypedDict):
     """
     The value which should be used for this field.
     """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'CustomParameterType']]]
+    """
+    The type of variable that this is
+    """
 
 @pulumi.input_type
 class WorkspaceNoPublicIPBooleanParameterArgs:
     def __init__(__self__, *,
-                 value: pulumi.Input[_builtins.bool]):
+                 value: pulumi.Input[_builtins.bool],
+                 type: Optional[pulumi.Input[Union[_builtins.str, 'CustomParameterType']]] = None):
         """
         The value which should be used for this field.
 
         :param pulumi.Input[_builtins.bool] value: The value which should be used for this field.
+        :param pulumi.Input[Union[_builtins.str, 'CustomParameterType']] type: The type of variable that this is
         """
         pulumi.set(__self__, "value", value)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
@@ -1496,10 +1564,22 @@ class WorkspaceNoPublicIPBooleanParameterArgs:
     def value(self, value: pulumi.Input[_builtins.bool]):
         pulumi.set(self, "value", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CustomParameterType']]]:
+        """
+        The type of variable that this is
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CustomParameterType']]]):
+        pulumi.set(self, "type", value)
+
 
 class WorkspacePropertiesAccessConnectorArgsDict(TypedDict):
     """
-    Access Connector Resource that is going to be associated with Databricks Workspace
+    Access Connector Resource that is going to be associated with Databricks Workspace. Not allowed in Serverless ComputeMode workspace.
     """
     id: pulumi.Input[_builtins.str]
     """
@@ -1521,7 +1601,7 @@ class WorkspacePropertiesAccessConnectorArgs:
                  identity_type: pulumi.Input[Union[_builtins.str, 'IdentityType']],
                  user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        Access Connector Resource that is going to be associated with Databricks Workspace
+        Access Connector Resource that is going to be associated with Databricks Workspace. Not allowed in Serverless ComputeMode workspace.
 
         :param pulumi.Input[_builtins.str] id: The resource ID of Azure Databricks Access Connector Resource.
         :param pulumi.Input[Union[_builtins.str, 'IdentityType']] identity_type: The identity type of the Access Connector Resource.
@@ -1571,7 +1651,7 @@ class WorkspacePropertiesAccessConnectorArgs:
 
 class WorkspacePropertiesEncryptionArgsDict(TypedDict):
     """
-    Encryption properties for databricks workspace
+    Encryption properties for databricks workspace. Supported in both Serverless and Hybrid ComputeMode workspace.
     """
     entities: pulumi.Input['EncryptionEntitiesDefinitionArgsDict']
     """
@@ -1583,7 +1663,7 @@ class WorkspacePropertiesEncryptionArgs:
     def __init__(__self__, *,
                  entities: pulumi.Input['EncryptionEntitiesDefinitionArgs']):
         """
-        Encryption properties for databricks workspace
+        Encryption properties for databricks workspace. Supported in both Serverless and Hybrid ComputeMode workspace.
 
         :param pulumi.Input['EncryptionEntitiesDefinitionArgs'] entities: Encryption entities definition for the workspace.
         """

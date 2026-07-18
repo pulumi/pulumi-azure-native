@@ -786,7 +786,7 @@ DatabaseFleetManager:
 DatabaseWatcher:
     tracking: 2024-10-01-preview
 Databricks:
-    tracking: "2024-05-01"
+    tracking: "2026-01-01"
 Datadog:
     tracking: "2023-10-20"
     additions:

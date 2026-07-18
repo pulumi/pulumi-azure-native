@@ -1,0 +1,28 @@
+name: databricks-computemode
+runtime: yaml
+description: |
+  step2: explicitly set computeMode to "Hybrid" -- the same value Azure backfills by
+  default when the property is omitted (see step1). This must be a no-op: setting the
+  input to the value Azure already reports should produce no diff and no replacement.
+
+variables:
+  clientConfig:
+    fn::invoke:
+      function: azure-native:authorization:getClientConfig
+
+resources:
+  rg:
+    type: azure-native:resources:ResourceGroup
+
+  workspace:
+    type: azure-native:databricks:Workspace
+    properties:
+      resourceGroupName: ${rg.name}
+      location: ${rg.location}
+      sku:
+        name: premium
+      managedResourceGroupId: "/subscriptions/${clientConfig.subscriptionId}/resourceGroups/${rg.name}-managed"
+      computeMode: Hybrid
+
+outputs:
+  computeMode: ${workspace.computeMode}

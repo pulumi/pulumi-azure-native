@@ -3,14 +3,26 @@
 
 
 export const AutomaticClusterUpdateValue = {
+    /**
+     * Enabled
+     */
     Enabled: "Enabled",
+    /**
+     * Disabled
+     */
     Disabled: "Disabled",
 } as const;
 
 export type AutomaticClusterUpdateValue = (typeof AutomaticClusterUpdateValue)[keyof typeof AutomaticClusterUpdateValue];
 
 export const ComplianceSecurityProfileValue = {
+    /**
+     * Enabled
+     */
     Enabled: "Enabled",
+    /**
+     * Disabled
+     */
     Disabled: "Disabled",
 } as const;
 
@@ -20,6 +32,13 @@ export const ComplianceStandard = {
     NONE: "NONE",
     HIPAA: "HIPAA",
     PCI_DSS: "PCI_DSS",
+    CYBER_ESSENTIAL_PLUS: "CYBER_ESSENTIAL_PLUS",
+    FEDRAMP_HIGH: "FEDRAMP_HIGH",
+    CANADA_PROTECTED_B: "CANADA_PROTECTED_B",
+    IRAP_PROTECTED: "IRAP_PROTECTED",
+    ISMAP: "ISMAP",
+    HITRUST: "HITRUST",
+    K_FSI: "K_FSI",
 } as const;
 
 /**
@@ -27,17 +46,62 @@ export const ComplianceStandard = {
  */
 export type ComplianceStandard = (typeof ComplianceStandard)[keyof typeof ComplianceStandard];
 
+export const ComputeMode = {
+    /**
+     * Serverless
+     */
+    Serverless: "Serverless",
+    /**
+     * Hybrid
+     */
+    Hybrid: "Hybrid",
+} as const;
+
+/**
+ * The workspace compute mode. Required on create, cannot be changed. Possible values include: 'Serverless', 'Hybrid'
+ */
+export type ComputeMode = (typeof ComputeMode)[keyof typeof ComputeMode];
+
+export const CustomParameterType = {
+    /**
+     * Bool
+     */
+    Bool: "Bool",
+    /**
+     * Object
+     */
+    Object: "Object",
+    /**
+     * String
+     */
+    String: "String",
+} as const;
+
+/**
+ * The type of variable that this is
+ */
+export type CustomParameterType = (typeof CustomParameterType)[keyof typeof CustomParameterType];
+
 export const DefaultStorageFirewall = {
+    /**
+     * Disabled
+     */
     Disabled: "Disabled",
+    /**
+     * Enabled
+     */
     Enabled: "Enabled",
 } as const;
 
 /**
- * Gets or Sets Default Storage Firewall configuration information
+ * Gets or Sets Default Storage Firewall configuration information. Not allowed in Serverless ComputeMode workspace.
  */
 export type DefaultStorageFirewall = (typeof DefaultStorageFirewall)[keyof typeof DefaultStorageFirewall];
 
 export const EncryptionKeySource = {
+    /**
+     * Microsoft.Keyvault
+     */
     Microsoft_Keyvault: "Microsoft.Keyvault",
 } as const;
 
@@ -47,14 +111,26 @@ export const EncryptionKeySource = {
 export type EncryptionKeySource = (typeof EncryptionKeySource)[keyof typeof EncryptionKeySource];
 
 export const EnhancedSecurityMonitoringValue = {
+    /**
+     * Enabled
+     */
     Enabled: "Enabled",
+    /**
+     * Disabled
+     */
     Disabled: "Disabled",
 } as const;
 
 export type EnhancedSecurityMonitoringValue = (typeof EnhancedSecurityMonitoringValue)[keyof typeof EnhancedSecurityMonitoringValue];
 
 export const IdentityType = {
+    /**
+     * SystemAssigned
+     */
     SystemAssigned: "SystemAssigned",
+    /**
+     * UserAssigned
+     */
     UserAssigned: "UserAssigned",
 } as const;
 
@@ -64,7 +140,13 @@ export const IdentityType = {
 export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 
 export const InitialType = {
+    /**
+     * HiveMetastore
+     */
     HiveMetastore: "HiveMetastore",
+    /**
+     * UnityCatalog
+     */
     UnityCatalog: "UnityCatalog",
 } as const;
 
@@ -74,7 +156,13 @@ export const InitialType = {
 export type InitialType = (typeof InitialType)[keyof typeof InitialType];
 
 export const KeySource = {
+    /**
+     * Default
+     */
     Default: "Default",
+    /**
+     * Microsoft.Keyvault
+     */
     Microsoft_Keyvault: "Microsoft.Keyvault",
 } as const;
 
@@ -96,9 +184,21 @@ export const ManagedServiceIdentityType = {
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
 export const PrivateLinkServiceConnectionStatus = {
+    /**
+     * Pending
+     */
     Pending: "Pending",
+    /**
+     * Approved
+     */
     Approved: "Approved",
+    /**
+     * Rejected
+     */
     Rejected: "Rejected",
+    /**
+     * Disconnected
+     */
     Disconnected: "Disconnected",
 } as const;
 
@@ -108,22 +208,37 @@ export const PrivateLinkServiceConnectionStatus = {
 export type PrivateLinkServiceConnectionStatus = (typeof PrivateLinkServiceConnectionStatus)[keyof typeof PrivateLinkServiceConnectionStatus];
 
 export const PublicNetworkAccess = {
+    /**
+     * Enabled
+     */
     Enabled: "Enabled",
+    /**
+     * Disabled
+     */
     Disabled: "Disabled",
 } as const;
 
 /**
- * The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
+ * The network access type for accessing workspace. Set value to disabled to access workspace only via private link. Used to configure front-end only private link for Serverless ComputeMode workspace.
  */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const RequiredNsgRules = {
+    /**
+     * AllRules
+     */
     AllRules: "AllRules",
+    /**
+     * NoAzureDatabricksRules
+     */
     NoAzureDatabricksRules: "NoAzureDatabricksRules",
+    /**
+     * NoAzureServiceRules
+     */
     NoAzureServiceRules: "NoAzureServiceRules",
 } as const;
 
 /**
- * Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
+ * Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only. Not allowed in Serverless ComputeMode workspace.
  */
 export type RequiredNsgRules = (typeof RequiredNsgRules)[keyof typeof RequiredNsgRules];

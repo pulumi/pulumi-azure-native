@@ -189,6 +189,17 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 		return m.genEnumType(schema, context, enumExtension, propertyName)
 	}
 
+	// Fall back to a synthetic enum (see enumOverrideMap in replacement.go) when the spec no
+	// longer declares a real one for this property. This only fires when the branch above didn't
+	// already return, i.e. when the current API version's spec has downgraded (or never had) an
+	// enum here; it's a no-op for any version that still declares one. This applies to both plain
+	// string properties and, via recursion into array item types, array-of-string properties.
+	if !isOutput && primitiveTypeName == "string" {
+		if override, ok := m.enumOverride(propertyName); ok {
+			return m.genOverriddenEnumType(override)
+		}
+	}
+
 	switch {
 	case len(resolvedSchema.Properties) > 0 || len(resolvedSchema.AllOf) > 0:
 		ptr := schema.Ref.GetPointer()
@@ -530,6 +541,38 @@ func (m *moduleGenerator) genEnumType(schema *spec.Schema, context *openapi.Refe
 
 	return &pschema.TypeSpec{
 		Ref: referencedTypeName,
+	}, nil
+}
+
+// genOverriddenEnumType synthesizes an enum type from a hardcoded set of values (see
+// enumOverrideMap in replacement.go), for a property whose backing Azure spec no longer declares
+// an enum. It mirrors genEnumType's registration and output shape (a modelAsString oneOf{string,
+// $ref}) so downstream enum-aware logic (e.g. itemTypeToProperty's isEnum check) treats it
+// identically to a spec-derived enum.
+func (m *moduleGenerator) genOverriddenEnumType(override EnumOverride) (*pschema.TypeSpec, error) {
+	enumName := m.typeNameOverride(ToUpperCamel(override.TypeName))
+	module := string(m.module)
+	tok := fmt.Sprintf("%s:%s:%s", m.pkg.Name, module, enumName)
+	tok = m.caseSensitiveTypes.normalizeTokenCase(tok)
+
+	enumSpec := pschema.ComplexTypeSpec{
+		Enum: []pschema.EnumValueSpec{},
+		ObjectTypeSpec: pschema.ObjectTypeSpec{
+			Description: override.Description,
+			Type:        "string",
+		},
+	}
+	for _, value := range override.Values {
+		enumSpec.Enum = append(enumSpec.Enum, pschema.EnumValueSpec{Value: value})
+	}
+	m.pkg.Types[tok] = enumSpec
+
+	referencedTypeName := fmt.Sprintf("#/types/%s", tok)
+	return &pschema.TypeSpec{
+		OneOf: []pschema.TypeSpec{
+			{Type: "string"},
+			{Ref: referencedTypeName},
+		},
 	}, nil
 }
 

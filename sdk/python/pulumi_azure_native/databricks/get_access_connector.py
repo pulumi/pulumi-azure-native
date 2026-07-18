@@ -68,7 +68,7 @@ class GetAccessConnectorResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -76,7 +76,7 @@ class GetAccessConnectorResult:
     @pulumi.getter
     def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
         """
-        Managed service identity (system assigned and/or user assigned identities)
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
@@ -108,7 +108,7 @@ class GetAccessConnectorResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system metadata relating to this resource
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -124,7 +124,7 @@ class GetAccessConnectorResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -152,9 +152,9 @@ def get_access_connector(connector_name: Optional[_builtins.str] = None,
     """
     Gets an Azure Databricks Access Connector.
 
-    Uses Azure REST API version 2024-05-01.
+    Uses Azure REST API version 2026-01-01.
 
-    Other available API versions: 2023-05-01, 2024-09-01-preview, 2025-03-01-preview, 2025-08-01-preview, 2025-10-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-05-01, 2024-05-01, 2024-09-01-preview, 2025-03-01-preview, 2025-08-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str connector_name: The name of the Azure Databricks Access Connector.
@@ -182,9 +182,9 @@ def get_access_connector_output(connector_name: Optional[pulumi.Input[_builtins.
     """
     Gets an Azure Databricks Access Connector.
 
-    Uses Azure REST API version 2024-05-01.
+    Uses Azure REST API version 2026-01-01.
 
-    Other available API versions: 2023-05-01, 2024-09-01-preview, 2025-03-01-preview, 2025-08-01-preview, 2025-10-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-05-01, 2024-05-01, 2024-09-01-preview, 2025-03-01-preview, 2025-08-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str connector_name: The name of the Azure Databricks Access Connector.

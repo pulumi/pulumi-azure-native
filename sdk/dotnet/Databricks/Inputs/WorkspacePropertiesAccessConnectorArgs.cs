@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Databricks.Inputs
 {
 
     /// <summary>
-    /// Access Connector Resource that is going to be associated with Databricks Workspace
+    /// Access Connector Resource that is going to be associated with Databricks Workspace. Not allowed in Serverless ComputeMode workspace.
     /// </summary>
     public sealed class WorkspacePropertiesAccessConnectorArgs : global::Pulumi.ResourceArgs
     {

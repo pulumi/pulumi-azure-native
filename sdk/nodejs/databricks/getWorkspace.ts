@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets the workspace.
  *
- * Uses Azure REST API version 2024-05-01.
+ * Uses Azure REST API version 2026-01-01.
  *
- * Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-09-01-preview, 2025-03-01-preview, 2025-08-01-preview, 2025-10-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-05-01, 2024-09-01-preview, 2025-03-01-preview, 2025-08-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -38,9 +38,9 @@ export interface GetWorkspaceArgs {
  */
 export interface GetWorkspaceResult {
     /**
-     * Access Connector Resource that is going to be associated with Databricks Workspace
+     * Access Connector Resource that is going to be associated with Databricks Workspace. Not allowed in Serverless ComputeMode workspace.
      */
-    readonly accessConnector?: outputs.databricks.WorkspacePropertiesResponseAccessConnector;
+    readonly accessConnector?: outputs.databricks.WorkspacePropertiesAccessConnectorResponse;
     /**
      * The workspace provider authorizations.
      */
@@ -50,6 +50,10 @@ export interface GetWorkspaceResult {
      */
     readonly azureApiVersion: string;
     /**
+     * The workspace compute mode. Required on create, cannot be changed. Possible values include: 'Serverless', 'Hybrid'
+     */
+    readonly computeMode: string;
+    /**
      * Indicates the Object ID, PUID and Application ID of entity that created the workspace.
      */
     readonly createdBy?: outputs.databricks.CreatedByResponse;
@@ -58,31 +62,31 @@ export interface GetWorkspaceResult {
      */
     readonly createdDateTime: string;
     /**
-     * Properties for Default Catalog configuration during workspace creation.
+     * Properties for Default Catalog configuration during workspace creation. Not allowed in Serverless ComputeMode workspace.
      */
     readonly defaultCatalog?: outputs.databricks.DefaultCatalogPropertiesResponse;
     /**
-     * Gets or Sets Default Storage Firewall configuration information
+     * Gets or Sets Default Storage Firewall configuration information. Not allowed in Serverless ComputeMode workspace.
      */
     readonly defaultStorageFirewall?: string;
     /**
-     * The resource Id of the managed disk encryption set.
+     * The resource Id of the managed disk encryption set. Not allowed in Serverless ComputeMode workspace.
      */
     readonly diskEncryptionSetId: string;
     /**
-     * Encryption properties for databricks workspace
+     * Encryption properties for databricks workspace. Supported in both Serverless and Hybrid ComputeMode workspace.
      */
-    readonly encryption?: outputs.databricks.WorkspacePropertiesResponseEncryption;
+    readonly encryption?: outputs.databricks.WorkspacePropertiesEncryptionResponse;
     /**
-     * Contains settings related to the Enhanced Security and Compliance Add-On.
+     * Contains settings related to the Enhanced Security and Compliance Add-On. Supported in both Serverless and Hybrid ComputeMode workspace.
      */
     readonly enhancedSecurityCompliance?: outputs.databricks.EnhancedSecurityComplianceDefinitionResponse;
     /**
-     * Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
-     * Indicates whether unity catalog enabled for the workspace or not.
+     * Indicates whether unity catalog enabled for the workspace or not. Set as true in Serverless ComputeMode workspace.
      */
     readonly isUcEnabled: boolean;
     /**
@@ -90,13 +94,13 @@ export interface GetWorkspaceResult {
      */
     readonly location: string;
     /**
-     * The details of Managed Identity of Disk Encryption Set used for Managed Disk Encryption
+     * The details of Managed Identity of Disk Encryption Set used for Managed Disk Encryption. Only returned in Hybrid ComputeMode workspace.
      */
     readonly managedDiskIdentity?: outputs.databricks.ManagedIdentityConfigurationResponse;
     /**
-     * The managed resource group Id.
+     * The managed resource group Id. Required in Hybrid ComputeMode workspace. Not allowed in Serverless ComputeMode workspace.
      */
-    readonly managedResourceGroupId: string;
+    readonly managedResourceGroupId?: string;
     /**
      * The name of the resource
      */
@@ -106,7 +110,7 @@ export interface GetWorkspaceResult {
      */
     readonly parameters?: outputs.databricks.WorkspaceCustomParametersResponse;
     /**
-     * Private endpoint connections created on the workspace
+     * Private endpoint connections created on the workspace. Supported in both Serverless and Hybrid ComputeMode workspace.
      */
     readonly privateEndpointConnections: outputs.databricks.PrivateEndpointConnectionResponse[];
     /**
@@ -114,11 +118,11 @@ export interface GetWorkspaceResult {
      */
     readonly provisioningState: string;
     /**
-     * The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
+     * The network access type for accessing workspace. Set value to disabled to access workspace only via private link. Used to configure front-end only private link for Serverless ComputeMode workspace.
      */
     readonly publicNetworkAccess?: string;
     /**
-     * Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
+     * Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only. Not allowed in Serverless ComputeMode workspace.
      */
     readonly requiredNsgRules?: string;
     /**
@@ -126,11 +130,11 @@ export interface GetWorkspaceResult {
      */
     readonly sku?: outputs.databricks.SkuResponse;
     /**
-     * The details of Managed Identity of Storage Account
+     * The details of Managed Identity of Storage Account. Only returned in Hybrid ComputeMode workspace.
      */
     readonly storageAccountIdentity?: outputs.databricks.ManagedIdentityConfigurationResponse;
     /**
-     * The system metadata relating to this resource
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.databricks.SystemDataResponse;
     /**
@@ -138,7 +142,7 @@ export interface GetWorkspaceResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -161,9 +165,9 @@ export interface GetWorkspaceResult {
 /**
  * Gets the workspace.
  *
- * Uses Azure REST API version 2024-05-01.
+ * Uses Azure REST API version 2026-01-01.
  *
- * Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-09-01-preview, 2025-03-01-preview, 2025-08-01-preview, 2025-10-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-05-01, 2024-09-01-preview, 2025-03-01-preview, 2025-08-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

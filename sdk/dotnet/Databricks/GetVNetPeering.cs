@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Databricks
         /// <summary>
         /// Gets the workspace vNet Peering.
         /// 
-        /// Uses Azure REST API version 2024-05-01.
+        /// Uses Azure REST API version 2026-01-01.
         /// 
-        /// Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-09-01-preview, 2025-03-01-preview, 2025-08-01-preview, 2025-10-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-05-01, 2024-09-01-preview, 2025-03-01-preview, 2025-08-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetVNetPeeringResult> InvokeAsync(GetVNetPeeringArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVNetPeeringResult>("azure-native:databricks:getVNetPeering", args ?? new GetVNetPeeringArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Databricks
         /// <summary>
         /// Gets the workspace vNet Peering.
         /// 
-        /// Uses Azure REST API version 2024-05-01.
+        /// Uses Azure REST API version 2026-01-01.
         /// 
-        /// Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-09-01-preview, 2025-03-01-preview, 2025-08-01-preview, 2025-10-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-05-01, 2024-09-01-preview, 2025-03-01-preview, 2025-08-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetVNetPeeringResult> Invoke(GetVNetPeeringInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVNetPeeringResult>("azure-native:databricks:getVNetPeering", args ?? new GetVNetPeeringInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Databricks
         /// <summary>
         /// Gets the workspace vNet Peering.
         /// 
-        /// Uses Azure REST API version 2024-05-01.
+        /// Uses Azure REST API version 2026-01-01.
         /// 
-        /// Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-09-01-preview, 2025-03-01-preview, 2025-08-01-preview, 2025-10-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-05-01, 2024-09-01-preview, 2025-03-01-preview, 2025-08-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetVNetPeeringResult> Invoke(GetVNetPeeringInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVNetPeeringResult>("azure-native:databricks:getVNetPeering", args ?? new GetVNetPeeringInvokeArgs(), options.WithDefaults());
@@ -120,15 +120,15 @@ namespace Pulumi.AzureNative.Databricks
         /// </summary>
         public readonly Outputs.AddressSpaceResponse? DatabricksAddressSpace;
         /// <summary>
-        ///  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+        /// The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
         /// </summary>
-        public readonly Outputs.VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork? DatabricksVirtualNetwork;
+        public readonly Outputs.VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkResponse? DatabricksVirtualNetwork;
         /// <summary>
-        /// Resource ID.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Name of the virtual network peering resource
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -144,11 +144,15 @@ namespace Pulumi.AzureNative.Databricks
         /// </summary>
         public readonly Outputs.AddressSpaceResponse? RemoteAddressSpace;
         /// <summary>
-        ///  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+        /// The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
         /// </summary>
-        public readonly Outputs.VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork RemoteVirtualNetwork;
+        public readonly Outputs.VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkResponse RemoteVirtualNetwork;
         /// <summary>
-        /// type of the virtual network peering resource
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -168,7 +172,7 @@ namespace Pulumi.AzureNative.Databricks
 
             Outputs.AddressSpaceResponse? databricksAddressSpace,
 
-            Outputs.VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork? databricksVirtualNetwork,
+            Outputs.VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkResponse? databricksVirtualNetwork,
 
             string id,
 
@@ -180,7 +184,9 @@ namespace Pulumi.AzureNative.Databricks
 
             Outputs.AddressSpaceResponse? remoteAddressSpace,
 
-            Outputs.VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork remoteVirtualNetwork,
+            Outputs.VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkResponse remoteVirtualNetwork,
+
+            Outputs.SystemDataResponse systemData,
 
             string type,
 
@@ -198,6 +204,7 @@ namespace Pulumi.AzureNative.Databricks
             ProvisioningState = provisioningState;
             RemoteAddressSpace = remoteAddressSpace;
             RemoteVirtualNetwork = remoteVirtualNetwork;
+            SystemData = systemData;
             Type = type;
             UseRemoteGateways = useRemoteGateways;
         }

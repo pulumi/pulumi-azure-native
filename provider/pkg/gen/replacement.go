@@ -69,6 +69,13 @@ var forceNewMap = map[openapi.ModuleName]map[string]codegen.StringSet{
 			"nodePublicIPTags",
 		),
 	},
+	"Databricks": {
+		// computeMode has no x-ms-mutability extension in the spec, but its description is explicit:
+		// "Required on create, cannot be changed." Force a replacement rather than attempting an
+		// in-place update the ARM API doesn't support. See
+		// https://github.com/pulumi/pulumi-azure-native/issues/4766.
+		"Workspace": codegen.NewStringSet("computeMode"),
+	},
 	"DocumentDB": {
 		"SqlResourceSqlRoleAssignment": codegen.NewStringSet("principalId", "scope"),
 	},
@@ -106,5 +113,68 @@ var forceNewMap = map[openapi.ModuleName]map[string]codegen.StringSet{
 var noForceNewMap = map[openapi.ModuleName]map[string]codegen.StringSet{
 	"ServiceBus": {
 		"Namespace": codegen.NewStringSet("zoneRedundant"), // https://github.com/pulumi/pulumi-azure-native/issues/4105
+	},
+}
+
+// notRequiredInputsMap is a map of Module Name -> Resource Name -> input properties that the
+// OpenAPI spec marks as required, but that we keep optional in the generated SDK. Only add an
+// entry here after directly verifying (e.g. via a raw ARM REST call or ARM template deployment)
+// that the live Azure API accepts the property being omitted and backfills a sensible default
+// server-side
+var notRequiredInputsMap = map[openapi.ModuleName]map[string]codegen.StringSet{
+	"Databricks": {
+		// computeMode became a required input in API version 2026-01-01. Confirmed live against
+		// Azure (raw ARM REST PUT, an ARM template deployment, and reading a workspace created via
+		// an older API version that predates the property) that omitting it is accepted and Azure
+		// backfills "Hybrid" server-side. See https://github.com/pulumi/pulumi-azure-native/issues/4766.
+		"Workspace": codegen.NewStringSet("computeMode"),
+	},
+}
+
+// EnumOverride describes a synthetic enum type to substitute for a property's plain string (or
+// array-of-string) type. Values should match the last API version that had a real enum for the
+// property, so existing SDK consumers referencing enum members by name keep compiling.
+type EnumOverride struct {
+	// TypeName is the enum's name, e.g. "ComplianceStandard" becomes the token module:TypeName.
+	TypeName string
+	// Description is the generated enum type's description.
+	Description string
+	// Values are the allowed enum values (used verbatim as both name and value, matching how this
+	// provider already models most Azure spec-derived enums that lack per-value x-ms-enum names).
+	Values []string
+}
+
+// enumOverrideMap is a map of Module Name -> Resource Name -> input property name -> a synthetic
+// enum type to substitute for that property's type. Only add an entry here when Azure's spec used
+// to declare a real enum for the property and later downgraded it to a plain string (or dropped
+// the enum type entirely) -- this keeps re-specifying a previously-valid enum member from becoming
+// a breaking SDK change. It only takes effect where the spec doesn't already declare a real enum
+// for the property (see genTypeSpec in types.go), so it's a no-op for any API version that still
+// has one.
+var enumOverrideMap = map[openapi.ModuleName]map[string]map[string]EnumOverride{
+	"Databricks": {
+		"Workspace": {
+			// complianceStandards had a real enum (ComplianceStandard) through API version
+			// 2025-08-01-preview. Starting 2025-10-01-preview the spec dropped the enum's value
+			// list and x-ms-enum extension (kept as a bare string), and by 2026-01-01 the named
+			// definition was removed entirely -- see https://github.com/pulumi/pulumi-azure-native/issues/4766.
+			// Values below are the full set from 2025-08-01-preview, the richest version that had them.
+			"complianceStandards": {
+				TypeName:    "ComplianceStandard",
+				Description: "Compliance standard that can be associated with a workspace.",
+				Values: []string{
+					"NONE",
+					"HIPAA",
+					"PCI_DSS",
+					"CYBER_ESSENTIAL_PLUS",
+					"FEDRAMP_HIGH",
+					"CANADA_PROTECTED_B",
+					"IRAP_PROTECTED",
+					"ISMAP",
+					"HITRUST",
+					"K_FSI",
+				},
+			},
+		},
 	},
 }

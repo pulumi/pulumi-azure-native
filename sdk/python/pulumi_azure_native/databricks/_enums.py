@@ -10,6 +10,8 @@ __all__ = [
     'AutomaticClusterUpdateValue',
     'ComplianceSecurityProfileValue',
     'ComplianceStandard',
+    'ComputeMode',
+    'CustomParameterType',
     'DefaultStorageFirewall',
     'EncryptionKeySource',
     'EnhancedSecurityMonitoringValue',
@@ -26,13 +28,25 @@ __all__ = [
 @pulumi.type_token("azure-native:databricks:AutomaticClusterUpdateValue")
 class AutomaticClusterUpdateValue(_builtins.str, Enum):
     ENABLED = "Enabled"
+    """
+    Enabled
+    """
     DISABLED = "Disabled"
+    """
+    Disabled
+    """
 
 
 @pulumi.type_token("azure-native:databricks:ComplianceSecurityProfileValue")
 class ComplianceSecurityProfileValue(_builtins.str, Enum):
     ENABLED = "Enabled"
+    """
+    Enabled
+    """
     DISABLED = "Disabled"
+    """
+    Disabled
+    """
 
 
 @pulumi.type_token("azure-native:databricks:ComplianceStandard")
@@ -43,15 +57,62 @@ class ComplianceStandard(_builtins.str, Enum):
     NONE = "NONE"
     HIPAA = "HIPAA"
     PC_I_DSS = "PCI_DSS"
+    CYBE_R_ESSENTIA_L_PLUS = "CYBER_ESSENTIAL_PLUS"
+    FEDRAM_P_HIGH = "FEDRAMP_HIGH"
+    CANAD_A_PROTECTE_D_B = "CANADA_PROTECTED_B"
+    IRA_P_PROTECTED = "IRAP_PROTECTED"
+    ISMAP = "ISMAP"
+    HITRUST = "HITRUST"
+    K_FSI = "K_FSI"
+
+
+@pulumi.type_token("azure-native:databricks:ComputeMode")
+class ComputeMode(_builtins.str, Enum):
+    """
+    The workspace compute mode. Required on create, cannot be changed. Possible values include: 'Serverless', 'Hybrid'
+    """
+    SERVERLESS = "Serverless"
+    """
+    Serverless
+    """
+    HYBRID = "Hybrid"
+    """
+    Hybrid
+    """
+
+
+@pulumi.type_token("azure-native:databricks:CustomParameterType")
+class CustomParameterType(_builtins.str, Enum):
+    """
+    The type of variable that this is
+    """
+    BOOL = "Bool"
+    """
+    Bool
+    """
+    OBJECT = "Object"
+    """
+    Object
+    """
+    STRING = "String"
+    """
+    String
+    """
 
 
 @pulumi.type_token("azure-native:databricks:DefaultStorageFirewall")
 class DefaultStorageFirewall(_builtins.str, Enum):
     """
-    Gets or Sets Default Storage Firewall configuration information
+    Gets or Sets Default Storage Firewall configuration information. Not allowed in Serverless ComputeMode workspace.
     """
     DISABLED = "Disabled"
+    """
+    Disabled
+    """
     ENABLED = "Enabled"
+    """
+    Enabled
+    """
 
 
 @pulumi.type_token("azure-native:databricks:EncryptionKeySource")
@@ -60,12 +121,21 @@ class EncryptionKeySource(_builtins.str, Enum):
     The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
     """
     MICROSOFT_KEYVAULT = "Microsoft.Keyvault"
+    """
+    Microsoft.Keyvault
+    """
 
 
 @pulumi.type_token("azure-native:databricks:EnhancedSecurityMonitoringValue")
 class EnhancedSecurityMonitoringValue(_builtins.str, Enum):
     ENABLED = "Enabled"
+    """
+    Enabled
+    """
     DISABLED = "Disabled"
+    """
+    Disabled
+    """
 
 
 @pulumi.type_token("azure-native:databricks:IdentityType")
@@ -74,7 +144,13 @@ class IdentityType(_builtins.str, Enum):
     The identity type of the Access Connector Resource.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
+    """
+    SystemAssigned
+    """
     USER_ASSIGNED = "UserAssigned"
+    """
+    UserAssigned
+    """
 
 
 @pulumi.type_token("azure-native:databricks:InitialType")
@@ -83,7 +159,13 @@ class InitialType(_builtins.str, Enum):
     Defines the initial type of the default catalog. Possible values (case-insensitive):  HiveMetastore, UnityCatalog
     """
     HIVE_METASTORE = "HiveMetastore"
+    """
+    HiveMetastore
+    """
     UNITY_CATALOG = "UnityCatalog"
+    """
+    UnityCatalog
+    """
 
 
 @pulumi.type_token("azure-native:databricks:KeySource")
@@ -92,7 +174,13 @@ class KeySource(_builtins.str, Enum):
     The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault
     """
     DEFAULT = "Default"
+    """
+    Default
+    """
     MICROSOFT_KEYVAULT = "Microsoft.Keyvault"
+    """
+    Microsoft.Keyvault
+    """
 
 
 @pulumi.type_token("azure-native:databricks:ManagedServiceIdentityType")
@@ -112,25 +200,52 @@ class PrivateLinkServiceConnectionStatus(_builtins.str, Enum):
     The status of a private endpoint connection
     """
     PENDING = "Pending"
+    """
+    Pending
+    """
     APPROVED = "Approved"
+    """
+    Approved
+    """
     REJECTED = "Rejected"
+    """
+    Rejected
+    """
     DISCONNECTED = "Disconnected"
+    """
+    Disconnected
+    """
 
 
 @pulumi.type_token("azure-native:databricks:PublicNetworkAccess")
 class PublicNetworkAccess(_builtins.str, Enum):
     """
-    The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
+    The network access type for accessing workspace. Set value to disabled to access workspace only via private link. Used to configure front-end only private link for Serverless ComputeMode workspace.
     """
     ENABLED = "Enabled"
+    """
+    Enabled
+    """
     DISABLED = "Disabled"
+    """
+    Disabled
+    """
 
 
 @pulumi.type_token("azure-native:databricks:RequiredNsgRules")
 class RequiredNsgRules(_builtins.str, Enum):
     """
-    Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
+    Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only. Not allowed in Serverless ComputeMode workspace.
     """
     ALL_RULES = "AllRules"
+    """
+    AllRules
+    """
     NO_AZURE_DATABRICKS_RULES = "NoAzureDatabricksRules"
+    """
+    NoAzureDatabricksRules
+    """
     NO_AZURE_SERVICE_RULES = "NoAzureServiceRules"
+    """
+    NoAzureServiceRules
+    """

@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.Databricks
     /// <summary>
     /// Peerings in a VirtualNetwork resource
     /// 
-    /// Uses Azure REST API version 2024-05-01.
+    /// Uses Azure REST API version 2026-01-01.
     /// 
-    /// Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-09-01-preview, 2025-03-01-preview, 2025-08-01-preview, 2025-10-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-05-01, 2024-09-01-preview, 2025-03-01-preview, 2025-08-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:databricks:VNetPeering")]
     public partial class VNetPeering : global::Pulumi.CustomResource
@@ -50,13 +50,13 @@ namespace Pulumi.AzureNative.Databricks
         public Output<Outputs.AddressSpaceResponse?> DatabricksAddressSpace { get; private set; } = null!;
 
         /// <summary>
-        ///  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+        /// The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
         /// </summary>
         [Output("databricksVirtualNetwork")]
-        public Output<Outputs.VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork?> DatabricksVirtualNetwork { get; private set; } = null!;
+        public Output<Outputs.VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkResponse?> DatabricksVirtualNetwork { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the virtual network peering resource
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -80,13 +80,19 @@ namespace Pulumi.AzureNative.Databricks
         public Output<Outputs.AddressSpaceResponse?> RemoteAddressSpace { get; private set; } = null!;
 
         /// <summary>
-        ///  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+        /// The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
         /// </summary>
         [Output("remoteVirtualNetwork")]
-        public Output<Outputs.VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork> RemoteVirtualNetwork { get; private set; } = null!;
+        public Output<Outputs.VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkResponse> RemoteVirtualNetwork { get; private set; } = null!;
 
         /// <summary>
-        /// type of the virtual network peering resource
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -181,7 +187,7 @@ namespace Pulumi.AzureNative.Databricks
         public Input<Inputs.AddressSpaceArgs>? DatabricksAddressSpace { get; set; }
 
         /// <summary>
-        ///  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+        /// The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
         /// </summary>
         [Input("databricksVirtualNetwork")]
         public Input<Inputs.VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs>? DatabricksVirtualNetwork { get; set; }
@@ -199,7 +205,7 @@ namespace Pulumi.AzureNative.Databricks
         public Input<Inputs.AddressSpaceArgs>? RemoteAddressSpace { get; set; }
 
         /// <summary>
-        ///  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+        /// The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
         /// </summary>
         [Input("remoteVirtualNetwork", required: true)]
         public Input<Inputs.VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs> RemoteVirtualNetwork { get; set; } = null!;

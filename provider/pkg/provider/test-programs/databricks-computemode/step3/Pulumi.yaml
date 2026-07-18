@@ -1,0 +1,24 @@
+name: databricks-computemode
+runtime: yaml
+description: |
+  step3: change computeMode to "Serverless". The Azure API documents this property as
+  "Required on create, cannot be changed", so this must force a replacement of the
+  Workspace. managedResourceGroupId is dropped here since it isn't allowed on a
+  Serverless-mode workspace. This step is only ever previewed, never applied (replacing
+  a real Databricks workspace is slow and unnecessary to validate the Diff logic).
+
+resources:
+  rg:
+    type: azure-native:resources:ResourceGroup
+
+  workspace:
+    type: azure-native:databricks:Workspace
+    properties:
+      resourceGroupName: ${rg.name}
+      location: ${rg.location}
+      sku:
+        name: premium
+      computeMode: Serverless
+
+outputs:
+  computeMode: ${workspace.computeMode}
