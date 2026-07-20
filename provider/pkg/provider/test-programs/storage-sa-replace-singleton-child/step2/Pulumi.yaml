@@ -1,0 +1,32 @@
+name: storage-sa-replace-singleton-child
+runtime: yaml
+description: |
+  step2: remove isHnsEnabled from the StorageAccount definition. isHnsEnabled is
+  ForceNew, so this forces a replace of the account (same physical name, deleted
+  then recreated). The FileServiceProperties singleton child cascades into its own
+  delete-then-create even though its own inputs are unchanged, racing the Create
+  call's CanCreate existence check against ARM's auth-context propagation delay
+  for the newly recreated account.
+
+resources:
+  rg:
+    type: azure-native:resources:ResourceGroup
+
+  store:
+    type: azure-native:storage:StorageAccount
+    properties:
+      accountName: sa${rg.name}
+      resourceGroupName: ${rg.name}
+      location: ${rg.location}
+      kind: StorageV2
+      sku:
+        name: Standard_LRS
+    options:
+      deleteBeforeReplace: true
+
+  fileService:
+    type: azure-native:storage:FileServiceProperties
+    properties:
+      resourceGroupName: ${rg.name}
+      accountName: ${store.name}
+      fileServicesName: default

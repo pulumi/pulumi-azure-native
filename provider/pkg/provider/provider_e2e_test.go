@@ -538,6 +538,26 @@ func TestDatabricksWorkspaceComputeModeDefault(t *testing.T) {
 		"expected a replacement when changing computeMode from Hybrid to Serverless")
 }
 
+// TestStorageAccountSingletonChildAfterReplace is a regression test for issue #4738: replacing a
+// StorageAccount (e.g. changing the immutable isHnsEnabled property) cascades into a
+// delete-then-create of its FileServiceProperties singleton child. That child's Create call used
+// to run an existence check that could transiently fail with 400 AuthenticationFailed while
+// ARM's auth context propagated for the newly recreated account. CanCreate now skips that check
+// for singleton resources, since a singleton always exists once its parent does.
+func TestStorageAccountSingletonChildAfterReplace(t *testing.T) {
+	t.Parallel()
+	pt := newPulumiTest(t, "storage-sa-replace-singleton-child/step1")
+	defer func() {
+		pt.Destroy(t)
+	}()
+
+	pt.Up(t)
+
+	// Removing isHnsEnabled forces the replace; pt.Up fails the test on any error.
+	pt.UpdateSource(t, "test-programs", "storage-sa-replace-singleton-child", "step2")
+	pt.Up(t)
+}
+
 func upgradeTest(t *testing.T, testProgramDir string, upgradeFromVersion string, opts ...optproviderupgrade.PreviewProviderUpgradeOpt) {
 	t.Helper()
 	if testing.Short() {

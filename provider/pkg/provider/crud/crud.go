@@ -408,6 +408,13 @@ func (r *resourceCrudClient) SdkInputsToRequestBody(properties map[string]any, i
 }
 
 func (r *resourceCrudClient) CanCreate(ctx context.Context, id string) error {
+	if r.res.Singleton {
+		// Singleton resources have no DELETE operation and always exist once their parent
+		// does, so the existence check is unnecessary. Skipping it also avoids spurious
+		// failures (e.g. a transient 400 AuthenticationFailed) while ARM's auth context is
+		// still propagating for a just-recreated parent. See issue #4738.
+		return nil
+	}
 	return r.azureClient.CanCreate(ctx, id, r.res.ReadPath, r.res.APIVersion, r.res.ReadMethod, r.res.Singleton, r.res.DefaultBody != nil, func(outputs map[string]any) bool {
 		return r.converter.IsDefaultResponse(r.res.PutParameters, outputs, r.res.DefaultBody)
 	})
