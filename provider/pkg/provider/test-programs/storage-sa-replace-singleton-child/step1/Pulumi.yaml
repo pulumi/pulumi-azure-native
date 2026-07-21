@@ -1,0 +1,34 @@
+name: storage-sa-replace-singleton-child
+runtime: yaml
+description: |
+  Regression test for issue #4738: after a StorageAccount is replaced (deleted, then
+  recreated under the same physical name -- triggered here by changing the immutable
+  isHnsEnabled property), singleton child resources like FileServiceProperties can fail
+  with a transient 400 AuthenticationFailed because CanCreate performs an unnecessary
+  existence check against the just-recreated account before ARM's auth context has fully
+  propagated. step1: create the account with isHnsEnabled explicitly set to false, plus
+  its FileServiceProperties singleton child.
+
+resources:
+  rg:
+    type: azure-native:resources:ResourceGroup
+
+  store:
+    type: azure-native:storage:StorageAccount
+    properties:
+      accountName: sa${rg.name}
+      resourceGroupName: ${rg.name}
+      location: ${rg.location}
+      kind: StorageV2
+      isHnsEnabled: false
+      sku:
+        name: Standard_LRS
+    options:
+      deleteBeforeReplace: true
+
+  fileService:
+    type: azure-native:storage:FileServiceProperties
+    properties:
+      resourceGroupName: ${rg.name}
+      accountName: ${store.name}
+      fileServicesName: default

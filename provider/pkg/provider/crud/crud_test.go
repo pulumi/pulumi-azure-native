@@ -262,6 +262,27 @@ func TestCanCreate_RequestUrls(t *testing.T) {
 	})
 }
 
+// TestCanCreateSkipsNetworkCallForSingleton is a regression test for issue #4738: CanCreate must
+// not make a network call for singleton resources, since a singleton always exists once its
+// parent does and the network round trip only exposes a window for transient/unexpected ARM
+// errors (e.g. a 400 AuthenticationFailed while auth context propagates for a just-recreated
+// parent) to wrongly abort creation.
+func TestCanCreateSkipsNetworkCallForSingleton(t *testing.T) {
+	res := &resources.AzureAPIResource{Singleton: true}
+
+	called := false
+	client, err := azure.CreateTestClient(t, func(t *testing.T, req *http.Request) {
+		called = true
+	})
+	require.NoError(t, err)
+
+	crudClient := NewResourceCrudClient(client, nil, nil, "123", res)
+	err = crudClient.CanCreate(context.Background(), "/subscriptions/123/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/sa/fileServices/default")
+
+	assert.NoError(t, err)
+	assert.False(t, called, "CanCreate should not make a network call for singleton resources")
+}
+
 func TestSqlVirtualMachineUsesReadQueryParams(t *testing.T) {
 	sqlVmResource := resources.AzureAPIResource{
 		Path:            "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachines/{sqlVirtualMachineName}",
