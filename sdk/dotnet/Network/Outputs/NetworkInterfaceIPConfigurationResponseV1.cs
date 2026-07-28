@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// <summary>
         /// The reference of ApplicationGatewayBackendAddressPool resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewayBackendAddressPoolResponseV1> ApplicationGatewayBackendAddressPools;
+        public readonly ImmutableArray<Outputs.ApplicationGatewayBackendAddressPoolInterfaceEndpointResponse> ApplicationGatewayBackendAddressPools;
         /// <summary>
         /// Application security groups in which the IP configuration is included.
         /// </summary>
@@ -35,11 +35,11 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// <summary>
         /// The reference of LoadBalancerBackendAddressPool resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.BackendAddressPoolResponseV1> LoadBalancerBackendAddressPools;
+        public readonly ImmutableArray<Outputs.BackendAddressPoolInterfaceEndpointResponse> LoadBalancerBackendAddressPools;
         /// <summary>
         /// A list of references of LoadBalancerInboundNatRules.
         /// </summary>
-        public readonly ImmutableArray<Outputs.InboundNatRuleResponseV1> LoadBalancerInboundNatRules;
+        public readonly ImmutableArray<Outputs.InboundNatRuleInterfaceEndpointResponse> LoadBalancerInboundNatRules;
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
@@ -67,19 +67,19 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// <summary>
         /// Public IP address bound to the IP configuration.
         /// </summary>
-        public readonly Outputs.PublicIPAddressResponse? PublicIPAddress;
+        public readonly Outputs.PublicIPAddressInterfaceEndpointResponse? PublicIPAddress;
         /// <summary>
         /// Subnet bound to the IP configuration.
         /// </summary>
-        public readonly Outputs.SubnetResponse? Subnet;
+        public readonly Outputs.SubnetInterfaceEndpointResponse? Subnet;
         /// <summary>
         /// The reference to Virtual Network Taps.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VirtualNetworkTapResponseV1> VirtualNetworkTaps;
+        public readonly ImmutableArray<Outputs.VirtualNetworkTapInterfaceEndpointResponse> VirtualNetworkTaps;
 
         [OutputConstructor]
         private NetworkInterfaceIPConfigurationResponseV1(
-            ImmutableArray<Outputs.ApplicationGatewayBackendAddressPoolResponseV1> applicationGatewayBackendAddressPools,
+            ImmutableArray<Outputs.ApplicationGatewayBackendAddressPoolInterfaceEndpointResponse> applicationGatewayBackendAddressPools,
 
             ImmutableArray<Outputs.ApplicationSecurityGroupResponse> applicationSecurityGroups,
 
@@ -87,9 +87,9 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string? id,
 
-            ImmutableArray<Outputs.BackendAddressPoolResponseV1> loadBalancerBackendAddressPools,
+            ImmutableArray<Outputs.BackendAddressPoolInterfaceEndpointResponse> loadBalancerBackendAddressPools,
 
-            ImmutableArray<Outputs.InboundNatRuleResponseV1> loadBalancerInboundNatRules,
+            ImmutableArray<Outputs.InboundNatRuleInterfaceEndpointResponse> loadBalancerInboundNatRules,
 
             string? name,
 
@@ -103,11 +103,11 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string? provisioningState,
 
-            Outputs.PublicIPAddressResponse? publicIPAddress,
+            Outputs.PublicIPAddressInterfaceEndpointResponse? publicIPAddress,
 
-            Outputs.SubnetResponse? subnet,
+            Outputs.SubnetInterfaceEndpointResponse? subnet,
 
-            ImmutableArray<Outputs.VirtualNetworkTapResponseV1> virtualNetworkTaps)
+            ImmutableArray<Outputs.VirtualNetworkTapInterfaceEndpointResponse> virtualNetworkTaps)
         {
             ApplicationGatewayBackendAddressPools = applicationGatewayBackendAddressPools;
             ApplicationSecurityGroups = applicationSecurityGroups;

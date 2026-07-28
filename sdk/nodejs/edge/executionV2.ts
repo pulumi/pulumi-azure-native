@@ -50,7 +50,7 @@ export class ExecutionV2 extends pulumi.CustomResource {
     /**
      * The complex type of the extended location.
      */
-    declare public readonly extendedLocation: pulumi.Output<outputs.edge.AzureResourceManagerCommonTypesExtendedLocationResponse | undefined>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.edge.ExtendedLocationResponse | undefined>;
     /**
      * The name of the resource
      */

@@ -73,7 +73,7 @@ export interface GetInterfaceEndpointResult {
     /**
      * Gets an array of references to the network interfaces created for this interface endpoint.
      */
-    readonly networkInterfaces: outputs.network.NetworkInterfaceResponse[];
+    readonly networkInterfaces: outputs.network.NetworkInterfaceInterfaceEndpointResponse[];
     /**
      * A read-only property that identifies who created this interface endpoint.
      */
@@ -85,7 +85,7 @@ export interface GetInterfaceEndpointResult {
     /**
      * The ID of the subnet from which the private IP will be allocated.
      */
-    readonly subnet?: outputs.network.SubnetResponse;
+    readonly subnet?: outputs.network.SubnetInterfaceEndpointResponse;
     /**
      * Resource tags.
      */

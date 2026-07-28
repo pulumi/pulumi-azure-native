@@ -18,14 +18,14 @@ from ._enums import *
 
 __all__ = [
     'InstancePropertiesResponse',
-    'LiftrBaseMarketplaceDetailsResponse',
-    'LiftrBaseOfferDetailsResponse',
-    'LiftrBaseSingleSignOnPropertiesV2Response',
-    'LiftrBaseUserDetailsResponse',
     'ManagedServiceIdentityResponse',
+    'MarketplaceDetailsResponse',
+    'OfferDetailsResponse',
     'PartnerPropertiesResponse',
+    'SingleSignOnPropertiesV2Response',
     'SystemDataResponse',
     'UserAssignedIdentityResponse',
+    'UserDetailsResponse',
 ]
 
 @pulumi.output_type
@@ -55,19 +55,19 @@ class InstancePropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 marketplace: 'outputs.LiftrBaseMarketplaceDetailsResponse',
+                 marketplace: 'outputs.MarketplaceDetailsResponse',
                  provisioning_state: _builtins.str,
-                 user: 'outputs.LiftrBaseUserDetailsResponse',
+                 user: 'outputs.UserDetailsResponse',
                  partner_properties: Optional['outputs.PartnerPropertiesResponse'] = None,
-                 single_sign_on_properties: Optional['outputs.LiftrBaseSingleSignOnPropertiesV2Response'] = None):
+                 single_sign_on_properties: Optional['outputs.SingleSignOnPropertiesV2Response'] = None):
         """
         Properties specific to Instance
 
-        :param 'LiftrBaseMarketplaceDetailsResponse' marketplace: Marketplace details of the resource.
+        :param 'MarketplaceDetailsResponse' marketplace: Marketplace details of the resource.
         :param _builtins.str provisioning_state: Provisioning state of the resource.
-        :param 'LiftrBaseUserDetailsResponse' user: Details of the user.
+        :param 'UserDetailsResponse' user: Details of the user.
         :param 'PartnerPropertiesResponse' partner_properties: partner properties
-        :param 'LiftrBaseSingleSignOnPropertiesV2Response' single_sign_on_properties: Single sign-on properties
+        :param 'SingleSignOnPropertiesV2Response' single_sign_on_properties: Single sign-on properties
         """
         pulumi.set(__self__, "marketplace", marketplace)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -79,7 +79,7 @@ class InstancePropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def marketplace(self) -> 'outputs.LiftrBaseMarketplaceDetailsResponse':
+    def marketplace(self) -> 'outputs.MarketplaceDetailsResponse':
         """
         Marketplace details of the resource.
         """
@@ -95,7 +95,7 @@ class InstancePropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def user(self) -> 'outputs.LiftrBaseUserDetailsResponse':
+    def user(self) -> 'outputs.UserDetailsResponse':
         """
         Details of the user.
         """
@@ -111,371 +111,11 @@ class InstancePropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="singleSignOnProperties")
-    def single_sign_on_properties(self) -> Optional['outputs.LiftrBaseSingleSignOnPropertiesV2Response']:
+    def single_sign_on_properties(self) -> Optional['outputs.SingleSignOnPropertiesV2Response']:
         """
         Single sign-on properties
         """
         return pulumi.get(self, "single_sign_on_properties")
-
-
-@pulumi.output_type
-class LiftrBaseMarketplaceDetailsResponse(dict):
-    """
-    Marketplace details for an organization
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "offerDetails":
-            suggest = "offer_details"
-        elif key == "subscriptionStatus":
-            suggest = "subscription_status"
-        elif key == "subscriptionId":
-            suggest = "subscription_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LiftrBaseMarketplaceDetailsResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LiftrBaseMarketplaceDetailsResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LiftrBaseMarketplaceDetailsResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 offer_details: 'outputs.LiftrBaseOfferDetailsResponse',
-                 subscription_status: _builtins.str,
-                 subscription_id: Optional[_builtins.str] = None):
-        """
-        Marketplace details for an organization
-
-        :param 'LiftrBaseOfferDetailsResponse' offer_details: Offer details for the marketplace that is selected by the user
-        :param _builtins.str subscription_status: Marketplace subscription status
-        :param _builtins.str subscription_id: Azure subscription id for the the marketplace offer is purchased from
-        """
-        pulumi.set(__self__, "offer_details", offer_details)
-        pulumi.set(__self__, "subscription_status", subscription_status)
-        if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
-
-    @_builtins.property
-    @pulumi.getter(name="offerDetails")
-    def offer_details(self) -> 'outputs.LiftrBaseOfferDetailsResponse':
-        """
-        Offer details for the marketplace that is selected by the user
-        """
-        return pulumi.get(self, "offer_details")
-
-    @_builtins.property
-    @pulumi.getter(name="subscriptionStatus")
-    def subscription_status(self) -> _builtins.str:
-        """
-        Marketplace subscription status
-        """
-        return pulumi.get(self, "subscription_status")
-
-    @_builtins.property
-    @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> Optional[_builtins.str]:
-        """
-        Azure subscription id for the the marketplace offer is purchased from
-        """
-        return pulumi.get(self, "subscription_id")
-
-
-@pulumi.output_type
-class LiftrBaseOfferDetailsResponse(dict):
-    """
-    Offer details for the marketplace that is selected by the user
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "offerId":
-            suggest = "offer_id"
-        elif key == "planId":
-            suggest = "plan_id"
-        elif key == "publisherId":
-            suggest = "publisher_id"
-        elif key == "planName":
-            suggest = "plan_name"
-        elif key == "termId":
-            suggest = "term_id"
-        elif key == "termUnit":
-            suggest = "term_unit"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LiftrBaseOfferDetailsResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LiftrBaseOfferDetailsResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LiftrBaseOfferDetailsResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 offer_id: _builtins.str,
-                 plan_id: _builtins.str,
-                 publisher_id: _builtins.str,
-                 plan_name: Optional[_builtins.str] = None,
-                 term_id: Optional[_builtins.str] = None,
-                 term_unit: Optional[_builtins.str] = None):
-        """
-        Offer details for the marketplace that is selected by the user
-
-        :param _builtins.str offer_id: Offer Id for the marketplace offer
-        :param _builtins.str plan_id: Plan Id for the marketplace offer
-        :param _builtins.str publisher_id: Publisher Id for the marketplace offer
-        :param _builtins.str plan_name: Plan Name for the marketplace offer
-        :param _builtins.str term_id: Plan Display Name for the marketplace offer
-        :param _builtins.str term_unit: Plan Display Name for the marketplace offer
-        """
-        pulumi.set(__self__, "offer_id", offer_id)
-        pulumi.set(__self__, "plan_id", plan_id)
-        pulumi.set(__self__, "publisher_id", publisher_id)
-        if plan_name is not None:
-            pulumi.set(__self__, "plan_name", plan_name)
-        if term_id is not None:
-            pulumi.set(__self__, "term_id", term_id)
-        if term_unit is not None:
-            pulumi.set(__self__, "term_unit", term_unit)
-
-    @_builtins.property
-    @pulumi.getter(name="offerId")
-    def offer_id(self) -> _builtins.str:
-        """
-        Offer Id for the marketplace offer
-        """
-        return pulumi.get(self, "offer_id")
-
-    @_builtins.property
-    @pulumi.getter(name="planId")
-    def plan_id(self) -> _builtins.str:
-        """
-        Plan Id for the marketplace offer
-        """
-        return pulumi.get(self, "plan_id")
-
-    @_builtins.property
-    @pulumi.getter(name="publisherId")
-    def publisher_id(self) -> _builtins.str:
-        """
-        Publisher Id for the marketplace offer
-        """
-        return pulumi.get(self, "publisher_id")
-
-    @_builtins.property
-    @pulumi.getter(name="planName")
-    def plan_name(self) -> Optional[_builtins.str]:
-        """
-        Plan Name for the marketplace offer
-        """
-        return pulumi.get(self, "plan_name")
-
-    @_builtins.property
-    @pulumi.getter(name="termId")
-    def term_id(self) -> Optional[_builtins.str]:
-        """
-        Plan Display Name for the marketplace offer
-        """
-        return pulumi.get(self, "term_id")
-
-    @_builtins.property
-    @pulumi.getter(name="termUnit")
-    def term_unit(self) -> Optional[_builtins.str]:
-        """
-        Plan Display Name for the marketplace offer
-        """
-        return pulumi.get(self, "term_unit")
-
-
-@pulumi.output_type
-class LiftrBaseSingleSignOnPropertiesV2Response(dict):
-    """
-    Properties specific to Single Sign On Resource
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "aadDomains":
-            suggest = "aad_domains"
-        elif key == "enterpriseAppId":
-            suggest = "enterprise_app_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LiftrBaseSingleSignOnPropertiesV2Response. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LiftrBaseSingleSignOnPropertiesV2Response.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LiftrBaseSingleSignOnPropertiesV2Response.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 type: _builtins.str,
-                 aad_domains: Optional[Sequence[_builtins.str]] = None,
-                 enterprise_app_id: Optional[_builtins.str] = None,
-                 state: Optional[_builtins.str] = None,
-                 url: Optional[_builtins.str] = None):
-        """
-        Properties specific to Single Sign On Resource
-
-        :param _builtins.str type: Type of Single Sign-On mechanism being used
-        :param Sequence[_builtins.str] aad_domains: List of AAD domains fetched from Microsoft Graph for user.
-        :param _builtins.str enterprise_app_id: AAD enterprise application Id used to setup SSO
-        :param _builtins.str state: State of the Single Sign On for the resource
-        :param _builtins.str url: URL for SSO to be used by the partner to redirect the user to their system
-        """
-        pulumi.set(__self__, "type", type)
-        if aad_domains is not None:
-            pulumi.set(__self__, "aad_domains", aad_domains)
-        if enterprise_app_id is not None:
-            pulumi.set(__self__, "enterprise_app_id", enterprise_app_id)
-        if state is not None:
-            pulumi.set(__self__, "state", state)
-        if url is not None:
-            pulumi.set(__self__, "url", url)
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> _builtins.str:
-        """
-        Type of Single Sign-On mechanism being used
-        """
-        return pulumi.get(self, "type")
-
-    @_builtins.property
-    @pulumi.getter(name="aadDomains")
-    def aad_domains(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of AAD domains fetched from Microsoft Graph for user.
-        """
-        return pulumi.get(self, "aad_domains")
-
-    @_builtins.property
-    @pulumi.getter(name="enterpriseAppId")
-    def enterprise_app_id(self) -> Optional[_builtins.str]:
-        """
-        AAD enterprise application Id used to setup SSO
-        """
-        return pulumi.get(self, "enterprise_app_id")
-
-    @_builtins.property
-    @pulumi.getter
-    def state(self) -> Optional[_builtins.str]:
-        """
-        State of the Single Sign On for the resource
-        """
-        return pulumi.get(self, "state")
-
-    @_builtins.property
-    @pulumi.getter
-    def url(self) -> Optional[_builtins.str]:
-        """
-        URL for SSO to be used by the partner to redirect the user to their system
-        """
-        return pulumi.get(self, "url")
-
-
-@pulumi.output_type
-class LiftrBaseUserDetailsResponse(dict):
-    """
-    User details for an organization
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "emailAddress":
-            suggest = "email_address"
-        elif key == "firstName":
-            suggest = "first_name"
-        elif key == "lastName":
-            suggest = "last_name"
-        elif key == "phoneNumber":
-            suggest = "phone_number"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LiftrBaseUserDetailsResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LiftrBaseUserDetailsResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LiftrBaseUserDetailsResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 email_address: Optional[_builtins.str] = None,
-                 first_name: Optional[_builtins.str] = None,
-                 last_name: Optional[_builtins.str] = None,
-                 phone_number: Optional[_builtins.str] = None,
-                 upn: Optional[_builtins.str] = None):
-        """
-        User details for an organization
-
-        :param _builtins.str email_address: Email address of the user
-        :param _builtins.str first_name: First name of the user
-        :param _builtins.str last_name: Last name of the user
-        :param _builtins.str phone_number: User's phone number
-        :param _builtins.str upn: User's principal name
-        """
-        if email_address is not None:
-            pulumi.set(__self__, "email_address", email_address)
-        if first_name is not None:
-            pulumi.set(__self__, "first_name", first_name)
-        if last_name is not None:
-            pulumi.set(__self__, "last_name", last_name)
-        if phone_number is not None:
-            pulumi.set(__self__, "phone_number", phone_number)
-        if upn is not None:
-            pulumi.set(__self__, "upn", upn)
-
-    @_builtins.property
-    @pulumi.getter(name="emailAddress")
-    def email_address(self) -> Optional[_builtins.str]:
-        """
-        Email address of the user
-        """
-        return pulumi.get(self, "email_address")
-
-    @_builtins.property
-    @pulumi.getter(name="firstName")
-    def first_name(self) -> Optional[_builtins.str]:
-        """
-        First name of the user
-        """
-        return pulumi.get(self, "first_name")
-
-    @_builtins.property
-    @pulumi.getter(name="lastName")
-    def last_name(self) -> Optional[_builtins.str]:
-        """
-        Last name of the user
-        """
-        return pulumi.get(self, "last_name")
-
-    @_builtins.property
-    @pulumi.getter(name="phoneNumber")
-    def phone_number(self) -> Optional[_builtins.str]:
-        """
-        User's phone number
-        """
-        return pulumi.get(self, "phone_number")
-
-    @_builtins.property
-    @pulumi.getter
-    def upn(self) -> Optional[_builtins.str]:
-        """
-        User's principal name
-        """
-        return pulumi.get(self, "upn")
 
 
 @pulumi.output_type
@@ -557,6 +197,181 @@ class ManagedServiceIdentityResponse(dict):
 
 
 @pulumi.output_type
+class MarketplaceDetailsResponse(dict):
+    """
+    Marketplace details for an organization
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "offerDetails":
+            suggest = "offer_details"
+        elif key == "subscriptionStatus":
+            suggest = "subscription_status"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MarketplaceDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MarketplaceDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MarketplaceDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 offer_details: 'outputs.OfferDetailsResponse',
+                 subscription_status: _builtins.str,
+                 subscription_id: Optional[_builtins.str] = None):
+        """
+        Marketplace details for an organization
+
+        :param 'OfferDetailsResponse' offer_details: Offer details for the marketplace that is selected by the user
+        :param _builtins.str subscription_status: Marketplace subscription status
+        :param _builtins.str subscription_id: Azure subscription id for the the marketplace offer is purchased from
+        """
+        pulumi.set(__self__, "offer_details", offer_details)
+        pulumi.set(__self__, "subscription_status", subscription_status)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @_builtins.property
+    @pulumi.getter(name="offerDetails")
+    def offer_details(self) -> 'outputs.OfferDetailsResponse':
+        """
+        Offer details for the marketplace that is selected by the user
+        """
+        return pulumi.get(self, "offer_details")
+
+    @_builtins.property
+    @pulumi.getter(name="subscriptionStatus")
+    def subscription_status(self) -> _builtins.str:
+        """
+        Marketplace subscription status
+        """
+        return pulumi.get(self, "subscription_status")
+
+    @_builtins.property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[_builtins.str]:
+        """
+        Azure subscription id for the the marketplace offer is purchased from
+        """
+        return pulumi.get(self, "subscription_id")
+
+
+@pulumi.output_type
+class OfferDetailsResponse(dict):
+    """
+    Offer details for the marketplace that is selected by the user
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "offerId":
+            suggest = "offer_id"
+        elif key == "planId":
+            suggest = "plan_id"
+        elif key == "publisherId":
+            suggest = "publisher_id"
+        elif key == "planName":
+            suggest = "plan_name"
+        elif key == "termId":
+            suggest = "term_id"
+        elif key == "termUnit":
+            suggest = "term_unit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OfferDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OfferDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OfferDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 offer_id: _builtins.str,
+                 plan_id: _builtins.str,
+                 publisher_id: _builtins.str,
+                 plan_name: Optional[_builtins.str] = None,
+                 term_id: Optional[_builtins.str] = None,
+                 term_unit: Optional[_builtins.str] = None):
+        """
+        Offer details for the marketplace that is selected by the user
+
+        :param _builtins.str offer_id: Offer Id for the marketplace offer
+        :param _builtins.str plan_id: Plan Id for the marketplace offer
+        :param _builtins.str publisher_id: Publisher Id for the marketplace offer
+        :param _builtins.str plan_name: Plan Name for the marketplace offer
+        :param _builtins.str term_id: Plan Display Name for the marketplace offer
+        :param _builtins.str term_unit: Plan Display Name for the marketplace offer
+        """
+        pulumi.set(__self__, "offer_id", offer_id)
+        pulumi.set(__self__, "plan_id", plan_id)
+        pulumi.set(__self__, "publisher_id", publisher_id)
+        if plan_name is not None:
+            pulumi.set(__self__, "plan_name", plan_name)
+        if term_id is not None:
+            pulumi.set(__self__, "term_id", term_id)
+        if term_unit is not None:
+            pulumi.set(__self__, "term_unit", term_unit)
+
+    @_builtins.property
+    @pulumi.getter(name="offerId")
+    def offer_id(self) -> _builtins.str:
+        """
+        Offer Id for the marketplace offer
+        """
+        return pulumi.get(self, "offer_id")
+
+    @_builtins.property
+    @pulumi.getter(name="planId")
+    def plan_id(self) -> _builtins.str:
+        """
+        Plan Id for the marketplace offer
+        """
+        return pulumi.get(self, "plan_id")
+
+    @_builtins.property
+    @pulumi.getter(name="publisherId")
+    def publisher_id(self) -> _builtins.str:
+        """
+        Publisher Id for the marketplace offer
+        """
+        return pulumi.get(self, "publisher_id")
+
+    @_builtins.property
+    @pulumi.getter(name="planName")
+    def plan_name(self) -> Optional[_builtins.str]:
+        """
+        Plan Name for the marketplace offer
+        """
+        return pulumi.get(self, "plan_name")
+
+    @_builtins.property
+    @pulumi.getter(name="termId")
+    def term_id(self) -> Optional[_builtins.str]:
+        """
+        Plan Display Name for the marketplace offer
+        """
+        return pulumi.get(self, "term_id")
+
+    @_builtins.property
+    @pulumi.getter(name="termUnit")
+    def term_unit(self) -> Optional[_builtins.str]:
+        """
+        Plan Display Name for the marketplace offer
+        """
+        return pulumi.get(self, "term_unit")
+
+
+@pulumi.output_type
 class PartnerPropertiesResponse(dict):
     """
     Partner's specific Properties
@@ -588,6 +403,96 @@ class PartnerPropertiesResponse(dict):
         The subdomain of the instance
         """
         return pulumi.get(self, "subdomain")
+
+
+@pulumi.output_type
+class SingleSignOnPropertiesV2Response(dict):
+    """
+    Properties specific to Single Sign On Resource
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aadDomains":
+            suggest = "aad_domains"
+        elif key == "enterpriseAppId":
+            suggest = "enterprise_app_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SingleSignOnPropertiesV2Response. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SingleSignOnPropertiesV2Response.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SingleSignOnPropertiesV2Response.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: _builtins.str,
+                 aad_domains: Optional[Sequence[_builtins.str]] = None,
+                 enterprise_app_id: Optional[_builtins.str] = None,
+                 state: Optional[_builtins.str] = None,
+                 url: Optional[_builtins.str] = None):
+        """
+        Properties specific to Single Sign On Resource
+
+        :param _builtins.str type: Type of Single Sign-On mechanism being used
+        :param Sequence[_builtins.str] aad_domains: List of AAD domains fetched from Microsoft Graph for user.
+        :param _builtins.str enterprise_app_id: AAD enterprise application Id used to setup SSO
+        :param _builtins.str state: State of the Single Sign On for the resource
+        :param _builtins.str url: URL for SSO to be used by the partner to redirect the user to their system
+        """
+        pulumi.set(__self__, "type", type)
+        if aad_domains is not None:
+            pulumi.set(__self__, "aad_domains", aad_domains)
+        if enterprise_app_id is not None:
+            pulumi.set(__self__, "enterprise_app_id", enterprise_app_id)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Type of Single Sign-On mechanism being used
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="aadDomains")
+    def aad_domains(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of AAD domains fetched from Microsoft Graph for user.
+        """
+        return pulumi.get(self, "aad_domains")
+
+    @_builtins.property
+    @pulumi.getter(name="enterpriseAppId")
+    def enterprise_app_id(self) -> Optional[_builtins.str]:
+        """
+        AAD enterprise application Id used to setup SSO
+        """
+        return pulumi.get(self, "enterprise_app_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> Optional[_builtins.str]:
+        """
+        State of the Single Sign On for the resource
+        """
+        return pulumi.get(self, "state")
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> Optional[_builtins.str]:
+        """
+        URL for SSO to be used by the partner to redirect the user to their system
+        """
+        return pulumi.get(self, "url")
 
 
 @pulumi.output_type
@@ -752,5 +657,100 @@ class UserAssignedIdentityResponse(dict):
         The principal ID of the assigned identity.
         """
         return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
+class UserDetailsResponse(dict):
+    """
+    User details for an organization
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "emailAddress":
+            suggest = "email_address"
+        elif key == "firstName":
+            suggest = "first_name"
+        elif key == "lastName":
+            suggest = "last_name"
+        elif key == "phoneNumber":
+            suggest = "phone_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 email_address: Optional[_builtins.str] = None,
+                 first_name: Optional[_builtins.str] = None,
+                 last_name: Optional[_builtins.str] = None,
+                 phone_number: Optional[_builtins.str] = None,
+                 upn: Optional[_builtins.str] = None):
+        """
+        User details for an organization
+
+        :param _builtins.str email_address: Email address of the user
+        :param _builtins.str first_name: First name of the user
+        :param _builtins.str last_name: Last name of the user
+        :param _builtins.str phone_number: User's phone number
+        :param _builtins.str upn: User's principal name
+        """
+        if email_address is not None:
+            pulumi.set(__self__, "email_address", email_address)
+        if first_name is not None:
+            pulumi.set(__self__, "first_name", first_name)
+        if last_name is not None:
+            pulumi.set(__self__, "last_name", last_name)
+        if phone_number is not None:
+            pulumi.set(__self__, "phone_number", phone_number)
+        if upn is not None:
+            pulumi.set(__self__, "upn", upn)
+
+    @_builtins.property
+    @pulumi.getter(name="emailAddress")
+    def email_address(self) -> Optional[_builtins.str]:
+        """
+        Email address of the user
+        """
+        return pulumi.get(self, "email_address")
+
+    @_builtins.property
+    @pulumi.getter(name="firstName")
+    def first_name(self) -> Optional[_builtins.str]:
+        """
+        First name of the user
+        """
+        return pulumi.get(self, "first_name")
+
+    @_builtins.property
+    @pulumi.getter(name="lastName")
+    def last_name(self) -> Optional[_builtins.str]:
+        """
+        Last name of the user
+        """
+        return pulumi.get(self, "last_name")
+
+    @_builtins.property
+    @pulumi.getter(name="phoneNumber")
+    def phone_number(self) -> Optional[_builtins.str]:
+        """
+        User's phone number
+        """
+        return pulumi.get(self, "phone_number")
+
+    @_builtins.property
+    @pulumi.getter
+    def upn(self) -> Optional[_builtins.str]:
+        """
+        User's principal name
+        """
+        return pulumi.get(self, "upn")
 
 

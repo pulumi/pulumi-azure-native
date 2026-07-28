@@ -92,7 +92,7 @@ export class ServiceGateway extends pulumi.CustomResource {
     /**
      * Reference to an existing virtual network.
      */
-    declare public readonly virtualNetwork: pulumi.Output<outputs.network.CommonVirtualNetworkResponse | undefined>;
+    declare public readonly virtualNetwork: pulumi.Output<outputs.network.VirtualNetworkResponse | undefined>;
     /**
      * A list of availability zones denoting the zone in which service gateway should be deployed.
      *

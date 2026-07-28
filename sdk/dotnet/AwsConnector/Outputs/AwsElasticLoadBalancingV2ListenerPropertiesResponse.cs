@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
         /// <summary>
         /// The default SSL server certificate for a secure listener. You must provide exactly one certificate if the listener protocol is HTTPS or TLS. To create a certificate list for a secure listener, use [AWS::ElasticLoadBalancingV2::ListenerCertificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html).
         /// </summary>
-        public readonly ImmutableArray<Outputs.CertificateResponseV1> Certificates;
+        public readonly ImmutableArray<Outputs.CertificateElasticLoadBalancingV2ListenerResponse> Certificates;
         /// <summary>
         /// The actions for the default rule. You cannot define a condition for a default rule. To create additional rules for an Application Load Balancer, use [AWS::ElasticLoadBalancingV2::ListenerRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html).
         /// </summary>
@@ -57,7 +57,7 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
         private AwsElasticLoadBalancingV2ListenerPropertiesResponse(
             ImmutableArray<string> alpnPolicy,
 
-            ImmutableArray<Outputs.CertificateResponseV1> certificates,
+            ImmutableArray<Outputs.CertificateElasticLoadBalancingV2ListenerResponse> certificates,
 
             ImmutableArray<Outputs.ActionResponse> defaultActions,
 

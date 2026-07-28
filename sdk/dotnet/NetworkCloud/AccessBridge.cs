@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// The extended location of the resource. This property is required when creating the resource.
         /// </summary>
         [Output("extendedLocation")]
-        public Output<Outputs.AzureResourceManagerCommonTypesExtendedLocationResponse> ExtendedLocation { get; private set; } = null!;
+        public Output<Outputs.ExtendedLocationResponse> ExtendedLocation { get; private set; } = null!;
 
         /// <summary>
         /// The IPv4 subnet from which the access bridge allocates an address. This subnet must be part of the internal network specified by networkId.

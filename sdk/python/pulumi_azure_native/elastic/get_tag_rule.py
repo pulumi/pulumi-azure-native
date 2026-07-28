@@ -73,7 +73,7 @@ class GetTagRuleResult:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> 'outputs.MonitoringTagRulesPropertiesResponse':
+    def properties(self) -> 'outputs.MonitoringTagRulesPropertiesTagRuleResponse':
         """
         Properties of the monitoring tag rules.
         """

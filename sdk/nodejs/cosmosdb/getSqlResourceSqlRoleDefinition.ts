@@ -61,7 +61,7 @@ export interface GetSqlResourceSqlRoleDefinitionResult {
     /**
      * The set of operations allowed through this Role Definition.
      */
-    readonly permissions?: outputs.cosmosdb.PermissionResponse[];
+    readonly permissions?: outputs.cosmosdb.PermissionSqlResourceSqlRoleDefinitionResponse[];
     /**
      * A user-friendly name for the Role Definition. Must be unique for the database account.
      */

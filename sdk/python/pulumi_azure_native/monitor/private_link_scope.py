@@ -261,7 +261,7 @@ class PrivateLinkScope(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponseV1']]:
+    def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionPrivateLinkScopeResponse']]:
         """
         List of private endpoint connections.
         """

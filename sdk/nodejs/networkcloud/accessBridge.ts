@@ -64,7 +64,7 @@ export class AccessBridge extends pulumi.CustomResource {
     /**
      * The extended location of the resource. This property is required when creating the resource.
      */
-    declare public readonly extendedLocation: pulumi.Output<outputs.networkcloud.AzureResourceManagerCommonTypesExtendedLocationResponse>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.networkcloud.ExtendedLocationResponse>;
     /**
      * The IPv4 subnet from which the access bridge allocates an address. This subnet must be part of the internal network specified by networkId.
      */

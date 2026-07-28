@@ -68,7 +68,7 @@ export class InterfaceEndpoint extends pulumi.CustomResource {
     /**
      * Gets an array of references to the network interfaces created for this interface endpoint.
      */
-    declare public /*out*/ readonly networkInterfaces: pulumi.Output<outputs.network.NetworkInterfaceResponseV1[]>;
+    declare public /*out*/ readonly networkInterfaces: pulumi.Output<outputs.network.NetworkInterfaceInterfaceEndpointResponse[]>;
     /**
      * A read-only property that identifies who created this interface endpoint.
      */
@@ -80,7 +80,7 @@ export class InterfaceEndpoint extends pulumi.CustomResource {
     /**
      * The ID of the subnet from which the private IP will be allocated.
      */
-    declare public readonly subnet: pulumi.Output<outputs.network.SubnetResponse | undefined>;
+    declare public readonly subnet: pulumi.Output<outputs.network.SubnetInterfaceEndpointResponse | undefined>;
     /**
      * Resource tags.
      */

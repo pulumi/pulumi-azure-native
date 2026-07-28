@@ -50,7 +50,7 @@ export class AzureKeyVaultSecretProviderClass extends pulumi.CustomResource {
     /**
      * The complex type of the extended location.
      */
-    declare public readonly extendedLocation: pulumi.Output<outputs.secretsynccontroller.AzureResourceManagerCommonTypesExtendedLocationResponse | undefined>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.secretsynccontroller.ExtendedLocationResponse | undefined>;
     /**
      * The name of the Azure Key Vault to sync secrets from.
      */

@@ -17,8 +17,8 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AdapterPropertyOverridesHciEdgeDeviceResponse',
     'AdapterPropertyOverridesResponse',
-    'AdapterPropertyOverridesResponseV1',
     'ArcConnectivityPropertiesResponse',
     'BackendAddressPoolPropertiesResponse',
     'BackendAddressPoolResponse',
@@ -51,13 +51,13 @@ __all__ = [
     'EdgeMachineRemoteSupportNodeSettingsResponse',
     'EdgeMachineReportedPropertiesResponse',
     'ErrorAdditionalInfoResponse',
+    'ErrorDetailHciEdgeDeviceResponse',
     'ErrorDetailResponse',
-    'ErrorDetailResponseV1',
     'ExtendedLocationResponse',
     'ExtensionInstanceViewResponse',
     'ExtensionInstanceViewResponseStatus',
+    'ExtensionProfileEdgeMachineResponse',
     'ExtensionProfileResponse',
-    'ExtensionProfileResponseV1',
     'ExtensionResponse',
     'FrontendIPConfigurationPropertiesResponse',
     'FrontendIPConfigurationResponse',
@@ -83,8 +83,8 @@ __all__ = [
     'HciRemoteSupportJobPropertiesResponse',
     'HciReportedPropertiesResponse',
     'HciValidationFailureDetailResponse',
+    'HostNetworkHciEdgeDeviceResponse',
     'HostNetworkResponse',
-    'HostNetworkResponseV1',
     'HttpProxyConfigurationResponse',
     'IPConfigurationArmReferenceResponse',
     'IPConfigurationPropertiesResponse',
@@ -100,8 +100,8 @@ __all__ = [
     'InboundRuleStatusResponse',
     'InfrastructureNetworkResponse',
     'InstanceViewStatusResponse',
+    'IntentsHciEdgeDeviceResponse',
     'IntentsResponse',
-    'IntentsResponseV1',
     'InterfaceDNSSettingsResponse',
     'IpAddressRangeResponse',
     'IpPoolsResponse',
@@ -190,13 +190,13 @@ __all__ = [
     'SshConfigurationResponse',
     'SshPublicKeyResponse',
     'StepResponse',
+    'StorageAdapterIPInfoHciEdgeDeviceResponse',
     'StorageAdapterIPInfoResponse',
-    'StorageAdapterIPInfoResponseV1',
     'StorageConfigurationResponse',
     'StorageContainerStatusProvisioningStatusResponse',
     'StorageContainerStatusResponse',
+    'StorageNetworksHciEdgeDeviceResponse',
     'StorageNetworksResponse',
-    'StorageNetworksResponseV1',
     'StorageProfileResponse',
     'StorageResponse',
     'SubnetIpConfigurationReferenceResponse',
@@ -241,10 +241,8 @@ __all__ = [
     'VirtualMachinePropertiesResponseOsDisk',
     'VirtualMachinePropertiesResponseOsProfile',
     'VirtualMachinePropertiesResponsePublicKeys',
-    'VirtualMachinePropertiesResponsePublicKeysPublicKeys',
     'VirtualMachinePropertiesResponseSecurityProfile',
     'VirtualMachinePropertiesResponseSsh',
-    'VirtualMachinePropertiesResponseSshSsh',
     'VirtualMachinePropertiesResponseStorageProfile',
     'VirtualMachinePropertiesResponseUefiSettings',
     'VirtualMachinePropertiesResponseWindowsConfiguration',
@@ -263,10 +261,76 @@ __all__ = [
     'VirtualNetworkSubnetPropertiesResponse',
     'VirtualNetworkSubnetStatusProvisioningStatusResponse',
     'VirtualNetworkSubnetStatusResponse',
+    'VirtualSwitchConfigurationOverridesHciEdgeDeviceResponse',
     'VirtualSwitchConfigurationOverridesResponse',
-    'VirtualSwitchConfigurationOverridesResponseV1',
     'WebProxyConfigurationResponse',
 ]
+
+@pulumi.output_type
+class AdapterPropertyOverridesHciEdgeDeviceResponse(dict):
+    """
+    The AdapterPropertyOverrides of a cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jumboPacket":
+            suggest = "jumbo_packet"
+        elif key == "networkDirect":
+            suggest = "network_direct"
+        elif key == "networkDirectTechnology":
+            suggest = "network_direct_technology"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AdapterPropertyOverridesHciEdgeDeviceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AdapterPropertyOverridesHciEdgeDeviceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AdapterPropertyOverridesHciEdgeDeviceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 jumbo_packet: _builtins.str,
+                 network_direct: _builtins.str,
+                 network_direct_technology: _builtins.str):
+        """
+        The AdapterPropertyOverrides of a cluster.
+
+        :param _builtins.str jumbo_packet: This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+        :param _builtins.str network_direct: This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+        :param _builtins.str network_direct_technology: This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation. Expected values are 'iWARP', 'RoCEv2', 'RoCE'
+        """
+        pulumi.set(__self__, "jumbo_packet", jumbo_packet)
+        pulumi.set(__self__, "network_direct", network_direct)
+        pulumi.set(__self__, "network_direct_technology", network_direct_technology)
+
+    @_builtins.property
+    @pulumi.getter(name="jumboPacket")
+    def jumbo_packet(self) -> _builtins.str:
+        """
+        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+        """
+        return pulumi.get(self, "jumbo_packet")
+
+    @_builtins.property
+    @pulumi.getter(name="networkDirect")
+    def network_direct(self) -> _builtins.str:
+        """
+        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+        """
+        return pulumi.get(self, "network_direct")
+
+    @_builtins.property
+    @pulumi.getter(name="networkDirectTechnology")
+    def network_direct_technology(self) -> _builtins.str:
+        """
+        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation. Expected values are 'iWARP', 'RoCEv2', 'RoCE'
+        """
+        return pulumi.get(self, "network_direct_technology")
+
 
 @pulumi.output_type
 class AdapterPropertyOverridesResponse(dict):
@@ -331,72 +395,6 @@ class AdapterPropertyOverridesResponse(dict):
     @_builtins.property
     @pulumi.getter(name="networkDirectTechnology")
     def network_direct_technology(self) -> Optional[_builtins.str]:
-        """
-        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation. Expected values are 'iWARP', 'RoCEv2', 'RoCE'
-        """
-        return pulumi.get(self, "network_direct_technology")
-
-
-@pulumi.output_type
-class AdapterPropertyOverridesResponseV1(dict):
-    """
-    The AdapterPropertyOverrides of a cluster.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "jumboPacket":
-            suggest = "jumbo_packet"
-        elif key == "networkDirect":
-            suggest = "network_direct"
-        elif key == "networkDirectTechnology":
-            suggest = "network_direct_technology"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AdapterPropertyOverridesResponseV1. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AdapterPropertyOverridesResponseV1.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AdapterPropertyOverridesResponseV1.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 jumbo_packet: _builtins.str,
-                 network_direct: _builtins.str,
-                 network_direct_technology: _builtins.str):
-        """
-        The AdapterPropertyOverrides of a cluster.
-
-        :param _builtins.str jumbo_packet: This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
-        :param _builtins.str network_direct: This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
-        :param _builtins.str network_direct_technology: This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation. Expected values are 'iWARP', 'RoCEv2', 'RoCE'
-        """
-        pulumi.set(__self__, "jumbo_packet", jumbo_packet)
-        pulumi.set(__self__, "network_direct", network_direct)
-        pulumi.set(__self__, "network_direct_technology", network_direct_technology)
-
-    @_builtins.property
-    @pulumi.getter(name="jumboPacket")
-    def jumbo_packet(self) -> _builtins.str:
-        """
-        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
-        """
-        return pulumi.get(self, "jumbo_packet")
-
-    @_builtins.property
-    @pulumi.getter(name="networkDirect")
-    def network_direct(self) -> _builtins.str:
-        """
-        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
-        """
-        return pulumi.get(self, "network_direct")
-
-    @_builtins.property
-    @pulumi.getter(name="networkDirectTechnology")
-    def network_direct_technology(self) -> _builtins.str:
         """
         This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation. Expected values are 'iWARP', 'RoCEv2', 'RoCE'
         """
@@ -3688,7 +3686,7 @@ class EdgeMachineReportedPropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 extension_profile: 'outputs.ExtensionProfileResponseV1',
+                 extension_profile: 'outputs.ExtensionProfileEdgeMachineResponse',
                  hardware_profile: 'outputs.HardwareProfileResponse',
                  last_updated: _builtins.str,
                  network_profile: 'outputs.EdgeMachineNetworkProfileResponse',
@@ -3698,7 +3696,7 @@ class EdgeMachineReportedPropertiesResponse(dict):
         """
         Reported properties for edge machine.
 
-        :param 'ExtensionProfileResponseV1' extension_profile: Extension details for edge machine.
+        :param 'ExtensionProfileEdgeMachineResponse' extension_profile: Extension details for edge machine.
         :param 'HardwareProfileResponse' hardware_profile: Hardware related information for edge machine.
         :param _builtins.str last_updated: Last time data reported.
         :param 'EdgeMachineNetworkProfileResponse' network_profile: Network details for edge machine.
@@ -3716,7 +3714,7 @@ class EdgeMachineReportedPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="extensionProfile")
-    def extension_profile(self) -> 'outputs.ExtensionProfileResponseV1':
+    def extension_profile(self) -> 'outputs.ExtensionProfileEdgeMachineResponse':
         """
         Extension details for edge machine.
         """
@@ -3806,6 +3804,29 @@ class ErrorAdditionalInfoResponse(dict):
 
 
 @pulumi.output_type
+class ErrorDetailHciEdgeDeviceResponse(dict):
+    """
+    details of validation failure
+    """
+    def __init__(__self__, *,
+                 exception: _builtins.str):
+        """
+        details of validation failure
+
+        :param _builtins.str exception: Exception details while installing extension.
+        """
+        pulumi.set(__self__, "exception", exception)
+
+    @_builtins.property
+    @pulumi.getter
+    def exception(self) -> _builtins.str:
+        """
+        Exception details while installing extension.
+        """
+        return pulumi.get(self, "exception")
+
+
+@pulumi.output_type
 class ErrorDetailResponse(dict):
     """
     The error detail.
@@ -3887,29 +3908,6 @@ class ErrorDetailResponse(dict):
         The error target.
         """
         return pulumi.get(self, "target")
-
-
-@pulumi.output_type
-class ErrorDetailResponseV1(dict):
-    """
-    details of validation failure
-    """
-    def __init__(__self__, *,
-                 exception: _builtins.str):
-        """
-        details of validation failure
-
-        :param _builtins.str exception: Exception details while installing extension.
-        """
-        pulumi.set(__self__, "exception", exception)
-
-    @_builtins.property
-    @pulumi.getter
-    def exception(self) -> _builtins.str:
-        """
-        Exception details while installing extension.
-        """
-        return pulumi.get(self, "exception")
 
 
 @pulumi.output_type
@@ -4115,6 +4113,29 @@ class ExtensionInstanceViewResponseStatus(dict):
 
 
 @pulumi.output_type
+class ExtensionProfileEdgeMachineResponse(dict):
+    """
+    Extensions details for edge device.
+    """
+    def __init__(__self__, *,
+                 extensions: Sequence['outputs.HciEdgeDeviceArcExtensionResponse']):
+        """
+        Extensions details for edge device.
+
+        :param Sequence['HciEdgeDeviceArcExtensionResponse'] extensions: List of Arc extensions installed on edge device.
+        """
+        pulumi.set(__self__, "extensions", extensions)
+
+    @_builtins.property
+    @pulumi.getter
+    def extensions(self) -> Sequence['outputs.HciEdgeDeviceArcExtensionResponse']:
+        """
+        List of Arc extensions installed on edge device.
+        """
+        return pulumi.get(self, "extensions")
+
+
+@pulumi.output_type
 class ExtensionProfileResponse(dict):
     """
     Extensions details for edge device.
@@ -4131,29 +4152,6 @@ class ExtensionProfileResponse(dict):
     @_builtins.property
     @pulumi.getter
     def extensions(self) -> Sequence['outputs.ExtensionResponse']:
-        """
-        List of Arc extensions installed on edge device.
-        """
-        return pulumi.get(self, "extensions")
-
-
-@pulumi.output_type
-class ExtensionProfileResponseV1(dict):
-    """
-    Extensions details for edge device.
-    """
-    def __init__(__self__, *,
-                 extensions: Sequence['outputs.HciEdgeDeviceArcExtensionResponse']):
-        """
-        Extensions details for edge device.
-
-        :param Sequence['HciEdgeDeviceArcExtensionResponse'] extensions: List of Arc extensions installed on edge device.
-        """
-        pulumi.set(__self__, "extensions", extensions)
-
-    @_builtins.property
-    @pulumi.getter
-    def extensions(self) -> Sequence['outputs.HciEdgeDeviceArcExtensionResponse']:
         """
         List of Arc extensions installed on edge device.
         """
@@ -4191,7 +4189,7 @@ class ExtensionResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 error_details: Sequence['outputs.ErrorDetailResponseV1'],
+                 error_details: Sequence['outputs.ErrorDetailHciEdgeDeviceResponse'],
                  extension_name: _builtins.str,
                  extension_resource_id: _builtins.str,
                  managed_by: Optional[_builtins.str] = None,
@@ -4200,7 +4198,7 @@ class ExtensionResponse(dict):
         """
         Arc extension installed on edge device.
 
-        :param Sequence['ErrorDetailResponseV1'] error_details: Error details while installing Arc extension.
+        :param Sequence['ErrorDetailHciEdgeDeviceResponse'] error_details: Error details while installing Arc extension.
         :param _builtins.str extension_name: Arc extension name installed on edge device.
         :param _builtins.str extension_resource_id: Arc Extension Azure resource id.
         :param _builtins.str managed_by: Extension managed by user or Azure.
@@ -4218,7 +4216,7 @@ class ExtensionResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="errorDetails")
-    def error_details(self) -> Sequence['outputs.ErrorDetailResponseV1']:
+    def error_details(self) -> Sequence['outputs.ErrorDetailHciEdgeDeviceResponse']:
         """
         Error details while installing Arc extension.
         """
@@ -5742,13 +5740,13 @@ class HciNetworkProfileResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 host_network: 'outputs.HostNetworkResponseV1',
+                 host_network: 'outputs.HostNetworkHciEdgeDeviceResponse',
                  nic_details: Sequence['outputs.HciNicDetailResponse'],
                  switch_details: Sequence['outputs.SwitchDetailResponse']):
         """
         The network profile of a device.
 
-        :param 'HostNetworkResponseV1' host_network: HostNetwork config to deploy AzureStackHCI Cluster.
+        :param 'HostNetworkHciEdgeDeviceResponse' host_network: HostNetwork config to deploy AzureStackHCI Cluster.
         :param Sequence['HciNicDetailResponse'] nic_details: List of NIC Details of device.
         :param Sequence['SwitchDetailResponse'] switch_details: List of switch details for edge device.
         """
@@ -5758,7 +5756,7 @@ class HciNetworkProfileResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="hostNetwork")
-    def host_network(self) -> 'outputs.HostNetworkResponseV1':
+    def host_network(self) -> 'outputs.HostNetworkHciEdgeDeviceResponse':
         """
         HostNetwork config to deploy AzureStackHCI Cluster.
         """
@@ -6339,6 +6337,83 @@ class HciValidationFailureDetailResponse(dict):
 
 
 @pulumi.output_type
+class HostNetworkHciEdgeDeviceResponse(dict):
+    """
+    The HostNetwork of a cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableStorageAutoIp":
+            suggest = "enable_storage_auto_ip"
+        elif key == "storageConnectivitySwitchless":
+            suggest = "storage_connectivity_switchless"
+        elif key == "storageNetworks":
+            suggest = "storage_networks"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HostNetworkHciEdgeDeviceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HostNetworkHciEdgeDeviceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HostNetworkHciEdgeDeviceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_storage_auto_ip: _builtins.bool,
+                 intents: Sequence['outputs.IntentsHciEdgeDeviceResponse'],
+                 storage_connectivity_switchless: _builtins.bool,
+                 storage_networks: Sequence['outputs.StorageNetworksHciEdgeDeviceResponse']):
+        """
+        The HostNetwork of a cluster.
+
+        :param _builtins.bool enable_storage_auto_ip: Optional parameter required only for 3 Nodes Switchless deployments. This allows users to specify IPs and Mask for Storage NICs when Network ATC is not assigning the IPs for storage automatically.
+        :param Sequence['IntentsHciEdgeDeviceResponse'] intents: The network intents assigned to the network reference pattern used for the deployment. Each intent will define its own name, traffic type, adapter names, and overrides as recommended by your OEM.
+        :param _builtins.bool storage_connectivity_switchless: Defines how the storage adapters between nodes are connected either switch or switch less.
+        :param Sequence['StorageNetworksHciEdgeDeviceResponse'] storage_networks: List of StorageNetworks config to deploy AzureStackHCI Cluster.
+        """
+        pulumi.set(__self__, "enable_storage_auto_ip", enable_storage_auto_ip)
+        pulumi.set(__self__, "intents", intents)
+        pulumi.set(__self__, "storage_connectivity_switchless", storage_connectivity_switchless)
+        pulumi.set(__self__, "storage_networks", storage_networks)
+
+    @_builtins.property
+    @pulumi.getter(name="enableStorageAutoIp")
+    def enable_storage_auto_ip(self) -> _builtins.bool:
+        """
+        Optional parameter required only for 3 Nodes Switchless deployments. This allows users to specify IPs and Mask for Storage NICs when Network ATC is not assigning the IPs for storage automatically.
+        """
+        return pulumi.get(self, "enable_storage_auto_ip")
+
+    @_builtins.property
+    @pulumi.getter
+    def intents(self) -> Sequence['outputs.IntentsHciEdgeDeviceResponse']:
+        """
+        The network intents assigned to the network reference pattern used for the deployment. Each intent will define its own name, traffic type, adapter names, and overrides as recommended by your OEM.
+        """
+        return pulumi.get(self, "intents")
+
+    @_builtins.property
+    @pulumi.getter(name="storageConnectivitySwitchless")
+    def storage_connectivity_switchless(self) -> _builtins.bool:
+        """
+        Defines how the storage adapters between nodes are connected either switch or switch less.
+        """
+        return pulumi.get(self, "storage_connectivity_switchless")
+
+    @_builtins.property
+    @pulumi.getter(name="storageNetworks")
+    def storage_networks(self) -> Sequence['outputs.StorageNetworksHciEdgeDeviceResponse']:
+        """
+        List of StorageNetworks config to deploy AzureStackHCI Cluster.
+        """
+        return pulumi.get(self, "storage_networks")
+
+
+@pulumi.output_type
 class HostNetworkResponse(dict):
     """
     The HostNetwork of a cluster.
@@ -6417,83 +6492,6 @@ class HostNetworkResponse(dict):
     @_builtins.property
     @pulumi.getter(name="storageNetworks")
     def storage_networks(self) -> Optional[Sequence['outputs.StorageNetworksResponse']]:
-        """
-        List of StorageNetworks config to deploy AzureStackHCI Cluster.
-        """
-        return pulumi.get(self, "storage_networks")
-
-
-@pulumi.output_type
-class HostNetworkResponseV1(dict):
-    """
-    The HostNetwork of a cluster.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "enableStorageAutoIp":
-            suggest = "enable_storage_auto_ip"
-        elif key == "storageConnectivitySwitchless":
-            suggest = "storage_connectivity_switchless"
-        elif key == "storageNetworks":
-            suggest = "storage_networks"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in HostNetworkResponseV1. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        HostNetworkResponseV1.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        HostNetworkResponseV1.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 enable_storage_auto_ip: _builtins.bool,
-                 intents: Sequence['outputs.IntentsResponseV1'],
-                 storage_connectivity_switchless: _builtins.bool,
-                 storage_networks: Sequence['outputs.StorageNetworksResponseV1']):
-        """
-        The HostNetwork of a cluster.
-
-        :param _builtins.bool enable_storage_auto_ip: Optional parameter required only for 3 Nodes Switchless deployments. This allows users to specify IPs and Mask for Storage NICs when Network ATC is not assigning the IPs for storage automatically.
-        :param Sequence['IntentsResponseV1'] intents: The network intents assigned to the network reference pattern used for the deployment. Each intent will define its own name, traffic type, adapter names, and overrides as recommended by your OEM.
-        :param _builtins.bool storage_connectivity_switchless: Defines how the storage adapters between nodes are connected either switch or switch less.
-        :param Sequence['StorageNetworksResponseV1'] storage_networks: List of StorageNetworks config to deploy AzureStackHCI Cluster.
-        """
-        pulumi.set(__self__, "enable_storage_auto_ip", enable_storage_auto_ip)
-        pulumi.set(__self__, "intents", intents)
-        pulumi.set(__self__, "storage_connectivity_switchless", storage_connectivity_switchless)
-        pulumi.set(__self__, "storage_networks", storage_networks)
-
-    @_builtins.property
-    @pulumi.getter(name="enableStorageAutoIp")
-    def enable_storage_auto_ip(self) -> _builtins.bool:
-        """
-        Optional parameter required only for 3 Nodes Switchless deployments. This allows users to specify IPs and Mask for Storage NICs when Network ATC is not assigning the IPs for storage automatically.
-        """
-        return pulumi.get(self, "enable_storage_auto_ip")
-
-    @_builtins.property
-    @pulumi.getter
-    def intents(self) -> Sequence['outputs.IntentsResponseV1']:
-        """
-        The network intents assigned to the network reference pattern used for the deployment. Each intent will define its own name, traffic type, adapter names, and overrides as recommended by your OEM.
-        """
-        return pulumi.get(self, "intents")
-
-    @_builtins.property
-    @pulumi.getter(name="storageConnectivitySwitchless")
-    def storage_connectivity_switchless(self) -> _builtins.bool:
-        """
-        Defines how the storage adapters between nodes are connected either switch or switch less.
-        """
-        return pulumi.get(self, "storage_connectivity_switchless")
-
-    @_builtins.property
-    @pulumi.getter(name="storageNetworks")
-    def storage_networks(self) -> Sequence['outputs.StorageNetworksResponseV1']:
         """
         List of StorageNetworks config to deploy AzureStackHCI Cluster.
         """
@@ -7493,6 +7491,252 @@ class InstanceViewStatusResponse(dict):
 
 
 @pulumi.output_type
+class IntentsHciEdgeDeviceResponse(dict):
+    """
+    The Intents of a cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adapterPropertyOverrides":
+            suggest = "adapter_property_overrides"
+        elif key == "intentAdapters":
+            suggest = "intent_adapters"
+        elif key == "intentName":
+            suggest = "intent_name"
+        elif key == "intentType":
+            suggest = "intent_type"
+        elif key == "isComputeIntentSet":
+            suggest = "is_compute_intent_set"
+        elif key == "isManagementIntentSet":
+            suggest = "is_management_intent_set"
+        elif key == "isNetworkIntentType":
+            suggest = "is_network_intent_type"
+        elif key == "isOnlyStorage":
+            suggest = "is_only_storage"
+        elif key == "isOnlyStretch":
+            suggest = "is_only_stretch"
+        elif key == "isStorageIntentSet":
+            suggest = "is_storage_intent_set"
+        elif key == "isStretchIntentSet":
+            suggest = "is_stretch_intent_set"
+        elif key == "overrideAdapterProperty":
+            suggest = "override_adapter_property"
+        elif key == "overrideQosPolicy":
+            suggest = "override_qos_policy"
+        elif key == "overrideVirtualSwitchConfiguration":
+            suggest = "override_virtual_switch_configuration"
+        elif key == "qosPolicyOverrides":
+            suggest = "qos_policy_overrides"
+        elif key == "virtualSwitchConfigurationOverrides":
+            suggest = "virtual_switch_configuration_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntentsHciEdgeDeviceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntentsHciEdgeDeviceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntentsHciEdgeDeviceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 adapter_property_overrides: 'outputs.AdapterPropertyOverridesHciEdgeDeviceResponse',
+                 intent_adapters: Sequence[_builtins.str],
+                 intent_name: _builtins.str,
+                 intent_type: _builtins.float,
+                 is_compute_intent_set: _builtins.bool,
+                 is_management_intent_set: _builtins.bool,
+                 is_network_intent_type: _builtins.bool,
+                 is_only_storage: _builtins.bool,
+                 is_only_stretch: _builtins.bool,
+                 is_storage_intent_set: _builtins.bool,
+                 is_stretch_intent_set: _builtins.bool,
+                 override_adapter_property: _builtins.bool,
+                 override_qos_policy: _builtins.bool,
+                 override_virtual_switch_configuration: _builtins.bool,
+                 qos_policy_overrides: 'outputs.QosPolicyOverridesResponse',
+                 scope: _builtins.float,
+                 virtual_switch_configuration_overrides: 'outputs.VirtualSwitchConfigurationOverridesHciEdgeDeviceResponse'):
+        """
+        The Intents of a cluster.
+
+        :param 'AdapterPropertyOverridesHciEdgeDeviceResponse' adapter_property_overrides: Set Adapter PropertyOverrides for cluster.
+        :param Sequence[_builtins.str] intent_adapters: Array of adapters used for the network intent.
+        :param _builtins.str intent_name: Name of the network intent you wish to create.
+        :param _builtins.float intent_type: IntentType for host network intent.
+        :param _builtins.bool is_compute_intent_set: IsComputeIntentSet for host network intent.
+        :param _builtins.bool is_management_intent_set: IsManagementIntentSet for host network intent.
+        :param _builtins.bool is_network_intent_type: IsNetworkIntentType for host network intent.
+        :param _builtins.bool is_only_storage: IntentType for host network intent.
+        :param _builtins.bool is_only_stretch: IsOnlyStretch for host network intent.
+        :param _builtins.bool is_storage_intent_set: IsStorageIntentSet for host network intent.
+        :param _builtins.bool is_stretch_intent_set: IsStretchIntentSet for host network intent.
+        :param _builtins.bool override_adapter_property: This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+        :param _builtins.bool override_qos_policy: This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+        :param _builtins.bool override_virtual_switch_configuration: This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+        :param 'QosPolicyOverridesResponse' qos_policy_overrides: Set QoS PolicyOverrides for cluster.
+        :param _builtins.float scope: Scope for host network intent.
+        :param 'VirtualSwitchConfigurationOverridesHciEdgeDeviceResponse' virtual_switch_configuration_overrides: Set virtualSwitch ConfigurationOverrides for cluster.
+        """
+        pulumi.set(__self__, "adapter_property_overrides", adapter_property_overrides)
+        pulumi.set(__self__, "intent_adapters", intent_adapters)
+        pulumi.set(__self__, "intent_name", intent_name)
+        pulumi.set(__self__, "intent_type", intent_type)
+        pulumi.set(__self__, "is_compute_intent_set", is_compute_intent_set)
+        pulumi.set(__self__, "is_management_intent_set", is_management_intent_set)
+        pulumi.set(__self__, "is_network_intent_type", is_network_intent_type)
+        pulumi.set(__self__, "is_only_storage", is_only_storage)
+        pulumi.set(__self__, "is_only_stretch", is_only_stretch)
+        pulumi.set(__self__, "is_storage_intent_set", is_storage_intent_set)
+        pulumi.set(__self__, "is_stretch_intent_set", is_stretch_intent_set)
+        pulumi.set(__self__, "override_adapter_property", override_adapter_property)
+        pulumi.set(__self__, "override_qos_policy", override_qos_policy)
+        pulumi.set(__self__, "override_virtual_switch_configuration", override_virtual_switch_configuration)
+        pulumi.set(__self__, "qos_policy_overrides", qos_policy_overrides)
+        pulumi.set(__self__, "scope", scope)
+        pulumi.set(__self__, "virtual_switch_configuration_overrides", virtual_switch_configuration_overrides)
+
+    @_builtins.property
+    @pulumi.getter(name="adapterPropertyOverrides")
+    def adapter_property_overrides(self) -> 'outputs.AdapterPropertyOverridesHciEdgeDeviceResponse':
+        """
+        Set Adapter PropertyOverrides for cluster.
+        """
+        return pulumi.get(self, "adapter_property_overrides")
+
+    @_builtins.property
+    @pulumi.getter(name="intentAdapters")
+    def intent_adapters(self) -> Sequence[_builtins.str]:
+        """
+        Array of adapters used for the network intent.
+        """
+        return pulumi.get(self, "intent_adapters")
+
+    @_builtins.property
+    @pulumi.getter(name="intentName")
+    def intent_name(self) -> _builtins.str:
+        """
+        Name of the network intent you wish to create.
+        """
+        return pulumi.get(self, "intent_name")
+
+    @_builtins.property
+    @pulumi.getter(name="intentType")
+    def intent_type(self) -> _builtins.float:
+        """
+        IntentType for host network intent.
+        """
+        return pulumi.get(self, "intent_type")
+
+    @_builtins.property
+    @pulumi.getter(name="isComputeIntentSet")
+    def is_compute_intent_set(self) -> _builtins.bool:
+        """
+        IsComputeIntentSet for host network intent.
+        """
+        return pulumi.get(self, "is_compute_intent_set")
+
+    @_builtins.property
+    @pulumi.getter(name="isManagementIntentSet")
+    def is_management_intent_set(self) -> _builtins.bool:
+        """
+        IsManagementIntentSet for host network intent.
+        """
+        return pulumi.get(self, "is_management_intent_set")
+
+    @_builtins.property
+    @pulumi.getter(name="isNetworkIntentType")
+    def is_network_intent_type(self) -> _builtins.bool:
+        """
+        IsNetworkIntentType for host network intent.
+        """
+        return pulumi.get(self, "is_network_intent_type")
+
+    @_builtins.property
+    @pulumi.getter(name="isOnlyStorage")
+    def is_only_storage(self) -> _builtins.bool:
+        """
+        IntentType for host network intent.
+        """
+        return pulumi.get(self, "is_only_storage")
+
+    @_builtins.property
+    @pulumi.getter(name="isOnlyStretch")
+    def is_only_stretch(self) -> _builtins.bool:
+        """
+        IsOnlyStretch for host network intent.
+        """
+        return pulumi.get(self, "is_only_stretch")
+
+    @_builtins.property
+    @pulumi.getter(name="isStorageIntentSet")
+    def is_storage_intent_set(self) -> _builtins.bool:
+        """
+        IsStorageIntentSet for host network intent.
+        """
+        return pulumi.get(self, "is_storage_intent_set")
+
+    @_builtins.property
+    @pulumi.getter(name="isStretchIntentSet")
+    def is_stretch_intent_set(self) -> _builtins.bool:
+        """
+        IsStretchIntentSet for host network intent.
+        """
+        return pulumi.get(self, "is_stretch_intent_set")
+
+    @_builtins.property
+    @pulumi.getter(name="overrideAdapterProperty")
+    def override_adapter_property(self) -> _builtins.bool:
+        """
+        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+        """
+        return pulumi.get(self, "override_adapter_property")
+
+    @_builtins.property
+    @pulumi.getter(name="overrideQosPolicy")
+    def override_qos_policy(self) -> _builtins.bool:
+        """
+        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+        """
+        return pulumi.get(self, "override_qos_policy")
+
+    @_builtins.property
+    @pulumi.getter(name="overrideVirtualSwitchConfiguration")
+    def override_virtual_switch_configuration(self) -> _builtins.bool:
+        """
+        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+        """
+        return pulumi.get(self, "override_virtual_switch_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="qosPolicyOverrides")
+    def qos_policy_overrides(self) -> 'outputs.QosPolicyOverridesResponse':
+        """
+        Set QoS PolicyOverrides for cluster.
+        """
+        return pulumi.get(self, "qos_policy_overrides")
+
+    @_builtins.property
+    @pulumi.getter
+    def scope(self) -> _builtins.float:
+        """
+        Scope for host network intent.
+        """
+        return pulumi.get(self, "scope")
+
+    @_builtins.property
+    @pulumi.getter(name="virtualSwitchConfigurationOverrides")
+    def virtual_switch_configuration_overrides(self) -> 'outputs.VirtualSwitchConfigurationOverridesHciEdgeDeviceResponse':
+        """
+        Set virtualSwitch ConfigurationOverrides for cluster.
+        """
+        return pulumi.get(self, "virtual_switch_configuration_overrides")
+
+
+@pulumi.output_type
 class IntentsResponse(dict):
     """
     The Intents of a cluster.
@@ -7641,252 +7885,6 @@ class IntentsResponse(dict):
     @_builtins.property
     @pulumi.getter(name="virtualSwitchConfigurationOverrides")
     def virtual_switch_configuration_overrides(self) -> Optional['outputs.VirtualSwitchConfigurationOverridesResponse']:
-        """
-        Set virtualSwitch ConfigurationOverrides for cluster.
-        """
-        return pulumi.get(self, "virtual_switch_configuration_overrides")
-
-
-@pulumi.output_type
-class IntentsResponseV1(dict):
-    """
-    The Intents of a cluster.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "adapterPropertyOverrides":
-            suggest = "adapter_property_overrides"
-        elif key == "intentAdapters":
-            suggest = "intent_adapters"
-        elif key == "intentName":
-            suggest = "intent_name"
-        elif key == "intentType":
-            suggest = "intent_type"
-        elif key == "isComputeIntentSet":
-            suggest = "is_compute_intent_set"
-        elif key == "isManagementIntentSet":
-            suggest = "is_management_intent_set"
-        elif key == "isNetworkIntentType":
-            suggest = "is_network_intent_type"
-        elif key == "isOnlyStorage":
-            suggest = "is_only_storage"
-        elif key == "isOnlyStretch":
-            suggest = "is_only_stretch"
-        elif key == "isStorageIntentSet":
-            suggest = "is_storage_intent_set"
-        elif key == "isStretchIntentSet":
-            suggest = "is_stretch_intent_set"
-        elif key == "overrideAdapterProperty":
-            suggest = "override_adapter_property"
-        elif key == "overrideQosPolicy":
-            suggest = "override_qos_policy"
-        elif key == "overrideVirtualSwitchConfiguration":
-            suggest = "override_virtual_switch_configuration"
-        elif key == "qosPolicyOverrides":
-            suggest = "qos_policy_overrides"
-        elif key == "virtualSwitchConfigurationOverrides":
-            suggest = "virtual_switch_configuration_overrides"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in IntentsResponseV1. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        IntentsResponseV1.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        IntentsResponseV1.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 adapter_property_overrides: 'outputs.AdapterPropertyOverridesResponseV1',
-                 intent_adapters: Sequence[_builtins.str],
-                 intent_name: _builtins.str,
-                 intent_type: _builtins.float,
-                 is_compute_intent_set: _builtins.bool,
-                 is_management_intent_set: _builtins.bool,
-                 is_network_intent_type: _builtins.bool,
-                 is_only_storage: _builtins.bool,
-                 is_only_stretch: _builtins.bool,
-                 is_storage_intent_set: _builtins.bool,
-                 is_stretch_intent_set: _builtins.bool,
-                 override_adapter_property: _builtins.bool,
-                 override_qos_policy: _builtins.bool,
-                 override_virtual_switch_configuration: _builtins.bool,
-                 qos_policy_overrides: 'outputs.QosPolicyOverridesResponse',
-                 scope: _builtins.float,
-                 virtual_switch_configuration_overrides: 'outputs.VirtualSwitchConfigurationOverridesResponseV1'):
-        """
-        The Intents of a cluster.
-
-        :param 'AdapterPropertyOverridesResponseV1' adapter_property_overrides: Set Adapter PropertyOverrides for cluster.
-        :param Sequence[_builtins.str] intent_adapters: Array of adapters used for the network intent.
-        :param _builtins.str intent_name: Name of the network intent you wish to create.
-        :param _builtins.float intent_type: IntentType for host network intent.
-        :param _builtins.bool is_compute_intent_set: IsComputeIntentSet for host network intent.
-        :param _builtins.bool is_management_intent_set: IsManagementIntentSet for host network intent.
-        :param _builtins.bool is_network_intent_type: IsNetworkIntentType for host network intent.
-        :param _builtins.bool is_only_storage: IntentType for host network intent.
-        :param _builtins.bool is_only_stretch: IsOnlyStretch for host network intent.
-        :param _builtins.bool is_storage_intent_set: IsStorageIntentSet for host network intent.
-        :param _builtins.bool is_stretch_intent_set: IsStretchIntentSet for host network intent.
-        :param _builtins.bool override_adapter_property: This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
-        :param _builtins.bool override_qos_policy: This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
-        :param _builtins.bool override_virtual_switch_configuration: This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
-        :param 'QosPolicyOverridesResponse' qos_policy_overrides: Set QoS PolicyOverrides for cluster.
-        :param _builtins.float scope: Scope for host network intent.
-        :param 'VirtualSwitchConfigurationOverridesResponseV1' virtual_switch_configuration_overrides: Set virtualSwitch ConfigurationOverrides for cluster.
-        """
-        pulumi.set(__self__, "adapter_property_overrides", adapter_property_overrides)
-        pulumi.set(__self__, "intent_adapters", intent_adapters)
-        pulumi.set(__self__, "intent_name", intent_name)
-        pulumi.set(__self__, "intent_type", intent_type)
-        pulumi.set(__self__, "is_compute_intent_set", is_compute_intent_set)
-        pulumi.set(__self__, "is_management_intent_set", is_management_intent_set)
-        pulumi.set(__self__, "is_network_intent_type", is_network_intent_type)
-        pulumi.set(__self__, "is_only_storage", is_only_storage)
-        pulumi.set(__self__, "is_only_stretch", is_only_stretch)
-        pulumi.set(__self__, "is_storage_intent_set", is_storage_intent_set)
-        pulumi.set(__self__, "is_stretch_intent_set", is_stretch_intent_set)
-        pulumi.set(__self__, "override_adapter_property", override_adapter_property)
-        pulumi.set(__self__, "override_qos_policy", override_qos_policy)
-        pulumi.set(__self__, "override_virtual_switch_configuration", override_virtual_switch_configuration)
-        pulumi.set(__self__, "qos_policy_overrides", qos_policy_overrides)
-        pulumi.set(__self__, "scope", scope)
-        pulumi.set(__self__, "virtual_switch_configuration_overrides", virtual_switch_configuration_overrides)
-
-    @_builtins.property
-    @pulumi.getter(name="adapterPropertyOverrides")
-    def adapter_property_overrides(self) -> 'outputs.AdapterPropertyOverridesResponseV1':
-        """
-        Set Adapter PropertyOverrides for cluster.
-        """
-        return pulumi.get(self, "adapter_property_overrides")
-
-    @_builtins.property
-    @pulumi.getter(name="intentAdapters")
-    def intent_adapters(self) -> Sequence[_builtins.str]:
-        """
-        Array of adapters used for the network intent.
-        """
-        return pulumi.get(self, "intent_adapters")
-
-    @_builtins.property
-    @pulumi.getter(name="intentName")
-    def intent_name(self) -> _builtins.str:
-        """
-        Name of the network intent you wish to create.
-        """
-        return pulumi.get(self, "intent_name")
-
-    @_builtins.property
-    @pulumi.getter(name="intentType")
-    def intent_type(self) -> _builtins.float:
-        """
-        IntentType for host network intent.
-        """
-        return pulumi.get(self, "intent_type")
-
-    @_builtins.property
-    @pulumi.getter(name="isComputeIntentSet")
-    def is_compute_intent_set(self) -> _builtins.bool:
-        """
-        IsComputeIntentSet for host network intent.
-        """
-        return pulumi.get(self, "is_compute_intent_set")
-
-    @_builtins.property
-    @pulumi.getter(name="isManagementIntentSet")
-    def is_management_intent_set(self) -> _builtins.bool:
-        """
-        IsManagementIntentSet for host network intent.
-        """
-        return pulumi.get(self, "is_management_intent_set")
-
-    @_builtins.property
-    @pulumi.getter(name="isNetworkIntentType")
-    def is_network_intent_type(self) -> _builtins.bool:
-        """
-        IsNetworkIntentType for host network intent.
-        """
-        return pulumi.get(self, "is_network_intent_type")
-
-    @_builtins.property
-    @pulumi.getter(name="isOnlyStorage")
-    def is_only_storage(self) -> _builtins.bool:
-        """
-        IntentType for host network intent.
-        """
-        return pulumi.get(self, "is_only_storage")
-
-    @_builtins.property
-    @pulumi.getter(name="isOnlyStretch")
-    def is_only_stretch(self) -> _builtins.bool:
-        """
-        IsOnlyStretch for host network intent.
-        """
-        return pulumi.get(self, "is_only_stretch")
-
-    @_builtins.property
-    @pulumi.getter(name="isStorageIntentSet")
-    def is_storage_intent_set(self) -> _builtins.bool:
-        """
-        IsStorageIntentSet for host network intent.
-        """
-        return pulumi.get(self, "is_storage_intent_set")
-
-    @_builtins.property
-    @pulumi.getter(name="isStretchIntentSet")
-    def is_stretch_intent_set(self) -> _builtins.bool:
-        """
-        IsStretchIntentSet for host network intent.
-        """
-        return pulumi.get(self, "is_stretch_intent_set")
-
-    @_builtins.property
-    @pulumi.getter(name="overrideAdapterProperty")
-    def override_adapter_property(self) -> _builtins.bool:
-        """
-        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
-        """
-        return pulumi.get(self, "override_adapter_property")
-
-    @_builtins.property
-    @pulumi.getter(name="overrideQosPolicy")
-    def override_qos_policy(self) -> _builtins.bool:
-        """
-        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
-        """
-        return pulumi.get(self, "override_qos_policy")
-
-    @_builtins.property
-    @pulumi.getter(name="overrideVirtualSwitchConfiguration")
-    def override_virtual_switch_configuration(self) -> _builtins.bool:
-        """
-        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
-        """
-        return pulumi.get(self, "override_virtual_switch_configuration")
-
-    @_builtins.property
-    @pulumi.getter(name="qosPolicyOverrides")
-    def qos_policy_overrides(self) -> 'outputs.QosPolicyOverridesResponse':
-        """
-        Set QoS PolicyOverrides for cluster.
-        """
-        return pulumi.get(self, "qos_policy_overrides")
-
-    @_builtins.property
-    @pulumi.getter
-    def scope(self) -> _builtins.float:
-        """
-        Scope for host network intent.
-        """
-        return pulumi.get(self, "scope")
-
-    @_builtins.property
-    @pulumi.getter(name="virtualSwitchConfigurationOverrides")
-    def virtual_switch_configuration_overrides(self) -> 'outputs.VirtualSwitchConfigurationOverridesResponseV1':
         """
         Set virtualSwitch ConfigurationOverrides for cluster.
         """
@@ -14218,6 +14216,72 @@ class StepResponse(dict):
 
 
 @pulumi.output_type
+class StorageAdapterIPInfoHciEdgeDeviceResponse(dict):
+    """
+    The StorageAdapter physical nodes of a cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipv4Address":
+            suggest = "ipv4_address"
+        elif key == "physicalNode":
+            suggest = "physical_node"
+        elif key == "subnetMask":
+            suggest = "subnet_mask"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageAdapterIPInfoHciEdgeDeviceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageAdapterIPInfoHciEdgeDeviceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageAdapterIPInfoHciEdgeDeviceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ipv4_address: _builtins.str,
+                 physical_node: _builtins.str,
+                 subnet_mask: _builtins.str):
+        """
+        The StorageAdapter physical nodes of a cluster.
+
+        :param _builtins.str ipv4_address: The IPv4 address assigned to each storage adapter physical node on your Azure Stack HCI cluster.
+        :param _builtins.str physical_node: storage adapter physical node name.
+        :param _builtins.str subnet_mask: The SubnetMask address assigned to each storage adapter physical node on your Azure Stack HCI cluster.
+        """
+        pulumi.set(__self__, "ipv4_address", ipv4_address)
+        pulumi.set(__self__, "physical_node", physical_node)
+        pulumi.set(__self__, "subnet_mask", subnet_mask)
+
+    @_builtins.property
+    @pulumi.getter(name="ipv4Address")
+    def ipv4_address(self) -> _builtins.str:
+        """
+        The IPv4 address assigned to each storage adapter physical node on your Azure Stack HCI cluster.
+        """
+        return pulumi.get(self, "ipv4_address")
+
+    @_builtins.property
+    @pulumi.getter(name="physicalNode")
+    def physical_node(self) -> _builtins.str:
+        """
+        storage adapter physical node name.
+        """
+        return pulumi.get(self, "physical_node")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetMask")
+    def subnet_mask(self) -> _builtins.str:
+        """
+        The SubnetMask address assigned to each storage adapter physical node on your Azure Stack HCI cluster.
+        """
+        return pulumi.get(self, "subnet_mask")
+
+
+@pulumi.output_type
 class StorageAdapterIPInfoResponse(dict):
     """
     The StorageAdapter physical nodes of a cluster.
@@ -14280,72 +14344,6 @@ class StorageAdapterIPInfoResponse(dict):
     @_builtins.property
     @pulumi.getter(name="subnetMask")
     def subnet_mask(self) -> Optional[_builtins.str]:
-        """
-        The SubnetMask address assigned to each storage adapter physical node on your Azure Stack HCI cluster.
-        """
-        return pulumi.get(self, "subnet_mask")
-
-
-@pulumi.output_type
-class StorageAdapterIPInfoResponseV1(dict):
-    """
-    The StorageAdapter physical nodes of a cluster.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "ipv4Address":
-            suggest = "ipv4_address"
-        elif key == "physicalNode":
-            suggest = "physical_node"
-        elif key == "subnetMask":
-            suggest = "subnet_mask"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StorageAdapterIPInfoResponseV1. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        StorageAdapterIPInfoResponseV1.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        StorageAdapterIPInfoResponseV1.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 ipv4_address: _builtins.str,
-                 physical_node: _builtins.str,
-                 subnet_mask: _builtins.str):
-        """
-        The StorageAdapter physical nodes of a cluster.
-
-        :param _builtins.str ipv4_address: The IPv4 address assigned to each storage adapter physical node on your Azure Stack HCI cluster.
-        :param _builtins.str physical_node: storage adapter physical node name.
-        :param _builtins.str subnet_mask: The SubnetMask address assigned to each storage adapter physical node on your Azure Stack HCI cluster.
-        """
-        pulumi.set(__self__, "ipv4_address", ipv4_address)
-        pulumi.set(__self__, "physical_node", physical_node)
-        pulumi.set(__self__, "subnet_mask", subnet_mask)
-
-    @_builtins.property
-    @pulumi.getter(name="ipv4Address")
-    def ipv4_address(self) -> _builtins.str:
-        """
-        The IPv4 address assigned to each storage adapter physical node on your Azure Stack HCI cluster.
-        """
-        return pulumi.get(self, "ipv4_address")
-
-    @_builtins.property
-    @pulumi.getter(name="physicalNode")
-    def physical_node(self) -> _builtins.str:
-        """
-        storage adapter physical node name.
-        """
-        return pulumi.get(self, "physical_node")
-
-    @_builtins.property
-    @pulumi.getter(name="subnetMask")
-    def subnet_mask(self) -> _builtins.str:
         """
         The SubnetMask address assigned to each storage adapter physical node on your Azure Stack HCI cluster.
         """
@@ -14543,6 +14541,83 @@ class StorageContainerStatusResponse(dict):
 
 
 @pulumi.output_type
+class StorageNetworksHciEdgeDeviceResponse(dict):
+    """
+    The StorageNetworks of a cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkAdapterName":
+            suggest = "network_adapter_name"
+        elif key == "storageAdapterIPInfo":
+            suggest = "storage_adapter_ip_info"
+        elif key == "storageVlanId":
+            suggest = "storage_vlan_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageNetworksHciEdgeDeviceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageNetworksHciEdgeDeviceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageNetworksHciEdgeDeviceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 network_adapter_name: _builtins.str,
+                 storage_adapter_ip_info: Sequence['outputs.StorageAdapterIPInfoHciEdgeDeviceResponse'],
+                 storage_vlan_id: _builtins.str):
+        """
+        The StorageNetworks of a cluster.
+
+        :param _builtins.str name: Name of the storage network.
+        :param _builtins.str network_adapter_name: Name of the storage network adapter.
+        :param Sequence['StorageAdapterIPInfoHciEdgeDeviceResponse'] storage_adapter_ip_info: List of Storage adapter physical nodes config to deploy AzureStackHCI Cluster.
+        :param _builtins.str storage_vlan_id: ID specified for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic. 
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "network_adapter_name", network_adapter_name)
+        pulumi.set(__self__, "storage_adapter_ip_info", storage_adapter_ip_info)
+        pulumi.set(__self__, "storage_vlan_id", storage_vlan_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the storage network.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="networkAdapterName")
+    def network_adapter_name(self) -> _builtins.str:
+        """
+        Name of the storage network adapter.
+        """
+        return pulumi.get(self, "network_adapter_name")
+
+    @_builtins.property
+    @pulumi.getter(name="storageAdapterIPInfo")
+    def storage_adapter_ip_info(self) -> Sequence['outputs.StorageAdapterIPInfoHciEdgeDeviceResponse']:
+        """
+        List of Storage adapter physical nodes config to deploy AzureStackHCI Cluster.
+        """
+        return pulumi.get(self, "storage_adapter_ip_info")
+
+    @_builtins.property
+    @pulumi.getter(name="storageVlanId")
+    def storage_vlan_id(self) -> _builtins.str:
+        """
+        ID specified for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic. 
+        """
+        return pulumi.get(self, "storage_vlan_id")
+
+
+@pulumi.output_type
 class StorageNetworksResponse(dict):
     """
     The StorageNetworks of a cluster.
@@ -14621,83 +14696,6 @@ class StorageNetworksResponse(dict):
         ID specified for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic. 
         """
         return pulumi.get(self, "vlan_id")
-
-
-@pulumi.output_type
-class StorageNetworksResponseV1(dict):
-    """
-    The StorageNetworks of a cluster.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "networkAdapterName":
-            suggest = "network_adapter_name"
-        elif key == "storageAdapterIPInfo":
-            suggest = "storage_adapter_ip_info"
-        elif key == "storageVlanId":
-            suggest = "storage_vlan_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StorageNetworksResponseV1. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        StorageNetworksResponseV1.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        StorageNetworksResponseV1.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 name: _builtins.str,
-                 network_adapter_name: _builtins.str,
-                 storage_adapter_ip_info: Sequence['outputs.StorageAdapterIPInfoResponseV1'],
-                 storage_vlan_id: _builtins.str):
-        """
-        The StorageNetworks of a cluster.
-
-        :param _builtins.str name: Name of the storage network.
-        :param _builtins.str network_adapter_name: Name of the storage network adapter.
-        :param Sequence['StorageAdapterIPInfoResponseV1'] storage_adapter_ip_info: List of Storage adapter physical nodes config to deploy AzureStackHCI Cluster.
-        :param _builtins.str storage_vlan_id: ID specified for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic. 
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "network_adapter_name", network_adapter_name)
-        pulumi.set(__self__, "storage_adapter_ip_info", storage_adapter_ip_info)
-        pulumi.set(__self__, "storage_vlan_id", storage_vlan_id)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> _builtins.str:
-        """
-        Name of the storage network.
-        """
-        return pulumi.get(self, "name")
-
-    @_builtins.property
-    @pulumi.getter(name="networkAdapterName")
-    def network_adapter_name(self) -> _builtins.str:
-        """
-        Name of the storage network adapter.
-        """
-        return pulumi.get(self, "network_adapter_name")
-
-    @_builtins.property
-    @pulumi.getter(name="storageAdapterIPInfo")
-    def storage_adapter_ip_info(self) -> Sequence['outputs.StorageAdapterIPInfoResponseV1']:
-        """
-        List of Storage adapter physical nodes config to deploy AzureStackHCI Cluster.
-        """
-        return pulumi.get(self, "storage_adapter_ip_info")
-
-    @_builtins.property
-    @pulumi.getter(name="storageVlanId")
-    def storage_vlan_id(self) -> _builtins.str:
-        """
-        ID specified for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic. 
-        """
-        return pulumi.get(self, "storage_vlan_id")
 
 
 @pulumi.output_type
@@ -17479,54 +17477,6 @@ class VirtualMachinePropertiesResponsePublicKeys(dict):
 
 
 @pulumi.output_type
-class VirtualMachinePropertiesResponsePublicKeysPublicKeys(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "keyData":
-            suggest = "key_data"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualMachinePropertiesResponsePublicKeysPublicKeys. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VirtualMachinePropertiesResponsePublicKeysPublicKeys.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VirtualMachinePropertiesResponsePublicKeysPublicKeys.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 key_data: Optional[_builtins.str] = None,
-                 path: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str key_data: KeyData - SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Li      nux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-        :param _builtins.str path: Path - Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
-        """
-        if key_data is not None:
-            pulumi.set(__self__, "key_data", key_data)
-        if path is not None:
-            pulumi.set(__self__, "path", path)
-
-    @_builtins.property
-    @pulumi.getter(name="keyData")
-    def key_data(self) -> Optional[_builtins.str]:
-        """
-        KeyData - SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Li      nux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-        """
-        return pulumi.get(self, "key_data")
-
-    @_builtins.property
-    @pulumi.getter
-    def path(self) -> Optional[_builtins.str]:
-        """
-        Path - Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
-        """
-        return pulumi.get(self, "path")
-
-
-@pulumi.output_type
 class VirtualMachinePropertiesResponseSecurityProfile(dict):
     """
     SecurityProfile - Specifies the security settings for the virtual machine.
@@ -17609,47 +17559,6 @@ class VirtualMachinePropertiesResponseSsh(dict):
     @_builtins.property
     @pulumi.getter(name="publicKeys")
     def public_keys(self) -> Optional[Sequence['outputs.VirtualMachinePropertiesResponsePublicKeys']]:
-        """
-        PublicKeys - The list of SSH public keys used to authenticate with linux based VMs.
-        """
-        return pulumi.get(self, "public_keys")
-
-
-@pulumi.output_type
-class VirtualMachinePropertiesResponseSshSsh(dict):
-    """
-    SSH Configuration
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "publicKeys":
-            suggest = "public_keys"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualMachinePropertiesResponseSshSsh. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VirtualMachinePropertiesResponseSshSsh.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VirtualMachinePropertiesResponseSshSsh.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 public_keys: Optional[Sequence['outputs.VirtualMachinePropertiesResponsePublicKeysPublicKeys']] = None):
-        """
-        SSH Configuration
-
-        :param Sequence['VirtualMachinePropertiesResponsePublicKeysPublicKeys'] public_keys: PublicKeys - The list of SSH public keys used to authenticate with linux based VMs.
-        """
-        if public_keys is not None:
-            pulumi.set(__self__, "public_keys", public_keys)
-
-    @_builtins.property
-    @pulumi.getter(name="publicKeys")
-    def public_keys(self) -> Optional[Sequence['outputs.VirtualMachinePropertiesResponsePublicKeysPublicKeys']]:
         """
         PublicKeys - The list of SSH public keys used to authenticate with linux based VMs.
         """
@@ -17806,14 +17715,14 @@ class VirtualMachinePropertiesResponseWindowsConfiguration(dict):
     def __init__(__self__, *,
                  enable_automatic_updates: Optional[_builtins.bool] = None,
                  provision_vm_agent: Optional[_builtins.bool] = None,
-                 ssh: Optional['outputs.VirtualMachinePropertiesResponseSshSsh'] = None,
+                 ssh: Optional['outputs.VirtualMachinePropertiesResponseSsh'] = None,
                  time_zone: Optional[_builtins.str] = None):
         """
         Windows Configuration for the virtual machine 
 
         :param _builtins.bool enable_automatic_updates: Whether to EnableAutomaticUpdates on the machine
         :param _builtins.bool provision_vm_agent: Used to indicate whether Arc for Servers agent onboarding should be triggered during the virtual machine creation process.
-        :param 'VirtualMachinePropertiesResponseSshSsh' ssh: SSH Configuration
+        :param 'VirtualMachinePropertiesResponseSsh' ssh: SSH Configuration
         :param _builtins.str time_zone: TimeZone for the virtual machine
         """
         if enable_automatic_updates is not None:
@@ -17843,7 +17752,7 @@ class VirtualMachinePropertiesResponseWindowsConfiguration(dict):
 
     @_builtins.property
     @pulumi.getter
-    def ssh(self) -> Optional['outputs.VirtualMachinePropertiesResponseSshSsh']:
+    def ssh(self) -> Optional['outputs.VirtualMachinePropertiesResponseSsh']:
         """
         SSH Configuration
         """
@@ -18758,6 +18667,59 @@ class VirtualNetworkSubnetStatusResponse(dict):
 
 
 @pulumi.output_type
+class VirtualSwitchConfigurationOverridesHciEdgeDeviceResponse(dict):
+    """
+    The VirtualSwitchConfigurationOverrides of a cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableIov":
+            suggest = "enable_iov"
+        elif key == "loadBalancingAlgorithm":
+            suggest = "load_balancing_algorithm"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualSwitchConfigurationOverridesHciEdgeDeviceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualSwitchConfigurationOverridesHciEdgeDeviceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualSwitchConfigurationOverridesHciEdgeDeviceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_iov: _builtins.str,
+                 load_balancing_algorithm: _builtins.str):
+        """
+        The VirtualSwitchConfigurationOverrides of a cluster.
+
+        :param _builtins.str enable_iov: Enable IoV for Virtual Switch
+        :param _builtins.str load_balancing_algorithm: Load Balancing Algorithm for Virtual Switch
+        """
+        pulumi.set(__self__, "enable_iov", enable_iov)
+        pulumi.set(__self__, "load_balancing_algorithm", load_balancing_algorithm)
+
+    @_builtins.property
+    @pulumi.getter(name="enableIov")
+    def enable_iov(self) -> _builtins.str:
+        """
+        Enable IoV for Virtual Switch
+        """
+        return pulumi.get(self, "enable_iov")
+
+    @_builtins.property
+    @pulumi.getter(name="loadBalancingAlgorithm")
+    def load_balancing_algorithm(self) -> _builtins.str:
+        """
+        Load Balancing Algorithm for Virtual Switch
+        """
+        return pulumi.get(self, "load_balancing_algorithm")
+
+
+@pulumi.output_type
 class VirtualSwitchConfigurationOverridesResponse(dict):
     """
     The VirtualSwitchConfigurationOverrides of a cluster.
@@ -18806,59 +18768,6 @@ class VirtualSwitchConfigurationOverridesResponse(dict):
     @_builtins.property
     @pulumi.getter(name="loadBalancingAlgorithm")
     def load_balancing_algorithm(self) -> Optional[_builtins.str]:
-        """
-        Load Balancing Algorithm for Virtual Switch
-        """
-        return pulumi.get(self, "load_balancing_algorithm")
-
-
-@pulumi.output_type
-class VirtualSwitchConfigurationOverridesResponseV1(dict):
-    """
-    The VirtualSwitchConfigurationOverrides of a cluster.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "enableIov":
-            suggest = "enable_iov"
-        elif key == "loadBalancingAlgorithm":
-            suggest = "load_balancing_algorithm"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualSwitchConfigurationOverridesResponseV1. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VirtualSwitchConfigurationOverridesResponseV1.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VirtualSwitchConfigurationOverridesResponseV1.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 enable_iov: _builtins.str,
-                 load_balancing_algorithm: _builtins.str):
-        """
-        The VirtualSwitchConfigurationOverrides of a cluster.
-
-        :param _builtins.str enable_iov: Enable IoV for Virtual Switch
-        :param _builtins.str load_balancing_algorithm: Load Balancing Algorithm for Virtual Switch
-        """
-        pulumi.set(__self__, "enable_iov", enable_iov)
-        pulumi.set(__self__, "load_balancing_algorithm", load_balancing_algorithm)
-
-    @_builtins.property
-    @pulumi.getter(name="enableIov")
-    def enable_iov(self) -> _builtins.str:
-        """
-        Enable IoV for Virtual Switch
-        """
-        return pulumi.get(self, "enable_iov")
-
-    @_builtins.property
-    @pulumi.getter(name="loadBalancingAlgorithm")
-    def load_balancing_algorithm(self) -> _builtins.str:
         """
         Load Balancing Algorithm for Virtual Switch
         """

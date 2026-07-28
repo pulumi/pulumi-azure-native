@@ -102,7 +102,7 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// The resource-specific properties for this resource.
         /// </summary>
-        public readonly Outputs.SitePropertiesResponse Properties;
+        public readonly Outputs.SitePropertiesSitesByServiceGroupResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.Edge
 
             string name,
 
-            Outputs.SitePropertiesResponse properties,
+            Outputs.SitePropertiesSitesByServiceGroupResponse properties,
 
             Outputs.SystemDataResponse systemData,
 

@@ -50,8 +50,9 @@ __all__ = [
     'ElasticVolumePropertiesResponse',
     'ElasticVolumeSnapshotPropertiesResponse',
     'EncryptionIdentityResponse',
+    'ExportPolicyRuleCapacityPoolVolumeResponse',
     'ExportPolicyRuleResponse',
-    'ExportPolicyRuleResponseV1',
+    'ExportPolicyRuleVolumeGroupResponse',
     'FileSystemUserResponse',
     'HourlyScheduleResponse',
     'KeyVaultPrivateEndpointResponse',
@@ -79,6 +80,7 @@ __all__ = [
     'VolumeGroupVolumePropertiesResponse',
     'VolumePropertiesResponseDataProtection',
     'VolumePropertiesResponseExportPolicy',
+    'VolumePropertiesResponseExportPolicyV1',
     'VolumeRelocationPropertiesResponse',
     'VolumeSnapshotPropertiesResponse',
     'WeeklyScheduleResponse',
@@ -3134,6 +3136,253 @@ class EncryptionIdentityResponse(dict):
 
 
 @pulumi.output_type
+class ExportPolicyRuleCapacityPoolVolumeResponse(dict):
+    """
+    Volume Export Policy Rule
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedClients":
+            suggest = "allowed_clients"
+        elif key == "chownMode":
+            suggest = "chown_mode"
+        elif key == "hasRootAccess":
+            suggest = "has_root_access"
+        elif key == "kerberos5ReadOnly":
+            suggest = "kerberos5_read_only"
+        elif key == "kerberos5ReadWrite":
+            suggest = "kerberos5_read_write"
+        elif key == "kerberos5iReadOnly":
+            suggest = "kerberos5i_read_only"
+        elif key == "kerberos5iReadWrite":
+            suggest = "kerberos5i_read_write"
+        elif key == "kerberos5pReadOnly":
+            suggest = "kerberos5p_read_only"
+        elif key == "kerberos5pReadWrite":
+            suggest = "kerberos5p_read_write"
+        elif key == "ruleIndex":
+            suggest = "rule_index"
+        elif key == "unixReadOnly":
+            suggest = "unix_read_only"
+        elif key == "unixReadWrite":
+            suggest = "unix_read_write"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExportPolicyRuleCapacityPoolVolumeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExportPolicyRuleCapacityPoolVolumeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExportPolicyRuleCapacityPoolVolumeResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_clients: Optional[_builtins.str] = None,
+                 chown_mode: Optional[_builtins.str] = None,
+                 cifs: Optional[_builtins.bool] = None,
+                 has_root_access: Optional[_builtins.bool] = None,
+                 kerberos5_read_only: Optional[_builtins.bool] = None,
+                 kerberos5_read_write: Optional[_builtins.bool] = None,
+                 kerberos5i_read_only: Optional[_builtins.bool] = None,
+                 kerberos5i_read_write: Optional[_builtins.bool] = None,
+                 kerberos5p_read_only: Optional[_builtins.bool] = None,
+                 kerberos5p_read_write: Optional[_builtins.bool] = None,
+                 nfsv3: Optional[_builtins.bool] = None,
+                 nfsv41: Optional[_builtins.bool] = None,
+                 rule_index: Optional[_builtins.int] = None,
+                 unix_read_only: Optional[_builtins.bool] = None,
+                 unix_read_write: Optional[_builtins.bool] = None):
+        """
+        Volume Export Policy Rule
+
+        :param _builtins.str allowed_clients: Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
+        :param _builtins.str chown_mode: This parameter specifies who is authorized to change the ownership of a file. restricted - Only root user can change the ownership of the file. unrestricted - Non-root users can change ownership of files that they own.
+        :param _builtins.bool cifs: Allows CIFS protocol
+        :param _builtins.bool has_root_access: Has root access to volume
+        :param _builtins.bool kerberos5_read_only: Kerberos5 Read only access. To be use with swagger version 2020-05-01 or later
+        :param _builtins.bool kerberos5_read_write: Kerberos5 Read and write access. To be use with swagger version 2020-05-01 or later
+        :param _builtins.bool kerberos5i_read_only: Kerberos5i Read only access. To be use with swagger version 2020-05-01 or later
+        :param _builtins.bool kerberos5i_read_write: Kerberos5i Read and write access. To be use with swagger version 2020-05-01 or later
+        :param _builtins.bool kerberos5p_read_only: Kerberos5p Read only access. To be use with swagger version 2020-05-01 or later
+        :param _builtins.bool kerberos5p_read_write: Kerberos5p Read and write access. To be use with swagger version 2020-05-01 or later
+        :param _builtins.bool nfsv3: Allows NFSv3 protocol. Enable only for NFSv3 type volumes
+        :param _builtins.bool nfsv41: Allows NFSv4.1 protocol. Enable only for NFSv4.1 type volumes
+        :param _builtins.int rule_index: Order index
+        :param _builtins.bool unix_read_only: Read only access
+        :param _builtins.bool unix_read_write: Read and write access
+        """
+        if allowed_clients is not None:
+            pulumi.set(__self__, "allowed_clients", allowed_clients)
+        if chown_mode is None:
+            chown_mode = 'Restricted'
+        if chown_mode is not None:
+            pulumi.set(__self__, "chown_mode", chown_mode)
+        if cifs is not None:
+            pulumi.set(__self__, "cifs", cifs)
+        if has_root_access is None:
+            has_root_access = True
+        if has_root_access is not None:
+            pulumi.set(__self__, "has_root_access", has_root_access)
+        if kerberos5_read_only is None:
+            kerberos5_read_only = False
+        if kerberos5_read_only is not None:
+            pulumi.set(__self__, "kerberos5_read_only", kerberos5_read_only)
+        if kerberos5_read_write is None:
+            kerberos5_read_write = False
+        if kerberos5_read_write is not None:
+            pulumi.set(__self__, "kerberos5_read_write", kerberos5_read_write)
+        if kerberos5i_read_only is None:
+            kerberos5i_read_only = False
+        if kerberos5i_read_only is not None:
+            pulumi.set(__self__, "kerberos5i_read_only", kerberos5i_read_only)
+        if kerberos5i_read_write is None:
+            kerberos5i_read_write = False
+        if kerberos5i_read_write is not None:
+            pulumi.set(__self__, "kerberos5i_read_write", kerberos5i_read_write)
+        if kerberos5p_read_only is None:
+            kerberos5p_read_only = False
+        if kerberos5p_read_only is not None:
+            pulumi.set(__self__, "kerberos5p_read_only", kerberos5p_read_only)
+        if kerberos5p_read_write is None:
+            kerberos5p_read_write = False
+        if kerberos5p_read_write is not None:
+            pulumi.set(__self__, "kerberos5p_read_write", kerberos5p_read_write)
+        if nfsv3 is not None:
+            pulumi.set(__self__, "nfsv3", nfsv3)
+        if nfsv41 is not None:
+            pulumi.set(__self__, "nfsv41", nfsv41)
+        if rule_index is not None:
+            pulumi.set(__self__, "rule_index", rule_index)
+        if unix_read_only is not None:
+            pulumi.set(__self__, "unix_read_only", unix_read_only)
+        if unix_read_write is not None:
+            pulumi.set(__self__, "unix_read_write", unix_read_write)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedClients")
+    def allowed_clients(self) -> Optional[_builtins.str]:
+        """
+        Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
+        """
+        return pulumi.get(self, "allowed_clients")
+
+    @_builtins.property
+    @pulumi.getter(name="chownMode")
+    def chown_mode(self) -> Optional[_builtins.str]:
+        """
+        This parameter specifies who is authorized to change the ownership of a file. restricted - Only root user can change the ownership of the file. unrestricted - Non-root users can change ownership of files that they own.
+        """
+        return pulumi.get(self, "chown_mode")
+
+    @_builtins.property
+    @pulumi.getter
+    def cifs(self) -> Optional[_builtins.bool]:
+        """
+        Allows CIFS protocol
+        """
+        return pulumi.get(self, "cifs")
+
+    @_builtins.property
+    @pulumi.getter(name="hasRootAccess")
+    def has_root_access(self) -> Optional[_builtins.bool]:
+        """
+        Has root access to volume
+        """
+        return pulumi.get(self, "has_root_access")
+
+    @_builtins.property
+    @pulumi.getter(name="kerberos5ReadOnly")
+    def kerberos5_read_only(self) -> Optional[_builtins.bool]:
+        """
+        Kerberos5 Read only access. To be use with swagger version 2020-05-01 or later
+        """
+        return pulumi.get(self, "kerberos5_read_only")
+
+    @_builtins.property
+    @pulumi.getter(name="kerberos5ReadWrite")
+    def kerberos5_read_write(self) -> Optional[_builtins.bool]:
+        """
+        Kerberos5 Read and write access. To be use with swagger version 2020-05-01 or later
+        """
+        return pulumi.get(self, "kerberos5_read_write")
+
+    @_builtins.property
+    @pulumi.getter(name="kerberos5iReadOnly")
+    def kerberos5i_read_only(self) -> Optional[_builtins.bool]:
+        """
+        Kerberos5i Read only access. To be use with swagger version 2020-05-01 or later
+        """
+        return pulumi.get(self, "kerberos5i_read_only")
+
+    @_builtins.property
+    @pulumi.getter(name="kerberos5iReadWrite")
+    def kerberos5i_read_write(self) -> Optional[_builtins.bool]:
+        """
+        Kerberos5i Read and write access. To be use with swagger version 2020-05-01 or later
+        """
+        return pulumi.get(self, "kerberos5i_read_write")
+
+    @_builtins.property
+    @pulumi.getter(name="kerberos5pReadOnly")
+    def kerberos5p_read_only(self) -> Optional[_builtins.bool]:
+        """
+        Kerberos5p Read only access. To be use with swagger version 2020-05-01 or later
+        """
+        return pulumi.get(self, "kerberos5p_read_only")
+
+    @_builtins.property
+    @pulumi.getter(name="kerberos5pReadWrite")
+    def kerberos5p_read_write(self) -> Optional[_builtins.bool]:
+        """
+        Kerberos5p Read and write access. To be use with swagger version 2020-05-01 or later
+        """
+        return pulumi.get(self, "kerberos5p_read_write")
+
+    @_builtins.property
+    @pulumi.getter
+    def nfsv3(self) -> Optional[_builtins.bool]:
+        """
+        Allows NFSv3 protocol. Enable only for NFSv3 type volumes
+        """
+        return pulumi.get(self, "nfsv3")
+
+    @_builtins.property
+    @pulumi.getter
+    def nfsv41(self) -> Optional[_builtins.bool]:
+        """
+        Allows NFSv4.1 protocol. Enable only for NFSv4.1 type volumes
+        """
+        return pulumi.get(self, "nfsv41")
+
+    @_builtins.property
+    @pulumi.getter(name="ruleIndex")
+    def rule_index(self) -> Optional[_builtins.int]:
+        """
+        Order index
+        """
+        return pulumi.get(self, "rule_index")
+
+    @_builtins.property
+    @pulumi.getter(name="unixReadOnly")
+    def unix_read_only(self) -> Optional[_builtins.bool]:
+        """
+        Read only access
+        """
+        return pulumi.get(self, "unix_read_only")
+
+    @_builtins.property
+    @pulumi.getter(name="unixReadWrite")
+    def unix_read_write(self) -> Optional[_builtins.bool]:
+        """
+        Read and write access
+        """
+        return pulumi.get(self, "unix_read_write")
+
+
+@pulumi.output_type
 class ExportPolicyRuleResponse(dict):
     """
     Volume Export Policy Rule
@@ -3381,7 +3630,7 @@ class ExportPolicyRuleResponse(dict):
 
 
 @pulumi.output_type
-class ExportPolicyRuleResponseV1(dict):
+class ExportPolicyRuleVolumeGroupResponse(dict):
     """
     Volume Export Policy Rule
     """
@@ -3414,14 +3663,14 @@ class ExportPolicyRuleResponseV1(dict):
             suggest = "unix_read_write"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ExportPolicyRuleResponseV1. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ExportPolicyRuleVolumeGroupResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ExportPolicyRuleResponseV1.__key_warning(key)
+        ExportPolicyRuleVolumeGroupResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ExportPolicyRuleResponseV1.__key_warning(key)
+        ExportPolicyRuleVolumeGroupResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -5501,7 +5750,7 @@ class VolumeGroupVolumePropertiesResponse(dict):
                  delete_base_snapshot: Optional[_builtins.bool] = None,
                  enable_subvolumes: Optional[_builtins.str] = None,
                  encryption_key_source: Optional[_builtins.str] = None,
-                 export_policy: Optional['outputs.VolumePropertiesResponseExportPolicy'] = None,
+                 export_policy: Optional['outputs.VolumePropertiesResponseExportPolicyV1'] = None,
                  is_default_quota_enabled: Optional[_builtins.bool] = None,
                  is_large_volume: Optional[_builtins.bool] = None,
                  is_restoring: Optional[_builtins.bool] = None,
@@ -5568,7 +5817,7 @@ class VolumeGroupVolumePropertiesResponse(dict):
         :param _builtins.bool delete_base_snapshot: If enabled (true) the snapshot the volume was created from will be automatically deleted after the volume create operation has finished.  Defaults to false
         :param _builtins.str enable_subvolumes: Flag indicating whether subvolume operations are enabled on the volume
         :param _builtins.str encryption_key_source: Source of key used to encrypt data in volume. Applicable if NetApp account has encryption.keySource = 'Microsoft.KeyVault'. Possible values (case-insensitive) are: 'Microsoft.NetApp, Microsoft.KeyVault'
-        :param 'VolumePropertiesResponseExportPolicy' export_policy: Set of export policy rules
+        :param 'VolumePropertiesResponseExportPolicyV1' export_policy: Set of export policy rules
         :param _builtins.bool is_default_quota_enabled: Specifies if default quota is enabled for the volume.
         :param _builtins.bool is_large_volume: Specifies whether volume is a Large Volume or Regular Volume.
         :param _builtins.bool is_restoring: Restoring
@@ -6012,7 +6261,7 @@ class VolumeGroupVolumePropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="exportPolicy")
-    def export_policy(self) -> Optional['outputs.VolumePropertiesResponseExportPolicy']:
+    def export_policy(self) -> Optional['outputs.VolumePropertiesResponseExportPolicyV1']:
         """
         Set of export policy rules
         """
@@ -6299,18 +6548,42 @@ class VolumePropertiesResponseExportPolicy(dict):
     Set of export policy rules
     """
     def __init__(__self__, *,
-                 rules: Optional[Sequence['outputs.ExportPolicyRuleResponseV1']] = None):
+                 rules: Optional[Sequence['outputs.ExportPolicyRuleCapacityPoolVolumeResponse']] = None):
         """
         Set of export policy rules
 
-        :param Sequence['ExportPolicyRuleResponseV1'] rules: Export policy rule
+        :param Sequence['ExportPolicyRuleCapacityPoolVolumeResponse'] rules: Export policy rule
         """
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[Sequence['outputs.ExportPolicyRuleResponseV1']]:
+    def rules(self) -> Optional[Sequence['outputs.ExportPolicyRuleCapacityPoolVolumeResponse']]:
+        """
+        Export policy rule
+        """
+        return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
+class VolumePropertiesResponseExportPolicyV1(dict):
+    """
+    Set of export policy rules
+    """
+    def __init__(__self__, *,
+                 rules: Optional[Sequence['outputs.ExportPolicyRuleVolumeGroupResponse']] = None):
+        """
+        Set of export policy rules
+
+        :param Sequence['ExportPolicyRuleVolumeGroupResponse'] rules: Export policy rule
+        """
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @_builtins.property
+    @pulumi.getter
+    def rules(self) -> Optional[Sequence['outputs.ExportPolicyRuleVolumeGroupResponse']]:
         """
         Export policy rule
         """

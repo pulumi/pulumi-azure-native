@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// <summary>
         /// Optional. A status describing the success/failure of the extension's enablement/disablement operation.
         /// </summary>
-        public readonly Outputs.CommonOperationStatusResponse OperationStatus;
+        public readonly Outputs.OperationStatusResponse OperationStatus;
 
         [OutputConstructor]
         private ExtensionResponse(
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.Security.Outputs
 
             string name,
 
-            Outputs.CommonOperationStatusResponse operationStatus)
+            Outputs.OperationStatusResponse operationStatus)
         {
             AdditionalExtensionProperties = additionalExtensionProperties;
             IsEnabled = isEnabled;

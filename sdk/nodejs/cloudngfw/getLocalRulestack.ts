@@ -60,7 +60,7 @@ export interface GetLocalRulestackResult {
     /**
      * The managed service identities assigned to this resource.
      */
-    readonly identity?: outputs.cloudngfw.AzureResourceManagerManagedIdentityPropertiesResponse;
+    readonly identity?: outputs.cloudngfw.ManagedIdentityPropertiesResponse;
     /**
      * The geo-location where the resource lives
      */

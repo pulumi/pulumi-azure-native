@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.Migrate.Outputs
         /// <summary>
         /// The list of private endpoint connections to the project.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponseV2> PrivateEndpointConnections;
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionProjectResponse> PrivateEndpointConnections;
         /// <summary>
         /// Assessment project status.
         /// </summary>
@@ -97,7 +97,7 @@ namespace Pulumi.AzureNative.Migrate.Outputs
 
             int numberOfMachines,
 
-            ImmutableArray<Outputs.PrivateEndpointConnectionResponseV2> privateEndpointConnections,
+            ImmutableArray<Outputs.PrivateEndpointConnectionProjectResponse> privateEndpointConnections,
 
             string? projectStatus,
 

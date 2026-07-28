@@ -32,7 +32,7 @@ class ExpressRouteConnectionInitArgs:
                  enable_private_link_fast_path: Optional[pulumi.Input[_builtins.bool]] = None,
                  express_route_gateway_bypass: Optional[pulumi.Input[_builtins.bool]] = None,
                  id: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_configuration: Optional[pulumi.Input['RoutingConfigurationV1Args']] = None,
+                 routing_configuration: Optional[pulumi.Input['RoutingConfigurationArgs']] = None,
                  routing_weight: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a ExpressRouteConnection resource.
@@ -47,7 +47,7 @@ class ExpressRouteConnectionInitArgs:
         :param pulumi.Input[_builtins.bool] enable_private_link_fast_path: Bypass the ExpressRoute gateway when accessing private-links. ExpressRoute FastPath (expressRouteGatewayBypass) must be enabled.
         :param pulumi.Input[_builtins.bool] express_route_gateway_bypass: Enable FastPath to vWan Firewall hub.
         :param pulumi.Input[_builtins.str] id: Resource ID.
-        :param pulumi.Input['RoutingConfigurationV1Args'] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
+        :param pulumi.Input['RoutingConfigurationArgs'] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
         :param pulumi.Input[_builtins.int] routing_weight: The routing weight associated to the connection.
         """
         pulumi.set(__self__, "express_route_circuit_peering", express_route_circuit_peering)
@@ -193,14 +193,14 @@ class ExpressRouteConnectionInitArgs:
 
     @_builtins.property
     @pulumi.getter(name="routingConfiguration")
-    def routing_configuration(self) -> Optional[pulumi.Input['RoutingConfigurationV1Args']]:
+    def routing_configuration(self) -> Optional[pulumi.Input['RoutingConfigurationArgs']]:
         """
         The Routing Configuration indicating the associated and propagated route tables on this connection.
         """
         return pulumi.get(self, "routing_configuration")
 
     @routing_configuration.setter
-    def routing_configuration(self, value: Optional[pulumi.Input['RoutingConfigurationV1Args']]):
+    def routing_configuration(self, value: Optional[pulumi.Input['RoutingConfigurationArgs']]):
         pulumi.set(self, "routing_configuration", value)
 
     @_builtins.property
@@ -232,7 +232,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
                  id: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_configuration: Optional[pulumi.Input[Union['RoutingConfigurationV1Args', 'RoutingConfigurationV1ArgsDict']]] = None,
+                 routing_configuration: Optional[pulumi.Input[Union['RoutingConfigurationArgs', 'RoutingConfigurationArgsDict']]] = None,
                  routing_weight: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         """
@@ -255,7 +255,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] name: The name of the resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[Union['RoutingConfigurationV1Args', 'RoutingConfigurationV1ArgsDict']] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
+        :param pulumi.Input[Union['RoutingConfigurationArgs', 'RoutingConfigurationArgsDict']] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
         :param pulumi.Input[_builtins.int] routing_weight: The routing weight associated to the connection.
         """
         ...
@@ -297,7 +297,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
                  id: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_configuration: Optional[pulumi.Input[Union['RoutingConfigurationV1Args', 'RoutingConfigurationV1ArgsDict']]] = None,
+                 routing_configuration: Optional[pulumi.Input[Union['RoutingConfigurationArgs', 'RoutingConfigurationArgsDict']]] = None,
                  routing_weight: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -432,7 +432,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="routingConfiguration")
-    def routing_configuration(self) -> pulumi.Output[Optional['outputs.RoutingConfigurationResponseV1']]:
+    def routing_configuration(self) -> pulumi.Output[Optional['outputs.RoutingConfigurationExpressRouteConnectionResponse']]:
         """
         The Routing Configuration indicating the associated and propagated route tables on this connection.
         """

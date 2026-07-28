@@ -197,7 +197,7 @@ class SitesByServiceGroup(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.SitePropertiesResponseV1']:
+    def properties(self) -> pulumi.Output['outputs.SitePropertiesSitesByServiceGroupResponse']:
         """
         The resource-specific properties for this resource.
         """

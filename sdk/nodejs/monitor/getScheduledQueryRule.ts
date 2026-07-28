@@ -88,7 +88,7 @@ export interface GetScheduledQueryRuleResult {
     /**
      * The identity of the resource.
      */
-    readonly identity?: outputs.monitor.MicrosoftCommonIdentityResponse;
+    readonly identity?: outputs.monitor.IdentityResponse;
     /**
      * True if alert rule is legacy Log Analytic rule
      */

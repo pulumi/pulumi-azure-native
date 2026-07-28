@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets an array of references to the network interfaces created for this interface endpoint.
         /// </summary>
-        public readonly ImmutableArray<Outputs.NetworkInterfaceResponse> NetworkInterfaces;
+        public readonly ImmutableArray<Outputs.NetworkInterfaceInterfaceEndpointResponse> NetworkInterfaces;
         /// <summary>
         /// A read-only property that identifies who created this interface endpoint.
         /// </summary>
@@ -142,7 +142,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The ID of the subnet from which the private IP will be allocated.
         /// </summary>
-        public readonly Outputs.SubnetResponse? Subnet;
+        public readonly Outputs.SubnetInterfaceEndpointResponse? Subnet;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -168,13 +168,13 @@ namespace Pulumi.AzureNative.Network
 
             string name,
 
-            ImmutableArray<Outputs.NetworkInterfaceResponse> networkInterfaces,
+            ImmutableArray<Outputs.NetworkInterfaceInterfaceEndpointResponse> networkInterfaces,
 
             string owner,
 
             string provisioningState,
 
-            Outputs.SubnetResponse? subnet,
+            Outputs.SubnetInterfaceEndpointResponse? subnet,
 
             ImmutableDictionary<string, string>? tags,
 

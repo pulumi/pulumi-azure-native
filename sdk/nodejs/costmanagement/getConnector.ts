@@ -42,7 +42,7 @@ export interface GetConnectorResult {
     /**
      * Collection information
      */
-    readonly collection: outputs.costmanagement.ConnectorCollectionInfoResponse;
+    readonly collection: outputs.costmanagement.ConnectorCollectionInfoConnectorResponse;
     /**
      * Connector definition creation datetime
      */

@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Properties of a migrate project.
         /// </summary>
-        public readonly Outputs.MigrateProjectPropertiesResponse Properties;
+        public readonly Outputs.MigrateProjectPropertiesMigrateProjectsControllerMigrateProjectResponse Properties;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNative.Migrate
 
             string name,
 
-            Outputs.MigrateProjectPropertiesResponse properties,
+            Outputs.MigrateProjectPropertiesMigrateProjectsControllerMigrateProjectResponse properties,
 
             Outputs.SystemDataResponse systemData,
 

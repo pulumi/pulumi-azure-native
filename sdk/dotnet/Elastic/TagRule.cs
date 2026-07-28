@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.Elastic
         /// Properties of the monitoring tag rules.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.MonitoringTagRulesPropertiesResponseV1> Properties { get; private set; } = null!;
+        public Output<Outputs.MonitoringTagRulesPropertiesTagRuleResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The system metadata relating to this resource

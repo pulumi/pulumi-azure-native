@@ -64,7 +64,7 @@ export interface GetP2sVpnGatewayP2sVpnConnectionHealthResult {
     /**
      * List of all p2s connection configurations of the gateway.
      */
-    readonly p2SConnectionConfigurations?: outputs.network.P2SConnectionConfigurationResponse[];
+    readonly p2SConnectionConfigurations?: outputs.network.P2SConnectionConfigurationgetP2sVpnGatewayP2sVpnConnectionHealthResponse[];
     /**
      * The provisioning state of the P2S VPN gateway resource.
      */

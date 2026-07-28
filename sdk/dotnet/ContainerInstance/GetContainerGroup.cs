@@ -102,7 +102,7 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// <summary>
         /// The containers within the container group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ContainerResponse> Containers;
+        public readonly ImmutableArray<Outputs.ContainerContainerGroupResponse> Containers;
         /// <summary>
         /// The diagnostic information for a container group.
         /// </summary>
@@ -130,11 +130,11 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// <summary>
         /// The image registry credentials by which the container group is created from.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ImageRegistryCredentialResponse> ImageRegistryCredentials;
+        public readonly ImmutableArray<Outputs.ImageRegistryCredentialContainerGroupResponse> ImageRegistryCredentials;
         /// <summary>
         /// The init containers for a container group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.InitContainerDefinitionResponse> InitContainers;
+        public readonly ImmutableArray<Outputs.InitContainerDefinitionContainerGroupResponse> InitContainers;
         /// <summary>
         /// The instance view of the container group. Only valid in response.
         /// </summary>
@@ -197,7 +197,7 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// <summary>
         /// The list of volumes that can be mounted by containers in this container group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VolumeResponse> Volumes;
+        public readonly ImmutableArray<Outputs.VolumeContainerGroupResponse> Volumes;
         /// <summary>
         /// The zones for the container group.
         /// </summary>
@@ -211,7 +211,7 @@ namespace Pulumi.AzureNative.ContainerInstance
 
             Outputs.ContainerGroupProfileReferenceDefinitionResponse? containerGroupProfile,
 
-            ImmutableArray<Outputs.ContainerResponse> containers,
+            ImmutableArray<Outputs.ContainerContainerGroupResponse> containers,
 
             Outputs.ContainerGroupDiagnosticsResponse? diagnostics,
 
@@ -225,9 +225,9 @@ namespace Pulumi.AzureNative.ContainerInstance
 
             Outputs.ContainerGroupIdentityResponse? identity,
 
-            ImmutableArray<Outputs.ImageRegistryCredentialResponse> imageRegistryCredentials,
+            ImmutableArray<Outputs.ImageRegistryCredentialContainerGroupResponse> imageRegistryCredentials,
 
-            ImmutableArray<Outputs.InitContainerDefinitionResponse> initContainers,
+            ImmutableArray<Outputs.InitContainerDefinitionContainerGroupResponse> initContainers,
 
             Outputs.ContainerGroupPropertiesResponseInstanceView instanceView,
 
@@ -257,7 +257,7 @@ namespace Pulumi.AzureNative.ContainerInstance
 
             string type,
 
-            ImmutableArray<Outputs.VolumeResponse> volumes,
+            ImmutableArray<Outputs.VolumeContainerGroupResponse> volumes,
 
             ImmutableArray<string> zones)
         {

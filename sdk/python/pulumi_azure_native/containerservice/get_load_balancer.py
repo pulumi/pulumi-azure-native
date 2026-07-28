@@ -96,7 +96,7 @@ class GetLoadBalancerResult:
 
     @_builtins.property
     @pulumi.getter(name="nodeSelector")
-    def node_selector(self) -> Optional['outputs.LabelSelectorResponse']:
+    def node_selector(self) -> Optional['outputs.LabelSelectorLoadBalancerResponse']:
         """
         Nodes that match this selector will be possible members of this load balancer.
         """
@@ -120,7 +120,7 @@ class GetLoadBalancerResult:
 
     @_builtins.property
     @pulumi.getter(name="serviceLabelSelector")
-    def service_label_selector(self) -> Optional['outputs.LabelSelectorResponse']:
+    def service_label_selector(self) -> Optional['outputs.LabelSelectorLoadBalancerResponse']:
         """
         Only services that must match this selector can be placed on this load balancer.
         """
@@ -128,7 +128,7 @@ class GetLoadBalancerResult:
 
     @_builtins.property
     @pulumi.getter(name="serviceNamespaceSelector")
-    def service_namespace_selector(self) -> Optional['outputs.LabelSelectorResponse']:
+    def service_namespace_selector(self) -> Optional['outputs.LabelSelectorLoadBalancerResponse']:
         """
         Services created in namespaces that match the selector can be placed on this load balancer.
         """

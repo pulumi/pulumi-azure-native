@@ -19,19 +19,19 @@ namespace Pulumi.AzureNative.Network.Inputs
         /// The resource id RouteTable associated with this RoutingConfiguration.
         /// </summary>
         [Input("associatedRouteTable")]
-        public Input<Inputs.CommonSubResourceArgs>? AssociatedRouteTable { get; set; }
+        public Input<Inputs.SubResourceArgs>? AssociatedRouteTable { get; set; }
 
         /// <summary>
         /// The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
         /// </summary>
         [Input("inboundRouteMap")]
-        public Input<Inputs.CommonSubResourceArgs>? InboundRouteMap { get; set; }
+        public Input<Inputs.SubResourceArgs>? InboundRouteMap { get; set; }
 
         /// <summary>
         /// The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
         /// </summary>
         [Input("outboundRouteMap")]
-        public Input<Inputs.CommonSubResourceArgs>? OutboundRouteMap { get; set; }
+        public Input<Inputs.SubResourceArgs>? OutboundRouteMap { get; set; }
 
         /// <summary>
         /// The list of RouteTables to advertise the routes to.

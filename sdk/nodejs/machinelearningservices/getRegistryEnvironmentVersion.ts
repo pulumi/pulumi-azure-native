@@ -62,7 +62,7 @@ export interface GetRegistryEnvironmentVersionResult {
     /**
      * [Required] Additional attributes of the entity.
      */
-    readonly properties: outputs.machinelearningservices.EnvironmentVersionPropertiesResponse;
+    readonly properties: outputs.machinelearningservices.EnvironmentVersionPropertiesRegistryEnvironmentVersionResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

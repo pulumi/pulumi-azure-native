@@ -60,7 +60,7 @@ export interface GetPrivateLinkScopeResult {
     /**
      * List of private endpoint connections.
      */
-    readonly privateEndpointConnections: outputs.monitor.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.monitor.PrivateEndpointConnectionPrivateLinkScopeResponse[];
     /**
      * Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it.
      */

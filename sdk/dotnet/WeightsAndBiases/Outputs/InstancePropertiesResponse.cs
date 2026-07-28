@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.WeightsAndBiases.Outputs
         /// <summary>
         /// Marketplace details of the resource.
         /// </summary>
-        public readonly Outputs.LiftrBaseMarketplaceDetailsResponse Marketplace;
+        public readonly Outputs.MarketplaceDetailsResponse Marketplace;
         /// <summary>
         /// partner properties
         /// </summary>
@@ -31,23 +31,23 @@ namespace Pulumi.AzureNative.WeightsAndBiases.Outputs
         /// <summary>
         /// Single sign-on properties
         /// </summary>
-        public readonly Outputs.LiftrBaseSingleSignOnPropertiesV2Response? SingleSignOnProperties;
+        public readonly Outputs.SingleSignOnPropertiesV2Response? SingleSignOnProperties;
         /// <summary>
         /// Details of the user.
         /// </summary>
-        public readonly Outputs.LiftrBaseUserDetailsResponse User;
+        public readonly Outputs.UserDetailsResponse User;
 
         [OutputConstructor]
         private InstancePropertiesResponse(
-            Outputs.LiftrBaseMarketplaceDetailsResponse marketplace,
+            Outputs.MarketplaceDetailsResponse marketplace,
 
             Outputs.PartnerPropertiesResponse? partnerProperties,
 
             string provisioningState,
 
-            Outputs.LiftrBaseSingleSignOnPropertiesV2Response? singleSignOnProperties,
+            Outputs.SingleSignOnPropertiesV2Response? singleSignOnProperties,
 
-            Outputs.LiftrBaseUserDetailsResponse user)
+            Outputs.UserDetailsResponse user)
         {
             Marketplace = marketplace;
             PartnerProperties = partnerProperties;

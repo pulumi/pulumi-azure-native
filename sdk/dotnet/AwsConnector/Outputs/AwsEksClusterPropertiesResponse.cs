@@ -67,7 +67,7 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
         /// <summary>
         /// &lt;p&gt;The logging configuration for your cluster.&lt;/p&gt;
         /// </summary>
-        public readonly Outputs.LoggingResponseV1? Logging;
+        public readonly Outputs.LoggingEksClusterResponse? Logging;
         /// <summary>
         /// &lt;p&gt;The name of your cluster.&lt;/p&gt;
         /// </summary>
@@ -127,7 +127,7 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
 
             Outputs.KubernetesNetworkConfigResponseResponse? kubernetesNetworkConfig,
 
-            Outputs.LoggingResponseV1? logging,
+            Outputs.LoggingEksClusterResponse? logging,
 
             string? name,
 

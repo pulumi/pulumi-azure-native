@@ -39,7 +39,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// <summary>
         /// The Routing Configuration indicating the associated and propagated route tables on this connection.
         /// </summary>
-        public readonly Outputs.RoutingConfigurationResponse? RoutingConfiguration;
+        public readonly Outputs.RoutingConfigurationNetworkVirtualApplianceConnectionResponse? RoutingConfiguration;
         /// <summary>
         /// Unique identifier for the connection.
         /// </summary>
@@ -57,7 +57,7 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string provisioningState,
 
-            Outputs.RoutingConfigurationResponse? routingConfiguration,
+            Outputs.RoutingConfigurationNetworkVirtualApplianceConnectionResponse? routingConfiguration,
 
             double? tunnelIdentifier)
         {

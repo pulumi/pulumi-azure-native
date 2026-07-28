@@ -180,7 +180,7 @@ class GetServiceGatewayResult:
 
     @_builtins.property
     @pulumi.getter(name="virtualNetwork")
-    def virtual_network(self) -> Optional['outputs.CommonVirtualNetworkResponse']:
+    def virtual_network(self) -> Optional['outputs.VirtualNetworkResponse']:
         """
         Reference to an existing virtual network.
         """

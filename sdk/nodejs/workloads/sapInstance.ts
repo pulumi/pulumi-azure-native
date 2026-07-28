@@ -54,7 +54,7 @@ export class SapInstance extends pulumi.CustomResource {
     /**
      * Defines the errors related to SAP Instance resource.
      */
-    declare public /*out*/ readonly errors: pulumi.Output<outputs.workloads.SAPMigrateErrorResponse>;
+    declare public /*out*/ readonly errors: pulumi.Output<outputs.workloads.SAPMigrateErrorSapInstanceResponse>;
     /**
      * This is the SID of the production system in a landscape.  An SAP system could itself be a production SID or a part of a landscape with a different Production SID. This field can be used to relate non-prod SIDs, other components, SID (WEBDISP) to the prod SID. Enter the value of Production SID.
      */

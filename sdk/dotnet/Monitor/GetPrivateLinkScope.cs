@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// List of private endpoint connections.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionPrivateLinkScopeResponse> PrivateEndpointConnections;
         /// <summary>
         /// Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it.
         /// </summary>
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNative.Monitor
 
             string name,
 
-            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+            ImmutableArray<Outputs.PrivateEndpointConnectionPrivateLinkScopeResponse> privateEndpointConnections,
 
             string provisioningState,
 

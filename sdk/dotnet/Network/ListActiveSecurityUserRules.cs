@@ -130,13 +130,13 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets a page of active security user rules.
         /// </summary>
-        public readonly ImmutableArray<Union<Outputs.ActiveDefaultSecurityUserRuleResponseV1, Outputs.ActiveSecurityUserRuleResponseV1>> Value;
+        public readonly ImmutableArray<Union<Outputs.ActiveDefaultSecurityUserRulelistActiveSecurityUserRulesResponse, Outputs.ActiveSecurityUserRulelistActiveSecurityUserRulesResponse>> Value;
 
         [OutputConstructor]
         private ListActiveSecurityUserRulesResult(
             string? skipToken,
 
-            ImmutableArray<Union<Outputs.ActiveDefaultSecurityUserRuleResponseV1, Outputs.ActiveSecurityUserRuleResponseV1>> value)
+            ImmutableArray<Union<Outputs.ActiveDefaultSecurityUserRulelistActiveSecurityUserRulesResponse, Outputs.ActiveSecurityUserRulelistActiveSecurityUserRulesResponse>> value)
         {
             SkipToken = skipToken;
             Value = value;

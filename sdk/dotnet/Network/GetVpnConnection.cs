@@ -162,7 +162,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The Routing Configuration indicating the associated and propagated route tables on this connection.
         /// </summary>
-        public readonly Outputs.RoutingConfigurationResponse? RoutingConfiguration;
+        public readonly Outputs.RoutingConfigurationVpnConnectionResponse? RoutingConfiguration;
         /// <summary>
         /// Routing weight for vpn connection.
         /// </summary>
@@ -224,7 +224,7 @@ namespace Pulumi.AzureNative.Network
 
             Outputs.SubResourceResponse? remoteVpnSite,
 
-            Outputs.RoutingConfigurationResponse? routingConfiguration,
+            Outputs.RoutingConfigurationVpnConnectionResponse? routingConfiguration,
 
             int? routingWeight,
 

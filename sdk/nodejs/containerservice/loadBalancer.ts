@@ -56,7 +56,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * Nodes that match this selector will be possible members of this load balancer.
      */
-    declare public readonly nodeSelector: pulumi.Output<outputs.containerservice.LabelSelectorResponse | undefined>;
+    declare public readonly nodeSelector: pulumi.Output<outputs.containerservice.LabelSelectorLoadBalancerResponse | undefined>;
     /**
      * Required field. A string value that must specify the ID of an existing agent pool. All nodes in the given pool will always be added to this load balancer. This agent pool must have at least one node and minCount>=1 for autoscaling operations. An agent pool can only be the primary pool for a single load balancer.
      */
@@ -68,11 +68,11 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * Only services that must match this selector can be placed on this load balancer.
      */
-    declare public readonly serviceLabelSelector: pulumi.Output<outputs.containerservice.LabelSelectorResponse | undefined>;
+    declare public readonly serviceLabelSelector: pulumi.Output<outputs.containerservice.LabelSelectorLoadBalancerResponse | undefined>;
     /**
      * Services created in namespaces that match the selector can be placed on this load balancer.
      */
-    declare public readonly serviceNamespaceSelector: pulumi.Output<outputs.containerservice.LabelSelectorResponse | undefined>;
+    declare public readonly serviceNamespaceSelector: pulumi.Output<outputs.containerservice.LabelSelectorLoadBalancerResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

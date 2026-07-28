@@ -87,7 +87,7 @@ namespace Pulumi.AzureNative.Monitor
         /// The list of webhook receivers that are part of this tenant action group.
         /// </summary>
         [Output("webhookReceivers")]
-        public Output<ImmutableArray<Outputs.WebhookReceiverResponseV1>> WebhookReceivers { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.WebhookReceiverTenantActionGroupResponse>> WebhookReceivers { get; private set; } = null!;
 
 
         /// <summary>

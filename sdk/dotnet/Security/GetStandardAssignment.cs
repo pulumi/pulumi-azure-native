@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// Standard item with key as applied to this standard assignment over the given scope
         /// </summary>
-        public readonly Outputs.CommonAssignedStandardItemResponse? AssignedStandard;
+        public readonly Outputs.AssignedStandardItemResponse? AssignedStandard;
         /// <summary>
         /// Additional data about assignment that has Attest effect
         /// </summary>
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNative.Security
 
         [OutputConstructor]
         private GetStandardAssignmentResult(
-            Outputs.CommonAssignedStandardItemResponse? assignedStandard,
+            Outputs.AssignedStandardItemResponse? assignedStandard,
 
             Outputs.StandardAssignmentPropertiesAttestationDataResponse? attestationData,
 

@@ -243,7 +243,7 @@ class VMInstanceGuestAgent(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> pulumi.Output[Optional['outputs.GuestCredentialResponseV1']]:
+    def credentials(self) -> pulumi.Output[Optional['outputs.GuestCredentialVMInstanceGuestAgentResponse']]:
         """
         Username / Password Credentials to provision guest agent.
         """

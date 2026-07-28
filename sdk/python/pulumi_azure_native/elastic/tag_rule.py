@@ -219,7 +219,7 @@ class TagRule(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.MonitoringTagRulesPropertiesResponseV1']:
+    def properties(self) -> pulumi.Output['outputs.MonitoringTagRulesPropertiesTagRuleResponse']:
         """
         Properties of the monitoring tag rules.
         """

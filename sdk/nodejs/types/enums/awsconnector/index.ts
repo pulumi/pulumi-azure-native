@@ -5674,6 +5674,38 @@ export const SnapStartApplyOn = {
  */
 export type SnapStartApplyOn = (typeof SnapStartApplyOn)[keyof typeof SnapStartApplyOn];
 
+export const SnapStartResponseApplyOn = {
+    /**
+     * SnapStartResponseApplyOn enum None
+     */
+    None: "None",
+    /**
+     * SnapStartResponseApplyOn enum PublishedVersions
+     */
+    PublishedVersions: "PublishedVersions",
+} as const;
+
+/**
+ * When set to ``PublishedVersions``, Lambda creates a snapshot of the execution environment when you publish a function version.
+ */
+export type SnapStartResponseApplyOn = (typeof SnapStartResponseApplyOn)[keyof typeof SnapStartResponseApplyOn];
+
+export const SnapStartResponseOptimizationStatus = {
+    /**
+     * SnapStartResponseOptimizationStatus enum Off
+     */
+    Off: "Off",
+    /**
+     * SnapStartResponseOptimizationStatus enum On
+     */
+    On: "On",
+} as const;
+
+/**
+ * When you provide a [qualified Amazon Resource Name (ARN)](https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html#versioning-versions-using), this response element indicates whether SnapStart is activated for the specified function version.
+ */
+export type SnapStartResponseOptimizationStatus = (typeof SnapStartResponseOptimizationStatus)[keyof typeof SnapStartResponseOptimizationStatus];
+
 export const SnapshotState = {
     /**
      * SnapshotState enum completed

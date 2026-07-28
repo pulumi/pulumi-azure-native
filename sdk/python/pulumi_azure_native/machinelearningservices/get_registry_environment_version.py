@@ -73,7 +73,7 @@ class GetRegistryEnvironmentVersionResult:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> 'outputs.EnvironmentVersionPropertiesResponse':
+    def properties(self) -> 'outputs.EnvironmentVersionPropertiesRegistryEnvironmentVersionResponse':
         """
         [Required] Additional attributes of the entity.
         """

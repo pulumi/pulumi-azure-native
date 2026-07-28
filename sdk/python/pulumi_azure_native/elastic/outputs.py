@@ -34,7 +34,7 @@ __all__ = [
     'MonitoredResourceResponse',
     'MonitoredSubscriptionResponse',
     'MonitoringTagRulesPropertiesResponse',
-    'MonitoringTagRulesPropertiesResponseV1',
+    'MonitoringTagRulesPropertiesTagRuleResponse',
     'OpenAIIntegrationPropertiesResponse',
     'OpenAIIntegrationStatusResponsePropertiesResponse',
     'PartnerBillingEntityResponse',
@@ -1265,7 +1265,7 @@ class MonitoringTagRulesPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class MonitoringTagRulesPropertiesResponseV1(dict):
+class MonitoringTagRulesPropertiesTagRuleResponse(dict):
     """
     Definition of the properties for a TagRules resource.
     """
@@ -1278,14 +1278,14 @@ class MonitoringTagRulesPropertiesResponseV1(dict):
             suggest = "provisioning_state"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MonitoringTagRulesPropertiesResponseV1. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringTagRulesPropertiesTagRuleResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        MonitoringTagRulesPropertiesResponseV1.__key_warning(key)
+        MonitoringTagRulesPropertiesTagRuleResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        MonitoringTagRulesPropertiesResponseV1.__key_warning(key)
+        MonitoringTagRulesPropertiesTagRuleResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

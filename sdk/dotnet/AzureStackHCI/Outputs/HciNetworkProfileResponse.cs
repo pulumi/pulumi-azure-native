@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// <summary>
         /// HostNetwork config to deploy AzureStackHCI Cluster.
         /// </summary>
-        public readonly Outputs.HostNetworkResponseV1 HostNetwork;
+        public readonly Outputs.HostNetworkHciEdgeDeviceResponse HostNetwork;
         /// <summary>
         /// List of NIC Details of device.
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 
         [OutputConstructor]
         private HciNetworkProfileResponse(
-            Outputs.HostNetworkResponseV1 hostNetwork,
+            Outputs.HostNetworkHciEdgeDeviceResponse hostNetwork,
 
             ImmutableArray<Outputs.HciNicDetailResponse> nicDetails,
 

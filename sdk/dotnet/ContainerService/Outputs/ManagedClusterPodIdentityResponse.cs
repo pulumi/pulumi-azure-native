@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// <summary>
         /// The user assigned identity details.
         /// </summary>
-        public readonly Outputs.UserAssignedIdentityResponse Identity;
+        public readonly Outputs.UserAssignedIdentityManagedClusterResponse Identity;
         /// <summary>
         /// The name of the pod identity.
         /// </summary>
@@ -42,7 +42,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         private ManagedClusterPodIdentityResponse(
             string? bindingSelector,
 
-            Outputs.UserAssignedIdentityResponse identity,
+            Outputs.UserAssignedIdentityManagedClusterResponse identity,
 
             string name,
 

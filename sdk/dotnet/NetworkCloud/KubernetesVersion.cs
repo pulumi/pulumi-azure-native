@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// The extended location of the resource. This property is required when creating the resource.
         /// </summary>
         [Output("extendedLocation")]
-        public Output<Outputs.AzureResourceManagerCommonTypesExtendedLocationResponse> ExtendedLocation { get; private set; } = null!;
+        public Output<Outputs.ExtendedLocationResponse> ExtendedLocation { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

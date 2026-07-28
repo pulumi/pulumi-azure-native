@@ -138,7 +138,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The Routing Configuration indicating the associated and propagated route tables on this connection.
         /// </summary>
-        public readonly Outputs.RoutingConfigurationResponse? RoutingConfiguration;
+        public readonly Outputs.RoutingConfigurationHubVirtualNetworkConnectionResponse? RoutingConfiguration;
 
         [OutputConstructor]
         private GetHubVirtualNetworkConnectionResult(
@@ -160,7 +160,7 @@ namespace Pulumi.AzureNative.Network
 
             Outputs.SubResourceResponse? remoteVirtualNetwork,
 
-            Outputs.RoutingConfigurationResponse? routingConfiguration)
+            Outputs.RoutingConfigurationHubVirtualNetworkConnectionResponse? routingConfiguration)
         {
             AllowHubToRemoteVnetTransit = allowHubToRemoteVnetTransit;
             AllowRemoteVnetToUseHubVnetGateways = allowRemoteVnetToUseHubVnetGateways;

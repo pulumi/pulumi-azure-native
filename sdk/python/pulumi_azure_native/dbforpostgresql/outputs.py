@@ -51,7 +51,7 @@ __all__ = [
     'StorageResponse',
     'SystemDataResponse',
     'UserAssignedIdentityResponse',
-    'UserAssignedIdentityResponseV1',
+    'UserAssignedIdentityServerGroupClusterResponse',
     'UserIdentityResponse',
     'ValidationDetailsResponse',
     'ValidationMessageResponse',
@@ -877,11 +877,11 @@ class IdentityPropertiesResponse(dict):
 
     def __init__(__self__, *,
                  type: Optional[_builtins.str] = None,
-                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponseV1']] = None):
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityServerGroupClusterResponse']] = None):
         """
         Describes the identity of the cluster.
 
-        :param Mapping[str, 'UserAssignedIdentityResponseV1'] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        :param Mapping[str, 'UserAssignedIdentityServerGroupClusterResponse'] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -895,7 +895,7 @@ class IdentityPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponseV1']]:
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityServerGroupClusterResponse']]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
@@ -2585,7 +2585,7 @@ class UserAssignedIdentityResponse(dict):
 
 
 @pulumi.output_type
-class UserAssignedIdentityResponseV1(dict):
+class UserAssignedIdentityServerGroupClusterResponse(dict):
     """
     User assigned identity properties
     """
@@ -2598,14 +2598,14 @@ class UserAssignedIdentityResponseV1(dict):
             suggest = "principal_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponseV1. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityServerGroupClusterResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        UserAssignedIdentityResponseV1.__key_warning(key)
+        UserAssignedIdentityServerGroupClusterResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        UserAssignedIdentityResponseV1.__key_warning(key)
+        UserAssignedIdentityServerGroupClusterResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

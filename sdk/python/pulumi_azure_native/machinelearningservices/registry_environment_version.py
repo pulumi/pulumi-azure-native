@@ -241,7 +241,7 @@ class RegistryEnvironmentVersion(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.EnvironmentVersionPropertiesResponse']:
+    def properties(self) -> pulumi.Output['outputs.EnvironmentVersionPropertiesRegistryEnvironmentVersionResponse']:
         """
         [Required] Additional attributes of the entity.
         """

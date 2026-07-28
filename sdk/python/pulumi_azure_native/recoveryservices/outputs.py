@@ -183,7 +183,7 @@ __all__ = [
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointConnectionVaultPropertiesResponse',
     'PrivateEndpointResponse',
-    'PrivateEndpointResponseV1',
+    'PrivateEndpointVaultResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'ProcessServerDetailsResponse',
     'ProcessServerResponse',
@@ -27437,7 +27437,7 @@ class PrivateEndpointResponse(dict):
 
 
 @pulumi.output_type
-class PrivateEndpointResponseV1(dict):
+class PrivateEndpointVaultResponse(dict):
     """
     The Private Endpoint network resource that is linked to the Private Endpoint connection.
     """
@@ -35739,14 +35739,14 @@ class VaultPrivateEndpointConnectionResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 private_endpoint: 'outputs.PrivateEndpointResponseV1',
+                 private_endpoint: 'outputs.PrivateEndpointVaultResponse',
                  private_link_service_connection_state: 'outputs.VaultPrivateLinkServiceConnectionStateResponse',
                  provisioning_state: _builtins.str,
                  group_ids: Optional[Sequence[_builtins.str]] = None):
         """
         Private Endpoint Connection Response Properties.
 
-        :param 'PrivateEndpointResponseV1' private_endpoint: The Private Endpoint network resource that is linked to the Private Endpoint connection.
+        :param 'PrivateEndpointVaultResponse' private_endpoint: The Private Endpoint network resource that is linked to the Private Endpoint connection.
         :param 'VaultPrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Gets or sets private link service connection state.
         :param _builtins.str provisioning_state: Gets or sets provisioning state of the private endpoint connection.
         :param Sequence[_builtins.str] group_ids: Group Ids for the Private Endpoint
@@ -35759,7 +35759,7 @@ class VaultPrivateEndpointConnectionResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> 'outputs.PrivateEndpointResponseV1':
+    def private_endpoint(self) -> 'outputs.PrivateEndpointVaultResponse':
         """
         The Private Endpoint network resource that is linked to the Private Endpoint connection.
         """

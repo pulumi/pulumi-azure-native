@@ -60,7 +60,7 @@ export class GlobalRulestack extends pulumi.CustomResource {
     /**
      * The managed service identities assigned to this resource.
      */
-    declare public readonly identity: pulumi.Output<outputs.cloudngfw.AzureResourceManagerManagedIdentityPropertiesResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.cloudngfw.ManagedIdentityPropertiesResponse | undefined>;
     /**
      * Global Location
      */

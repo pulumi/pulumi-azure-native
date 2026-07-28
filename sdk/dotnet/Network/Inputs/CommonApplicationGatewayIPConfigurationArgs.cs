@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Network.Inputs
         /// Reference to the subnet resource. A subnet from where application gateway gets its private address.
         /// </summary>
         [Input("subnet")]
-        public Input<Inputs.CommonSubResourceArgs>? Subnet { get; set; }
+        public Input<Inputs.SubResourceArgs>? Subnet { get; set; }
 
         public CommonApplicationGatewayIPConfigurationArgs()
         {

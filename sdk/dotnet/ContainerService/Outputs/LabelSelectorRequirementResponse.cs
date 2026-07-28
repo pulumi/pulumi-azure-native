@@ -19,21 +19,21 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// <summary>
         /// key is the label key that the selector applies to.
         /// </summary>
-        public readonly string? Key;
+        public readonly string Key;
         /// <summary>
-        /// operator represents a key's relationship to a set of values. Valid operators are In and NotIn
+        /// operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
         /// </summary>
-        public readonly string? Operator;
+        public readonly string Operator;
         /// <summary>
-        /// values is an array of string values, the values array must be non-empty.
+        /// values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
         /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]
         private LabelSelectorRequirementResponse(
-            string? key,
+            string key,
 
-            string? @operator,
+            string @operator,
 
             ImmutableArray<string> values)
         {

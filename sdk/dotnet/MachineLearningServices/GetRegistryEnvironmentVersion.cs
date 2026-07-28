@@ -126,7 +126,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// [Required] Additional attributes of the entity.
         /// </summary>
-        public readonly Outputs.EnvironmentVersionPropertiesResponse Properties;
+        public readonly Outputs.EnvironmentVersionPropertiesRegistryEnvironmentVersionResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -144,7 +144,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             string name,
 
-            Outputs.EnvironmentVersionPropertiesResponse properties,
+            Outputs.EnvironmentVersionPropertiesRegistryEnvironmentVersionResponse properties,
 
             Outputs.SystemDataResponse systemData,
 

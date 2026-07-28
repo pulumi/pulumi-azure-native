@@ -57,7 +57,7 @@ export interface GetTagRuleResult {
     /**
      * Properties of the monitoring tag rules.
      */
-    readonly properties: outputs.elastic.MonitoringTagRulesPropertiesResponse;
+    readonly properties: outputs.elastic.MonitoringTagRulesPropertiesTagRuleResponse;
     /**
      * The system metadata relating to this resource
      */

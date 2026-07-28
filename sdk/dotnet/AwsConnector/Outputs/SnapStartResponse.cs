@@ -11,20 +11,28 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
 {
 
     /// <summary>
-    /// Definition of SnapStart
+    /// Definition of SnapStartResponse
     /// </summary>
     [OutputType]
     public sealed class SnapStartResponse
     {
         /// <summary>
-        /// Set ``ApplyOn`` to ``PublishedVersions`` to create a snapshot of the initialized execution environment when you publish a function version.
+        /// When set to ``PublishedVersions``, Lambda creates a snapshot of the execution environment when you publish a function version.
         /// </summary>
         public readonly string? ApplyOn;
+        /// <summary>
+        /// When you provide a [qualified Amazon Resource Name (ARN)](https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html#versioning-versions-using), this response element indicates whether SnapStart is activated for the specified function version.
+        /// </summary>
+        public readonly string? OptimizationStatus;
 
         [OutputConstructor]
-        private SnapStartResponse(string? applyOn)
+        private SnapStartResponse(
+            string? applyOn,
+
+            string? optimizationStatus)
         {
             ApplyOn = applyOn;
+            OptimizationStatus = optimizationStatus;
         }
     }
 }

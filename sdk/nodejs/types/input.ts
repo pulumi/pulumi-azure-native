@@ -30863,13 +30863,17 @@ export namespace awsconnector {
     }
 
     /**
-     * Definition of SnapStart
+     * Definition of SnapStartResponse
      */
     export interface SnapStartResponseArgs {
         /**
-         * Set ``ApplyOn`` to ``PublishedVersions`` to create a snapshot of the initialized execution environment when you publish a function version.
+         * When set to ``PublishedVersions``, Lambda creates a snapshot of the execution environment when you publish a function version.
          */
-        applyOn?: pulumi.Input<string>;
+        applyOn?: pulumi.Input<string | enums.awsconnector.SnapStartResponseApplyOn>;
+        /**
+         * When you provide a [qualified Amazon Resource Name (ARN)](https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html#versioning-versions-using), this response element indicates whether SnapStart is activated for the specified function version.
+         */
+        optimizationStatus?: pulumi.Input<string | enums.awsconnector.SnapStartResponseOptimizationStatus>;
     }
 
     /**
@@ -39228,17 +39232,6 @@ export namespace azurestackhci {
         path?: pulumi.Input<string>;
     }
 
-    export interface VirtualMachinePropertiesPublicKeysPublicKeysArgs {
-        /**
-         * KeyData - SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Li      nux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-         */
-        keyData?: pulumi.Input<string>;
-        /**
-         * Path - Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
-         */
-        path?: pulumi.Input<string>;
-    }
-
     /**
      * SecurityProfile - Specifies the security settings for the virtual machine.
      */
@@ -39265,16 +39258,6 @@ export namespace azurestackhci {
          * PublicKeys - The list of SSH public keys used to authenticate with linux based VMs.
          */
         publicKeys?: pulumi.Input<pulumi.Input<inputs.azurestackhci.VirtualMachinePropertiesPublicKeysArgs>[]>;
-    }
-
-    /**
-     * SSH Configuration
-     */
-    export interface VirtualMachinePropertiesSshSshArgs {
-        /**
-         * PublicKeys - The list of SSH public keys used to authenticate with linux based VMs.
-         */
-        publicKeys?: pulumi.Input<pulumi.Input<inputs.azurestackhci.VirtualMachinePropertiesPublicKeysPublicKeysArgs>[]>;
     }
 
     /**
@@ -39330,7 +39313,7 @@ export namespace azurestackhci {
         /**
          * SSH Configuration
          */
-        ssh?: pulumi.Input<inputs.azurestackhci.VirtualMachinePropertiesSshSshArgs>;
+        ssh?: pulumi.Input<inputs.azurestackhci.VirtualMachinePropertiesSshArgs>;
         /**
          * TimeZone for the virtual machine
          */
@@ -145706,7 +145689,7 @@ export namespace network {
         /**
          * Reference to the subnet resource. A subnet from where application gateway gets its private address.
          */
-        subnet?: pulumi.Input<inputs.network.CommonSubResourceArgs>;
+        subnet?: pulumi.Input<inputs.network.SubResourceArgs>;
     }
 
     /**
@@ -146006,21 +145989,11 @@ export namespace network {
         /**
          * SubResource as network identifier.
          */
-        networkIdentifier?: pulumi.Input<inputs.network.CommonSubResourceArgs>;
+        networkIdentifier?: pulumi.Input<inputs.network.SubResourceArgs>;
         /**
          * The type of the endpoint service.
          */
         service?: pulumi.Input<string>;
-    }
-
-    /**
-     * Reference to another subresource.
-     */
-    export interface CommonSubResourceArgs {
-        /**
-         * Resource ID.
-         */
-        id?: pulumi.Input<string>;
     }
 
     /**
@@ -146054,7 +146027,7 @@ export namespace network {
         /**
          * Array of IpAllocation which reference this subnet.
          */
-        ipAllocations?: pulumi.Input<pulumi.Input<inputs.network.CommonSubResourceArgs>[]>;
+        ipAllocations?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[]>;
         /**
          * A list of IPAM Pools for allocating IP address prefixes.
          */
@@ -146066,7 +146039,7 @@ export namespace network {
         /**
          * Nat gateway associated with this subnet.
          */
-        natGateway?: pulumi.Input<inputs.network.CommonSubResourceArgs>;
+        natGateway?: pulumi.Input<inputs.network.SubResourceArgs>;
         /**
          * The reference to the NetworkSecurityGroup resource.
          */
@@ -146094,7 +146067,7 @@ export namespace network {
         /**
          * Reference to an existing service gateway.
          */
-        serviceGateway?: pulumi.Input<inputs.network.CommonSubResourceArgs>;
+        serviceGateway?: pulumi.Input<inputs.network.SubResourceArgs>;
         /**
          * Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.
          */
@@ -146126,7 +146099,7 @@ export namespace network {
         /**
          * The DDoS protection plan associated with the virtual network.
          */
-        ddosProtectionPlan?: pulumi.Input<inputs.network.CommonSubResourceArgs>;
+        ddosProtectionPlan?: pulumi.Input<inputs.network.SubResourceArgs>;
         /**
          * The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
          */
@@ -146158,7 +146131,7 @@ export namespace network {
         /**
          * Array of IpAllocation which reference this VNET.
          */
-        ipAllocations?: pulumi.Input<pulumi.Input<inputs.network.CommonSubResourceArgs>[]>;
+        ipAllocations?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[]>;
         /**
          * Resource location.
          */
@@ -146286,7 +146259,7 @@ export namespace network {
         /**
          * The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
          */
-        remoteVirtualNetwork?: pulumi.Input<inputs.network.CommonSubResourceArgs>;
+        remoteVirtualNetwork?: pulumi.Input<inputs.network.SubResourceArgs>;
         /**
          * The reference to the current address space of the remote virtual network.
          */
@@ -147162,7 +147135,7 @@ export namespace network {
         /**
          * The Routing Configuration indicating the associated and propagated route tables on this connection.
          */
-        routingConfiguration?: pulumi.Input<inputs.network.RoutingConfigurationV1Args>;
+        routingConfiguration?: pulumi.Input<inputs.network.RoutingConfigurationArgs>;
         /**
          * The routing weight associated to the connection.
          */
@@ -149078,7 +149051,7 @@ export namespace network {
         /**
          * The Routing Configuration indicating the associated and propagated route tables on this connection.
          */
-        routingConfiguration?: pulumi.Input<inputs.network.RoutingConfigurationV1Args>;
+        routingConfiguration?: pulumi.Input<inputs.network.RoutingConfigurationArgs>;
         /**
          * The reference to the address space resource which represents Address space for P2S VpnClient.
          */
@@ -149661,20 +149634,6 @@ export namespace network {
         /**
          * The list of resource ids of all the RouteTables.
          */
-        ids?: pulumi.Input<pulumi.Input<inputs.network.CommonSubResourceArgs>[]>;
-        /**
-         * The list of labels.
-         */
-        labels?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    /**
-     * The list of RouteTables to advertise the routes to.
-     */
-    export interface PropagatedRouteTableV1Args {
-        /**
-         * The list of resource ids of all the RouteTables.
-         */
         ids?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[]>;
         /**
          * The list of labels.
@@ -150124,32 +150083,6 @@ export namespace network {
         /**
          * The resource id RouteTable associated with this RoutingConfiguration.
          */
-        associatedRouteTable?: pulumi.Input<inputs.network.CommonSubResourceArgs>;
-        /**
-         * The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-         */
-        inboundRouteMap?: pulumi.Input<inputs.network.CommonSubResourceArgs>;
-        /**
-         * The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
-         */
-        outboundRouteMap?: pulumi.Input<inputs.network.CommonSubResourceArgs>;
-        /**
-         * The list of RouteTables to advertise the routes to.
-         */
-        propagatedRouteTables?: pulumi.Input<inputs.network.PropagatedRouteTableArgs>;
-        /**
-         * List of routes that control routing from VirtualHub into a virtual network connection.
-         */
-        vnetRoutes?: pulumi.Input<inputs.network.VnetRouteArgs>;
-    }
-
-    /**
-     * Routing Configuration indicating the associated and propagated route tables for this connection.
-     */
-    export interface RoutingConfigurationV1Args {
-        /**
-         * The resource id RouteTable associated with this RoutingConfiguration.
-         */
         associatedRouteTable?: pulumi.Input<inputs.network.SubResourceArgs>;
         /**
          * The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
@@ -150162,7 +150095,7 @@ export namespace network {
         /**
          * The list of RouteTables to advertise the routes to.
          */
-        propagatedRouteTables?: pulumi.Input<inputs.network.PropagatedRouteTableV1Args>;
+        propagatedRouteTables?: pulumi.Input<inputs.network.PropagatedRouteTableArgs>;
         /**
          * List of routes that control routing from VirtualHub into a virtual network connection.
          */
@@ -151496,7 +151429,7 @@ export namespace network {
         /**
          * The Routing Configuration indicating the associated and propagated route tables on this connection.
          */
-        routingConfiguration?: pulumi.Input<inputs.network.RoutingConfigurationV1Args>;
+        routingConfiguration?: pulumi.Input<inputs.network.RoutingConfigurationArgs>;
         /**
          * Routing weight for vpn connection.
          */

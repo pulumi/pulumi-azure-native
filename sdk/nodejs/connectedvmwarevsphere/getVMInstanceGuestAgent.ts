@@ -39,7 +39,7 @@ export interface GetVMInstanceGuestAgentResult {
     /**
      * Username / Password Credentials to provision guest agent.
      */
-    readonly credentials?: outputs.connectedvmwarevsphere.GuestCredentialResponse;
+    readonly credentials?: outputs.connectedvmwarevsphere.GuestCredentialVMInstanceGuestAgentResponse;
     /**
      * Gets the name of the corresponding resource in Kubernetes.
      */

@@ -17,7 +17,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'AzureResourceManagerCommonTypesExtendedLocationResponse',
+    'ExtendedLocationResponse',
     'KubernetesSecretObjectMappingResponse',
     'SecretSyncConditionResponse',
     'SecretSyncStatusResponse',
@@ -25,7 +25,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AzureResourceManagerCommonTypesExtendedLocationResponse(dict):
+class ExtendedLocationResponse(dict):
     """
     The complex type of the extended location.
     """

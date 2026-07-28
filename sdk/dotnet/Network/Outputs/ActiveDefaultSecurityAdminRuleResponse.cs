@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// <summary>
         /// Groups for rule collection
         /// </summary>
-        public readonly ImmutableArray<Outputs.NetworkManagerSecurityGroupItemResponseV1> RuleCollectionAppliesToGroups;
+        public readonly ImmutableArray<Outputs.NetworkManagerSecurityGroupItemlistActiveSecurityAdminRuleResponse> RuleCollectionAppliesToGroups;
         /// <summary>
         /// A description of the rule collection.
         /// </summary>
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string? region,
 
-            ImmutableArray<Outputs.NetworkManagerSecurityGroupItemResponseV1> ruleCollectionAppliesToGroups,
+            ImmutableArray<Outputs.NetworkManagerSecurityGroupItemlistActiveSecurityAdminRuleResponse> ruleCollectionAppliesToGroups,
 
             string? ruleCollectionDescription,
 

@@ -50,7 +50,7 @@ export class ContainerGroupProfile extends pulumi.CustomResource {
     /**
      * The containers within the container group.
      */
-    declare public readonly containers: pulumi.Output<outputs.containerinstance.ContainerResponseV1[]>;
+    declare public readonly containers: pulumi.Output<outputs.containerinstance.ContainerContainerGroupProfileResponse[]>;
     /**
      * The diagnostic information for a container group.
      */
@@ -66,11 +66,11 @@ export class ContainerGroupProfile extends pulumi.CustomResource {
     /**
      * The image registry credentials by which the container group is created from.
      */
-    declare public readonly imageRegistryCredentials: pulumi.Output<outputs.containerinstance.ImageRegistryCredentialResponseV1[] | undefined>;
+    declare public readonly imageRegistryCredentials: pulumi.Output<outputs.containerinstance.ImageRegistryCredentialContainerGroupProfileResponse[] | undefined>;
     /**
      * The init containers for a container group.
      */
-    declare public readonly initContainers: pulumi.Output<outputs.containerinstance.InitContainerDefinitionResponse[] | undefined>;
+    declare public readonly initContainers: pulumi.Output<outputs.containerinstance.InitContainerDefinitionContainerGroupProfileResponse[] | undefined>;
     /**
      * The IP address type of the container group.
      */
@@ -117,7 +117,7 @@ export class ContainerGroupProfile extends pulumi.CustomResource {
     /**
      * The list of volumes that can be mounted by containers in this container group.
      */
-    declare public readonly volumes: pulumi.Output<outputs.containerinstance.VolumeResponseV1[] | undefined>;
+    declare public readonly volumes: pulumi.Output<outputs.containerinstance.VolumeContainerGroupProfileResponse[] | undefined>;
     /**
      * The zones for the container group.
      */

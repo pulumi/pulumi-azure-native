@@ -77,7 +77,7 @@ class GetDiagnosticResult:
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional['outputs.AzureResourceManagerCommonTypesExtendedLocationResponse']:
+    def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
         """
         The complex type of the extended location.
         """

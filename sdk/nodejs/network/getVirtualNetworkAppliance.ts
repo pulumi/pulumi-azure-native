@@ -76,7 +76,7 @@ export interface GetVirtualNetworkApplianceResult {
     /**
      * The reference to the subnet resource.
      */
-    readonly subnet?: outputs.network.CommonSubnetResponse;
+    readonly subnet?: outputs.network.SubnetResponseV2;
     /**
      * Resource tags.
      */

@@ -272,14 +272,10 @@ __all__ = [
     'VirtualMachinePropertiesOsDiskArgsDict',
     'VirtualMachinePropertiesOsProfileArgs',
     'VirtualMachinePropertiesOsProfileArgsDict',
-    'VirtualMachinePropertiesPublicKeysPublicKeysArgs',
-    'VirtualMachinePropertiesPublicKeysPublicKeysArgsDict',
     'VirtualMachinePropertiesPublicKeysArgs',
     'VirtualMachinePropertiesPublicKeysArgsDict',
     'VirtualMachinePropertiesSecurityProfileArgs',
     'VirtualMachinePropertiesSecurityProfileArgsDict',
-    'VirtualMachinePropertiesSshSshArgs',
-    'VirtualMachinePropertiesSshSshArgsDict',
     'VirtualMachinePropertiesSshArgs',
     'VirtualMachinePropertiesSshArgsDict',
     'VirtualMachinePropertiesStorageProfileArgs',
@@ -9951,55 +9947,6 @@ class VirtualMachinePropertiesOsProfileArgs:
         pulumi.set(self, "windows_configuration", value)
 
 
-class VirtualMachinePropertiesPublicKeysPublicKeysArgsDict(TypedDict):
-    key_data: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    KeyData - SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Li      nux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-    """
-    path: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Path - Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
-    """
-
-@pulumi.input_type
-class VirtualMachinePropertiesPublicKeysPublicKeysArgs:
-    def __init__(__self__, *,
-                 key_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key_data: KeyData - SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Li      nux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-        :param pulumi.Input[_builtins.str] path: Path - Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
-        """
-        if key_data is not None:
-            pulumi.set(__self__, "key_data", key_data)
-        if path is not None:
-            pulumi.set(__self__, "path", path)
-
-    @_builtins.property
-    @pulumi.getter(name="keyData")
-    def key_data(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        KeyData - SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Li      nux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-        """
-        return pulumi.get(self, "key_data")
-
-    @key_data.setter
-    def key_data(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "key_data", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Path - Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
-        """
-        return pulumi.get(self, "path")
-
-    @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "path", value)
-
-
 class VirtualMachinePropertiesPublicKeysArgsDict(TypedDict):
     key_data: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -10088,40 +10035,6 @@ class VirtualMachinePropertiesSecurityProfileArgs:
     @uefi_settings.setter
     def uefi_settings(self, value: Optional[pulumi.Input['VirtualMachinePropertiesUefiSettingsArgs']]):
         pulumi.set(self, "uefi_settings", value)
-
-
-class VirtualMachinePropertiesSshSshArgsDict(TypedDict):
-    """
-    SSH Configuration
-    """
-    public_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualMachinePropertiesPublicKeysPublicKeysArgsDict']]]]
-    """
-    PublicKeys - The list of SSH public keys used to authenticate with linux based VMs.
-    """
-
-@pulumi.input_type
-class VirtualMachinePropertiesSshSshArgs:
-    def __init__(__self__, *,
-                 public_keys: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachinePropertiesPublicKeysPublicKeysArgs']]]] = None):
-        """
-        SSH Configuration
-
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachinePropertiesPublicKeysPublicKeysArgs']]] public_keys: PublicKeys - The list of SSH public keys used to authenticate with linux based VMs.
-        """
-        if public_keys is not None:
-            pulumi.set(__self__, "public_keys", public_keys)
-
-    @_builtins.property
-    @pulumi.getter(name="publicKeys")
-    def public_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachinePropertiesPublicKeysPublicKeysArgs']]]]:
-        """
-        PublicKeys - The list of SSH public keys used to authenticate with linux based VMs.
-        """
-        return pulumi.get(self, "public_keys")
-
-    @public_keys.setter
-    def public_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachinePropertiesPublicKeysPublicKeysArgs']]]]):
-        pulumi.set(self, "public_keys", value)
 
 
 class VirtualMachinePropertiesSshArgsDict(TypedDict):
@@ -10295,7 +10208,7 @@ class VirtualMachinePropertiesWindowsConfigurationArgsDict(TypedDict):
     """
     Used to indicate whether Arc for Servers agent onboarding should be triggered during the virtual machine creation process.
     """
-    ssh: NotRequired[pulumi.Input['VirtualMachinePropertiesSshSshArgsDict']]
+    ssh: NotRequired[pulumi.Input['VirtualMachinePropertiesSshArgsDict']]
     """
     SSH Configuration
     """
@@ -10309,14 +10222,14 @@ class VirtualMachinePropertiesWindowsConfigurationArgs:
     def __init__(__self__, *,
                  enable_automatic_updates: Optional[pulumi.Input[_builtins.bool]] = None,
                  provision_vm_agent: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ssh: Optional[pulumi.Input['VirtualMachinePropertiesSshSshArgs']] = None,
+                 ssh: Optional[pulumi.Input['VirtualMachinePropertiesSshArgs']] = None,
                  time_zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Windows Configuration for the virtual machine 
 
         :param pulumi.Input[_builtins.bool] enable_automatic_updates: Whether to EnableAutomaticUpdates on the machine
         :param pulumi.Input[_builtins.bool] provision_vm_agent: Used to indicate whether Arc for Servers agent onboarding should be triggered during the virtual machine creation process.
-        :param pulumi.Input['VirtualMachinePropertiesSshSshArgs'] ssh: SSH Configuration
+        :param pulumi.Input['VirtualMachinePropertiesSshArgs'] ssh: SSH Configuration
         :param pulumi.Input[_builtins.str] time_zone: TimeZone for the virtual machine
         """
         if enable_automatic_updates is not None:
@@ -10354,14 +10267,14 @@ class VirtualMachinePropertiesWindowsConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def ssh(self) -> Optional[pulumi.Input['VirtualMachinePropertiesSshSshArgs']]:
+    def ssh(self) -> Optional[pulumi.Input['VirtualMachinePropertiesSshArgs']]:
         """
         SSH Configuration
         """
         return pulumi.get(self, "ssh")
 
     @ssh.setter
-    def ssh(self, value: Optional[pulumi.Input['VirtualMachinePropertiesSshSshArgs']]):
+    def ssh(self, value: Optional[pulumi.Input['VirtualMachinePropertiesSshArgs']]):
         pulumi.set(self, "ssh", value)
 
     @_builtins.property

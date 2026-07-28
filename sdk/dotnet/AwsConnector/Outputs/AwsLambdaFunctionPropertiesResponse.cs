@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
         /// <summary>
         /// The size of the function's ``/tmp`` directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB. The size of the function's ``/tmp`` directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB.
         /// </summary>
-        public readonly Outputs.EphemeralStorageResponseV1? EphemeralStorage;
+        public readonly Outputs.EphemeralStorageLambdaFunctionResponse? EphemeralStorage;
         /// <summary>
         /// Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an [AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html) resource, you must also specify a ``DependsOn`` attribute to ensure that the mount target is created or updated before the function. For more information about using the ``DependsOn`` attribute, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html).
         /// </summary>
@@ -123,7 +123,7 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
         /// <summary>
         /// For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can access resources and the internet only through that VPC. For more information, see [Configuring a Lambda function to access resources in a VPC](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html). The VPC security groups and subnets that are attached to a Lambda function. When you connect a function to a VPC, Lambda creates an elastic network interface for each combination of security group and subnet in the function's VPC configuration. The function can only access resources and the internet through that VPC. For more information, see [VPC Settings](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html).  When you delete a function, CFN monitors the state of its network interfaces and waits for Lambda to delete them before proceeding. If the VPC is defined in the same stack, the network interfaces need to be deleted by Lambda before CFN can delete the VPC's resources. To monitor network interfaces, CFN needs the ``ec2:DescribeNetworkInterfaces`` permission. It obtains this from the user or role that modifies the stack. If you don't provide this permission, CFN does not wait for network interfaces to be deleted.
         /// </summary>
-        public readonly Outputs.VpcConfigResponseV1? VpcConfig;
+        public readonly Outputs.VpcConfigLambdaFunctionResponse? VpcConfig;
 
         [OutputConstructor]
         private AwsLambdaFunctionPropertiesResponse(
@@ -141,7 +141,7 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
 
             Outputs.EnvironmentResponse? environment,
 
-            Outputs.EphemeralStorageResponseV1? ephemeralStorage,
+            Outputs.EphemeralStorageLambdaFunctionResponse? ephemeralStorage,
 
             ImmutableArray<Outputs.FileSystemConfigResponse> fileSystemConfigs,
 
@@ -179,7 +179,7 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
 
             Outputs.TracingConfigResponse? tracingConfig,
 
-            Outputs.VpcConfigResponseV1? vpcConfig)
+            Outputs.VpcConfigLambdaFunctionResponse? vpcConfig)
         {
             Architectures = architectures;
             Arn = arn;

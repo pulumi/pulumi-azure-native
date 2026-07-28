@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// The identity of the resource.
         /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
+        public readonly Outputs.IdentityMachineLearningDatasetResponse? Identity;
         /// <summary>
         /// Specifies the location of the resource.
         /// </summary>
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// The sku of the workspace.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuMachineLearningDatasetResponse? Sku;
         /// <summary>
         /// Contains resource tags defined as key/value pairs.
         /// </summary>
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             string id,
 
-            Outputs.IdentityResponse? identity,
+            Outputs.IdentityMachineLearningDatasetResponse? identity,
 
             string? location,
 
@@ -144,7 +144,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             Outputs.DatasetResponse properties,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuMachineLearningDatasetResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.Edge
         /// The complex type of the extended location.
         /// </summary>
         [Output("extendedLocation")]
-        public Output<Outputs.AzureResourceManagerCommonTypesExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
+        public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

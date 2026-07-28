@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// Properties of a namespace.
         /// </summary>
-        public readonly Outputs.NamespacePropertiesResponse Properties;
+        public readonly Outputs.NamespacePropertiesNamespaceResponse Properties;
         /// <summary>
         /// The system metadata relating to this resource.
         /// </summary>
@@ -142,7 +142,7 @@ namespace Pulumi.AzureNative.ContainerService
 
             string name,
 
-            Outputs.NamespacePropertiesResponse properties,
+            Outputs.NamespacePropertiesNamespaceResponse properties,
 
             Outputs.SystemDataResponse systemData,
 

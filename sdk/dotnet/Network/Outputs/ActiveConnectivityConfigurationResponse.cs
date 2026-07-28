@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// <summary>
         /// Groups for configuration
         /// </summary>
-        public readonly ImmutableArray<Outputs.ConnectivityGroupItemResponseV1> AppliesToGroups;
+        public readonly ImmutableArray<Outputs.ConnectivityGroupItemlistActiveConnectivityConfigurationResponse> AppliesToGroups;
         /// <summary>
         /// Deployment time string.
         /// </summary>
@@ -67,7 +67,7 @@ namespace Pulumi.AzureNative.Network.Outputs
 
         [OutputConstructor]
         private ActiveConnectivityConfigurationResponse(
-            ImmutableArray<Outputs.ConnectivityGroupItemResponseV1> appliesToGroups,
+            ImmutableArray<Outputs.ConnectivityGroupItemlistActiveConnectivityConfigurationResponse> appliesToGroups,
 
             string? commitTime,
 

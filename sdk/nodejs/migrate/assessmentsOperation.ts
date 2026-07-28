@@ -236,7 +236,7 @@ export class AssessmentsOperation extends pulumi.CustomResource {
      * Gets or sets the duration for which the VMs are up in the on-premises
      * environment.
      */
-    declare public readonly vmUptime: pulumi.Output<outputs.migrate.VmUptimeResponseV1 | undefined>;
+    declare public readonly vmUptime: pulumi.Output<outputs.migrate.VmUptimeAssessmentsOperationResponse | undefined>;
 
     /**
      * Create a AssessmentsOperation resource with the given unique name, arguments, and options.

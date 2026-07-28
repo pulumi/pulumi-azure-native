@@ -54,7 +54,7 @@ export interface ListNetworkManagerEffectiveConnectivityConfigurationsResult {
     /**
      * Gets a page of NetworkManagerEffectiveConnectivityConfiguration
      */
-    readonly value?: outputs.network.EffectiveConnectivityConfigurationResponseV1[];
+    readonly value?: outputs.network.EffectiveConnectivityConfigurationlistNetworkManagerEffectiveConnectivityConfigurationsResponse[];
 }
 /**
  * List all effective connectivity configurations applied on a virtual network.

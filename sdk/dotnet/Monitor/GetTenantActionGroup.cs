@@ -132,7 +132,7 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The list of webhook receivers that are part of this tenant action group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.WebhookReceiverResponse> WebhookReceivers;
+        public readonly ImmutableArray<Outputs.WebhookReceiverTenantActionGroupResponse> WebhookReceivers;
 
         [OutputConstructor]
         private GetTenantActionGroupResult(
@@ -160,7 +160,7 @@ namespace Pulumi.AzureNative.Monitor
 
             ImmutableArray<Outputs.VoiceReceiverResponse> voiceReceivers,
 
-            ImmutableArray<Outputs.WebhookReceiverResponse> webhookReceivers)
+            ImmutableArray<Outputs.WebhookReceiverTenantActionGroupResponse> webhookReceivers)
         {
             AzureApiVersion = azureApiVersion;
             AzureAppPushReceivers = azureAppPushReceivers;

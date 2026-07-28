@@ -118,13 +118,13 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets a page of NetworkManagerEffectiveSecurityAdminRules
         /// </summary>
-        public readonly ImmutableArray<Union<Outputs.EffectiveDefaultSecurityAdminRuleResponseV1, Outputs.EffectiveSecurityAdminRuleResponseV1>> Value;
+        public readonly ImmutableArray<Union<Outputs.EffectiveDefaultSecurityAdminRulelistNetworkManagerEffectiveSecurityAdminRulesResponse, Outputs.EffectiveSecurityAdminRulelistNetworkManagerEffectiveSecurityAdminRulesResponse>> Value;
 
         [OutputConstructor]
         private ListNetworkManagerEffectiveSecurityAdminRulesResult(
             string? skipToken,
 
-            ImmutableArray<Union<Outputs.EffectiveDefaultSecurityAdminRuleResponseV1, Outputs.EffectiveSecurityAdminRuleResponseV1>> value)
+            ImmutableArray<Union<Outputs.EffectiveDefaultSecurityAdminRulelistNetworkManagerEffectiveSecurityAdminRulesResponse, Outputs.EffectiveSecurityAdminRulelistNetworkManagerEffectiveSecurityAdminRulesResponse>> value)
         {
             SkipToken = skipToken;
             Value = value;

@@ -48,7 +48,7 @@ export class PipelineGroup extends pulumi.CustomResource {
     /**
      * The complex type of the extended location.
      */
-    declare public readonly extendedLocation: pulumi.Output<outputs.monitor.AzureResourceManagerCommonTypesExtendedLocationResponse | undefined>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.monitor.ExtendedLocationResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */

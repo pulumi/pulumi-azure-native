@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// <summary>
         /// Extension details for edge machine.
         /// </summary>
-        public readonly Outputs.ExtensionProfileResponseV1 ExtensionProfile;
+        public readonly Outputs.ExtensionProfileEdgeMachineResponse ExtensionProfile;
         /// <summary>
         /// Hardware related information for edge machine.
         /// </summary>
@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 
         [OutputConstructor]
         private EdgeMachineReportedPropertiesResponse(
-            Outputs.ExtensionProfileResponseV1 extensionProfile,
+            Outputs.ExtensionProfileEdgeMachineResponse extensionProfile,
 
             Outputs.HardwareProfileResponse hardwareProfile,
 

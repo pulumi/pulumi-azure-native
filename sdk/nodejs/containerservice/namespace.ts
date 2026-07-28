@@ -58,7 +58,7 @@ export class Namespace extends pulumi.CustomResource {
     /**
      * Properties of a namespace.
      */
-    declare public readonly properties: pulumi.Output<outputs.containerservice.NamespacePropertiesResponseV1>;
+    declare public readonly properties: pulumi.Output<outputs.containerservice.NamespacePropertiesNamespaceResponse>;
     /**
      * The system metadata relating to this resource.
      */

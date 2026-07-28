@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.ContainerService
         /// Nodes that match this selector will be possible members of this load balancer.
         /// </summary>
         [Output("nodeSelector")]
-        public Output<Outputs.LabelSelectorResponse?> NodeSelector { get; private set; } = null!;
+        public Output<Outputs.LabelSelectorLoadBalancerResponse?> NodeSelector { get; private set; } = null!;
 
         /// <summary>
         /// Required field. A string value that must specify the ID of an existing agent pool. All nodes in the given pool will always be added to this load balancer. This agent pool must have at least one node and minCount&gt;=1 for autoscaling operations. An agent pool can only be the primary pool for a single load balancer.
@@ -59,13 +59,13 @@ namespace Pulumi.AzureNative.ContainerService
         /// Only services that must match this selector can be placed on this load balancer.
         /// </summary>
         [Output("serviceLabelSelector")]
-        public Output<Outputs.LabelSelectorResponse?> ServiceLabelSelector { get; private set; } = null!;
+        public Output<Outputs.LabelSelectorLoadBalancerResponse?> ServiceLabelSelector { get; private set; } = null!;
 
         /// <summary>
         /// Services created in namespaces that match the selector can be placed on this load balancer.
         /// </summary>
         [Output("serviceNamespaceSelector")]
-        public Output<Outputs.LabelSelectorResponse?> ServiceNamespaceSelector { get; private set; } = null!;
+        public Output<Outputs.LabelSelectorLoadBalancerResponse?> ServiceNamespaceSelector { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.

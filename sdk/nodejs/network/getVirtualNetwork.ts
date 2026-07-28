@@ -133,7 +133,7 @@ export interface GetVirtualNetworkResult {
     /**
      * A list of peerings in a Virtual Network.
      */
-    readonly virtualNetworkPeerings?: outputs.network.VirtualNetworkPeeringResponse[];
+    readonly virtualNetworkPeerings?: outputs.network.VirtualNetworkPeeringVirtualNetworkResponse[];
 }
 /**
  * Gets the specified virtual network by resource group.

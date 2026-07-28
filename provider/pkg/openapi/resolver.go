@@ -26,6 +26,18 @@ type ReferenceContext struct {
 	url           *url.URL
 }
 
+// SourceURL returns a stable string identifying the file this context resolves local references
+// against. Unlike the ReferenceContext pointer itself - which resolveReference reallocates on
+// every call, even when resolving the exact same reference twice - this string is deterministic
+// and repeatable for repeated resolutions of the same target, making it safe to use as a cache
+// or de-duplication key.
+func (ctx *ReferenceContext) SourceURL() string {
+	if ctx == nil || ctx.url == nil {
+		return ""
+	}
+	return ctx.url.String()
+}
+
 // Spec is a swagger specification with reference context.
 type Spec struct {
 	*ReferenceContext

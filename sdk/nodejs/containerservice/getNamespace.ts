@@ -63,7 +63,7 @@ export interface GetNamespaceResult {
     /**
      * Properties of a namespace.
      */
-    readonly properties: outputs.containerservice.NamespacePropertiesResponse;
+    readonly properties: outputs.containerservice.NamespacePropertiesNamespaceResponse;
     /**
      * The system metadata relating to this resource.
      */

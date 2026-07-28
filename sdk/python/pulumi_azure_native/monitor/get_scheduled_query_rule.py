@@ -214,7 +214,7 @@ class GetScheduledQueryRuleResult:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.MicrosoftCommonIdentityResponse']:
+    def identity(self) -> Optional['outputs.IdentityResponse']:
         """
         The identity of the resource.
         """

@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// Collection information
         /// </summary>
-        public readonly Outputs.ConnectorCollectionInfoResponse Collection;
+        public readonly Outputs.ConnectorCollectionInfoConnectorResponse Collection;
         /// <summary>
         /// Connector definition creation datetime
         /// </summary>
@@ -146,7 +146,7 @@ namespace Pulumi.AzureNative.CostManagement
         private GetConnectorResult(
             string azureApiVersion,
 
-            Outputs.ConnectorCollectionInfoResponse collection,
+            Outputs.ConnectorCollectionInfoConnectorResponse collection,
 
             string createdOn,
 

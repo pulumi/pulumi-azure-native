@@ -86966,36 +86966,56 @@ class SingleHeaderModelPropertiesArgs:
 
 class SnapStartResponseArgsDict(TypedDict):
     """
-    Definition of SnapStart
+    Definition of SnapStartResponse
     """
-    apply_on: NotRequired[pulumi.Input[_builtins.str]]
+    apply_on: NotRequired[pulumi.Input[Union[_builtins.str, 'SnapStartResponseApplyOn']]]
     """
-    Set ``ApplyOn`` to ``PublishedVersions`` to create a snapshot of the initialized execution environment when you publish a function version.
+    When set to ``PublishedVersions``, Lambda creates a snapshot of the execution environment when you publish a function version.
+    """
+    optimization_status: NotRequired[pulumi.Input[Union[_builtins.str, 'SnapStartResponseOptimizationStatus']]]
+    """
+    When you provide a [qualified Amazon Resource Name (ARN)](https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html#versioning-versions-using), this response element indicates whether SnapStart is activated for the specified function version.
     """
 
 @pulumi.input_type
 class SnapStartResponseArgs:
     def __init__(__self__, *,
-                 apply_on: Optional[pulumi.Input[_builtins.str]] = None):
+                 apply_on: Optional[pulumi.Input[Union[_builtins.str, 'SnapStartResponseApplyOn']]] = None,
+                 optimization_status: Optional[pulumi.Input[Union[_builtins.str, 'SnapStartResponseOptimizationStatus']]] = None):
         """
-        Definition of SnapStart
+        Definition of SnapStartResponse
 
-        :param pulumi.Input[_builtins.str] apply_on: Set ``ApplyOn`` to ``PublishedVersions`` to create a snapshot of the initialized execution environment when you publish a function version.
+        :param pulumi.Input[Union[_builtins.str, 'SnapStartResponseApplyOn']] apply_on: When set to ``PublishedVersions``, Lambda creates a snapshot of the execution environment when you publish a function version.
+        :param pulumi.Input[Union[_builtins.str, 'SnapStartResponseOptimizationStatus']] optimization_status: When you provide a [qualified Amazon Resource Name (ARN)](https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html#versioning-versions-using), this response element indicates whether SnapStart is activated for the specified function version.
         """
         if apply_on is not None:
             pulumi.set(__self__, "apply_on", apply_on)
+        if optimization_status is not None:
+            pulumi.set(__self__, "optimization_status", optimization_status)
 
     @_builtins.property
     @pulumi.getter(name="applyOn")
-    def apply_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def apply_on(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SnapStartResponseApplyOn']]]:
         """
-        Set ``ApplyOn`` to ``PublishedVersions`` to create a snapshot of the initialized execution environment when you publish a function version.
+        When set to ``PublishedVersions``, Lambda creates a snapshot of the execution environment when you publish a function version.
         """
         return pulumi.get(self, "apply_on")
 
     @apply_on.setter
-    def apply_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def apply_on(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SnapStartResponseApplyOn']]]):
         pulumi.set(self, "apply_on", value)
+
+    @_builtins.property
+    @pulumi.getter(name="optimizationStatus")
+    def optimization_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SnapStartResponseOptimizationStatus']]]:
+        """
+        When you provide a [qualified Amazon Resource Name (ARN)](https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html#versioning-versions-using), this response element indicates whether SnapStart is activated for the specified function version.
+        """
+        return pulumi.get(self, "optimization_status")
+
+    @optimization_status.setter
+    def optimization_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SnapStartResponseOptimizationStatus']]]):
+        pulumi.set(self, "optimization_status", value)
 
 
 class SnapStartArgsDict(TypedDict):

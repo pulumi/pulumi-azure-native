@@ -86,7 +86,7 @@ export interface GetTenantActionGroupResult {
     /**
      * The list of webhook receivers that are part of this tenant action group.
      */
-    readonly webhookReceivers?: outputs.monitor.WebhookReceiverResponse[];
+    readonly webhookReceivers?: outputs.monitor.WebhookReceiverTenantActionGroupResponse[];
 }
 /**
  * Get a tenant action group.

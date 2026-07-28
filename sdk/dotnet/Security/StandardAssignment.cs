@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.Security
         /// Standard item with key as applied to this standard assignment over the given scope
         /// </summary>
         [Output("assignedStandard")]
-        public Output<Outputs.CommonAssignedStandardItemResponse?> AssignedStandard { get; private set; } = null!;
+        public Output<Outputs.AssignedStandardItemResponse?> AssignedStandard { get; private set; } = null!;
 
         /// <summary>
         /// Additional data about assignment that has Attest effect

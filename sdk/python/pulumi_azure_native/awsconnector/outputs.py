@@ -29,6 +29,7 @@ __all__ = [
     'AccountAttributeValueResponse',
     'AcmCertificateSummaryPropertiesResponse',
     'ActionConditionModelPropertiesResponse',
+    'ActionDefinitionNetworkFirewallRuleGroupResponse',
     'ActionDefinitionResponse',
     'ActionResponse',
     'ActiveModelResponse',
@@ -207,8 +208,8 @@ __all__ = [
     'CapacityReservationSpecificationResponseResponse',
     'CapacityReservationTargetResponseResponse',
     'CertificateDetailsResponse',
+    'CertificateElasticLoadBalancingV2ListenerResponse',
     'CertificateResponse',
-    'CertificateResponseV1',
     'CertificateStatusEnumValueResponse',
     'CertificateTypeEnumValueResponse',
     'ChangeProgressDetailsResponse',
@@ -268,6 +269,7 @@ __all__ = [
     'CriteriaForJobResponse',
     'CriteriaResponse',
     'CsvResponse',
+    'CustomActionNetworkFirewallRuleGroupResponse',
     'CustomActionResponse',
     'CustomErrorResponseResponse',
     'CustomOriginConfigResponse',
@@ -296,9 +298,10 @@ __all__ = [
     'DestinationResponse',
     'DeviceResponse',
     'DeviceTypeEnumValueResponse',
+    'DimensionLogsMetricFilterResponse',
+    'DimensionNetworkFirewallFirewallPolicyResponse',
+    'DimensionNetworkFirewallRuleGroupResponse',
     'DimensionResponse',
-    'DimensionResponseV1',
-    'DimensionResponseV2',
     'DiskResponse',
     'DistributionConfigResponse',
     'DockerVolumeConfigurationResponse',
@@ -356,7 +359,7 @@ __all__ = [
     'EncryptionAtRestOptionsResponse',
     'EncryptionConfigResponse',
     'EncryptionConfigurationResponse',
-    'EncryptionConfigurationResponseV1',
+    'EncryptionConfigurationS3BucketResponse',
     'EndpointConfigurationResponse',
     'EnhancedMetricsConfigResponse',
     'EnvironmentFileResponse',
@@ -364,8 +367,8 @@ __all__ = [
     'EnvironmentTypeEnumValueResponse',
     'EnvironmentVariableResponse',
     'EnvironmentVariableTypeEnumValueResponse',
+    'EphemeralStorageLambdaFunctionResponse',
     'EphemeralStorageResponse',
-    'EphemeralStorageResponseV1',
     'ErrorDetailResponse',
     'EstablishedMultiRegionAccessPointPolicyResponse',
     'EventBridgeConfigurationResponse',
@@ -384,8 +387,8 @@ __all__ = [
     'FileSystemTypeEnumValueResponse',
     'FilterGroupResponse',
     'FilterResponse',
-    'FilterResponseV1',
     'FilterRuleResponse',
+    'FilterWafv2LoggingConfigurationResponse',
     'FirelensConfigurationResponse',
     'FirewallPolicyResponse',
     'FixedResponseConfigResponse',
@@ -452,8 +455,8 @@ __all__ = [
     'InstanceBootModeValuesEnumValueResponse',
     'InstanceCollectionTypeEnumValueResponse',
     'InstanceIpv4PrefixResponse',
+    'InstanceIpv6AddressEc2NetworkInterfaceResponse',
     'InstanceIpv6AddressResponse',
-    'InstanceIpv6AddressResponseV1',
     'InstanceIpv6PrefixResponse',
     'InstanceLifecycleTypeEnumValueResponse',
     'InstanceMaintenanceOptionsResponse',
@@ -509,15 +512,15 @@ __all__ = [
     'LastRunErrorStatusResponse',
     'LaunchTemplateOverridesResponse',
     'LaunchTemplateResponse',
+    'LaunchTemplateSpecificationEksNodegroupResponse',
     'LaunchTemplateSpecificationResponse',
-    'LaunchTemplateSpecificationResponseV1',
     'LegacyCustomOriginResponse',
     'LegacyS3OriginResponse',
     'LicenseConfigurationResponse',
     'LifecycleConfigurationResponse',
     'LifecycleHookSpecificationResponse',
+    'LifecyclePolicyEfsFileSystemResponse',
     'LifecyclePolicyResponse',
-    'LifecyclePolicyResponseV1',
     'LightsailBucketPropertiesResponse',
     'LightsailInstancePropertiesResponse',
     'LinuxParametersResponse',
@@ -530,12 +533,12 @@ __all__ = [
     'LogPublishingOptionResponse',
     'LogSetupResponse',
     'LoggingConfigResponse',
-    'LoggingConfigResponseV1',
+    'LoggingConfigSnsTopicResponse',
     'LoggingConfigurationResponse',
+    'LoggingEksClusterResponse',
     'LoggingFilterModelPropertiesResponse',
     'LoggingPropertiesResponse',
     'LoggingResponse',
-    'LoggingResponseV1',
     'LogsConfigResponse',
     'LogsConfigStatusTypeEnumValueResponse',
     'LogsLogGroupPropertiesResponse',
@@ -612,8 +615,8 @@ __all__ = [
     'OwnershipControlsResponse',
     'OwnershipControlsRuleResponse',
     'ParameterGroupStatusResponse',
+    'ParameterRedshiftClusterParameterGroupResponse',
     'ParameterResponse',
-    'ParameterResponseV1',
     'PartitionedPrefixResponse',
     'PermissionEnumValueResponse',
     'PingStatusEnumValueResponse',
@@ -656,6 +659,7 @@ __all__ = [
     'ProvisionedThroughputResponse',
     'ProxyConfigurationResponse',
     'PublicAccessBlockConfigurationResponse',
+    'PublishMetricActionNetworkFirewallRuleGroupResponse',
     'PublishMetricActionResponse',
     'QueryLoggingConfigResponse',
     'QueueConfigurationResponse',
@@ -689,9 +693,9 @@ __all__ = [
     'ReplicaModificationsResponse',
     'ReplicaRegionResponse',
     'ReplicationConfigurationResponse',
-    'ReplicationConfigurationResponseV1',
+    'ReplicationConfigurationS3BucketResponse',
     'ReplicationDestinationResponse',
-    'ReplicationDestinationResponseV1',
+    'ReplicationDestinationS3BucketResponse',
     'ReplicationPendingModifiedValuesResponse',
     'ReplicationRuleAndOperatorResponse',
     'ReplicationRuleFilterResponse',
@@ -806,8 +810,8 @@ __all__ = [
     'StorageClassAnalysisResponse',
     'StorageTierEnumValueResponse',
     'StreamSpecificationResponse',
+    'SubnetMappingNetworkFirewallFirewallResponse',
     'SubnetMappingResponse',
-    'SubnetMappingResponseV1',
     'SubnetResponse',
     'SubscriptionResponse',
     'SummaryStatusEnumValueResponse',
@@ -858,9 +862,9 @@ __all__ = [
     'VolumeFromResponse',
     'VolumeResponse',
     'VolumeTypeEnumValueResponse',
+    'VpcConfigLambdaFunctionResponse',
     'VpcConfigResponse',
     'VpcConfigResponseResponse',
-    'VpcConfigResponseV1',
     'VpcConfigurationResponse',
     'VpcSecurityGroupMembershipResponse',
     'WafWebACLSummaryPropertiesResponse',
@@ -1578,6 +1582,47 @@ class ActionConditionModelPropertiesResponse(dict):
         Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
         """
         return pulumi.get(self, "action")
+
+
+@pulumi.output_type
+class ActionDefinitionNetworkFirewallRuleGroupResponse(dict):
+    """
+    Definition of ActionDefinition
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publishMetricAction":
+            suggest = "publish_metric_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionDefinitionNetworkFirewallRuleGroupResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionDefinitionNetworkFirewallRuleGroupResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionDefinitionNetworkFirewallRuleGroupResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 publish_metric_action: Optional['outputs.PublishMetricActionNetworkFirewallRuleGroupResponse'] = None):
+        """
+        Definition of ActionDefinition
+
+        :param 'PublishMetricActionNetworkFirewallRuleGroupResponse' publish_metric_action: Property publishMetricAction
+        """
+        if publish_metric_action is not None:
+            pulumi.set(__self__, "publish_metric_action", publish_metric_action)
+
+    @_builtins.property
+    @pulumi.getter(name="publishMetricAction")
+    def publish_metric_action(self) -> Optional['outputs.PublishMetricActionNetworkFirewallRuleGroupResponse']:
+        """
+        Property publishMetricAction
+        """
+        return pulumi.get(self, "publish_metric_action")
 
 
 @pulumi.output_type
@@ -11308,7 +11353,7 @@ class AwsEc2NetworkInterfacePropertiesResponse(dict):
                  ipv4_prefix_count: Optional[_builtins.int] = None,
                  ipv4_prefixes: Optional[Sequence['outputs.Ipv4PrefixSpecificationResponse']] = None,
                  ipv6_address_count: Optional[_builtins.int] = None,
-                 ipv6_addresses: Optional[Sequence['outputs.InstanceIpv6AddressResponseV1']] = None,
+                 ipv6_addresses: Optional[Sequence['outputs.InstanceIpv6AddressEc2NetworkInterfaceResponse']] = None,
                  ipv6_prefix_count: Optional[_builtins.int] = None,
                  ipv6_prefixes: Optional[Sequence['outputs.Ipv6PrefixSpecificationResponse']] = None,
                  primary_ipv6_address: Optional[_builtins.str] = None,
@@ -11333,7 +11378,7 @@ class AwsEc2NetworkInterfacePropertiesResponse(dict):
         :param _builtins.int ipv4_prefix_count: The number of IPv4 prefixes to assign to a network interface. When you specify a number of IPv4 prefixes, Amazon EC2 selects these prefixes from your existing subnet CIDR reservations, if available, or from free spaces in the subnet. By default, these will be /28 prefixes. You can't specify a count of IPv4 prefixes if you've specified one of the following: specific IPv4 prefixes, specific private IPv4 addresses, or a count of private IPv4 addresses.
         :param Sequence['Ipv4PrefixSpecificationResponse'] ipv4_prefixes: Assigns a list of IPv4 prefixes to the network interface. If you want EC2 to automatically assign IPv4 prefixes, use the Ipv4PrefixCount property and do not specify this property. Presently, only /28 prefixes are supported. You can't specify IPv4 prefixes if you've specified one of the following: a count of IPv4 prefixes, specific private IPv4 addresses, or a count of private IPv4 addresses.
         :param _builtins.int ipv6_address_count: The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. To specify specific IPv6 addresses, use the Ipv6Addresses property and don't specify this property.
-        :param Sequence['InstanceIpv6AddressResponseV1'] ipv6_addresses: One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet to associate with the network interface. If you're specifying a number of IPv6 addresses, use the Ipv6AddressCount property and don't specify this property.
+        :param Sequence['InstanceIpv6AddressEc2NetworkInterfaceResponse'] ipv6_addresses: One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet to associate with the network interface. If you're specifying a number of IPv6 addresses, use the Ipv6AddressCount property and don't specify this property.
         :param _builtins.int ipv6_prefix_count: The number of IPv6 prefixes to assign to a network interface. When you specify a number of IPv6 prefixes, Amazon EC2 selects these prefixes from your existing subnet CIDR reservations, if available, or from free spaces in the subnet. By default, these will be /80 prefixes. You can't specify a count of IPv6 prefixes if you've specified one of the following: specific IPv6 prefixes, specific IPv6 addresses, or a count of IPv6 addresses.
         :param Sequence['Ipv6PrefixSpecificationResponse'] ipv6_prefixes: Assigns a list of IPv6 prefixes to the network interface. If you want EC2 to automatically assign IPv6 prefixes, use the Ipv6PrefixCount property and do not specify this property. Presently, only /80 prefixes are supported. You can't specify IPv6 prefixes if you've specified one of the following: a count of IPv6 prefixes, specific IPv6 addresses, or a count of IPv6 addresses.
         :param _builtins.str primary_ipv6_address: The primary IPv6 address
@@ -11466,7 +11511,7 @@ class AwsEc2NetworkInterfacePropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="ipv6Addresses")
-    def ipv6_addresses(self) -> Optional[Sequence['outputs.InstanceIpv6AddressResponseV1']]:
+    def ipv6_addresses(self) -> Optional[Sequence['outputs.InstanceIpv6AddressEc2NetworkInterfaceResponse']]:
         """
         One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet to associate with the network interface. If you're specifying a number of IPv6 addresses, use the Ipv6AddressCount property and don't specify this property.
         """
@@ -14225,7 +14270,7 @@ class AwsEfsFileSystemPropertiesResponse(dict):
                  file_system_protection: Optional['outputs.FileSystemProtectionResponse'] = None,
                  file_system_tags: Optional[Sequence['outputs.ElasticFileSystemTagResponse']] = None,
                  kms_key_id: Optional[_builtins.str] = None,
-                 lifecycle_policies: Optional[Sequence['outputs.LifecyclePolicyResponseV1']] = None,
+                 lifecycle_policies: Optional[Sequence['outputs.LifecyclePolicyEfsFileSystemResponse']] = None,
                  performance_mode: Optional[_builtins.str] = None,
                  provisioned_throughput_in_mibps: Optional[_builtins.int] = None,
                  replication_configuration: Optional['outputs.ReplicationConfigurationResponse'] = None,
@@ -14243,7 +14288,7 @@ class AwsEfsFileSystemPropertiesResponse(dict):
         :param 'FileSystemProtectionResponse' file_system_protection: Describes the protection on the file system. Describes the protection on the file system.
         :param Sequence['ElasticFileSystemTagResponse'] file_system_tags: Use to create one or more tags associated with the file system. Each tag is a user-defined key-value pair. Name your file system on creation by including a ``'Key':'Name','Value':'{value}'`` key-value pair. Each key must be unique. For more information, see [Tagging resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *General Reference Guide*.
         :param _builtins.str kms_key_id: The ID of the kms-key-long to be used to protect the encrypted file system. This parameter is only required if you want to use a nondefault kms-key. If this parameter is not specified, the default kms-key for EFS is used. This ID can be in one of the following formats:  +  Key ID - A unique identifier of the key, for example ``1234abcd-12ab-34cd-56ef-1234567890ab``.  +  ARN - An Amazon Resource Name (ARN) for the key, for example ``arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab``.  +  Key alias - A previously created display name for a key, for example ``alias/projectKey1``.  +  Key alias ARN - An ARN for a key alias, for example ``arn:aws:kms:us-west-2:444455556666:alias/projectKey1``.   If ``KmsKeyId`` is specified, the ``Encrypted`` parameter must be set to true.
-        :param Sequence['LifecyclePolicyResponseV1'] lifecycle_policies: An array of ``LifecyclePolicy`` objects that define the file system's ``LifecycleConfiguration`` object. A ``LifecycleConfiguration`` object informs Lifecycle management of the following:  +  When to move files in the file system from primary storage to IA storage.  + When to move files in the file system from primary storage or IA storage to Archive storage. +  When to move files that are in IA or Archive storage to primary storage.    EFS requires that each ``LifecyclePolicy`` object have only a single transition. This means that in a request body, ``LifecyclePolicies`` needs to be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive`` ``TransitionToPrimaryStorageClass``. See the example requests in the following section for more information.
+        :param Sequence['LifecyclePolicyEfsFileSystemResponse'] lifecycle_policies: An array of ``LifecyclePolicy`` objects that define the file system's ``LifecycleConfiguration`` object. A ``LifecycleConfiguration`` object informs Lifecycle management of the following:  +  When to move files in the file system from primary storage to IA storage.  + When to move files in the file system from primary storage or IA storage to Archive storage. +  When to move files that are in IA or Archive storage to primary storage.    EFS requires that each ``LifecyclePolicy`` object have only a single transition. This means that in a request body, ``LifecyclePolicies`` needs to be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive`` ``TransitionToPrimaryStorageClass``. See the example requests in the following section for more information.
         :param _builtins.str performance_mode: The Performance mode of the file system. We recommend ``generalPurpose`` performance mode for all file systems. File systems using the ``maxIO`` performance mode can scale to higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies for most file operations. The performance mode can't be changed after the file system has been created. The ``maxIO`` mode is not supported on One Zone file systems.  Due to the higher per-operation latencies with Max I/O, we recommend using General Purpose performance mode for all file systems.  Default is ``generalPurpose``.
         :param _builtins.int provisioned_throughput_in_mibps: The throughput, measured in mebibytes per second (MiBps), that you want to provision for a file system that you're creating. Required if ``ThroughputMode`` is set to ``provisioned``. Valid values are 1-3414 MiBps, with the upper limit depending on Region. To increase this limit, contact SUP. For more information, see [Amazon EFS quotas that you can increase](https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits) in the *Amazon EFS User Guide*.
         :param 'ReplicationConfigurationResponse' replication_configuration: Describes the replication configuration for a specific file system. Describes the replication configuration for a specific file system.
@@ -14362,7 +14407,7 @@ class AwsEfsFileSystemPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="lifecyclePolicies")
-    def lifecycle_policies(self) -> Optional[Sequence['outputs.LifecyclePolicyResponseV1']]:
+    def lifecycle_policies(self) -> Optional[Sequence['outputs.LifecyclePolicyEfsFileSystemResponse']]:
         """
         An array of ``LifecyclePolicy`` objects that define the file system's ``LifecycleConfiguration`` object. A ``LifecycleConfiguration`` object informs Lifecycle management of the following:  +  When to move files in the file system from primary storage to IA storage.  + When to move files in the file system from primary storage or IA storage to Archive storage. +  When to move files that are in IA or Archive storage to primary storage.    EFS requires that each ``LifecyclePolicy`` object have only a single transition. This means that in a request body, ``LifecyclePolicies`` needs to be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive`` ``TransitionToPrimaryStorageClass``. See the example requests in the following section for more information.
         """
@@ -14551,7 +14596,7 @@ class AwsEksClusterPropertiesResponse(dict):
                  id: Optional[_builtins.str] = None,
                  identity: Optional['outputs.IdentityResponse'] = None,
                  kubernetes_network_config: Optional['outputs.KubernetesNetworkConfigResponseResponse'] = None,
-                 logging: Optional['outputs.LoggingResponseV1'] = None,
+                 logging: Optional['outputs.LoggingEksClusterResponse'] = None,
                  name: Optional[_builtins.str] = None,
                  outpost_config: Optional['outputs.OutpostConfigResponseResponse'] = None,
                  platform_version: Optional[_builtins.str] = None,
@@ -14575,7 +14620,7 @@ class AwsEksClusterPropertiesResponse(dict):
         :param _builtins.str id: <p>The ID of your local Amazon EKS cluster on an Amazon Web Services Outpost. This property isn't available for an Amazon EKS cluster on the Amazon Web Services cloud.</p>
         :param 'IdentityResponse' identity: <p>The identity provider information for the cluster.</p>
         :param 'KubernetesNetworkConfigResponseResponse' kubernetes_network_config: <p>The Kubernetes network configuration for the cluster.</p>
-        :param 'LoggingResponseV1' logging: <p>The logging configuration for your cluster.</p>
+        :param 'LoggingEksClusterResponse' logging: <p>The logging configuration for your cluster.</p>
         :param _builtins.str name: <p>The name of your cluster.</p>
         :param 'OutpostConfigResponseResponse' outpost_config: <p>An object representing the configuration of your local Amazon EKS cluster on an Amazon Web Services Outpost. This object isn't available for clusters on the Amazon Web Services cloud.</p>
         :param _builtins.str platform_version: <p>The platform version of your Amazon EKS cluster. For more information about clusters deployed on the Amazon Web Services Cloud, see <a href='https://docs.aws.amazon.com/eks/latest/userguide/platform-versions.html'>Platform versions</a> in the <i> <i>Amazon EKS User Guide</i> </i>. For more information about local clusters deployed on an Outpost, see <a href='https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-platform-versions.html'>Amazon EKS local cluster platform versions</a> in the <i> <i>Amazon EKS User Guide</i> </i>.</p>
@@ -14726,7 +14771,7 @@ class AwsEksClusterPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def logging(self) -> Optional['outputs.LoggingResponseV1']:
+    def logging(self) -> Optional['outputs.LoggingEksClusterResponse']:
         """
         <p>The logging configuration for your cluster.</p>
         """
@@ -14853,7 +14898,7 @@ class AwsEksNodegroupPropertiesResponse(dict):
                  id: Optional[_builtins.str] = None,
                  instance_types: Optional[Sequence[_builtins.str]] = None,
                  labels: Optional[Mapping[str, _builtins.str]] = None,
-                 launch_template: Optional['outputs.LaunchTemplateSpecificationResponseV1'] = None,
+                 launch_template: Optional['outputs.LaunchTemplateSpecificationEksNodegroupResponse'] = None,
                  node_role: Optional[_builtins.str] = None,
                  nodegroup_name: Optional[_builtins.str] = None,
                  release_version: Optional[_builtins.str] = None,
@@ -14876,7 +14921,7 @@ class AwsEksNodegroupPropertiesResponse(dict):
         :param _builtins.str id: Property id
         :param Sequence[_builtins.str] instance_types: Specify the instance types for a node group.
         :param Mapping[str, _builtins.str] labels: The Kubernetes labels to be applied to the nodes in the node group when they are created.
-        :param 'LaunchTemplateSpecificationResponseV1' launch_template: An object representing a node group's launch template specification. An object representing a launch template specification for AWS EKS Nodegroup.
+        :param 'LaunchTemplateSpecificationEksNodegroupResponse' launch_template: An object representing a node group's launch template specification. An object representing a launch template specification for AWS EKS Nodegroup.
         :param _builtins.str node_role: The Amazon Resource Name (ARN) of the IAM role to associate with your node group.
         :param _builtins.str nodegroup_name: The unique name to give your node group.
         :param _builtins.str release_version: The AMI version of the Amazon EKS-optimized AMI to use with your node group.
@@ -15003,7 +15048,7 @@ class AwsEksNodegroupPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="launchTemplate")
-    def launch_template(self) -> Optional['outputs.LaunchTemplateSpecificationResponseV1']:
+    def launch_template(self) -> Optional['outputs.LaunchTemplateSpecificationEksNodegroupResponse']:
         """
         An object representing a node group's launch template specification. An object representing a launch template specification for AWS EKS Nodegroup.
         """
@@ -15531,7 +15576,7 @@ class AwsElasticLoadBalancingV2ListenerPropertiesResponse(dict):
 
     def __init__(__self__, *,
                  alpn_policy: Optional[Sequence[_builtins.str]] = None,
-                 certificates: Optional[Sequence['outputs.CertificateResponseV1']] = None,
+                 certificates: Optional[Sequence['outputs.CertificateElasticLoadBalancingV2ListenerResponse']] = None,
                  default_actions: Optional[Sequence['outputs.ActionResponse']] = None,
                  listener_arn: Optional[_builtins.str] = None,
                  load_balancer_arn: Optional[_builtins.str] = None,
@@ -15543,7 +15588,7 @@ class AwsElasticLoadBalancingV2ListenerPropertiesResponse(dict):
         Definition of awsElasticLoadBalancingV2Listener
 
         :param Sequence[_builtins.str] alpn_policy: [TLS listener] The name of the Application-Layer Protocol Negotiation (ALPN) policy.
-        :param Sequence['CertificateResponseV1'] certificates: The default SSL server certificate for a secure listener. You must provide exactly one certificate if the listener protocol is HTTPS or TLS. To create a certificate list for a secure listener, use [AWS::ElasticLoadBalancingV2::ListenerCertificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html).
+        :param Sequence['CertificateElasticLoadBalancingV2ListenerResponse'] certificates: The default SSL server certificate for a secure listener. You must provide exactly one certificate if the listener protocol is HTTPS or TLS. To create a certificate list for a secure listener, use [AWS::ElasticLoadBalancingV2::ListenerCertificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html).
         :param Sequence['ActionResponse'] default_actions: The actions for the default rule. You cannot define a condition for a default rule. To create additional rules for an Application Load Balancer, use [AWS::ElasticLoadBalancingV2::ListenerRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html).
         :param _builtins.str listener_arn: Property listenerArn
         :param _builtins.str load_balancer_arn: The Amazon Resource Name (ARN) of the load balancer.
@@ -15581,7 +15626,7 @@ class AwsElasticLoadBalancingV2ListenerPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def certificates(self) -> Optional[Sequence['outputs.CertificateResponseV1']]:
+    def certificates(self) -> Optional[Sequence['outputs.CertificateElasticLoadBalancingV2ListenerResponse']]:
         """
         The default SSL server certificate for a secure listener. You must provide exactly one certificate if the listener protocol is HTTPS or TLS. To create a certificate list for a secure listener, use [AWS::ElasticLoadBalancingV2::ListenerCertificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html).
         """
@@ -18316,7 +18361,7 @@ class AwsLambdaFunctionPropertiesResponse(dict):
                  dead_letter_config: Optional['outputs.DeadLetterConfigResponse'] = None,
                  description: Optional[_builtins.str] = None,
                  environment: Optional['outputs.EnvironmentResponse'] = None,
-                 ephemeral_storage: Optional['outputs.EphemeralStorageResponseV1'] = None,
+                 ephemeral_storage: Optional['outputs.EphemeralStorageLambdaFunctionResponse'] = None,
                  file_system_configs: Optional[Sequence['outputs.FileSystemConfigResponse']] = None,
                  function_name: Optional[_builtins.str] = None,
                  handler: Optional[_builtins.str] = None,
@@ -18335,7 +18380,7 @@ class AwsLambdaFunctionPropertiesResponse(dict):
                  tags: Optional[Sequence['outputs.TagResponse']] = None,
                  timeout: Optional[_builtins.int] = None,
                  tracing_config: Optional['outputs.TracingConfigResponse'] = None,
-                 vpc_config: Optional['outputs.VpcConfigResponseV1'] = None):
+                 vpc_config: Optional['outputs.VpcConfigLambdaFunctionResponse'] = None):
         """
         Definition of awsLambdaFunction
 
@@ -18346,7 +18391,7 @@ class AwsLambdaFunctionPropertiesResponse(dict):
         :param 'DeadLetterConfigResponse' dead_letter_config: A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see [Dead-letter queues](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq). The [dead-letter queue](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq) for failed asynchronous invocations.
         :param _builtins.str description: A description of the function.
         :param 'EnvironmentResponse' environment: Environment variables that are accessible from function code during execution. A function's environment variable settings. You can use environment variables to adjust your function's behavior without updating code. An environment variable is a pair of strings that are stored in a function's version-specific configuration.
-        :param 'EphemeralStorageResponseV1' ephemeral_storage: The size of the function's ``/tmp`` directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB. The size of the function's ``/tmp`` directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB.
+        :param 'EphemeralStorageLambdaFunctionResponse' ephemeral_storage: The size of the function's ``/tmp`` directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB. The size of the function's ``/tmp`` directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB.
         :param Sequence['FileSystemConfigResponse'] file_system_configs: Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an [AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html) resource, you must also specify a ``DependsOn`` attribute to ensure that the mount target is created or updated before the function. For more information about using the ``DependsOn`` attribute, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html).
         :param _builtins.str function_name: The name of the Lambda function, up to 64 characters in length. If you don't specify a name, CFN generates one. If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
         :param _builtins.str handler: The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html).
@@ -18365,7 +18410,7 @@ class AwsLambdaFunctionPropertiesResponse(dict):
         :param Sequence['TagResponse'] tags: A list of [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to apply to the function.
         :param _builtins.int timeout: The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For more information, see [Lambda execution environment](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html).
         :param 'TracingConfigResponse' tracing_config: Set ``Mode`` to ``Active`` to sample and trace a subset of incoming requests with [X-Ray](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html). The function's [](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html) tracing configuration. To sample and record incoming requests, set ``Mode`` to ``Active``.
-        :param 'VpcConfigResponseV1' vpc_config: For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can access resources and the internet only through that VPC. For more information, see [Configuring a Lambda function to access resources in a VPC](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html). The VPC security groups and subnets that are attached to a Lambda function. When you connect a function to a VPC, Lambda creates an elastic network interface for each combination of security group and subnet in the function's VPC configuration. The function can only access resources and the internet through that VPC. For more information, see [VPC Settings](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html).  When you delete a function, CFN monitors the state of its network interfaces and waits for Lambda to delete them before proceeding. If the VPC is defined in the same stack, the network interfaces need to be deleted by Lambda before CFN can delete the VPC's resources. To monitor network interfaces, CFN needs the ``ec2:DescribeNetworkInterfaces`` permission. It obtains this from the user or role that modifies the stack. If you don't provide this permission, CFN does not wait for network interfaces to be deleted.
+        :param 'VpcConfigLambdaFunctionResponse' vpc_config: For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can access resources and the internet only through that VPC. For more information, see [Configuring a Lambda function to access resources in a VPC](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html). The VPC security groups and subnets that are attached to a Lambda function. When you connect a function to a VPC, Lambda creates an elastic network interface for each combination of security group and subnet in the function's VPC configuration. The function can only access resources and the internet through that VPC. For more information, see [VPC Settings](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html).  When you delete a function, CFN monitors the state of its network interfaces and waits for Lambda to delete them before proceeding. If the VPC is defined in the same stack, the network interfaces need to be deleted by Lambda before CFN can delete the VPC's resources. To monitor network interfaces, CFN needs the ``ec2:DescribeNetworkInterfaces`` permission. It obtains this from the user or role that modifies the stack. If you don't provide this permission, CFN does not wait for network interfaces to be deleted.
         """
         if architectures is not None:
             pulumi.set(__self__, "architectures", architectures)
@@ -18480,7 +18525,7 @@ class AwsLambdaFunctionPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="ephemeralStorage")
-    def ephemeral_storage(self) -> Optional['outputs.EphemeralStorageResponseV1']:
+    def ephemeral_storage(self) -> Optional['outputs.EphemeralStorageLambdaFunctionResponse']:
         """
         The size of the function's ``/tmp`` directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB. The size of the function's ``/tmp`` directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB.
         """
@@ -18632,7 +18677,7 @@ class AwsLambdaFunctionPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> Optional['outputs.VpcConfigResponseV1']:
+    def vpc_config(self) -> Optional['outputs.VpcConfigLambdaFunctionResponse']:
         """
         For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can access resources and the internet only through that VPC. For more information, see [Configuring a Lambda function to access resources in a VPC](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html). The VPC security groups and subnets that are attached to a Lambda function. When you connect a function to a VPC, Lambda creates an elastic network interface for each combination of security group and subnet in the function's VPC configuration. The function can only access resources and the internet through that VPC. For more information, see [VPC Settings](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html).  When you delete a function, CFN monitors the state of its network interfaces and waits for Lambda to delete them before proceeding. If the VPC is defined in the same stack, the network interfaces need to be deleted by Lambda before CFN can delete the VPC's resources. To monitor network interfaces, CFN needs the ``ec2:DescribeNetworkInterfaces`` permission. It obtains this from the user or role that modifies the stack. If you don't provide this permission, CFN does not wait for network interfaces to be deleted.
         """
@@ -19873,7 +19918,7 @@ class AwsNetworkFirewallFirewallPropertiesResponse(dict):
                  firewall_policy_arn: Optional[_builtins.str] = None,
                  firewall_policy_change_protection: Optional[_builtins.bool] = None,
                  subnet_change_protection: Optional[_builtins.bool] = None,
-                 subnet_mappings: Optional[Sequence['outputs.SubnetMappingResponseV1']] = None,
+                 subnet_mappings: Optional[Sequence['outputs.SubnetMappingNetworkFirewallFirewallResponse']] = None,
                  tags: Optional[Sequence['outputs.TagResponse']] = None,
                  vpc_id: Optional[_builtins.str] = None):
         """
@@ -19888,7 +19933,7 @@ class AwsNetworkFirewallFirewallPropertiesResponse(dict):
         :param _builtins.str firewall_policy_arn: A resource ARN.
         :param _builtins.bool firewall_policy_change_protection: Property firewallPolicyChangeProtection
         :param _builtins.bool subnet_change_protection: Property subnetChangeProtection
-        :param Sequence['SubnetMappingResponseV1'] subnet_mappings: Property subnetMappings
+        :param Sequence['SubnetMappingNetworkFirewallFirewallResponse'] subnet_mappings: Property subnetMappings
         :param Sequence['TagResponse'] tags: Property tags
         :param _builtins.str vpc_id: Property vpcId
         """
@@ -19991,7 +20036,7 @@ class AwsNetworkFirewallFirewallPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="subnetMappings")
-    def subnet_mappings(self) -> Optional[Sequence['outputs.SubnetMappingResponseV1']]:
+    def subnet_mappings(self) -> Optional[Sequence['outputs.SubnetMappingNetworkFirewallFirewallResponse']]:
         """
         Property subnetMappings
         """
@@ -23836,7 +23881,7 @@ class AwsRedshiftClusterParameterGroupPropertiesResponse(dict):
                  description: Optional[_builtins.str] = None,
                  parameter_group_family: Optional[_builtins.str] = None,
                  parameter_group_name: Optional[_builtins.str] = None,
-                 parameters: Optional[Sequence['outputs.ParameterResponseV1']] = None,
+                 parameters: Optional[Sequence['outputs.ParameterRedshiftClusterParameterGroupResponse']] = None,
                  tags: Optional[Sequence['outputs.TagResponse']] = None):
         """
         Definition of awsRedshiftClusterParameterGroup
@@ -23844,7 +23889,7 @@ class AwsRedshiftClusterParameterGroupPropertiesResponse(dict):
         :param _builtins.str description: A description of the parameter group.
         :param _builtins.str parameter_group_family: The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters.
         :param _builtins.str parameter_group_name: The name of the cluster parameter group.
-        :param Sequence['ParameterResponseV1'] parameters: An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+        :param Sequence['ParameterRedshiftClusterParameterGroupResponse'] parameters: An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
         :param Sequence['TagResponse'] tags: An array of key-value pairs to apply to this resource.
         """
         if description is not None:
@@ -23884,7 +23929,7 @@ class AwsRedshiftClusterParameterGroupPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[Sequence['outputs.ParameterResponseV1']]:
+    def parameters(self) -> Optional[Sequence['outputs.ParameterRedshiftClusterParameterGroupResponse']]:
         """
         An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
         """
@@ -25403,7 +25448,7 @@ class AwsS3BucketPropertiesResponse(dict):
                  ownership_controls: Optional['outputs.OwnershipControlsResponse'] = None,
                  public_access_block_configuration: Optional['outputs.PublicAccessBlockConfigurationResponse'] = None,
                  regional_domain_name: Optional[_builtins.str] = None,
-                 replication_configuration: Optional['outputs.ReplicationConfigurationResponseV1'] = None,
+                 replication_configuration: Optional['outputs.ReplicationConfigurationS3BucketResponse'] = None,
                  tags: Optional[Sequence['outputs.TagResponse']] = None,
                  versioning_configuration: Optional['outputs.VersioningConfigurationResponse'] = None,
                  website_configuration: Optional['outputs.WebsiteConfigurationResponse'] = None,
@@ -25431,7 +25476,7 @@ class AwsS3BucketPropertiesResponse(dict):
         :param 'OwnershipControlsResponse' ownership_controls: Configuration that defines how Amazon S3 handles Object Ownership rules. Specifies the container element for Object Ownership rules. S3 Object Ownership is an Amazon S3 bucket-level setting that you can use to disable access control lists (ACLs) and take ownership of every object in your bucket, simplifying access management for data stored in Amazon S3. For more information, see [Controlling ownership of objects and disabling ACLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html) in the *Amazon S3 User Guide*.
         :param 'PublicAccessBlockConfigurationResponse' public_access_block_configuration: Configuration that defines how Amazon S3 handles public access. The PublicAccessBlock configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see [The Meaning of 'Public'](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status) in the *Amazon S3 User Guide*.
         :param _builtins.str regional_domain_name: Property regionalDomainName
-        :param 'ReplicationConfigurationResponseV1' replication_configuration: Configuration for replicating objects in an S3 bucket. To enable replication, you must also enable versioning by using the ``VersioningConfiguration`` property. Amazon S3 can store replicated objects in a single destination bucket or multiple destination buckets. The destination bucket or buckets must already exist. A container for replication rules. You can add up to 1,000 rules. The maximum size of a replication configuration is 2 MB. The latest version of the replication configuration XML is V2. For more information about XML V2 replication configurations, see [Replication configuration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-add-config.html) in the *Amazon S3 User Guide*.
+        :param 'ReplicationConfigurationS3BucketResponse' replication_configuration: Configuration for replicating objects in an S3 bucket. To enable replication, you must also enable versioning by using the ``VersioningConfiguration`` property. Amazon S3 can store replicated objects in a single destination bucket or multiple destination buckets. The destination bucket or buckets must already exist. A container for replication rules. You can add up to 1,000 rules. The maximum size of a replication configuration is 2 MB. The latest version of the replication configuration XML is V2. For more information about XML V2 replication configurations, see [Replication configuration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-add-config.html) in the *Amazon S3 User Guide*.
         :param Sequence['TagResponse'] tags: An arbitrary set of tags (key-value pairs) for this S3 bucket.
         :param 'VersioningConfigurationResponse' versioning_configuration: Enables multiple versions of all objects in this bucket. You might enable versioning to prevent objects from being deleted or overwritten by mistake or to archive objects so that you can retrieve previous versions of them. Describes the versioning state of an Amazon S3 bucket. For more information, see [PUT Bucket versioning](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTVersioningStatus.html) in the *Amazon S3 API Reference*.
         :param 'WebsiteConfigurationResponse' website_configuration: Information used to configure the bucket as a static website. For more information, see [Hosting Websites on Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html). Specifies website configuration parameters for an Amazon S3 bucket.
@@ -25650,7 +25695,7 @@ class AwsS3BucketPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="replicationConfiguration")
-    def replication_configuration(self) -> Optional['outputs.ReplicationConfigurationResponseV1']:
+    def replication_configuration(self) -> Optional['outputs.ReplicationConfigurationS3BucketResponse']:
         """
         Configuration for replicating objects in an S3 bucket. To enable replication, you must also enable versioning by using the ``VersioningConfiguration`` property. Amazon S3 can store replicated objects in a single destination bucket or multiple destination buckets. The destination bucket or buckets must already exist. A container for replication rules. You can add up to 1,000 rules. The maximum size of a replication configuration is 2 MB. The latest version of the replication configuration XML is V2. For more information about XML V2 replication configurations, see [Replication configuration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-add-config.html) in the *Amazon S3 User Guide*.
         """
@@ -26362,7 +26407,7 @@ class AwsSnsTopicPropertiesResponse(dict):
                  archive_policy: Optional[Any] = None,
                  content_based_deduplication: Optional[_builtins.bool] = None,
                  data_protection_policy: Optional[Any] = None,
-                 delivery_status_logging: Optional[Sequence['outputs.LoggingConfigResponseV1']] = None,
+                 delivery_status_logging: Optional[Sequence['outputs.LoggingConfigSnsTopicResponse']] = None,
                  display_name: Optional[_builtins.str] = None,
                  fifo_topic: Optional[_builtins.bool] = None,
                  kms_master_key_id: Optional[_builtins.str] = None,
@@ -26378,7 +26423,7 @@ class AwsSnsTopicPropertiesResponse(dict):
         :param Any archive_policy: The archive policy determines the number of days SNS retains messages. You can set a retention period from 1 to 365 days.
         :param _builtins.bool content_based_deduplication: Enables content-based deduplication for FIFO topics.  +  By default, ``ContentBasedDeduplication`` is set to ``false``. If you create a FIFO topic and this attribute is ``false``, you must specify a value for the ``MessageDeduplicationId`` parameter for the [Publish](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html) action.   +  When you set ``ContentBasedDeduplication`` to ``true``, SNS uses a SHA-256 hash to generate the ``MessageDeduplicationId`` using the body of the message (but not the attributes of the message). (Optional) To override the generated value, you can specify a value for the the ``MessageDeduplicationId`` parameter for the ``Publish`` action.
         :param Any data_protection_policy: The body of the policy document you want to use for this topic. You can only add one policy per topic. The policy must be in JSON string format. Length Constraints: Maximum length of 30,720.
-        :param Sequence['LoggingConfigResponseV1'] delivery_status_logging: Property deliveryStatusLogging
+        :param Sequence['LoggingConfigSnsTopicResponse'] delivery_status_logging: Property deliveryStatusLogging
         :param _builtins.str display_name: The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
         :param _builtins.bool fifo_topic: Set to true to create a FIFO topic.
         :param _builtins.str kms_master_key_id: The ID of an AWS managed customer master key (CMK) for SNS or a custom CMK. For more information, see [Key terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms). For more examples, see ``KeyId`` in the *API Reference*. This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
@@ -26442,7 +26487,7 @@ class AwsSnsTopicPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="deliveryStatusLogging")
-    def delivery_status_logging(self) -> Optional[Sequence['outputs.LoggingConfigResponseV1']]:
+    def delivery_status_logging(self) -> Optional[Sequence['outputs.LoggingConfigSnsTopicResponse']]:
         """
         Property deliveryStatusLogging
         """
@@ -28980,6 +29025,47 @@ class CertificateDetailsResponse(dict):
 
 
 @pulumi.output_type
+class CertificateElasticLoadBalancingV2ListenerResponse(dict):
+    """
+    Definition of Certificate
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateArn":
+            suggest = "certificate_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateElasticLoadBalancingV2ListenerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateElasticLoadBalancingV2ListenerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateElasticLoadBalancingV2ListenerResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_arn: Optional[_builtins.str] = None):
+        """
+        Definition of Certificate
+
+        :param _builtins.str certificate_arn: The Amazon Resource Name (ARN) of the certificate.
+        """
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the certificate.
+        """
+        return pulumi.get(self, "certificate_arn")
+
+
+@pulumi.output_type
 class CertificateResponse(dict):
     """
     Definition of Certificate
@@ -29001,47 +29087,6 @@ class CertificateResponse(dict):
         <p>The Base64-encoded certificate data required to communicate with your cluster. Add this to the <code>certificate-authority-data</code> section of the <code>kubeconfig</code> file for your cluster.</p>
         """
         return pulumi.get(self, "data")
-
-
-@pulumi.output_type
-class CertificateResponseV1(dict):
-    """
-    Definition of Certificate
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "certificateArn":
-            suggest = "certificate_arn"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CertificateResponseV1. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CertificateResponseV1.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CertificateResponseV1.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 certificate_arn: Optional[_builtins.str] = None):
-        """
-        Definition of Certificate
-
-        :param _builtins.str certificate_arn: The Amazon Resource Name (ARN) of the certificate.
-        """
-        if certificate_arn is not None:
-            pulumi.set(__self__, "certificate_arn", certificate_arn)
-
-    @_builtins.property
-    @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> Optional[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the certificate.
-        """
-        return pulumi.get(self, "certificate_arn")
 
 
 @pulumi.output_type
@@ -33598,6 +33643,61 @@ class CsvResponse(dict):
 
 
 @pulumi.output_type
+class CustomActionNetworkFirewallRuleGroupResponse(dict):
+    """
+    Definition of CustomAction
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionDefinition":
+            suggest = "action_definition"
+        elif key == "actionName":
+            suggest = "action_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomActionNetworkFirewallRuleGroupResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomActionNetworkFirewallRuleGroupResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomActionNetworkFirewallRuleGroupResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action_definition: Optional['outputs.ActionDefinitionNetworkFirewallRuleGroupResponse'] = None,
+                 action_name: Optional[_builtins.str] = None):
+        """
+        Definition of CustomAction
+
+        :param 'ActionDefinitionNetworkFirewallRuleGroupResponse' action_definition: Property actionDefinition
+        :param _builtins.str action_name: Property actionName
+        """
+        if action_definition is not None:
+            pulumi.set(__self__, "action_definition", action_definition)
+        if action_name is not None:
+            pulumi.set(__self__, "action_name", action_name)
+
+    @_builtins.property
+    @pulumi.getter(name="actionDefinition")
+    def action_definition(self) -> Optional['outputs.ActionDefinitionNetworkFirewallRuleGroupResponse']:
+        """
+        Property actionDefinition
+        """
+        return pulumi.get(self, "action_definition")
+
+    @_builtins.property
+    @pulumi.getter(name="actionName")
+    def action_name(self) -> Optional[_builtins.str]:
+        """
+        Property actionName
+        """
+        return pulumi.get(self, "action_name")
+
+
+@pulumi.output_type
 class CustomActionResponse(dict):
     """
     Definition of CustomAction
@@ -35520,43 +35620,7 @@ class DeviceTypeEnumValueResponse(dict):
 
 
 @pulumi.output_type
-class DimensionResponse(dict):
-    """
-    Definition of Dimension
-    """
-    def __init__(__self__, *,
-                 name: Optional[_builtins.str] = None,
-                 value: Optional[_builtins.str] = None):
-        """
-        Definition of Dimension
-
-        :param _builtins.str name: The name of the dimension, from 1–255 characters in length. This dimension name must have been included when the metric was published.
-        :param _builtins.str value: The value for the dimension, from 1–255 characters in length.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[_builtins.str]:
-        """
-        The name of the dimension, from 1–255 characters in length. This dimension name must have been included when the metric was published.
-        """
-        return pulumi.get(self, "name")
-
-    @_builtins.property
-    @pulumi.getter
-    def value(self) -> Optional[_builtins.str]:
-        """
-        The value for the dimension, from 1–255 characters in length.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class DimensionResponseV1(dict):
+class DimensionLogsMetricFilterResponse(dict):
     """
     Definition of Dimension
     """
@@ -35592,7 +35656,7 @@ class DimensionResponseV1(dict):
 
 
 @pulumi.output_type
-class DimensionResponseV2(dict):
+class DimensionNetworkFirewallFirewallPolicyResponse(dict):
     """
     Definition of Dimension
     """
@@ -35611,6 +35675,66 @@ class DimensionResponseV2(dict):
     def value(self) -> Optional[_builtins.str]:
         """
         Property value
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DimensionNetworkFirewallRuleGroupResponse(dict):
+    """
+    Definition of Dimension
+    """
+    def __init__(__self__, *,
+                 value: Optional[_builtins.str] = None):
+        """
+        Definition of Dimension
+
+        :param _builtins.str value: Property value
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        """
+        Property value
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DimensionResponse(dict):
+    """
+    Definition of Dimension
+    """
+    def __init__(__self__, *,
+                 name: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        """
+        Definition of Dimension
+
+        :param _builtins.str name: The name of the dimension, from 1–255 characters in length. This dimension name must have been included when the metric was published.
+        :param _builtins.str value: The value for the dimension, from 1–255 characters in length.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        The name of the dimension, from 1–255 characters in length. This dimension name must have been included when the metric was published.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        """
+        The value for the dimension, from 1–255 characters in length.
         """
         return pulumi.get(self, "value")
 
@@ -42975,7 +43099,7 @@ class EncryptionConfigurationResponse(dict):
 
 
 @pulumi.output_type
-class EncryptionConfigurationResponseV1(dict):
+class EncryptionConfigurationS3BucketResponse(dict):
     """
     Definition of EncryptionConfiguration
     """
@@ -42986,14 +43110,14 @@ class EncryptionConfigurationResponseV1(dict):
             suggest = "replica_kms_key_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EncryptionConfigurationResponseV1. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in EncryptionConfigurationS3BucketResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        EncryptionConfigurationResponseV1.__key_warning(key)
+        EncryptionConfigurationS3BucketResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        EncryptionConfigurationResponseV1.__key_warning(key)
+        EncryptionConfigurationS3BucketResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -43294,6 +43418,30 @@ class EnvironmentVariableTypeEnumValueResponse(dict):
 
 
 @pulumi.output_type
+class EphemeralStorageLambdaFunctionResponse(dict):
+    """
+    Definition of EphemeralStorage
+    """
+    def __init__(__self__, *,
+                 size: Optional[_builtins.int] = None):
+        """
+        Definition of EphemeralStorage
+
+        :param _builtins.int size: The size of the function's ``/tmp`` directory.
+        """
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+
+    @_builtins.property
+    @pulumi.getter
+    def size(self) -> Optional[_builtins.int]:
+        """
+        The size of the function's ``/tmp`` directory.
+        """
+        return pulumi.get(self, "size")
+
+
+@pulumi.output_type
 class EphemeralStorageResponse(dict):
     """
     Definition of EphemeralStorage
@@ -43332,30 +43480,6 @@ class EphemeralStorageResponse(dict):
         The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is ``20`` GiB and the maximum supported value is ``200`` GiB.
         """
         return pulumi.get(self, "size_in_gi_b")
-
-
-@pulumi.output_type
-class EphemeralStorageResponseV1(dict):
-    """
-    Definition of EphemeralStorage
-    """
-    def __init__(__self__, *,
-                 size: Optional[_builtins.int] = None):
-        """
-        Definition of EphemeralStorage
-
-        :param _builtins.int size: The size of the function's ``/tmp`` directory.
-        """
-        if size is not None:
-            pulumi.set(__self__, "size", size)
-
-    @_builtins.property
-    @pulumi.getter
-    def size(self) -> Optional[_builtins.int]:
-        """
-        The size of the function's ``/tmp`` directory.
-        """
-        return pulumi.get(self, "size")
 
 
 @pulumi.output_type
@@ -44289,7 +44413,43 @@ class FilterResponse(dict):
 
 
 @pulumi.output_type
-class FilterResponseV1(dict):
+class FilterRuleResponse(dict):
+    """
+    Definition of FilterRule
+    """
+    def __init__(__self__, *,
+                 name: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        """
+        Definition of FilterRule
+
+        :param _builtins.str name: The object key name prefix or suffix identifying one or more objects to which the filtering rule applies. The maximum length is 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, see [Configuring Event Notifications](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html) in the *Amazon S3 User Guide*.
+        :param _builtins.str value: The value that the filter searches for in object key names.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        The object key name prefix or suffix identifying one or more objects to which the filtering rule applies. The maximum length is 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, see [Configuring Event Notifications](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html) in the *Amazon S3 User Guide*.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        """
+        The value that the filter searches for in object key names.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FilterWafv2LoggingConfigurationResponse(dict):
     """
     Definition of Filter
     """
@@ -44334,42 +44494,6 @@ class FilterResponseV1(dict):
         Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
         """
         return pulumi.get(self, "requirement")
-
-
-@pulumi.output_type
-class FilterRuleResponse(dict):
-    """
-    Definition of FilterRule
-    """
-    def __init__(__self__, *,
-                 name: Optional[_builtins.str] = None,
-                 value: Optional[_builtins.str] = None):
-        """
-        Definition of FilterRule
-
-        :param _builtins.str name: The object key name prefix or suffix identifying one or more objects to which the filtering rule applies. The maximum length is 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, see [Configuring Event Notifications](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html) in the *Amazon S3 User Guide*.
-        :param _builtins.str value: The value that the filter searches for in object key names.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[_builtins.str]:
-        """
-        The object key name prefix or suffix identifying one or more objects to which the filtering rule applies. The maximum length is 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, see [Configuring Event Notifications](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html) in the *Amazon S3 User Guide*.
-        """
-        return pulumi.get(self, "name")
-
-    @_builtins.property
-    @pulumi.getter
-    def value(self) -> Optional[_builtins.str]:
-        """
-        The value that the filter searches for in object key names.
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -48739,6 +48863,47 @@ class InstanceIpv4PrefixResponse(dict):
 
 
 @pulumi.output_type
+class InstanceIpv6AddressEc2NetworkInterfaceResponse(dict):
+    """
+    Definition of InstanceIpv6Address
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipv6Address":
+            suggest = "ipv6_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceIpv6AddressEc2NetworkInterfaceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceIpv6AddressEc2NetworkInterfaceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceIpv6AddressEc2NetworkInterfaceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ipv6_address: Optional[_builtins.str] = None):
+        """
+        Definition of InstanceIpv6Address
+
+        :param _builtins.str ipv6_address: Property ipv6Address
+        """
+        if ipv6_address is not None:
+            pulumi.set(__self__, "ipv6_address", ipv6_address)
+
+    @_builtins.property
+    @pulumi.getter(name="ipv6Address")
+    def ipv6_address(self) -> Optional[_builtins.str]:
+        """
+        Property ipv6Address
+        """
+        return pulumi.get(self, "ipv6_address")
+
+
+@pulumi.output_type
 class InstanceIpv6AddressResponse(dict):
     """
     Definition of InstanceIpv6Address
@@ -48791,47 +48956,6 @@ class InstanceIpv6AddressResponse(dict):
         <p>Determines if an IPv6 address associated with a network interface is the primary IPv6 address. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information, see <a href='https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html'>RunInstances</a>.</p>
         """
         return pulumi.get(self, "is_primary_ipv6")
-
-
-@pulumi.output_type
-class InstanceIpv6AddressResponseV1(dict):
-    """
-    Definition of InstanceIpv6Address
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "ipv6Address":
-            suggest = "ipv6_address"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in InstanceIpv6AddressResponseV1. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        InstanceIpv6AddressResponseV1.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        InstanceIpv6AddressResponseV1.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 ipv6_address: Optional[_builtins.str] = None):
-        """
-        Definition of InstanceIpv6Address
-
-        :param _builtins.str ipv6_address: Property ipv6Address
-        """
-        if ipv6_address is not None:
-            pulumi.set(__self__, "ipv6_address", ipv6_address)
-
-    @_builtins.property
-    @pulumi.getter(name="ipv6Address")
-    def ipv6_address(self) -> Optional[_builtins.str]:
-        """
-        Property ipv6Address
-        """
-        return pulumi.get(self, "ipv6_address")
 
 
 @pulumi.output_type
@@ -52660,6 +52784,54 @@ class LaunchTemplateResponse(dict):
 
 
 @pulumi.output_type
+class LaunchTemplateSpecificationEksNodegroupResponse(dict):
+    """
+    Definition of LaunchTemplateSpecification
+    """
+    def __init__(__self__, *,
+                 id: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 version: Optional[_builtins.str] = None):
+        """
+        Definition of LaunchTemplateSpecification
+
+        :param _builtins.str id: Property id
+        :param _builtins.str name: Property name
+        :param _builtins.str version: Property version
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        """
+        Property id
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        Property name
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> Optional[_builtins.str]:
+        """
+        Property version
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
 class LaunchTemplateSpecificationResponse(dict):
     """
     Definition of LaunchTemplateSpecification
@@ -52722,54 +52894,6 @@ class LaunchTemplateSpecificationResponse(dict):
     def version(self) -> Optional[_builtins.str]:
         """
         The version number of the launch template. Specifying ``$Latest`` or ``$Default`` for the template version number is not supported. However, you can specify ``LatestVersionNumber`` or ``DefaultVersionNumber`` using the ``Fn::GetAtt`` intrinsic function. For more information, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html).  For an example of using the ``Fn::GetAtt`` function, see the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#aws-resource-autoscaling-autoscalinggroup--examples) section of the ``AWS::AutoScaling::AutoScalingGroup`` resource.
-        """
-        return pulumi.get(self, "version")
-
-
-@pulumi.output_type
-class LaunchTemplateSpecificationResponseV1(dict):
-    """
-    Definition of LaunchTemplateSpecification
-    """
-    def __init__(__self__, *,
-                 id: Optional[_builtins.str] = None,
-                 name: Optional[_builtins.str] = None,
-                 version: Optional[_builtins.str] = None):
-        """
-        Definition of LaunchTemplateSpecification
-
-        :param _builtins.str id: Property id
-        :param _builtins.str name: Property name
-        :param _builtins.str version: Property version
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if version is not None:
-            pulumi.set(__self__, "version", version)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> Optional[_builtins.str]:
-        """
-        Property id
-        """
-        return pulumi.get(self, "id")
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[_builtins.str]:
-        """
-        Property name
-        """
-        return pulumi.get(self, "name")
-
-    @_builtins.property
-    @pulumi.getter
-    def version(self) -> Optional[_builtins.str]:
-        """
-        Property version
         """
         return pulumi.get(self, "version")
 
@@ -53121,6 +53245,75 @@ class LifecycleHookSpecificationResponse(dict):
 
 
 @pulumi.output_type
+class LifecyclePolicyEfsFileSystemResponse(dict):
+    """
+    Definition of LifecyclePolicy
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "transitionToArchive":
+            suggest = "transition_to_archive"
+        elif key == "transitionToIA":
+            suggest = "transition_to_ia"
+        elif key == "transitionToPrimaryStorageClass":
+            suggest = "transition_to_primary_storage_class"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LifecyclePolicyEfsFileSystemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LifecyclePolicyEfsFileSystemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LifecyclePolicyEfsFileSystemResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 transition_to_archive: Optional[_builtins.str] = None,
+                 transition_to_ia: Optional[_builtins.str] = None,
+                 transition_to_primary_storage_class: Optional[_builtins.str] = None):
+        """
+        Definition of LifecyclePolicy
+
+        :param _builtins.str transition_to_archive: The number of days after files were last accessed in primary storage (the Standard storage class) at which to move them to Archive storage. Metadata operations such as listing the contents of a directory don't count as file access events.
+        :param _builtins.str transition_to_ia: The number of days after files were last accessed in primary storage (the Standard storage class) at which to move them to Infrequent Access (IA) storage. Metadata operations such as listing the contents of a directory don't count as file access events.
+        :param _builtins.str transition_to_primary_storage_class: Whether to move files back to primary (Standard) storage after they are accessed in IA or Archive storage. Metadata operations such as listing the contents of a directory don't count as file access events.
+        """
+        if transition_to_archive is not None:
+            pulumi.set(__self__, "transition_to_archive", transition_to_archive)
+        if transition_to_ia is not None:
+            pulumi.set(__self__, "transition_to_ia", transition_to_ia)
+        if transition_to_primary_storage_class is not None:
+            pulumi.set(__self__, "transition_to_primary_storage_class", transition_to_primary_storage_class)
+
+    @_builtins.property
+    @pulumi.getter(name="transitionToArchive")
+    def transition_to_archive(self) -> Optional[_builtins.str]:
+        """
+        The number of days after files were last accessed in primary storage (the Standard storage class) at which to move them to Archive storage. Metadata operations such as listing the contents of a directory don't count as file access events.
+        """
+        return pulumi.get(self, "transition_to_archive")
+
+    @_builtins.property
+    @pulumi.getter(name="transitionToIA")
+    def transition_to_ia(self) -> Optional[_builtins.str]:
+        """
+        The number of days after files were last accessed in primary storage (the Standard storage class) at which to move them to Infrequent Access (IA) storage. Metadata operations such as listing the contents of a directory don't count as file access events.
+        """
+        return pulumi.get(self, "transition_to_ia")
+
+    @_builtins.property
+    @pulumi.getter(name="transitionToPrimaryStorageClass")
+    def transition_to_primary_storage_class(self) -> Optional[_builtins.str]:
+        """
+        Whether to move files back to primary (Standard) storage after they are accessed in IA or Archive storage. Metadata operations such as listing the contents of a directory don't count as file access events.
+        """
+        return pulumi.get(self, "transition_to_primary_storage_class")
+
+
+@pulumi.output_type
 class LifecyclePolicyResponse(dict):
     """
     Definition of LifecyclePolicy
@@ -53173,75 +53366,6 @@ class LifecyclePolicyResponse(dict):
         The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed. The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
         """
         return pulumi.get(self, "registry_id")
-
-
-@pulumi.output_type
-class LifecyclePolicyResponseV1(dict):
-    """
-    Definition of LifecyclePolicy
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "transitionToArchive":
-            suggest = "transition_to_archive"
-        elif key == "transitionToIA":
-            suggest = "transition_to_ia"
-        elif key == "transitionToPrimaryStorageClass":
-            suggest = "transition_to_primary_storage_class"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LifecyclePolicyResponseV1. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LifecyclePolicyResponseV1.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LifecyclePolicyResponseV1.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 transition_to_archive: Optional[_builtins.str] = None,
-                 transition_to_ia: Optional[_builtins.str] = None,
-                 transition_to_primary_storage_class: Optional[_builtins.str] = None):
-        """
-        Definition of LifecyclePolicy
-
-        :param _builtins.str transition_to_archive: The number of days after files were last accessed in primary storage (the Standard storage class) at which to move them to Archive storage. Metadata operations such as listing the contents of a directory don't count as file access events.
-        :param _builtins.str transition_to_ia: The number of days after files were last accessed in primary storage (the Standard storage class) at which to move them to Infrequent Access (IA) storage. Metadata operations such as listing the contents of a directory don't count as file access events.
-        :param _builtins.str transition_to_primary_storage_class: Whether to move files back to primary (Standard) storage after they are accessed in IA or Archive storage. Metadata operations such as listing the contents of a directory don't count as file access events.
-        """
-        if transition_to_archive is not None:
-            pulumi.set(__self__, "transition_to_archive", transition_to_archive)
-        if transition_to_ia is not None:
-            pulumi.set(__self__, "transition_to_ia", transition_to_ia)
-        if transition_to_primary_storage_class is not None:
-            pulumi.set(__self__, "transition_to_primary_storage_class", transition_to_primary_storage_class)
-
-    @_builtins.property
-    @pulumi.getter(name="transitionToArchive")
-    def transition_to_archive(self) -> Optional[_builtins.str]:
-        """
-        The number of days after files were last accessed in primary storage (the Standard storage class) at which to move them to Archive storage. Metadata operations such as listing the contents of a directory don't count as file access events.
-        """
-        return pulumi.get(self, "transition_to_archive")
-
-    @_builtins.property
-    @pulumi.getter(name="transitionToIA")
-    def transition_to_ia(self) -> Optional[_builtins.str]:
-        """
-        The number of days after files were last accessed in primary storage (the Standard storage class) at which to move them to Infrequent Access (IA) storage. Metadata operations such as listing the contents of a directory don't count as file access events.
-        """
-        return pulumi.get(self, "transition_to_ia")
-
-    @_builtins.property
-    @pulumi.getter(name="transitionToPrimaryStorageClass")
-    def transition_to_primary_storage_class(self) -> Optional[_builtins.str]:
-        """
-        Whether to move files back to primary (Standard) storage after they are accessed in IA or Archive storage. Metadata operations such as listing the contents of a directory don't count as file access events.
-        """
-        return pulumi.get(self, "transition_to_primary_storage_class")
 
 
 @pulumi.output_type
@@ -54211,7 +54335,7 @@ class LoggingConfigResponse(dict):
 
 
 @pulumi.output_type
-class LoggingConfigResponseV1(dict):
+class LoggingConfigSnsTopicResponse(dict):
     """
     Definition of LoggingConfig
     """
@@ -54226,14 +54350,14 @@ class LoggingConfigResponseV1(dict):
             suggest = "success_feedback_sample_rate"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LoggingConfigResponseV1. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in LoggingConfigSnsTopicResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        LoggingConfigResponseV1.__key_warning(key)
+        LoggingConfigSnsTopicResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        LoggingConfigResponseV1.__key_warning(key)
+        LoggingConfigSnsTopicResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -54361,6 +54485,47 @@ class LoggingConfigurationResponse(dict):
 
 
 @pulumi.output_type
+class LoggingEksClusterResponse(dict):
+    """
+    Definition of Logging
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterLogging":
+            suggest = "cluster_logging"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoggingEksClusterResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoggingEksClusterResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoggingEksClusterResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cluster_logging: Optional[Sequence['outputs.LogSetupResponse']] = None):
+        """
+        Definition of Logging
+
+        :param Sequence['LogSetupResponse'] cluster_logging: <p>The cluster control plane logging configuration for your cluster.</p>
+        """
+        if cluster_logging is not None:
+            pulumi.set(__self__, "cluster_logging", cluster_logging)
+
+    @_builtins.property
+    @pulumi.getter(name="clusterLogging")
+    def cluster_logging(self) -> Optional[Sequence['outputs.LogSetupResponse']]:
+        """
+        <p>The cluster control plane logging configuration for your cluster.</p>
+        """
+        return pulumi.get(self, "cluster_logging")
+
+
+@pulumi.output_type
 class LoggingFilterModelPropertiesResponse(dict):
     """
     Definition of LoggingFilterModelProperties
@@ -54384,12 +54549,12 @@ class LoggingFilterModelPropertiesResponse(dict):
 
     def __init__(__self__, *,
                  default_behavior: Optional[_builtins.str] = None,
-                 filters: Optional[Sequence['outputs.FilterResponseV1']] = None):
+                 filters: Optional[Sequence['outputs.FilterWafv2LoggingConfigurationResponse']] = None):
         """
         Definition of LoggingFilterModelProperties
 
         :param _builtins.str default_behavior: Default handling for logs that don't match any of the specified filtering conditions.
-        :param Sequence['FilterResponseV1'] filters: The filters that you want to apply to the logs.
+        :param Sequence['FilterWafv2LoggingConfigurationResponse'] filters: The filters that you want to apply to the logs.
         """
         if default_behavior is not None:
             pulumi.set(__self__, "default_behavior", default_behavior)
@@ -54406,7 +54571,7 @@ class LoggingFilterModelPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def filters(self) -> Optional[Sequence['outputs.FilterResponseV1']]:
+    def filters(self) -> Optional[Sequence['outputs.FilterWafv2LoggingConfigurationResponse']]:
         """
         The filters that you want to apply to the logs.
         """
@@ -54531,47 +54696,6 @@ class LoggingResponse(dict):
         An optional string that you want CloudFront to prefix to the access log ``filenames`` for this distribution, for example, ``myprefix/``. If you want to enable logging, but you don't want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
         """
         return pulumi.get(self, "prefix")
-
-
-@pulumi.output_type
-class LoggingResponseV1(dict):
-    """
-    Definition of Logging
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "clusterLogging":
-            suggest = "cluster_logging"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LoggingResponseV1. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LoggingResponseV1.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LoggingResponseV1.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 cluster_logging: Optional[Sequence['outputs.LogSetupResponse']] = None):
-        """
-        Definition of Logging
-
-        :param Sequence['LogSetupResponse'] cluster_logging: <p>The cluster control plane logging configuration for your cluster.</p>
-        """
-        if cluster_logging is not None:
-            pulumi.set(__self__, "cluster_logging", cluster_logging)
-
-    @_builtins.property
-    @pulumi.getter(name="clusterLogging")
-    def cluster_logging(self) -> Optional[Sequence['outputs.LogSetupResponse']]:
-        """
-        <p>The cluster control plane logging configuration for your cluster.</p>
-        """
-        return pulumi.get(self, "cluster_logging")
 
 
 @pulumi.output_type
@@ -56437,7 +56561,7 @@ class MetricTransformationResponse(dict):
 
     def __init__(__self__, *,
                  default_value: Optional[_builtins.int] = None,
-                 dimensions: Optional[Sequence['outputs.DimensionResponseV1']] = None,
+                 dimensions: Optional[Sequence['outputs.DimensionLogsMetricFilterResponse']] = None,
                  metric_name: Optional[_builtins.str] = None,
                  metric_namespace: Optional[_builtins.str] = None,
                  metric_value: Optional[_builtins.str] = None,
@@ -56446,7 +56570,7 @@ class MetricTransformationResponse(dict):
         Definition of MetricTransformation
 
         :param _builtins.int default_value: (Optional) The value to emit when a filter pattern does not match a log event. This value can be null.
-        :param Sequence['DimensionResponseV1'] dimensions: The fields to use as dimensions for the metric. One metric filter can include as many as three dimensions.  Metrics extracted from log events are charged as custom metrics. To prevent unexpected high charges, do not specify high-cardinality fields such as ``IPAddress`` or ``requestID`` as dimensions. Each different value found for a dimension is treated as a separate metric and accrues charges as a separate custom metric.  CloudWatch Logs disables a metric filter if it generates 1000 different name/value pairs for your specified dimensions within a certain amount of time. This helps to prevent accidental high charges. You can also set up a billing alarm to alert you if your charges are higher than expected. For more information, see [Creating a Billing Alarm to Monitor Your Estimated Charges](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html).
+        :param Sequence['DimensionLogsMetricFilterResponse'] dimensions: The fields to use as dimensions for the metric. One metric filter can include as many as three dimensions.  Metrics extracted from log events are charged as custom metrics. To prevent unexpected high charges, do not specify high-cardinality fields such as ``IPAddress`` or ``requestID`` as dimensions. Each different value found for a dimension is treated as a separate metric and accrues charges as a separate custom metric.  CloudWatch Logs disables a metric filter if it generates 1000 different name/value pairs for your specified dimensions within a certain amount of time. This helps to prevent accidental high charges. You can also set up a billing alarm to alert you if your charges are higher than expected. For more information, see [Creating a Billing Alarm to Monitor Your Estimated Charges](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html).
         :param _builtins.str metric_name: The name of the CloudWatch metric.
         :param _builtins.str metric_namespace: A custom namespace to contain your metric in CloudWatch. Use namespaces to group together metrics that are similar. For more information, see [Namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Namespace).
         :param _builtins.str metric_value: The value that is published to the CloudWatch metric. For example, if you're counting the occurrences of a particular term like ``Error``, specify 1 for the metric value. If you're counting the number of bytes transferred, reference the value that is in the log event by using $. followed by the name of the field that you specified in the filter pattern, such as ``$.size``.
@@ -56475,7 +56599,7 @@ class MetricTransformationResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def dimensions(self) -> Optional[Sequence['outputs.DimensionResponseV1']]:
+    def dimensions(self) -> Optional[Sequence['outputs.DimensionLogsMetricFilterResponse']]:
         """
         The fields to use as dimensions for the metric. One metric filter can include as many as three dimensions.  Metrics extracted from log events are charged as custom metrics. To prevent unexpected high charges, do not specify high-cardinality fields such as ``IPAddress`` or ``requestID`` as dimensions. Each different value found for a dimension is treated as a separate metric and accrues charges as a separate custom metric.  CloudWatch Logs disables a metric filter if it generates 1000 different name/value pairs for your specified dimensions within a certain amount of time. This helps to prevent accidental high charges. You can also set up a billing alarm to alert you if your charges are higher than expected. For more information, see [Creating a Billing Alarm to Monitor Your Estimated Charges](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html).
         """
@@ -60002,6 +60126,61 @@ class ParameterGroupStatusResponse(dict):
 
 
 @pulumi.output_type
+class ParameterRedshiftClusterParameterGroupResponse(dict):
+    """
+    Definition of Parameter
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "parameterName":
+            suggest = "parameter_name"
+        elif key == "parameterValue":
+            suggest = "parameter_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ParameterRedshiftClusterParameterGroupResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ParameterRedshiftClusterParameterGroupResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ParameterRedshiftClusterParameterGroupResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 parameter_name: Optional[_builtins.str] = None,
+                 parameter_value: Optional[_builtins.str] = None):
+        """
+        Definition of Parameter
+
+        :param _builtins.str parameter_name: The name of the parameter.
+        :param _builtins.str parameter_value: The value of the parameter. If `ParameterName` is `wlm_json_configuration`, then the maximum size of `ParameterValue` is 8000 characters.
+        """
+        if parameter_name is not None:
+            pulumi.set(__self__, "parameter_name", parameter_name)
+        if parameter_value is not None:
+            pulumi.set(__self__, "parameter_value", parameter_value)
+
+    @_builtins.property
+    @pulumi.getter(name="parameterName")
+    def parameter_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the parameter.
+        """
+        return pulumi.get(self, "parameter_name")
+
+    @_builtins.property
+    @pulumi.getter(name="parameterValue")
+    def parameter_value(self) -> Optional[_builtins.str]:
+        """
+        The value of the parameter. If `ParameterName` is `wlm_json_configuration`, then the maximum size of `ParameterValue` is 8000 characters.
+        """
+        return pulumi.get(self, "parameter_value")
+
+
+@pulumi.output_type
 class ParameterResponse(dict):
     """
     Definition of Parameter
@@ -60052,61 +60231,6 @@ class ParameterResponse(dict):
     def parameter_value(self) -> Optional[_builtins.str]:
         """
         The input value associated with the parameter.
-        """
-        return pulumi.get(self, "parameter_value")
-
-
-@pulumi.output_type
-class ParameterResponseV1(dict):
-    """
-    Definition of Parameter
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "parameterName":
-            suggest = "parameter_name"
-        elif key == "parameterValue":
-            suggest = "parameter_value"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ParameterResponseV1. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ParameterResponseV1.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ParameterResponseV1.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 parameter_name: Optional[_builtins.str] = None,
-                 parameter_value: Optional[_builtins.str] = None):
-        """
-        Definition of Parameter
-
-        :param _builtins.str parameter_name: The name of the parameter.
-        :param _builtins.str parameter_value: The value of the parameter. If `ParameterName` is `wlm_json_configuration`, then the maximum size of `ParameterValue` is 8000 characters.
-        """
-        if parameter_name is not None:
-            pulumi.set(__self__, "parameter_name", parameter_name)
-        if parameter_value is not None:
-            pulumi.set(__self__, "parameter_value", parameter_value)
-
-    @_builtins.property
-    @pulumi.getter(name="parameterName")
-    def parameter_name(self) -> Optional[_builtins.str]:
-        """
-        The name of the parameter.
-        """
-        return pulumi.get(self, "parameter_name")
-
-    @_builtins.property
-    @pulumi.getter(name="parameterValue")
-    def parameter_value(self) -> Optional[_builtins.str]:
-        """
-        The value of the parameter. If `ParameterName` is `wlm_json_configuration`, then the maximum size of `ParameterValue` is 8000 characters.
         """
         return pulumi.get(self, "parameter_value")
 
@@ -62665,23 +62789,47 @@ class PublicAccessBlockConfigurationResponse(dict):
 
 
 @pulumi.output_type
-class PublishMetricActionResponse(dict):
+class PublishMetricActionNetworkFirewallRuleGroupResponse(dict):
     """
     Definition of PublishMetricAction
     """
     def __init__(__self__, *,
-                 dimensions: Optional[Sequence['outputs.DimensionResponseV2']] = None):
+                 dimensions: Optional[Sequence['outputs.DimensionNetworkFirewallRuleGroupResponse']] = None):
         """
         Definition of PublishMetricAction
 
-        :param Sequence['DimensionResponseV2'] dimensions: Property dimensions
+        :param Sequence['DimensionNetworkFirewallRuleGroupResponse'] dimensions: Property dimensions
         """
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
 
     @_builtins.property
     @pulumi.getter
-    def dimensions(self) -> Optional[Sequence['outputs.DimensionResponseV2']]:
+    def dimensions(self) -> Optional[Sequence['outputs.DimensionNetworkFirewallRuleGroupResponse']]:
+        """
+        Property dimensions
+        """
+        return pulumi.get(self, "dimensions")
+
+
+@pulumi.output_type
+class PublishMetricActionResponse(dict):
+    """
+    Definition of PublishMetricAction
+    """
+    def __init__(__self__, *,
+                 dimensions: Optional[Sequence['outputs.DimensionNetworkFirewallFirewallPolicyResponse']] = None):
+        """
+        Definition of PublishMetricAction
+
+        :param Sequence['DimensionNetworkFirewallFirewallPolicyResponse'] dimensions: Property dimensions
+        """
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+
+    @_builtins.property
+    @pulumi.getter
+    def dimensions(self) -> Optional[Sequence['outputs.DimensionNetworkFirewallFirewallPolicyResponse']]:
         """
         Property dimensions
         """
@@ -65018,7 +65166,7 @@ class ReplicationConfigurationResponse(dict):
 
 
 @pulumi.output_type
-class ReplicationConfigurationResponseV1(dict):
+class ReplicationConfigurationS3BucketResponse(dict):
     """
     Definition of ReplicationConfiguration
     """
@@ -65135,7 +65283,7 @@ class ReplicationDestinationResponse(dict):
 
 
 @pulumi.output_type
-class ReplicationDestinationResponseV1(dict):
+class ReplicationDestinationS3BucketResponse(dict):
     """
     Definition of ReplicationDestination
     """
@@ -65152,21 +65300,21 @@ class ReplicationDestinationResponseV1(dict):
             suggest = "storage_class"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ReplicationDestinationResponseV1. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ReplicationDestinationS3BucketResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ReplicationDestinationResponseV1.__key_warning(key)
+        ReplicationDestinationS3BucketResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ReplicationDestinationResponseV1.__key_warning(key)
+        ReplicationDestinationS3BucketResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  access_control_translation: Optional['outputs.AccessControlTranslationResponse'] = None,
                  account: Optional[_builtins.str] = None,
                  bucket: Optional[_builtins.str] = None,
-                 encryption_configuration: Optional['outputs.EncryptionConfigurationResponseV1'] = None,
+                 encryption_configuration: Optional['outputs.EncryptionConfigurationS3BucketResponse'] = None,
                  metrics: Optional['outputs.MetricsResponse'] = None,
                  replication_time: Optional['outputs.ReplicationTimeResponse'] = None,
                  storage_class: Optional[_builtins.str] = None):
@@ -65176,7 +65324,7 @@ class ReplicationDestinationResponseV1(dict):
         :param 'AccessControlTranslationResponse' access_control_translation: Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS-account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS-account that owns the source object. Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS-account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS-account that owns the source object.
         :param _builtins.str account: Destination bucket owner account ID. In a cross-account scenario, if you direct Amazon S3 to change replica ownership to the AWS-account that owns the destination bucket by specifying the ``AccessControlTranslation`` property, this is the account ID of the destination bucket owner. For more information, see [Cross-Region Replication Additional Configuration: Change Replica Owner](https://docs.aws.amazon.com/AmazonS3/latest/dev/crr-change-owner.html) in the *Amazon S3 User Guide*. If you specify the ``AccessControlTranslation`` property, the ``Account`` property is required.
         :param _builtins.str bucket: The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to store the results.
-        :param 'EncryptionConfigurationResponseV1' encryption_configuration: Specifies encryption-related information. Specifies encryption-related information for an Amazon S3 bucket that is a destination for replicated objects.
+        :param 'EncryptionConfigurationS3BucketResponse' encryption_configuration: Specifies encryption-related information. Specifies encryption-related information for an Amazon S3 bucket that is a destination for replicated objects.
         :param 'MetricsResponse' metrics: A container specifying replication metrics-related settings enabling replication metrics and events. A container specifying replication metrics-related settings enabling replication metrics and events.
         :param 'ReplicationTimeResponse' replication_time: A container specifying S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. Must be specified together with a ``Metrics`` block. A container specifying S3 Replication Time Control (S3 RTC) related information, including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. Must be specified together with a ``Metrics`` block.
         :param _builtins.str storage_class: The storage class to use when replicating objects, such as S3 Standard or reduced redundancy. By default, Amazon S3 uses the storage class of the source object to create the object replica.  For valid values, see the ``StorageClass`` element of the [PUT Bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) action in the *Amazon S3 API Reference*.
@@ -65222,7 +65370,7 @@ class ReplicationDestinationResponseV1(dict):
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
-    def encryption_configuration(self) -> Optional['outputs.EncryptionConfigurationResponseV1']:
+    def encryption_configuration(self) -> Optional['outputs.EncryptionConfigurationS3BucketResponse']:
         """
         Specifies encryption-related information. Specifies encryption-related information for an Amazon S3 bucket that is a destination for replicated objects.
         """
@@ -65496,7 +65644,7 @@ class ReplicationRuleResponse(dict):
 
     def __init__(__self__, *,
                  delete_marker_replication: Optional['outputs.DeleteMarkerReplicationResponse'] = None,
-                 destination: Optional['outputs.ReplicationDestinationResponseV1'] = None,
+                 destination: Optional['outputs.ReplicationDestinationS3BucketResponse'] = None,
                  filter: Optional['outputs.ReplicationRuleFilterResponse'] = None,
                  id: Optional[_builtins.str] = None,
                  prefix: Optional[_builtins.str] = None,
@@ -65507,7 +65655,7 @@ class ReplicationRuleResponse(dict):
         Definition of ReplicationRule
 
         :param 'DeleteMarkerReplicationResponse' delete_marker_replication: Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication`` ``Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config).  For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html).   If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see [Backward Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations). Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication`` ``Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config).  For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html).   If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see [Backward Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations).
-        :param 'ReplicationDestinationResponseV1' destination: A container for information about the replication destination and its configurations including enabling the S3 Replication Time Control (S3 RTC). A container for information about the replication destination and its configurations including enabling the S3 Replication Time Control (S3 RTC).
+        :param 'ReplicationDestinationS3BucketResponse' destination: A container for information about the replication destination and its configurations including enabling the S3 Replication Time Control (S3 RTC). A container for information about the replication destination and its configurations including enabling the S3 Replication Time Control (S3 RTC).
         :param 'ReplicationRuleFilterResponse' filter: A filter that identifies the subset of objects to which the replication rule applies. A ``Filter`` must specify exactly one ``Prefix``, ``TagFilter``, or an ``And`` child element. The use of the filter field indicates that this is a V2 replication configuration. This field isn't supported in a V1 replication configuration.  V1 replication configuration only supports filtering by key prefix. To filter using a V1 replication configuration, add the ``Prefix`` directly as a child element of the ``Rule`` element. A filter that identifies the subset of objects to which the replication rule applies. A ``Filter`` must specify exactly one ``Prefix``, ``TagFilter``, or an ``And`` child element.
         :param _builtins.str id: A unique identifier for the rule. The maximum value is 255 characters. If you don't specify a value, AWS CloudFormation generates a random ID. When using a V2 replication configuration this property is capitalized as 'ID'.
         :param _builtins.str prefix: An object key name prefix that identifies the object or objects to which the rule applies. The maximum prefix length is 1,024 characters. To include all objects in a bucket, specify an empty string. To filter using a V1 replication configuration, add the ``Prefix`` directly as a child element of the ``Rule`` element.  Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints).
@@ -65542,7 +65690,7 @@ class ReplicationRuleResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def destination(self) -> Optional['outputs.ReplicationDestinationResponseV1']:
+    def destination(self) -> Optional['outputs.ReplicationDestinationS3BucketResponse']:
         """
         A container for information about the replication destination and its configurations including enabling the S3 Replication Time Control (S3 RTC). A container for information about the replication destination and its configurations including enabling the S3 Replication Time Control (S3 RTC).
         """
@@ -71074,13 +71222,15 @@ class SingleHeaderModelPropertiesResponse(dict):
 @pulumi.output_type
 class SnapStartResponse(dict):
     """
-    Definition of SnapStart
+    Definition of SnapStartResponse
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "applyOn":
             suggest = "apply_on"
+        elif key == "optimizationStatus":
+            suggest = "optimization_status"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SnapStartResponse. Access the value via the '{suggest}' property getter instead.")
@@ -71094,22 +71244,34 @@ class SnapStartResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 apply_on: Optional[_builtins.str] = None):
+                 apply_on: Optional[_builtins.str] = None,
+                 optimization_status: Optional[_builtins.str] = None):
         """
-        Definition of SnapStart
+        Definition of SnapStartResponse
 
-        :param _builtins.str apply_on: Set ``ApplyOn`` to ``PublishedVersions`` to create a snapshot of the initialized execution environment when you publish a function version.
+        :param Union[_builtins.str, 'SnapStartResponseApplyOn'] apply_on: When set to ``PublishedVersions``, Lambda creates a snapshot of the execution environment when you publish a function version.
+        :param Union[_builtins.str, 'SnapStartResponseOptimizationStatus'] optimization_status: When you provide a [qualified Amazon Resource Name (ARN)](https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html#versioning-versions-using), this response element indicates whether SnapStart is activated for the specified function version.
         """
         if apply_on is not None:
             pulumi.set(__self__, "apply_on", apply_on)
+        if optimization_status is not None:
+            pulumi.set(__self__, "optimization_status", optimization_status)
 
     @_builtins.property
     @pulumi.getter(name="applyOn")
     def apply_on(self) -> Optional[_builtins.str]:
         """
-        Set ``ApplyOn`` to ``PublishedVersions`` to create a snapshot of the initialized execution environment when you publish a function version.
+        When set to ``PublishedVersions``, Lambda creates a snapshot of the execution environment when you publish a function version.
         """
         return pulumi.get(self, "apply_on")
+
+    @_builtins.property
+    @pulumi.getter(name="optimizationStatus")
+    def optimization_status(self) -> Optional[_builtins.str]:
+        """
+        When you provide a [qualified Amazon Resource Name (ARN)](https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html#versioning-versions-using), this response element indicates whether SnapStart is activated for the specified function version.
+        """
+        return pulumi.get(self, "optimization_status")
 
 
 @pulumi.output_type
@@ -72911,12 +73073,12 @@ class StatelessRulesAndCustomActionsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 custom_actions: Optional[Sequence['outputs.CustomActionResponse']] = None,
+                 custom_actions: Optional[Sequence['outputs.CustomActionNetworkFirewallRuleGroupResponse']] = None,
                  stateless_rules: Optional[Sequence['outputs.StatelessRuleResponse']] = None):
         """
         Definition of StatelessRulesAndCustomActions
 
-        :param Sequence['CustomActionResponse'] custom_actions: Property customActions
+        :param Sequence['CustomActionNetworkFirewallRuleGroupResponse'] custom_actions: Property customActions
         :param Sequence['StatelessRuleResponse'] stateless_rules: Property statelessRules
         """
         if custom_actions is not None:
@@ -72926,7 +73088,7 @@ class StatelessRulesAndCustomActionsResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="customActions")
-    def custom_actions(self) -> Optional[Sequence['outputs.CustomActionResponse']]:
+    def custom_actions(self) -> Optional[Sequence['outputs.CustomActionNetworkFirewallRuleGroupResponse']]:
         """
         Property customActions
         """
@@ -73146,6 +73308,61 @@ class StreamSpecificationResponse(dict):
 
 
 @pulumi.output_type
+class SubnetMappingNetworkFirewallFirewallResponse(dict):
+    """
+    Definition of SubnetMapping
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddressType":
+            suggest = "ip_address_type"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SubnetMappingNetworkFirewallFirewallResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SubnetMappingNetworkFirewallFirewallResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SubnetMappingNetworkFirewallFirewallResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_address_type: Optional[_builtins.str] = None,
+                 subnet_id: Optional[_builtins.str] = None):
+        """
+        Definition of SubnetMapping
+
+        :param _builtins.str ip_address_type: A IPAddressType
+        :param _builtins.str subnet_id: A SubnetId.
+        """
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[_builtins.str]:
+        """
+        A IPAddressType
+        """
+        return pulumi.get(self, "ip_address_type")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[_builtins.str]:
+        """
+        A SubnetId.
+        """
+        return pulumi.get(self, "subnet_id")
+
+
+@pulumi.output_type
 class SubnetMappingResponse(dict):
     """
     Definition of SubnetMapping
@@ -73224,61 +73441,6 @@ class SubnetMappingResponse(dict):
     def subnet_id(self) -> Optional[_builtins.str]:
         """
         The ID of the subnet.
-        """
-        return pulumi.get(self, "subnet_id")
-
-
-@pulumi.output_type
-class SubnetMappingResponseV1(dict):
-    """
-    Definition of SubnetMapping
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "ipAddressType":
-            suggest = "ip_address_type"
-        elif key == "subnetId":
-            suggest = "subnet_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SubnetMappingResponseV1. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SubnetMappingResponseV1.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SubnetMappingResponseV1.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 ip_address_type: Optional[_builtins.str] = None,
-                 subnet_id: Optional[_builtins.str] = None):
-        """
-        Definition of SubnetMapping
-
-        :param _builtins.str ip_address_type: A IPAddressType
-        :param _builtins.str subnet_id: A SubnetId.
-        """
-        if ip_address_type is not None:
-            pulumi.set(__self__, "ip_address_type", ip_address_type)
-        if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
-
-    @_builtins.property
-    @pulumi.getter(name="ipAddressType")
-    def ip_address_type(self) -> Optional[_builtins.str]:
-        """
-        A IPAddressType
-        """
-        return pulumi.get(self, "ip_address_type")
-
-    @_builtins.property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[_builtins.str]:
-        """
-        A SubnetId.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -75794,6 +75956,75 @@ class VolumeTypeEnumValueResponse(dict):
 
 
 @pulumi.output_type
+class VpcConfigLambdaFunctionResponse(dict):
+    """
+    Definition of VpcConfig
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipv6AllowedForDualStack":
+            suggest = "ipv6_allowed_for_dual_stack"
+        elif key == "securityGroupIds":
+            suggest = "security_group_ids"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpcConfigLambdaFunctionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpcConfigLambdaFunctionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpcConfigLambdaFunctionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ipv6_allowed_for_dual_stack: Optional[_builtins.bool] = None,
+                 security_group_ids: Optional[Sequence[_builtins.str]] = None,
+                 subnet_ids: Optional[Sequence[_builtins.str]] = None):
+        """
+        Definition of VpcConfig
+
+        :param _builtins.bool ipv6_allowed_for_dual_stack: Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.
+        :param Sequence[_builtins.str] security_group_ids: A list of VPC security group IDs.
+        :param Sequence[_builtins.str] subnet_ids: A list of VPC subnet IDs.
+        """
+        if ipv6_allowed_for_dual_stack is not None:
+            pulumi.set(__self__, "ipv6_allowed_for_dual_stack", ipv6_allowed_for_dual_stack)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @_builtins.property
+    @pulumi.getter(name="ipv6AllowedForDualStack")
+    def ipv6_allowed_for_dual_stack(self) -> Optional[_builtins.bool]:
+        """
+        Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.
+        """
+        return pulumi.get(self, "ipv6_allowed_for_dual_stack")
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of VPC security group IDs.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of VPC subnet IDs.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+
+@pulumi.output_type
 class VpcConfigResponse(dict):
     """
     Definition of VpcConfigResponse
@@ -76053,75 +76284,6 @@ class VpcConfigResponseResponse(dict):
         <p>The VPC associated with your cluster.</p>
         """
         return pulumi.get(self, "vpc_id")
-
-
-@pulumi.output_type
-class VpcConfigResponseV1(dict):
-    """
-    Definition of VpcConfig
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "ipv6AllowedForDualStack":
-            suggest = "ipv6_allowed_for_dual_stack"
-        elif key == "securityGroupIds":
-            suggest = "security_group_ids"
-        elif key == "subnetIds":
-            suggest = "subnet_ids"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VpcConfigResponseV1. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VpcConfigResponseV1.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VpcConfigResponseV1.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 ipv6_allowed_for_dual_stack: Optional[_builtins.bool] = None,
-                 security_group_ids: Optional[Sequence[_builtins.str]] = None,
-                 subnet_ids: Optional[Sequence[_builtins.str]] = None):
-        """
-        Definition of VpcConfig
-
-        :param _builtins.bool ipv6_allowed_for_dual_stack: Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.
-        :param Sequence[_builtins.str] security_group_ids: A list of VPC security group IDs.
-        :param Sequence[_builtins.str] subnet_ids: A list of VPC subnet IDs.
-        """
-        if ipv6_allowed_for_dual_stack is not None:
-            pulumi.set(__self__, "ipv6_allowed_for_dual_stack", ipv6_allowed_for_dual_stack)
-        if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
-        if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
-
-    @_builtins.property
-    @pulumi.getter(name="ipv6AllowedForDualStack")
-    def ipv6_allowed_for_dual_stack(self) -> Optional[_builtins.bool]:
-        """
-        Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.
-        """
-        return pulumi.get(self, "ipv6_allowed_for_dual_stack")
-
-    @_builtins.property
-    @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        A list of VPC security group IDs.
-        """
-        return pulumi.get(self, "security_group_ids")
-
-    @_builtins.property
-    @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        A list of VPC subnet IDs.
-        """
-        return pulumi.get(self, "subnet_ids")
 
 
 @pulumi.output_type

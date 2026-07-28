@@ -61,7 +61,7 @@ export interface GetLoadBalancerResult {
     /**
      * Nodes that match this selector will be possible members of this load balancer.
      */
-    readonly nodeSelector?: outputs.containerservice.LabelSelectorResponse;
+    readonly nodeSelector?: outputs.containerservice.LabelSelectorLoadBalancerResponse;
     /**
      * Required field. A string value that must specify the ID of an existing agent pool. All nodes in the given pool will always be added to this load balancer. This agent pool must have at least one node and minCount>=1 for autoscaling operations. An agent pool can only be the primary pool for a single load balancer.
      */
@@ -73,11 +73,11 @@ export interface GetLoadBalancerResult {
     /**
      * Only services that must match this selector can be placed on this load balancer.
      */
-    readonly serviceLabelSelector?: outputs.containerservice.LabelSelectorResponse;
+    readonly serviceLabelSelector?: outputs.containerservice.LabelSelectorLoadBalancerResponse;
     /**
      * Services created in namespaces that match the selector can be placed on this load balancer.
      */
-    readonly serviceNamespaceSelector?: outputs.containerservice.LabelSelectorResponse;
+    readonly serviceNamespaceSelector?: outputs.containerservice.LabelSelectorLoadBalancerResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

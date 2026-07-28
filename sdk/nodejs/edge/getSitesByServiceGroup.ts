@@ -52,7 +52,7 @@ export interface GetSitesByServiceGroupResult {
     /**
      * The resource-specific properties for this resource.
      */
-    readonly properties: outputs.edge.SitePropertiesResponse;
+    readonly properties: outputs.edge.SitePropertiesSitesByServiceGroupResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

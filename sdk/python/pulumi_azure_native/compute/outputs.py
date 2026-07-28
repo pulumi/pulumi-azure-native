@@ -41,7 +41,6 @@ __all__ = [
     'CapacityReservationInstanceViewWithNameResponse',
     'CapacityReservationProfileResponse',
     'CapacityReservationUtilizationResponse',
-    'CommonUserAssignedIdentitiesValueResponse',
     'CommunityGalleryInfoResponse',
     'CopyCompletionErrorResponse',
     'CreationDataResponse',
@@ -198,6 +197,7 @@ __all__ = [
     'UserArtifactManageResponse',
     'UserArtifactSettingsResponse',
     'UserArtifactSourceResponse',
+    'UserAssignedIdentitiesValueResponse',
     'UserInitiatedRebootResponse',
     'UserInitiatedRedeployResponse',
     'VMDiskSecurityProfileResponse',
@@ -1687,54 +1687,6 @@ class CapacityReservationUtilizationResponse(dict):
         A list of all virtual machines resource ids allocated against the capacity reservation.
         """
         return pulumi.get(self, "virtual_machines_allocated")
-
-
-@pulumi.output_type
-class CommonUserAssignedIdentitiesValueResponse(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "clientId":
-            suggest = "client_id"
-        elif key == "principalId":
-            suggest = "principal_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CommonUserAssignedIdentitiesValueResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CommonUserAssignedIdentitiesValueResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CommonUserAssignedIdentitiesValueResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 client_id: _builtins.str,
-                 principal_id: _builtins.str):
-        """
-        :param _builtins.str client_id: The client id of user assigned identity.
-        :param _builtins.str principal_id: The principal id of user assigned identity.
-        """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
-
-    @_builtins.property
-    @pulumi.getter(name="clientId")
-    def client_id(self) -> _builtins.str:
-        """
-        The client id of user assigned identity.
-        """
-        return pulumi.get(self, "client_id")
-
-    @_builtins.property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> _builtins.str:
-        """
-        The principal id of user assigned identity.
-        """
-        return pulumi.get(self, "principal_id")
 
 
 @pulumi.output_type
@@ -3516,14 +3468,14 @@ class EncryptionSetIdentityResponse(dict):
                  principal_id: _builtins.str,
                  tenant_id: _builtins.str,
                  type: Optional[_builtins.str] = None,
-                 user_assigned_identities: Optional[Mapping[str, 'outputs.CommonUserAssignedIdentitiesValueResponse']] = None):
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentitiesValueResponse']] = None):
         """
         The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
 
         :param _builtins.str principal_id: The object id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-identity-principal-id header in the PUT request if the resource has a systemAssigned(implicit) identity
         :param _builtins.str tenant_id: The tenant id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-client-tenant-id header in the PUT request if the resource has a systemAssigned(implicit) identity
         :param _builtins.str type: The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
-        :param Mapping[str, 'CommonUserAssignedIdentitiesValueResponse'] user_assigned_identities: The list of user identities associated with the disk encryption set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'UserAssignedIdentitiesValueResponse'] user_assigned_identities: The list of user identities associated with the disk encryption set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -3558,7 +3510,7 @@ class EncryptionSetIdentityResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.CommonUserAssignedIdentitiesValueResponse']]:
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentitiesValueResponse']]:
         """
         The list of user identities associated with the disk encryption set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
@@ -4533,14 +4485,14 @@ class GalleryIdentityResponse(dict):
                  principal_id: _builtins.str,
                  tenant_id: _builtins.str,
                  type: Optional[_builtins.str] = None,
-                 user_assigned_identities: Optional[Mapping[str, 'outputs.CommonUserAssignedIdentitiesValueResponse']] = None):
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentitiesValueResponse']] = None):
         """
         Identity for the virtual machine.
 
         :param _builtins.str principal_id: The principal id of the gallery identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The AAD tenant id of the gallery identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: The type of identity used for the gallery. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove all identities from the gallery.
-        :param Mapping[str, 'CommonUserAssignedIdentitiesValueResponse'] user_assigned_identities: The list of user identities associated with the gallery. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'UserAssignedIdentitiesValueResponse'] user_assigned_identities: The list of user identities associated with the gallery. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -4575,7 +4527,7 @@ class GalleryIdentityResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.CommonUserAssignedIdentitiesValueResponse']]:
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentitiesValueResponse']]:
         """
         The list of user identities associated with the gallery. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
@@ -12279,6 +12231,54 @@ class UserArtifactSourceResponse(dict):
 
 
 @pulumi.output_type
+class UserAssignedIdentitiesValueResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentitiesValueResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentitiesValueResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentitiesValueResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: _builtins.str,
+                 principal_id: _builtins.str):
+        """
+        :param _builtins.str client_id: The client id of user assigned identity.
+        :param _builtins.str principal_id: The principal id of user assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> _builtins.str:
+        """
+        The client id of user assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> _builtins.str:
+        """
+        The principal id of user assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
 class UserInitiatedRebootResponse(dict):
     """
     Specifies Reboot related Scheduled Event related configurations.
@@ -13308,14 +13308,14 @@ class VirtualMachineIdentityResponse(dict):
                  principal_id: _builtins.str,
                  tenant_id: _builtins.str,
                  type: Optional[_builtins.str] = None,
-                 user_assigned_identities: Optional[Mapping[str, 'outputs.CommonUserAssignedIdentitiesValueResponse']] = None):
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentitiesValueResponse']] = None):
         """
         Identity for the virtual machine.
 
         :param _builtins.str principal_id: The principal id of virtual machine identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant id associated with the virtual machine. This property will only be provided for a system assigned identity.
         :param _builtins.str type: The type of identity used for the virtual machine. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
-        :param Mapping[str, 'CommonUserAssignedIdentitiesValueResponse'] user_assigned_identities: The list of user identities associated with the Virtual Machine. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'UserAssignedIdentitiesValueResponse'] user_assigned_identities: The list of user identities associated with the Virtual Machine. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -13350,7 +13350,7 @@ class VirtualMachineIdentityResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.CommonUserAssignedIdentitiesValueResponse']]:
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentitiesValueResponse']]:
         """
         The list of user identities associated with the Virtual Machine. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
@@ -15161,14 +15161,14 @@ class VirtualMachineScaleSetIdentityResponse(dict):
                  principal_id: _builtins.str,
                  tenant_id: _builtins.str,
                  type: Optional[_builtins.str] = None,
-                 user_assigned_identities: Optional[Mapping[str, 'outputs.CommonUserAssignedIdentitiesValueResponse']] = None):
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentitiesValueResponse']] = None):
         """
         Identity for the virtual machine scale set.
 
         :param _builtins.str principal_id: The principal id of virtual machine scale set identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant id associated with the virtual machine scale set. This property will only be provided for a system assigned identity.
         :param _builtins.str type: The type of identity used for the virtual machine scale set. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine scale set.
-        :param Mapping[str, 'CommonUserAssignedIdentitiesValueResponse'] user_assigned_identities: The list of user identities associated with the virtual machine scale set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'UserAssignedIdentitiesValueResponse'] user_assigned_identities: The list of user identities associated with the virtual machine scale set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -15203,7 +15203,7 @@ class VirtualMachineScaleSetIdentityResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.CommonUserAssignedIdentitiesValueResponse']]:
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentitiesValueResponse']]:
         """
         The list of user identities associated with the virtual machine scale set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """

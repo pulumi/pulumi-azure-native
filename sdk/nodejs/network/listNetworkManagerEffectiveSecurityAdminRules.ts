@@ -54,7 +54,7 @@ export interface ListNetworkManagerEffectiveSecurityAdminRulesResult {
     /**
      * Gets a page of NetworkManagerEffectiveSecurityAdminRules
      */
-    readonly value?: (outputs.network.EffectiveDefaultSecurityAdminRuleResponseV1 | outputs.network.EffectiveSecurityAdminRuleResponseV1)[];
+    readonly value?: (outputs.network.EffectiveDefaultSecurityAdminRulelistNetworkManagerEffectiveSecurityAdminRulesResponse | outputs.network.EffectiveSecurityAdminRulelistNetworkManagerEffectiveSecurityAdminRulesResponse)[];
 }
 /**
  * List all effective security admin rules applied on a virtual network.

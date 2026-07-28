@@ -139,7 +139,7 @@ class GetVirtualNetworkApplianceResult:
 
     @_builtins.property
     @pulumi.getter
-    def subnet(self) -> Optional['outputs.CommonSubnetResponse']:
+    def subnet(self) -> Optional['outputs.SubnetResponseV2']:
         """
         The reference to the subnet resource.
         """

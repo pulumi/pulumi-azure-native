@@ -60,7 +60,7 @@ export interface GetFirewallResult {
     /**
      * The managed service identities assigned to this resource.
      */
-    readonly identity?: outputs.cloudngfw.AzureResourceManagerManagedIdentityPropertiesResponse;
+    readonly identity?: outputs.cloudngfw.ManagedIdentityPropertiesResponse;
     /**
      * Panorama Managed: Default is False. Default will be CloudSec managed
      */

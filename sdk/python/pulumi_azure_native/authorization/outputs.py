@@ -34,7 +34,6 @@ __all__ = [
     'IdentityResponseUserAssignedIdentities',
     'ManagedByTenantResponse',
     'ManagementLockOwnerResponse',
-    'MicrosoftCommonPrincipalResponse',
     'NonComplianceMessageResponse',
     'OverrideResponse',
     'PIMOnlyModeSettingsResponse',
@@ -54,6 +53,7 @@ __all__ = [
     'PolicySetDefinitionVersionResponse',
     'PolicyVariableColumnResponse',
     'PolicyVariableValueColumnValueResponse',
+    'PrincipalResponse',
     'PrivateLinkAssociationPropertiesExpandedResponse',
     'ResourceManagementPrivateLinkEndpointConnectionsResponse',
     'ResourceSelectorResponse',
@@ -1506,83 +1506,6 @@ class ManagementLockOwnerResponse(dict):
 
 
 @pulumi.output_type
-class MicrosoftCommonPrincipalResponse(dict):
-    """
-    The name of the entity last modified it
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "displayName":
-            suggest = "display_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MicrosoftCommonPrincipalResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MicrosoftCommonPrincipalResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MicrosoftCommonPrincipalResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 display_name: Optional[_builtins.str] = None,
-                 email: Optional[_builtins.str] = None,
-                 id: Optional[_builtins.str] = None,
-                 type: Optional[_builtins.str] = None):
-        """
-        The name of the entity last modified it
-
-        :param _builtins.str display_name: The name of the principal made changes
-        :param _builtins.str email: Email of principal
-        :param _builtins.str id: The id of the principal made changes
-        :param _builtins.str type: Type of principal such as user , group etc
-        """
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
-        if email is not None:
-            pulumi.set(__self__, "email", email)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @_builtins.property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[_builtins.str]:
-        """
-        The name of the principal made changes
-        """
-        return pulumi.get(self, "display_name")
-
-    @_builtins.property
-    @pulumi.getter
-    def email(self) -> Optional[_builtins.str]:
-        """
-        Email of principal
-        """
-        return pulumi.get(self, "email")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> Optional[_builtins.str]:
-        """
-        The id of the principal made changes
-        """
-        return pulumi.get(self, "id")
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> Optional[_builtins.str]:
-        """
-        Type of principal such as user , group etc
-        """
-        return pulumi.get(self, "type")
-
-
-@pulumi.output_type
 class NonComplianceMessageResponse(dict):
     """
     A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
@@ -2073,13 +1996,13 @@ class PolicyAssignmentPropertiesPolicyResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 last_modified_by: 'outputs.MicrosoftCommonPrincipalResponse',
+                 last_modified_by: 'outputs.PrincipalResponse',
                  id: Optional[_builtins.str] = None,
                  last_modified_date_time: Optional[_builtins.str] = None):
         """
         Details of the policy
 
-        :param 'MicrosoftCommonPrincipalResponse' last_modified_by: The name of the entity last modified it
+        :param 'PrincipalResponse' last_modified_by: The name of the entity last modified it
         :param _builtins.str id: Id of the policy
         :param _builtins.str last_modified_date_time: The last modified date time.
         """
@@ -2091,7 +2014,7 @@ class PolicyAssignmentPropertiesPolicyResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> 'outputs.MicrosoftCommonPrincipalResponse':
+    def last_modified_by(self) -> 'outputs.PrincipalResponse':
         """
         The name of the entity last modified it
         """
@@ -3003,6 +2926,83 @@ class PolicyVariableValueColumnValueResponse(dict):
         Column value for the variable value; this can be an integer, double, boolean, null or a string.
         """
         return pulumi.get(self, "column_value")
+
+
+@pulumi.output_type
+class PrincipalResponse(dict):
+    """
+    The name of the entity last modified it
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayName":
+            suggest = "display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrincipalResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrincipalResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrincipalResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 display_name: Optional[_builtins.str] = None,
+                 email: Optional[_builtins.str] = None,
+                 id: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None):
+        """
+        The name of the entity last modified it
+
+        :param _builtins.str display_name: The name of the principal made changes
+        :param _builtins.str email: Email of principal
+        :param _builtins.str id: The id of the principal made changes
+        :param _builtins.str type: Type of principal such as user , group etc
+        """
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the principal made changes
+        """
+        return pulumi.get(self, "display_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def email(self) -> Optional[_builtins.str]:
+        """
+        Email of principal
+        """
+        return pulumi.get(self, "email")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        """
+        The id of the principal made changes
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        Type of principal such as user , group etc
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

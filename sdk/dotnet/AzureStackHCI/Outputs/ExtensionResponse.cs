@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// <summary>
         /// Error details while installing Arc extension.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ErrorDetailResponseV1> ErrorDetails;
+        public readonly ImmutableArray<Outputs.ErrorDetailHciEdgeDeviceResponse> ErrorDetails;
         /// <summary>
         /// Arc extension name installed on edge device.
         /// </summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 
         [OutputConstructor]
         private ExtensionResponse(
-            ImmutableArray<Outputs.ErrorDetailResponseV1> errorDetails,
+            ImmutableArray<Outputs.ErrorDetailHciEdgeDeviceResponse> errorDetails,
 
             string extensionName,
 

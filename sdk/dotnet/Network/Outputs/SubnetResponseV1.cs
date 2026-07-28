@@ -21,35 +21,47 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string? AddressPrefix;
         /// <summary>
-        /// List of  address prefixes for the subnet.
+        /// List of address prefixes for the subnet.
         /// </summary>
         public readonly ImmutableArray<string> AddressPrefixes;
         /// <summary>
-        /// Gets an array of references to the delegations on the subnet.
+        /// Application gateway IP configurations of virtual network resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DelegationResponseV1> Delegations;
+        public readonly ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponse> ApplicationGatewayIPConfigurations;
+        /// <summary>
+        /// Set this property to false to disable default outbound connectivity for all VMs in the subnet.
+        /// </summary>
+        public readonly bool? DefaultOutboundAccess;
+        /// <summary>
+        /// An array of references to the delegations on the subnet.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DelegationResponse> Delegations;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
-        public readonly string? Etag;
+        public readonly string Etag;
         /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// An array of references to interface endpoints 
+        /// Array of IpAllocation which reference this subnet.
         /// </summary>
-        public readonly ImmutableArray<Outputs.InterfaceEndpointResponse> InterfaceEndpoints;
+        public readonly ImmutableArray<Outputs.SubResourceResponse> IpAllocations;
         /// <summary>
         /// Array of IP configuration profiles which reference this subnet.
         /// </summary>
-        public readonly ImmutableArray<Outputs.IPConfigurationProfileResponseV1> IpConfigurationProfiles;
+        public readonly ImmutableArray<Outputs.IPConfigurationProfileServiceGatewayResponse> IpConfigurationProfiles;
         /// <summary>
-        /// Gets an array of references to the network interface IP configurations using subnet.
+        /// An array of references to the network interface IP configurations using subnet.
         /// </summary>
-        public readonly ImmutableArray<Outputs.IPConfigurationResponseV1> IpConfigurations;
+        public readonly ImmutableArray<Outputs.IPConfigurationServiceGatewayResponse> IpConfigurations;
         /// <summary>
-        /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        /// A list of IPAM Pools for allocating IP address prefixes.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.IpamPoolPrefixAllocationResponse> IpamPoolPrefixAllocations;
+        /// <summary>
+        /// Name of the resource.
         /// </summary>
         public readonly string? Name;
         /// <summary>
@@ -57,37 +69,61 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly Outputs.SubResourceResponse? NatGateway;
         /// <summary>
-        /// The reference of the NetworkSecurityGroup resource.
+        /// The reference to the NetworkSecurityGroup resource.
         /// </summary>
-        public readonly Outputs.NetworkSecurityGroupResponseV1? NetworkSecurityGroup;
+        public readonly Outputs.NetworkSecurityGroupServiceGatewayResponse? NetworkSecurityGroup;
         /// <summary>
-        /// The provisioning state of the resource.
+        /// Enable or Disable apply network policies on private end point in the subnet.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string? PrivateEndpointNetworkPolicies;
+        /// <summary>
+        /// An array of references to private endpoints.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointServiceGatewayResponse> PrivateEndpoints;
+        /// <summary>
+        /// Enable or Disable apply network policies on private link service in the subnet.
+        /// </summary>
+        public readonly string? PrivateLinkServiceNetworkPolicies;
+        /// <summary>
+        /// The provisioning state of the subnet resource.
+        /// </summary>
+        public readonly string ProvisioningState;
         /// <summary>
         /// A read-only string identifying the intention of use for this subnet based on delegations and other user-defined properties.
         /// </summary>
         public readonly string Purpose;
         /// <summary>
-        /// Gets an array of references to the external resources using subnet.
+        /// An array of references to the external resources using subnet.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ResourceNavigationLinkResponseV1> ResourceNavigationLinks;
+        public readonly ImmutableArray<Outputs.ResourceNavigationLinkResponse> ResourceNavigationLinks;
         /// <summary>
-        /// The reference of the RouteTable resource.
+        /// The reference to the RouteTable resource.
         /// </summary>
-        public readonly Outputs.RouteTableResponseV1? RouteTable;
+        public readonly Outputs.RouteTableServiceGatewayResponse? RouteTable;
         /// <summary>
-        /// Gets an array of references to services injecting into this subnet.
+        /// An array of references to services injecting into this subnet.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ServiceAssociationLinkResponseV1> ServiceAssociationLinks;
+        public readonly ImmutableArray<Outputs.ServiceAssociationLinkResponse> ServiceAssociationLinks;
         /// <summary>
         /// An array of service endpoint policies.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ServiceEndpointPolicyResponseV1> ServiceEndpointPolicies;
+        public readonly ImmutableArray<Outputs.ServiceEndpointPolicyServiceGatewayResponse> ServiceEndpointPolicies;
         /// <summary>
         /// An array of service endpoints.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponseV1> ServiceEndpoints;
+        public readonly ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponse> ServiceEndpoints;
+        /// <summary>
+        /// Reference to an existing service gateway.
+        /// </summary>
+        public readonly Outputs.SubResourceResponse? ServiceGateway;
+        /// <summary>
+        /// Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.
+        /// </summary>
+        public readonly string? SharingScope;
+        /// <summary>
+        /// Resource type.
+        /// </summary>
+        public readonly string Type;
 
         [OutputConstructor]
         private SubnetResponseV1(
@@ -95,49 +131,73 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             ImmutableArray<string> addressPrefixes,
 
-            ImmutableArray<Outputs.DelegationResponseV1> delegations,
+            ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponse> applicationGatewayIPConfigurations,
 
-            string? etag,
+            bool? defaultOutboundAccess,
+
+            ImmutableArray<Outputs.DelegationResponse> delegations,
+
+            string etag,
 
             string? id,
 
-            ImmutableArray<Outputs.InterfaceEndpointResponse> interfaceEndpoints,
+            ImmutableArray<Outputs.SubResourceResponse> ipAllocations,
 
-            ImmutableArray<Outputs.IPConfigurationProfileResponseV1> ipConfigurationProfiles,
+            ImmutableArray<Outputs.IPConfigurationProfileServiceGatewayResponse> ipConfigurationProfiles,
 
-            ImmutableArray<Outputs.IPConfigurationResponseV1> ipConfigurations,
+            ImmutableArray<Outputs.IPConfigurationServiceGatewayResponse> ipConfigurations,
+
+            ImmutableArray<Outputs.IpamPoolPrefixAllocationResponse> ipamPoolPrefixAllocations,
 
             string? name,
 
             Outputs.SubResourceResponse? natGateway,
 
-            Outputs.NetworkSecurityGroupResponseV1? networkSecurityGroup,
+            Outputs.NetworkSecurityGroupServiceGatewayResponse? networkSecurityGroup,
 
-            string? provisioningState,
+            string? privateEndpointNetworkPolicies,
+
+            ImmutableArray<Outputs.PrivateEndpointServiceGatewayResponse> privateEndpoints,
+
+            string? privateLinkServiceNetworkPolicies,
+
+            string provisioningState,
 
             string purpose,
 
-            ImmutableArray<Outputs.ResourceNavigationLinkResponseV1> resourceNavigationLinks,
+            ImmutableArray<Outputs.ResourceNavigationLinkResponse> resourceNavigationLinks,
 
-            Outputs.RouteTableResponseV1? routeTable,
+            Outputs.RouteTableServiceGatewayResponse? routeTable,
 
-            ImmutableArray<Outputs.ServiceAssociationLinkResponseV1> serviceAssociationLinks,
+            ImmutableArray<Outputs.ServiceAssociationLinkResponse> serviceAssociationLinks,
 
-            ImmutableArray<Outputs.ServiceEndpointPolicyResponseV1> serviceEndpointPolicies,
+            ImmutableArray<Outputs.ServiceEndpointPolicyServiceGatewayResponse> serviceEndpointPolicies,
 
-            ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponseV1> serviceEndpoints)
+            ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponse> serviceEndpoints,
+
+            Outputs.SubResourceResponse? serviceGateway,
+
+            string? sharingScope,
+
+            string type)
         {
             AddressPrefix = addressPrefix;
             AddressPrefixes = addressPrefixes;
+            ApplicationGatewayIPConfigurations = applicationGatewayIPConfigurations;
+            DefaultOutboundAccess = defaultOutboundAccess;
             Delegations = delegations;
             Etag = etag;
             Id = id;
-            InterfaceEndpoints = interfaceEndpoints;
+            IpAllocations = ipAllocations;
             IpConfigurationProfiles = ipConfigurationProfiles;
             IpConfigurations = ipConfigurations;
+            IpamPoolPrefixAllocations = ipamPoolPrefixAllocations;
             Name = name;
             NatGateway = natGateway;
             NetworkSecurityGroup = networkSecurityGroup;
+            PrivateEndpointNetworkPolicies = privateEndpointNetworkPolicies;
+            PrivateEndpoints = privateEndpoints;
+            PrivateLinkServiceNetworkPolicies = privateLinkServiceNetworkPolicies;
             ProvisioningState = provisioningState;
             Purpose = purpose;
             ResourceNavigationLinks = resourceNavigationLinks;
@@ -145,6 +205,9 @@ namespace Pulumi.AzureNative.Network.Outputs
             ServiceAssociationLinks = serviceAssociationLinks;
             ServiceEndpointPolicies = serviceEndpointPolicies;
             ServiceEndpoints = serviceEndpoints;
+            ServiceGateway = serviceGateway;
+            SharingScope = sharingScope;
+            Type = type;
         }
     }
 }

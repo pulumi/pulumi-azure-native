@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
         /// <summary>
         /// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet to associate with the network interface. If you're specifying a number of IPv6 addresses, use the Ipv6AddressCount property and don't specify this property.
         /// </summary>
-        public readonly ImmutableArray<Outputs.InstanceIpv6AddressResponseV1> Ipv6Addresses;
+        public readonly ImmutableArray<Outputs.InstanceIpv6AddressEc2NetworkInterfaceResponse> Ipv6Addresses;
         /// <summary>
         /// The number of IPv6 prefixes to assign to a network interface. When you specify a number of IPv6 prefixes, Amazon EC2 selects these prefixes from your existing subnet CIDR reservations, if available, or from free spaces in the subnet. By default, these will be /80 prefixes. You can't specify a count of IPv6 prefixes if you've specified one of the following: specific IPv6 prefixes, specific IPv6 addresses, or a count of IPv6 addresses.
         /// </summary>
@@ -125,7 +125,7 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
 
             int? ipv6AddressCount,
 
-            ImmutableArray<Outputs.InstanceIpv6AddressResponseV1> ipv6Addresses,
+            ImmutableArray<Outputs.InstanceIpv6AddressEc2NetworkInterfaceResponse> ipv6Addresses,
 
             int? ipv6PrefixCount,
 

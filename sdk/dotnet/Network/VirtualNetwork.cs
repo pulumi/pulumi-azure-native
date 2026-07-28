@@ -149,7 +149,7 @@ namespace Pulumi.AzureNative.Network
         /// A list of peerings in a Virtual Network.
         /// </summary>
         [Output("virtualNetworkPeerings")]
-        public Output<ImmutableArray<Outputs.VirtualNetworkPeeringResponse>> VirtualNetworkPeerings { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VirtualNetworkPeeringVirtualNetworkResponse>> VirtualNetworkPeerings { get; private set; } = null!;
 
 
         /// <summary>

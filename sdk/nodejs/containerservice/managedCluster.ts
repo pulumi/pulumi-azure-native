@@ -134,7 +134,7 @@ export class ManagedCluster extends pulumi.CustomResource {
     /**
      * The user identity associated with the managed cluster. This identity will be used by the kubelet. Only one user assigned identity is allowed. The only accepted key is "kubeletidentity", with value of "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}".
      */
-    declare public readonly identityProfile: pulumi.Output<{[key: string]: outputs.containerservice.UserAssignedIdentityResponseV1} | undefined>;
+    declare public readonly identityProfile: pulumi.Output<{[key: string]: outputs.containerservice.UserAssignedIdentityManagedClusterResponse} | undefined>;
     /**
      * Ingress profile for the managed cluster.
      */

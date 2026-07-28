@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Network.Inputs
         /// SubResource as network identifier.
         /// </summary>
         [Input("networkIdentifier")]
-        public Input<Inputs.CommonSubResourceArgs>? NetworkIdentifier { get; set; }
+        public Input<Inputs.SubResourceArgs>? NetworkIdentifier { get; set; }
 
         /// <summary>
         /// The type of the endpoint service.
