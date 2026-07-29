@@ -200,6 +200,11 @@ func valueDiff(properties map[string]resources.AzureAPIProperty,
 		if stringsEqualCaseInsensitiveAzureIds(old.StringValue(), new.StringValue()) {
 			return nil
 		}
+		if prop, ok := properties[path]; ok && prop.CaseInsensitive {
+			if strings.EqualFold(old.StringValue(), new.StringValue()) {
+				return nil
+			}
+		}
 	}
 
 	// If we got here, either the values are primitives, or they weren't the same type; do a simple diff.

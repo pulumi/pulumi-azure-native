@@ -116,6 +116,19 @@ var noForceNewMap = map[openapi.ModuleName]map[string]codegen.StringSet{
 	},
 }
 
+// caseInsensitiveDiffMap is a map of Module Name -> Resource Name -> input properties whose string
+// values should be diffed case-insensitively. Only add an entry here after confirming that Azure
+// treats the property's values as case-insensitive but echoes back a different casing than what was
+// sent (verified against a live resource, not just the spec). See
+// https://github.com/pulumi/pulumi-azure-native/issues/4772: ManagedCluster's networkProfile.
+// loadBalancerProfile.backendPoolType resolves to "NodeIPConfiguration" in the spec/SDK enum, but
+// the AKS RP always returns "nodeIPConfiguration", producing a spurious diff.
+var caseInsensitiveDiffMap = map[openapi.ModuleName]map[string]codegen.StringSet{
+	"ContainerService": {
+		"ManagedCluster": codegen.NewStringSet("backendPoolType"),
+	},
+}
+
 // notRequiredInputsMap is a map of Module Name -> Resource Name -> input properties that the
 // OpenAPI spec marks as required, but that we keep optional in the generated SDK. Only add an
 // entry here after directly verifying (e.g. via a raw ARM REST call or ARM template deployment)

@@ -638,6 +638,88 @@ func TestSkuDiffingIsInsensitiveToAksPermutations(t *testing.T) {
 	}
 }
 
+// TestManagedClusterBackendPoolTypeDiffingIsCaseInsensitive is a regression test for
+// https://github.com/pulumi/pulumi-azure-native/issues/4772: the spec/SDK enum for
+// networkProfile.loadBalancerProfile.backendPoolType resolves to "NodeIPConfiguration", but the AKS RP
+// always echoes back "nodeIPConfiguration", which produced a permanent spurious diff (and, prior to
+// #4756, a full cluster replacement). Only backendPoolType is marked CaseInsensitive; a sibling property
+// must still diff normally, proving the exception is scoped to that one property.
+func TestManagedClusterBackendPoolTypeDiffingIsCaseInsensitive(t *testing.T) {
+	const networkProfileRef = "#/types/azure-native:containerservice:ContainerServiceNetworkProfile"
+	const loadBalancerProfileRef = "#/types/azure-native:containerservice:ManagedClusterLoadBalancerProfile"
+
+	res := resources.AzureAPIResource{
+		PutParameters: []resources.AzureAPIParameter{
+			{
+				Location: "body",
+				Name:     "bodyProperties",
+				Body: &resources.AzureAPIType{
+					Properties: map[string]resources.AzureAPIProperty{
+						"networkProfile": {Ref: networkProfileRef},
+					},
+				},
+			},
+		},
+	}
+
+	lookupType := func(ref string) (*resources.AzureAPIType, bool, error) {
+		switch ref {
+		case networkProfileRef:
+			return &resources.AzureAPIType{
+				Properties: map[string]resources.AzureAPIProperty{
+					"loadBalancerProfile": {Ref: loadBalancerProfileRef},
+				},
+			}, true, nil
+		case loadBalancerProfileRef:
+			return &resources.AzureAPIType{
+				Properties: map[string]resources.AzureAPIProperty{
+					"backendPoolType": {Type: "string", CaseInsensitive: true},
+					"outboundType":    {Type: "string"},
+				},
+			}, true, nil
+		}
+		return nil, false, nil
+	}
+
+	loadBalancerProfileInputs := func(backendPoolType, outboundType string) resource.PropertyMap {
+		return resource.PropertyMap{
+			"networkProfile": {V: resource.PropertyMap{
+				"loadBalancerProfile": {V: resource.PropertyMap{
+					"backendPoolType": {V: backendPoolType},
+					"outboundType":    {V: outboundType},
+				}},
+			}},
+		}
+	}
+
+	t.Run("casing-only difference is not a diff", func(t *testing.T) {
+		oldInputs := loadBalancerProfileInputs("nodeIPConfiguration", "loadBalancer")
+		newInputs := loadBalancerProfileInputs("NodeIPConfiguration", "loadBalancer")
+		actual := diff(lookupType, res, oldInputs, newInputs)
+		assert.Nil(t, actual)
+	})
+
+	t.Run("a genuine value change still diffs", func(t *testing.T) {
+		oldInputs := loadBalancerProfileInputs("nodeIPConfiguration", "loadBalancer")
+		newInputs := loadBalancerProfileInputs("userDefinedRouting", "loadBalancer")
+		actual := diff(lookupType, res, oldInputs, newInputs)
+		expected := map[string]*rpc.PropertyDiff{
+			"networkProfile.loadBalancerProfile.backendPoolType": {Kind: rpc.PropertyDiff_UPDATE},
+		}
+		assert.Equal(t, expected, actual)
+	})
+
+	t.Run("casing difference on a sibling property without the exception still diffs", func(t *testing.T) {
+		oldInputs := loadBalancerProfileInputs("nodeIPConfiguration", "loadBalancer")
+		newInputs := loadBalancerProfileInputs("nodeIPConfiguration", "LoadBalancer")
+		actual := diff(lookupType, res, oldInputs, newInputs)
+		expected := map[string]*rpc.PropertyDiff{
+			"networkProfile.loadBalancerProfile.outboundType": {Kind: rpc.PropertyDiff_UPDATE},
+		}
+		assert.Equal(t, expected, actual)
+	})
+}
+
 var emptyTypes resources.TypeLookupFunc = func(t string) (*resources.AzureAPIType, bool, error) {
 	return nil, false, nil
 }

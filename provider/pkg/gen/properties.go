@@ -448,6 +448,7 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 		IsStringSet:                         isStringSet,
 		Default:                             defaultValue,
 		MaintainSubResourceIfUnset:          maintainSubResourceIfUnset,
+		CaseInsensitive:                     m.caseInsensitiveDiff(name),
 	}
 
 	if identifiers, ok := schema.Extensions.GetStringSlice(extensionIdentifiers); ok && typeSpec.Type == "array" {
@@ -458,9 +459,10 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 	if !variants.isOutput {
 		if m.isEnum(&schemaProperty.TypeSpec) {
 			metadataProperty = resources.AzureAPIProperty{
-				Type:     "string",
-				Default:  defaultValue,
-				ForceNew: forceNewSpec == forceNew,
+				Type:            "string",
+				Default:         defaultValue,
+				ForceNew:        forceNewSpec == forceNew,
+				CaseInsensitive: m.caseInsensitiveDiff(name),
 			}
 		} else {
 			// Set additional properties when it's an input
@@ -594,6 +596,17 @@ func (m *moduleGenerator) enumOverride(propertyName string) (EnumOverride, bool)
 // notRequiredInputsMap.
 func (m *moduleGenerator) notRequired(propertyName string) bool {
 	if resourceMap, ok := notRequiredInputsMap[m.moduleName]; ok {
+		if properties, ok := resourceMap[m.resourceName]; ok {
+			return properties.Has(propertyName)
+		}
+	}
+	return false
+}
+
+// caseInsensitiveDiff returns true if propertyName's string values should be diffed
+// case-insensitively on the resource currently being generated, per caseInsensitiveDiffMap.
+func (m *moduleGenerator) caseInsensitiveDiff(propertyName string) bool {
+	if resourceMap, ok := caseInsensitiveDiffMap[m.moduleName]; ok {
 		if properties, ok := resourceMap[m.resourceName]; ok {
 			return properties.Has(propertyName)
 		}

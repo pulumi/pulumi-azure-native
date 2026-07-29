@@ -89,6 +89,10 @@ type AzureAPIProperty struct {
 	// Optional. Properties that combined form a unique identifier for elements in this array.
 	// Corresponds to the x-ms-identifiers extension in the Azure spec.
 	ArrayIdentifiers []string `json:"arrayIdentifiers,omitempty"`
+	// Whether string values of this property should be compared case-insensitively when diffing.
+	// Set for specific enum-typed properties (see caseInsensitiveDiffMap) where Azure is known to
+	// echo back a value that only differs from what was sent in casing.
+	CaseInsensitive bool `json:"caseInsensitive,omitempty"`
 }
 
 // AzureAPIType represents the shape of an object property.
