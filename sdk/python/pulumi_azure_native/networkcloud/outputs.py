@@ -27,7 +27,6 @@ __all__ = [
     'AnalyticsOutputSettingsResponse',
     'AttachedNetworkConfigurationResponse',
     'AvailableUpgradeResponse',
-    'AzureResourceManagerCommonTypesExtendedLocationResponse',
     'BareMetalMachineConfigurationDataResponse',
     'BgpAdvertisementResponse',
     'BgpServiceLoadBalancerConfigurationResponse',
@@ -635,40 +634,6 @@ class AvailableUpgradeResponse(dict):
         The version available for upgrading.
         """
         return pulumi.get(self, "version")
-
-
-@pulumi.output_type
-class AzureResourceManagerCommonTypesExtendedLocationResponse(dict):
-    """
-    The complex type of the extended location.
-    """
-    def __init__(__self__, *,
-                 name: _builtins.str,
-                 type: _builtins.str):
-        """
-        The complex type of the extended location.
-
-        :param _builtins.str name: The name of the extended location.
-        :param _builtins.str type: The type of the extended location.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> _builtins.str:
-        """
-        The name of the extended location.
-        """
-        return pulumi.get(self, "name")
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> _builtins.str:
-        """
-        The type of the extended location.
-        """
-        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

@@ -88,7 +88,7 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
     /**
      * The identity of the resource.
      */
-    declare public readonly identity: pulumi.Output<outputs.monitor.MicrosoftCommonIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.monitor.IdentityResponse | undefined>;
     /**
      * True if alert rule is legacy Log Analytic rule
      */

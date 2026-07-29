@@ -19,10 +19,10 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// <summary>
         /// The default ClusterResourcePlacement policy configuration.
         /// </summary>
-        public readonly Outputs.PlacementV1ClusterResourcePlacementSpecResponse? DefaultClusterResourcePlacement;
+        public readonly Outputs.ClusterResourcePlacementSpecResponse? DefaultClusterResourcePlacement;
 
         [OutputConstructor]
-        private PlacementProfileResponse(Outputs.PlacementV1ClusterResourcePlacementSpecResponse? defaultClusterResourcePlacement)
+        private PlacementProfileResponse(Outputs.ClusterResourcePlacementSpecResponse? defaultClusterResourcePlacement)
         {
             DefaultClusterResourcePlacement = defaultClusterResourcePlacement;
         }

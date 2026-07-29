@@ -220,7 +220,7 @@ class GetVpnConnectionResult:
 
     @_builtins.property
     @pulumi.getter(name="routingConfiguration")
-    def routing_configuration(self) -> Optional['outputs.RoutingConfigurationResponse']:
+    def routing_configuration(self) -> Optional['outputs.RoutingConfigurationVpnConnectionResponse']:
         """
         The Routing Configuration indicating the associated and propagated route tables on this connection.
         """

@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// <summary>
         /// The user assigned identities associated with the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.UserAssignedIdentityResponseV1>? UserAssignedIdentities;
+        public readonly ImmutableDictionary<string, Outputs.UserAssignedIdentityLinkedServiceResponse>? UserAssignedIdentities;
 
         [OutputConstructor]
         private IdentityResponse(
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             string? type,
 
-            ImmutableDictionary<string, Outputs.UserAssignedIdentityResponseV1>? userAssignedIdentities)
+            ImmutableDictionary<string, Outputs.UserAssignedIdentityLinkedServiceResponse>? userAssignedIdentities)
         {
             PrincipalId = principalId;
             TenantId = tenantId;

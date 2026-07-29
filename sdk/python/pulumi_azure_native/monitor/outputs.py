@@ -40,7 +40,6 @@ __all__ = [
     'AzureMonitorWorkspaceResponseDefaultIngestionSettings',
     'AzureMonitorWorkspaceResponseMetrics',
     'AzureMonitorWorkspaceSignalGroupResponse',
-    'AzureResourceManagerCommonTypesExtendedLocationResponse',
     'AzureResourceSignalGroupResponse',
     'BaselinePropertiesResponse',
     'BaselineResponse',
@@ -50,7 +49,7 @@ __all__ = [
     'ConcurrencyConfigurationResponse',
     'ConditionFailingPeriodsResponse',
     'ConditionResponse',
-    'ConditionResponseV1',
+    'ConditionSliResponse',
     'DataCollectionEndpointResourceResponseIdentity',
     'DataCollectionEndpointResourceResponseSystemData',
     'DataCollectionEndpointResponseConfigurationAccess',
@@ -88,9 +87,11 @@ __all__ = [
     'EventHubReceiverResponse',
     'ExecutionStateResponse',
     'ExporterResponse',
+    'ExtendedLocationResponse',
     'ExtensionDataSourceResponse',
     'HealthModelPropertiesResponse',
     'IconDefinitionResponse',
+    'IdentityResponse',
     'IisLogsDataSourceResponse',
     'IncidentReceiverResponse',
     'IncidentServiceConnectionResponse',
@@ -122,8 +123,6 @@ __all__ = [
     'MetricResponse',
     'MetricSettingsResponse',
     'MetricTriggerResponse',
-    'MicrosoftCommonIdentityResponse',
-    'MicrosoftCommonUserIdentityPropertiesResponse',
     'ModelDiscoverySettingsResponse',
     'MonitoringAccountDestinationResponse',
     'NetworkingConfigurationResponse',
@@ -136,8 +135,8 @@ __all__ = [
     'PipelineResponse',
     'PlatformTelemetryDataSourceResponse',
     'PredictiveAutoscalePolicyResponse',
+    'PrivateEndpointConnectionPrivateLinkScopeResponse',
     'PrivateEndpointConnectionResponse',
-    'PrivateEndpointConnectionResponseV1',
     'PrivateEndpointResponse',
     'PrivateLinkScopedResourceResponse',
     'PrivateLinkServiceConnectionStateResponse',
@@ -186,10 +185,11 @@ __all__ = [
     'TimeWindowResponse',
     'UdpReceiverResponse',
     'UserAssignedIdentityResponse',
+    'UserIdentityPropertiesResponse',
     'VoiceReceiverResponse',
     'WebhookNotificationResponse',
     'WebhookReceiverResponse',
-    'WebhookReceiverResponseV1',
+    'WebhookReceiverTenantActionGroupResponse',
     'WebtestLocationAvailabilityCriteriaResponse',
     'WindowUptimeCriteriaResponse',
     'WindowsEventLogDataSourceResponse',
@@ -1877,40 +1877,6 @@ class AzureMonitorWorkspaceSignalGroupResponse(dict):
 
 
 @pulumi.output_type
-class AzureResourceManagerCommonTypesExtendedLocationResponse(dict):
-    """
-    The complex type of the extended location.
-    """
-    def __init__(__self__, *,
-                 name: _builtins.str,
-                 type: _builtins.str):
-        """
-        The complex type of the extended location.
-
-        :param _builtins.str name: The name of the extended location.
-        :param _builtins.str type: The type of the extended location.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> _builtins.str:
-        """
-        The name of the extended location.
-        """
-        return pulumi.get(self, "name")
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> _builtins.str:
-        """
-        The type of the extended location.
-        """
-        return pulumi.get(self, "type")
-
-
-@pulumi.output_type
 class AzureResourceSignalGroupResponse(dict):
     """
     A grouping of signal assignments for an Azure resource
@@ -2532,7 +2498,7 @@ class ConditionResponse(dict):
 
 
 @pulumi.output_type
-class ConditionResponseV1(dict):
+class ConditionSliResponse(dict):
     """
     Represents a filtering condition.
     """
@@ -2547,14 +2513,14 @@ class ConditionResponseV1(dict):
             suggest = "scalar_function"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ConditionResponseV1. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ConditionSliResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ConditionResponseV1.__key_warning(key)
+        ConditionSliResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ConditionResponseV1.__key_warning(key)
+        ConditionSliResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -5315,6 +5281,40 @@ class ExporterResponse(dict):
 
 
 @pulumi.output_type
+class ExtendedLocationResponse(dict):
+    """
+    The complex type of the extended location.
+    """
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 type: _builtins.str):
+        """
+        The complex type of the extended location.
+
+        :param _builtins.str name: The name of the extended location.
+        :param _builtins.str type: The type of the extended location.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the extended location.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The type of the extended location.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class ExtensionDataSourceResponse(dict):
     """
     Definition of which data will be collected from a separate VM extension that integrates with the Azure Monitor Agent.
@@ -5529,6 +5529,84 @@ class IconDefinitionResponse(dict):
         Custom data. Base64-encoded SVG data. If set, this overrides the built-in icon.
         """
         return pulumi.get(self, "custom_data")
+
+
+@pulumi.output_type
+class IdentityResponse(dict):
+    """
+    Identity for the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: _builtins.str,
+                 tenant_id: _builtins.str,
+                 type: _builtins.str,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserIdentityPropertiesResponse']] = None):
+        """
+        Identity for the resource.
+
+        :param _builtins.str principal_id: The principal ID of resource identity.
+        :param _builtins.str tenant_id: The tenant ID of resource.
+        :param _builtins.str type: Type of managed service identity.
+        :param Mapping[str, 'UserIdentityPropertiesResponse'] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @_builtins.property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> _builtins.str:
+        """
+        The principal ID of resource identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> _builtins.str:
+        """
+        The tenant ID of resource.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Type of managed service identity.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserIdentityPropertiesResponse']]:
+        """
+        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identities")
 
 
 @pulumi.output_type
@@ -7814,137 +7892,6 @@ class MetricTriggerResponse(dict):
 
 
 @pulumi.output_type
-class MicrosoftCommonIdentityResponse(dict):
-    """
-    Identity for the resource.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "principalId":
-            suggest = "principal_id"
-        elif key == "tenantId":
-            suggest = "tenant_id"
-        elif key == "userAssignedIdentities":
-            suggest = "user_assigned_identities"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MicrosoftCommonIdentityResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MicrosoftCommonIdentityResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MicrosoftCommonIdentityResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 principal_id: _builtins.str,
-                 tenant_id: _builtins.str,
-                 type: _builtins.str,
-                 user_assigned_identities: Optional[Mapping[str, 'outputs.MicrosoftCommonUserIdentityPropertiesResponse']] = None):
-        """
-        Identity for the resource.
-
-        :param _builtins.str principal_id: The principal ID of resource identity.
-        :param _builtins.str tenant_id: The tenant ID of resource.
-        :param _builtins.str type: Type of managed service identity.
-        :param Mapping[str, 'MicrosoftCommonUserIdentityPropertiesResponse'] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
-        if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
-
-    @_builtins.property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> _builtins.str:
-        """
-        The principal ID of resource identity.
-        """
-        return pulumi.get(self, "principal_id")
-
-    @_builtins.property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> _builtins.str:
-        """
-        The tenant ID of resource.
-        """
-        return pulumi.get(self, "tenant_id")
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> _builtins.str:
-        """
-        Type of managed service identity.
-        """
-        return pulumi.get(self, "type")
-
-    @_builtins.property
-    @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.MicrosoftCommonUserIdentityPropertiesResponse']]:
-        """
-        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        """
-        return pulumi.get(self, "user_assigned_identities")
-
-
-@pulumi.output_type
-class MicrosoftCommonUserIdentityPropertiesResponse(dict):
-    """
-    Properties of the user assigned identity.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "clientId":
-            suggest = "client_id"
-        elif key == "principalId":
-            suggest = "principal_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MicrosoftCommonUserIdentityPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MicrosoftCommonUserIdentityPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MicrosoftCommonUserIdentityPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 client_id: _builtins.str,
-                 principal_id: _builtins.str):
-        """
-        Properties of the user assigned identity.
-
-        :param _builtins.str client_id: The client ID of resource identity.
-        :param _builtins.str principal_id: The principal ID of resource identity.
-        """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
-
-    @_builtins.property
-    @pulumi.getter(name="clientId")
-    def client_id(self) -> _builtins.str:
-        """
-        The client ID of resource identity.
-        """
-        return pulumi.get(self, "client_id")
-
-    @_builtins.property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> _builtins.str:
-        """
-        The principal ID of resource identity.
-        """
-        return pulumi.get(self, "principal_id")
-
-
-@pulumi.output_type
 class ModelDiscoverySettingsResponse(dict):
     """
     Settings for automatically discovering entities for the health model.
@@ -8672,6 +8619,119 @@ class PredictiveAutoscalePolicyResponse(dict):
 
 
 @pulumi.output_type
+class PrivateEndpointConnectionPrivateLinkScopeResponse(dict):
+    """
+    The Private Endpoint Connection resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "systemData":
+            suggest = "system_data"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionPrivateLinkScopeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionPrivateLinkScopeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionPrivateLinkScopeResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: _builtins.str,
+                 name: _builtins.str,
+                 private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
+                 provisioning_state: _builtins.str,
+                 system_data: 'outputs.SystemDataResponse',
+                 type: _builtins.str,
+                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
+        """
+        The Private Endpoint Connection resource.
+
+        :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        :param _builtins.str name: The name of the resource
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param _builtins.str provisioning_state: The provisioning state of the private endpoint connection resource.
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param _builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "system_data", system_data)
+        pulumi.set(__self__, "type", type)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateResponse':
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        The provisioning state of the private endpoint connection resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
+        """
+        The resource of private end point.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+
+@pulumi.output_type
 class PrivateEndpointConnectionResponse(dict):
     """
     The private endpoint connection resource.
@@ -8793,119 +8853,6 @@ class PrivateEndpointConnectionResponse(dict):
     def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
         """
         The private endpoint resource.
-        """
-        return pulumi.get(self, "private_endpoint")
-
-
-@pulumi.output_type
-class PrivateEndpointConnectionResponseV1(dict):
-    """
-    The Private Endpoint Connection resource.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "privateLinkServiceConnectionState":
-            suggest = "private_link_service_connection_state"
-        elif key == "provisioningState":
-            suggest = "provisioning_state"
-        elif key == "systemData":
-            suggest = "system_data"
-        elif key == "privateEndpoint":
-            suggest = "private_endpoint"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponseV1. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PrivateEndpointConnectionResponseV1.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PrivateEndpointConnectionResponseV1.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 id: _builtins.str,
-                 name: _builtins.str,
-                 private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
-                 provisioning_state: _builtins.str,
-                 system_data: 'outputs.SystemDataResponse',
-                 type: _builtins.str,
-                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
-        """
-        The Private Endpoint Connection resource.
-
-        :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-        :param _builtins.str name: The name of the resource
-        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
-        :param _builtins.str provisioning_state: The provisioning state of the private endpoint connection resource.
-        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
-        :param _builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-        :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
-        """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "system_data", system_data)
-        pulumi.set(__self__, "type", type)
-        if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-        """
-        return pulumi.get(self, "id")
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> _builtins.str:
-        """
-        The name of the resource
-        """
-        return pulumi.get(self, "name")
-
-    @_builtins.property
-    @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateResponse':
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        """
-        return pulumi.get(self, "private_link_service_connection_state")
-
-    @_builtins.property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> _builtins.str:
-        """
-        The provisioning state of the private endpoint connection resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @_builtins.property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        Azure Resource Manager metadata containing createdBy and modifiedBy information.
-        """
-        return pulumi.get(self, "system_data")
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> _builtins.str:
-        """
-        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-        """
-        return pulumi.get(self, "type")
-
-    @_builtins.property
-    @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
-        """
-        The resource of private end point.
         """
         return pulumi.get(self, "private_endpoint")
 
@@ -11007,7 +10954,7 @@ class SignalSourceResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 filters: Sequence['outputs.ConditionResponseV1'],
+                 filters: Sequence['outputs.ConditionSliResponse'],
                  metric_name: _builtins.str,
                  metric_namespace: _builtins.str,
                  signal_source_id: _builtins.str,
@@ -11018,7 +10965,7 @@ class SignalSourceResponse(dict):
         """
         Represents a signal source used in SLIs.
 
-        :param Sequence['ConditionResponseV1'] filters: Filters applied to modify signal values.
+        :param Sequence['ConditionSliResponse'] filters: Filters applied to modify signal values.
         :param _builtins.str metric_name: Name of the metric.
         :param _builtins.str metric_namespace: Namespace of the metric.
         :param _builtins.str signal_source_id: Unique identifier for the signal source.
@@ -11038,7 +10985,7 @@ class SignalSourceResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def filters(self) -> Sequence['outputs.ConditionResponseV1']:
+    def filters(self) -> Sequence['outputs.ConditionSliResponse']:
         """
         Filters applied to modify signal values.
         """
@@ -12227,6 +12174,59 @@ class UserAssignedIdentityResponse(dict):
 
 
 @pulumi.output_type
+class UserIdentityPropertiesResponse(dict):
+    """
+    Properties of the user assigned identity.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserIdentityPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserIdentityPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserIdentityPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: _builtins.str,
+                 principal_id: _builtins.str):
+        """
+        Properties of the user assigned identity.
+
+        :param _builtins.str client_id: The client ID of resource identity.
+        :param _builtins.str principal_id: The principal ID of resource identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> _builtins.str:
+        """
+        The client ID of resource identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> _builtins.str:
+        """
+        The principal ID of resource identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
 class VoiceReceiverResponse(dict):
     """
     A voice receiver.
@@ -12483,7 +12483,7 @@ class WebhookReceiverResponse(dict):
 
 
 @pulumi.output_type
-class WebhookReceiverResponseV1(dict):
+class WebhookReceiverTenantActionGroupResponse(dict):
     """
     A webhook receiver.
     """
@@ -12504,14 +12504,14 @@ class WebhookReceiverResponseV1(dict):
             suggest = "use_common_alert_schema"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebhookReceiverResponseV1. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebhookReceiverTenantActionGroupResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebhookReceiverResponseV1.__key_warning(key)
+        WebhookReceiverTenantActionGroupResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebhookReceiverResponseV1.__key_warning(key)
+        WebhookReceiverTenantActionGroupResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

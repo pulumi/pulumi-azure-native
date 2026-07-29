@@ -81,7 +81,7 @@ export interface GetHubVirtualNetworkConnectionResult {
     /**
      * The Routing Configuration indicating the associated and propagated route tables on this connection.
      */
-    readonly routingConfiguration?: outputs.network.RoutingConfigurationResponse;
+    readonly routingConfiguration?: outputs.network.RoutingConfigurationHubVirtualNetworkConnectionResponse;
 }
 /**
  * Retrieves the details of a HubVirtualNetworkConnection.

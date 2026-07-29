@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// Nodes that match this selector will be possible members of this load balancer.
         /// </summary>
-        public readonly Outputs.LabelSelectorResponse? NodeSelector;
+        public readonly Outputs.LabelSelectorLoadBalancerResponse? NodeSelector;
         /// <summary>
         /// Required field. A string value that must specify the ID of an existing agent pool. All nodes in the given pool will always be added to this load balancer. This agent pool must have at least one node and minCount&gt;=1 for autoscaling operations. An agent pool can only be the primary pool for a single load balancer.
         /// </summary>
@@ -130,11 +130,11 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// Only services that must match this selector can be placed on this load balancer.
         /// </summary>
-        public readonly Outputs.LabelSelectorResponse? ServiceLabelSelector;
+        public readonly Outputs.LabelSelectorLoadBalancerResponse? ServiceLabelSelector;
         /// <summary>
         /// Services created in namespaces that match the selector can be placed on this load balancer.
         /// </summary>
-        public readonly Outputs.LabelSelectorResponse? ServiceNamespaceSelector;
+        public readonly Outputs.LabelSelectorLoadBalancerResponse? ServiceNamespaceSelector;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -154,15 +154,15 @@ namespace Pulumi.AzureNative.ContainerService
 
             string name,
 
-            Outputs.LabelSelectorResponse? nodeSelector,
+            Outputs.LabelSelectorLoadBalancerResponse? nodeSelector,
 
             string primaryAgentPoolName,
 
             string provisioningState,
 
-            Outputs.LabelSelectorResponse? serviceLabelSelector,
+            Outputs.LabelSelectorLoadBalancerResponse? serviceLabelSelector,
 
-            Outputs.LabelSelectorResponse? serviceNamespaceSelector,
+            Outputs.LabelSelectorLoadBalancerResponse? serviceNamespaceSelector,
 
             Outputs.SystemDataResponse systemData,
 

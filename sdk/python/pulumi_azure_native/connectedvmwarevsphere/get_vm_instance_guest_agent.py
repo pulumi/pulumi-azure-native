@@ -81,7 +81,7 @@ class GetVMInstanceGuestAgentResult:
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional['outputs.GuestCredentialResponse']:
+    def credentials(self) -> Optional['outputs.GuestCredentialVMInstanceGuestAgentResponse']:
         """
         Username / Password Credentials to provision guest agent.
         """

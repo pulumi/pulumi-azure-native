@@ -39,7 +39,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Outputs
         /// <summary>
         /// Properties of flow
         /// </summary>
-        public readonly Outputs.FlowPropertiesResponseV1? Properties;
+        public readonly Outputs.FlowPropertieslistListFlowsByPipelineResponse? Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -65,7 +65,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Outputs
 
             Outputs.PlanResponse? plan,
 
-            Outputs.FlowPropertiesResponseV1? properties,
+            Outputs.FlowPropertieslistListFlowsByPipelineResponse? properties,
 
             Outputs.SystemDataResponse systemData,
 

@@ -42,7 +42,7 @@ export class StandardAssignment extends pulumi.CustomResource {
     /**
      * Standard item with key as applied to this standard assignment over the given scope
      */
-    declare public readonly assignedStandard: pulumi.Output<outputs.security.CommonAssignedStandardItemResponse | undefined>;
+    declare public readonly assignedStandard: pulumi.Output<outputs.security.AssignedStandardItemResponse | undefined>;
     /**
      * Additional data about assignment that has Attest effect
      */

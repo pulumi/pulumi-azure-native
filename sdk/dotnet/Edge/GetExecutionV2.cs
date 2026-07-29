@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// The complex type of the extended location.
         /// </summary>
-        public readonly Outputs.AzureResourceManagerCommonTypesExtendedLocationResponse? ExtendedLocation;
+        public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
         /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
@@ -144,7 +144,7 @@ namespace Pulumi.AzureNative.Edge
 
             string eTag,
 
-            Outputs.AzureResourceManagerCommonTypesExtendedLocationResponse? extendedLocation,
+            Outputs.ExtendedLocationResponse? extendedLocation,
 
             string id,
 

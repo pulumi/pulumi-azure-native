@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
         /// <summary>
         /// An object representing a node group's launch template specification. An object representing a launch template specification for AWS EKS Nodegroup.
         /// </summary>
-        public readonly Outputs.LaunchTemplateSpecificationResponseV1? LaunchTemplate;
+        public readonly Outputs.LaunchTemplateSpecificationEksNodegroupResponse? LaunchTemplate;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role to associate with your node group.
         /// </summary>
@@ -117,7 +117,7 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
 
             ImmutableDictionary<string, string>? labels,
 
-            Outputs.LaunchTemplateSpecificationResponseV1? launchTemplate,
+            Outputs.LaunchTemplateSpecificationEksNodegroupResponse? launchTemplate,
 
             string? nodeRole,
 

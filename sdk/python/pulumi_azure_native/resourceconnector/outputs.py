@@ -22,7 +22,7 @@ __all__ = [
     'HybridConnectionConfigResponse',
     'IdentityResponse',
     'SSHKeyResponse',
-    'SSHKeyResponseV1',
+    'SSHKeylistApplianceKeysResponse',
     'SystemDataResponse',
 ]
 
@@ -265,7 +265,7 @@ class SSHKeyResponse(dict):
 
 
 @pulumi.output_type
-class SSHKeyResponseV1(dict):
+class SSHKeylistApplianceKeysResponse(dict):
     """
     Appliance SSHKey definition.
     """

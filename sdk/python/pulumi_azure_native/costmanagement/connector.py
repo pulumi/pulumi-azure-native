@@ -337,7 +337,7 @@ class Connector(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def collection(self) -> pulumi.Output['outputs.ConnectorCollectionInfoResponseV1']:
+    def collection(self) -> pulumi.Output['outputs.ConnectorCollectionInfoConnectorResponse']:
         """
         Collection information
         """

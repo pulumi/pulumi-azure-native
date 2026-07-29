@@ -22,6 +22,7 @@ __all__ = [
     'AdvancedNetworkingObservabilityResponse',
     'AdvancedNetworkingResponse',
     'AdvancedNetworkingSecurityResponse',
+    'AffinityResponse',
     'AgentPoolGatewayProfileResponse',
     'AgentPoolNetworkProfileResponse',
     'AgentPoolSecurityProfileResponse',
@@ -31,6 +32,10 @@ __all__ = [
     'AgentProfileResponse',
     'AutoUpgradeNodeImageSelectionResponse',
     'AzureKeyVaultKmsResponse',
+    'ClusterAffinityResponse',
+    'ClusterResourcePlacementSpecResponse',
+    'ClusterSelectorResponse',
+    'ClusterSelectorTermResponse',
     'ClusterUpgradeSettingsResponse',
     'ContainerServiceLinuxProfileResponse',
     'ContainerServiceNetworkProfileResponse',
@@ -66,6 +71,8 @@ __all__ = [
     'JWTAuthenticatorPropertiesResponse',
     'JWTAuthenticatorValidationRuleResponse',
     'KubeletConfigResponse',
+    'LabelSelectorLoadBalancerResponse',
+    'LabelSelectorRequirementLoadBalancerResponse',
     'LabelSelectorRequirementResponse',
     'LabelSelectorResponse',
     'LinuxOSConfigResponse',
@@ -133,32 +140,24 @@ __all__ = [
     'ManualScaleProfileResponse',
     'MemberUpdateStatusResponse',
     'MeshMembershipPropertiesResponse',
-    'MetaV1LabelSelectorRequirementResponse',
-    'MetaV1LabelSelectorResponse',
+    'NamespacePropertiesNamespaceResponse',
     'NamespacePropertiesResponse',
-    'NamespacePropertiesResponseV1',
     'NetworkPoliciesResponse',
     'NetworkPolicyResponse',
     'NetworkProfileForSnapshotResponse',
     'NodeImageSelectionResponse',
     'NodeImageSelectionStatusResponse',
     'NodeImageVersionResponse',
+    'PlacementPolicyResponse',
     'PlacementProfileResponse',
-    'PlacementV1AffinityResponse',
-    'PlacementV1ClusterAffinityResponse',
-    'PlacementV1ClusterResourcePlacementSpecResponse',
-    'PlacementV1ClusterSelectorResponse',
-    'PlacementV1ClusterSelectorTermResponse',
-    'PlacementV1PlacementPolicyResponse',
-    'PlacementV1PropertySelectorRequirementResponse',
-    'PlacementV1PropertySelectorResponse',
-    'PlacementV1TolerationResponse',
     'PortRangeResponse',
     'PowerStateResponse',
     'PrivateEndpointResponse',
     'PrivateLinkResourceResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'PropagationPolicyResponse',
+    'PropertySelectorRequirementResponse',
+    'PropertySelectorResponse',
     'RelativeMonthlyScheduleResponse',
     'ResourceQuotaResponse',
     'ResourceReferenceResponse',
@@ -169,6 +168,7 @@ __all__ = [
     'SystemDataResponse',
     'TimeInWeekResponse',
     'TimeSpanResponse',
+    'TolerationResponse',
     'UpdateGroupResponse',
     'UpdateGroupStatusResponse',
     'UpdateRunStatusResponse',
@@ -177,8 +177,8 @@ __all__ = [
     'UpdateStageStatusResponse',
     'UpdateStatusResponse',
     'UpgradeOverrideSettingsResponse',
+    'UserAssignedIdentityManagedClusterResponse',
     'UserAssignedIdentityResponse',
-    'UserAssignedIdentityResponseV1',
     'VirtualMachineNodesResponse',
     'VirtualMachinesProfileResponse',
     'WaitStatusResponse',
@@ -431,6 +431,47 @@ class AdvancedNetworkingSecurityResponse(dict):
         This feature allows user to configure network policy based on DNS (FQDN) names. It can be enabled only on cilium based clusters. If not specified, the default is false.
         """
         return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class AffinityResponse(dict):
+    """
+    Affinity is a group of cluster affinity scheduling rules. More to be added.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterAffinity":
+            suggest = "cluster_affinity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AffinityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AffinityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AffinityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cluster_affinity: Optional['outputs.ClusterAffinityResponse'] = None):
+        """
+        Affinity is a group of cluster affinity scheduling rules. More to be added.
+
+        :param 'ClusterAffinityResponse' cluster_affinity: ClusterAffinity contains cluster affinity scheduling rules for the selected resources.
+        """
+        if cluster_affinity is not None:
+            pulumi.set(__self__, "cluster_affinity", cluster_affinity)
+
+    @_builtins.property
+    @pulumi.getter(name="clusterAffinity")
+    def cluster_affinity(self) -> Optional['outputs.ClusterAffinityResponse']:
+        """
+        ClusterAffinity contains cluster affinity scheduling rules for the selected resources.
+        """
+        return pulumi.get(self, "cluster_affinity")
 
 
 @pulumi.output_type
@@ -951,6 +992,166 @@ class AzureKeyVaultKmsResponse(dict):
         Resource ID of key vault. When keyVaultNetworkAccess is `Private`, this field is required and must be a valid resource ID. When keyVaultNetworkAccess is `Public`, leave the field empty.
         """
         return pulumi.get(self, "key_vault_resource_id")
+
+
+@pulumi.output_type
+class ClusterAffinityResponse(dict):
+    """
+    ClusterAffinity contains cluster affinity scheduling rules for the selected resources.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "requiredDuringSchedulingIgnoredDuringExecution":
+            suggest = "required_during_scheduling_ignored_during_execution"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterAffinityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterAffinityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterAffinityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 required_during_scheduling_ignored_during_execution: Optional['outputs.ClusterSelectorResponse'] = None):
+        """
+        ClusterAffinity contains cluster affinity scheduling rules for the selected resources.
+
+        :param 'ClusterSelectorResponse' required_during_scheduling_ignored_during_execution: If the affinity requirements specified by this field are not met at scheduling time, the resource will not be scheduled onto the cluster. If the affinity requirements specified by this field cease to be met at some point after the placement (e.g. due to an update), the system may or may not try to eventually remove the resource from the cluster.
+        """
+        if required_during_scheduling_ignored_during_execution is not None:
+            pulumi.set(__self__, "required_during_scheduling_ignored_during_execution", required_during_scheduling_ignored_during_execution)
+
+    @_builtins.property
+    @pulumi.getter(name="requiredDuringSchedulingIgnoredDuringExecution")
+    def required_during_scheduling_ignored_during_execution(self) -> Optional['outputs.ClusterSelectorResponse']:
+        """
+        If the affinity requirements specified by this field are not met at scheduling time, the resource will not be scheduled onto the cluster. If the affinity requirements specified by this field cease to be met at some point after the placement (e.g. due to an update), the system may or may not try to eventually remove the resource from the cluster.
+        """
+        return pulumi.get(self, "required_during_scheduling_ignored_during_execution")
+
+
+@pulumi.output_type
+class ClusterResourcePlacementSpecResponse(dict):
+    """
+    ClusterResourcePlacementSpec defines the desired state of ClusterResourcePlacement.
+    """
+    def __init__(__self__, *,
+                 policy: Optional['outputs.PlacementPolicyResponse'] = None):
+        """
+        ClusterResourcePlacementSpec defines the desired state of ClusterResourcePlacement.
+
+        :param 'PlacementPolicyResponse' policy: Policy defines how to select member clusters to place the selected resources. If unspecified, all the joined member clusters are selected.
+        """
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+
+    @_builtins.property
+    @pulumi.getter
+    def policy(self) -> Optional['outputs.PlacementPolicyResponse']:
+        """
+        Policy defines how to select member clusters to place the selected resources. If unspecified, all the joined member clusters are selected.
+        """
+        return pulumi.get(self, "policy")
+
+
+@pulumi.output_type
+class ClusterSelectorResponse(dict):
+    """
+    ClusterSelector
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterSelectorTerms":
+            suggest = "cluster_selector_terms"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterSelectorResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterSelectorResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterSelectorResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cluster_selector_terms: Sequence['outputs.ClusterSelectorTermResponse']):
+        """
+        ClusterSelector
+
+        :param Sequence['ClusterSelectorTermResponse'] cluster_selector_terms: ClusterSelectorTerms is a list of cluster selector terms. The terms are `ORed`.
+        """
+        pulumi.set(__self__, "cluster_selector_terms", cluster_selector_terms)
+
+    @_builtins.property
+    @pulumi.getter(name="clusterSelectorTerms")
+    def cluster_selector_terms(self) -> Sequence['outputs.ClusterSelectorTermResponse']:
+        """
+        ClusterSelectorTerms is a list of cluster selector terms. The terms are `ORed`.
+        """
+        return pulumi.get(self, "cluster_selector_terms")
+
+
+@pulumi.output_type
+class ClusterSelectorTermResponse(dict):
+    """
+    ClusterSelectorTerm
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "labelSelector":
+            suggest = "label_selector"
+        elif key == "propertySelector":
+            suggest = "property_selector"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterSelectorTermResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterSelectorTermResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterSelectorTermResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 label_selector: Optional['outputs.LabelSelectorResponse'] = None,
+                 property_selector: Optional['outputs.PropertySelectorResponse'] = None):
+        """
+        ClusterSelectorTerm
+
+        :param 'LabelSelectorResponse' label_selector: LabelSelector is a label query over all the joined member clusters. Clusters matching the query are selected. If you specify both label and property selectors in the same term, the results are AND'd.
+        :param 'PropertySelectorResponse' property_selector: PropertySelector is a property query over all joined member clusters. Clusters matching the query are selected. If you specify both label and property selectors in the same term, the results are AND'd. At this moment, PropertySelector can only be used with `RequiredDuringSchedulingIgnoredDuringExecution` affinity terms. This field is beta-level; it is for the property-based scheduling feature and is only functional when a property provider is enabled in the deployment.
+        """
+        if label_selector is not None:
+            pulumi.set(__self__, "label_selector", label_selector)
+        if property_selector is not None:
+            pulumi.set(__self__, "property_selector", property_selector)
+
+    @_builtins.property
+    @pulumi.getter(name="labelSelector")
+    def label_selector(self) -> Optional['outputs.LabelSelectorResponse']:
+        """
+        LabelSelector is a label query over all the joined member clusters. Clusters matching the query are selected. If you specify both label and property selectors in the same term, the results are AND'd.
+        """
+        return pulumi.get(self, "label_selector")
+
+    @_builtins.property
+    @pulumi.getter(name="propertySelector")
+    def property_selector(self) -> Optional['outputs.PropertySelectorResponse']:
+        """
+        PropertySelector is a property query over all joined member clusters. Clusters matching the query are selected. If you specify both label and property selectors in the same term, the results are AND'd. At this moment, PropertySelector can only be used with `RequiredDuringSchedulingIgnoredDuringExecution` affinity terms. This field is beta-level; it is for the property-based scheduling feature and is only functional when a property provider is enabled in the deployment.
+        """
+        return pulumi.get(self, "property_selector")
 
 
 @pulumi.output_type
@@ -3181,7 +3382,62 @@ class KubeletConfigResponse(dict):
 
 
 @pulumi.output_type
-class LabelSelectorRequirementResponse(dict):
+class LabelSelectorLoadBalancerResponse(dict):
+    """
+    A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchExpressions":
+            suggest = "match_expressions"
+        elif key == "matchLabels":
+            suggest = "match_labels"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LabelSelectorLoadBalancerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LabelSelectorLoadBalancerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LabelSelectorLoadBalancerResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_expressions: Optional[Sequence['outputs.LabelSelectorRequirementLoadBalancerResponse']] = None,
+                 match_labels: Optional[Sequence[_builtins.str]] = None):
+        """
+        A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.
+
+        :param Sequence['LabelSelectorRequirementLoadBalancerResponse'] match_expressions: matchExpressions is a list of label selector requirements. The requirements are ANDed.
+        :param Sequence[_builtins.str] match_labels: matchLabels is an array of {key=value} pairs. A single {key=value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is `key`, the operator is `In`, and the values array contains only `value`. The requirements are ANDed.
+        """
+        if match_expressions is not None:
+            pulumi.set(__self__, "match_expressions", match_expressions)
+        if match_labels is not None:
+            pulumi.set(__self__, "match_labels", match_labels)
+
+    @_builtins.property
+    @pulumi.getter(name="matchExpressions")
+    def match_expressions(self) -> Optional[Sequence['outputs.LabelSelectorRequirementLoadBalancerResponse']]:
+        """
+        matchExpressions is a list of label selector requirements. The requirements are ANDed.
+        """
+        return pulumi.get(self, "match_expressions")
+
+    @_builtins.property
+    @pulumi.getter(name="matchLabels")
+    def match_labels(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        matchLabels is an array of {key=value} pairs. A single {key=value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is `key`, the operator is `In`, and the values array contains only `value`. The requirements are ANDed.
+        """
+        return pulumi.get(self, "match_labels")
+
+
+@pulumi.output_type
+class LabelSelectorRequirementLoadBalancerResponse(dict):
     """
     A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
     """
@@ -3229,6 +3485,52 @@ class LabelSelectorRequirementResponse(dict):
 
 
 @pulumi.output_type
+class LabelSelectorRequirementResponse(dict):
+    """
+    A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+    """
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 operator: _builtins.str,
+                 values: Optional[Sequence[_builtins.str]] = None):
+        """
+        A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+
+        :param _builtins.str key: key is the label key that the selector applies to.
+        :param _builtins.str operator: operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+        :param Sequence[_builtins.str] values: values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "operator", operator)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        key is the label key that the selector applies to.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> _builtins.str:
+        """
+        operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+        """
+        return pulumi.get(self, "operator")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
 class LabelSelectorResponse(dict):
     """
     A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.
@@ -3254,12 +3556,12 @@ class LabelSelectorResponse(dict):
 
     def __init__(__self__, *,
                  match_expressions: Optional[Sequence['outputs.LabelSelectorRequirementResponse']] = None,
-                 match_labels: Optional[Sequence[_builtins.str]] = None):
+                 match_labels: Optional[Mapping[str, _builtins.str]] = None):
         """
         A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.
 
         :param Sequence['LabelSelectorRequirementResponse'] match_expressions: matchExpressions is a list of label selector requirements. The requirements are ANDed.
-        :param Sequence[_builtins.str] match_labels: matchLabels is an array of {key=value} pairs. A single {key=value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is `key`, the operator is `In`, and the values array contains only `value`. The requirements are ANDed.
+        :param Mapping[str, _builtins.str] match_labels: matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
         """
         if match_expressions is not None:
             pulumi.set(__self__, "match_expressions", match_expressions)
@@ -3276,9 +3578,9 @@ class LabelSelectorResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="matchLabels")
-    def match_labels(self) -> Optional[Sequence[_builtins.str]]:
+    def match_labels(self) -> Optional[Mapping[str, _builtins.str]]:
         """
-        matchLabels is an array of {key=value} pairs. A single {key=value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is `key`, the operator is `In`, and the values array contains only `value`. The requirements are ANDed.
+        matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
         """
         return pulumi.get(self, "match_labels")
 
@@ -5463,14 +5765,14 @@ class ManagedClusterIngressProfileWebAppRoutingResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 identity: 'outputs.UserAssignedIdentityResponse',
+                 identity: 'outputs.UserAssignedIdentityManagedClusterResponse',
                  dns_zone_resource_ids: Optional[Sequence[_builtins.str]] = None,
                  enabled: Optional[_builtins.bool] = None,
                  nginx: Optional['outputs.ManagedClusterIngressProfileNginxResponse'] = None):
         """
         Application Routing add-on settings for the ingress profile.
 
-        :param 'UserAssignedIdentityResponse' identity: Managed identity of the Application Routing add-on. This is the identity that should be granted permissions, for example, to manage the associated Azure DNS resource and get certificates from Azure Key Vault. See [this overview of the add-on](https://learn.microsoft.com/en-us/azure/aks/web-app-routing?tabs=with-osm) for more instructions.
+        :param 'UserAssignedIdentityManagedClusterResponse' identity: Managed identity of the Application Routing add-on. This is the identity that should be granted permissions, for example, to manage the associated Azure DNS resource and get certificates from Azure Key Vault. See [this overview of the add-on](https://learn.microsoft.com/en-us/azure/aks/web-app-routing?tabs=with-osm) for more instructions.
         :param Sequence[_builtins.str] dns_zone_resource_ids: Resource IDs of the DNS zones to be associated with the Application Routing add-on. Used only when Application Routing add-on is enabled. Public and private DNS zones can be in different resource groups, but all public DNS zones must be in the same resource group and all private DNS zones must be in the same resource group.
         :param _builtins.bool enabled: Whether to enable the Application Routing add-on.
         :param 'ManagedClusterIngressProfileNginxResponse' nginx: Configuration for the default NginxIngressController. See more at https://learn.microsoft.com/en-us/azure/aks/app-routing-nginx-configuration#the-default-nginx-ingress-controller.
@@ -5485,7 +5787,7 @@ class ManagedClusterIngressProfileWebAppRoutingResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> 'outputs.UserAssignedIdentityResponse':
+    def identity(self) -> 'outputs.UserAssignedIdentityManagedClusterResponse':
         """
         Managed identity of the Application Routing add-on. This is the identity that should be granted permissions, for example, to manage the associated Azure DNS resource and get certificates from Azure Key Vault. See [this overview of the add-on](https://learn.microsoft.com/en-us/azure/aks/web-app-routing?tabs=with-osm) for more instructions.
         """
@@ -6333,7 +6635,7 @@ class ManagedClusterPodIdentityResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 identity: 'outputs.UserAssignedIdentityResponse',
+                 identity: 'outputs.UserAssignedIdentityManagedClusterResponse',
                  name: _builtins.str,
                  namespace: _builtins.str,
                  provisioning_info: 'outputs.ManagedClusterPodIdentityResponseProvisioningInfo',
@@ -6342,7 +6644,7 @@ class ManagedClusterPodIdentityResponse(dict):
         """
         Details about the pod identity assigned to the Managed Cluster.
 
-        :param 'UserAssignedIdentityResponse' identity: The user assigned identity details.
+        :param 'UserAssignedIdentityManagedClusterResponse' identity: The user assigned identity details.
         :param _builtins.str name: The name of the pod identity.
         :param _builtins.str namespace: The namespace of the pod identity.
         :param _builtins.str provisioning_state: The current provisioning state of the pod identity.
@@ -6358,7 +6660,7 @@ class ManagedClusterPodIdentityResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> 'outputs.UserAssignedIdentityResponse':
+    def identity(self) -> 'outputs.UserAssignedIdentityManagedClusterResponse':
         """
         The user assigned identity details.
         """
@@ -8022,104 +8324,123 @@ class MeshMembershipPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class MetaV1LabelSelectorRequirementResponse(dict):
+class NamespacePropertiesNamespaceResponse(dict):
     """
-    A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
-    """
-    def __init__(__self__, *,
-                 key: _builtins.str,
-                 operator: _builtins.str,
-                 values: Optional[Sequence[_builtins.str]] = None):
-        """
-        A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
-
-        :param _builtins.str key: key is the label key that the selector applies to.
-        :param _builtins.str operator: operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
-        :param Sequence[_builtins.str] values: values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "operator", operator)
-        if values is not None:
-            pulumi.set(__self__, "values", values)
-
-    @_builtins.property
-    @pulumi.getter
-    def key(self) -> _builtins.str:
-        """
-        key is the label key that the selector applies to.
-        """
-        return pulumi.get(self, "key")
-
-    @_builtins.property
-    @pulumi.getter
-    def operator(self) -> _builtins.str:
-        """
-        operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
-        """
-        return pulumi.get(self, "operator")
-
-    @_builtins.property
-    @pulumi.getter
-    def values(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
-        """
-        return pulumi.get(self, "values")
-
-
-@pulumi.output_type
-class MetaV1LabelSelectorResponse(dict):
-    """
-    A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.
+    Properties of a namespace managed by ARM
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "matchExpressions":
-            suggest = "match_expressions"
-        elif key == "matchLabels":
-            suggest = "match_labels"
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "adoptionPolicy":
+            suggest = "adoption_policy"
+        elif key == "defaultNetworkPolicy":
+            suggest = "default_network_policy"
+        elif key == "defaultResourceQuota":
+            suggest = "default_resource_quota"
+        elif key == "deletePolicy":
+            suggest = "delete_policy"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MetaV1LabelSelectorResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in NamespacePropertiesNamespaceResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        MetaV1LabelSelectorResponse.__key_warning(key)
+        NamespacePropertiesNamespaceResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        MetaV1LabelSelectorResponse.__key_warning(key)
+        NamespacePropertiesNamespaceResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 match_expressions: Optional[Sequence['outputs.MetaV1LabelSelectorRequirementResponse']] = None,
-                 match_labels: Optional[Mapping[str, _builtins.str]] = None):
+                 provisioning_state: _builtins.str,
+                 adoption_policy: Optional[_builtins.str] = None,
+                 annotations: Optional[Mapping[str, _builtins.str]] = None,
+                 default_network_policy: Optional['outputs.NetworkPoliciesResponse'] = None,
+                 default_resource_quota: Optional['outputs.ResourceQuotaResponse'] = None,
+                 delete_policy: Optional[_builtins.str] = None,
+                 labels: Optional[Mapping[str, _builtins.str]] = None):
         """
-        A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.
+        Properties of a namespace managed by ARM
 
-        :param Sequence['MetaV1LabelSelectorRequirementResponse'] match_expressions: matchExpressions is a list of label selector requirements. The requirements are ANDed.
-        :param Mapping[str, _builtins.str] match_labels: matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+        :param _builtins.str provisioning_state: The current provisioning state of the namespace.
+        :param _builtins.str adoption_policy: Action if Kubernetes namespace with same name already exists.
+        :param Mapping[str, _builtins.str] annotations: The annotations of managed namespace.
+        :param 'NetworkPoliciesResponse' default_network_policy: The default network policy enforced upon the namespace. Customers can have other Kubernetes network policy objects under the namespace. All the network policies will be enforced.
+        :param 'ResourceQuotaResponse' default_resource_quota: The default resource quota enforced upon the namespace. Customers can have other Kubernetes resource quota objects under the namespace. All the resource quotas will be enforced.
+        :param _builtins.str delete_policy: Delete options of a namespace.
+        :param Mapping[str, _builtins.str] labels: The labels of managed namespace.
         """
-        if match_expressions is not None:
-            pulumi.set(__self__, "match_expressions", match_expressions)
-        if match_labels is not None:
-            pulumi.set(__self__, "match_labels", match_labels)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if adoption_policy is not None:
+            pulumi.set(__self__, "adoption_policy", adoption_policy)
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if default_network_policy is not None:
+            pulumi.set(__self__, "default_network_policy", default_network_policy)
+        if default_resource_quota is not None:
+            pulumi.set(__self__, "default_resource_quota", default_resource_quota)
+        if delete_policy is not None:
+            pulumi.set(__self__, "delete_policy", delete_policy)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
 
     @_builtins.property
-    @pulumi.getter(name="matchExpressions")
-    def match_expressions(self) -> Optional[Sequence['outputs.MetaV1LabelSelectorRequirementResponse']]:
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
         """
-        matchExpressions is a list of label selector requirements. The requirements are ANDed.
+        The current provisioning state of the namespace.
         """
-        return pulumi.get(self, "match_expressions")
+        return pulumi.get(self, "provisioning_state")
 
     @_builtins.property
-    @pulumi.getter(name="matchLabels")
-    def match_labels(self) -> Optional[Mapping[str, _builtins.str]]:
+    @pulumi.getter(name="adoptionPolicy")
+    def adoption_policy(self) -> Optional[_builtins.str]:
         """
-        matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+        Action if Kubernetes namespace with same name already exists.
         """
-        return pulumi.get(self, "match_labels")
+        return pulumi.get(self, "adoption_policy")
+
+    @_builtins.property
+    @pulumi.getter
+    def annotations(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        The annotations of managed namespace.
+        """
+        return pulumi.get(self, "annotations")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultNetworkPolicy")
+    def default_network_policy(self) -> Optional['outputs.NetworkPoliciesResponse']:
+        """
+        The default network policy enforced upon the namespace. Customers can have other Kubernetes network policy objects under the namespace. All the network policies will be enforced.
+        """
+        return pulumi.get(self, "default_network_policy")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultResourceQuota")
+    def default_resource_quota(self) -> Optional['outputs.ResourceQuotaResponse']:
+        """
+        The default resource quota enforced upon the namespace. Customers can have other Kubernetes resource quota objects under the namespace. All the resource quotas will be enforced.
+        """
+        return pulumi.get(self, "default_resource_quota")
+
+    @_builtins.property
+    @pulumi.getter(name="deletePolicy")
+    def delete_policy(self) -> Optional[_builtins.str]:
+        """
+        Delete options of a namespace.
+        """
+        return pulumi.get(self, "delete_policy")
+
+    @_builtins.property
+    @pulumi.getter
+    def labels(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        The labels of managed namespace.
+        """
+        return pulumi.get(self, "labels")
 
 
 @pulumi.output_type
@@ -8235,126 +8556,6 @@ class NamespacePropertiesResponse(dict):
     def default_resource_quota(self) -> Optional['outputs.ResourceQuotaResponse']:
         """
         The default resource quota enforced upon the namespace. Customers can have other Kubernetes resource quota objects under the namespace. Resource quotas are additive; if multiple resource quotas are applied to a given namespace, then the effective limit will be one such that all quotas on the namespace can be satisfied.
-        """
-        return pulumi.get(self, "default_resource_quota")
-
-    @_builtins.property
-    @pulumi.getter(name="deletePolicy")
-    def delete_policy(self) -> Optional[_builtins.str]:
-        """
-        Delete options of a namespace.
-        """
-        return pulumi.get(self, "delete_policy")
-
-    @_builtins.property
-    @pulumi.getter
-    def labels(self) -> Optional[Mapping[str, _builtins.str]]:
-        """
-        The labels of managed namespace.
-        """
-        return pulumi.get(self, "labels")
-
-
-@pulumi.output_type
-class NamespacePropertiesResponseV1(dict):
-    """
-    Properties of a namespace managed by ARM
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "provisioningState":
-            suggest = "provisioning_state"
-        elif key == "adoptionPolicy":
-            suggest = "adoption_policy"
-        elif key == "defaultNetworkPolicy":
-            suggest = "default_network_policy"
-        elif key == "defaultResourceQuota":
-            suggest = "default_resource_quota"
-        elif key == "deletePolicy":
-            suggest = "delete_policy"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in NamespacePropertiesResponseV1. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        NamespacePropertiesResponseV1.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        NamespacePropertiesResponseV1.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 provisioning_state: _builtins.str,
-                 adoption_policy: Optional[_builtins.str] = None,
-                 annotations: Optional[Mapping[str, _builtins.str]] = None,
-                 default_network_policy: Optional['outputs.NetworkPoliciesResponse'] = None,
-                 default_resource_quota: Optional['outputs.ResourceQuotaResponse'] = None,
-                 delete_policy: Optional[_builtins.str] = None,
-                 labels: Optional[Mapping[str, _builtins.str]] = None):
-        """
-        Properties of a namespace managed by ARM
-
-        :param _builtins.str provisioning_state: The current provisioning state of the namespace.
-        :param _builtins.str adoption_policy: Action if Kubernetes namespace with same name already exists.
-        :param Mapping[str, _builtins.str] annotations: The annotations of managed namespace.
-        :param 'NetworkPoliciesResponse' default_network_policy: The default network policy enforced upon the namespace. Customers can have other Kubernetes network policy objects under the namespace. All the network policies will be enforced.
-        :param 'ResourceQuotaResponse' default_resource_quota: The default resource quota enforced upon the namespace. Customers can have other Kubernetes resource quota objects under the namespace. All the resource quotas will be enforced.
-        :param _builtins.str delete_policy: Delete options of a namespace.
-        :param Mapping[str, _builtins.str] labels: The labels of managed namespace.
-        """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if adoption_policy is not None:
-            pulumi.set(__self__, "adoption_policy", adoption_policy)
-        if annotations is not None:
-            pulumi.set(__self__, "annotations", annotations)
-        if default_network_policy is not None:
-            pulumi.set(__self__, "default_network_policy", default_network_policy)
-        if default_resource_quota is not None:
-            pulumi.set(__self__, "default_resource_quota", default_resource_quota)
-        if delete_policy is not None:
-            pulumi.set(__self__, "delete_policy", delete_policy)
-        if labels is not None:
-            pulumi.set(__self__, "labels", labels)
-
-    @_builtins.property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> _builtins.str:
-        """
-        The current provisioning state of the namespace.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @_builtins.property
-    @pulumi.getter(name="adoptionPolicy")
-    def adoption_policy(self) -> Optional[_builtins.str]:
-        """
-        Action if Kubernetes namespace with same name already exists.
-        """
-        return pulumi.get(self, "adoption_policy")
-
-    @_builtins.property
-    @pulumi.getter
-    def annotations(self) -> Optional[Mapping[str, _builtins.str]]:
-        """
-        The annotations of managed namespace.
-        """
-        return pulumi.get(self, "annotations")
-
-    @_builtins.property
-    @pulumi.getter(name="defaultNetworkPolicy")
-    def default_network_policy(self) -> Optional['outputs.NetworkPoliciesResponse']:
-        """
-        The default network policy enforced upon the namespace. Customers can have other Kubernetes network policy objects under the namespace. All the network policies will be enforced.
-        """
-        return pulumi.get(self, "default_network_policy")
-
-    @_builtins.property
-    @pulumi.getter(name="defaultResourceQuota")
-    def default_resource_quota(self) -> Optional['outputs.ResourceQuotaResponse']:
-        """
-        The default resource quota enforced upon the namespace. Customers can have other Kubernetes resource quota objects under the namespace. All the resource quotas will be enforced.
         """
         return pulumi.get(self, "default_resource_quota")
 
@@ -8664,249 +8865,7 @@ class NodeImageVersionResponse(dict):
 
 
 @pulumi.output_type
-class PlacementProfileResponse(dict):
-    """
-    The configuration profile for default ClusterResourcePlacement for placement.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "defaultClusterResourcePlacement":
-            suggest = "default_cluster_resource_placement"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PlacementProfileResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PlacementProfileResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PlacementProfileResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 default_cluster_resource_placement: Optional['outputs.PlacementV1ClusterResourcePlacementSpecResponse'] = None):
-        """
-        The configuration profile for default ClusterResourcePlacement for placement.
-
-        :param 'PlacementV1ClusterResourcePlacementSpecResponse' default_cluster_resource_placement: The default ClusterResourcePlacement policy configuration.
-        """
-        if default_cluster_resource_placement is not None:
-            pulumi.set(__self__, "default_cluster_resource_placement", default_cluster_resource_placement)
-
-    @_builtins.property
-    @pulumi.getter(name="defaultClusterResourcePlacement")
-    def default_cluster_resource_placement(self) -> Optional['outputs.PlacementV1ClusterResourcePlacementSpecResponse']:
-        """
-        The default ClusterResourcePlacement policy configuration.
-        """
-        return pulumi.get(self, "default_cluster_resource_placement")
-
-
-@pulumi.output_type
-class PlacementV1AffinityResponse(dict):
-    """
-    Affinity is a group of cluster affinity scheduling rules. More to be added.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "clusterAffinity":
-            suggest = "cluster_affinity"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PlacementV1AffinityResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PlacementV1AffinityResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PlacementV1AffinityResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 cluster_affinity: Optional['outputs.PlacementV1ClusterAffinityResponse'] = None):
-        """
-        Affinity is a group of cluster affinity scheduling rules. More to be added.
-
-        :param 'PlacementV1ClusterAffinityResponse' cluster_affinity: ClusterAffinity contains cluster affinity scheduling rules for the selected resources.
-        """
-        if cluster_affinity is not None:
-            pulumi.set(__self__, "cluster_affinity", cluster_affinity)
-
-    @_builtins.property
-    @pulumi.getter(name="clusterAffinity")
-    def cluster_affinity(self) -> Optional['outputs.PlacementV1ClusterAffinityResponse']:
-        """
-        ClusterAffinity contains cluster affinity scheduling rules for the selected resources.
-        """
-        return pulumi.get(self, "cluster_affinity")
-
-
-@pulumi.output_type
-class PlacementV1ClusterAffinityResponse(dict):
-    """
-    ClusterAffinity contains cluster affinity scheduling rules for the selected resources.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "requiredDuringSchedulingIgnoredDuringExecution":
-            suggest = "required_during_scheduling_ignored_during_execution"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PlacementV1ClusterAffinityResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PlacementV1ClusterAffinityResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PlacementV1ClusterAffinityResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 required_during_scheduling_ignored_during_execution: Optional['outputs.PlacementV1ClusterSelectorResponse'] = None):
-        """
-        ClusterAffinity contains cluster affinity scheduling rules for the selected resources.
-
-        :param 'PlacementV1ClusterSelectorResponse' required_during_scheduling_ignored_during_execution: If the affinity requirements specified by this field are not met at scheduling time, the resource will not be scheduled onto the cluster. If the affinity requirements specified by this field cease to be met at some point after the placement (e.g. due to an update), the system may or may not try to eventually remove the resource from the cluster.
-        """
-        if required_during_scheduling_ignored_during_execution is not None:
-            pulumi.set(__self__, "required_during_scheduling_ignored_during_execution", required_during_scheduling_ignored_during_execution)
-
-    @_builtins.property
-    @pulumi.getter(name="requiredDuringSchedulingIgnoredDuringExecution")
-    def required_during_scheduling_ignored_during_execution(self) -> Optional['outputs.PlacementV1ClusterSelectorResponse']:
-        """
-        If the affinity requirements specified by this field are not met at scheduling time, the resource will not be scheduled onto the cluster. If the affinity requirements specified by this field cease to be met at some point after the placement (e.g. due to an update), the system may or may not try to eventually remove the resource from the cluster.
-        """
-        return pulumi.get(self, "required_during_scheduling_ignored_during_execution")
-
-
-@pulumi.output_type
-class PlacementV1ClusterResourcePlacementSpecResponse(dict):
-    """
-    ClusterResourcePlacementSpec defines the desired state of ClusterResourcePlacement.
-    """
-    def __init__(__self__, *,
-                 policy: Optional['outputs.PlacementV1PlacementPolicyResponse'] = None):
-        """
-        ClusterResourcePlacementSpec defines the desired state of ClusterResourcePlacement.
-
-        :param 'PlacementV1PlacementPolicyResponse' policy: Policy defines how to select member clusters to place the selected resources. If unspecified, all the joined member clusters are selected.
-        """
-        if policy is not None:
-            pulumi.set(__self__, "policy", policy)
-
-    @_builtins.property
-    @pulumi.getter
-    def policy(self) -> Optional['outputs.PlacementV1PlacementPolicyResponse']:
-        """
-        Policy defines how to select member clusters to place the selected resources. If unspecified, all the joined member clusters are selected.
-        """
-        return pulumi.get(self, "policy")
-
-
-@pulumi.output_type
-class PlacementV1ClusterSelectorResponse(dict):
-    """
-    ClusterSelector
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "clusterSelectorTerms":
-            suggest = "cluster_selector_terms"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PlacementV1ClusterSelectorResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PlacementV1ClusterSelectorResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PlacementV1ClusterSelectorResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 cluster_selector_terms: Sequence['outputs.PlacementV1ClusterSelectorTermResponse']):
-        """
-        ClusterSelector
-
-        :param Sequence['PlacementV1ClusterSelectorTermResponse'] cluster_selector_terms: ClusterSelectorTerms is a list of cluster selector terms. The terms are `ORed`.
-        """
-        pulumi.set(__self__, "cluster_selector_terms", cluster_selector_terms)
-
-    @_builtins.property
-    @pulumi.getter(name="clusterSelectorTerms")
-    def cluster_selector_terms(self) -> Sequence['outputs.PlacementV1ClusterSelectorTermResponse']:
-        """
-        ClusterSelectorTerms is a list of cluster selector terms. The terms are `ORed`.
-        """
-        return pulumi.get(self, "cluster_selector_terms")
-
-
-@pulumi.output_type
-class PlacementV1ClusterSelectorTermResponse(dict):
-    """
-    ClusterSelectorTerm
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "labelSelector":
-            suggest = "label_selector"
-        elif key == "propertySelector":
-            suggest = "property_selector"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PlacementV1ClusterSelectorTermResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PlacementV1ClusterSelectorTermResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PlacementV1ClusterSelectorTermResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 label_selector: Optional['outputs.MetaV1LabelSelectorResponse'] = None,
-                 property_selector: Optional['outputs.PlacementV1PropertySelectorResponse'] = None):
-        """
-        ClusterSelectorTerm
-
-        :param 'MetaV1LabelSelectorResponse' label_selector: LabelSelector is a label query over all the joined member clusters. Clusters matching the query are selected. If you specify both label and property selectors in the same term, the results are AND'd.
-        :param 'PlacementV1PropertySelectorResponse' property_selector: PropertySelector is a property query over all joined member clusters. Clusters matching the query are selected. If you specify both label and property selectors in the same term, the results are AND'd. At this moment, PropertySelector can only be used with `RequiredDuringSchedulingIgnoredDuringExecution` affinity terms. This field is beta-level; it is for the property-based scheduling feature and is only functional when a property provider is enabled in the deployment.
-        """
-        if label_selector is not None:
-            pulumi.set(__self__, "label_selector", label_selector)
-        if property_selector is not None:
-            pulumi.set(__self__, "property_selector", property_selector)
-
-    @_builtins.property
-    @pulumi.getter(name="labelSelector")
-    def label_selector(self) -> Optional['outputs.MetaV1LabelSelectorResponse']:
-        """
-        LabelSelector is a label query over all the joined member clusters. Clusters matching the query are selected. If you specify both label and property selectors in the same term, the results are AND'd.
-        """
-        return pulumi.get(self, "label_selector")
-
-    @_builtins.property
-    @pulumi.getter(name="propertySelector")
-    def property_selector(self) -> Optional['outputs.PlacementV1PropertySelectorResponse']:
-        """
-        PropertySelector is a property query over all joined member clusters. Clusters matching the query are selected. If you specify both label and property selectors in the same term, the results are AND'd. At this moment, PropertySelector can only be used with `RequiredDuringSchedulingIgnoredDuringExecution` affinity terms. This field is beta-level; it is for the property-based scheduling feature and is only functional when a property provider is enabled in the deployment.
-        """
-        return pulumi.get(self, "property_selector")
-
-
-@pulumi.output_type
-class PlacementV1PlacementPolicyResponse(dict):
+class PlacementPolicyResponse(dict):
     """
     PlacementPolicy contains the rules to select target member clusters to place the selected resources. Note that only clusters that are both joined and satisfying the rules will be selected. You can only specify at most one of the two fields: ClusterNames and Affinity. If none is specified, all the joined clusters are selected.
     """
@@ -8919,28 +8878,28 @@ class PlacementV1PlacementPolicyResponse(dict):
             suggest = "placement_type"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PlacementV1PlacementPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in PlacementPolicyResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        PlacementV1PlacementPolicyResponse.__key_warning(key)
+        PlacementPolicyResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        PlacementV1PlacementPolicyResponse.__key_warning(key)
+        PlacementPolicyResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 affinity: Optional['outputs.PlacementV1AffinityResponse'] = None,
+                 affinity: Optional['outputs.AffinityResponse'] = None,
                  cluster_names: Optional[Sequence[_builtins.str]] = None,
                  placement_type: Optional[_builtins.str] = None,
-                 tolerations: Optional[Sequence['outputs.PlacementV1TolerationResponse']] = None):
+                 tolerations: Optional[Sequence['outputs.TolerationResponse']] = None):
         """
         PlacementPolicy contains the rules to select target member clusters to place the selected resources. Note that only clusters that are both joined and satisfying the rules will be selected. You can only specify at most one of the two fields: ClusterNames and Affinity. If none is specified, all the joined clusters are selected.
 
-        :param 'PlacementV1AffinityResponse' affinity: Affinity contains cluster affinity scheduling rules. Defines which member clusters to place the selected resources. Only valid if the placement type is "PickAll" or "PickN".
+        :param 'AffinityResponse' affinity: Affinity contains cluster affinity scheduling rules. Defines which member clusters to place the selected resources. Only valid if the placement type is "PickAll" or "PickN".
         :param Sequence[_builtins.str] cluster_names: ClusterNames contains a list of names of MemberCluster to place the selected resources. Only valid if the placement type is "PickFixed"
         :param _builtins.str placement_type: Type of placement. Can be "PickAll", "PickN" or "PickFixed". Default is PickAll.
-        :param Sequence['PlacementV1TolerationResponse'] tolerations: If specified, the ClusterResourcePlacement's Tolerations. Tolerations cannot be updated or deleted. This field is beta-level and is for the taints and tolerations feature.
+        :param Sequence['TolerationResponse'] tolerations: If specified, the ClusterResourcePlacement's Tolerations. Tolerations cannot be updated or deleted. This field is beta-level and is for the taints and tolerations feature.
         """
         if affinity is not None:
             pulumi.set(__self__, "affinity", affinity)
@@ -8953,7 +8912,7 @@ class PlacementV1PlacementPolicyResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def affinity(self) -> Optional['outputs.PlacementV1AffinityResponse']:
+    def affinity(self) -> Optional['outputs.AffinityResponse']:
         """
         Affinity contains cluster affinity scheduling rules. Defines which member clusters to place the selected resources. Only valid if the placement type is "PickAll" or "PickN".
         """
@@ -8977,7 +8936,7 @@ class PlacementV1PlacementPolicyResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def tolerations(self) -> Optional[Sequence['outputs.PlacementV1TolerationResponse']]:
+    def tolerations(self) -> Optional[Sequence['outputs.TolerationResponse']]:
         """
         If specified, the ClusterResourcePlacement's Tolerations. Tolerations cannot be updated or deleted. This field is beta-level and is for the taints and tolerations feature.
         """
@@ -8985,148 +8944,44 @@ class PlacementV1PlacementPolicyResponse(dict):
 
 
 @pulumi.output_type
-class PlacementV1PropertySelectorRequirementResponse(dict):
+class PlacementProfileResponse(dict):
     """
-    PropertySelectorRequirement is a specific property requirement when picking clusters for resource placement.
-    """
-    def __init__(__self__, *,
-                 name: _builtins.str,
-                 operator: _builtins.str,
-                 values: Sequence[_builtins.str]):
-        """
-        PropertySelectorRequirement is a specific property requirement when picking clusters for resource placement.
-
-        :param _builtins.str name: Name is the name of the property; it should be a Kubernetes label name.
-        :param _builtins.str operator: Operator specifies the relationship between a cluster's observed value of the specified property and the values given in the requirement.
-        :param Sequence[_builtins.str] values: Values are a list of values of the specified property which Fleet will compare against the observed values of individual member clusters in accordance with the given operator. At this moment, each value should be a Kubernetes quantity. For more information, see https://pkg.go.dev/k8s.io/apimachinery/pkg/api/resource#Quantity. If the operator is Gt (greater than), Ge (greater than or equal to), Lt (less than), or `Le` (less than or equal to), Eq (equal to), or Ne (ne), exactly one value must be specified in the list.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> _builtins.str:
-        """
-        Name is the name of the property; it should be a Kubernetes label name.
-        """
-        return pulumi.get(self, "name")
-
-    @_builtins.property
-    @pulumi.getter
-    def operator(self) -> _builtins.str:
-        """
-        Operator specifies the relationship between a cluster's observed value of the specified property and the values given in the requirement.
-        """
-        return pulumi.get(self, "operator")
-
-    @_builtins.property
-    @pulumi.getter
-    def values(self) -> Sequence[_builtins.str]:
-        """
-        Values are a list of values of the specified property which Fleet will compare against the observed values of individual member clusters in accordance with the given operator. At this moment, each value should be a Kubernetes quantity. For more information, see https://pkg.go.dev/k8s.io/apimachinery/pkg/api/resource#Quantity. If the operator is Gt (greater than), Ge (greater than or equal to), Lt (less than), or `Le` (less than or equal to), Eq (equal to), or Ne (ne), exactly one value must be specified in the list.
-        """
-        return pulumi.get(self, "values")
-
-
-@pulumi.output_type
-class PlacementV1PropertySelectorResponse(dict):
-    """
-    PropertySelector helps user specify property requirements when picking clusters for resource placement.
+    The configuration profile for default ClusterResourcePlacement for placement.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "matchExpressions":
-            suggest = "match_expressions"
+        if key == "defaultClusterResourcePlacement":
+            suggest = "default_cluster_resource_placement"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PlacementV1PropertySelectorResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in PlacementProfileResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        PlacementV1PropertySelectorResponse.__key_warning(key)
+        PlacementProfileResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        PlacementV1PropertySelectorResponse.__key_warning(key)
+        PlacementProfileResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 match_expressions: Sequence['outputs.PlacementV1PropertySelectorRequirementResponse']):
+                 default_cluster_resource_placement: Optional['outputs.ClusterResourcePlacementSpecResponse'] = None):
         """
-        PropertySelector helps user specify property requirements when picking clusters for resource placement.
+        The configuration profile for default ClusterResourcePlacement for placement.
 
-        :param Sequence['PlacementV1PropertySelectorRequirementResponse'] match_expressions: MatchExpressions is an array of PropertySelectorRequirements. The requirements are AND'd.
+        :param 'ClusterResourcePlacementSpecResponse' default_cluster_resource_placement: The default ClusterResourcePlacement policy configuration.
         """
-        pulumi.set(__self__, "match_expressions", match_expressions)
-
-    @_builtins.property
-    @pulumi.getter(name="matchExpressions")
-    def match_expressions(self) -> Sequence['outputs.PlacementV1PropertySelectorRequirementResponse']:
-        """
-        MatchExpressions is an array of PropertySelectorRequirements. The requirements are AND'd.
-        """
-        return pulumi.get(self, "match_expressions")
-
-
-@pulumi.output_type
-class PlacementV1TolerationResponse(dict):
-    """
-    Toleration allows ClusterResourcePlacement to tolerate any taint that matches the triple <key,value,effect> using the matching operator <operator>.
-    """
-    def __init__(__self__, *,
-                 effect: Optional[_builtins.str] = None,
-                 key: Optional[_builtins.str] = None,
-                 operator: Optional[_builtins.str] = None,
-                 value: Optional[_builtins.str] = None):
-        """
-        Toleration allows ClusterResourcePlacement to tolerate any taint that matches the triple <key,value,effect> using the matching operator <operator>.
-
-        :param _builtins.str effect: Effect indicates the taint effect to match. Empty means match all taint effects. When specified, only allowed value is NoSchedule.
-        :param _builtins.str key: Key is the taint key that the toleration applies to. Empty means match all taint keys. If the key is empty, operator must be Exists; this combination means to match all values and all keys.
-        :param _builtins.str operator: Operator represents a key's relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a ClusterResourcePlacement can tolerate all taints of a particular category.
-        :param _builtins.str value: Value is the taint value the toleration matches to. If the operator is Exists, the value should be empty, otherwise just a regular string.
-        """
-        if effect is not None:
-            pulumi.set(__self__, "effect", effect)
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if operator is not None:
-            pulumi.set(__self__, "operator", operator)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
+        if default_cluster_resource_placement is not None:
+            pulumi.set(__self__, "default_cluster_resource_placement", default_cluster_resource_placement)
 
     @_builtins.property
-    @pulumi.getter
-    def effect(self) -> Optional[_builtins.str]:
+    @pulumi.getter(name="defaultClusterResourcePlacement")
+    def default_cluster_resource_placement(self) -> Optional['outputs.ClusterResourcePlacementSpecResponse']:
         """
-        Effect indicates the taint effect to match. Empty means match all taint effects. When specified, only allowed value is NoSchedule.
+        The default ClusterResourcePlacement policy configuration.
         """
-        return pulumi.get(self, "effect")
-
-    @_builtins.property
-    @pulumi.getter
-    def key(self) -> Optional[_builtins.str]:
-        """
-        Key is the taint key that the toleration applies to. Empty means match all taint keys. If the key is empty, operator must be Exists; this combination means to match all values and all keys.
-        """
-        return pulumi.get(self, "key")
-
-    @_builtins.property
-    @pulumi.getter
-    def operator(self) -> Optional[_builtins.str]:
-        """
-        Operator represents a key's relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a ClusterResourcePlacement can tolerate all taints of a particular category.
-        """
-        return pulumi.get(self, "operator")
-
-    @_builtins.property
-    @pulumi.getter
-    def value(self) -> Optional[_builtins.str]:
-        """
-        Value is the taint value the toleration matches to. If the operator is Exists, the value should be empty, otherwise just a regular string.
-        """
-        return pulumi.get(self, "value")
+        return pulumi.get(self, "default_cluster_resource_placement")
 
 
 @pulumi.output_type
@@ -9434,6 +9289,91 @@ class PropagationPolicyResponse(dict):
         The profile to be used for propagation via placement.
         """
         return pulumi.get(self, "placement_profile")
+
+
+@pulumi.output_type
+class PropertySelectorRequirementResponse(dict):
+    """
+    PropertySelectorRequirement is a specific property requirement when picking clusters for resource placement.
+    """
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 operator: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        PropertySelectorRequirement is a specific property requirement when picking clusters for resource placement.
+
+        :param _builtins.str name: Name is the name of the property; it should be a Kubernetes label name.
+        :param _builtins.str operator: Operator specifies the relationship between a cluster's observed value of the specified property and the values given in the requirement.
+        :param Sequence[_builtins.str] values: Values are a list of values of the specified property which Fleet will compare against the observed values of individual member clusters in accordance with the given operator. At this moment, each value should be a Kubernetes quantity. For more information, see https://pkg.go.dev/k8s.io/apimachinery/pkg/api/resource#Quantity. If the operator is Gt (greater than), Ge (greater than or equal to), Lt (less than), or `Le` (less than or equal to), Eq (equal to), or Ne (ne), exactly one value must be specified in the list.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name is the name of the property; it should be a Kubernetes label name.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> _builtins.str:
+        """
+        Operator specifies the relationship between a cluster's observed value of the specified property and the values given in the requirement.
+        """
+        return pulumi.get(self, "operator")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        Values are a list of values of the specified property which Fleet will compare against the observed values of individual member clusters in accordance with the given operator. At this moment, each value should be a Kubernetes quantity. For more information, see https://pkg.go.dev/k8s.io/apimachinery/pkg/api/resource#Quantity. If the operator is Gt (greater than), Ge (greater than or equal to), Lt (less than), or `Le` (less than or equal to), Eq (equal to), or Ne (ne), exactly one value must be specified in the list.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class PropertySelectorResponse(dict):
+    """
+    PropertySelector helps user specify property requirements when picking clusters for resource placement.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchExpressions":
+            suggest = "match_expressions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PropertySelectorResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PropertySelectorResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PropertySelectorResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_expressions: Sequence['outputs.PropertySelectorRequirementResponse']):
+        """
+        PropertySelector helps user specify property requirements when picking clusters for resource placement.
+
+        :param Sequence['PropertySelectorRequirementResponse'] match_expressions: MatchExpressions is an array of PropertySelectorRequirements. The requirements are AND'd.
+        """
+        pulumi.set(__self__, "match_expressions", match_expressions)
+
+    @_builtins.property
+    @pulumi.getter(name="matchExpressions")
+    def match_expressions(self) -> Sequence['outputs.PropertySelectorRequirementResponse']:
+        """
+        MatchExpressions is an array of PropertySelectorRequirements. The requirements are AND'd.
+        """
+        return pulumi.get(self, "match_expressions")
 
 
 @pulumi.output_type
@@ -10367,6 +10307,66 @@ class TimeSpanResponse(dict):
 
 
 @pulumi.output_type
+class TolerationResponse(dict):
+    """
+    Toleration allows ClusterResourcePlacement to tolerate any taint that matches the triple <key,value,effect> using the matching operator <operator>.
+    """
+    def __init__(__self__, *,
+                 effect: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 operator: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        """
+        Toleration allows ClusterResourcePlacement to tolerate any taint that matches the triple <key,value,effect> using the matching operator <operator>.
+
+        :param _builtins.str effect: Effect indicates the taint effect to match. Empty means match all taint effects. When specified, only allowed value is NoSchedule.
+        :param _builtins.str key: Key is the taint key that the toleration applies to. Empty means match all taint keys. If the key is empty, operator must be Exists; this combination means to match all values and all keys.
+        :param _builtins.str operator: Operator represents a key's relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a ClusterResourcePlacement can tolerate all taints of a particular category.
+        :param _builtins.str value: Value is the taint value the toleration matches to. If the operator is Exists, the value should be empty, otherwise just a regular string.
+        """
+        if effect is not None:
+            pulumi.set(__self__, "effect", effect)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def effect(self) -> Optional[_builtins.str]:
+        """
+        Effect indicates the taint effect to match. Empty means match all taint effects. When specified, only allowed value is NoSchedule.
+        """
+        return pulumi.get(self, "effect")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        """
+        Key is the taint key that the toleration applies to. Empty means match all taint keys. If the key is empty, operator must be Exists; this combination means to match all values and all keys.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> Optional[_builtins.str]:
+        """
+        Operator represents a key's relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a ClusterResourcePlacement can tolerate all taints of a particular category.
+        """
+        return pulumi.get(self, "operator")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        """
+        Value is the taint value the toleration matches to. If the operator is Exists, the value should be empty, otherwise just a regular string.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class UpdateGroupResponse(dict):
     """
     A group to be updated.
@@ -10799,6 +10799,75 @@ class UpgradeOverrideSettingsResponse(dict):
 
 
 @pulumi.output_type
+class UserAssignedIdentityManagedClusterResponse(dict):
+    """
+    Details about a user assigned identity.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "objectId":
+            suggest = "object_id"
+        elif key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityManagedClusterResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentityManagedClusterResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentityManagedClusterResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: Optional[_builtins.str] = None,
+                 object_id: Optional[_builtins.str] = None,
+                 resource_id: Optional[_builtins.str] = None):
+        """
+        Details about a user assigned identity.
+
+        :param _builtins.str client_id: The client ID of the user assigned identity.
+        :param _builtins.str object_id: The object ID of the user assigned identity.
+        :param _builtins.str resource_id: The resource ID of the user assigned identity.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[_builtins.str]:
+        """
+        The client ID of the user assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[_builtins.str]:
+        """
+        The object ID of the user assigned identity.
+        """
+        return pulumi.get(self, "object_id")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[_builtins.str]:
+        """
+        The resource ID of the user assigned identity.
+        """
+        return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
 class UserAssignedIdentityResponse(dict):
     """
     User assigned identity properties
@@ -10849,75 +10918,6 @@ class UserAssignedIdentityResponse(dict):
         The principal ID of the assigned identity.
         """
         return pulumi.get(self, "principal_id")
-
-
-@pulumi.output_type
-class UserAssignedIdentityResponseV1(dict):
-    """
-    Details about a user assigned identity.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "clientId":
-            suggest = "client_id"
-        elif key == "objectId":
-            suggest = "object_id"
-        elif key == "resourceId":
-            suggest = "resource_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponseV1. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        UserAssignedIdentityResponseV1.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        UserAssignedIdentityResponseV1.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 client_id: Optional[_builtins.str] = None,
-                 object_id: Optional[_builtins.str] = None,
-                 resource_id: Optional[_builtins.str] = None):
-        """
-        Details about a user assigned identity.
-
-        :param _builtins.str client_id: The client ID of the user assigned identity.
-        :param _builtins.str object_id: The object ID of the user assigned identity.
-        :param _builtins.str resource_id: The resource ID of the user assigned identity.
-        """
-        if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
-        if object_id is not None:
-            pulumi.set(__self__, "object_id", object_id)
-        if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
-
-    @_builtins.property
-    @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[_builtins.str]:
-        """
-        The client ID of the user assigned identity.
-        """
-        return pulumi.get(self, "client_id")
-
-    @_builtins.property
-    @pulumi.getter(name="objectId")
-    def object_id(self) -> Optional[_builtins.str]:
-        """
-        The object ID of the user assigned identity.
-        """
-        return pulumi.get(self, "object_id")
-
-    @_builtins.property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[_builtins.str]:
-        """
-        The resource ID of the user assigned identity.
-        """
-        return pulumi.get(self, "resource_id")
 
 
 @pulumi.output_type

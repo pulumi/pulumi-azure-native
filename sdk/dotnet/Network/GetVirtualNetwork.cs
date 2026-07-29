@@ -190,7 +190,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// A list of peerings in a Virtual Network.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VirtualNetworkPeeringResponse> VirtualNetworkPeerings;
+        public readonly ImmutableArray<Outputs.VirtualNetworkPeeringVirtualNetworkResponse> VirtualNetworkPeerings;
 
         [OutputConstructor]
         private GetVirtualNetworkResult(
@@ -238,7 +238,7 @@ namespace Pulumi.AzureNative.Network
 
             string type,
 
-            ImmutableArray<Outputs.VirtualNetworkPeeringResponse> virtualNetworkPeerings)
+            ImmutableArray<Outputs.VirtualNetworkPeeringVirtualNetworkResponse> virtualNetworkPeerings)
         {
             AddressSpace = addressSpace;
             AzureApiVersion = azureApiVersion;

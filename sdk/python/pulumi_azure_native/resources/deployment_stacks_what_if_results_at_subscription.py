@@ -223,7 +223,7 @@ class DeploymentStacksWhatIfResultsAtSubscription(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.DeploymentStacksWhatIfResultPropertiesResponse']:
+    def properties(self) -> pulumi.Output['outputs.DeploymentStacksWhatIfResultPropertiesDeploymentStacksWhatIfResultsAtSubscriptionResponse']:
         """
         The resource-specific properties for this resource.
         """

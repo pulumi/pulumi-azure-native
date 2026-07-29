@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Resources.Outputs
         /// <summary>
         /// Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
         /// </summary>
-        public readonly Outputs.ActionOnUnmanageResponseV1 ActionOnUnmanage;
+        public readonly Outputs.ActionOnUnmanageDeploymentStacksWhatIfResultsAtManagementGroupResponse ActionOnUnmanage;
         /// <summary>
         /// All of the changes predicted by the deployment stack what-if operation.
         /// </summary>
@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.Resources.Outputs
 
         [OutputConstructor]
         private DeploymentStacksWhatIfResultPropertiesResponse(
-            Outputs.ActionOnUnmanageResponseV1 actionOnUnmanage,
+            Outputs.ActionOnUnmanageDeploymentStacksWhatIfResultsAtManagementGroupResponse actionOnUnmanage,
 
             Outputs.DeploymentStacksWhatIfChangeResponse changes,
 

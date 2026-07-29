@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.Authorization
         /// The name of the entity last modified it
         /// </summary>
         [Output("lastModifiedBy")]
-        public Output<Outputs.MicrosoftCommonPrincipalResponse> LastModifiedBy { get; private set; } = null!;
+        public Output<Outputs.PrincipalResponse> LastModifiedBy { get; private set; } = null!;
 
         /// <summary>
         /// The last modified date time.

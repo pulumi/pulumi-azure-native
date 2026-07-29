@@ -1051,7 +1051,7 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 		moduleName:                 g.moduleName,
 		resourceName:               resource.typeName,
 		resourceToken:              resourceTok,
-		visitedTypes:               make(map[string]bool),
+		visitedTypes:               make(map[visitedTypeKey]string),
 		caseSensitiveTypes:         g.caseSensitiveTypes,
 		inlineTypes:                map[*openapi.ReferenceContext]codegen.StringSet{},
 		nestedResourceBodyRefs:     nestedResourceBodyRefs,
@@ -1380,7 +1380,7 @@ func (g *packageGenerator) genFunctions(typeName, path string, specParams []spec
 		resourceToken:              fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, module, typeName),
 		moduleName:                 g.moduleName,
 		resourceName:               typeName,
-		visitedTypes:               make(map[string]bool),
+		visitedTypes:               make(map[visitedTypeKey]string),
 		caseSensitiveTypes:         g.caseSensitiveTypes,
 		inlineTypes:                map[*openapi.ReferenceContext]codegen.StringSet{},
 		flattenedPropertyConflicts: map[string]any{},
@@ -1665,7 +1665,7 @@ type moduleGenerator struct {
 	moduleName                 openapi.ModuleName
 	resourceName               string
 	resourceToken              string
-	visitedTypes               map[string]bool
+	visitedTypes               map[visitedTypeKey]string
 	caseSensitiveTypes         caseSensitiveTokens
 	inlineTypes                map[*openapi.ReferenceContext]codegen.StringSet
 	nestedResourceBodyRefs     []string

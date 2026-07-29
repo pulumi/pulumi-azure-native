@@ -119,7 +119,7 @@ class GetGlobalRulestackResult:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.AzureResourceManagerManagedIdentityPropertiesResponse']:
+    def identity(self) -> Optional['outputs.ManagedIdentityPropertiesResponse']:
         """
         The managed service identities assigned to this resource.
         """

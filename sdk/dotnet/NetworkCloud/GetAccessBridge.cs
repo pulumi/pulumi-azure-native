@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The extended location of the resource. This property is required when creating the resource.
         /// </summary>
-        public readonly Outputs.AzureResourceManagerCommonTypesExtendedLocationResponse ExtendedLocation;
+        public readonly Outputs.ExtendedLocationResponse ExtendedLocation;
         /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
@@ -172,7 +172,7 @@ namespace Pulumi.AzureNative.NetworkCloud
 
             string etag,
 
-            Outputs.AzureResourceManagerCommonTypesExtendedLocationResponse extendedLocation,
+            Outputs.ExtendedLocationResponse extendedLocation,
 
             string id,
 

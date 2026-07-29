@@ -263,7 +263,7 @@ class WorkflowVersion(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> pulumi.Output[Optional['outputs.AzureResourceManagerCommonTypesExtendedLocationResponse']]:
+    def extended_location(self) -> pulumi.Output[Optional['outputs.ExtendedLocationResponse']]:
         """
         The complex type of the extended location.
         """

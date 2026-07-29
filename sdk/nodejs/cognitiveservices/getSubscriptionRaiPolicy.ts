@@ -51,7 +51,7 @@ export interface GetSubscriptionRaiPolicyResult {
     /**
      * Properties of Cognitive Services RaiPolicy.
      */
-    readonly properties: outputs.cognitiveservices.RaiPolicyPropertiesResponse;
+    readonly properties: outputs.cognitiveservices.RaiPolicyPropertiesSubscriptionRaiPolicyResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

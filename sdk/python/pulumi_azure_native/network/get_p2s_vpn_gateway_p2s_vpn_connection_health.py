@@ -121,7 +121,7 @@ class GetP2sVpnGatewayP2sVpnConnectionHealthResult:
 
     @_builtins.property
     @pulumi.getter(name="p2SConnectionConfigurations")
-    def p2_s_connection_configurations(self) -> Optional[Sequence['outputs.P2SConnectionConfigurationResponse']]:
+    def p2_s_connection_configurations(self) -> Optional[Sequence['outputs.P2SConnectionConfigurationgetP2sVpnGatewayP2sVpnConnectionHealthResponse']]:
         """
         List of all p2s connection configurations of the gateway.
         """

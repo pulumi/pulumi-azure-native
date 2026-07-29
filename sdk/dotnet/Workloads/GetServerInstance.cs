@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// Defines the errors related to SAP Instance resource.
         /// </summary>
-        public readonly Outputs.SAPMigrateErrorResponse Errors;
+        public readonly Outputs.SAPMigrateErrorServerInstanceResponse Errors;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -172,7 +172,7 @@ namespace Pulumi.AzureNative.Workloads
 
             Outputs.ConfigurationDataResponse configurationData,
 
-            Outputs.SAPMigrateErrorResponse errors,
+            Outputs.SAPMigrateErrorServerInstanceResponse errors,
 
             string id,
 

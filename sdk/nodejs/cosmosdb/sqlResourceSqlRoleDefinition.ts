@@ -56,7 +56,7 @@ export class SqlResourceSqlRoleDefinition extends pulumi.CustomResource {
     /**
      * The set of operations allowed through this Role Definition.
      */
-    declare public readonly permissions: pulumi.Output<outputs.cosmosdb.PermissionResponseV1[] | undefined>;
+    declare public readonly permissions: pulumi.Output<outputs.cosmosdb.PermissionSqlResourceSqlRoleDefinitionResponse[] | undefined>;
     /**
      * A user-friendly name for the Role Definition. Must be unique for the database account.
      */

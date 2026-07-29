@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.CosmosDB
         /// The set of operations allowed through this Role Definition.
         /// </summary>
         [Output("permissions")]
-        public Output<ImmutableArray<Outputs.PermissionResponseV1>> Permissions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PermissionSqlResourceSqlRoleDefinitionResponse>> Permissions { get; private set; } = null!;
 
         /// <summary>
         /// A user-friendly name for the Role Definition. Must be unique for the database account.

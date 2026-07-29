@@ -86,9 +86,9 @@ __all__ = [
     'RaiExternalSafetyProviderSchemaPropertiesResponse',
     'RaiMonitorConfigResponse',
     'RaiPolicyContentFilterResponse',
-    'RaiPolicyContentFilterResponseV1',
+    'RaiPolicyContentFilterSubscriptionRaiPolicyResponse',
     'RaiPolicyPropertiesResponse',
-    'RaiPolicyPropertiesResponseV1',
+    'RaiPolicyPropertiesSubscriptionRaiPolicyResponse',
     'RaiToolLabelPropertiesAccountScopeResponse',
     'RaiToolLabelPropertiesProjectScopesItemResponse',
     'RaiToolLabelPropertiesResponse',
@@ -6608,7 +6608,7 @@ class RaiPolicyContentFilterResponse(dict):
 
 
 @pulumi.output_type
-class RaiPolicyContentFilterResponseV1(dict):
+class RaiPolicyContentFilterSubscriptionRaiPolicyResponse(dict):
     """
     Azure OpenAI Content Filter.
     """
@@ -6619,14 +6619,14 @@ class RaiPolicyContentFilterResponseV1(dict):
             suggest = "severity_threshold"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RaiPolicyContentFilterResponseV1. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in RaiPolicyContentFilterSubscriptionRaiPolicyResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        RaiPolicyContentFilterResponseV1.__key_warning(key)
+        RaiPolicyContentFilterSubscriptionRaiPolicyResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        RaiPolicyContentFilterResponseV1.__key_warning(key)
+        RaiPolicyContentFilterSubscriptionRaiPolicyResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -6801,7 +6801,7 @@ class RaiPolicyPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class RaiPolicyPropertiesResponseV1(dict):
+class RaiPolicyPropertiesSubscriptionRaiPolicyResponse(dict):
     """
     Azure OpenAI Content Filters properties.
     """
@@ -6818,20 +6818,20 @@ class RaiPolicyPropertiesResponseV1(dict):
             suggest = "safety_providers"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RaiPolicyPropertiesResponseV1. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in RaiPolicyPropertiesSubscriptionRaiPolicyResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        RaiPolicyPropertiesResponseV1.__key_warning(key)
+        RaiPolicyPropertiesSubscriptionRaiPolicyResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        RaiPolicyPropertiesResponseV1.__key_warning(key)
+        RaiPolicyPropertiesSubscriptionRaiPolicyResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  type: _builtins.str,
                  base_policy_name: Optional[_builtins.str] = None,
-                 content_filters: Optional[Sequence['outputs.RaiPolicyContentFilterResponseV1']] = None,
+                 content_filters: Optional[Sequence['outputs.RaiPolicyContentFilterSubscriptionRaiPolicyResponse']] = None,
                  custom_blocklists: Optional[Sequence['outputs.CustomBlocklistConfigResponse']] = None,
                  mode: Optional[_builtins.str] = None,
                  safety_providers: Optional[Sequence['outputs.SafetyProviderConfigResponse']] = None):
@@ -6840,7 +6840,7 @@ class RaiPolicyPropertiesResponseV1(dict):
 
         :param _builtins.str type: Content Filters policy type.
         :param _builtins.str base_policy_name: Name of Rai policy.
-        :param Sequence['RaiPolicyContentFilterResponseV1'] content_filters: The list of Content Filters.
+        :param Sequence['RaiPolicyContentFilterSubscriptionRaiPolicyResponse'] content_filters: The list of Content Filters.
         :param Sequence['CustomBlocklistConfigResponse'] custom_blocklists: The list of custom Blocklist.
         :param _builtins.str mode: Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2025-06-01. It is the same as 'Deferred' in previous version.
         :param Sequence['SafetyProviderConfigResponse'] safety_providers: The list of Safety Providers.
@@ -6875,7 +6875,7 @@ class RaiPolicyPropertiesResponseV1(dict):
 
     @_builtins.property
     @pulumi.getter(name="contentFilters")
-    def content_filters(self) -> Optional[Sequence['outputs.RaiPolicyContentFilterResponseV1']]:
+    def content_filters(self) -> Optional[Sequence['outputs.RaiPolicyContentFilterSubscriptionRaiPolicyResponse']]:
         """
         The list of Content Filters.
         """

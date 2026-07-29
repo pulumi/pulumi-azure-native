@@ -52,6 +52,27 @@ func extractNumericSuffix(s string) (int, string) {
 	return 0, s
 }
 
+// visitedTypeKey identifies the specific swagger definition backing a generated type, as
+// opposed to the synthesized Pulumi type name it happens to produce. Two different definitions
+// (e.g. containerservice's own `UserAssignedIdentity` and an unrelated common-types identity
+// shape) can generate the exact same name and would otherwise collide in a name-keyed cache;
+// keying by the originating $ref (plus the source file it resolves against, so identical local
+// pointers in different spec files aren't conflated) or, for inline types, by the containing
+// context and property name, ensures each distinct definition is tracked independently.
+//
+// sourceURL must come from the *resolved* context (ResolveSchema's result), not the raw
+// *openapi.ReferenceContext pointer passed into genTypeSpec: resolveReference allocates a new
+// ReferenceContext on every call, even for repeated resolutions of the identical reference, so
+// pointer identity is unstable across the recursive calls a self-referential type produces. The
+// resolved SourceURL(), by contrast, is a deterministic string for the same (context, ref) pair.
+type visitedTypeKey struct {
+	ref       string
+	sourceURL string
+	ctx       *openapi.ReferenceContext
+	property  string
+	isOutput  bool
+}
+
 func moduleVersion(mod string) string {
 	verIndex := strings.LastIndex(mod, "/")
 	if verIndex == -1 {
@@ -77,6 +98,18 @@ func (m *moduleGenerator) disambiguateTypeToken(token string, spec pschema.Compl
 	// first try to to disambiguate by using the version of the module
 	if version := tokenModuleVersion(token); version != "" {
 		newToken := fmt.Sprintf("%s_V%s", token, strings.TrimPrefix(version, "v"))
+		if existing, seen := m.pkg.Types[newToken]; !seen || propertiesEqual(existing, spec) {
+			return newToken, nil
+		}
+	}
+
+	// then, for output types, try disambiguating by naming the divergent shape after the
+	// resource that owns it (e.g. "ContainerResponse" -> "ContainerContainerGroupResponse")
+	// instead of jumping straight to an opaque numeric suffix. This keeps the resulting
+	// token self-documenting about which resource introduced the variant.
+	if m.resourceName != "" && strings.HasSuffix(token, "Response") {
+		base := strings.TrimSuffix(token, "Response")
+		newToken := fmt.Sprintf("%s%sResponse", base, m.resourceName)
 		if existing, seen := m.pkg.Types[newToken]; !seen || propertiesEqual(existing, spec) {
 			return newToken, nil
 		}
@@ -204,11 +237,14 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 	case len(resolvedSchema.Properties) > 0 || len(resolvedSchema.AllOf) > 0:
 		ptr := schema.Ref.GetPointer()
 		var tok string
+		var key visitedTypeKey
 		if ptr != nil && !ptr.IsEmpty() {
 			tok = m.typeName(resolvedSchema.ReferenceContext, schema, isOutput)
+			key = visitedTypeKey{ref: schema.Ref.String(), sourceURL: resolvedSchema.ReferenceContext.SourceURL(), isOutput: isOutput}
 		} else {
 			// Inline properties have no type in the Open API schema, so we use parent type's name + property name.
 			tok = m.typeName(context, schema, isOutput) + m.inlineTypeName(context, propertyName)
+			key = visitedTypeKey{ctx: context, property: propertyName, isOutput: isOutput}
 		}
 
 		// If an object type is referenced, add its definition to the type map.
@@ -221,8 +257,12 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 		}
 
 		tok = m.caseSensitiveTypes.normalizeTokenCase(tok)
-		if _, ok := m.visitedTypes[tok]; !ok {
-			m.visitedTypes[tok] = true
+		if resolvedTok, ok := m.visitedTypes[key]; !ok {
+			// Tentatively record this schema as resolving to the un-disambiguated token so that a
+			// self-referential type (a property whose type recursively contains itself) terminates
+			// instead of recursing forever. This gets overwritten below with the final, possibly
+			// disambiguated, token once it's known.
+			m.visitedTypes[key] = tok
 
 			props, err := m.genProperties(resolvedSchema, genPropertiesVariant{
 				isOutput:   isOutput,
@@ -235,7 +275,7 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 
 			// Don't generate a type definition for a typed object with zero properties.
 			if len(props.specs) == 0 {
-				delete(m.visitedTypes, tok)
+				delete(m.visitedTypes, key)
 				return nil, nil
 			}
 
@@ -340,6 +380,14 @@ Example of a relative ID: $self/frontEndConfigurations/my-frontend.`
 					RequiredProperties: props.requiredProperties.SortedValues(),
 				}
 			}
+
+			// Record the final, possibly disambiguated, token against this schema's identity so
+			// that any other reference to the exact same definition (whether truly recursive, or
+			// a sibling property elsewhere referencing the same $ref) resolves to the same,
+			// correctly disambiguated, type instead of silently reusing the tentative name.
+			m.visitedTypes[key] = tok
+		} else {
+			tok = resolvedTok
 		}
 		return &pschema.TypeSpec{
 			Type: "object",
@@ -751,7 +799,23 @@ func (m *moduleGenerator) typeName(ctx *openapi.ReferenceContext, schema *spec.S
 	if isOutput {
 		suffix = "Response"
 	}
-	standardName := ToUpperCamel(MakeLegalIdentifier(ctx.ReferenceName))
+	// TypeSpec specs sometimes duplicate an existing definition under a dotted
+	// namespace (e.g. "Common.SubResource" vs network's own "SubResource", same
+	// shape). Stripping the namespace lets both resolve to one token via the usual
+	// merge/disambiguation logic below. Outputs can absorb the resulting
+	// renames/bloat (see resource-qualified naming below) so they get the general
+	// rule; renaming an input is a real compile break, so it's scoped to just the
+	// one verified case this was introduced for (network's RoutingConfiguration
+	// unification) rather than every "Common.X" collision found in the wild.
+	definitionName := ctx.ReferenceName
+	if isOutput {
+		if idx := strings.LastIndex(definitionName, "."); idx != -1 {
+			definitionName = definitionName[idx+1:]
+		}
+	} else if definitionName == "Common.SubResource" {
+		definitionName = "SubResource"
+	}
+	standardName := ToUpperCamel(MakeLegalIdentifier(definitionName))
 	referenceName := m.typeNameOverride(standardName)
 	return fmt.Sprintf("azure-native:%s:%s%s", m.module, referenceName, suffix)
 }

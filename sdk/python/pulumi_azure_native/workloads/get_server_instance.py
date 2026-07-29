@@ -92,7 +92,7 @@ class GetServerInstanceResult:
 
     @_builtins.property
     @pulumi.getter
-    def errors(self) -> 'outputs.SAPMigrateErrorResponse':
+    def errors(self) -> 'outputs.SAPMigrateErrorServerInstanceResponse':
         """
         Defines the errors related to SAP Instance resource.
         """

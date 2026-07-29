@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.Monitor
         /// The identity of the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.MicrosoftCommonIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// True if alert rule is legacy Log Analytic rule

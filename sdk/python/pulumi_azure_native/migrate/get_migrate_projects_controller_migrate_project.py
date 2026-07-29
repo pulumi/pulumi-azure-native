@@ -95,7 +95,7 @@ class GetMigrateProjectsControllerMigrateProjectResult:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> 'outputs.MigrateProjectPropertiesResponse':
+    def properties(self) -> 'outputs.MigrateProjectPropertiesMigrateProjectsControllerMigrateProjectResponse':
         """
         Properties of a migrate project.
         """

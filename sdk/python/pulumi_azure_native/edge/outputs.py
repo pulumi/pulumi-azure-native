@@ -18,7 +18,6 @@ from ._enums import *
 
 __all__ = [
     'AvailableSolutionTemplateVersionResponse',
-    'AzureResourceManagerCommonTypesExtendedLocationResponse',
     'CapabilityResponse',
     'ComponentStatusResponse',
     'ConfigTemplatePropertiesResponse',
@@ -37,6 +36,7 @@ __all__ = [
     'ExecutionStatusResponse',
     'ExecutionV2PropertiesResponse',
     'ExecutionV2StatusResponse',
+    'ExtendedLocationResponse',
     'HierarchyResponse',
     'InstancePropertiesResponse',
     'ReconciliationPolicyPropertiesResponse',
@@ -45,7 +45,7 @@ __all__ = [
     'SchemaVersionPropertiesResponse',
     'SiteAddressPropertiesResponse',
     'SitePropertiesResponse',
-    'SitePropertiesResponseV1',
+    'SitePropertiesSitesByServiceGroupResponse',
     'SiteReferencePropertiesResponse',
     'SolutionDependencyResponse',
     'SolutionPropertiesResponse',
@@ -128,40 +128,6 @@ class AvailableSolutionTemplateVersionResponse(dict):
         Solution template Version
         """
         return pulumi.get(self, "solution_template_version")
-
-
-@pulumi.output_type
-class AzureResourceManagerCommonTypesExtendedLocationResponse(dict):
-    """
-    The complex type of the extended location.
-    """
-    def __init__(__self__, *,
-                 name: _builtins.str,
-                 type: _builtins.str):
-        """
-        The complex type of the extended location.
-
-        :param _builtins.str name: The name of the extended location.
-        :param _builtins.str type: The type of the extended location.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> _builtins.str:
-        """
-        The name of the extended location.
-        """
-        return pulumi.get(self, "name")
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> _builtins.str:
-        """
-        The type of the extended location.
-        """
-        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -1350,6 +1316,40 @@ class ExecutionV2StatusResponse(dict):
 
 
 @pulumi.output_type
+class ExtendedLocationResponse(dict):
+    """
+    The complex type of the extended location.
+    """
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 type: _builtins.str):
+        """
+        The complex type of the extended location.
+
+        :param _builtins.str name: The name of the extended location.
+        :param _builtins.str type: The type of the extended location.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the extended location.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The type of the extended location.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class HierarchyResponse(dict):
     """
     Hierarchy, to tag Sites / Hierarchy Provider nodes with what they represent
@@ -1894,7 +1894,7 @@ class SitePropertiesResponse(dict):
 
 
 @pulumi.output_type
-class SitePropertiesResponseV1(dict):
+class SitePropertiesSitesByServiceGroupResponse(dict):
     """
     Site properties
     """
@@ -1909,14 +1909,14 @@ class SitePropertiesResponseV1(dict):
             suggest = "site_address"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SitePropertiesResponseV1. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in SitePropertiesSitesByServiceGroupResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        SitePropertiesResponseV1.__key_warning(key)
+        SitePropertiesSitesByServiceGroupResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        SitePropertiesResponseV1.__key_warning(key)
+        SitePropertiesSitesByServiceGroupResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

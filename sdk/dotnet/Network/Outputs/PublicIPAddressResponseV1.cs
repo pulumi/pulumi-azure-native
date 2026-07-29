@@ -19,15 +19,23 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// <summary>
         /// The DDoS protection custom policy associated with the public IP address.
         /// </summary>
-        public readonly Outputs.DdosSettingsResponseV1? DdosSettings;
+        public readonly Outputs.DdosSettingsResponse? DdosSettings;
+        /// <summary>
+        /// Specify what happens to the public IP address when the VM using it is deleted
+        /// </summary>
+        public readonly string? DeleteOption;
         /// <summary>
         /// The FQDN of the DNS record associated with the public IP address.
         /// </summary>
-        public readonly Outputs.PublicIPAddressDnsSettingsResponseV1? DnsSettings;
+        public readonly Outputs.PublicIPAddressDnsSettingsResponse? DnsSettings;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
-        public readonly string? Etag;
+        public readonly string Etag;
+        /// <summary>
+        /// The extended location of the public ip address.
+        /// </summary>
+        public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -43,23 +51,35 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// <summary>
         /// The IP configuration associated with the public IP address.
         /// </summary>
-        public readonly Outputs.IPConfigurationResponse IpConfiguration;
+        public readonly Outputs.IPConfigurationServiceGatewayResponse IpConfiguration;
         /// <summary>
         /// The list of tags associated with the public IP address.
         /// </summary>
         public readonly ImmutableArray<Outputs.IpTagResponse> IpTags;
         /// <summary>
+        /// The linked public IP address of the public IP address resource.
+        /// </summary>
+        public readonly Outputs.PublicIPAddressServiceGatewayResponse? LinkedPublicIPAddress;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
+        /// <summary>
+        /// Migration phase of Public IP Address.
+        /// </summary>
+        public readonly string? MigrationPhase;
         /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// The NatGateway for the Public IP address.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly Outputs.NatGatewayServiceGatewayResponse? NatGateway;
+        /// <summary>
+        /// The provisioning state of the public IP address resource.
+        /// </summary>
+        public readonly string ProvisioningState;
         /// <summary>
         /// The public IP address version.
         /// </summary>
@@ -73,13 +93,17 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly Outputs.SubResourceResponse? PublicIPPrefix;
         /// <summary>
-        /// The resource GUID property of the public IP resource.
+        /// The resource GUID property of the public IP address resource.
         /// </summary>
-        public readonly string? ResourceGuid;
+        public readonly string ResourceGuid;
+        /// <summary>
+        /// The service public IP address of the public IP address resource.
+        /// </summary>
+        public readonly Outputs.PublicIPAddressServiceGatewayResponse? ServicePublicIPAddress;
         /// <summary>
         /// The public IP address SKU.
         /// </summary>
-        public readonly Outputs.PublicIPAddressSkuResponseV1? Sku;
+        public readonly Outputs.PublicIPAddressSkuResponse? Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -95,11 +119,15 @@ namespace Pulumi.AzureNative.Network.Outputs
 
         [OutputConstructor]
         private PublicIPAddressResponseV1(
-            Outputs.DdosSettingsResponseV1? ddosSettings,
+            Outputs.DdosSettingsResponse? ddosSettings,
 
-            Outputs.PublicIPAddressDnsSettingsResponseV1? dnsSettings,
+            string? deleteOption,
 
-            string? etag,
+            Outputs.PublicIPAddressDnsSettingsResponse? dnsSettings,
+
+            string etag,
+
+            Outputs.ExtendedLocationResponse? extendedLocation,
 
             string? id,
 
@@ -107,15 +135,21 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string? ipAddress,
 
-            Outputs.IPConfigurationResponse ipConfiguration,
+            Outputs.IPConfigurationServiceGatewayResponse ipConfiguration,
 
             ImmutableArray<Outputs.IpTagResponse> ipTags,
 
+            Outputs.PublicIPAddressServiceGatewayResponse? linkedPublicIPAddress,
+
             string? location,
+
+            string? migrationPhase,
 
             string name,
 
-            string? provisioningState,
+            Outputs.NatGatewayServiceGatewayResponse? natGateway,
+
+            string provisioningState,
 
             string? publicIPAddressVersion,
 
@@ -123,9 +157,11 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             Outputs.SubResourceResponse? publicIPPrefix,
 
-            string? resourceGuid,
+            string resourceGuid,
 
-            Outputs.PublicIPAddressSkuResponseV1? sku,
+            Outputs.PublicIPAddressServiceGatewayResponse? servicePublicIPAddress,
+
+            Outputs.PublicIPAddressSkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -134,20 +170,26 @@ namespace Pulumi.AzureNative.Network.Outputs
             ImmutableArray<string> zones)
         {
             DdosSettings = ddosSettings;
+            DeleteOption = deleteOption;
             DnsSettings = dnsSettings;
             Etag = etag;
+            ExtendedLocation = extendedLocation;
             Id = id;
             IdleTimeoutInMinutes = idleTimeoutInMinutes;
             IpAddress = ipAddress;
             IpConfiguration = ipConfiguration;
             IpTags = ipTags;
+            LinkedPublicIPAddress = linkedPublicIPAddress;
             Location = location;
+            MigrationPhase = migrationPhase;
             Name = name;
+            NatGateway = natGateway;
             ProvisioningState = provisioningState;
             PublicIPAddressVersion = publicIPAddressVersion;
             PublicIPAllocationMethod = publicIPAllocationMethod;
             PublicIPPrefix = publicIPPrefix;
             ResourceGuid = resourceGuid;
+            ServicePublicIPAddress = servicePublicIPAddress;
             Sku = sku;
             Tags = tags;
             Type = type;

@@ -45,7 +45,7 @@ namespace Pulumi.AzureNative.ContainerService
         /// Properties of a namespace.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.NamespacePropertiesResponseV1> Properties { get; private set; } = null!;
+        public Output<Outputs.NamespacePropertiesNamespaceResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The system metadata relating to this resource.

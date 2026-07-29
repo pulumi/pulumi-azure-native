@@ -52,7 +52,7 @@ export class KubernetesVersion extends pulumi.CustomResource {
     /**
      * The extended location of the resource. This property is required when creating the resource.
      */
-    declare public readonly extendedLocation: pulumi.Output<outputs.networkcloud.AzureResourceManagerCommonTypesExtendedLocationResponse>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.networkcloud.ExtendedLocationResponse>;
     /**
      * The geo-location where the resource lives
      */

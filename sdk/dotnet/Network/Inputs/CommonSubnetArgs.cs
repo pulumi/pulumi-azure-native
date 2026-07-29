@@ -70,14 +70,14 @@ namespace Pulumi.AzureNative.Network.Inputs
         public Input<string>? Id { get; set; }
 
         [Input("ipAllocations")]
-        private InputList<Inputs.CommonSubResourceArgs>? _ipAllocations;
+        private InputList<Inputs.SubResourceArgs>? _ipAllocations;
 
         /// <summary>
         /// Array of IpAllocation which reference this subnet.
         /// </summary>
-        public InputList<Inputs.CommonSubResourceArgs> IpAllocations
+        public InputList<Inputs.SubResourceArgs> IpAllocations
         {
-            get => _ipAllocations ?? (_ipAllocations = new InputList<Inputs.CommonSubResourceArgs>());
+            get => _ipAllocations ?? (_ipAllocations = new InputList<Inputs.SubResourceArgs>());
             set => _ipAllocations = value;
         }
 
@@ -103,7 +103,7 @@ namespace Pulumi.AzureNative.Network.Inputs
         /// Nat gateway associated with this subnet.
         /// </summary>
         [Input("natGateway")]
-        public Input<Inputs.CommonSubResourceArgs>? NatGateway { get; set; }
+        public Input<Inputs.SubResourceArgs>? NatGateway { get; set; }
 
         /// <summary>
         /// The reference to the NetworkSecurityGroup resource.
@@ -157,7 +157,7 @@ namespace Pulumi.AzureNative.Network.Inputs
         /// Reference to an existing service gateway.
         /// </summary>
         [Input("serviceGateway")]
-        public Input<Inputs.CommonSubResourceArgs>? ServiceGateway { get; set; }
+        public Input<Inputs.SubResourceArgs>? ServiceGateway { get; set; }
 
         /// <summary>
         /// Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.

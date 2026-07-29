@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// <summary>
         /// The Private Endpoint network resource that is linked to the Private Endpoint connection.
         /// </summary>
-        public readonly Outputs.PrivateEndpointResponseV1 PrivateEndpoint;
+        public readonly Outputs.PrivateEndpointVaultResponse PrivateEndpoint;
         /// <summary>
         /// Gets or sets private link service connection state.
         /// </summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         private VaultPrivateEndpointConnectionResponse(
             ImmutableArray<string> groupIds,
 
-            Outputs.PrivateEndpointResponseV1 privateEndpoint,
+            Outputs.PrivateEndpointVaultResponse privateEndpoint,
 
             Outputs.VaultPrivateLinkServiceConnectionStateResponse privateLinkServiceConnectionState,
 

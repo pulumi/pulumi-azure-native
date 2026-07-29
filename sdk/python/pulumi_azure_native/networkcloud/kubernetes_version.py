@@ -247,7 +247,7 @@ class KubernetesVersion(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> pulumi.Output['outputs.AzureResourceManagerCommonTypesExtendedLocationResponse']:
+    def extended_location(self) -> pulumi.Output['outputs.ExtendedLocationResponse']:
         """
         The extended location of the resource. This property is required when creating the resource.
         """

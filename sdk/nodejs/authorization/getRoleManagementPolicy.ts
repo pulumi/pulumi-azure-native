@@ -64,7 +64,7 @@ export interface GetRoleManagementPolicyResult {
     /**
      * The name of the entity last modified it
      */
-    readonly lastModifiedBy: outputs.authorization.MicrosoftCommonPrincipalResponse;
+    readonly lastModifiedBy: outputs.authorization.PrincipalResponse;
     /**
      * The last modified date time.
      */

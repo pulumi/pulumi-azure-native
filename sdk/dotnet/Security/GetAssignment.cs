@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// Standard item with key as applied to this standard assignment over the given scope
         /// </summary>
-        public readonly Outputs.CommonAssignedStandardItemResponse? AssignedStandard;
+        public readonly Outputs.AssignedStandardItemResponse? AssignedStandard;
         /// <summary>
         /// The Azure API version of the resource.
         /// </summary>
@@ -160,7 +160,7 @@ namespace Pulumi.AzureNative.Security
 
             Outputs.AssignedComponentItemResponse? assignedComponent,
 
-            Outputs.CommonAssignedStandardItemResponse? assignedStandard,
+            Outputs.AssignedStandardItemResponse? assignedStandard,
 
             string azureApiVersion,
 

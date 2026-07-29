@@ -17,8 +17,10 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ActionOnUnmanageDeploymentStacksWhatIfResultsAtManagementGroupResponse',
+    'ActionOnUnmanageDeploymentStacksWhatIfResultsAtResourceGroupResponse',
+    'ActionOnUnmanageDeploymentStacksWhatIfResultsAtSubscriptionResponse',
     'ActionOnUnmanageResponse',
-    'ActionOnUnmanageResponseV1',
     'AliasPathMetadataResponse',
     'AliasPathResponse',
     'AliasPatternResponse',
@@ -45,6 +47,8 @@ __all__ = [
     'DeploymentStacksWhatIfResourceChangeResponseDenyStatusChange',
     'DeploymentStacksWhatIfResourceChangeResponseManagementStatusChange',
     'DeploymentStacksWhatIfResourceChangeResponseResourceConfigurationChanges',
+    'DeploymentStacksWhatIfResultPropertiesDeploymentStacksWhatIfResultsAtResourceGroupResponse',
+    'DeploymentStacksWhatIfResultPropertiesDeploymentStacksWhatIfResultsAtSubscriptionResponse',
     'DeploymentStacksWhatIfResultPropertiesResponse',
     'EnvironmentVariableResponse',
     'ErrorAdditionalInfoResponse',
@@ -77,6 +81,246 @@ __all__ = [
     'UserAssignedIdentityResponse',
     'ZoneMappingResponse',
 ]
+
+@pulumi.output_type
+class ActionOnUnmanageDeploymentStacksWhatIfResultsAtManagementGroupResponse(dict):
+    """
+    Defines the behavior of resources that are no longer managed after the stack is updated or deleted.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managementGroups":
+            suggest = "management_groups"
+        elif key == "resourceGroups":
+            suggest = "resource_groups"
+        elif key == "resourcesWithoutDeleteSupport":
+            suggest = "resources_without_delete_support"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionOnUnmanageDeploymentStacksWhatIfResultsAtManagementGroupResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionOnUnmanageDeploymentStacksWhatIfResultsAtManagementGroupResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionOnUnmanageDeploymentStacksWhatIfResultsAtManagementGroupResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resources: _builtins.str,
+                 management_groups: Optional[_builtins.str] = None,
+                 resource_groups: Optional[_builtins.str] = None,
+                 resources_without_delete_support: Optional[_builtins.str] = None):
+        """
+        Defines the behavior of resources that are no longer managed after the stack is updated or deleted.
+
+        :param _builtins.str resources: Specifies an action for a newly unmanaged resource.
+        :param _builtins.str management_groups: Specifies an action for a newly unmanaged resource management group.
+        :param _builtins.str resource_groups: Specifies an action for a newly unmanaged resource group.
+        :param _builtins.str resources_without_delete_support: Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
+        """
+        pulumi.set(__self__, "resources", resources)
+        if management_groups is not None:
+            pulumi.set(__self__, "management_groups", management_groups)
+        if resource_groups is not None:
+            pulumi.set(__self__, "resource_groups", resource_groups)
+        if resources_without_delete_support is not None:
+            pulumi.set(__self__, "resources_without_delete_support", resources_without_delete_support)
+
+    @_builtins.property
+    @pulumi.getter
+    def resources(self) -> _builtins.str:
+        """
+        Specifies an action for a newly unmanaged resource.
+        """
+        return pulumi.get(self, "resources")
+
+    @_builtins.property
+    @pulumi.getter(name="managementGroups")
+    def management_groups(self) -> Optional[_builtins.str]:
+        """
+        Specifies an action for a newly unmanaged resource management group.
+        """
+        return pulumi.get(self, "management_groups")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceGroups")
+    def resource_groups(self) -> Optional[_builtins.str]:
+        """
+        Specifies an action for a newly unmanaged resource group.
+        """
+        return pulumi.get(self, "resource_groups")
+
+    @_builtins.property
+    @pulumi.getter(name="resourcesWithoutDeleteSupport")
+    def resources_without_delete_support(self) -> Optional[_builtins.str]:
+        """
+        Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
+        """
+        return pulumi.get(self, "resources_without_delete_support")
+
+
+@pulumi.output_type
+class ActionOnUnmanageDeploymentStacksWhatIfResultsAtResourceGroupResponse(dict):
+    """
+    Defines the behavior of resources that are no longer managed after the stack is updated or deleted.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managementGroups":
+            suggest = "management_groups"
+        elif key == "resourceGroups":
+            suggest = "resource_groups"
+        elif key == "resourcesWithoutDeleteSupport":
+            suggest = "resources_without_delete_support"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionOnUnmanageDeploymentStacksWhatIfResultsAtResourceGroupResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionOnUnmanageDeploymentStacksWhatIfResultsAtResourceGroupResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionOnUnmanageDeploymentStacksWhatIfResultsAtResourceGroupResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resources: _builtins.str,
+                 management_groups: Optional[_builtins.str] = None,
+                 resource_groups: Optional[_builtins.str] = None,
+                 resources_without_delete_support: Optional[_builtins.str] = None):
+        """
+        Defines the behavior of resources that are no longer managed after the stack is updated or deleted.
+
+        :param _builtins.str resources: Specifies an action for a newly unmanaged resource.
+        :param _builtins.str management_groups: Specifies an action for a newly unmanaged resource management group.
+        :param _builtins.str resource_groups: Specifies an action for a newly unmanaged resource group.
+        :param _builtins.str resources_without_delete_support: Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
+        """
+        pulumi.set(__self__, "resources", resources)
+        if management_groups is not None:
+            pulumi.set(__self__, "management_groups", management_groups)
+        if resource_groups is not None:
+            pulumi.set(__self__, "resource_groups", resource_groups)
+        if resources_without_delete_support is not None:
+            pulumi.set(__self__, "resources_without_delete_support", resources_without_delete_support)
+
+    @_builtins.property
+    @pulumi.getter
+    def resources(self) -> _builtins.str:
+        """
+        Specifies an action for a newly unmanaged resource.
+        """
+        return pulumi.get(self, "resources")
+
+    @_builtins.property
+    @pulumi.getter(name="managementGroups")
+    def management_groups(self) -> Optional[_builtins.str]:
+        """
+        Specifies an action for a newly unmanaged resource management group.
+        """
+        return pulumi.get(self, "management_groups")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceGroups")
+    def resource_groups(self) -> Optional[_builtins.str]:
+        """
+        Specifies an action for a newly unmanaged resource group.
+        """
+        return pulumi.get(self, "resource_groups")
+
+    @_builtins.property
+    @pulumi.getter(name="resourcesWithoutDeleteSupport")
+    def resources_without_delete_support(self) -> Optional[_builtins.str]:
+        """
+        Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
+        """
+        return pulumi.get(self, "resources_without_delete_support")
+
+
+@pulumi.output_type
+class ActionOnUnmanageDeploymentStacksWhatIfResultsAtSubscriptionResponse(dict):
+    """
+    Defines the behavior of resources that are no longer managed after the stack is updated or deleted.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managementGroups":
+            suggest = "management_groups"
+        elif key == "resourceGroups":
+            suggest = "resource_groups"
+        elif key == "resourcesWithoutDeleteSupport":
+            suggest = "resources_without_delete_support"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionOnUnmanageDeploymentStacksWhatIfResultsAtSubscriptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionOnUnmanageDeploymentStacksWhatIfResultsAtSubscriptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionOnUnmanageDeploymentStacksWhatIfResultsAtSubscriptionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resources: _builtins.str,
+                 management_groups: Optional[_builtins.str] = None,
+                 resource_groups: Optional[_builtins.str] = None,
+                 resources_without_delete_support: Optional[_builtins.str] = None):
+        """
+        Defines the behavior of resources that are no longer managed after the stack is updated or deleted.
+
+        :param _builtins.str resources: Specifies an action for a newly unmanaged resource.
+        :param _builtins.str management_groups: Specifies an action for a newly unmanaged resource management group.
+        :param _builtins.str resource_groups: Specifies an action for a newly unmanaged resource group.
+        :param _builtins.str resources_without_delete_support: Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
+        """
+        pulumi.set(__self__, "resources", resources)
+        if management_groups is not None:
+            pulumi.set(__self__, "management_groups", management_groups)
+        if resource_groups is not None:
+            pulumi.set(__self__, "resource_groups", resource_groups)
+        if resources_without_delete_support is not None:
+            pulumi.set(__self__, "resources_without_delete_support", resources_without_delete_support)
+
+    @_builtins.property
+    @pulumi.getter
+    def resources(self) -> _builtins.str:
+        """
+        Specifies an action for a newly unmanaged resource.
+        """
+        return pulumi.get(self, "resources")
+
+    @_builtins.property
+    @pulumi.getter(name="managementGroups")
+    def management_groups(self) -> Optional[_builtins.str]:
+        """
+        Specifies an action for a newly unmanaged resource management group.
+        """
+        return pulumi.get(self, "management_groups")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceGroups")
+    def resource_groups(self) -> Optional[_builtins.str]:
+        """
+        Specifies an action for a newly unmanaged resource group.
+        """
+        return pulumi.get(self, "resource_groups")
+
+    @_builtins.property
+    @pulumi.getter(name="resourcesWithoutDeleteSupport")
+    def resources_without_delete_support(self) -> Optional[_builtins.str]:
+        """
+        Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
+        """
+        return pulumi.get(self, "resources_without_delete_support")
+
 
 @pulumi.output_type
 class ActionOnUnmanageResponse(dict):
@@ -142,86 +386,6 @@ class ActionOnUnmanageResponse(dict):
         Specifies an action for a newly unmanaged resource group.
         """
         return pulumi.get(self, "resource_groups")
-
-
-@pulumi.output_type
-class ActionOnUnmanageResponseV1(dict):
-    """
-    Defines the behavior of resources that are no longer managed after the stack is updated or deleted.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "managementGroups":
-            suggest = "management_groups"
-        elif key == "resourceGroups":
-            suggest = "resource_groups"
-        elif key == "resourcesWithoutDeleteSupport":
-            suggest = "resources_without_delete_support"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ActionOnUnmanageResponseV1. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ActionOnUnmanageResponseV1.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ActionOnUnmanageResponseV1.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 resources: _builtins.str,
-                 management_groups: Optional[_builtins.str] = None,
-                 resource_groups: Optional[_builtins.str] = None,
-                 resources_without_delete_support: Optional[_builtins.str] = None):
-        """
-        Defines the behavior of resources that are no longer managed after the stack is updated or deleted.
-
-        :param _builtins.str resources: Specifies an action for a newly unmanaged resource.
-        :param _builtins.str management_groups: Specifies an action for a newly unmanaged resource management group.
-        :param _builtins.str resource_groups: Specifies an action for a newly unmanaged resource group.
-        :param _builtins.str resources_without_delete_support: Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
-        """
-        pulumi.set(__self__, "resources", resources)
-        if management_groups is not None:
-            pulumi.set(__self__, "management_groups", management_groups)
-        if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
-        if resources_without_delete_support is not None:
-            pulumi.set(__self__, "resources_without_delete_support", resources_without_delete_support)
-
-    @_builtins.property
-    @pulumi.getter
-    def resources(self) -> _builtins.str:
-        """
-        Specifies an action for a newly unmanaged resource.
-        """
-        return pulumi.get(self, "resources")
-
-    @_builtins.property
-    @pulumi.getter(name="managementGroups")
-    def management_groups(self) -> Optional[_builtins.str]:
-        """
-        Specifies an action for a newly unmanaged resource management group.
-        """
-        return pulumi.get(self, "management_groups")
-
-    @_builtins.property
-    @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[_builtins.str]:
-        """
-        Specifies an action for a newly unmanaged resource group.
-        """
-        return pulumi.get(self, "resource_groups")
-
-    @_builtins.property
-    @pulumi.getter(name="resourcesWithoutDeleteSupport")
-    def resources_without_delete_support(self) -> Optional[_builtins.str]:
-        """
-        Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
-        """
-        return pulumi.get(self, "resources_without_delete_support")
 
 
 @pulumi.output_type
@@ -2039,6 +2203,468 @@ class DeploymentStacksWhatIfResourceChangeResponseResourceConfigurationChanges(d
 
 
 @pulumi.output_type
+class DeploymentStacksWhatIfResultPropertiesDeploymentStacksWhatIfResultsAtResourceGroupResponse(dict):
+    """
+    DeploymentStack WhatIfResult Properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionOnUnmanage":
+            suggest = "action_on_unmanage"
+        elif key == "correlationId":
+            suggest = "correlation_id"
+        elif key == "denySettings":
+            suggest = "deny_settings"
+        elif key == "deploymentStackLastModified":
+            suggest = "deployment_stack_last_modified"
+        elif key == "deploymentStackResourceId":
+            suggest = "deployment_stack_resource_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "retentionInterval":
+            suggest = "retention_interval"
+        elif key == "debugSetting":
+            suggest = "debug_setting"
+        elif key == "deploymentScope":
+            suggest = "deployment_scope"
+        elif key == "parametersLink":
+            suggest = "parameters_link"
+        elif key == "validationLevel":
+            suggest = "validation_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentStacksWhatIfResultPropertiesDeploymentStacksWhatIfResultsAtResourceGroupResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentStacksWhatIfResultPropertiesDeploymentStacksWhatIfResultsAtResourceGroupResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentStacksWhatIfResultPropertiesDeploymentStacksWhatIfResultsAtResourceGroupResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action_on_unmanage: 'outputs.ActionOnUnmanageDeploymentStacksWhatIfResultsAtResourceGroupResponse',
+                 changes: 'outputs.DeploymentStacksWhatIfChangeResponse',
+                 correlation_id: _builtins.str,
+                 deny_settings: 'outputs.DenySettingsResponse',
+                 deployment_stack_last_modified: _builtins.str,
+                 deployment_stack_resource_id: _builtins.str,
+                 diagnostics: Sequence['outputs.DeploymentStacksDiagnosticResponse'],
+                 error: 'outputs.ErrorDetailResponse',
+                 provisioning_state: _builtins.str,
+                 retention_interval: _builtins.str,
+                 debug_setting: Optional['outputs.DeploymentStacksDebugSettingResponse'] = None,
+                 deployment_scope: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 parameters: Optional[Mapping[str, 'outputs.DeploymentParameterResponse']] = None,
+                 parameters_link: Optional['outputs.DeploymentStacksParametersLinkResponse'] = None,
+                 validation_level: Optional[_builtins.str] = None):
+        """
+        DeploymentStack WhatIfResult Properties
+
+        :param 'ActionOnUnmanageDeploymentStacksWhatIfResultsAtResourceGroupResponse' action_on_unmanage: Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
+        :param 'DeploymentStacksWhatIfChangeResponse' changes: All of the changes predicted by the deployment stack what-if operation.
+        :param _builtins.str correlation_id: The correlation id of the last Deployment stack upsert or delete operation. It is in GUID format and is used for tracing.
+        :param 'DenySettingsResponse' deny_settings: Defines how resources deployed by the stack are locked.
+        :param _builtins.str deployment_stack_last_modified: The timestamp for when the deployment stack was last modified. This can be used to determine if the what-if data is still current.
+        :param _builtins.str deployment_stack_resource_id: The deployment stack id to use as the basis for comparison.
+        :param Sequence['DeploymentStacksDiagnosticResponse'] diagnostics: List of resource diagnostics detected by What-If operation.
+        :param 'ErrorDetailResponse' error: The error detail.
+        :param _builtins.str provisioning_state: State of the deployment stack.
+        :param _builtins.str retention_interval: The interval to persist the deployment stack what-if result in ISO 8601 format.
+        :param 'DeploymentStacksDebugSettingResponse' debug_setting: The debug setting of the deployment.
+        :param _builtins.str deployment_scope: The scope at which the initial deployment should be created. If a scope is not specified, it will default to the scope of the deployment stack. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroupId}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}').
+        :param _builtins.str description: Deployment stack description. Max length of 4096 characters.
+        :param Mapping[str, 'DeploymentParameterResponse'] parameters: Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
+        :param 'DeploymentStacksParametersLinkResponse' parameters_link: The URI of parameters file. Use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
+        :param _builtins.str validation_level: The validation level of the deployment stack
+        """
+        pulumi.set(__self__, "action_on_unmanage", action_on_unmanage)
+        pulumi.set(__self__, "changes", changes)
+        pulumi.set(__self__, "correlation_id", correlation_id)
+        pulumi.set(__self__, "deny_settings", deny_settings)
+        pulumi.set(__self__, "deployment_stack_last_modified", deployment_stack_last_modified)
+        pulumi.set(__self__, "deployment_stack_resource_id", deployment_stack_resource_id)
+        pulumi.set(__self__, "diagnostics", diagnostics)
+        pulumi.set(__self__, "error", error)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "retention_interval", retention_interval)
+        if debug_setting is not None:
+            pulumi.set(__self__, "debug_setting", debug_setting)
+        if deployment_scope is not None:
+            pulumi.set(__self__, "deployment_scope", deployment_scope)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if parameters_link is not None:
+            pulumi.set(__self__, "parameters_link", parameters_link)
+        if validation_level is not None:
+            pulumi.set(__self__, "validation_level", validation_level)
+
+    @_builtins.property
+    @pulumi.getter(name="actionOnUnmanage")
+    def action_on_unmanage(self) -> 'outputs.ActionOnUnmanageDeploymentStacksWhatIfResultsAtResourceGroupResponse':
+        """
+        Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
+        """
+        return pulumi.get(self, "action_on_unmanage")
+
+    @_builtins.property
+    @pulumi.getter
+    def changes(self) -> 'outputs.DeploymentStacksWhatIfChangeResponse':
+        """
+        All of the changes predicted by the deployment stack what-if operation.
+        """
+        return pulumi.get(self, "changes")
+
+    @_builtins.property
+    @pulumi.getter(name="correlationId")
+    def correlation_id(self) -> _builtins.str:
+        """
+        The correlation id of the last Deployment stack upsert or delete operation. It is in GUID format and is used for tracing.
+        """
+        return pulumi.get(self, "correlation_id")
+
+    @_builtins.property
+    @pulumi.getter(name="denySettings")
+    def deny_settings(self) -> 'outputs.DenySettingsResponse':
+        """
+        Defines how resources deployed by the stack are locked.
+        """
+        return pulumi.get(self, "deny_settings")
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentStackLastModified")
+    def deployment_stack_last_modified(self) -> _builtins.str:
+        """
+        The timestamp for when the deployment stack was last modified. This can be used to determine if the what-if data is still current.
+        """
+        return pulumi.get(self, "deployment_stack_last_modified")
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentStackResourceId")
+    def deployment_stack_resource_id(self) -> _builtins.str:
+        """
+        The deployment stack id to use as the basis for comparison.
+        """
+        return pulumi.get(self, "deployment_stack_resource_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def diagnostics(self) -> Sequence['outputs.DeploymentStacksDiagnosticResponse']:
+        """
+        List of resource diagnostics detected by What-If operation.
+        """
+        return pulumi.get(self, "diagnostics")
+
+    @_builtins.property
+    @pulumi.getter
+    def error(self) -> 'outputs.ErrorDetailResponse':
+        """
+        The error detail.
+        """
+        return pulumi.get(self, "error")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        State of the deployment stack.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="retentionInterval")
+    def retention_interval(self) -> _builtins.str:
+        """
+        The interval to persist the deployment stack what-if result in ISO 8601 format.
+        """
+        return pulumi.get(self, "retention_interval")
+
+    @_builtins.property
+    @pulumi.getter(name="debugSetting")
+    def debug_setting(self) -> Optional['outputs.DeploymentStacksDebugSettingResponse']:
+        """
+        The debug setting of the deployment.
+        """
+        return pulumi.get(self, "debug_setting")
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentScope")
+    def deployment_scope(self) -> Optional[_builtins.str]:
+        """
+        The scope at which the initial deployment should be created. If a scope is not specified, it will default to the scope of the deployment stack. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroupId}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}').
+        """
+        return pulumi.get(self, "deployment_scope")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        Deployment stack description. Max length of 4096 characters.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.DeploymentParameterResponse']]:
+        """
+        Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
+        """
+        return pulumi.get(self, "parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="parametersLink")
+    def parameters_link(self) -> Optional['outputs.DeploymentStacksParametersLinkResponse']:
+        """
+        The URI of parameters file. Use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
+        """
+        return pulumi.get(self, "parameters_link")
+
+    @_builtins.property
+    @pulumi.getter(name="validationLevel")
+    def validation_level(self) -> Optional[_builtins.str]:
+        """
+        The validation level of the deployment stack
+        """
+        return pulumi.get(self, "validation_level")
+
+
+@pulumi.output_type
+class DeploymentStacksWhatIfResultPropertiesDeploymentStacksWhatIfResultsAtSubscriptionResponse(dict):
+    """
+    DeploymentStack WhatIfResult Properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionOnUnmanage":
+            suggest = "action_on_unmanage"
+        elif key == "correlationId":
+            suggest = "correlation_id"
+        elif key == "denySettings":
+            suggest = "deny_settings"
+        elif key == "deploymentStackLastModified":
+            suggest = "deployment_stack_last_modified"
+        elif key == "deploymentStackResourceId":
+            suggest = "deployment_stack_resource_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "retentionInterval":
+            suggest = "retention_interval"
+        elif key == "debugSetting":
+            suggest = "debug_setting"
+        elif key == "deploymentScope":
+            suggest = "deployment_scope"
+        elif key == "parametersLink":
+            suggest = "parameters_link"
+        elif key == "validationLevel":
+            suggest = "validation_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentStacksWhatIfResultPropertiesDeploymentStacksWhatIfResultsAtSubscriptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentStacksWhatIfResultPropertiesDeploymentStacksWhatIfResultsAtSubscriptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentStacksWhatIfResultPropertiesDeploymentStacksWhatIfResultsAtSubscriptionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action_on_unmanage: 'outputs.ActionOnUnmanageDeploymentStacksWhatIfResultsAtSubscriptionResponse',
+                 changes: 'outputs.DeploymentStacksWhatIfChangeResponse',
+                 correlation_id: _builtins.str,
+                 deny_settings: 'outputs.DenySettingsResponse',
+                 deployment_stack_last_modified: _builtins.str,
+                 deployment_stack_resource_id: _builtins.str,
+                 diagnostics: Sequence['outputs.DeploymentStacksDiagnosticResponse'],
+                 error: 'outputs.ErrorDetailResponse',
+                 provisioning_state: _builtins.str,
+                 retention_interval: _builtins.str,
+                 debug_setting: Optional['outputs.DeploymentStacksDebugSettingResponse'] = None,
+                 deployment_scope: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 parameters: Optional[Mapping[str, 'outputs.DeploymentParameterResponse']] = None,
+                 parameters_link: Optional['outputs.DeploymentStacksParametersLinkResponse'] = None,
+                 validation_level: Optional[_builtins.str] = None):
+        """
+        DeploymentStack WhatIfResult Properties
+
+        :param 'ActionOnUnmanageDeploymentStacksWhatIfResultsAtSubscriptionResponse' action_on_unmanage: Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
+        :param 'DeploymentStacksWhatIfChangeResponse' changes: All of the changes predicted by the deployment stack what-if operation.
+        :param _builtins.str correlation_id: The correlation id of the last Deployment stack upsert or delete operation. It is in GUID format and is used for tracing.
+        :param 'DenySettingsResponse' deny_settings: Defines how resources deployed by the stack are locked.
+        :param _builtins.str deployment_stack_last_modified: The timestamp for when the deployment stack was last modified. This can be used to determine if the what-if data is still current.
+        :param _builtins.str deployment_stack_resource_id: The deployment stack id to use as the basis for comparison.
+        :param Sequence['DeploymentStacksDiagnosticResponse'] diagnostics: List of resource diagnostics detected by What-If operation.
+        :param 'ErrorDetailResponse' error: The error detail.
+        :param _builtins.str provisioning_state: State of the deployment stack.
+        :param _builtins.str retention_interval: The interval to persist the deployment stack what-if result in ISO 8601 format.
+        :param 'DeploymentStacksDebugSettingResponse' debug_setting: The debug setting of the deployment.
+        :param _builtins.str deployment_scope: The scope at which the initial deployment should be created. If a scope is not specified, it will default to the scope of the deployment stack. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroupId}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}').
+        :param _builtins.str description: Deployment stack description. Max length of 4096 characters.
+        :param Mapping[str, 'DeploymentParameterResponse'] parameters: Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
+        :param 'DeploymentStacksParametersLinkResponse' parameters_link: The URI of parameters file. Use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
+        :param _builtins.str validation_level: The validation level of the deployment stack
+        """
+        pulumi.set(__self__, "action_on_unmanage", action_on_unmanage)
+        pulumi.set(__self__, "changes", changes)
+        pulumi.set(__self__, "correlation_id", correlation_id)
+        pulumi.set(__self__, "deny_settings", deny_settings)
+        pulumi.set(__self__, "deployment_stack_last_modified", deployment_stack_last_modified)
+        pulumi.set(__self__, "deployment_stack_resource_id", deployment_stack_resource_id)
+        pulumi.set(__self__, "diagnostics", diagnostics)
+        pulumi.set(__self__, "error", error)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "retention_interval", retention_interval)
+        if debug_setting is not None:
+            pulumi.set(__self__, "debug_setting", debug_setting)
+        if deployment_scope is not None:
+            pulumi.set(__self__, "deployment_scope", deployment_scope)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if parameters_link is not None:
+            pulumi.set(__self__, "parameters_link", parameters_link)
+        if validation_level is not None:
+            pulumi.set(__self__, "validation_level", validation_level)
+
+    @_builtins.property
+    @pulumi.getter(name="actionOnUnmanage")
+    def action_on_unmanage(self) -> 'outputs.ActionOnUnmanageDeploymentStacksWhatIfResultsAtSubscriptionResponse':
+        """
+        Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
+        """
+        return pulumi.get(self, "action_on_unmanage")
+
+    @_builtins.property
+    @pulumi.getter
+    def changes(self) -> 'outputs.DeploymentStacksWhatIfChangeResponse':
+        """
+        All of the changes predicted by the deployment stack what-if operation.
+        """
+        return pulumi.get(self, "changes")
+
+    @_builtins.property
+    @pulumi.getter(name="correlationId")
+    def correlation_id(self) -> _builtins.str:
+        """
+        The correlation id of the last Deployment stack upsert or delete operation. It is in GUID format and is used for tracing.
+        """
+        return pulumi.get(self, "correlation_id")
+
+    @_builtins.property
+    @pulumi.getter(name="denySettings")
+    def deny_settings(self) -> 'outputs.DenySettingsResponse':
+        """
+        Defines how resources deployed by the stack are locked.
+        """
+        return pulumi.get(self, "deny_settings")
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentStackLastModified")
+    def deployment_stack_last_modified(self) -> _builtins.str:
+        """
+        The timestamp for when the deployment stack was last modified. This can be used to determine if the what-if data is still current.
+        """
+        return pulumi.get(self, "deployment_stack_last_modified")
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentStackResourceId")
+    def deployment_stack_resource_id(self) -> _builtins.str:
+        """
+        The deployment stack id to use as the basis for comparison.
+        """
+        return pulumi.get(self, "deployment_stack_resource_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def diagnostics(self) -> Sequence['outputs.DeploymentStacksDiagnosticResponse']:
+        """
+        List of resource diagnostics detected by What-If operation.
+        """
+        return pulumi.get(self, "diagnostics")
+
+    @_builtins.property
+    @pulumi.getter
+    def error(self) -> 'outputs.ErrorDetailResponse':
+        """
+        The error detail.
+        """
+        return pulumi.get(self, "error")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        State of the deployment stack.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="retentionInterval")
+    def retention_interval(self) -> _builtins.str:
+        """
+        The interval to persist the deployment stack what-if result in ISO 8601 format.
+        """
+        return pulumi.get(self, "retention_interval")
+
+    @_builtins.property
+    @pulumi.getter(name="debugSetting")
+    def debug_setting(self) -> Optional['outputs.DeploymentStacksDebugSettingResponse']:
+        """
+        The debug setting of the deployment.
+        """
+        return pulumi.get(self, "debug_setting")
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentScope")
+    def deployment_scope(self) -> Optional[_builtins.str]:
+        """
+        The scope at which the initial deployment should be created. If a scope is not specified, it will default to the scope of the deployment stack. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroupId}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}').
+        """
+        return pulumi.get(self, "deployment_scope")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        Deployment stack description. Max length of 4096 characters.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.DeploymentParameterResponse']]:
+        """
+        Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
+        """
+        return pulumi.get(self, "parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="parametersLink")
+    def parameters_link(self) -> Optional['outputs.DeploymentStacksParametersLinkResponse']:
+        """
+        The URI of parameters file. Use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
+        """
+        return pulumi.get(self, "parameters_link")
+
+    @_builtins.property
+    @pulumi.getter(name="validationLevel")
+    def validation_level(self) -> Optional[_builtins.str]:
+        """
+        The validation level of the deployment stack
+        """
+        return pulumi.get(self, "validation_level")
+
+
+@pulumi.output_type
 class DeploymentStacksWhatIfResultPropertiesResponse(dict):
     """
     DeploymentStack WhatIfResult Properties
@@ -2081,7 +2707,7 @@ class DeploymentStacksWhatIfResultPropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 action_on_unmanage: 'outputs.ActionOnUnmanageResponseV1',
+                 action_on_unmanage: 'outputs.ActionOnUnmanageDeploymentStacksWhatIfResultsAtManagementGroupResponse',
                  changes: 'outputs.DeploymentStacksWhatIfChangeResponse',
                  correlation_id: _builtins.str,
                  deny_settings: 'outputs.DenySettingsResponse',
@@ -2100,7 +2726,7 @@ class DeploymentStacksWhatIfResultPropertiesResponse(dict):
         """
         DeploymentStack WhatIfResult Properties
 
-        :param 'ActionOnUnmanageResponseV1' action_on_unmanage: Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
+        :param 'ActionOnUnmanageDeploymentStacksWhatIfResultsAtManagementGroupResponse' action_on_unmanage: Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
         :param 'DeploymentStacksWhatIfChangeResponse' changes: All of the changes predicted by the deployment stack what-if operation.
         :param _builtins.str correlation_id: The correlation id of the last Deployment stack upsert or delete operation. It is in GUID format and is used for tracing.
         :param 'DenySettingsResponse' deny_settings: Defines how resources deployed by the stack are locked.
@@ -2142,7 +2768,7 @@ class DeploymentStacksWhatIfResultPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="actionOnUnmanage")
-    def action_on_unmanage(self) -> 'outputs.ActionOnUnmanageResponseV1':
+    def action_on_unmanage(self) -> 'outputs.ActionOnUnmanageDeploymentStacksWhatIfResultsAtManagementGroupResponse':
         """
         Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
         """

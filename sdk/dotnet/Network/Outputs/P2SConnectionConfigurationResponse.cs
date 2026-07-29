@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// <summary>
         /// The Routing Configuration indicating the associated and propagated route tables on this connection.
         /// </summary>
-        public readonly Outputs.RoutingConfigurationResponseV1? RoutingConfiguration;
+        public readonly Outputs.RoutingConfigurationP2sVpnGatewayResponse? RoutingConfiguration;
         /// <summary>
         /// The reference to the address space resource which represents Address space for P2S VpnClient.
         /// </summary>
@@ -69,7 +69,7 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string provisioningState,
 
-            Outputs.RoutingConfigurationResponseV1? routingConfiguration,
+            Outputs.RoutingConfigurationP2sVpnGatewayResponse? routingConfiguration,
 
             Outputs.AddressSpaceResponse? vpnClientAddressPool)
         {

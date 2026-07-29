@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// Username / Password Credentials to provision guest agent.
         /// </summary>
         [Output("credentials")]
-        public Output<Outputs.GuestCredentialResponseV1?> Credentials { get; private set; } = null!;
+        public Output<Outputs.GuestCredentialVMInstanceGuestAgentResponse?> Credentials { get; private set; } = null!;
 
         /// <summary>
         /// Gets the name of the corresponding resource in Kubernetes.

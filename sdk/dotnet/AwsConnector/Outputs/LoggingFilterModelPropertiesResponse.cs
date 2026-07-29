@@ -23,13 +23,13 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
         /// <summary>
         /// The filters that you want to apply to the logs.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FilterResponseV1> Filters;
+        public readonly ImmutableArray<Outputs.FilterWafv2LoggingConfigurationResponse> Filters;
 
         [OutputConstructor]
         private LoggingFilterModelPropertiesResponse(
             string? defaultBehavior,
 
-            ImmutableArray<Outputs.FilterResponseV1> filters)
+            ImmutableArray<Outputs.FilterWafv2LoggingConfigurationResponse> filters)
         {
             DefaultBehavior = defaultBehavior;
             Filters = filters;

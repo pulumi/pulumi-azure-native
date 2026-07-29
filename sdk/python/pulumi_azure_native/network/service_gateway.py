@@ -416,7 +416,7 @@ class ServiceGateway(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="virtualNetwork")
-    def virtual_network(self) -> pulumi.Output[Optional['outputs.CommonVirtualNetworkResponse']]:
+    def virtual_network(self) -> pulumi.Output[Optional['outputs.VirtualNetworkResponse']]:
         """
         Reference to an existing virtual network.
         """

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Monitor.Outputs
         /// <summary>
         /// Filters applied to modify signal values.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ConditionResponseV1> Filters;
+        public readonly ImmutableArray<Outputs.ConditionSliResponse> Filters;
         /// <summary>
         /// Name of the metric.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Pulumi.AzureNative.Monitor.Outputs
 
         [OutputConstructor]
         private SignalSourceResponse(
-            ImmutableArray<Outputs.ConditionResponseV1> filters,
+            ImmutableArray<Outputs.ConditionSliResponse> filters,
 
             string metricName,
 

@@ -81,7 +81,7 @@ export interface GetExpressRouteConnectionResult {
     /**
      * The Routing Configuration indicating the associated and propagated route tables on this connection.
      */
-    readonly routingConfiguration?: outputs.network.RoutingConfigurationResponse;
+    readonly routingConfiguration?: outputs.network.RoutingConfigurationExpressRouteConnectionResponse;
     /**
      * The routing weight associated to the connection.
      */

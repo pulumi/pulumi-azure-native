@@ -42,7 +42,7 @@ export interface GetSecretSyncResult {
     /**
      * The complex type of the extended location.
      */
-    readonly extendedLocation?: outputs.secretsynccontroller.AzureResourceManagerCommonTypesExtendedLocationResponse;
+    readonly extendedLocation?: outputs.secretsynccontroller.ExtendedLocationResponse;
     /**
      * ForceSynchronization can be used to force the secret synchronization. The secret synchronization is triggered by changing the value in this field. This field is not used to resolve synchronization conflicts.
      */

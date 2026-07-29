@@ -9628,6 +9628,80 @@ namespace Pulumi.AzureNative.AwsConnector
     }
 
     /// <summary>
+    /// When set to ``PublishedVersions``, Lambda creates a snapshot of the execution environment when you publish a function version.
+    /// </summary>
+    [EnumType]
+    public readonly struct SnapStartResponseApplyOn : IEquatable<SnapStartResponseApplyOn>
+    {
+        private readonly string _value;
+
+        private SnapStartResponseApplyOn(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// SnapStartResponseApplyOn enum None
+        /// </summary>
+        public static SnapStartResponseApplyOn None { get; } = new SnapStartResponseApplyOn("None");
+        /// <summary>
+        /// SnapStartResponseApplyOn enum PublishedVersions
+        /// </summary>
+        public static SnapStartResponseApplyOn PublishedVersions { get; } = new SnapStartResponseApplyOn("PublishedVersions");
+
+        public static bool operator ==(SnapStartResponseApplyOn left, SnapStartResponseApplyOn right) => left.Equals(right);
+        public static bool operator !=(SnapStartResponseApplyOn left, SnapStartResponseApplyOn right) => !left.Equals(right);
+
+        public static explicit operator string(SnapStartResponseApplyOn value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SnapStartResponseApplyOn other && Equals(other);
+        public bool Equals(SnapStartResponseApplyOn other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// When you provide a [qualified Amazon Resource Name (ARN)](https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html#versioning-versions-using), this response element indicates whether SnapStart is activated for the specified function version.
+    /// </summary>
+    [EnumType]
+    public readonly struct SnapStartResponseOptimizationStatus : IEquatable<SnapStartResponseOptimizationStatus>
+    {
+        private readonly string _value;
+
+        private SnapStartResponseOptimizationStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// SnapStartResponseOptimizationStatus enum Off
+        /// </summary>
+        public static SnapStartResponseOptimizationStatus Off { get; } = new SnapStartResponseOptimizationStatus("Off");
+        /// <summary>
+        /// SnapStartResponseOptimizationStatus enum On
+        /// </summary>
+        public static SnapStartResponseOptimizationStatus On { get; } = new SnapStartResponseOptimizationStatus("On");
+
+        public static bool operator ==(SnapStartResponseOptimizationStatus left, SnapStartResponseOptimizationStatus right) => left.Equals(right);
+        public static bool operator !=(SnapStartResponseOptimizationStatus left, SnapStartResponseOptimizationStatus right) => !left.Equals(right);
+
+        public static explicit operator string(SnapStartResponseOptimizationStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SnapStartResponseOptimizationStatus other && Equals(other);
+        public bool Equals(SnapStartResponseOptimizationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Property value
     /// </summary>
     [EnumType]

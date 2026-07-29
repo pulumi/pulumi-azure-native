@@ -128,7 +128,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
     /**
      * A list of peerings in a Virtual Network.
      */
-    declare public readonly virtualNetworkPeerings: pulumi.Output<outputs.network.VirtualNetworkPeeringResponse[] | undefined>;
+    declare public readonly virtualNetworkPeerings: pulumi.Output<outputs.network.VirtualNetworkPeeringVirtualNetworkResponse[] | undefined>;
 
     /**
      * Create a VirtualNetwork resource with the given unique name, arguments, and options.

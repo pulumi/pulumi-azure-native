@@ -92,7 +92,7 @@ export interface GetServiceGatewayResult {
     /**
      * Reference to an existing virtual network.
      */
-    readonly virtualNetwork?: outputs.network.CommonVirtualNetworkResponse;
+    readonly virtualNetwork?: outputs.network.VirtualNetworkResponse;
     /**
      * A list of availability zones denoting the zone in which service gateway should be deployed.
      *

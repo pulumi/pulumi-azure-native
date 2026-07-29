@@ -51,7 +51,9 @@ __all__ = [
     'EnqueueServerPropertiesResponse',
     'ErrorAdditionalInfoResponse',
     'ErrorDefinitionResponse',
-    'ErrorDefinitionResponseV1',
+    'ErrorDefinitionSapDiscoverySiteResponse',
+    'ErrorDefinitionSapInstanceResponse',
+    'ErrorDefinitionServerInstanceResponse',
     'ErrorDetailResponse',
     'ExcelPerformanceDataResponse',
     'ExistingRecoveryServicesVaultResponse',
@@ -93,6 +95,8 @@ __all__ = [
     'SAPDiskConfigurationResponse',
     'SAPInstallWithoutOSConfigSoftwareConfigurationResponse',
     'SAPMigrateErrorResponse',
+    'SAPMigrateErrorSapInstanceResponse',
+    'SAPMigrateErrorServerInstanceResponse',
     'SAPSupportedSkuResponse',
     'SAPVirtualInstanceErrorResponse',
     'SAPVirtualInstanceIdentityResponse',
@@ -2653,7 +2657,119 @@ class ErrorDefinitionResponse(dict):
 
 
 @pulumi.output_type
-class ErrorDefinitionResponseV1(dict):
+class ErrorDefinitionSapDiscoverySiteResponse(dict):
+    """
+    Error definition.
+    """
+    def __init__(__self__, *,
+                 code: _builtins.str,
+                 details: Sequence['outputs.ErrorDefinitionResponse'],
+                 message: _builtins.str,
+                 recommendation: _builtins.str):
+        """
+        Error definition.
+
+        :param _builtins.str code: Service specific error code which serves as the substatus for the HTTP error code.
+        :param Sequence['ErrorDefinitionResponse'] details: Internal error details.
+        :param _builtins.str message: Description of the error.
+        :param _builtins.str recommendation: Description of the recommendation.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "details", details)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "recommendation", recommendation)
+
+    @_builtins.property
+    @pulumi.getter
+    def code(self) -> _builtins.str:
+        """
+        Service specific error code which serves as the substatus for the HTTP error code.
+        """
+        return pulumi.get(self, "code")
+
+    @_builtins.property
+    @pulumi.getter
+    def details(self) -> Sequence['outputs.ErrorDefinitionResponse']:
+        """
+        Internal error details.
+        """
+        return pulumi.get(self, "details")
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> _builtins.str:
+        """
+        Description of the error.
+        """
+        return pulumi.get(self, "message")
+
+    @_builtins.property
+    @pulumi.getter
+    def recommendation(self) -> _builtins.str:
+        """
+        Description of the recommendation.
+        """
+        return pulumi.get(self, "recommendation")
+
+
+@pulumi.output_type
+class ErrorDefinitionSapInstanceResponse(dict):
+    """
+    Error definition.
+    """
+    def __init__(__self__, *,
+                 code: _builtins.str,
+                 details: Sequence['outputs.ErrorDefinitionResponse'],
+                 message: _builtins.str,
+                 recommendation: _builtins.str):
+        """
+        Error definition.
+
+        :param _builtins.str code: Service specific error code which serves as the substatus for the HTTP error code.
+        :param Sequence['ErrorDefinitionResponse'] details: Internal error details.
+        :param _builtins.str message: Description of the error.
+        :param _builtins.str recommendation: Description of the recommendation.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "details", details)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "recommendation", recommendation)
+
+    @_builtins.property
+    @pulumi.getter
+    def code(self) -> _builtins.str:
+        """
+        Service specific error code which serves as the substatus for the HTTP error code.
+        """
+        return pulumi.get(self, "code")
+
+    @_builtins.property
+    @pulumi.getter
+    def details(self) -> Sequence['outputs.ErrorDefinitionResponse']:
+        """
+        Internal error details.
+        """
+        return pulumi.get(self, "details")
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> _builtins.str:
+        """
+        Description of the error.
+        """
+        return pulumi.get(self, "message")
+
+    @_builtins.property
+    @pulumi.getter
+    def recommendation(self) -> _builtins.str:
+        """
+        Description of the recommendation.
+        """
+        return pulumi.get(self, "recommendation")
+
+
+@pulumi.output_type
+class ErrorDefinitionServerInstanceResponse(dict):
     """
     Error definition.
     """
@@ -5566,14 +5682,14 @@ class SAPMigrateErrorResponse(dict):
     """
     def __init__(__self__, *,
                  code: _builtins.str,
-                 details: Sequence['outputs.ErrorDefinitionResponseV1'],
+                 details: Sequence['outputs.ErrorDefinitionSapDiscoverySiteResponse'],
                  message: _builtins.str,
                  recommendation: _builtins.str):
         """
         An error response from the SAP migrate resources.
 
         :param _builtins.str code: Service specific error code which serves as the substatus for the HTTP error code.
-        :param Sequence['ErrorDefinitionResponseV1'] details: Internal error details.
+        :param Sequence['ErrorDefinitionSapDiscoverySiteResponse'] details: Internal error details.
         :param _builtins.str message: Description of the error.
         :param _builtins.str recommendation: Description of the recommendation.
         """
@@ -5592,7 +5708,119 @@ class SAPMigrateErrorResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def details(self) -> Sequence['outputs.ErrorDefinitionResponseV1']:
+    def details(self) -> Sequence['outputs.ErrorDefinitionSapDiscoverySiteResponse']:
+        """
+        Internal error details.
+        """
+        return pulumi.get(self, "details")
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> _builtins.str:
+        """
+        Description of the error.
+        """
+        return pulumi.get(self, "message")
+
+    @_builtins.property
+    @pulumi.getter
+    def recommendation(self) -> _builtins.str:
+        """
+        Description of the recommendation.
+        """
+        return pulumi.get(self, "recommendation")
+
+
+@pulumi.output_type
+class SAPMigrateErrorSapInstanceResponse(dict):
+    """
+    An error response from the SAP migrate resources.
+    """
+    def __init__(__self__, *,
+                 code: _builtins.str,
+                 details: Sequence['outputs.ErrorDefinitionSapInstanceResponse'],
+                 message: _builtins.str,
+                 recommendation: _builtins.str):
+        """
+        An error response from the SAP migrate resources.
+
+        :param _builtins.str code: Service specific error code which serves as the substatus for the HTTP error code.
+        :param Sequence['ErrorDefinitionSapInstanceResponse'] details: Internal error details.
+        :param _builtins.str message: Description of the error.
+        :param _builtins.str recommendation: Description of the recommendation.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "details", details)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "recommendation", recommendation)
+
+    @_builtins.property
+    @pulumi.getter
+    def code(self) -> _builtins.str:
+        """
+        Service specific error code which serves as the substatus for the HTTP error code.
+        """
+        return pulumi.get(self, "code")
+
+    @_builtins.property
+    @pulumi.getter
+    def details(self) -> Sequence['outputs.ErrorDefinitionSapInstanceResponse']:
+        """
+        Internal error details.
+        """
+        return pulumi.get(self, "details")
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> _builtins.str:
+        """
+        Description of the error.
+        """
+        return pulumi.get(self, "message")
+
+    @_builtins.property
+    @pulumi.getter
+    def recommendation(self) -> _builtins.str:
+        """
+        Description of the recommendation.
+        """
+        return pulumi.get(self, "recommendation")
+
+
+@pulumi.output_type
+class SAPMigrateErrorServerInstanceResponse(dict):
+    """
+    An error response from the SAP migrate resources.
+    """
+    def __init__(__self__, *,
+                 code: _builtins.str,
+                 details: Sequence['outputs.ErrorDefinitionServerInstanceResponse'],
+                 message: _builtins.str,
+                 recommendation: _builtins.str):
+        """
+        An error response from the SAP migrate resources.
+
+        :param _builtins.str code: Service specific error code which serves as the substatus for the HTTP error code.
+        :param Sequence['ErrorDefinitionServerInstanceResponse'] details: Internal error details.
+        :param _builtins.str message: Description of the error.
+        :param _builtins.str recommendation: Description of the recommendation.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "details", details)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "recommendation", recommendation)
+
+    @_builtins.property
+    @pulumi.getter
+    def code(self) -> _builtins.str:
+        """
+        Service specific error code which serves as the substatus for the HTTP error code.
+        """
+        return pulumi.get(self, "code")
+
+    @_builtins.property
+    @pulumi.getter
+    def details(self) -> Sequence['outputs.ErrorDefinitionServerInstanceResponse']:
         """
         Internal error details.
         """

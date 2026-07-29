@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// The managed service identities assigned to this resource.
         /// </summary>
-        public readonly Outputs.AzureResourceManagerManagedIdentityPropertiesResponse? Identity;
+        public readonly Outputs.ManagedIdentityPropertiesResponse? Identity;
         /// <summary>
         /// Global Location
         /// </summary>
@@ -152,7 +152,7 @@ namespace Pulumi.AzureNative.Cloudngfw
 
             string id,
 
-            Outputs.AzureResourceManagerManagedIdentityPropertiesResponse? identity,
+            Outputs.ManagedIdentityPropertiesResponse? identity,
 
             string location,
 

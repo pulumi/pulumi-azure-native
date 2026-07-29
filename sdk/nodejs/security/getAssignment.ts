@@ -46,7 +46,7 @@ export interface GetAssignmentResult {
     /**
      * Standard item with key as applied to this standard assignment over the given scope
      */
-    readonly assignedStandard?: outputs.security.CommonAssignedStandardItemResponse;
+    readonly assignedStandard?: outputs.security.AssignedStandardItemResponse;
     /**
      * The Azure API version of the resource.
      */

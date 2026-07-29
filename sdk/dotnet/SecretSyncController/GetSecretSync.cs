@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.SecretSyncController
         /// <summary>
         /// The complex type of the extended location.
         /// </summary>
-        public readonly Outputs.AzureResourceManagerCommonTypesExtendedLocationResponse? ExtendedLocation;
+        public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
         /// <summary>
         /// ForceSynchronization can be used to force the secret synchronization. The secret synchronization is triggered by changing the value in this field. This field is not used to resolve synchronization conflicts.
         /// </summary>
@@ -146,7 +146,7 @@ namespace Pulumi.AzureNative.SecretSyncController
         private GetSecretSyncResult(
             string azureApiVersion,
 
-            Outputs.AzureResourceManagerCommonTypesExtendedLocationResponse? extendedLocation,
+            Outputs.ExtendedLocationResponse? extendedLocation,
 
             string? forceSynchronization,
 

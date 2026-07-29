@@ -126,7 +126,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The reference to the subnet resource.
         /// </summary>
-        public readonly Outputs.CommonSubnetResponse? Subnet;
+        public readonly Outputs.SubnetResponseV2? Subnet;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -156,7 +156,7 @@ namespace Pulumi.AzureNative.Network
 
             string resourceGuid,
 
-            Outputs.CommonSubnetResponse? subnet,
+            Outputs.SubnetResponseV2? subnet,
 
             ImmutableDictionary<string, string>? tags,
 

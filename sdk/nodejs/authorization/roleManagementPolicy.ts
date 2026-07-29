@@ -64,7 +64,7 @@ export class RoleManagementPolicy extends pulumi.CustomResource {
     /**
      * The name of the entity last modified it
      */
-    declare public /*out*/ readonly lastModifiedBy: pulumi.Output<outputs.authorization.MicrosoftCommonPrincipalResponse>;
+    declare public /*out*/ readonly lastModifiedBy: pulumi.Output<outputs.authorization.PrincipalResponse>;
     /**
      * The last modified date time.
      */

@@ -182,7 +182,7 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// The user identity associated with the managed cluster. This identity will be used by the kubelet. Only one user assigned identity is allowed. The only accepted key is "kubeletidentity", with value of "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}".
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>? IdentityProfile;
+        public readonly ImmutableDictionary<string, Outputs.UserAssignedIdentityManagedClusterResponse>? IdentityProfile;
         /// <summary>
         /// Ingress profile for the managed cluster.
         /// </summary>
@@ -364,7 +364,7 @@ namespace Pulumi.AzureNative.ContainerService
 
             Outputs.ManagedClusterIdentityResponse? identity,
 
-            ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>? identityProfile,
+            ImmutableDictionary<string, Outputs.UserAssignedIdentityManagedClusterResponse>? identityProfile,
 
             Outputs.ManagedClusterIngressProfileResponse? ingressProfile,
 

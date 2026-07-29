@@ -132,7 +132,7 @@ export interface GetManagedClusterResult {
     /**
      * The user identity associated with the managed cluster. This identity will be used by the kubelet. Only one user assigned identity is allowed. The only accepted key is "kubeletidentity", with value of "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}".
      */
-    readonly identityProfile?: {[key: string]: outputs.containerservice.UserAssignedIdentityResponse};
+    readonly identityProfile?: {[key: string]: outputs.containerservice.UserAssignedIdentityManagedClusterResponse};
     /**
      * Ingress profile for the managed cluster.
      */

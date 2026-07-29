@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.Resources
         /// <summary>
         /// The resource-specific properties for this resource.
         /// </summary>
-        public readonly Outputs.DeploymentStacksWhatIfResultPropertiesResponse Properties;
+        public readonly Outputs.DeploymentStacksWhatIfResultPropertiesDeploymentStacksWhatIfResultsAtResourceGroupResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.Resources
 
             string name,
 
-            Outputs.DeploymentStacksWhatIfResultPropertiesResponse properties,
+            Outputs.DeploymentStacksWhatIfResultPropertiesDeploymentStacksWhatIfResultsAtResourceGroupResponse properties,
 
             Outputs.SystemDataResponse systemData,
 

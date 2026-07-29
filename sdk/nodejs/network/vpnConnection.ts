@@ -100,7 +100,7 @@ export class VpnConnection extends pulumi.CustomResource {
     /**
      * The Routing Configuration indicating the associated and propagated route tables on this connection.
      */
-    declare public readonly routingConfiguration: pulumi.Output<outputs.network.RoutingConfigurationResponseV1 | undefined>;
+    declare public readonly routingConfiguration: pulumi.Output<outputs.network.RoutingConfigurationVpnConnectionResponse | undefined>;
     /**
      * Routing weight for vpn connection.
      */
@@ -259,7 +259,7 @@ export interface VpnConnectionArgs {
     /**
      * The Routing Configuration indicating the associated and propagated route tables on this connection.
      */
-    routingConfiguration?: pulumi.Input<inputs.network.RoutingConfigurationV1Args>;
+    routingConfiguration?: pulumi.Input<inputs.network.RoutingConfigurationArgs>;
     /**
      * Routing weight for vpn connection.
      */

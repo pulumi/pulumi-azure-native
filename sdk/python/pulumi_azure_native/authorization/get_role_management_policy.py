@@ -121,7 +121,7 @@ class GetRoleManagementPolicyResult:
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> 'outputs.MicrosoftCommonPrincipalResponse':
+    def last_modified_by(self) -> 'outputs.PrincipalResponse':
         """
         The name of the entity last modified it
         """

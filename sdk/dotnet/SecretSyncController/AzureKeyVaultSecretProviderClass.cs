@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.SecretSyncController
         /// The complex type of the extended location.
         /// </summary>
         [Output("extendedLocation")]
-        public Output<Outputs.AzureResourceManagerCommonTypesExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
+        public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Azure Key Vault to sync secrets from.

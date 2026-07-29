@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Network.Inputs
         /// The DDoS protection plan associated with the virtual network.
         /// </summary>
         [Input("ddosProtectionPlan")]
-        public Input<Inputs.CommonSubResourceArgs>? DdosProtectionPlan { get; set; }
+        public Input<Inputs.SubResourceArgs>? DdosProtectionPlan { get; set; }
 
         /// <summary>
         /// The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
@@ -76,14 +76,14 @@ namespace Pulumi.AzureNative.Network.Inputs
         public Input<string>? Id { get; set; }
 
         [Input("ipAllocations")]
-        private InputList<Inputs.CommonSubResourceArgs>? _ipAllocations;
+        private InputList<Inputs.SubResourceArgs>? _ipAllocations;
 
         /// <summary>
         /// Array of IpAllocation which reference this VNET.
         /// </summary>
-        public InputList<Inputs.CommonSubResourceArgs> IpAllocations
+        public InputList<Inputs.SubResourceArgs> IpAllocations
         {
-            get => _ipAllocations ?? (_ipAllocations = new InputList<Inputs.CommonSubResourceArgs>());
+            get => _ipAllocations ?? (_ipAllocations = new InputList<Inputs.SubResourceArgs>());
             set => _ipAllocations = value;
         }
 

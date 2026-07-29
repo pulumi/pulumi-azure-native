@@ -98,7 +98,7 @@ class GetNamespaceResult:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> 'outputs.NamespacePropertiesResponse':
+    def properties(self) -> 'outputs.NamespacePropertiesNamespaceResponse':
         """
         Properties of a namespace.
         """

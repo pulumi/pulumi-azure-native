@@ -166,7 +166,7 @@ class GetTenantActionGroupResult:
 
     @_builtins.property
     @pulumi.getter(name="webhookReceivers")
-    def webhook_receivers(self) -> Optional[Sequence['outputs.WebhookReceiverResponse']]:
+    def webhook_receivers(self) -> Optional[Sequence['outputs.WebhookReceiverTenantActionGroupResponse']]:
         """
         The list of webhook receivers that are part of this tenant action group.
         """

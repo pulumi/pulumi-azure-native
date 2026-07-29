@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Inputs
         /// SSH Configuration
         /// </summary>
         [Input("ssh")]
-        public Input<Inputs.VirtualMachinePropertiesSshSshArgs>? Ssh { get; set; }
+        public Input<Inputs.VirtualMachinePropertiesSshArgs>? Ssh { get; set; }
 
         /// <summary>
         /// TimeZone for the virtual machine

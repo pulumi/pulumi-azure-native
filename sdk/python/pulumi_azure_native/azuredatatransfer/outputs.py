@@ -26,7 +26,7 @@ __all__ = [
     'FlowProfilePropertiesResponse',
     'FlowProfileRulesetsResponse',
     'FlowPropertiesResponse',
-    'FlowPropertiesResponseV1',
+    'FlowPropertieslistListFlowsByPipelineResponse',
     'FlowResponse',
     'InternalMetadataPropertiesResponse',
     'ListFlowsByPipelineConnectionResponse',
@@ -1216,7 +1216,7 @@ class FlowPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class FlowPropertiesResponseV1(dict):
+class FlowPropertieslistListFlowsByPipelineResponse(dict):
     """
     Properties of flow
     """
@@ -1583,7 +1583,7 @@ class FlowResponse(dict):
                  type: _builtins.str,
                  identity: Optional['outputs.ManagedServiceIdentityResponse'] = None,
                  plan: Optional['outputs.PlanResponse'] = None,
-                 properties: Optional['outputs.FlowPropertiesResponseV1'] = None,
+                 properties: Optional['outputs.FlowPropertieslistListFlowsByPipelineResponse'] = None,
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         The flow resource definition.
@@ -1595,7 +1595,7 @@ class FlowResponse(dict):
         :param _builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param 'ManagedServiceIdentityResponse' identity: The managed service identities assigned to this resource.
         :param 'PlanResponse' plan: Details of the resource plan.
-        :param 'FlowPropertiesResponseV1' properties: Properties of flow
+        :param 'FlowPropertieslistListFlowsByPipelineResponse' properties: Properties of flow
         :param Mapping[str, _builtins.str] tags: Resource tags.
         """
         pulumi.set(__self__, "id", id)
@@ -1670,7 +1670,7 @@ class FlowResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional['outputs.FlowPropertiesResponseV1']:
+    def properties(self) -> Optional['outputs.FlowPropertieslistListFlowsByPipelineResponse']:
         """
         Properties of flow
         """

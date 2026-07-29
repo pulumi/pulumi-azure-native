@@ -19,15 +19,15 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// <summary>
         /// The resource id RouteTable associated with this RoutingConfiguration.
         /// </summary>
-        public readonly Outputs.CommonSubResourceResponse? AssociatedRouteTable;
+        public readonly Outputs.SubResourceResponse? AssociatedRouteTable;
         /// <summary>
         /// The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
         /// </summary>
-        public readonly Outputs.CommonSubResourceResponse? InboundRouteMap;
+        public readonly Outputs.SubResourceResponse? InboundRouteMap;
         /// <summary>
         /// The resource id of theRouteMap associated with this RoutingConfiguration for outbound advertised routes.
         /// </summary>
-        public readonly Outputs.CommonSubResourceResponse? OutboundRouteMap;
+        public readonly Outputs.SubResourceResponse? OutboundRouteMap;
         /// <summary>
         /// The list of RouteTables to advertise the routes to.
         /// </summary>
@@ -39,11 +39,11 @@ namespace Pulumi.AzureNative.Network.Outputs
 
         [OutputConstructor]
         private RoutingConfigurationResponse(
-            Outputs.CommonSubResourceResponse? associatedRouteTable,
+            Outputs.SubResourceResponse? associatedRouteTable,
 
-            Outputs.CommonSubResourceResponse? inboundRouteMap,
+            Outputs.SubResourceResponse? inboundRouteMap,
 
-            Outputs.CommonSubResourceResponse? outboundRouteMap,
+            Outputs.SubResourceResponse? outboundRouteMap,
 
             Outputs.PropagatedRouteTableResponse? propagatedRouteTables,
 

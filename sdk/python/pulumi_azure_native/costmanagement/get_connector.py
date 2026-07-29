@@ -84,7 +84,7 @@ class GetConnectorResult:
 
     @_builtins.property
     @pulumi.getter
-    def collection(self) -> 'outputs.ConnectorCollectionInfoResponse':
+    def collection(self) -> 'outputs.ConnectorCollectionInfoConnectorResponse':
         """
         Collection information
         """

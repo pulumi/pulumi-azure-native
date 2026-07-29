@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.AlertsManagement.Outputs
         /// <summary>
         /// Conditions on which alerts will be filtered.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ConditionResponseV1> Conditions;
+        public readonly ImmutableArray<Outputs.ConditionAlertProcessingRuleByNameResponse> Conditions;
         /// <summary>
         /// Actions to be applied.Description of alert processing rule.
         /// </summary>
@@ -45,7 +45,7 @@ namespace Pulumi.AzureNative.AlertsManagement.Outputs
         private AlertProcessingRulePropertiesResponse(
             ImmutableArray<Union<Outputs.AddActionGroupsResponse, Outputs.RemoveAllActionGroupsResponse>> actions,
 
-            ImmutableArray<Outputs.ConditionResponseV1> conditions,
+            ImmutableArray<Outputs.ConditionAlertProcessingRuleByNameResponse> conditions,
 
             string? description,
 

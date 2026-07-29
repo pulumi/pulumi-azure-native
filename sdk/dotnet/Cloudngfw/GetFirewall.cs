@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// The managed service identities assigned to this resource.
         /// </summary>
-        public readonly Outputs.AzureResourceManagerManagedIdentityPropertiesResponse? Identity;
+        public readonly Outputs.ManagedIdentityPropertiesResponse? Identity;
         /// <summary>
         /// Panorama Managed: Default is False. Default will be CloudSec managed
         /// </summary>
@@ -180,7 +180,7 @@ namespace Pulumi.AzureNative.Cloudngfw
 
             string id,
 
-            Outputs.AzureResourceManagerManagedIdentityPropertiesResponse? identity,
+            Outputs.ManagedIdentityPropertiesResponse? identity,
 
             string? isPanoramaManaged,
 

@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// <summary>
         /// The reference to an interconnect block resource.
         /// </summary>
-        public readonly Outputs.CommonSubResourceResponse InterconnectBlock;
+        public readonly Outputs.SubResourceResponse InterconnectBlock;
         /// <summary>
         /// The unique identifier of the subgroup.
         /// </summary>
@@ -43,13 +43,13 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// <summary>
         /// A list of virtual machine references.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CommonSubResourceResponse> VirtualMachines;
+        public readonly ImmutableArray<Outputs.SubResourceResponse> VirtualMachines;
 
         [OutputConstructor]
         private SubgroupResponse(
             string? id,
 
-            Outputs.CommonSubResourceResponse interconnectBlock,
+            Outputs.SubResourceResponse interconnectBlock,
 
             string internalSubgroupId,
 
@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string type,
 
-            ImmutableArray<Outputs.CommonSubResourceResponse> virtualMachines)
+            ImmutableArray<Outputs.SubResourceResponse> virtualMachines)
         {
             Id = id;
             InterconnectBlock = interconnectBlock;

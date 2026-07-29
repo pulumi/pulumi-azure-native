@@ -53,7 +53,7 @@ export interface GetSolutionResult {
     /**
      * The complex type of the extended location.
      */
-    readonly extendedLocation?: outputs.edge.AzureResourceManagerCommonTypesExtendedLocationResponse;
+    readonly extendedLocation?: outputs.edge.ExtendedLocationResponse;
     /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */

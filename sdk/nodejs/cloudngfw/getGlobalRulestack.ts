@@ -55,7 +55,7 @@ export interface GetGlobalRulestackResult {
     /**
      * The managed service identities assigned to this resource.
      */
-    readonly identity?: outputs.cloudngfw.AzureResourceManagerManagedIdentityPropertiesResponse;
+    readonly identity?: outputs.cloudngfw.ManagedIdentityPropertiesResponse;
     /**
      * Global Location
      */

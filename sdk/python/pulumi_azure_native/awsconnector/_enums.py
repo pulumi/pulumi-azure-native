@@ -195,6 +195,8 @@ __all__ = [
     'ServerType',
     'SimpleCriterionKeyForJob',
     'SnapStartApplyOn',
+    'SnapStartResponseApplyOn',
+    'SnapStartResponseOptimizationStatus',
     'SnapshotState',
     'SourceAuthType',
     'SourceType',
@@ -5711,6 +5713,36 @@ class SnapStartApplyOn(_builtins.str, Enum):
     PUBLISHED_VERSIONS = "PublishedVersions"
     """
     SnapStartApplyOn enum PublishedVersions
+    """
+
+
+@pulumi.type_token("azure-native:awsconnector:SnapStartResponseApplyOn")
+class SnapStartResponseApplyOn(_builtins.str, Enum):
+    """
+    When set to ``PublishedVersions``, Lambda creates a snapshot of the execution environment when you publish a function version.
+    """
+    NONE = "None"
+    """
+    SnapStartResponseApplyOn enum None
+    """
+    PUBLISHED_VERSIONS = "PublishedVersions"
+    """
+    SnapStartResponseApplyOn enum PublishedVersions
+    """
+
+
+@pulumi.type_token("azure-native:awsconnector:SnapStartResponseOptimizationStatus")
+class SnapStartResponseOptimizationStatus(_builtins.str, Enum):
+    """
+    When you provide a [qualified Amazon Resource Name (ARN)](https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html#versioning-versions-using), this response element indicates whether SnapStart is activated for the specified function version.
+    """
+    OFF = "Off"
+    """
+    SnapStartResponseOptimizationStatus enum Off
+    """
+    ON = "On"
+    """
+    SnapStartResponseOptimizationStatus enum On
     """
 
 

@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// <summary>
         /// Username / Password Credentials to provision guest agent.
         /// </summary>
-        public readonly Outputs.GuestCredentialResponse? Credentials;
+        public readonly Outputs.GuestCredentialVMInstanceGuestAgentResponse? Credentials;
         /// <summary>
         /// Gets the name of the corresponding resource in Kubernetes.
         /// </summary>
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         private GetVMInstanceGuestAgentResult(
             string azureApiVersion,
 
-            Outputs.GuestCredentialResponse? credentials,
+            Outputs.GuestCredentialVMInstanceGuestAgentResponse? credentials,
 
             string customResourceName,
 

@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The name of the entity last modified it
         /// </summary>
-        public readonly Outputs.MicrosoftCommonPrincipalResponse LastModifiedBy;
+        public readonly Outputs.PrincipalResponse LastModifiedBy;
         /// <summary>
         /// The last modified date time.
         /// </summary>
@@ -158,7 +158,7 @@ namespace Pulumi.AzureNative.Authorization
 
             bool? isOrganizationDefault,
 
-            Outputs.MicrosoftCommonPrincipalResponse lastModifiedBy,
+            Outputs.PrincipalResponse lastModifiedBy,
 
             string lastModifiedDateTime,
 

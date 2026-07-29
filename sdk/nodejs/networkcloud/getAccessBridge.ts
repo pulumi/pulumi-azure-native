@@ -60,7 +60,7 @@ export interface GetAccessBridgeResult {
     /**
      * The extended location of the resource. This property is required when creating the resource.
      */
-    readonly extendedLocation: outputs.networkcloud.AzureResourceManagerCommonTypesExtendedLocationResponse;
+    readonly extendedLocation: outputs.networkcloud.ExtendedLocationResponse;
     /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */

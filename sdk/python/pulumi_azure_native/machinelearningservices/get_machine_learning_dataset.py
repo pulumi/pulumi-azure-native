@@ -74,7 +74,7 @@ class GetMachineLearningDatasetResult:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> Optional['outputs.IdentityMachineLearningDatasetResponse']:
         """
         The identity of the resource.
         """
@@ -106,7 +106,7 @@ class GetMachineLearningDatasetResult:
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuMachineLearningDatasetResponse']:
         """
         The sku of the workspace.
         """

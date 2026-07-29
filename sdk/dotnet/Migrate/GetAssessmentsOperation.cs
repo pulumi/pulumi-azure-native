@@ -310,7 +310,7 @@ namespace Pulumi.AzureNative.Migrate
         /// Gets or sets the duration for which the VMs are up in the on-premises
         /// environment.
         /// </summary>
-        public readonly Outputs.VmUptimeResponse? VmUptime;
+        public readonly Outputs.VmUptimeAssessmentsOperationResponse? VmUptime;
 
         [OutputConstructor]
         private GetAssessmentsOperationResult(
@@ -406,7 +406,7 @@ namespace Pulumi.AzureNative.Migrate
 
             string updatedTimestamp,
 
-            Outputs.VmUptimeResponse? vmUptime)
+            Outputs.VmUptimeAssessmentsOperationResponse? vmUptime)
         {
             AssessmentErrorSummary = assessmentErrorSummary;
             AssessmentType = assessmentType;

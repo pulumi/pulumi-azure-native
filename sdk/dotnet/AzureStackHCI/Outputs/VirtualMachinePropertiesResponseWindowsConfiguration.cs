@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// <summary>
         /// SSH Configuration
         /// </summary>
-        public readonly Outputs.VirtualMachinePropertiesResponseSshSsh? Ssh;
+        public readonly Outputs.VirtualMachinePropertiesResponseSsh? Ssh;
         /// <summary>
         /// TimeZone for the virtual machine
         /// </summary>
@@ -39,7 +39,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 
             bool? provisionVMAgent,
 
-            Outputs.VirtualMachinePropertiesResponseSshSsh? ssh,
+            Outputs.VirtualMachinePropertiesResponseSsh? ssh,
 
             string? timeZone)
         {

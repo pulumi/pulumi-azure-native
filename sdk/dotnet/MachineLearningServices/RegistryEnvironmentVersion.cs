@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// [Required] Additional attributes of the entity.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.EnvironmentVersionPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.EnvironmentVersionPropertiesRegistryEnvironmentVersionResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.

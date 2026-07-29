@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.Network
         /// Reference to an existing virtual network.
         /// </summary>
         [Output("virtualNetwork")]
-        public Output<Outputs.CommonVirtualNetworkResponse?> VirtualNetwork { get; private set; } = null!;
+        public Output<Outputs.VirtualNetworkResponse?> VirtualNetwork { get; private set; } = null!;
 
         /// <summary>
         /// A list of availability zones denoting the zone in which service gateway should be deployed.

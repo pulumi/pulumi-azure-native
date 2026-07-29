@@ -684,7 +684,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkPeerings")
-    def virtual_network_peerings(self) -> pulumi.Output[Optional[Sequence['outputs.VirtualNetworkPeeringResponse']]]:
+    def virtual_network_peerings(self) -> pulumi.Output[Optional[Sequence['outputs.VirtualNetworkPeeringVirtualNetworkResponse']]]:
         """
         A list of peerings in a Virtual Network.
         """

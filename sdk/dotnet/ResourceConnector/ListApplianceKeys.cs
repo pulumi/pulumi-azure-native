@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.ResourceConnector
         /// <summary>
         /// Map of Customer User Public, Private SSH Keys and Certificate when available.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.SSHKeyResponseV1> SshKeys;
+        public readonly ImmutableDictionary<string, Outputs.SSHKeylistApplianceKeysResponse> SshKeys;
 
         [OutputConstructor]
         private ListApplianceKeysResult(
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.ResourceConnector
 
             ImmutableArray<Outputs.ApplianceCredentialKubeconfigResponse> kubeconfigs,
 
-            ImmutableDictionary<string, Outputs.SSHKeyResponseV1> sshKeys)
+            ImmutableDictionary<string, Outputs.SSHKeylistApplianceKeysResponse> sshKeys)
         {
             ArtifactProfiles = artifactProfiles;
             Kubeconfigs = kubeconfigs;

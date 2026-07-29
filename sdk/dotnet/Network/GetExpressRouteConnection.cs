@@ -138,7 +138,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The Routing Configuration indicating the associated and propagated route tables on this connection.
         /// </summary>
-        public readonly Outputs.RoutingConfigurationResponse? RoutingConfiguration;
+        public readonly Outputs.RoutingConfigurationExpressRouteConnectionResponse? RoutingConfiguration;
         /// <summary>
         /// The routing weight associated to the connection.
         /// </summary>
@@ -164,7 +164,7 @@ namespace Pulumi.AzureNative.Network
 
             string provisioningState,
 
-            Outputs.RoutingConfigurationResponse? routingConfiguration,
+            Outputs.RoutingConfigurationExpressRouteConnectionResponse? routingConfiguration,
 
             int? routingWeight)
         {

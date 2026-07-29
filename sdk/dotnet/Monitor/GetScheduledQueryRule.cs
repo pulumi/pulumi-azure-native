@@ -138,7 +138,7 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The identity of the resource.
         /// </summary>
-        public readonly Outputs.MicrosoftCommonIdentityResponse? Identity;
+        public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
         /// True if alert rule is legacy Log Analytic rule
         /// </summary>
@@ -230,7 +230,7 @@ namespace Pulumi.AzureNative.Monitor
 
             string id,
 
-            Outputs.MicrosoftCommonIdentityResponse? identity,
+            Outputs.IdentityResponse? identity,
 
             bool isLegacyLogAnalyticsRule,
 

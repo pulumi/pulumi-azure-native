@@ -142,7 +142,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Reference to an existing virtual network.
         /// </summary>
-        public readonly Outputs.CommonVirtualNetworkResponse? VirtualNetwork;
+        public readonly Outputs.VirtualNetworkResponse? VirtualNetwork;
         /// <summary>
         /// A list of availability zones denoting the zone in which service gateway should be deployed.
         /// 
@@ -178,7 +178,7 @@ namespace Pulumi.AzureNative.Network
 
             string type,
 
-            Outputs.CommonVirtualNetworkResponse? virtualNetwork,
+            Outputs.VirtualNetworkResponse? virtualNetwork,
 
             ImmutableArray<string> zones)
         {

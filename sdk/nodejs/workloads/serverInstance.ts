@@ -50,7 +50,7 @@ export class ServerInstance extends pulumi.CustomResource {
     /**
      * Defines the errors related to SAP Instance resource.
      */
-    declare public /*out*/ readonly errors: pulumi.Output<outputs.workloads.SAPMigrateErrorResponse>;
+    declare public /*out*/ readonly errors: pulumi.Output<outputs.workloads.SAPMigrateErrorServerInstanceResponse>;
     /**
      * This is the Instance SID for ASCS/AP/DB instance.  An SAP system with HANA database for example could have a different SID for database Instance than that of ASCS instance.
      */

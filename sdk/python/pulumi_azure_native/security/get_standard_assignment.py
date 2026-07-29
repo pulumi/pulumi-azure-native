@@ -73,7 +73,7 @@ class GetStandardAssignmentResult:
 
     @_builtins.property
     @pulumi.getter(name="assignedStandard")
-    def assigned_standard(self) -> Optional['outputs.CommonAssignedStandardItemResponse']:
+    def assigned_standard(self) -> Optional['outputs.AssignedStandardItemResponse']:
         """
         Standard item with key as applied to this standard assignment over the given scope
         """
